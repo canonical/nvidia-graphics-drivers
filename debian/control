@@ -1,0 +1,90 @@
+Source: nvidia-graphics-drivers
+Section: restricted/misc
+Priority: optional
+Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Build-Depends: debhelper (>= 6.0.7~), sed (>> 3.0), libxext6, bzip2,
+ xserver-xorg-dev (>= 2:1.4), execstack, cdbs, libc6
+Standards-Version: 3.8.0
+
+Package: nvidia-current
+Architecture: i386 amd64 lpia
+Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
+ linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends}
+Recommends: nvidia-settings
+Provides: ${xviddriver:Provides}
+Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+ The binary driver provide optimized hardware acceleration of OpenGL
+ applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
+ and flat panel displays are also supported.
+ .
+ This package also includes the source for building the kernel module
+ required by the Xorg driver, and provides NVIDIA's implementation of
+ the Video Decode and presentation API. The latter enables acceleration
+ for NVIDIA 8 and later series cards for h264 video.
+ .
+ GPUs such as GeForce series 6 or newer are supported.
+ .
+ See /usr/share/doc/nvidia-current/README.txt.gz for a complete list 
+ of supported GPUs and PCIIDs
+ .
+ 
+Package: nvidia-current-dev
+Architecture: i386 amd64 lpia
+Depends: nvidia-current (>= 195.36.24)
+Description: NVIDIA binary Xorg driver development files
+ This package contains the NVIDIA binary Xorg driver
+ development files.
+ .
+ For more information on this source package visit NVIDIA's homepage
+ at http://www.nvidia.com/ .
+
+Package: nvidia-current-modaliases
+Section: admin
+Architecture: i386 amd64 lpia
+Description: Modaliases for the NVIDIA binary X.Org driver
+ The modaliases provide a list of pci id's which makes it possible to
+ detect the model of a graphic card.
+
+Package: nvidia-glx-185
+Architecture: i386 amd64 lpia
+Depends: nvidia-current
+Description: Transitional package for nvidia-glx-185
+ This is a transitional package for nvidia-glx-185, and can be safely removed
+ after the installation is complete.
+
+Package: nvidia-glx-185-dev
+Architecture: i386 amd64 lpia
+Depends: nvidia-current-dev
+Description: Transitional package for nvidia-glx-185-dev
+ This is a transitional package for nvidia-glx-185-dev, and can be safely removed
+ after the installation is complete.
+ 
+Package: nvidia-185-kernel-source
+Architecture: i386 amd64 lpia
+Depends: nvidia-current
+Description: Transitional package for nvidia-glx-185-kernel-source
+ This is a transitional package for nvidia-glx-185-kernel-source, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-185-modaliases
+Section: admin
+Architecture: i386 amd64 lpia
+Depends: nvidia-current-modaliases
+Description: Transitional package for nvidia-185-modaliases
+ This is a transitional package for nvidia-185-modaliases, and can be safely removed
+ after the installation is complete.
+
+Package: nvidia-185-libvdpau
+Architecture: i386 amd64 lpia
+Depends: nvidia-current
+Description: Transitional package for nvidia-185-libvdpau
+ This is a transitional package for nvidia-185-libvdpau, and can be safely removed
+ after the installation is complete.
+
+Package: nvidia-185-libvdpau-dev
+Architecture: i386 amd64 lpia
+Depends: nvidia-current-dev
+Description: Transitional package for nvidia-185-libvdpau-dev
+ This is a transitional package for nvidia-185-libvdpau-dev, and can be safely
+ removed after the installation is complete.
+

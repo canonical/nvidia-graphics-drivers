@@ -1,0 +1,35 @@
+#!/bin/sh
+# prerm script for nvidia-current
+#
+# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2009 Canonical Ltd
+# Authors: Alberto Milone
+
+
+PACKAGE_NAME=nvidia-current
+CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
+
+remove_dkms_module() {
+	echo "Removing all DKMS Modules"
+	dkms remove -m $PACKAGE_NAME -v $CVERSION --all > /dev/null
+	echo "Done."
+}
+
+case "$1" in
+	upgrade)
+		remove_dkms_module 
+	;;
+	remove)
+		remove_dkms_module 
+	
+		update-alternatives --remove gl_conf /usr/lib/nvidia-current/ld.so.conf
+
+		# Trigger gmenu so as to update the gnome menu
+		dpkg-trigger gmenucache || true
+
+		# explicit ldconfig due to alternatives
+		ldconfig
+	;;
+esac
+
+#DEBHELPER#

@@ -1,0 +1,294 @@
+#!/usr/bin/make -f
+#
+# Copyright (C) 2009 Canonical Ltd
+# Authors: Alberto Milone
+#
+# This file on the Mandriva nvidia packages, on Ubuntu's previous
+# nvidia packaging scripts and on Ubuntu's fglrx scripts.
+
+############# HOW TO ENABLE A DRIVER ####################
+
+#- Run "update-alternatives --set gl_conf $(ld_so_conf_path)" as root.
+#- Run "ldconfig" as root.
+
+
+#########################################################
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+SERVERMINVERS = $(shell cat /usr/share/xserver-xorg/serverminver 2>/dev/null)
+VIDEOABI = $(shell cat /usr/share/xserver-xorg/videoabiver 2>/dev/null)
+INPUTABI = $(shell cat /usr/share/xserver-xorg/inputabiver 2>/dev/null)
+SERVER_DEPENDS = xserver-xorg-core (>= $(SERVERMINVERS))
+VIDDRIVER_PROVIDES = xserver-xorg-video-$(VIDEOABI)
+
+
+# Package names
+PKG_driver           := nvidia-current
+PKG_driver_dev       := $(PKG_driver)-dev
+PKG_modalias         := $(PKG_driver)-modaliases
+PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
+PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
+PKG_module           := $(PKG_driver)
+
+# Priority of the alternative
+alt_priority         := 9700
+
+# Installer details
+dirname_x86          := NVIDIA-Linux-x86-$(PKG_version)-pkg0
+dirname_x86_64       := NVIDIA-Linux-x86_64-$(PKG_version)-pkg2
+filename_x86         := $(dirname_x86).run
+filename_x86_64      := $(dirname_x86_64).run
+url                  := ftp://download.nvidia.com/XFree86/Linux-x86/$(PKG_version)/$(filename_x86)
+
+ifeq ($(DEB_BUILD_ARCH),amd64)
+filename             := $(filename_x86_64)
+dirname              := $(dirname_x86_64)
+else
+filename             := $(filename_x86)
+dirname              := $(dirname_x86)
+endif
+
+bindir               := /usr/bin
+datadir              := /usr/share
+PKG_datadir          := $(datadir)/$(PKG_driver)
+libdir               := /usr/lib
+libdir32             := /usr/lib32
+includedir           := /usr/include
+sysconfdir           := /etc
+PKG_libdir           := $(libdir)/$(PKG_driver)
+PKG_libdir32         := $(libdir32)/$(PKG_driver)
+xorg_libdir          := $(libdir)/xorg
+xorg_extra_modules   := $(xorg_libdir)/extra-modules
+xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
+PKG_driversdir       := $(libdir)/$(PKG_driver)/xorg
+PKG_extensionsdir    := $(PKG_driversdir)
+PKG_bindir           := $(PKG_libdir)/bin
+PKG_deskdir          := $(PKG_datadir)
+PKG_configdir        := $(PKG_libdir)
+ld_so_conf_dir       := $(PKG_configdir)
+ld_so_conf_file      := ld.so.conf
+ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
+mandir               := /usr/share/man/man1
+PKG_bugdir           := /usr/share/bug/$(PKG_driver)
+autostartdir         := /etc/xdg/autostart
+PKG_autostartdir     := $(PKG_configdir)
+autostartfile        := nvidia-autostart.desktop
+desktopfile          := ubuntu-nvidia-settings.desktop
+PKG_vdpaudir         := $(PKG_libdir)/vdpau
+PKG_tlsdir           := $(PKG_libdir)/tls
+PKG_vdpaudir32       := $(PKG_libdir32)/vdpau
+PKG_tlsdir32         := $(PKG_libdir32)/tls
+vdpaudir             := $(libdir)/vdpau
+tlsdir               := $(libdir)/tls
+vdpaudir32           := $(libdir32)/vdpau
+tlsdir32             := $(libdir32)/tls
+
+# This is a hack to make sure that
+# the blacklist file is available
+# early in the boot process when
+# /usr is on a separate partition.
+# See LP: #538071.
+PKG_libconfdir := /lib/$(PKG_driver)
+
+
+# -Xlib32
+DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#  
+DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
+DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
+
+# This makes sure that the xserver ABI is bumped to match the current one when the
+# packages are built
+.PHONY: serverabi
+serverabi:
+ifeq ($(SERVERMINVERS),)
+	@echo error: xserver-xorg-dev needs to be installed
+	@exit 1
+else
+	echo "xserver:Depends=$(SERVER_DEPENDS)" >> debian/$(PKG_driver).substvars
+	echo "xviddriver:Provides=$(VIDDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
+	echo "xinpdriver:Provides=$(INPDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
+endif
+#			 $(PKG_driver).shlibs              \
+
+.PHONY: regen-from-templates
+regen-from-templates:
+	#Create important strings
+	for i in dkms.conf \
+			 $(PKG_driver).README.Debian      \
+			 control                           \
+			 copyright                         \
+			 ubuntu-nvidia-settings.desktop    \
+			 nvidia-autostart.desktop          \
+			 $(PKG_driver).install             \
+			 $(PKG_driver_dev).install         \
+			 $(PKG_driver).links               \
+			 $(PKG_driver).links32             \
+			 $(PKG_driver_dev).links           \
+			 $(PKG_driver).override            \
+			 $(PKG_driver).dirs                \
+			 $(PKG_driver).docs                \
+			 $(PKG_driver).examples            \
+			 $(PKG_driver).postrm              \
+			 $(PKG_driver).postinst            \
+			 $(PKG_driver).preinst             \
+			 $(PKG_driver).prerm               \
+			 $(PKG_driver_dev).preinst; do     \
+		sed -e "s|#LIBDIR#|$(libdir)|g"         \
+			-e "s|#LIBDIR32#|$(libdir32)|g"     \
+			-e "s|#BINDIR#|$(bindir)|g"         \
+			-e "s|#VERSION#|$(PKG_version)|g"   \
+			-e "s|#SYSCONFDIR#|$(sysconfdir)|g" \
+			-e "s|#MANDIR#|$(mandir)|g" \
+			-e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
+			-e "s|#ALTPRIORITY#|$(alt_priority)|g" \
+			-e "s|#AUTOSTARTDIR#|$(autostartdir)|g" \
+			-e "s|#AUTOSTARTFILE#|$(autostartfile)|g" \
+			-e "s|#DATADIR#|$(datadir)|g" \
+			-e "s|#PKGDESKDIR#|$(PKG_deskdir)|g" \
+			-e "s|#PKGDATADIR#|$(PKG_datadir)|g" \
+			-e "s|#PKGCONFIGDIR#|$(PKG_configdir)|g" \
+			-e "s|#PKGBINDIR#|$(PKG_bindir)|g" \
+			-e "s|#PKGLIBDIR#|$(PKG_libdir)|g" \
+			-e "s|#PKGLIBDIR32#|$(PKG_libdir32)|g" \
+			-e "s|#PKGDRIVERSDIR#|$(PKG_driversdir)|g" \
+			-e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
+			-e "s|#NVIDIAEXTENSION#|$(PKG_extensionsdir)|g" \
+			-e "s|#XORGEXTENSIONSDIR#|$(xorg_extensionsdir)|g" \
+			-e "s|#DRIVERNAME#|$(PKG_driver)|g" \
+			-e "s|#DRIVERDEVNAME#|$(PKG_driver_dev)|g" \
+			-e "s|#DRIVERSRCNAME#|$(PKG_source)|g" \
+			-e "s|#MODULENAME#|$(PKG_module)|g" \
+			-e "s|#DIRNAME#|$(dirname)|g" \
+			-e "s|#INCLUDEDIR#|$(includedir)|g" \
+			-e "s|#URL#|$(url)|g" \
+			-e "s|#VDPAUDIR#|$(vdpaudir)|g" \
+			-e "s|#VDPAUDIR32#|$(vdpaudir32)|g" \
+			-e "s|#TLSDIR#|$(tlsdir)|g" \
+			-e "s|#PKGVDPAUDIR#|$(PKG_vdpaudir)|g" \
+			-e "s|#PKGVDPAUDIR32#|$(PKG_vdpaudir32)|g" \
+			-e "s|#PKGTLSDIR#|$(PKG_tlsdir)|g" \
+			-e "s|#PKGLIBCONFDIR#|$(PKG_libconfdir)|g" \
+			debian/$$i.in > debian/$$i;      \
+	done
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	cat $(CURDIR)/debian/$(PKG_driver).links $(CURDIR)/debian/$(PKG_driver).links32 > \
+	$(CURDIR)/debian/$(PKG_driver).links_new
+	mv -f $(CURDIR)/debian/$(PKG_driver).links_new $(CURDIR)/debian/$(PKG_driver).links 
+endif
+# Pre-config
+#makebuilddir/$(PKG_driver):: regen-from-templates
+
+configure/$(PKG_driver)::
+	rm -rf $(dirname_x86) $(dirname_x86_64)
+	
+	# Make the installers executable and extract them
+	chmod 755 $(filename_x86)
+	chmod 755 $(filename_x86_64)
+	./$(filename_x86) --extract-only
+	./$(filename_x86_64) --extract-only
+	
+	# Get around Xen checks
+	cp $(dirname)/usr/src/nv/nv.c $(dirname)/usr/src/nv/nv1.c
+	cp $(dirname)/usr/src/nv/nv-linux.h $(dirname)/usr/src/nv/nv-linux1.h
+	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/usr/src/nv/nv1.c > $(dirname)/usr/src/nv/nv.c
+	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/usr/src/nv/nv-linux1.h > $(dirname)/usr/src/nv/nv-linux.h
+	rm $(dirname)/usr/src/nv/nv1.c
+	rm $(dirname)/usr/src/nv/nv-linux1.h
+
+	# kernel module source
+	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/nv
+	cp -R $(CURDIR)/$(dirname)/usr/src/nv $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	cp $(CURDIR)/debian/temp/modules/nvidia-kernel/nv/Makefile.kbuild \
+	   $(CURDIR)/debian/temp/modules/nvidia-kernel/nv/Makefile
+
+	# Rename the png file for nvidia-settings
+	mv $(dirname)/usr/share/pixmaps/nvidia-settings.png \
+	$(dirname)/usr/share/pixmaps/$(PKG_driver)-settings.png
+
+	# Disable the stack markings of binaries for security reasons.
+	# See (LP: #409456)
+	find $(dirname) -name *.so* | xargs -n1 execstack -c
+
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	# Disable the stack markings of 32bit binaries on amd64
+	# See (LP: #409456)
+	find $(dirname_x86) -name *.so* | xargs -n1 execstack -c
+endif
+	# Disable the stack markings of other binaries (only for the current arch)
+	#   Note: don't use for loops or pass more than 1 argument to execstack
+	#         or it will fail.
+	execstack -c $(dirname)$(bindir)/nvidia-xconfig || true
+	execstack -c $(dirname)$(bindir)/nvidia-smi || true
+
+#binary-install/$(PKG_driver_dev)::
+
+binary-install/$(PKG_driver):: serverabi
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	#32 bit libraries on 64 bit
+	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)" 
+	dh_installdirs -p$(PKG_driver) "$(PKG_tlsdir32)"
+
+	dh_install -p$(PKG_driver) "$(dirname_x86)$(libdir)/libGL*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)$(libdir)/libnvidia*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)$(libdir)/libcuda*.so*"  "$(PKG_libdir32)"
+
+	dh_install -p$(PKG_driver)  "$(dirname_x86)/usr/X11R6/lib/*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver)  "$(dirname_x86)$(vdpaudir)/libvdpau_nvidia.so*"  "$(PKG_vdpaudir32)"
+	dh_install -p$(PKG_driver)  "$(dirname_x86)$(tlsdir)/lib*"  "$(PKG_tlsdir32)"
+
+	dh_install -p$(PKG_driver) "$(dirname_x86)$(libdir)/libOpenCL*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)$(libdir)/libnvidia-compiler*.so*"  "$(PKG_libdir32)"
+endif
+	
+	# Generate modaliases for Jockey and nvidia-common
+	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
+	sh -e $(CURDIR)/debian/nvidia_supported \
+		$(dirname)/usr/src/nv/nv-kernel.o nvidia_current $(PKG_driver) \
+		> $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/$(PKG_driver)
+
+	# Configuration stuff
+
+	# ld.so.conf
+	dh_installdirs -p$(PKG_driver) "$(ld_so_conf_dir)"
+	echo "$(PKG_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	echo "$(PKG_libdir32)" >>	$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)
+endif
+
+	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
+	printf "blacklist nouveau\nblacklist lbm-nouveau\nblacklist nvidia-173\nblacklist nvidia-96\n" > $(CURDIR)/debian/$(PKG_driver)$(PKG_libconfdir)/modprobe.conf
+
+	# Create an alias for the module so that it can be used as nvidia
+	echo "alias nvidia $(PKG_module)" >> $(CURDIR)/debian/$(PKG_driver)$(PKG_configdir)/modprobe.conf
+
+	# XvMCConfig
+	dh_installdirs -p$(PKG_driver) "$(PKG_configdir)"
+	echo "libXvMCNVIDIA_dynamic.so.1" > $(CURDIR)/debian/$(PKG_driver)/$(PKG_configdir)/XvMCConfig
+
+	dh_install -p$(PKG_driver) $(dirname)$(mandir)/nvidia-xconfig.1.gz "$(mandir)";
+	dh_install -p$(PKG_driver) $(dirname)$(mandir)/nvidia-settings.1.gz "$(mandir)";
+	dh_install -p$(PKG_driver) $(dirname)$(mandir)/nvidia-smi.1.gz "$(mandir)";
+
+	# Rename the man pages in order to use alternatives
+	for file in $(CURDIR)/debian/$(PKG_driver)$(mandir)/*.gz; do \
+		mv $$file $(CURDIR)/debian/$(PKG_driver)$(mandir)/`basename $$file | sed 's/nvidia/alt-$(PKG_driver)/'`; \
+	done
+
+	rm -rf debian/temp
+
+
+clean:: regen-from-templates
+#	for file in $(CURDIR)/debian/*.in \
+#	; do \
+#		if [ `basename $$file` != "control.in" ]; then \
+#			rm -f $(CURDIR)/debian/`basename $$file | sed 's/\.in\$$//'`; \
+#		fi \
+#	done
+	rm -fr $(dirname_x86) $(dirname_x86_64)
+	rm -fr debian/temp
+
+

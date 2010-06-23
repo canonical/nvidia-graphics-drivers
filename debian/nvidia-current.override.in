@@ -1,0 +1,89 @@
+#DRIVERNAME#: library-not-linked-against-libc ./usr/lib/libGL.so.#VERSION#
+
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.#VERSION#
+
+#DRIVERNAME#: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.#VERSION#
+
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/libGLcore.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.#VERSION#
+
+#DRIVERNAME#: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.#VERSION# usr/lib/libGL.so
+#DRIVERNAME#: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.#VERSION# usr/lib/xorg/modules/extensions/libglx.so
+
+
+#DRIVERNAME#: script-not-executable usr/src/#DRIVERNAME#-#VERSION#/conftest.sh
+#DRIVERNAME#: maintainer-script-ignores-errors prerm
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libGLcore.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libGLcore.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libcuda.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libcuda.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libnvidia-cfg.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libnvidia-cfg.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libvdpau.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/vdpau/libvdpau_nvidia.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/vdpau/libvdpau_nvidia.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/vdpau/libvdpau_trace.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/xorg/libglx.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/xorg/libglx.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.#VERSION#
+#DRIVERNAME#: unused-shlib-entry-in-control-file libnvidia-tls 190
+#DRIVERNAME#: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+#DRIVERNAME#: prerm-calls-ldconfig
+#DRIVERNAME#: copyright-without-copyright-notice
+#DRIVERNAME#: desktop-command-not-in-package /usr/share/applications/#DRIVERNAME#/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: unknown-section restricted/misc
+nvidia-185-modaliases: copyright-without-copyright-notice
+nvidia-185-modaliases: extended-description-line-too-long
+nvidia-glx-185-dev: copyright-without-copyright-notice
+nvidia-glx-185-dev: extended-description-line-too-long
+nvidia-glx-185-dev: unknown-section restricted/misc
+nvidia-185-kernel-source: copyright-without-copyright-notice
+nvidia-185-kernel-source: unknown-section restricted/misc
+#DRIVERNAME#-dev: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#-dev: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#-dev: postinst-has-useless-call-to-ldconfig
+#DRIVERNAME#-dev: postrm-has-useless-call-to-ldconfig
+#DRIVERNAME#-dev: copyright-without-copyright-notice
+#DRIVERNAME#-dev: missing-dependency-on-libc needed by ./usr/lib/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#-dev: unknown-section restricted/misc
+nvidia-glx-185: copyright-without-copyright-notice
+nvidia-glx-185: unknown-section restricted/misc
+#DRIVERNAME#-modaliases: copyright-without-copyright-notice
+
+#DRIVERNAME#: script-not-executable ./usr/src/#DRIVERNAME#-#VERSION#/conftest.sh
+#DRIVERNAME#: maintainer-script-ignores-errors prerm
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libGLcore.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib32/#DRIVERNAME#/libXvMCNVIDIA.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libcuda.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libnvidia-cfg.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libvdpau_nvidia.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib32/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib32/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
+#DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib32/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
+
+

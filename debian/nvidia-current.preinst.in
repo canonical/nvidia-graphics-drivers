@@ -1,0 +1,190 @@
+#! /bin/sh
+# preinst script for #DRIVERNAME#
+#
+# see: dh_installdeb(1)
+#
+# Copyright (C) 2009 Canonical Ltd
+# Authors: Alberto Milone
+
+set -e
+
+# summary of how this script can be called:
+#        * <new-preinst> `install'
+#        * <new-preinst> `install' <old-version>
+#        * <new-preinst> `upgrade' <old-version>
+#        * <old-preinst> `abort-upgrade' <new-version>
+#
+# For details see /usr/share/doc/packaging-manual/
+
+if [ `dpkg --print-architecture` = "amd64" ]; then
+    HAS_LIB32="yes"
+fi
+
+case "$1" in
+    install|upgrade)
+
+    # We need to remove diversions from previous versions of the package
+
+    # clean up from old diversions
+    if [ -d /usr/share/nvidia-glx/diversions ]; then
+        rm -f /usr/lib/libGL.so.1
+        rm -f /usr/lib/libGL.so.1.2
+        
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/share/nvidia-glx/diversions/libGL.so.1 /usr/lib/libGL.so.1 > /dev/null
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/share/nvidia-glx/diversions/libGL.so.1.2 /usr/lib/libGL.so.1.2 > /dev/null
+
+        rm -f /usr/lib/xorg/modules/extensions/libGLcore.a
+        rm -f /usr/lib/xorg/modules/extensions/libglx.a
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/share/nvidia-glx/diversions/libGLcore.a /usr/lib/xorg/modules/extensions/libGLcore.a > /dev/null
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/share/nvidia-glx/diversions/libglx.a /usr/lib/xorg/modules/extensions/libglx.a > /dev/null
+
+        rmdir /usr/share/nvidia-glx/diversions || true;
+        rmdir /usr/share/nvidia-glx || true;
+    fi
+
+    if [ -d /usr/share/nvidia-glx/diversions-X11R6 ]; then
+
+        rm -f /usr/X11R6/lib/libGL.so.1
+        rm -f /usr/X11R6/lib/libGL.so.1.2
+        
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/share/nvidia-glx/diversions-X11R6/libGL.so.1 /usr/X11R6/lib/libGL.so.1 > /dev/null
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/share/nvidia-glx/diversions-X11R6/libGL.so.1.2 /usr/X11R6/lib/libGL.so.1.2 > /dev/null
+
+        rmdir /usr/share/nvidia-glx/diversions-X11R6 || true;
+        rmdir /usr/share/nvidia-glx || true;
+    fi
+    # remove X11R6 diversions
+    
+    if dpkg-divert --list /usr/X11R6/lib/libGL.so.1 | grep 'nvidia-glx' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libGL.so.1.xlibmesa /usr/X11R6/lib/libGL.so.1 > /dev/null
+    fi
+    
+    if dpkg-divert --list /usr/X11R6/lib/libGL.so.1.2 | grep 'nvidia-glx' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libGL.so.1.2.xlibmesa /usr/X11R6/lib/libGL.so.1.2 > /dev/null
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/modules/extensions/libGLcore.a | grep 'nvidia-glx' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libGLcore.a.xlibmesa /usr/X11R6/lib/modules/extensions/libGLcore.a > /dev/null
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/modules/extensions/libglx.a | grep 'nvidia-glx' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libglx.a.xlibmesa /usr/X11R6/lib/modules/extensions/libglx.a > /dev/null
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/modules/extensions/libglx.so | grep 'nvidia-glx' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libglx.so.xlibmesa /usr/X11R6/lib/modules/extensions/libglx.so > /dev/null
+    fi
+
+    # make sure these diversions don't exist anymore
+    if dpkg-divert --list /usr/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-dev-envy --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/lib/libGL.so | grep 'nvidia-glx-177-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-177-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/lib/libGL.so | grep 'nvidia-glx-new-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev-envy --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/lib/libGL.a | grep 'nvidia-glx-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-dev-envy --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/lib/libGL.a | grep 'nvidia-glx-new-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev-envy --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-dev-envy --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-new-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev-envy --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-dev-envy --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null || true
+    fi
+    if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-new-dev' > /dev/null ; then
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null || true
+        dpkg-divert --remove --rename --package nvidia-glx-new-dev-envy --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null || true
+    fi
+
+
+    # Make sure that no diversion is still there
+    set -a "nvidia-glx" "nvidia-glx-new" "nvidia-glx-legacy" "nvidia-glx-envy"\
+            "nvidia-glx-new-envy" "nvidia-glx-legacy-envy" "nvidia-glx-180" \
+            "nvidia-glx-177" "nvidia-glx-173" "nvidia-glx-96" "nvidia-glx-71" \
+            "nvidia-glx-185" "nvidia-glx-190"
+
+    while [ $# -ge 1 ]; do
+        glxname=$1
+        glxdevname="$glxname-dev"
+    
+        if [ -n "$HAS_LIB32" ]; then
+            #Remove diversions of /usr/lib32/libGL.so -- only for the new name schemes (nvidia-glx-VER)
+            if dpkg-divert --list $glxname | grep "/usr/lib32/libGL.so " > /dev/null ; then
+                rm -f /usr/lib32/libGL.so > /dev/null || true
+                dpkg-divert --remove --rename --package $glxname --divert /usr/lib32/nvidia/libGL.so.xlibmesa /usr/lib32/libGL.so > /dev/null || true
+            fi
+
+            #Remove diversion of /usr/lib32/libGL.so.1
+            if dpkg-divert --list $glxname | grep /usr/lib32/libGL.so.1 > /dev/null ; then
+                rm -f /usr/lib32/libGL.so.1 > /dev/null || true
+                dpkg-divert --remove --rename --package $glxname --divert /usr/lib32/nvidia/libGL.so.1.xlibmesa /usr/lib32/libGL.so.1 > /dev/null || true
+            fi
+            
+            #Remove diversion of /usr/lib32/libGL.so.1.2
+            if dpkg-divert --list $glxname | grep /usr/lib32/libGL.so.1.2 > /dev/null ; then
+                rm -f /usr/lib32/libGL.so.1.2 > /dev/null || true
+                dpkg-divert --remove --rename --package $glxname --divert /usr/lib32/nvidia/libGL.so.1.2.xlibmesa /usr/lib32/libGL.so.1.2 > /dev/null || true
+            fi
+            
+        fi
+            
+
+        #Remove diversion of /usr/lib/xorg/modules/extensions/libGLcore.so
+        if dpkg-divert --list $glxname | grep /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null ; then
+            dpkg-divert --remove --rename --package $glxname --divert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null || true
+        fi
+
+        #Remove diversion of /usr/lib/xorg/modules/extensions/libglx.so
+        if dpkg-divert --list $glxname | grep /usr/lib/xorg/modules/extensions/libglx.so > /dev/null ; then
+            rm -f /usr/lib/xorg/modules/extensions/libglx.so > /dev/null || true
+            dpkg-divert --remove --rename --package $glxname --divert /usr/lib/nvidia/libglx.so.xserver-xorg-core /usr/lib/xorg/modules/extensions/libglx.so > /dev/null || true
+        fi
+
+        #Remove diversion of /usr/lib/libGL.so.1
+        if dpkg-divert --list $glxname | grep "/usr/lib/libGL.so.1 " > /dev/null ; then
+            rm -f /usr/lib/libGL.so.1 > /dev/null || true
+            dpkg-divert --remove --rename --package $glxname --divert /usr/lib/nvidia/libGL.so.1.xlibmesa /usr/lib/libGL.so.1 > /dev/null || true
+        fi
+
+        #Remove diversion of /usr/lib/libGL.so.1.2
+        if dpkg-divert --list $glxname | grep /usr/lib/libGL.so.1.2 > /dev/null ; then
+            rm -f /usr/lib/libGL.so.1.2 > /dev/null || true
+            dpkg-divert --remove --rename --package $glxname --divert /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so.1.2 > /dev/null || true
+        fi
+
+
+        shift
+    done
+
+    ;;
+
+    abort-upgrade)
+    ;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+
+
+# dh_installdeb will replace this with shell code automatically
+# generated by other debhelper scripts.
+
+#DEBHELPER#
+
+exit 0

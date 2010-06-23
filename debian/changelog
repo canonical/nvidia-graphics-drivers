@@ -1,0 +1,957 @@
+nvidia-graphics-drivers (195.36.24-0ubuntu2) maverick; urgency=low
+
+  * No change rebuild for new Xserver 1.8 ABI
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Thu, 10 Jun 2010 18:47:54 +1000
+
+nvidia-graphics-drivers (195.36.24-0ubuntu1) maverick; urgency=low
+
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 480
+      o GeForce GTX 470
+      o Tesla C2050
+    - Fixed a problem that caused occasional red flashes in XVideo
+      frames (LP: #580763).
+    - Added official support for xserver 1.8. The -ignoreABI option
+      is no longer required with this version of the server.
+    - Updated the "Supported NVIDIA GPU Products" list to include
+      various supported GPUs that were missing previously.
+  * debian/nvidia-current.dirs.in:
+    - Do not install empty directories (GL, CL, cuda) in
+      /usr/share/include (LP: #540171).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 17 May 2010 16:39:07 +0200
+
+nvidia-graphics-drivers (195.36.15-0ubuntu3) lucid-proposed; urgency=low
+
+  * debian/dkms/patches/vga_arbiter_workaround.patch:
+    - Prevent X from crashing with kernel 2.6.32 when 2 or more
+      nvidia cards are available (LP: #573557).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2010 13:03:46 +0200
+
+nvidia-graphics-drivers (195.36.15-0ubuntu2) lucid; urgency=low
+
+  * debian/nvidia-$flavour.{dirs|postinst}.in, rules:
+    - Install the blacklist file in /lib/nvidia-$flavour instead
+      of /usr/lib/nvidia-$flavour so that the file is available
+      early in the boot process when /usr is on a different
+      partition (LP: #538071).
+    - Ignore errors when trying to update the initramfs
+      with -k $CURRENT_KERNEL which is known to fail when
+      using chroots (LP: #556653). 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Apr 2010 13:18:57 +0200
+
+nvidia-graphics-drivers (195.36.15-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Fixed a bug that caused the X server to crash when rendering
+      occurred while the X server was not on the active VT.
+    - Fixed a regression that caused the driver to fail to properly
+      adjust the GPU fan speed on some GPUs.
+    - Fixed a bug that prevented performance level transitions on
+      recent GPUs with SDDR3 and GDDR5 memory.
+  * debian/nvidia-$flavour.{postinst|prerm}.in:
+    - Call gmenucache trigger so that the icon of nvidia-settings
+      shows up in the menu (LP: #522969).
+  * debian/nvidia-current.links{32}.in:
+    - Add link to libOpenCL.so in /usr/lib and in /usr/lib32.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Mar 2010 10:21:52 +0100
+
+nvidia-graphics-drivers (195.36.08-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Added support for the following GPUs:
+      o Quadro FX 880M
+      o GeForce GTS 350M
+      o GeForce GTS 360M
+    - Fixed a bug that caused screen corruption after an application
+      released a GLX_NV_present_video device.
+    - Fixed brightness control hotkeys on some laptops.
+    - Fixed a bug that caused G-Sync stereo synchronization to fail
+      sometimes when enabling frame lock.
+    - Fixed a bug that caused OpenGL applications to occasionally crash
+      with "double free or corruption" messages when exiting.
+    - On GPUs with VDPAU feature set A, enhanced VDPAU's handling of
+      some corrupted or incorrectly formatted MPEG-1/2 streams. This
+      solves a reported issue with "0testbad.mpg".
+    - Fixed a bug in the VDPAU video mixer that caused chroma
+      aberrations, and corruption in the right-hand few columns of
+      pixels, when post-processing video surfaces with widths not an
+      exact multiple of 4 pixels.
+    - Fixed a bug that prevented the GPUFanControlState attribute from
+      being set on the nvidia-settings command line.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Mar 2010 11:07:16 +0100
+
+nvidia-graphics-drivers (195.36.03-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Fixed a regression that made the "TVStandard" X
+      configuration option cause system hangs with products
+      from the GeForce 6 and 7 series.
+    - Worked around a bug in some AUO laptop flat panels
+      where the native mode in the EDID is invalid, leading to
+      a 640x480 desktop repeated six times across the screen.
+    - Increased the maximum number of slices supported by VDPAU
+      for MPEG-2 streams, in order to cope with the region 1
+      DVD "A Christmas Story".
+    - Added unofficial preliminary support for xorg-server
+      video driver ABI version 7, including xorg-server-1.7.99.2.
+    - Fix the soname of libvdpau_nvidia.so.1 and
+      libvdpau_trace.so.1 to match their filenames.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Feb 2010 19:13:53 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu14) lucid; urgency=low
+
+  * debian/rules:
+    - Blacklist lbm-nouveau.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Feb 2010 16:29:15 -0800
+
+nvidia-graphics-drivers (190.53-0ubuntu13) lucid; urgency=low
+
+  * debian/rules:
+    - Use the real name of the kernel module in the modalias
+      file instead of the alias.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Feb 2010 11:22:57 -0800
+
+nvidia-graphics-drivers (190.53-0ubuntu12) lucid; urgency=low
+
+  * debian/nvidia-current.postinst.in:
+    - Pass -u to update-initramfs in addition to -k. 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Feb 2010 12:59:56 -0800
+
+nvidia-graphics-drivers (190.53-0ubuntu11) lucid; urgency=low
+
+  * debian/postinst.in:
+    - Update initramfs for the current kernel instead of
+      echoing the action.
+ 
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Feb 2010 10:32:32 -0800
+
+nvidia-graphics-drivers (190.53-0ubuntu10) lucid; urgency=low
+
+  * debian/postinst.in:
+    - Update the initramfs for the current kernel and for the
+      newest one so that the blacklist file is included in
+      the initramfs and nouveau can be blacklisted early.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Feb 2010 09:40:53 -0800
+
+nvidia-graphics-drivers (190.53-0ubuntu9) lucid; urgency=low
+
+  * debian/control.in:
+    - Add transitional packages for nvidia-185-libvdpau and
+      nvidia-185-libvdpau-dev so that old vdpau libraries
+      don't break the alternatives system.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Jan 2010 12:30:23 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu8) lucid; urgency=low
+
+  * Install slave link to libvdpau_nvidia.so in /usr/lib
+    and /usr/lib32 (on amd64) so as not to break
+    compatibility with applications which look for
+    libvdpau_nvidia.so (LP: #510390).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Jan 2010 20:56:06 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu7) lucid; urgency=low
+
+  * debian/rules:
+    - Blacklist nouveau and the other nvidia proprietary
+      drivers in the modprobe.conf file.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Jan 2010 15:55:39 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu6) lucid; urgency=low
+
+  * debian/compat:
+    - Bump compatibility to 5.
+  * debian/nvidia-current.dirs.in:
+    - Add #VDPAUDIR# and #VDPAUDIR32# so that alternatives
+      for vdpau won't fail.
+  * debian/nvidia-current.{install|links|links32}.in:
+    - Install libvdpau_nvidia.* in the vdpau subdirectory so
+      that they are not included in the ld cache.
+  * debian/nvidia-current.postinst.in:
+    - Add libvdpau_nvidia.so.1 and libvdpau_nvidia.so.1_lib32
+      slave links so as to support multiple installations of
+      nvidia drivers that support vdpau.
+    - Install alternative with --force so that files that
+      already exist (from unofficial PPAs or from the Nvidia
+      installer, etc.) are overwritten thus avoiding to
+      install a broken alternative.
+  * debian/rules:
+    - Use global replacement when generating files from
+      templates.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Jan 2010 12:14:08 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu5) lucid; urgency=low
+
+  * debian/nvidia-current.links.in
+    - Add libvdpau_nvidia.so.1 which points to libvdpau_nvidia.so.$ver
+      and make libvdpau_nvidia.so point to libvdpau_nvidia.so.1 so
+      that the library can be found at runtime (LP: #432172).
+  * debian/nvidia-current.postinst.in:
+    - Remove gl_libraries slave link as the file in ld.so.conf.d is
+      enough.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 17 Jan 2010 13:20:28 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu4) lucid; urgency=low
+
+  * debian/control.in:
+    - There's no need for the -dev package to conflict with
+      the mesa development packages any more.
+  * debian/nvidia-current.postinst.in:
+    - Do not set slaves for libglx and libdri. We don't need
+      this any more as, thanks to a change in X, xorg_extra_modules
+      will suffice.
+    - Set link to $PKG_libdir in /usr/lib/GL with alternatives.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Jan 2010 15:44:30 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu3) lucid; urgency=low
+
+  * List my name among the authors instead of the copyright
+    holders.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sat, 09 Jan 2010 14:53:51 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu2) lucid; urgency=low
+
+  * Assign copyright to Canonical Ltd instead of Canonical
+    Services Ltd in the packaging scripts and in the copyright
+    file.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sat, 09 Jan 2010 14:22:36 +0100
+
+nvidia-graphics-drivers (190.53-0ubuntu1) lucid; urgency=low
+  * Rework packaging taking Mandriva's as a model:
+    - Use alternatives instead of diversions.
+    - Reduce the number of binary packages to nvidia-current,
+      nvidia-current-dev and nvidia-current-modaliases.
+  * debian/rules:
+    - Switch to CDBS.
+    - Remove libGL.la as no static library is provided.
+  * debian/nvidia-current.README.Debian.in:
+    - Document the update process.
+  * nvidia-current.postinst: try to build the module for the most
+    recent kernel in addition to building it for the current kernel
+    (LP: #474917).
+  * New upstream release (LP: #494166):
+   - Add support for xserver 1.7.x.
+   - Added support for the following GPUs:
+     o GeForce G102M
+     o GeForce GT 220
+     o GeForce G210
+     o GeForce G210M
+     o GeForce GT 230M
+     o GeForce GT 240M
+     o GeForce GTS 250M
+     o GeForce GTS 260M 
+   - Fixed a bug in the nvidia-settings disclaimer window for the GPU
+     Clock Frequencies Coolbits page, such that the "Accept" button is
+     selectable when the desktop is so tall that the entire disclaimer
+     can be viewed without scrolling.
+   - Fixed a recent regression that caused the Xinerama option to not
+     be set properly in the X configuration file when saving and
+     merging from the nvidia-settings X Server Display Configuration
+     page.
+   - Fixed a resource leak in VDPAU's blit-based presentation queue.
+     This bug limited the number of presentation queue objects that
+     could be created and destroyed in a single application instance,
+     and hence could limit the number of streams that could be
+     displayed and/or the number of iterations of "loop" playback.
+   - Fixed a power management regression that prevented some notebooks
+     and systems with integrated GeForce 8 and 9 series GPUs from
+     suspending.
+   - Fixed a regression that caused TV-OUT controls to be unavailable
+     on some GeForce 6 and 7 series GPUs.
+   - Updated the NVIDIA X driver to allow, on GeForce 8 or greater
+     GPUs, more modes to validate on digital display devices whose
+     EDIDs report very constrained HorizSync or VertRefresh ranges.
+   - Fixed a randomly occuring X server crash caused by the PixmapCache
+     option.
+   - Increased the allowed amount of overscan compensation from 100 to
+     200.
+   - On GPUs with VDPAU feature set B, VDPAU's handling of some
+     corrupted or incorrectly formatted H.264 and MPEG streams has
+     been improved.
+   - Fixed a memory allocation problem with pre-GeForce 8 GPUs that
+     caused GLX_EXT_texture_from_pixmap clients (e.g., Compiz, KDE 4)
+     to display incorrect contents.
+   - Modified the installation location and names of internal VDPAU
+     libraries to conform to conventions and Debian packaging guidelines.
+     New versions of libvdpau expect this layout. Compatibility with old
+     versions of libvdpau is maintained with symlinks.
+   - Fixed a bug that could cause errors in graphical applications run
+     after a previous application using VDPAU and OpenGL. This behaviour
+     was observed when running Gwenole Beauchesne's hwdecode-demos
+     application.
+   - Modified vdpau.h to increment VDPAU_VERSION, to reflect the fact that
+     new features have been added in the past. Also, add the new define
+     VDPAU_INTERFACE_VERSION.
+   - Fixed a periodic temporary hang in the VDPAU blit-based presentation
+     queue.
+   - Fixed a problem that caused resolution limitations or corruption on
+     certain DisplayPort devices such as the Apple 24" Cinema display or
+     some DisplayPort to VGA adapters.
+   - Disabled the UseEvents option for GeForce 8 series and higher GPUs
+     due to a problem that causes occasional short hangs. It will be
+     re-enabled when that bug has been tracked down and fixed.
+   - VDPAU now allows multiple streams to be decoded at once, without the
+     need to set any environment variables.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 08 Jan 2010 23:13:07 +0100
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu9) karmic; urgency=low
+
+  * debian.binary/patches, dkms.conf.in:
+    - nvidia-rt-compat.patch: Update patch to allow the driver to
+      work with rt kernels again (LP: #413296). Thanks to Iain Bucław
+      for the patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 25 Oct 2009 10:25:29 +0100
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu8) karmic; urgency=low
+
+  * debian/control, debian/control.in:
+    - Add dependency on patch to nvidia-$VER-kernel-source (LP: #453961).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 19 Oct 2009 10:49:30 +0200
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu7) karmic; urgency=low
+
+  * debian.binary/patches, dkms.conf.in:
+    - fall_back_on_mtrr_if_no_pat.patch: Fall back on MTRRs if the
+      CPU doesn't support the PAT (LP: #391461).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 14 Oct 2009 14:30:13 +0200
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu6) karmic; urgency=low
+
+  * debian/nvidia-185-kernel-source.postinst:
+    - There were bugs of undefined variables in the smart buildd detection
+      scripts.  These should be upstream DKMS anyway, so reference them
+      from there (LP: #450493)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Tue, 13 Oct 2009 22:24:00 -0500
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu5) karmic; urgency=low
+
+  * debian/upstream_info:
+    - Treat lpia as i386 so as to fix FTBFS.
+  * debian/nvidia-185-kernel-source.postinst:
+    - Re-use the smart buildd detection system that we already use in the
+      bcmwl-kernel-source package so as to allow pre-compiled modules when
+      the nvidia driver is included in a customised image. The old behaviour
+      is preserved in any other case.
+  * debian/control, debian/control.in, debian.binary/control.template:
+    - Set arch to lpia for every package.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 12 Oct 2009 12:51:29 +0200
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu4) karmic; urgency=low
+
+  [ Alberto Milone ]
+  * debian/control, debian/control.in:
+    - Change the section of the -modaliases package to "admin" as the package
+      is not "restricted" (LP: #429153).
+    - Add the lpia architecture to the -185 packages.
+
+  [ Kees Cook ]
+  * debian/control.in:
+    - Add build dependency on execstack.
+  * debian/rules:
+    - Drop executable stack markings from precompiled binaries (LP: #409456).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 08 Oct 2009 16:42:13 +0200
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu3) karmic; urgency=low
+
+  * Re-introduce a patch to allow the NVIDIA drivers to build against the RT
+    kernel (LP: #413296
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Sat, 26 Sep 2009 22:10:10 +1000
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu2) karmic; urgency=low
+
+  * debian/control.in:
+    - Attempt to clean up the provides/conflicts/replaces to only have
+      currently valid package names (for Karmic) to avoid confusion.
+    - For the transitional packages, don't conflict, so that they should
+      be installable. (LP: #418681)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Fri, 28 Aug 2009 01:11:58 -0500
+
+nvidia-graphics-drivers-180 (185.18.36-0ubuntu1) karmic; urgency=low
+
+  * New upstream release (LP: #408561)
+    - Fixed a bug that caused kernel panics when starting X on some mobile GPUs
+    - Fixed an interaction problem between VDPAU and PowerMizer when using
+      VDPAU solely as a display mechanism, and not to decode video streams. The 
+      GPU performance level should now be raised, if required, in this scenario.
+    - Fixed VDPAU to avoid "display preemption" in some cases where a 
+      VdpOutputSurface is deleted while it is still active (either queued or
+      visible) in a VdpPresentationQueue. In particular, this can occur in 
+      MPlayer when using the "-fs" option, and could completely prevent VDPAU 
+      from operating successfully, depending on the exact timing conditions.
+  * debian/nvidia-glx-185.preinst:
+     - Update to print-architecture rather than print-installation-architecture
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 23 Aug 2009 11:38:08 -0500
+
+nvidia-graphics-drivers-180 (185.18.31-0ubuntu1) karmic; urgency=low
+
+  * Rename package as -185 and make -180 a transitional package.
+  * Drop drm_agp_memory-2.6.31.patch as the module builds with 2.6.31
+    kernels now.
+  * New upstream release:
+    -Fixed a crash on certain mobile GPUs.
+    -Added code to forcibly terminate long-running CUDA kernels when Ctrl-C
+     is pressed.
+    -Fixed a bug that could cause occasional memory corruption problems or
+     segmentation faults when running OpenGL applications on Quadro GPUs.
+    -Fixed a deadlock in the OpenGL library that could be triggered in certain
+     rare circumstances on Quadro GPUs.
+    -Fixed an interaction problem between PowerMizer and CUDA applications 
+     that caused the performance level to be reduced while the CUDA kernel is
+     running.
+    -Made CUDA compute-exclusive mode persistent across GPU resets.
+    -Fixed the order of outputs in the GPUScaling nvidia-settings property.
+    -Fixed a bug that caused graphics corruption in some OpenGL applications
+     when the Unified Back Buffer is enabled the application window is moved.
+    -Fixed a bug that caused glXGetVideoSyncSGI, glXWaitVideoSyncSGI, and 
+     glXGetRefreshRateSGI to operate on the wrong screen when there are 
+     multiple X screens.
+    -Fixed a bug that causes corruption or GPU errors when an application 
+     paints a redirected window whose background is set to ParentRelative on
+     X.Org servers older than 1.5. This was typically triggered by running
+     Kopete while using Compiz or Beryl.
+    -Fixed a bug in VDPAU that could cause visible corruption when decoding
+     H.264 clips with alternating frame/field coded reference pictures, and a
+     video surface is concurrently removed from the DPB, and re-used as the 
+     decode target, in a single decode operation. This affected all GPUs 
+     supported by VDPAU.
+    -Fixed a bug in VDPAU that could cause visible corruption near the bottom
+     edge of the picture when decoding VC-1 advanced profile clips whose 
+     heights are not exact multiples of 16 pixels, on G98 and MCP7x (IGP) GPUs.
+    -Enhanced VDPAU to better handle corrupt/invalid H.264 bitstreams on G84,
+     G86, G92, G94, G96, or GT200 GPUs. This should prevent most cases of 
+     "display preemption" that are caused by bitstream errors.
+    -Fixed an X server crash when using the VDPAU overlay-based presentation 
+     queue and VT-switching away from the X server.
+    -Enhanced VDPAU's detection of the GPU's video decode capabilities.
+    -Fixed a bug in VDPAU that could cause ghosting/flashing issues when 
+     decoding H.264 clips, in certain full DPB scenarios, on G98 and MCP7x.
+    -Fixed VDPAU to detect an attempt to destroy the VdpDevice object when 
+     other device-owned objects still exist. VDPAU now triggers 
+     "display preemption", and returns an error, when this occurs.
+    -Enhanced VDPAU's error handling and resource management in presentation
+     queue creation and operation. This change correctly propagates all errors
+     back to the client application, and avoids some resource leaks.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 07 Aug 2009 15:45:14 +0200
+
+nvidia-graphics-drivers-180 (185.18.14-0ubuntu3) karmic; urgency=low
+
+  * nvidia-rt-compat.patch: Dropped, the driver builds fine against the
+    2.6.29.5 realtime kernel without it.
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Tue, 07 Jul 2009 19:20:57 +1000
+
+nvidia-graphics-drivers-180 (185.18.14-0ubuntu2) karmic; urgency=low
+
+  * Add in drm_agp_memory-2.6.31.patch to enable 2.6.31 support
+    until NVIDIA has it in their next driver release. (LP: #394262)
+    - Thanks everyone in that bug for finding and testing this patch.
+    - Note: this patch appears to be a bit of a hack (removing i2c support)
+      so take it with a grain of salt if there are still problems.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 02 Jul 2009 12:30:34 -0500
+
+nvidia-graphics-drivers-180 (185.18.14-0ubuntu1) karmic; urgency=low
+
+  * New upstream release (LP: #376067):
+    - Fixed a Xinerama drawable resource management problem that can 
+      cause GLXBadDrawable errors in certain cases, such as when Wine
+      applications are run.
+      (LP: #344721)
+    - Fixed XineramaQueryScreens to return 0 screens instead of 1 
+      screen with the geometry of screen 0 when XineramaIsActive 
+      returns false. This conforms to the Xinerama manual page and 
+      fixes an interaction problem with Compiz when there is more 
+      than one X screen.
+    - Moved kernel module loading earlier in the X driver's 
+      initialization, to facilitate more graceful fallbacks if the 
+      kernel module cannot be loaded. Removed the LoadKernelModule X 
+      configuration option.
+    - Added support for new horizontal interlaced and checkerboard 
+      passive stereo modes.
+    - Fixed an OpenGL driver crash while running Bibble 5.
+    - Fixed a DisplayPort interaction problem with power management 
+      suspend/resume events.
+    - Fixed occasional X driver memory management performance 
+      problems when a composite manager is running.
+      (LP: 294925)
+    - Fixed a bug with VT-switching or mode-switching while using 
+      Compiz; the bug could lead to a corrupted desktop (e.g., a 
+      white screen) or in the worst case an X server crash.
+    - Fixed a bug that could cause GPU errors in some cases while 
+      driving Quadro SDI products.
+    - Fixed a several second hang when VT-switching while OpenGL 
+      stereo applications were running on pre-G80 Quadro GPUs.
+    - Added support for multiple swap group members on G80 and later 
+      Quadro GPUs.
+    - Fixed the behavior of the NV_CTRL_FRAMELOCK_SYNC_DELAY 
+      NV-CONTROL attribute on Quadro G-Sync II.
+    - Fixed a problem with Quadro SDI where transitioning from 
+      "clone mode" to "OpenGL mode" would fail.
+    - Fixed VDPAU to eliminate some cases of corruption when decoding 
+      H.264 video containing field-coded reference frames on G84, G86, 
+      G92, G94, G96, or GT200 GPUs. Such streams are commonly found in 
+      DVB broadcasts.
+    - Slightly improved the performance of the VDPAU noise reduction 
+      algorithm.
+    - Enhanced VDPAU to validate whether overlay usage is supported by 
+      the current hardware configuration, and to automatically fall 
+      back to the blit-based presentation queue if required.
+    - Fixed error checking in VdpVideoMixerRender, to reject calls 
+      that specify more layers than the VdpMixer was created with.
+    - Modified VDPAU's VDPAU_DEBUG code to emit a complete backtrace 
+      on all platforms, not just on 32-bit Linux.
+    - Improved interaction between VDPAU and PowerMizer; appropriate 
+      performance levels should now be chosen for video playback of all 
+      standard resolutions on all supported GPUs.
+    - Fixed a bug in VDPAU that sometimes caused "display preemption" 
+      when the VdpDecoderCreate function failed.
+    - Fixed a potential segfault in the VDPAU trace library, triggered 
+      by a multi-threaded application creating a new VdpDevice in one 
+      thread, at the same time that another thread detected "display 
+      preemption".
+    - Improved compatibility with recent Linux kernels.
+    - OpenOffice and Skype no longer have flickering buttons on mouseover
+      when compiz is enabled. (LP: #286932)
+    - smplayer and VirtualBox no longer display video corruption with
+      composite (LP: #364764)
+
+ -- Bryce Harrington <bryce@ubuntu.com>  Fri, 26 Jun 2009 22:35:09 -0700
+
+nvidia-graphics-drivers-180 (180.53-0ubuntu1) jaunty-proposed; urgency=low
+
+  * New upstream release (LP: #364965)
+    - Added support for the following GPUs:
+      o GeForce 9600 GSO 512
+      o GeForce 9400 GT
+      o GeForce GTS 250
+      o GeForce GT 130
+      o GeForce GT 140
+    - Updated nvidia-bug-report.sh to compress its log file; running 
+      `nvidia-bug-report.sh` now produces "nvidia-bug-report.log.gz".
+    - Addressed a problem that could lead to intermittent hangs and system
+      crashes on some GeForce 9 and later GPUs.
+    - Fixed an X server crash when viewing the website www.tim.it.
+    - Fixed a DisplayPort interaction problem with power management 
+      suspend/resume events.
+    - Fixed rendering corruption in the OpenGL 16-bit RGB Workstation 
+      Overlay.
+    - Fixed a recent VDPAU regression that caused aborted playback and hangs
+      when decoding some H.264 clips on G84, G86, G92, G94, G96, and GT200 GPUs.
+    - Fixed an interaction problem that could corrupt the EDID of the Fujitsu
+      Technology Solutions Celsius H270 notebook's internal flatpanel.
+    - Fixed occasional X driver memory management performance problems when a
+      composite manager is running.
+    - Fixed a bug that could interfere with the detection of display devices
+      attached to secondary GPUs when first starting X after cold boots.
+    - Fixed a problem that could result in temporary stalls when moving OpenGL
+      application windows on GeForce 8 and later GPUs.
+    - Fixed a bug that prevented VGA fonts from being saved/restored correctly
+      on GeForce 8 and later GPUs.
+    - Improved compatibility with recent Linux kernels.
+    - Reduced CPU usage of nvidia-smi utility for reporting Quadro Plex information.
+    - Fixed compatibility problem with LandMark GeoProbe.
+    - Fixed stability problems with some GeForce 6200/7200/7300 GPUs on 
+      multi-core/SMP systems (LP: #353502).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Apr 2009 14:17:09 +0200
+
+nvidia-graphics-drivers-180 (180.44-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #348852).
+    - Added support for the following GPUs:
+      o Quadro FX 3800
+      o Quadro FX 1800
+      o Quadro FX 580
+      o Quadro FX 380
+      o Quadro NVS 295
+      o GeForce GT 120
+      o GeForce G100
+    - Fixed a problem that could cause Xid errors and display corruption
+      in certain cases when OpenGL is used to render to redirected windows,
+      for example when Java2D is used with the -Dsun.java2d.opengl=true option.
+    - Updated glGetStringi(GL_EXTENSIONS, i) to no longer return NULL in 
+      OpenGL 3.0 preview contexts.
+    - Fixed OpenGL crashes while running KDE4's Plasma.
+    - Fixed OpenGL crashes when using a large number of texture objects.
+    - Fixed the timestamp reporting in the GL_NV_present_video extension
+      on SDI II with Quadro FX 4800 and 5800.
+    - Improved power management support on some systems, such as 
+      Hewlett-Packard xw4600 workstations.
+    - Fixed a problem that caused the screen to flicker momentarily when
+      OpenGL applications exit unexpectedly on GeForce 6 and 7 series GPUs.
+    - Fixed an X server crash when an X client attempts to draw trapezoids
+      and RenderAccel is disabled.
+    - Improved recovery from certain types of errors.
+    - Fixed a bug that caused Autodesk Maya to freeze when overlays are 
+      enabled.
+    - Fixed an interaction problem between OpenGL and memory tracking
+      libraries such as MicroQuill SmartHeap.
+    - Added support for RG renderbuffers in OpenGL 3.0.
+    - Added support for OpenGL 3.0 floating-point depth buffers.
+    - Fixed a problem that caused Valgrind to crash when tracing a program
+      that uses OpenGL.
+    - Updated VDPAU to support VC-1/WMV acceleration on all GPUs supported
+      by VDPAU; see the README for details.
+    - Fixed VDPAU corruption on some H.264 clips.
+    - Updated VDPAU documentation in the README and in vdpau.h, in 
+      particular regarding how to use the deinterlacing algorithms in the
+      VdpVideoMixer object. Explicitly documented "half rate" deinterlacing,
+      which should allow the advanced algorithms to run on more low-end
+      systems.
+    - Implemented a "skip chroma deinterlace" option in VDPAU, which should
+      allow the advanced deinterlacing algorithms to run on more low-end
+      systems. See vdpau.h.
+    - Fixed VDPAU VC-1 decoding on 64-bit platforms.
+    - Updated the VDPAU wrapper library to print dlerror() messages when
+      driver loading problems occur.
+    - Improved VDPAU's handling of some corrupt H.264 streams, and some
+      corrupt/invalid MPEG streams on some GPUs.
+    - Fixed VDPAU to correctly handle WMV "range reduction" on some GPUs.
+      A minor backwards-compatible API change was made for this; see
+      vdpau.h's documentation for structure field VdpPictureInfoVC1.rangered.
+    - Fixed a problem that caused surfaces to be marked as visible too early
+      when the blit presentation queue is in use.
+    - Fixed VDPAU to prevent some cases of "display preemption" in the face
+      of missing H.264 reference frames on some GPUs.
+    - Fixed corruption decoding H.264 clips with pictures where 
+      pic_order_cnt_type implies log2_max_pic_order_cnt_lsb_minus4 is not
+      used, on G84, G86, G92, G94, G96, GT200 GPUs.
+    - Update vdpau.h to document exact requirements for VdpDecoderRender
+      bitstream data content.
+    - Fix VDPAU error handling in some unusual low memory situations.
+    - Fix hang in VDPAU in some cases of output mode timing changes.
+  * debian/nvidia-glx-$VER-preinst:
+    - Look for diversions in a more accurate way with grep.
+  * debian/nvidia-glx-$VER-dev.preinst.in:
+    - Make sure that diversions on /usr/lib/libGL.so are only removed
+      and not added (LP: #335621).
+  * debian/nvidia-glx-$VER-dev.links.in:
+    - Do not create a symlink to /usr/lib/libGL.so.#VERSION# in
+      /usr/lib/libGL.so
+  * debian/nvidia-glx-$VER.postrm.in, debian/nvidia-glx-$VER-dev.postrm.in:
+    - pass --ignore-fail-on-non-empty to rmdir 
+  * debian/nvidia-glx-$VER-dev.preinst.in:
+    - If /usr/lib/libGL.so is a symlink and already exists then do not 
+      create a new one, otherwise create a symlink to /usr/lib/libGL.so.$PKGVER
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Mar 2009 09:23:32 +0200
+
+nvidia-graphics-drivers-180 (180.37-0ubuntu2) jaunty; urgency=low
+
+  * Make nvidia-180-libvdpau-dev Architecture: i386 amd64 rather than all.
+    Although it's technically architecture-independent, it's tiny (so
+    archive space waste is minimal) and it's only installable on those two
+    architectures.
+  * Add a binary-indep target (empty), per policy.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 20 Mar 2009 16:34:59 +0000
+
+nvidia-graphics-drivers-180 (180.37-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #335879).
+    - Fixed a problem that caused signals to be blocked in some applications.
+    - Fixed a problem that could cause Xid errors and display corruption in 
+      certain cases when OpenGL is used to render to redirected windows, for
+      example when Java2D is used with the -Dsun.java2d.opengl=true option.
+    - glGetStringi(GL_EXTENSIONS, i) no longer returns NULL in OpenGL 3.0 
+      preview contexts.
+    - Fixed a problem that caused the screen to flicker momentarily when
+      OpenGL applications exit unexpectedly on GeForce 6 and 7 series GPUs.
+    - Fixed an X server crash when an X client attempts to draw trapezoids
+      and RenderAccel is disabled.
+    - Improved recovery from certain types of errors.
+    - VDPAU updates:
+      o Fixed corruption on some H.264 clips.
+      o Update documentation.
+      o Fixed VC-1 decoding on 64-bit platforms.
+      o Improved handling of invalid H.264 streams.
+      o Fixed a problem that caused surfaces to be marked as visible too
+        early when the blit presentation queue is in use.
+  * nvidia-glx-VER.preinst:
+    - Remove diversion on /usr/lib32/libGL.so.1.2 to
+      /usr/lib32/nvidia/libGL.so.1.2.xlibmesa instead of
+      /usr/lib32/nvidia/libGL.so.1.2.xserver-xorg-core (LP: #333550).
+  * debian.binary/patches/nvidia-rt-compat.patch:
+    - Restore compatibility with -rt kernels. Thanks to Alessio Igor Bogani
+      for the patch.
+  * debian/dkms.conf.in:
+    - Make sure that the patch for -rt kernels is applied only to 2.6.28.x
+      kernels.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Mar 2009 09:27:20 +0100
+
+nvidia-graphics-drivers-180 (180.35-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #334205).
+    * Added support for the following GPUs:
+      o GeForce GT 120
+      o GeForce G100
+      o Quadro FX 3700M
+    * Fixed a bug that caused Maya to freeze when overlays are enabled.
+    * Fixed an interaction problem with some applications that use memory tracking
+      libraries.
+    * Added support for RG renderbuffers in OpenGL 3.0.
+    * Added support for OpenGL 3.0 floating-point depth buffers.
+    * Fixed a problem that caused Valgrind to crash when tracing a program that 
+      uses OpenGL.
+    * VDPAU updates:
+      o VDPAU now supports VC-1/WMV acceleration on all GPUs supported by VDPAU;
+        see the README for details.
+      o Expand the documentation of VDPAU's VdpVideoMixer, in particular regarding
+        how to use the deinterlacing algorithms. Explicitly document "half rate" 
+        deinterlacing, which should allow the advanced algorithms to run on more 
+        low-end systems. See vdpau.h.
+      o Implement a "skip chroma deinterlace" option in VDPAU, which should allow
+        the advanced deinterlacing algorithms to run on more low-end systems. See
+        vdpau.h.
+      o Enhance VDPAU to correctly handle some forms of corrupt/invalid MPEG 
+        streams on some GPUs.
+      o Fix VDPAU to prevent some cases of "display preemption" in the face of 
+        missing H.264 reference frames on some GPUs.
+      o Fix VDPAU to correctly handle VC-1 skipped pictures with missing start 
+        codes on some GPUs.
+      o Fix VDPAU to correctly handle WMV "range reduction" on some GPUs. A minor
+        backwards-compatible API change was made for this; see vdpau.h's 
+        documentation for structure field VdpPictureInfoVC1.rangered.
+      o Fix VDPAU wrapper library to print dlerror() messages when problems occur,
+        which will simplify debugging of driver loading issues.
+
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Wed, 25 Feb 2009 11:49:59 +0100
+
+nvidia-graphics-drivers-180 (180.29-0ubuntu2) jaunty; urgency=low
+
+  * debian/control.in:
+    - Revert change adding dependency to nvidia-glx-180 on nvidia-180-libvdpau.
+      This would cause any package that built against nvidia-180-libvpdau to
+      depend and build depend on nvidia-glx-180.
+    - Add replaces to nvidia-glx-177 instead.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 11 Feb 2009 11:53:50 -0600
+
+nvidia-graphics-drivers-180 (180.29-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #327690).
+    * Fixed a problem in VDPAU that prevented the overlay-based presentation
+      queue from being used on displays connected by component video.
+    * Fixed various problems in VDPAU that caused visual corruption when
+      decoding certain MPEG-2 video streams.
+    * Fixed a crash in VDPAU caused by certain invalid MPEG-2 streams, in
+      64-bit drivers for some GPUs.
+    * Fixed an X driver performance problem on integrated GPUs.
+    * Fixed a stability problem with OpenGL applications using FSAA.
+    * Fixed an initialization problem that caused some AGP GPUs to be used
+      in PCI compatibility mode.
+    * Fixed a bug that could result in stability problems after changing
+      clock settings via the Coolbits interface.
+    * debian/control.in: add dependency on nvidia-glx-180 to nvidia-180-libvdpau
+      since nvidia-180-libvdpau can't be installed if other nvidia-glx-* packages
+      contain vdpau (LP: #326720).
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Wed, 11 Feb 2009 11:29:09 +0100
+
+nvidia-graphics-drivers-180 (180.27-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release. Supports the new X.org ABI (LP: #308410, #322416)
+    * Added support for the following GPUs:
+       o GeForce GTX 295
+       o GeForce GTX 285
+       o GeForce 9300 GE
+       o Quadro NVS 420
+    * Fixed a bug that caused VDPAU to display a green screen when using the
+      overlay-based presentation queue with interlaced modes.
+    * Fixed a bug that prevented VDPAU from working correctly after X server 
+      restarts on some GPUs.
+    * Improved VDPAU's handling of mode switches; eliminated a crash in its 
+      mode switch recovery code and a hang in the blit-based presentation queue.
+    * Fixed a bug that caused VDPAU to crash when using DisplayPort devices.
+    * Fixed a potential hang in VDPAU when using the blit-based presentation 
+      queue on systems with multiple GPUs not in SLI mode.
+    * Implemented missing error checking of layer data in VDPAU's VdpVideoMixerRender
+      function.
+    * Improved VDPAU's handling of setups with multiple GPUs, if a subset of the
+      GPUs cannot be supported due to resource limitations.
+    * Improved GPU video memory management coordination between the NVIDIA X driver 
+      and VDPAU.
+    * Fix potential hang in VDPAU when the overlay is already in use.
+    * Improved workstation OpenGL performance.
+    * Fixed an X driver acceleration bug that resulted in Xid errors on GeForce 6 and
+      7 series GPUs.
+    * Updated the X driver to consider GPUs it does not recognize supported, allowing
+      it to drive some GPUs it previously ignored.
+    * Added the ability to run distribution provided pre- and post- installation hooks
+      to 'nvidia-installer'; please see the 'nvidia-installer' manual page for details.
+    * Updated the X driver's metamode parser to allow mode names with periods (i.e. '.'s).
+    * Fixed a problem with hotkey switching on some recent mobile GPUs.
+    * worked around a power management regression in and improved compatibility with
+      recent Linux 2.6 kernels.
+    * Added support for OpenGL 3.0 for GeForce 8 series and newer GPUs.
+  * debian/nvidia-glx-180.preinst:
+    - Correct typo in the removal of diversions of /usr/lib/xorg/modules/extensions/libglx.so
+  * debian/nvidia-glx-180.postrm.in
+    - Do not remove libGL.so (LP: #309116)
+  * debian/nvidia-glx-180-dev.preinst.in:
+    - Add diversion on /usr/lib/libGL.so since (the postrm tries to remove it already)
+  * debian/scriptremove.sh:
+    - Remove from source.
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Thu, 29 Jan 2009 12:36:09 +0100
+
+nvidia-graphics-drivers-180 (180.22-0ubuntu2) jaunty; urgency=low
+
+  * debian/control.in:
+    - Replaces for both the VDPAU binary packages over the old
+      NV packaging. (LP: #315632)
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 09 Jan 2009 17:24:15 -0600
+
+nvidia-graphics-drivers-180 (180.22-0ubuntu1) jaunty; urgency=low
+
+  * New upstream version.  First "stable" driver in 180 series. (LP: #315169)
+    *  Added support for the following GPUs:
+          o Quadro FX 2700M
+          o GeForce 9400M G
+          o GeForce 9400M
+          o GeForce 9800 GT
+          o GeForce 8200M G
+          o GeForce Go 7700
+          o GeForce 9800M GTX
+          o GeForce 9800M GT
+          o GeForce 9800M GS
+          o GeForce 9500 GT
+          o GeForce 9700M GT
+          o GeForce 9650M GT
+          o GeForce 9500 GT
+    * Added initial support for PureVideo-like features via the new VDPAU API (see the vdpau.h header file installed with the driver).
+    * Added support for CUDA 2.1.
+    * Added preliminary support for OpenGL 3.0.
+    * Added new OpenGL workstation performance optimizations.
+    * Enabled the glyph cache by default and extended its support to all supported GPUs.
+    * Disabled shared memory X pixmaps by default; see the "AllowSHMPixmaps" option.
+    * Improved X pixmap placement on GeForce 8 series and later GPUs.
+    * Improved stability on some GeForce 8 series and newer GPUs.
+    * Fixed a regression that could result in window decoration corruption when running Compiz using Geforce 6 and 7 series GPUs. (LP: #306605)
+    * Fixed an nvidia-settings crash when xorg.conf contains Device and Screen sections but no ServerLayout section.
+    * Fixed a problem parsing the monitor sync range X config file options.
+    * Fixed a problem with the SDI sync skew controls in nvidia-settings.
+    * Fixed a problem that caused some SDI applications to hang or crash.
+    * Added support for SDI full-range color. (LP: #218736)
+    * Improved compatibility with recent Linux kernels.
+  * debian/rules:
+    - Create patches directory in case it wasn't present in orig.tar.gz
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 08 Jan 2009 14:26:09 -0600
+
+nvidia-graphics-drivers-180 (180.18-0ubuntu2) jaunty; urgency=low
+
+  * debian/control:
+    - Add versioned dependency for libvdpau.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 07 Jan 2009 18:59:22 -0600
+
+nvidia-graphics-drivers-180 (180.18-0ubuntu1) jaunty; urgency=low
+
+  [ Thomas Cheutz ]
+  * Add driver 180.18 (LP: #307791)
+   * Fixed an X server hang rendering very large fonts.
+   * Added a check to nvidia-installer to not consider Compiz's libglx.so
+     a conflicting X extension library.
+   * VDPAU updates:
+    o Relaxed restrictions on the number of H.264 references frames.
+    o Fixed corruption problems in some video bitstreams.
+    o Fixed a problem that prevented the presentation queue from working in some
+      multi-display or multi-screen configurations when using overlay based presentation.
+
+  [ Alexey Borzenkov ]
+  * Fix false positive when generating modaliases
+
+  [ Mario Limonciello ]
+  * debian/control:
+    - Introduce nvidia-180-libvdpau and nvidia-180-libvdpau-dev packages so that
+      applications will be able to build depend and depend on libvdpau without needing
+      to depend on nvidia driver itself.
+  * debian/rules:
+    - Install VDPAU headers and libraries into appropriate packages.
+    - Don't run debhelper commands with -s as arch independent packages are ignored.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 07 Jan 2009 12:58:13 -0600
+
+nvidia-graphics-drivers-180 (180.11-0ubuntu1) jaunty; urgency=low
+
+  * Add driver 180.11:
+    *  Added support for the following new GPUs:
+       o GeForce 9400M
+    * Fixed font corruption on GeForce 6 and 7 series GPUs when the GlyphCache setting
+      is enabled.
+    * Fixed a memory leak problem when the GlyphCache setting is enabled.
+    * Added support for GVO full-range color.
+    * Fixed a problem parsing the monitor sync range X config file options.
+    * Improved VDPAU error detection and reporting.
+    * Improved VDPAU support for some video bitstreams.
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Wed, 03 Dec 2008 11:07:30 +0100
+
+nvidia-graphics-drivers-180 (180.08-0ubuntu1) jaunty; urgency=low
+
+  * Add driver 180.08 (LP: #297543):
+    *  Added support for the following new GPUs:
+       o Quadro NVS 450
+       o Quadro FX 370 LP
+       o Quadro FX 5800
+       o Quadro FX 4800
+       o Quadro FX 470
+       o Quadro CX
+    * Added preliminary support for OpenGL 3.0.
+    * Improved VDPAU error recovery on some GPUs.
+    * Added support for CUDA 2.1.
+    * Added initial support for PureVideo-like features on Linux via the new VDPAU API
+      (see the vdpau.h header file installed with the driver).
+    * Added new workstation performance optimizations.
+    * Enabled the X Render "GlyphCache" by default.
+    * Disabled shared memory X pixmaps by default; see the “AllowSHMPixmaps" option.
+    * Fixed a regression that could result in window decoration corruption when running
+      Compiz using Geforce 6 and 7 series GPUs.
+    * Improved X pixmap placement on GeForce 8 series and later GPUs.
+    * Improved compatibility with recent Linux kernels.
+    * Improved stability on some GeForce 8 series and newer GPUs.
+  * Add diversions on /usr/lib/libGL.so.1, /usr/lib/libGL.so.1.2,
+    /usr/lib/xorg/modules/extensions/libglx.so without checking their existence in
+    Ubuntu 32 bit too (LP: #287470)
+  * Remove quotation marks from the SOURCES varialble in
+    nvidia-VER-kernel-source.postinst
+  * Switch to DKMS patching system (in debian/rules) so as to have different
+    patches for different kernel versions
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Sun, 30 Nov 2008 16:34:22 +0100
+
+

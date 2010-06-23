@@ -1,0 +1,12 @@
+diff -urN NVIDIA-Linux-x86-185.18.36-pkg1/usr/src/nv/nv-linux.h NVIDIA-Linux-x86-185.18.36-pkg1.new/usr/src/nv/nv-linux.h
+--- nvidia-185.18.36/nv-linux.h	2009-08-15 10:58:45.000000000 +1000
++++ nvidia-185.18.36.new/nv-linux.h	2009-09-26 21:43:35.000000000 +1000
+@@ -721,7 +721,7 @@
+ #define nv_up(lock)                     up(&lock)
+ 
+ #if defined(CONFIG_PREEMPT_RT)
+-#define NV_INIT_MUTEX(mutex) init_MUTEX(mutex)
++#define NV_INIT_MUTEX(mutex) semaphore_init(mutex)
+ #else
+ #if !defined(__SEMAPHORE_INITIALIZER) && defined(__COMPAT_SEMAPHORE_INITIALIZER)
+ #define __SEMAPHORE_INITIALIZER __COMPAT_SEMAPHORE_INITIALIZER
