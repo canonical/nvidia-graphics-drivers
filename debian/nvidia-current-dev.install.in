@@ -1,3 +1,5 @@
-#DIRNAME#/usr/X11R6/lib/libXvMCNVIDIA.a       #PKGLIBDIR#
+#DIRNAME#/libXvMCNVIDIA.a       #PKGLIBDIR#
 
-#DIRNAME#/usr/include/*                       #INCLUDEDIR#/#DRIVERNAME#
+#DIRNAME#/cl*.h                                #INCLUDEDIR#/#DRIVERNAME#/CL
+#DIRNAME#/gl*.h                                #INCLUDEDIR#/#DRIVERNAME#/GL
+#DIRNAME#/cuda*.h                              #INCLUDEDIR#/#DRIVERNAME#/cuda
