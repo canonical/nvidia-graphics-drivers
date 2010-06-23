@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (256.35-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Jun 2010 22:50:18 +0200
+
 nvidia-graphics-drivers (195.36.24-0ubuntu2) maverick; urgency=low
 
   * No change rebuild for new Xserver 1.8 ABI
