@@ -1,31 +1,31 @@
 debian/#DRIVERNAME#.override                 usr/share/lintian/overrides
 
-#DIRNAME#/usr/X11R6/lib/modules/drivers/nvidia_drv.so #PKGDRIVERSDIR#
-#DIRNAME#/usr/X11R6/lib/modules/extensions/libglx.so.#VERSION# #NVIDIAEXTENSION#
+#DIRNAME#/nvidia_drv.so #PKGDRIVERSDIR#
+#DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
-#DIRNAME#/usr/lib/libGL*.so*                  #PKGLIBDIR#
-#DIRNAME#/usr/lib/libnvidia*.so*              #PKGLIBDIR#
-#DIRNAME#/usr/lib/libcuda*.so*                #PKGLIBDIR#
-#DIRNAME#/usr/lib/libOpenCL*.so*              #PKGLIBDIR#
-#DIRNAME#/usr/lib/libnvidia-compiler*.so*     #PKGLIBDIR#
+#DIRNAME#/libGL*.so*                  #PKGLIBDIR#
+#DIRNAME#/libnvidia*.so*              #PKGLIBDIR#
+#DIRNAME#/libcuda*.so*                #PKGLIBDIR#
+#DIRNAME#/libOpenCL*.so*              #PKGLIBDIR#
+#DIRNAME#/libnvidia-compiler*.so*     #PKGLIBDIR#
 
-#DIRNAME#/usr/lib/vdpau/libvdpau_nvidia.so*   #PKGVDPAUDIR#
-#DIRNAME#/usr/lib/tls/*.so*                   #PKGTLSDIR#
+#DIRNAME#/libvdpau_nvidia.so*   #PKGVDPAUDIR#
+#DIRNAME#/tls/*.so*                   #PKGTLSDIR#
 
-#DIRNAME#/usr/X11R6/lib/libXvMCNVIDIA.so.#VERSION#  #PKGLIBDIR#
+#DIRNAME#/libXvMCNVIDIA.so.#VERSION#  #PKGLIBDIR#
 
 debian/dkms/patches/*                         usr/src/#DRIVERNAME#-#VERSION#/patches
 debian/dkms.conf                              usr/src/#DRIVERNAME#-#VERSION#
-debian/temp/modules/nvidia-kernel/nv/*        usr/src/#DRIVERNAME#-#VERSION#
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/#DRIVERNAME#-#VERSION#
 
-#DIRNAME#/usr/bin/nvidia-bug-report.sh #PKGBINDIR#
-#DIRNAME#/usr/bin/nvidia-xconfig #PKGBINDIR#
-#DIRNAME#/usr/bin/nvidia-smi #PKGBINDIR#
+#DIRNAME#/nvidia-bug-report.sh #PKGBINDIR#
+#DIRNAME#/nvidia-xconfig #PKGBINDIR#
+#DIRNAME#/nvidia-smi #PKGBINDIR#
 
-#DIRNAME#/usr/share/pixmaps/#DRIVERNAME#-settings.png #DATADIR#/pixmaps
+#DIRNAME#/#DRIVERNAME#-settings.png #DATADIR#/pixmaps
 
 debian/ubuntu-nvidia-settings.desktop   #PKGDESKDIR#
 
 debian/#AUTOSTARTFILE# #PKGDATADIR#
 
-#DIRNAME##SYSCONFDIR#/OpenCL/vendors/nvidia.icd #SYSCONFDIR#/OpenCL/vendors
+#DIRNAME#/nvidia.icd #SYSCONFDIR#/OpenCL/vendors
