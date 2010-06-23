@@ -131,7 +131,6 @@ regen-from-templates:
 			 $(PKG_driver).override            \
 			 $(PKG_driver).dirs                \
 			 $(PKG_driver).docs                \
-			 $(PKG_driver).examples            \
 			 $(PKG_driver).postrm              \
 			 $(PKG_driver).postinst            \
 			 $(PKG_driver).preinst             \
