@@ -247,7 +247,9 @@ endif
 	# Generate modaliases for Jockey and nvidia-common
 	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
 	sh -e $(CURDIR)/debian/nvidia_supported \
-		$(dirname)/kernel/nv-kernel.o nvidia_current $(PKG_driver) \
+		nvidia_current $(PKG_driver) \
+		$(dirname)/README.txt \
+		$(dirname)/kernel/nv-kernel.o \
 		> $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/$(PKG_driver)
 
 	# Configuration stuff
