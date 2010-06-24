@@ -1,6 +1,5 @@
 #PKGLIBDIR#/libGL.so.#VERSION# #PKGLIBDIR#/libGL.so.1
 #PKGLIBDIR#/libGL.so.1 #PKGLIBDIR#/libGL.so
-#PKGLIBDIR#/libGLcore.so.#VERSION# #PKGLIBDIR#/libGLcore.so.1
 
 #PKGLIBDIR#/libnvidia-cfg.so.#VERSION# #PKGLIBDIR#/libnvidia-cfg.so.1
 #PKGLIBDIR#/libnvidia-cfg.so.1 #PKGLIBDIR#/libnvidia-cfg.so
@@ -16,8 +15,6 @@
 
 #PKGVDPAUDIR#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR#/libvdpau_nvidia.so.1
 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so 
-
-#PKGLIBDIR#/libnvidia-tls.so.#VERSION# #PKGLIBDIR#/libnvidia-tls.so.1
 
 #PKGLIBDIR#/libOpenCL.so.1.0.0 #PKGLIBDIR#/libOpenCL.so.1.0
 #PKGLIBDIR#/libOpenCL.so.1.0 #PKGLIBDIR#/libOpenCL.so.1
