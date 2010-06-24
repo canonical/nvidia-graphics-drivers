@@ -1,28 +1,25 @@
-/usr/lib32/nvidia-current/libGL.so.195.36.24 /usr/lib32/nvidia-current/libGL.so.1
+/usr/lib32/nvidia-current/libGL.so.256.35 /usr/lib32/nvidia-current/libGL.so.1
 /usr/lib32/nvidia-current/libGL.so.1 /usr/lib32/nvidia-current/libGL.so
-/usr/lib32/nvidia-current/libGLcore.so.195.36.24 /usr/lib32/nvidia-current/libGLcore.so.1
 
-/usr/lib32/nvidia-current/libnvidia-cfg.so.195.36.24 /usr/lib32/nvidia-current/libnvidia-cfg.so.1
+/usr/lib32/nvidia-current/libnvidia-cfg.so.256.35 /usr/lib32/nvidia-current/libnvidia-cfg.so.1
 /usr/lib32/nvidia-current/libnvidia-cfg.so.1 /usr/lib32/nvidia-current/libnvidia-cfg.so
 
-/usr/lib/nvidia-current/xorg/libglx.so.195.36.24 /usr/lib/nvidia-current/xorg/libglx.so
+/usr/lib/nvidia-current/xorg/libglx.so.256.35 /usr/lib/nvidia-current/xorg/libglx.so
 
-/usr/lib32/nvidia-current/libXvMCNVIDIA.so.195.36.24 /usr/lib32/nvidia-current/libXvMCNVIDIA.so
-/usr/lib32/nvidia-current/libXvMCNVIDIA.so.195.36.24 /usr/lib32/nvidia-current/libXvMCNVIDIA.so.1
-/usr/lib32/nvidia-current/libXvMCNVIDIA.so.195.36.24 /usr/lib32/nvidia-current/libXvMCNVIDIA_dynamic.so.1
+/usr/lib32/nvidia-current/libXvMCNVIDIA.so.256.35 /usr/lib32/nvidia-current/libXvMCNVIDIA.so
+/usr/lib32/nvidia-current/libXvMCNVIDIA.so.256.35 /usr/lib32/nvidia-current/libXvMCNVIDIA.so.1
+/usr/lib32/nvidia-current/libXvMCNVIDIA.so.256.35 /usr/lib32/nvidia-current/libXvMCNVIDIA_dynamic.so.1
 
-/usr/lib32/nvidia-current/libcuda.so.195.36.24 /usr/lib32/nvidia-current/libcuda.so
-/usr/lib32/nvidia-current/libcuda.so.195.36.24 /usr/lib32/nvidia-current/libcuda.so.1
+/usr/lib32/nvidia-current/libcuda.so.256.35 /usr/lib32/nvidia-current/libcuda.so
+/usr/lib32/nvidia-current/libcuda.so.256.35 /usr/lib32/nvidia-current/libcuda.so.1
 
-/usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.195.36.24 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.256.35 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so
-
-/usr/lib32/nvidia-current/libnvidia-tls.so.195.36.24 /usr/lib32/nvidia-current/libnvidia-tls.so.1
 
 /usr/lib32/nvidia-current/libOpenCL.so.1.0.0 /usr/lib32/nvidia-current/libOpenCL.so.1.0
 /usr/lib32/nvidia-current/libOpenCL.so.1.0 /usr/lib32/nvidia-current/libOpenCL.so.1
 /usr/lib32/nvidia-current/libOpenCL.so.1 /usr/lib32/nvidia-current/libOpenCL.so
 /usr/lib32/nvidia-current/libOpenCL.so /usr/lib32/libOpenCL.so
 
-/usr/lib32/nvidia-current/libnvidia-compiler.so.195.36.24 /usr/lib32/nvidia-current/libnvidia-compiler.so.1
+/usr/lib32/nvidia-current/libnvidia-compiler.so.256.35 /usr/lib32/nvidia-current/libnvidia-compiler.so.1
 /usr/lib32/nvidia-current/libnvidia-compiler.so.1 /usr/lib32/nvidia-current/libnvidia-compiler.so
