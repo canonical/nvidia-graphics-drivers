@@ -170,6 +170,7 @@ regen-from-templates:
 			-e "s|#PKGVDPAUDIR#|$(PKG_vdpaudir)|g" \
 			-e "s|#PKGVDPAUDIR32#|$(PKG_vdpaudir32)|g" \
 			-e "s|#PKGTLSDIR#|$(PKG_tlsdir)|g" \
+			-e "s|#PKGTLSDIR32#|$(PKG_tlsdir32)|g" \
 			-e "s|#PKGLIBCONFDIR#|$(PKG_libconfdir)|g" \
 			debian/$$i.in > debian/$$i;      \
 	done
