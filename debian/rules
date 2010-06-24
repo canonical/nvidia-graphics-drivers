@@ -192,16 +192,16 @@ configure/$(PKG_driver)::
 	./$(filename_x86_64) --extract-only
 	
 	# Get around Xen checks
-	cp $(dirname)/usr/src/nv/nv.c $(dirname)/usr/src/nv/nv1.c
-	cp $(dirname)/usr/src/nv/nv-linux.h $(dirname)/usr/src/nv/nv-linux1.h
-	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/usr/src/nv/nv1.c > $(dirname)/usr/src/nv/nv.c
-	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/usr/src/nv/nv-linux1.h > $(dirname)/usr/src/nv/nv-linux.h
-	rm $(dirname)/usr/src/nv/nv1.c
-	rm $(dirname)/usr/src/nv/nv-linux1.h
+	cp $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
+	cp $(dirname)/kernel/nv-linux.h $(dirname)/kernel/nv-linux1.h
+	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nv1.c > $(dirname)/kernel/nv.c
+	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nv-linux1.h > $(dirname)/kernel/nv-linux.h
+	rm $(dirname)/kernel/nv1.c
+	rm $(dirname)/kernel/nv-linux1.h
 
 	# kernel module source
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/nv
-	cp -R $(CURDIR)/$(dirname)/usr/src/nv $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	cp -R $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
 	cp $(CURDIR)/debian/temp/modules/nvidia-kernel/nv/Makefile.kbuild \
 	   $(CURDIR)/debian/temp/modules/nvidia-kernel/nv/Makefile
 
@@ -247,7 +247,7 @@ endif
 	# Generate modaliases for Jockey and nvidia-common
 	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
 	sh -e $(CURDIR)/debian/nvidia_supported \
-		$(dirname)/usr/src/nv/nv-kernel.o nvidia_current $(PKG_driver) \
+		$(dirname)/kernel/nv-kernel.o nvidia_current $(PKG_driver) \
 		> $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/$(PKG_driver)
 
 	# Configuration stuff
