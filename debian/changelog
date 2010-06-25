@@ -1,8 +1,82 @@
 nvidia-graphics-drivers (256.35-0ubuntu1) UNRELEASED; urgency=low
 
-  * New upstream release.
+  * debian/nvidia-current-dev*:
+    - Make the dev package conflict with other dev packages which
+      provide nvidia-dev so as to make it possible to install
+      headers directly in /usr/include.
+  * Adapt the packaging scripts to the new NVIDIA installers.
+  * New upstream release:
+    - Fixed a 3D Vision Stereo bug that caused the stereo glasses
+      to not toggle when the flat panel was not running at its
+      native mode timings.
+    - Fixed a bug which prevented use of high performance PowerMizer
+      levels on systems with certain ACPI configurations.
+    - Fixed a bug that caused non-primary Fermi GPUs to fail to
+      initialize framebuffer memory. This caused a variety of
+      symptoms, up to and including system hangs.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extensions:
+      o GL_ARB_blend_func_extended
+      o GL_ARB_draw_buffers_blend
+      o GL_ARB_sample_shading
+      o GL_ARB_timer_query
+      o GL_EXT_draw_buffers2
+      o GL_EXT_separate_shader_objects
+      o GL_NV_explicit_multisample
+      o GL_NV_transform_feedback
+    - Fixed an interaction problem between Compiz and
+      'screen-scraping' VNC servers like x11vnc and vino that
+      caused the screen to stop updating (LP: #353126).
+    - Enhanced VDPAU to add basic support for Xinerama. VDPAU will
+      now operate on a single physical X screen under Xinerama.
+      See the README for more details.
+    - Enhanced VDPAU's handling of corrupt clips of all formats
+      on GPUs with VDPAU feature set C to be at least as good as
+      on GPUs with VDPAU feature set B. This significantly
+      improves various clips provided by nvnews.net user eamiller.
+    - Fixed a bug in Xv attribute handling that caused hue,
+      saturation, brightness and contrast values to be misapplied
+      when using an Xv overlay adaptor.
+    - Fixed a bug in the XvMC driver that prevented it from
+      working on systems with AGP graphics cards.
+    - Enhanced VDPAU to clear all VdpVideoSurfaces to black when
+      allocated. This provides more consistent results when using
+      a surface as a reference when no prior decode operation has
+      written to that surface. In turn, this improves the results
+      of decoding some corrupt streams, such as "p_only_no_play"
+      from ffmpeg bug 1124.
+    - Implemented new APIs to allow sharing VDPAU surfaces with
+      OpenGL andCUDA. The OpenGL extension is GL_NV_vdpau_interop.
+      For CUDA, please see the documentation in the CUDA toolkit
+      for details.
+    - Worked around a bug where the combination of a GPU with
+      VDPAU feature set A together with specific motherboard
+      chipsets could cause visible corruption when decoding some
+      MPEG-2 streams.
+    - Fixed a bug that prevented the VDPAU overlay-based
+      presentation queue from being used more than a few hundred
+      times per X server invocation.
+    - Renamed the driver file libGLcore.so.VERSION to
+      libnvidia-glcore.so.VERSION, as a small step towards
+      reducing the filename collisions between NVIDIA's and
+      MESA's OpenGL implementations.This driver file is used by
+      NVIDIA's libGL.so and libglx.so, and should never be used
+      directly by applications.
+    - Changed the SONAME of libnvidia-glcore.so.VERSION,
+      libnvidia-tls.so.VERSION, and libnvidia-compiler.so.VERSION
+      to be ".so.VERSION", rather than ".so.1". These driver files
+      are only used by other NVIDIA driver components, and are
+      only intended to be usedby components of the matching NVIDIA
+      driver version.
+    - Removed the "-pkg#" suffix from the NVIDIA Linux .run files.
+      The packages are now simply named "NVIDIA-Linux-ARCH-VERSION.run".
+      On Linux-x86_64, a package which omits the 32-bit compatibility
+      libraries is also available:
+      "NVIDIA-Linux-x86_64-VERSION-no-compat32.run"
+    - Compressed the nvidia-settings, nvidia-installer and
+      nvidia-xconfig tarballs with bzip2, rather than gzip.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Jun 2010 22:50:18 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Jun 2010 12:42:09 +0200
 
 nvidia-graphics-drivers (195.36.24-0ubuntu2) maverick; urgency=low
 
