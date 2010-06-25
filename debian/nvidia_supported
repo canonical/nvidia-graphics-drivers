@@ -5,7 +5,7 @@ set -e
 # upgrading to a new release of the nvidia driver, though.
 
 if [ "$#" -ne 4 ]; then
-  printf 'USAGE: %s modulename packagename README.txt nv-kernel.o\n' "$0"
+  >&2 printf 'USAGE: %s modulename packagename README.txt nv-kernel.o\n' "$0"
   exit 1
 fi
 
