@@ -4,6 +4,9 @@ nvidia-graphics-drivers (256.35-0ubuntu1) UNRELEASED; urgency=low
     - Make the dev package conflict with other dev packages which
       provide nvidia-dev so as to make it possible to install
       headers directly in /usr/include.
+  * debian/nvidia_supported:
+    - Adapted to make up for the removal of most ids from the
+      binary. Thanks to Jοhan Kiviniemi for the changes.
   * Adapt the packaging scripts to the new NVIDIA installers.
   * New upstream release:
     - Fixed a 3D Vision Stereo bug that caused the stereo glasses
@@ -76,7 +79,7 @@ nvidia-graphics-drivers (256.35-0ubuntu1) UNRELEASED; urgency=low
     - Compressed the nvidia-settings, nvidia-installer and
       nvidia-xconfig tarballs with bzip2, rather than gzip.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Jun 2010 12:42:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Jun 2010 15:00:33 +0200
 
 nvidia-graphics-drivers (195.36.24-0ubuntu2) maverick; urgency=low
 
