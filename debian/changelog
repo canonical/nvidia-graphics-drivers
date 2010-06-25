@@ -1,12 +1,10 @@
 nvidia-graphics-drivers (256.35-0ubuntu1) UNRELEASED; urgency=low
 
+  [ Alberto Milone ]
   * debian/nvidia-current-dev*:
     - Make the dev package conflict with other dev packages which
       provide nvidia-dev so as to make it possible to install
       headers directly in /usr/include.
-  * debian/nvidia_supported:
-    - Adapted to make up for the removal of most ids from the
-      binary. Thanks to Jοhan Kiviniemi for the changes.
   * Adapt the packaging scripts to the new NVIDIA installers.
   * New upstream release:
     - Fixed a 3D Vision Stereo bug that caused the stereo glasses
@@ -78,6 +76,14 @@ nvidia-graphics-drivers (256.35-0ubuntu1) UNRELEASED; urgency=low
       "NVIDIA-Linux-x86_64-VERSION-no-compat32.run"
     - Compressed the nvidia-settings, nvidia-installer and
       nvidia-xconfig tarballs with bzip2, rather than gzip.
+
+  [ Johan Kiviniemi ]
+  * debian/nvidia_supported:
+    - nVidia changed the driver blob so that the old heuristic for finding the
+      symbol with the PCI ID list failed. Implement a new heuristic by finding
+      the symbol that matches the ID list in README closely enough. (README is
+      missing a great number of IDs, which is why we need to grab the list
+      from the blob in the first place).
 
  -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Jun 2010 15:00:33 +0200
 
