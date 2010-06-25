@@ -1,31 +1,31 @@
 debian/nvidia-current.override                 usr/share/lintian/overrides
 
-NVIDIA-Linux-x86_64-256.35/nvidia_drv.so /usr/lib/nvidia-current/xorg
-NVIDIA-Linux-x86_64-256.35/libglx.so.256.35 /usr/lib/nvidia-current/xorg
+NVIDIA-Linux-x86_64-256.35-no-compat32/nvidia_drv.so /usr/lib/nvidia-current/xorg
+NVIDIA-Linux-x86_64-256.35-no-compat32/libglx.so.256.35 /usr/lib/nvidia-current/xorg
 
-NVIDIA-Linux-x86_64-256.35/libGL*.so*                  /usr/lib/nvidia-current
-NVIDIA-Linux-x86_64-256.35/libnvidia*.so*              /usr/lib/nvidia-current
-NVIDIA-Linux-x86_64-256.35/libcuda*.so*                /usr/lib/nvidia-current
-NVIDIA-Linux-x86_64-256.35/libOpenCL*.so*              /usr/lib/nvidia-current
-NVIDIA-Linux-x86_64-256.35/libnvidia-compiler*.so*     /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-256.35-no-compat32/libGL*.so*                  /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-256.35-no-compat32/libnvidia*.so*              /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-256.35-no-compat32/libcuda*.so*                /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-256.35-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-256.35-no-compat32/libnvidia-compiler*.so*     /usr/lib/nvidia-current
 
-NVIDIA-Linux-x86_64-256.35/libvdpau_nvidia.so*   /usr/lib/nvidia-current/vdpau
-NVIDIA-Linux-x86_64-256.35/tls/*.so*                   /usr/lib/nvidia-current/tls
+NVIDIA-Linux-x86_64-256.35-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-current/vdpau
+NVIDIA-Linux-x86_64-256.35-no-compat32/tls/*.so*                   /usr/lib/nvidia-current/tls
 
-NVIDIA-Linux-x86_64-256.35/libXvMCNVIDIA.so.256.35  /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-256.35-no-compat32/libXvMCNVIDIA.so.256.35  /usr/lib/nvidia-current
 
 debian/dkms/patches/*                         usr/src/nvidia-current-256.35/patches
 debian/dkms.conf                              usr/src/nvidia-current-256.35
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-current-256.35
 
-NVIDIA-Linux-x86_64-256.35/nvidia-bug-report.sh /usr/lib/nvidia-current/bin
-NVIDIA-Linux-x86_64-256.35/nvidia-xconfig /usr/lib/nvidia-current/bin
-NVIDIA-Linux-x86_64-256.35/nvidia-smi /usr/lib/nvidia-current/bin
+NVIDIA-Linux-x86_64-256.35-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-current/bin
+NVIDIA-Linux-x86_64-256.35-no-compat32/nvidia-xconfig /usr/lib/nvidia-current/bin
+NVIDIA-Linux-x86_64-256.35-no-compat32/nvidia-smi /usr/lib/nvidia-current/bin
 
-NVIDIA-Linux-x86_64-256.35/nvidia-current-settings.png /usr/share/pixmaps
+NVIDIA-Linux-x86_64-256.35-no-compat32/nvidia-current-settings.png /usr/share/pixmaps
 
 debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-current
 
 debian/nvidia-autostart.desktop /usr/share/nvidia-current
 
-NVIDIA-Linux-x86_64-256.35/nvidia.icd /etc/OpenCL/vendors
+NVIDIA-Linux-x86_64-256.35-no-compat32/nvidia.icd /etc/OpenCL/vendors
