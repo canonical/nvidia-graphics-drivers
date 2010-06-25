@@ -1,5 +1,5 @@
 #DIRNAME#/libXvMCNVIDIA.a       #PKGLIBDIR#
 
-#DIRNAME#/cl*.h                                #INCLUDEDIR#/#DRIVERNAME#/CL
-#DIRNAME#/gl*.h                                #INCLUDEDIR#/#DRIVERNAME#/GL
-#DIRNAME#/cuda*.h                              #INCLUDEDIR#/#DRIVERNAME#/cuda
+#DIRNAME#/cl*.h                                #INCLUDEDIR#/CL
+#DIRNAME#/gl*.h                                #INCLUDEDIR#/GL
+#DIRNAME#/cuda*.h                              #INCLUDEDIR#/cuda
