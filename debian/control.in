@@ -32,7 +32,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  
 Package: #DRIVERDEVNAME#
 Architecture: i386 amd64 lpia
-Conflicts: nvidia-dev
+Conflicts: nvidia-dev, mesa-common-dev
 Provides: nvidia-dev
 Depends: #DRIVERNAME# (>= #VERSION#)
 Description: NVIDIA binary Xorg driver development files
