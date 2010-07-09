@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (256.35-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (256.35-0ubuntu2) maverick; urgency=low
 
   * debian/nvidia-current-dev*, debian/control.in:
-    - Revert my previous changes, remove the conflicts with other
-      dev packages and install the headers in the driver's
-      directory as we used to do (LP: #600397).
+    - Revert my previous changes which involved adding conflicts
+      with other dev packages and installing the headers directly
+      in /usr/include (LP: #600397).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2010 16:21:29 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2010 16:39:34 +0200
 
 nvidia-graphics-drivers (256.35-0ubuntu1) maverick; urgency=low
 
