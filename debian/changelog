@@ -94,7 +94,7 @@ nvidia-graphics-drivers (256.35-0ubuntu1) maverick; urgency=low
       missing a great number of IDs, which is why we need to grab the list
       from the blob in the first place).
 
- -- Alberto Milone <alberto.milone@canonical.com>   Mon, 28 Jun 2010 11:22:03 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 28 Jun 2010 11:22:03 +0000
 
 nvidia-graphics-drivers (195.36.24-0ubuntu2) maverick; urgency=low
 
