@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (256.35-0ubuntu3) UNRELEASED; urgency=low
+
+  * debian/nvidia-current.dirs.in:
+    - Remove duplicate line. 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Jul 2010 10:57:51 +0200
+
 nvidia-graphics-drivers (256.35-0ubuntu2) maverick; urgency=low
 
   * debian/nvidia-current-dev*, debian/control.in:
