@@ -1,6 +1,5 @@
 /etc/modprobe.d
 /etc/OpenCL/vendors
-/usr/lib/nvidia-current
 /etc/xdg/autostart
 /usr/bin
 /usr/lib/nvidia-current/tls
