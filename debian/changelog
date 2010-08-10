@@ -1,9 +1,31 @@
-nvidia-graphics-drivers (256.35-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (256.44-0ubuntu1) maverick; urgency=low
 
+  * debian/rules:
+    - Switch to new xsfbs variables to get the server abi.
   * debian/nvidia-current.dirs.in:
     - Remove duplicate line. 
+  * New upstream release:
+    - Added Support for GeForce GTX 460.
+    - Added Support for Quadro 4000, Quadro 5000, and Quadro 6000.
+    - Updated nvidia-installer to detect the nouveau kernel module
+      and fail with an appropriate error message.
+    - Added information to the NVIDIA driver README on how to
+      disable the nouveau driver.
+    - Fixed VDPAU to not print a debug error message when calling
+      VdpVideoMixerQueryFeatureSupport with an unsupported or
+      unknown VdpVideoMixerFeature.
+    - Removed the requirement that in TwinView passive stereo,
+      MetaModes must have identical viewports on each monitor.
+    - Removed the requirement that in active stereo, all monitors
+      must use identical modetimings.
+    - Enhanced VDPAU to better report certain kinds of
+      initialization error.
+    - Fixed a regression that caused Xv to return BadAlloc errors
+      on AGP systems when using the AGP GART driver contained in
+      the NVIDIA driver.This fixes the problem reported in
+      nvnews.net thread 151199.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Jul 2010 10:57:51 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Aug 2010 16:56:44 +0200
 
 nvidia-graphics-drivers (256.35-0ubuntu2) maverick; urgency=low
 

@@ -19,11 +19,13 @@
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 
-SERVERMINVERS = $(shell cat /usr/share/xserver-xorg/serverminver 2>/dev/null)
+VIDEODEP = $(shell cat /usr/share/xserver-xorg/videodrvdep 2>/dev/null)
+INPUTDEP = $(shell cat /usr/share/xserver-xorg/xinputdep 2>/dev/null)
+
 VIDEOABI = $(shell cat /usr/share/xserver-xorg/videoabiver 2>/dev/null)
 INPUTABI = $(shell cat /usr/share/xserver-xorg/inputabiver 2>/dev/null)
-SERVER_DEPENDS = xserver-xorg-core (>= $(SERVERMINVERS))
-VIDDRIVER_PROVIDES = xserver-xorg-video-$(VIDEOABI)
+VIDDRIVER_PROVIDES = xserver-xorg-video-$(VIDEOABI), xorg-driver-video
+INPDRIVER_PROVIDES = xserver-xorg-input-$(INPUTABI), xorg-driver-input
 
 
 # Package names
@@ -107,15 +109,17 @@ DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(P
 # packages are built
 .PHONY: serverabi
 serverabi:
-ifeq ($(SERVERMINVERS),)
-	@echo error: xserver-xorg-dev needs to be installed
+ifeq ($(VIDEODEP),)
+	@echo 'error: xserver-xorg-dev >= 1.7.6.901 needs to be installed'
 	@exit 1
 else
-	echo "xserver:Depends=$(SERVER_DEPENDS)" >> debian/$(PKG_driver).substvars
+	echo "xviddriver:Depends=$(VIDEODEP)" >> debian/$(PKG_driver).substvars
+	echo "xinpdriver:Depends=$(INPUTDEP)" >> debian/$(PKG_driver).substvars
+	# the following is there for compatibility...
 	echo "xviddriver:Provides=$(VIDDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
 	echo "xinpdriver:Provides=$(INPDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
+	echo "xserver:Depends=$(VIDEODEP), $(INPUTDEP)" >> debian/$(PKG_driver).substvars
 endif
-#			 $(PKG_driver).shlibs              \
 
 .PHONY: regen-from-templates
 regen-from-templates:
