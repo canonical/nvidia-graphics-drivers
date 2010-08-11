@@ -1,7 +1,8 @@
 nvidia-graphics-drivers (256.44-0ubuntu1) maverick; urgency=low
 
   * debian/rules:
-    - Switch to new xsfbs variables to get the server abi.
+    - Switch to new xsfbs variables to get the server abi
+      (LP: #616214).
   * debian/nvidia-current.dirs.in:
     - Remove duplicate line. 
   * New upstream release:
@@ -25,7 +26,7 @@ nvidia-graphics-drivers (256.44-0ubuntu1) maverick; urgency=low
       the NVIDIA driver.This fixes the problem reported in
       nvnews.net thread 151199.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Aug 2010 16:56:44 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Aug 2010 17:38:08 +0200
 
 nvidia-graphics-drivers (256.35-0ubuntu2) maverick; urgency=low
 
