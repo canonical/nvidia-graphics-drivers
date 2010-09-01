@@ -1,3 +1,30 @@
+nvidia-graphics-drivers (256.53-0ubuntu1) maverick; urgency=low
+
+  [ Alberto Milone ]
+  * New upstream release:
+    - Fixed a bug that prevented XvMC from initializing in most
+      cases.
+    - Added support for xorg-server video driver ABI version 8,
+      which will be included in the xorg-server-1.9 series of
+      releases (LP: #616023).
+    - Fixed a bug that caused extremely slow rendering of OpenGL
+      applications on X screens other than screen 0 when using a
+      compositing manager.
+    - Fixed a regression introduced after 256.35 that caused
+      stability problems on GPUs such as GeForce GT 240.
+    - Fixed a slow kernel virtual address space leak observed
+      when starting and stopping OpenGL, CUDA, or VDPAU
+      applications.
+    - Fixed a bug that left the system susceptible to hangs
+      when running two or more VDPAU applications simultaneously.
+
+  [ Robert Hooker ]
+  * debian/dkms/patches/nvidia-2.6.36-ioctl.patch:
+    - Add patch from nvnews to add compatibility with kernel
+      2.6.36.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 02 Sep 2010 16:39:53 +0200
+
 nvidia-graphics-drivers (256.44-0ubuntu1) maverick; urgency=low
 
   * debian/rules:
