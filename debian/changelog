@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (256.53-0ubuntu2) maverick; urgency=low
+
+  * debian/dkms/patches/nvidia-2.6.36-ioctl.patch:
+    - Fix malformed patch (LP: #630690).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Sep 2010 12:02:08 +0200
+
 nvidia-graphics-drivers (256.53-0ubuntu1) maverick; urgency=low
 
   [ Alberto Milone ]
