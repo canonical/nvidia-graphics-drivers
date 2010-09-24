@@ -135,7 +135,7 @@ case "$1" in
         LDCONFIG_NOTRIGGER=y ldconfig
 
         # Trigger gmenu so that the icons will show up in the menu
-        dpkg-trigger gmenucache || true
+        dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
 
         CURRENT_KERNEL=$(uname -r)
         NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")

@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (256.53-0ubuntu3) maverick; urgency=low
+
+  * debian/nvidia-current.postinst{.in}:
+    - Call dpkg-trigger with "--by-package".
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Sep 2010 10:45:19 +0200
+
 nvidia-graphics-drivers (256.53-0ubuntu2) maverick; urgency=low
 
   * debian/dkms/patches/nvidia-2.6.36-ioctl.patch:
