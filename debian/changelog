@@ -1,3 +1,27 @@
+nvidia-graphics-drivers (260.19.06-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release:
+    - Fixed an interaction problem with a change in X server
+      behavior that caused slow text rendering on X.Org xserver
+      1.9 (LP: #629910).
+    - Enhanced VDPAU to support interop with CUDA and OpenGL
+      when Xinerama is active.
+    - Fixed a bug in VDPAU that prevented temporal-spatial
+      de-interlacing from operating when temporal de-interlacing
+      was not also enabled.
+    - Added support for configuring the dithering depth used when
+      driving a flat panel with a GeForce 8 family or Quadro
+      4600/5600 or newer GPU. See the "Dithering Controls" in the
+      Flat Panel page in nvidia-settings.
+  * debian/headers, nvidia-current-dev.install{.in}:
+   - Put the headers from 256.53 in debian/headers and install
+     them in nvidia-current-dev as usual. Starting from the 260
+     series, these headers are no longer distributed with the
+     Nvidia installer. In Natty we'll package them separately
+     but for now we'll keep them in nvidia-current-dev.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Sep 2010 17:43:06 +0200
+
 nvidia-graphics-drivers (256.53-0ubuntu3) maverick; urgency=low
 
   * debian/nvidia-current.postinst{.in}:
