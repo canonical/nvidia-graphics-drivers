@@ -19,8 +19,10 @@ nvidia-graphics-drivers (260.19.06-0ubuntu1) UNRELEASED; urgency=low
      series, these headers are no longer distributed with the
      Nvidia installer. In Natty we'll package them separately
      but for now we'll keep them in nvidia-current-dev.
+  * debian/dkms/patches/nvidia-2.6.36-ioctl.patch:
+    - Refresh patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Sep 2010 17:43:06 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Oct 2010 15:00:34 +0200
 
 nvidia-graphics-drivers (256.53-0ubuntu3) maverick; urgency=low
 

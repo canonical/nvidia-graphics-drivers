@@ -1,12 +1,13 @@
-diff -ur kernel.orig//nv.c kernel//nv.c
---- kernel.orig//nv.c	2010-08-28 05:28:03.000000000 +0200
-+++ kernel//nv.c	2010-09-06 11:54:23.875696003 +0200
-@@ -423,7 +423,7 @@
- static struct file_operations nv_fops = {
+diff --git a/nv.c b/nv.c
+index 54be61e..2390c94 100644
+--- a/nv.c
++++ b/nv.c
+@@ -393,7 +393,7 @@ static struct file_operations nv_fops = {
      .owner     = THIS_MODULE,
      .poll      = nv_kern_poll,
+ #if defined(NV_FILE_OPERATIONS_HAS_IOCTL)
 -    .ioctl     = nv_kern_ioctl,
 +    .unlocked_ioctl = nv_kern_unlocked_ioctl,
- #if defined(HAVE_UNLOCKED_IOCTL)
-     .unlocked_ioctl = nv_kern_unlocked_ioctl,
  #endif
+ #if defined(NV_FILE_OPERATIONS_HAS_UNLOCKED_IOCTL)
+     .unlocked_ioctl = nv_kern_unlocked_ioctl,
