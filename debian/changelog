@@ -1,3 +1,16 @@
+nvidia-graphics-drivers (260.19.21-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release:
+    - Fixed a race condition in OpenGL that could cause crashes with
+      multithreaded applications.
+    - Fixed a bug that may cause OpenGL applications which fork to
+      crash.
+    - Fixed a bug in VDPAU that caused it to attempt allocation of
+      huge blocks of system memory. This regression was introduced
+      in the 260.* driver series.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 21 Nov 2010 14:37:05 +0100
+
 nvidia-graphics-drivers (260.19.06-0ubuntu1) maverick; urgency=low
 
   * New upstream release:
