@@ -15,8 +15,8 @@
 /usr/share/lintian/overrides
 /usr/lib/nvidia-current/xorg
 /usr/lib/nvidia-current/xorg
-/usr/src/nvidia-current-260.19.06
-/usr/src/nvidia-current-260.19.06/patches
+/usr/src/nvidia-current-260.19.21
+/usr/src/nvidia-current-260.19.21/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-current
