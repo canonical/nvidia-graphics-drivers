@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (260.19.21-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.21-0ubuntu1) natty; urgency=low
 
   * New upstream release:
     - Fixed a race condition in OpenGL that could cause crashes with
@@ -12,7 +12,7 @@ nvidia-graphics-drivers (260.19.21-0ubuntu1) UNRELEASED; urgency=low
     - Apply nvidia-2.6.36-ioctl.patch when dealing with 2.6.37
       kernels too.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Sun, 21 Nov 2010 14:41:13 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 21 Nov 2010 15:36:34 +0100
 
 nvidia-graphics-drivers (260.19.06-0ubuntu1) maverick; urgency=low
 
