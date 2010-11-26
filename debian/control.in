@@ -22,7 +22,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  This package also includes the source for building the kernel module
  required by the Xorg driver, and provides NVIDIA's implementation of
  the Video Decode and presentation API. The latter enables acceleration
- for NVIDIA 8 and later series cards for h264 video.
+ for GeForce 8 and later series cards for h264 video.
  .
  GPUs such as GeForce series 6 or newer are supported.
  .
