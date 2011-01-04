@@ -31,7 +31,6 @@ INPDRIVER_PROVIDES = xserver-xorg-input-$(INPUTABI), xorg-driver-input
 # Package names
 PKG_driver           := nvidia-current
 PKG_driver_dev       := $(PKG_driver)-dev
-PKG_modalias         := $(PKG_driver)-modaliases
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(PKG_driver)
@@ -257,7 +256,9 @@ endif
 		nvidia_current $(PKG_driver) \
 		$(dirname)/README.txt \
 		$(dirname)/kernel/nv-kernel.o \
-		> $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/$(PKG_driver)
+		> $(CURDIR)/debian/$(PKG_driver).modaliases
+	dh_modaliases
+	rm $(CURDIR)/debian/$(PKG_driver).modaliases
 
 	# Configuration stuff
 
