@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (260.19.29-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.29-0ubuntu1) natty; urgency=low
 
   * New upstream release:
     - Added support for the following GPUs:
@@ -29,7 +29,7 @@ nvidia-graphics-drivers (260.19.29-0ubuntu1) UNRELEASED; urgency=low
       In practice this means that you can replace any part of the ID string
       with .* to match anything.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 14:50:23 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 18:13:43 +0100
 
 nvidia-graphics-drivers (260.19.21-0ubuntu2) natty; urgency=low
 
