@@ -25,10 +25,15 @@ case "$1" in
 		update-alternatives --remove gl_conf /usr/lib/nvidia-current/ld.so.conf
 
 		# Trigger gmenu so as to update the gnome menu
-		dpkg-trigger gmenucache || true
+		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
 
 		# explicit ldconfig due to alternatives
 		ldconfig
+
+		# Update the grub gfxpayload blacklist
+		if which update-grub-gfxpayload >/dev/null 2>&1; then
+		    update-grub-gfxpayload
+		fi
 	;;
 esac
 
