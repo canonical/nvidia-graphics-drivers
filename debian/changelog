@@ -1,8 +1,10 @@
 nvidia-graphics-drivers (260.19.21-0ubuntu3) UNRELEASED; urgency=low
 
-  * 
+  * debian/control{.in}:
+    - Replace "NVIDIA 8" with "GeForce 8" in the description
+     (LP: #639976). Thanks to Gaurav Aggarwal for the patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 12:35:09 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 26 Nov 2010 16:01:40 +0100
 
 nvidia-graphics-drivers (260.19.21-0ubuntu2) natty; urgency=low
 
