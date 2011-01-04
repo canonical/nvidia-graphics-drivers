@@ -1,5 +1,21 @@
-nvidia-graphics-drivers (260.19.21-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.29-0ubuntu1) UNRELEASED; urgency=low
 
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 460 SE
+      o GeForce GTX 570
+      o Quadro 5000M
+      o NVS 300
+    - Fixed a bug that caused some OpenGL applications to become unresponsive
+      for up to a minute on some GPUs when changing the resolution or refresh
+      rate.
+    - Added support for NVIDIA 3D Vision Pro.
+    - See the "Stereo" X configuration documentation in the README for further
+      details.
+    - Added a new X configuration option "3DVisionProConfigFile" to allow user
+      provide a filename which NVIDIA X driver uses to store 3D Vision Pro
+      configuration settings. See "Appendix B. X Config Options" in the README
+      for more information.
   * debian/control{.in}:
     - Replace "NVIDIA 8" with "GeForce 8" in the description
      (LP: #639976). Thanks to Gaurav Aggarwal for the patch.
@@ -13,7 +29,7 @@ nvidia-graphics-drivers (260.19.21-0ubuntu3) UNRELEASED; urgency=low
       In practice this means that you can replace any part of the ID string
       with .* to match anything.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 14:46:56 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 14:50:23 +0100
 
 nvidia-graphics-drivers (260.19.21-0ubuntu2) natty; urgency=low
 
