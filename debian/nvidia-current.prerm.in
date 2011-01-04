@@ -29,6 +29,11 @@ case "$1" in
 
 		# explicit ldconfig due to alternatives
 		ldconfig
+
+		# Update the grub gfxpayload blacklist
+		if which update-grub-gfxpayload >/dev/null 2>&1; then
+		    update-grub-gfxpayload
+		fi
 	;;
 esac
 

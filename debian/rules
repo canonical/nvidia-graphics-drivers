@@ -90,6 +90,7 @@ vdpaudir             := $(libdir)/vdpau
 tlsdir               := $(libdir)/tls
 vdpaudir32           := $(libdir32)/vdpau
 tlsdir32             := $(libdir32)/tls
+grub_blacklistdir    := /usr/share/grub-gfxpayload-lists/blacklist
 
 # This is a hack to make sure that
 # the blacklist file is available
@@ -178,6 +179,7 @@ regen-from-templates:
 			-e "s|#PKGTLSDIR#|$(PKG_tlsdir)|g" \
 			-e "s|#PKGTLSDIR32#|$(PKG_tlsdir32)|g" \
 			-e "s|#PKGLIBCONFDIR#|$(PKG_libconfdir)|g" \
+			-e "s|#GRUBBLKLISTDIR#|$(grub_blacklistdir)|g" \
 			debian/$$i.in > debian/$$i;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)

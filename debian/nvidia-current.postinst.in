@@ -131,7 +131,8 @@ case "$1" in
             --slave #VDPAUDIR#/libvdpau_nvidia.so.1 libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 \
             --slave #LIBDIR#/libvdpau_nvidia.so libvdpau_nvidia.so #PKGVDPAUDIR#/libvdpau_nvidia.so \
             --slave #VDPAUDIR32#/libvdpau_nvidia.so.1 libvdpau_nvidia.so.1_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 \
-            --slave #LIBDIR32#/libvdpau_nvidia.so libvdpau_nvidia.so_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so
+            --slave #LIBDIR32#/libvdpau_nvidia.so libvdpau_nvidia.so_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so \
+            --slave #GRUBBLKLISTDIR#/10_$PACKAGE_NAME grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
 
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
@@ -152,6 +153,11 @@ case "$1" in
                 # This can fail when dealing with a chroot see LP: #556653
                 update-initramfs -u -k $CURRENT_KERNEL || true
             fi
+        fi
+
+        # Update the grub gfxpayload blacklist
+        if which update-grub-gfxpayload >/dev/null 2>&1; then
+            update-grub-gfxpayload
         fi
 
         # If the delayed module build feature is enabled
