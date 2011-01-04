@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (260.19.21-0ubuntu3) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 12:35:09 +0100
+
 nvidia-graphics-drivers (260.19.21-0ubuntu2) natty; urgency=low
 
   * Move from separate modalias file package to using a package header:
