@@ -3,8 +3,17 @@ nvidia-graphics-drivers (260.19.21-0ubuntu3) UNRELEASED; urgency=low
   * debian/control{.in}:
     - Replace "NVIDIA 8" with "GeForce 8" in the description
      (LP: #639976). Thanks to Gaurav Aggarwal for the patch.
+  * Add support for blacklisting card ids from GRUB gfxpayload=keep:
+    - In Natty gfxpayload=keep is set by default so as to provide a framebuffer
+      early in the boot process. Some cards don't play nicely with it, therefore
+      we need to blacklist them in a file. The format is a sequence of lines of
+      the following form:
+        vVENDORdDEVICEsvSUBVENDORsdSUBDEVICEbcBASECLASSscSUBCLASS
+      Blacklist lines are regex-matched against a corresponding PCI ID string.
+      In practice this means that you can replace any part of the ID string
+      with .* to match anything.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 26 Nov 2010 16:01:40 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jan 2011 14:46:56 +0100
 
 nvidia-graphics-drivers (260.19.21-0ubuntu2) natty; urgency=low
 
