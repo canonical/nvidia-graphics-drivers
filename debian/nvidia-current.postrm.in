@@ -21,7 +21,10 @@ set -e
 
 case "$1" in
     remove|purge)
-
+        # This should make sure that #PKGLIBDIR# and
+        # #PKGLIBDIR32# are removed even if some
+        # links are left. See LP: #540143
+        rm -Rf #PKGLIBDIR# #PKGLIBDIR32#
     ;;
     
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
