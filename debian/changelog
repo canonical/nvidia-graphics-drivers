@@ -1,5 +1,45 @@
-nvidia-graphics-drivers (270.18-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.26-0ubuntu1) UNRELEASED; urgency=low
 
+  * New upstream release:
+    - Updated the NVIDIA kernel module to ensure that all system memory
+      allocated by it for use with GPUs or within user-space components of the
+      NVIDIA driver stack is initialized to zero. A new NVIDIA kernel module
+      option, InitializeSystemMemoryAllocations, allows administrators to
+      revert to the previous behavior.
+    - Added preliminary support for xserver 1.10.
+    - Reorganized the NVIDIA driver's /proc file system layout to better
+      reflect current needs: /proc/driver/nvidia/cards/0..N has been
+      moved to /proc/driver/nvidia/gpus/0..N/information
+    - Added new shared library: libnvidia-ml.so.
+    - NVML provides programmatic access to static information and monitoring
+      data for NVIDIA GPUs, as well as limited managment capabilities. It is 
+      intended for use with Tesla compute products. See web-based
+      documentation and associated nvml.h header for more info.
+    - Added a new X configuration option "3DVisionDisplayType" to specify
+      the display type when NVIDIA 3D Vision is enabled with a non
+      3D Vision ready display.
+    - Fixed several bugs relating to hardware-accelerated gradients, which were
+      causing visual corruption in some of the default Ubuntu GNOME themes.
+    - Modified colormap updates to no longer be synchronized to vblank. This
+      allows applications to send XStoreColor and XStoreColors requests faster
+      than the screen's refresh rate. This behavior can be controlled by a new
+      NV-CONTROL attribute, NV_CONTROL_SYNC_LUT_UPDATES. By default, LUT updates
+      are not synchronized. This may cause flickering in some applications that
+      use the colormap to perform animation, such as xpilot running on a depth 8
+      X screen. If you experience flickering, try running:
+      nvidia-settings -a [gpu:0]/SynchronousPaletteUpdates=1
+    - Added support for the following GPUs:
+      o GeForce GTX 560 Ti
+    - Added NV-CONTROL event notification for NV_CTRL_FRAMELOCK_SYNC_READY status
+      changes.
+    - Added a new X configuration option "Interactive", which defaults to enabled,
+      but can be disabled to allow long-running GPU compute programs to run
+      concurrently with X.
+    - Fixed a bug in the VDPAU presentation queue that could cause VDPAU "display
+      preemption" when rendering to tiny or zero-sized windows or pixmaps.
+    - Fixed a bug in VDPAU which prevented use of the overlay presentation queue
+      following an application exiting without gracefully destroying its VDPAU
+      presentation queue.
   * debian/control{.in}:
     - Depend on ${xinpdriver:Depends} (LP: #616214).
   * debian/nvidia-current.postrm{.in}:
@@ -11,7 +51,7 @@ nvidia-graphics-drivers (270.18-0ubuntu1) UNRELEASED; urgency=low
     - Add libnvcuvid*.so*, libnvidia-ml*.so* and libXvMCNVIDIA*.so.* to the
       32bit compatibility libraries.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Feb 2011 16:57:21 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Feb 2011 17:31:23 +0100
 
 nvidia-graphics-drivers (260.19.29-0ubuntu1) natty; urgency=low
 
