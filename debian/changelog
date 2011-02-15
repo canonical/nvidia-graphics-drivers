@@ -4,8 +4,14 @@ nvidia-graphics-drivers (270.18-0ubuntu1) UNRELEASED; urgency=low
     - Depend on ${xinpdriver:Depends} (LP: #616214).
   * debian/nvidia-current.postrm{.in}:
     - Make sure that the driver's directory is removed (LP: #540143).
+  * debian/nvidia-current.links{32}{.in}:
+    - Add links to libnvcuvid*.so* and to libnvidia-ml*.so* for both 32bit
+      and 64bit (LP: #704607).
+  * debian/rules:
+    - Add libnvcuvid*.so*, libnvidia-ml*.so* and libXvMCNVIDIA*.so.* to the
+      32bit compatibility libraries.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 Feb 2011 12:08:48 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Feb 2011 16:57:21 +0100
 
 nvidia-graphics-drivers (260.19.29-0ubuntu1) natty; urgency=low
 
