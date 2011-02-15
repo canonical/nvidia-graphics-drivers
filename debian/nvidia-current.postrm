@@ -21,7 +21,10 @@ set -e
 
 case "$1" in
     remove|purge)
-
+        # This should make sure that /usr/lib/nvidia-current and
+        # /usr/lib32/nvidia-current are removed even if some
+        # links are left. See LP: #540143
+        rm -Rf /usr/lib/nvidia-current /usr/lib32/nvidia-current
     ;;
     
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
