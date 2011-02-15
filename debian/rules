@@ -250,6 +250,9 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libOpenCL*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-compiler*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvcuvid*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-ml*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libXvMCNVIDIA*.so.*" "$(PKG_libdir32)"
 endif
 	
 	# Generate modaliases for Jockey and nvidia-common
