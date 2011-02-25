@@ -6,10 +6,9 @@ NVIDIA-Linux-x86_64-270.29-no-compat32/nvidia_drv.so /usr/lib/nvidia-current/xor
 NVIDIA-Linux-x86_64-270.29-no-compat32/libglx.so.270.29 /usr/lib/nvidia-current/xorg
 
 NVIDIA-Linux-x86_64-270.29-no-compat32/libGL*.so*                  /usr/lib/nvidia-current
-NVIDIA-Linux-x86_64-270.29-no-compat32/libnvidia*.so*              /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-270.29-no-compat32/libnv*.so*                  /usr/lib/nvidia-current
 NVIDIA-Linux-x86_64-270.29-no-compat32/libcuda*.so*                /usr/lib/nvidia-current
 NVIDIA-Linux-x86_64-270.29-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-current
-NVIDIA-Linux-x86_64-270.29-no-compat32/libnvidia-compiler*.so*     /usr/lib/nvidia-current
 
 NVIDIA-Linux-x86_64-270.29-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-current/vdpau
 NVIDIA-Linux-x86_64-270.29-no-compat32/tls/*.so*                   /usr/lib/nvidia-current/tls

@@ -6,10 +6,9 @@ debian/#DRIVERNAME#.grub-gfxpayload          #PKGDATADIR#
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
 #DIRNAME#/libGL*.so*                  #PKGLIBDIR#
-#DIRNAME#/libnvidia*.so*              #PKGLIBDIR#
+#DIRNAME#/libnv*.so*                  #PKGLIBDIR#
 #DIRNAME#/libcuda*.so*                #PKGLIBDIR#
 #DIRNAME#/libOpenCL*.so*              #PKGLIBDIR#
-#DIRNAME#/libnvidia-compiler*.so*     #PKGLIBDIR#
 
 #DIRNAME#/libvdpau_nvidia.so*   #PKGVDPAUDIR#
 #DIRNAME#/tls/*.so*                   #PKGTLSDIR#
