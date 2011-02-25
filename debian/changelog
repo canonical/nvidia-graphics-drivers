@@ -1,6 +1,8 @@
-nvidia-graphics-drivers (270.26-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.29-0ubuntu1) UNRELEASED; urgency=low
 
   * New upstream release:
+    - Added official support for xserver 1.10. The -ignoreABI option
+      is no longer required with this version of the server.
     - Updated the NVIDIA kernel module to ensure that all system memory
       allocated by it for use with GPUs or within user-space components of the
       NVIDIA driver stack is initialized to zero. A new NVIDIA kernel module
@@ -51,7 +53,7 @@ nvidia-graphics-drivers (270.26-0ubuntu1) UNRELEASED; urgency=low
     - Add libnvcuvid*.so*, libnvidia-ml*.so* and libXvMCNVIDIA*.so.* to the
       32bit compatibility libraries.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Feb 2011 17:31:23 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Feb 2011 12:06:04 +0100
 
 nvidia-graphics-drivers (260.19.29-0ubuntu1) natty; urgency=low
 
