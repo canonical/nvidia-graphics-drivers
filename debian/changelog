@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (270.29-0ubuntu3) natty; urgency=low
+
+  * rebuild for permissions issue
+
+ -- LaMont Jones <lamont@ubuntu.com>  Sat, 26 Feb 2011 00:49:06 +0000
+
 nvidia-graphics-drivers (270.29-0ubuntu2) natty; urgency=low
 
   * debian/nvidia-current.install{.in}:
