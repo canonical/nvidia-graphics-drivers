@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (270.41.03-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.41.03-0ubuntu1) natty; urgency=low
 
   * New upstream release:
     - Fixed a bug causing the X server to hang every 49.7 days on
@@ -28,7 +28,7 @@ nvidia-graphics-drivers (270.41.03-0ubuntu1) UNRELEASED; urgency=low
       bug reports which are generated when DKMS fails to build modules
       for unsupported kernels.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Apr 2011 13:53:33 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Apr 2011 13:57:33 +0200
 
 nvidia-graphics-drivers (270.29-0ubuntu3) natty; urgency=low
 
