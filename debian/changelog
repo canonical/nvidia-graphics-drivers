@@ -1,8 +1,34 @@
 nvidia-graphics-drivers (270.41.03-0ubuntu1) UNRELEASED; urgency=low
 
-  * 
+  * New upstream release:
+    - Fixed a bug causing the X server to hang every 49.7 days on
+      32-bit platforms.
+    - Added support for the following GPUs:
+      o GeForce GT 520
+      o GeForce GT 525M
+      o GeForce GT 520M
+      o GeForce GT 445M
+      o GeForce GT 530
+      o GeForce 405
+      o GeForce GTX 590
+      o GeForce GTX 550 Ti
+      o GeForce GT 420
+      o GeForce GT 440
+      o GeForce GTX 470M
+      o GeForce GTX 485M
+      o GeForce GT 550M
+      o GeForce GT 555M
+      o NVS 4200M
+      o Quadro 1000M
+      o Quadro 2000M
+  * debian/dkms.conf{.in}:
+    - Prevent builds with kernels newer than the ones we ship. This
+      makes sense as we do not update drivers to add the support for
+      kernels that are not in Ubuntu. This will reduce the amount of
+      bug reports which are generated when DKMS fails to build modules
+      for unsupported kernels.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Apr 2011 16:15:37 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Apr 2011 13:53:33 +0200
 
 nvidia-graphics-drivers (270.29-0ubuntu3) natty; urgency=low
 
