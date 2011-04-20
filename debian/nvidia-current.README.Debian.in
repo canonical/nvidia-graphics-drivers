@@ -9,10 +9,14 @@ installer that is available from the above homepage.
 
 DKMS
 -------------------------
-   Ubuntu includes support to build modules using a utility
-   developed by Dell, called DKMS.  It will automatically
-   build your kernel module for you when you first boot into
-   the kernel (or as necessary)
+   Ubuntu includes support to build modules using a utility developed by
+   Dell, called DKMS.  It will automatically build your kernel module
+   for you when you first boot into the kernel (or as necessary).
+
+   Note: the OBSOLETE_BY line in dkms.conf specifies a kernel version
+         which obsoletes the necessity for this particular DKMS module.
+         For example, OBSOLETE_BY=2.6.39 will prevent DKMS from building
+         modules for kernels >= 2.6.39.
 
    See the DKMS man page for more information.
 
