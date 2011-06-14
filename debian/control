@@ -37,46 +37,11 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  
 Package: nvidia-current-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-current (>= 270.41.06)
+Depends: nvidia-current (>= 270.41.19)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
-
-Package: nvidia-glx-185
-Architecture: i386 amd64 lpia
-Depends: nvidia-current
-Description: Transitional package for nvidia-glx-185
- This is a transitional package for nvidia-glx-185, and can be safely removed
- after the installation is complete.
-
-Package: nvidia-glx-185-dev
-Architecture: i386 amd64 lpia
-Depends: nvidia-current-dev
-Description: Transitional package for nvidia-glx-185-dev
- This is a transitional package for nvidia-glx-185-dev, and can be safely removed
- after the installation is complete.
- 
-Package: nvidia-185-kernel-source
-Architecture: i386 amd64 lpia
-Depends: nvidia-current
-Description: Transitional package for nvidia-glx-185-kernel-source
- This is a transitional package for nvidia-glx-185-kernel-source, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-185-libvdpau
-Architecture: i386 amd64 lpia
-Depends: nvidia-current
-Description: Transitional package for nvidia-185-libvdpau
- This is a transitional package for nvidia-185-libvdpau, and can be safely removed
- after the installation is complete.
-
-Package: nvidia-185-libvdpau-dev
-Architecture: i386 amd64 lpia
-Depends: nvidia-current-dev
-Description: Transitional package for nvidia-185-libvdpau-dev
- This is a transitional package for nvidia-185-libvdpau-dev, and can be safely
- removed after the installation is complete.
 
