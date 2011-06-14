@@ -1,8 +1,32 @@
-nvidia-graphics-drivers (270.41.19-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.41.19-0ubuntu1) oneiric; urgency=low
 
-  * 
+  * New upstream release:
+    - Fixed a bug in the VDPAU presentation queue that could cause 1
+      second hangs when transitioning from blit-based display to
+      overlay-based display. This would most commonly happen when
+      disabling a compositing manager.
+    - Fixed a bug that could cause crashes when capturing SDI video.
+    - Fixed a corner-case in which the OpenGL driver could leak
+      resources in applications utilizing fork().
+    - Addressed a Linux kernel interface compatibility problem that
+      could lead to ioremap() errors and, potentially, functional
+      and/or stability problems.
+    - Fixed a bug that caused SLI initialization to fail on some
+      Intel based systems.
+    - Fixed a bug that caused SLI initialization to fail when using
+      recent Linux kernels, such as 2.6.38.
+  * debian/dkms.conf{.in}:
+    - Enable builds for 3.0 kernels.
+  * debian/control{.in}:
+    - Drop transitional packages.
+  * Add buildfix_kernel_3.0.patch:
+    - Add support for linux 3.0.
+  * Drop obsolete patches:
+    - drm_agp_memory-2.6.31.patch, fall_back_on_mtrr_if_no_pat.patch,
+      nvidia-2.6.36-ioctl.patch, nvidia-rt-compat.patch,
+      rt_preempt_31.patch, vga_arbiter_workaround.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 14 Jun 2011 14:45:53 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 14 Jun 2011 17:17:10 +0200
 
 nvidia-graphics-drivers (270.41.06-0ubuntu1) natty; urgency=low
 
