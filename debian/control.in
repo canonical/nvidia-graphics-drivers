@@ -45,38 +45,3 @@ Description: NVIDIA binary Xorg driver development files
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
 
-Package: nvidia-glx-185
-Architecture: i386 amd64 lpia
-Depends: #DRIVERNAME#
-Description: Transitional package for nvidia-glx-185
- This is a transitional package for nvidia-glx-185, and can be safely removed
- after the installation is complete.
-
-Package: nvidia-glx-185-dev
-Architecture: i386 amd64 lpia
-Depends: #DRIVERDEVNAME#
-Description: Transitional package for nvidia-glx-185-dev
- This is a transitional package for nvidia-glx-185-dev, and can be safely removed
- after the installation is complete.
- 
-Package: nvidia-185-kernel-source
-Architecture: i386 amd64 lpia
-Depends: #DRIVERNAME#
-Description: Transitional package for nvidia-glx-185-kernel-source
- This is a transitional package for nvidia-glx-185-kernel-source, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-185-libvdpau
-Architecture: i386 amd64 lpia
-Depends: #DRIVERNAME#
-Description: Transitional package for nvidia-185-libvdpau
- This is a transitional package for nvidia-185-libvdpau, and can be safely removed
- after the installation is complete.
-
-Package: nvidia-185-libvdpau-dev
-Architecture: i386 amd64 lpia
-Depends: #DRIVERDEVNAME#
-Description: Transitional package for nvidia-185-libvdpau-dev
- This is a transitional package for nvidia-185-libvdpau-dev, and can be safely
- removed after the installation is complete.
-
