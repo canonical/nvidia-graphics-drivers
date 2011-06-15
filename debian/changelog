@@ -1,8 +1,56 @@
-nvidia-graphics-drivers (275.09.07-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-0ubuntu1) oneiric; urgency=low
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 560
+      o GeForce GT 545
+      o GeForce GTX 560M
+      o GeForce 410M
+      o GeForce 320M
+      o GeForce 315M
+      o Quadro 5010M
+      o Quadro 3000M
+      o Quadro 4000M
+    - Fixed a bug that caused desktop corruption in GNOME 3 after a
+      VT-switch or suspend/resume cycle.
+    - Fixed a bug that caused freezes and crashes when resizing
+      windows in KDE 4 with desktop effects enabled using X.Org X
+      server version 1.10 or later.
+    - Modified the X driver to request that hardware inform the
+      audio driver whenever a display is disabled. This will allow
+      the audio driver to generate the appropriate jack unplug
+      events to applications.
+    - Added support for the GL_EXT_x11_sync_object extension. See
+      the extension specification in the OpenGL registry here:
+      http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt
+      for more details.
+    - Improved performance of window resize operations in KDE 4 on
+      systems with slow CPUs.
+    - Added support for hardware button based pairing to NVIDIA 3D
+      Vision Pro. Single click button on the hub to enter into a
+      pairing mode which pairs one pair of glasses at a time. Double
+      click the same button on the hub to enter into a pairing mode
+      which pairs multiple pairs of glasses at a time.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extensions:
+      o GL_NV_framebuffer_multisample_coverage
+      o GL_NV_texture_barrier
+    - Added GLX protocol support (i.e., for GLX indirect rendering)
+      for the following OpenGL extension:
+      GL_NV_register_combiners2
+    - Fixed a bug that caused the pop-out and external DVI displays
+      to go blank on Lenovo ThinkPad W701 laptops.
+    - Fixed a bug that caused corruption on the menus in OpenOffice.
+      org when the screen is rotated.
+    - Improved performance of certain memory allocations.
+    - Fixed a bug that caused Java2D widgets to disappear when Java
+      is configured to render using FBOs.
+    - Added a new X configuration option "BaseMosaic" which can be
+      used to extend a single X screen transparently across all of
+      the available display outputs on each GPU. See "Appendix B.
+      X Config Options" in the README for more information.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jun 2011 10:44:57 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jun 2011 16:04:39 +0200
 
 nvidia-graphics-drivers (270.41.19-0ubuntu1) oneiric; urgency=low
 
