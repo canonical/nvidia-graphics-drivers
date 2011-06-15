@@ -16,8 +16,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-current/xorg
 /usr/lib/nvidia-current/xorg
-/usr/src/nvidia-current-270.41.19
-/usr/src/nvidia-current-270.41.19/patches
+/usr/src/nvidia-current-275.09.07
+/usr/src/nvidia-current-275.09.07/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-current
