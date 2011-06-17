@@ -22,7 +22,8 @@ case "$1" in
 	remove)
 		remove_dkms_module 
 	
-		update-alternatives --remove gl_conf #LDSOCONF#
+		update-alternatives --remove #DEB_HOST_MULTIARCH#_gl_conf #LDSOCONF#
+		update-alternatives --remove #OTHER_ARCH#_gl_conf #LDSOCONF#
 
 		# Trigger gmenu so as to update the gnome menu
 		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true

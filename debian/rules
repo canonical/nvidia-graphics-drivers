@@ -27,6 +27,11 @@ INPUTABI = $(shell cat /usr/share/xserver-xorg/inputabiver 2>/dev/null)
 VIDDRIVER_PROVIDES = xserver-xorg-video-$(VIDEOABI), xorg-driver-video
 INPDRIVER_PROVIDES = xserver-xorg-input-$(INPUTABI), xorg-driver-input
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+# If the host is i386 set OTHER_ARCH to x86_64 and vice versa
+OTHER_ARCH := $(shell (echo "$(DEB_HOST_MULTIARCH)" | grep i386 >/dev/null) && \
+		echo "$(DEB_HOST_MULTIARCH)" | sed s/i386/x86_64/ || \
+		echo "$(DEB_HOST_MULTIARCH)" | sed s/x86_64/i386/)
 
 # Package names
 PKG_driver           := nvidia-current
@@ -180,6 +185,8 @@ regen-from-templates:
 			-e "s|#PKGTLSDIR32#|$(PKG_tlsdir32)|g" \
 			-e "s|#PKGLIBCONFDIR#|$(PKG_libconfdir)|g" \
 			-e "s|#GRUBBLKLISTDIR#|$(grub_blacklistdir)|g" \
+			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
+			-e "s|#OTHER_ARCH#|$(OTHER_ARCH)|g" \
 			debian/$$i.in > debian/$$i;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
