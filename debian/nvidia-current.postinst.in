@@ -109,8 +109,13 @@ case "$1" in
         # Deal with alternatives
 
         # Clean up any previous non-multi-arch alternatives
-        if dpkg --compare-versions "$2" lt-nl 275.09.07-0ubuntu2; then
-            update-alternatives --remove gl_conf #LDSOCONF#
+        if [ -n "$(update-alternatives --list gl_conf 2>/dev/null)" ]; then
+            set -a $(update-alternatives --list gl_conf 2>/dev/null)
+            while [ $# -ge 1 ] && [ "$#" != "configure" ]; do
+                ALTERNATIVE=${1}
+                update-alternatives --remove gl_conf $ALTERNATIVE
+                shift
+            done
         fi
 
         # Deal with multi-arch ugliness until dpkg supports multi-arch:
