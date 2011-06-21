@@ -6,14 +6,6 @@
 # This file on the Mandriva nvidia packages, on Ubuntu's previous
 # nvidia packaging scripts and on Ubuntu's fglrx scripts.
 
-############# HOW TO ENABLE A DRIVER ####################
-
-#- Run "update-alternatives --set gl_conf $(ld_so_conf_path)" as root.
-#- Run "ldconfig" as root.
-
-
-#########################################################
-
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
