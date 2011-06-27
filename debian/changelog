@@ -1,8 +1,10 @@
-nvidia-graphics-drivers (275.09.07-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-0ubuntu3) oneiric; urgency=low
 
-  * 
+  * Use an empty ld.so.conf when installing alternative for the
+    non-native arch, otherwise it would be impossible to switch
+    to mesa without installing mesa for the same architecture.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jun 2011 11:01:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jun 2011 15:09:08 +0100
 
 nvidia-graphics-drivers (275.09.07-0ubuntu2) oneiric; urgency=low
 
