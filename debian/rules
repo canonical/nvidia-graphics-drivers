@@ -72,7 +72,10 @@ PKG_deskdir          := $(PKG_datadir)
 PKG_configdir        := $(PKG_libdir)
 ld_so_conf_dir       := $(PKG_configdir)
 ld_so_conf_file      := ld.so.conf
+alt_ld_so_conf_file  := alt_ld.so.conf
 ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
+alt_ld_so_conf_path  := $(ld_so_conf_dir)/$(alt_ld_so_conf_file)
+
 mandir               := /usr/share/man/man1
 PKG_bugdir           := /usr/share/bug/$(PKG_driver)
 autostartdir         := /etc/xdg/autostart
@@ -147,6 +150,7 @@ regen-from-templates:
 			-e "s|#SYSCONFDIR#|$(sysconfdir)|g" \
 			-e "s|#MANDIR#|$(mandir)|g" \
 			-e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
+			-e "s|#ALTLDSOCONF#|$(alt_ld_so_conf_path)|g" \
 			-e "s|#ALTPRIORITY#|$(alt_priority)|g" \
 			-e "s|#AUTOSTARTDIR#|$(autostartdir)|g" \
 			-e "s|#AUTOSTARTFILE#|$(autostartfile)|g" \
@@ -272,6 +276,8 @@ endif
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	echo "$(PKG_libdir32)" >>	$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)
 endif
+	# empty ld.so.conf for the fake multi-arch alternative
+	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
 
 	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
 	printf "blacklist nouveau\nblacklist lbm-nouveau\nblacklist nvidia-173\nblacklist nvidia-96\n" > $(CURDIR)/debian/$(PKG_driver)$(PKG_libconfdir)/modprobe.conf

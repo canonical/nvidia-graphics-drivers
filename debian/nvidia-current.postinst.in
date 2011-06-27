@@ -147,7 +147,7 @@ case "$1" in
 	# Install just the ld.so.conf.d alternative for the secondary architecture.
 	# We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
 	update-alternatives --force \
-	    --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #LDSOCONF# #ALTPRIORITY#
+	    --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
 
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
