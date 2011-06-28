@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (275.09.07-0ubuntu4) oneiric; urgency=low
+
+  * Bump revision and get rid of the patch accidentally left in
+    the main directory.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Jun 2011 18:36:26 +0100
+
 nvidia-graphics-drivers (275.09.07-0ubuntu3) oneiric; urgency=low
 
   * Use an empty ld.so.conf when installing alternative for the

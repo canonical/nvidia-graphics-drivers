@@ -147,7 +147,7 @@ case "$1" in
 	# Install just the ld.so.conf.d alternative for the secondary architecture.
 	# We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
 	update-alternatives --force \
-	    --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-current/ld.so.conf 9700
+	    --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-current/alt_ld.so.conf 9700
 
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
