@@ -19,7 +19,6 @@
 #PKGLIBDIR32#/libOpenCL.so.1.0.0 #PKGLIBDIR32#/libOpenCL.so.1.0
 #PKGLIBDIR32#/libOpenCL.so.1.0 #PKGLIBDIR32#/libOpenCL.so.1
 #PKGLIBDIR32#/libOpenCL.so.1 #PKGLIBDIR32#/libOpenCL.so
-#PKGLIBDIR32#/libOpenCL.so #LIBDIR32#/libOpenCL.so
 
 #PKGLIBDIR32#/libnvidia-compiler.so.#VERSION# #PKGLIBDIR32#/libnvidia-compiler.so.1
 #PKGLIBDIR32#/libnvidia-compiler.so.1 #PKGLIBDIR32#/libnvidia-compiler.so
