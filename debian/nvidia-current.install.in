@@ -29,4 +29,4 @@ debian/ubuntu-nvidia-settings.desktop   #PKGDESKDIR#
 
 debian/#AUTOSTARTFILE# #PKGDATADIR#
 
-#DIRNAME#/nvidia.icd #SYSCONFDIR#/OpenCL/vendors
+#DIRNAME#/nvidia.icd #PKGDATADIR#

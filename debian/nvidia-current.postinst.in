@@ -135,6 +135,7 @@ case "$1" in
             --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
             --slave #LIBDIR#/XvMCConfig #DEB_HOST_MULTIARCH#_xvmcconfig #PKGCONFIGDIR#/XvMCConfig \
             --slave #AUTOSTARTDIR#/#AUTOSTARTFILE# #DEB_HOST_MULTIARCH#_nvidia-autostart.desktop #PKGDATADIR#/#AUTOSTARTFILE# \
+            --slave #SYSCONFDIR#/OpenCL/vendors #DEB_HOST_MULTIARCH#_nvidia.icd #PKGDATADIR#/nvidia.icd \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION# \
