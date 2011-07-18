@@ -1,8 +1,47 @@
-nvidia-graphics-drivers (280.13-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-0ubuntu1) oneiric; urgency=low
 
-  * 
+  * debian/nvidia-current.postinst{.in}:
+    - Make nvidia.icd a slave link.
+    - Make libOpenCL.so a slave link for both architectures.
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GT 540
+      o GeForce GTX 570M
+      o GeForce GTX 580M
+    - Fixed memory error and abort reported by glibc when running
+      the application FieldView from Intelligent Light.
+    - Fixed an OpenGL driver bug that caused an application crash
+      when running Altair HyperMesh.
+    - Fixed a performance problem when switching between stereo
+      and monoscopic rendering in the application Smoke.
+    - Fixed poor X driver handling of pixmap out of memory
+      scenarios.
+    - Fixed an interrupt handling deficiency that could lead to
+      performance and stability problems when many NVIDIA GPUs
+      shared few IRQs.
+    - Fixed bugs in the VDPAU presentation queue that could cause
+      GPU errors and hangs when destroying a presentation queue.
+      This happens when exiting applications, and also when
+      toggling to and from full-screen mode in Adobe Flash.
+    - Fixed a GLX bug that could cause the X server to crash when
+      rendering a display list using GLX indirect rendering.
+    - Fixed a GLX bug that could cause a hang in applications that
+      use X server grabs.
+    - Fixed an X driver bug that caused 16x8 stipple patterns to
+      be rendered incorrectly.
+    - Fixed a GLX_EXT_texture_from_pixmap bug that caused
+      corruption when texturing from sufficiently small pixmaps
+      and, in particular, corruption in the GNOME Shell Message
+      Tray.
+    - Added unofficial GLX protocol support (i.e. for GLX indirect
+      rendering) for the following OpenGL extension:
+      o GL_EXT_vertex_attrib_64bit
+    - Added GLX protocol support (i.e. for GLX indirect rendering)
+      for the following OpenGL extensions:
+      o GL_ARB_half_float_pixel
+      o GL_EXT_packed_depth_stencil
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 02 Aug 2011 13:41:45 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 02 Aug 2011 15:03:40 +0200
 
 nvidia-graphics-drivers (275.09.07-0ubuntu4) oneiric; urgency=low
 
