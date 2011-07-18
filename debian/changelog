@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (275.09.07-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-0ubuntu1) UNRELEASED; urgency=low
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Jul 2011 17:46:39 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 02 Aug 2011 13:41:45 +0200
 
 nvidia-graphics-drivers (275.09.07-0ubuntu4) oneiric; urgency=low
 
