@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-current
+# postrm script for nvidia-current-updates
 #
 # see: dh_installdeb(1)
 #
@@ -21,10 +21,10 @@ set -e
 
 case "$1" in
     remove|purge)
-        # This should make sure that /usr/lib/nvidia-current and
-        # /usr/lib32/nvidia-current are removed even if some
+        # This should make sure that /usr/lib/nvidia-current-updates and
+        # /usr/lib32/nvidia-current-updates are removed even if some
         # links are left. See LP: #540143
-        rm -Rf /usr/lib/nvidia-current /usr/lib32/nvidia-current
+        rm -Rf /usr/lib/nvidia-current-updates /usr/lib32/nvidia-current-updates
     ;;
     
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

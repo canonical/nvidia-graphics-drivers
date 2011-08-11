@@ -1,5 +1,5 @@
-NVIDIA-Linux-x86_64-280.13-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-280.13-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-current-updates
 
-debian/headers/cl*.h                           /usr/include/nvidia-current/CL
-debian/headers/gl*.h                           /usr/include/nvidia-current/GL
-debian/headers/cuda*.h                         /usr/include/nvidia-current/cuda
+debian/headers/cl*.h                           /usr/include/nvidia-current-updates/CL
+debian/headers/gl*.h                           /usr/include/nvidia-current-updates/GL
+debian/headers/cuda*.h                         /usr/include/nvidia-current-updates/cuda
