@@ -63,7 +63,8 @@ sysconfdir           := /etc
 PKG_libdir           := $(libdir)/$(PKG_driver)
 PKG_libdir32         := $(libdir32)/$(PKG_driver)
 xorg_libdir          := $(libdir)/xorg
-xorg_extra_modules   := $(xorg_libdir)/extra-modules
+xorg_extra_path      := $(libdir)/$(DEB_HOST_MULTIARCH)/xorg
+xorg_extra_modules   := $(xorg_extra_path)/extra-modules
 xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
 PKG_driversdir       := $(libdir)/$(PKG_driver)/xorg
 PKG_extensionsdir    := $(PKG_driversdir)
@@ -163,6 +164,7 @@ regen-from-templates:
 			-e "s|#PKGLIBDIR32#|$(PKG_libdir32)|g" \
 			-e "s|#PKGDRIVERSDIR#|$(PKG_driversdir)|g" \
 			-e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
+			-e "s|#XORGEXTRAPATH#|$(xorg_extra_path)|g" \
 			-e "s|#NVIDIAEXTENSION#|$(PKG_extensionsdir)|g" \
 			-e "s|#XORGEXTENSIONSDIR#|$(xorg_extensionsdir)|g" \
 			-e "s|#DRIVERNAME#|$(PKG_driver)|g" \

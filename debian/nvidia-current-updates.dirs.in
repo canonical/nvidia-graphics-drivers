@@ -8,6 +8,7 @@
 #PKGLIBDIR32#
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
+#XORGEXTRAPATH#
 #PKGDATADIR#
 #PKGDESKDIR#
 #MANDIR#
