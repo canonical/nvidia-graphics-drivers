@@ -1,8 +1,16 @@
-nvidia-graphics-drivers (280.13-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-0ubuntu2) oneiric; urgency=low
 
-  * 
+  * debian/nvidia-current.postinst{.in}:
+    - Make sure to create and use X.Org's multiarch extra modules
+      path (LP: #807209).
+    - Share the same name for grub's blacklist file for all
+      drivers.
+  * debian/rules:
+    - Fix issues with pbuild.
+    - Do not provide the X abi any longer. Depending on the ABI is
+      enough.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 Aug 2011 12:57:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 30 Aug 2011 17:43:21 +0200
 
 nvidia-graphics-drivers (280.13-0ubuntu1) oneiric; urgency=low
 
