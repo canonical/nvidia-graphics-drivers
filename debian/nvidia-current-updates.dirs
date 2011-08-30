@@ -8,6 +8,7 @@
 /usr/lib32/nvidia-current-updates
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
+/usr/lib/x86_64-linux-gnu/xorg
 /usr/share/nvidia-current-updates
 /usr/share/nvidia-current-updates
 /usr/share/man/man1
