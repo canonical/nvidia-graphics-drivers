@@ -12,12 +12,7 @@
 include /usr/share/cdbs/1/rules/debhelper.mk
 
 VIDEODEP = $(shell cat /usr/share/xserver-xorg/videodrvdep 2>/dev/null)
-INPUTDEP = $(shell cat /usr/share/xserver-xorg/xinputdep 2>/dev/null)
-
-VIDEOABI = $(shell cat /usr/share/xserver-xorg/videoabiver 2>/dev/null)
-INPUTABI = $(shell cat /usr/share/xserver-xorg/inputabiver 2>/dev/null)
-VIDDRIVER_PROVIDES = xserver-xorg-video-$(VIDEOABI), xorg-driver-video
-INPDRIVER_PROVIDES = xserver-xorg-input-$(INPUTABI), xorg-driver-input
+VIDDRIVER_PROVIDES = xorg-driver-video
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # If the host is i386 set OTHER_ARCH to x86_64 and vice versa
@@ -118,11 +113,8 @@ ifeq ($(VIDEODEP),)
 	@exit 1
 else
 	echo "xviddriver:Depends=$(VIDEODEP)" >> debian/$(PKG_driver).substvars
-	echo "xinpdriver:Depends=$(INPUTDEP)" >> debian/$(PKG_driver).substvars
 	# the following is there for compatibility...
 	echo "xviddriver:Provides=$(VIDDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
-	echo "xinpdriver:Provides=$(INPDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
-	echo "xserver:Depends=$(VIDEODEP), $(INPUTDEP)" >> debian/$(PKG_driver).substvars
 endif
 
 .PHONY: regen-from-templates
