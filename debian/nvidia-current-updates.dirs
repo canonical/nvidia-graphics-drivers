@@ -1,4 +1,5 @@
 /etc/modprobe.d
+/usr/share/initramfs-tools/conf-hooks.d
 /etc/OpenCL/vendors
 /etc/xdg/autostart
 /usr/bin
