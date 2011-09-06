@@ -1,4 +1,5 @@
 #SYSCONFDIR#/modprobe.d
+/usr/share/initramfs-tools/conf-hooks.d
 #SYSCONFDIR#/OpenCL/vendors
 #AUTOSTARTDIR#
 #BINDIR#
