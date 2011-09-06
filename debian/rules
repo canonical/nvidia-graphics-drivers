@@ -100,7 +100,7 @@ PKG_libconfdir := /lib/$(PKG_driver)
 
 
 # -Xlib32
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#  
+DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
 
@@ -185,20 +185,20 @@ regen-from-templates:
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	cat $(CURDIR)/debian/$(PKG_driver).links $(CURDIR)/debian/$(PKG_driver).links32 > \
 	$(CURDIR)/debian/$(PKG_driver).links_new
-	mv -f $(CURDIR)/debian/$(PKG_driver).links_new $(CURDIR)/debian/$(PKG_driver).links 
+	mv -f $(CURDIR)/debian/$(PKG_driver).links_new $(CURDIR)/debian/$(PKG_driver).links
 endif
 # Pre-config
 #makebuilddir/$(PKG_driver):: regen-from-templates
 
 configure/$(PKG_driver)::
 	rm -rf $(dirname_x86) $(dirname_x86_64)
-	
+
 	# Make the installers executable and extract them
 	chmod 755 $(filename_x86)
 	chmod 755 $(filename_x86_64)
 	./$(filename_x86) --extract-only
 	./$(filename_x86_64) --extract-only
-	
+
 	# Get around Xen checks
 	cp $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
 	cp $(dirname)/kernel/nv-linux.h $(dirname)/kernel/nv-linux1.h
@@ -237,7 +237,7 @@ endif
 binary-install/$(PKG_driver):: serverabi
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	#32 bit libraries on 64 bit
-	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)" 
+	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)"
 	dh_installdirs -p$(PKG_driver) "$(PKG_tlsdir32)"
 
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL*.so*"  "$(PKG_libdir32)"
@@ -254,7 +254,7 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-ml*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libXvMCNVIDIA*.so.*" "$(PKG_libdir32)"
 endif
-	
+
 	# Generate modaliases for Jockey and nvidia-common
 	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
 	sh -e $(CURDIR)/debian/nvidia_supported \
