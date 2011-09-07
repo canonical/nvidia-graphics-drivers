@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-updates (280.13-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (280.13-0ubuntu3) oneiric; urgency=low
 
-  * 
+  * debian/rules:
+    - Remove trailing spaces.
+    - Blacklist the updates flavours in modprobe.conf.
+    - Add an initramfs hook to make sure that nothings else loads
+      open graphics drivers in the initramfs (LP: #839524).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Sep 2011 14:59:42 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Sep 2011 12:24:32 +0200
 
 nvidia-graphics-drivers-updates (280.13-0ubuntu2) oneiric; urgency=low
 
