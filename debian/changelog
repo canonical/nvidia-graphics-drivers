@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-updates (280.13-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (280.13-0ubuntu4) oneiric; urgency=low
 
-  * 
+  * debian/rules:
+    - Make sure that the module alias is always correct and
+      uses underscores instead of hyphens (LP: #855396).
+    - Make the grub-gfxpayload file a template and blacklist
+      all Nvidia cards so that Grub doesn't set a framebuffer
+      which prevents recovery mode from working (LP: #854967).
+    - Make it possible to add card ids to the modaliases by
+      adding ids in debian/additional_card_ids.
+  * debian/additional_card_ids:
+    - Add support for card id 0dfc.
+  * debian/nvidia-$flavour.README.Debian.in:
+    - Document how to use the additional_card_ids file.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2011 16:08:56 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Sep 2011 17:39:14 +0200
 
 nvidia-graphics-drivers-updates (280.13-0ubuntu3) oneiric; urgency=low
 
