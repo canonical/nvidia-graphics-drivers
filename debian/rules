@@ -292,6 +292,11 @@ endif
 		$(dirname)/README.txt \
 		$(dirname)/kernel/nv-kernel.o \
 		> $(CURDIR)/debian/$(PKG_driver).modaliases
+	# Take additional card ids from a text file
+	for id in $(shell cat $(CURDIR)/debian/additional_card_ids); do \
+		printf 'alias pci:v%08Xd%08Xsv*sd*bc03sc*i* %s %s\n' \
+		0x10de "0x$$id" "$(PKG_module)" "$(PKG_driver)" \
+		>> $(CURDIR)/debian/$(PKG_driver).modaliases; done
 	dh_modaliases
 	rm $(CURDIR)/debian/$(PKG_driver).modaliases
 
