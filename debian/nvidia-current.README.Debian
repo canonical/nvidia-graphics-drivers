@@ -80,6 +80,16 @@ nvidia-current:
 
 7.  Install and test the .debs, and then dput the .changes file
 
+Adding new card ids
+-------------------------
+The NVIDIA driver may work with card ids that are not listed in their
+README file. If this is the case, there won't be a modalias for these
+cards in the driver package (this only affects driver detection in
+Jockey). If you want to make sure that such modaliases are included
+in the package, you'll have to add the card ids in uppercase(e.g. 0AFD),
+either separated by a white space or one per line, in the
+debian/additional_card_ids file.
+
 
 IMPORTANT NOTE: If any changes to files in debian/ are needed, make sure
 to discuss your changes with the maintainer (Alberto aka tseliot) before
