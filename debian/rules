@@ -155,6 +155,7 @@ regen-from-templates:
 			 copyright                         \
 			 ubuntu-nvidia-settings.desktop    \
 			 nvidia-autostart.desktop          \
+			 $(PKG_driver).grub-gfxpayload     \
 			 $(PKG_driver).install             \
 			 $(PKG_driver_dev).install         \
 			 $(PKG_driver).links               \
