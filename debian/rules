@@ -28,7 +28,7 @@ PKG_driver           := nvidia-current
 PKG_driver_dev       := $(PKG_driver)-dev
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
-PKG_module           := $(PKG_driver)
+PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
 
 # Priority of the alternative
 alt_priority         := 9700
@@ -287,7 +287,7 @@ endif
 	# Generate modaliases for Jockey and nvidia-common
 	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
 	sh -e $(CURDIR)/debian/nvidia_supported \
-		nvidia_current $(PKG_driver) \
+		$(PKG_module) $(PKG_driver) \
 		$(dirname)/README.txt \
 		$(dirname)/kernel/nv-kernel.o \
 		> $(CURDIR)/debian/$(PKG_driver).modaliases
