@@ -140,7 +140,6 @@ case "$1" in
             --slave #LIBDIR32#/libOpenCL.so #DEB_HOST_MULTIARCH#_libOpenCL.so_lib32 #PKGLIBDIR32#/libOpenCL.so \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
-            --slave #DATADIR#/initramfs-tools/conf-hooks.d/proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_initramfs-hook #PKGLIBCONFDIR#/initramfs-hook \
             --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION# \
             --slave #VDPAUDIR#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 \
             --slave #LIBDIR#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so #PKGVDPAUDIR#/libvdpau_nvidia.so \
