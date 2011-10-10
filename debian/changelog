@@ -1,8 +1,11 @@
-nvidia-graphics-drivers (280.13-0ubuntu6) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-0ubuntu6) oneiric; urgency=low
 
-  * 
+  * Restore slave link to grub-gfxpayload file. This only provide an
+    empty blacklist file which shows how to blacklist cards if necessary.
+    This change re-enables a feature available which was disabled in
+    280.13-0ubuntu4 (LP: #854967).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Oct 2011 10:57:11 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Oct 2011 20:32:20 +0200
 
 nvidia-graphics-drivers (280.13-0ubuntu5) oneiric; urgency=low
 
