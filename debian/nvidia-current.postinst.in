@@ -140,13 +140,11 @@ case "$1" in
             --slave #LIBDIR32#/libOpenCL.so #DEB_HOST_MULTIARCH#_libOpenCL.so_lib32 #PKGLIBDIR32#/libOpenCL.so \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
-            --slave #DATADIR#/initramfs-tools/conf-hooks.d/proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_initramfs-hook #PKGLIBCONFDIR#/initramfs-hook \
             --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION# \
             --slave #VDPAUDIR#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 \
             --slave #LIBDIR#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so #PKGVDPAUDIR#/libvdpau_nvidia.so \
             --slave #VDPAUDIR32#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 \
             --slave #LIBDIR32#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so \
-            --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
 
 	# Install just the ld.so.conf.d alternative for the secondary architecture.
 	# We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
@@ -156,6 +154,16 @@ case "$1" in
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
         LDCONFIG_NOTRIGGER=y ldconfig
+
+	case $2 in
+		280.13-0ubuntu4|173.14.30-0ubuntu7|173.14.30-0ubuntu4|96.43.20-0ubuntu5|96.43.20-0ubuntu4)
+			# Clean up the grub gfxpayload when upgrading from
+			# the broken versions
+			if which update-grub-gfxpayload >/dev/null 2>&1; then
+				update-grub-gfxpayload
+			fi
+			;;
+	esac
 
         # Trigger gmenu so that the icons will show up in the menu
         dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
@@ -172,11 +180,6 @@ case "$1" in
                 # This can fail when dealing with a chroot see LP: #556653
                 update-initramfs -u -k $CURRENT_KERNEL || true
             fi
-        fi
-
-        # Update the grub gfxpayload blacklist
-        if which update-grub-gfxpayload >/dev/null 2>&1; then
-            update-grub-gfxpayload
         fi
 
         # If the delayed module build feature is enabled

@@ -1,5 +1,4 @@
 #SYSCONFDIR#/modprobe.d
-/usr/share/initramfs-tools/conf-hooks.d
 #SYSCONFDIR#/OpenCL/vendors
 #AUTOSTARTDIR#
 #BINDIR#
@@ -15,7 +14,6 @@
 #MANDIR#
 #DATADIR#/pixmaps
 /usr/share/lintian/overrides
-/usr/share/grub-gfxpayload-lists/blacklist
 #PKGDRIVERSDIR#
 #NVIDIAEXTENSION#
 /usr/src/#DRIVERNAME#-#VERSION#

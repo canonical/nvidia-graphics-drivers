@@ -1,3 +1,14 @@
+nvidia-graphics-drivers (280.13-0ubuntu5) oneiric; urgency=low
+
+  * Drop /usr/share/grub-gfxpayload-lists/blacklist handling; there's
+    nothing about binary drivers in particular that requires blacklisting,
+    we just need recovery mode to not start the console in graphics mode.
+    LP: #854967.
+  * Drop the initramfs hook in favor of 'alias nouveau/lbm_nouveau off',
+    so that initramfs framebuffer handling will still work.  LP: #864149.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Sat, 01 Oct 2011 23:06:02 +0000
+
 nvidia-graphics-drivers (280.13-0ubuntu4) oneiric; urgency=low
 
   * debian/rules:
