@@ -14,6 +14,7 @@
 /usr/share/man/man1
 /usr/share/pixmaps
 /usr/share/lintian/overrides
+/usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-current/xorg
 /usr/lib/nvidia-current/xorg
 /usr/src/nvidia-current-280.13
