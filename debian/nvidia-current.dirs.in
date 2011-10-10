@@ -14,6 +14,7 @@
 #MANDIR#
 #DATADIR#/pixmaps
 /usr/share/lintian/overrides
+/usr/share/grub-gfxpayload-lists/blacklist
 #PKGDRIVERSDIR#
 #NVIDIAEXTENSION#
 /usr/src/#DRIVERNAME#-#VERSION#
