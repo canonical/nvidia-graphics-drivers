@@ -140,7 +140,6 @@ case "$1" in
             --slave /usr/lib32/libOpenCL.so x86_64-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-current-updates/libOpenCL.so \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-current-updates/xorg/nvidia_drv.so \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-current-updates/modprobe.conf \
-            --slave /usr/share/initramfs-tools/conf-hooks.d/proprietary-graphics-drivers x86_64-linux-gnu_initramfs-hook /lib/nvidia-current-updates/initramfs-hook \
             --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-current-updates/xorg \
             --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.1 \
             --slave /usr/lib/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so \
