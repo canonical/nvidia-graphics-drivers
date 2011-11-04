@@ -1,8 +1,25 @@
-nvidia-graphics-drivers-updates (285.05.09-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (285.05.09-0ubuntu1) precise; urgency=low
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+      o GeForce GT 520MX
+    - Added support for xserver ABI 11 (xorg-server 1.11).
+    - Fixed a bug causing a Linux kernel BUG when retrieving
+      CPU information on some systems.
+    - Fixed a bug causing some applications to hang on exit.
+    - Fixed a bug causing flickering in some GPU/display
+      combinations.
+    - Fixed a bug that could result in poor OpenGL performance
+      after hotplugging a monitor.
+    - Fixed a bug causing possible text corruption when
+      recovering from GPU errors.
+  * debian/dkms.conf{.in}:
+    - Make sure that dkms doesn't use the gold linker,
+      otherwise the resulting module would cause kernel
+      oops (LP: #607399).
+    - Drop non functional OBSOLETE_BY variable.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 04 Nov 2011 14:27:54 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 08 Nov 2011 16:53:00 +0100
 
 nvidia-graphics-drivers-updates (280.13-0ubuntu5) oneiric; urgency=low
 
