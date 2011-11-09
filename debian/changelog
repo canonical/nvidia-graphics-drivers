@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-updates (285.05.09-0ubuntu0.1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Nov 2011 15:45:02 +0100
+
 nvidia-graphics-drivers-updates (280.13-0ubuntu5) oneiric; urgency=low
 
   * Re-enable grub fb and drop the initramfs hook in favour of
