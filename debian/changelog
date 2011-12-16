@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (285.05.09-0ubuntu2) unstable; urgency=low
+
+  * Rebuild for X server 1.11
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Fri, 16 Dec 2011 12:47:31 +1100
+
 nvidia-graphics-drivers (285.05.09-0ubuntu1) precise; urgency=low
 
   * New upstream release:
