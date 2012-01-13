@@ -1,8 +1,38 @@
-nvidia-graphics-drivers-updates (290.10-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (290.10-0ubuntu1) precise; urgency=low
 
-  * 
+  * New upstream release:
+    - Fixed a bug that would cause OpenGL applications to
+      crash when run with recent releases of glibc such as
+      glibc 2.14.90.
+    - Improved the performance of FBO bind operations when
+      using Xinerama by ~30% in some cases.
+    - Fixed a bug that could cause stereo corruption when
+      driving a stereo display and a non-stereo display
+      from the same GPU.
+    - Fixed a bug that could cause display devices on a
+      secondary GPU to get swapped between X screens when
+      restarting the X server.
+    - Fixed a bug that could result in line flickering in
+      full-scene anti- aliasing contexts.
+    - Fixed a bug that caused the physical dimensions of
+      rotated monitors to be reported incorrectly.
+    - Add support for the pre-VBO DrawArrays command in
+      the server-side GLX driver module. The NVIDIA
+      client-side GLX implementation never sends this
+      command, but the server needs to support it for
+      compatibility with other GLX client implementations.
+    - Fixed a regression that caused blank/white windows
+      when exhausting video memory on GeForce 6 and 7
+      series GPUs while using composited desktops.
+    - Fixed a bug that caused a crash when glDrawArrays
+      was used with a non-VBO vertex attribute array to
+      draw on a Xinerama screen other than screen 0 using
+      an indirect GLX context.
+  * debian/nvidia-$flavour.prerm.in:
+    - Use the right path to remove the alternative for the
+      other architecture (LP: #915461).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Jan 2012 15:57:13 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Jan 2012 17:24:10 +0100
 
 nvidia-graphics-drivers-updates (285.05.09-0ubuntu1) precise; urgency=low
 
