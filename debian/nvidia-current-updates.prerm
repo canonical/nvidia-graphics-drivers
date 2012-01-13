@@ -23,7 +23,7 @@ case "$1" in
 		remove_dkms_module 
 	
 		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-current-updates/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-current-updates/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-current-updates/alt_ld.so.conf
 
 		# Trigger gmenu so as to update the gnome menu
 		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
