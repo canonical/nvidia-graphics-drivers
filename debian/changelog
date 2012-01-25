@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-updates (290.10-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (290.10-0ubuntu2) precise; urgency=low
 
-  * 
+  * Rebuild against new X ABI.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 25 Jan 2012 14:55:56 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 25 Jan 2012 14:56:24 +0100
 
 nvidia-graphics-drivers-updates (290.10-0ubuntu1) precise; urgency=low
 
