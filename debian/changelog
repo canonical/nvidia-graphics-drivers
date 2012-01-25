@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (290.10-0ubuntu2) precise; urgency=low
+
+  * Rebuild against Xserver 1.11 to pick up new dependencies.
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Thu, 19 Jan 2012 11:38:34 +1100
+
 nvidia-graphics-drivers (290.10-0ubuntu1) precise; urgency=low
 
   * New upstream release:

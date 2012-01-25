@@ -8,7 +8,7 @@
 /usr/lib32/nvidia-current
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
-/usr/lib/x86_64-linux-gnu/xorg
+/usr/lib/i386-linux-gnu/xorg
 /usr/share/nvidia-current
 /usr/share/nvidia-current
 /usr/share/man/man1
