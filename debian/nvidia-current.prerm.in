@@ -35,6 +35,11 @@ case "$1" in
 		if which update-grub-gfxpayload >/dev/null 2>&1; then
 		    update-grub-gfxpayload
 		fi
+
+                # Remove any quirks for the driver
+                if [ `which quirks-handler` ]; then
+                    quirks-handler -d $PACKAGE_NAME -v
+                fi
 	;;
 esac
 
