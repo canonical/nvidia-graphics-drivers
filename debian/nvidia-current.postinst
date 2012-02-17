@@ -126,31 +126,31 @@ case "$1" in
         #   +  file /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.1 (of link group gl_conf) doesn't exist.
         #
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-current/ld.so.conf 9700 \
-            --slave /usr/share/man/man1/nvidia-xconfig.1.gz i386-linux-gnu_man_nvidiaxconfig.gz /usr/share/man/man1/alt-nvidia-current-xconfig.1.gz \
-            --slave /usr/share/man/man1/nvidia-smi.1.gz i386-linux-gnu_nvidia-smi.1.gz /usr/share/man/man1/alt-nvidia-current-smi.1.gz \
-            --slave /usr/share/applications/ubuntu-nvidia-settings.desktop i386-linux-gnu_nvidia_desktop /usr/share/nvidia-current/ubuntu-nvidia-settings.desktop \
-            --slave /usr/bin/nvidia-smi i386-linux-gnu_nvidia_smi /usr/lib/nvidia-current/bin/nvidia-smi \
-            --slave /usr/bin/nvidia-xconfig i386-linux-gnu_nvidia_xconfig /usr/lib/nvidia-current/bin/nvidia-xconfig \
-            --slave /usr/bin/nvidia-bug-report.sh i386-linux-gnu_nvidia_bug_report /usr/lib/nvidia-current/bin/nvidia-bug-report.sh \
-            --slave /usr/lib/XvMCConfig i386-linux-gnu_xvmcconfig /usr/lib/nvidia-current/XvMCConfig \
-            --slave /etc/xdg/autostart/nvidia-autostart.desktop i386-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-current/nvidia-autostart.desktop \
-            --slave /etc/OpenCL/vendors/nvidia.icd i386-linux-gnu_nvidia.icd /usr/share/nvidia-current/nvidia.icd \
-            --slave /usr/lib/libOpenCL.so i386-linux-gnu_libOpenCL.so /usr/lib/nvidia-current/libOpenCL.so \
-            --slave /usr/lib32/libOpenCL.so i386-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-current/libOpenCL.so \
-            --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so i386-linux-gnu_nvidia_drv /usr/lib/nvidia-current/xorg/nvidia_drv.so \
-            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf i386-linux-gnu_nvidia_modconf /lib/nvidia-current/modprobe.conf \
-            --slave /usr/lib/i386-linux-gnu/xorg/extra-modules i386-linux-gnu_xorg_extra_modules /usr/lib/nvidia-current/xorg \
-            --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 i386-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so.1 \
-            --slave /usr/lib/libvdpau_nvidia.so i386-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so \
-            --slave /usr/lib32/vdpau/libvdpau_nvidia.so.1 i386-linux-gnu_libvdpau_nvidia.so.1_lib32 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.1 \
-            --slave /usr/lib32/libvdpau_nvidia.so i386-linux-gnu_libvdpau_nvidia.so_lib32 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so \
-            --slave /usr/share/grub-gfxpayload-lists/blacklist/10_proprietary-graphics-drivers i386-linux-gnu_grub_fb_blacklist /usr/share/nvidia-current/nvidia-current.grub-gfxpayload
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-current/ld.so.conf 9700 \
+            --slave /usr/share/man/man1/nvidia-xconfig.1.gz x86_64-linux-gnu_man_nvidiaxconfig.gz /usr/share/man/man1/alt-nvidia-current-xconfig.1.gz \
+            --slave /usr/share/man/man1/nvidia-smi.1.gz x86_64-linux-gnu_nvidia-smi.1.gz /usr/share/man/man1/alt-nvidia-current-smi.1.gz \
+            --slave /usr/share/applications/ubuntu-nvidia-settings.desktop x86_64-linux-gnu_nvidia_desktop /usr/share/nvidia-current/ubuntu-nvidia-settings.desktop \
+            --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-current/bin/nvidia-smi \
+            --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-current/bin/nvidia-xconfig \
+            --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-current/bin/nvidia-bug-report.sh \
+            --slave /usr/lib/XvMCConfig x86_64-linux-gnu_xvmcconfig /usr/lib/nvidia-current/XvMCConfig \
+            --slave /etc/xdg/autostart/nvidia-autostart.desktop x86_64-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-current/nvidia-autostart.desktop \
+            --slave /etc/OpenCL/vendors/nvidia.icd x86_64-linux-gnu_nvidia.icd /usr/share/nvidia-current/nvidia.icd \
+            --slave /usr/lib/libOpenCL.so x86_64-linux-gnu_libOpenCL.so /usr/lib/nvidia-current/libOpenCL.so \
+            --slave /usr/lib32/libOpenCL.so x86_64-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-current/libOpenCL.so \
+            --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-current/xorg/nvidia_drv.so \
+            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-current/modprobe.conf \
+            --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-current/xorg \
+            --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so.1 \
+            --slave /usr/lib/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so \
+            --slave /usr/lib32/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1_lib32 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so.1 \
+            --slave /usr/lib32/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so_lib32 /usr/lib32/nvidia-current/vdpau/libvdpau_nvidia.so \
+            --slave /usr/share/grub-gfxpayload-lists/blacklist/10_proprietary-graphics-drivers x86_64-linux-gnu_grub_fb_blacklist /usr/share/nvidia-current/nvidia-current.grub-gfxpayload
 
 	# Install just the ld.so.conf.d alternative for the secondary architecture.
 	# We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
 	update-alternatives --force \
-	    --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-current/alt_ld.so.conf 9700
+	    --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-current/alt_ld.so.conf 9700
 
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
@@ -162,7 +162,7 @@ case "$1" in
         CURRENT_KERNEL=$(uname -r)
         NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
 
-        ALTERNATIVE=$(readlink /etc/alternatives/i386-linux-gnu_gl_conf)
+        ALTERNATIVE=$(readlink /etc/alternatives/x86_64-linux-gnu_gl_conf)
         if [ "$ALTERNATIVE" = "/usr/lib/nvidia-current/ld.so.conf" ]; then
             # Update initramfs so that the blacklist ends up in the initramfs
             update-initramfs -u
@@ -176,6 +176,11 @@ case "$1" in
         # Update the grub gfxpayload blacklist
         if which update-grub-gfxpayload >/dev/null 2>&1; then
             update-grub-gfxpayload
+        fi
+
+        # Enable any quirks for the driver
+        if [ `which quirks-handler` ]; then
+           quirks-handler -e $PACKAGE_NAME -v
         fi
 
         # If the delayed module build feature is enabled

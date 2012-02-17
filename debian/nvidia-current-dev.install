@@ -1,4 +1,4 @@
-NVIDIA-Linux-x86-290.10/libXvMCNVIDIA.a       /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-295.20-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-current
 
 debian/headers/cl*.h                           /usr/include/nvidia-current/CL
 debian/headers/gl*.h                           /usr/include/nvidia-current/GL

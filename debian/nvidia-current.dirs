@@ -8,7 +8,7 @@
 /usr/lib32/nvidia-current
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
-/usr/lib/i386-linux-gnu/xorg
+/usr/lib/x86_64-linux-gnu/xorg
 /usr/share/nvidia-current
 /usr/share/nvidia-current
 /usr/share/man/man1
@@ -17,8 +17,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-current/xorg
 /usr/lib/nvidia-current/xorg
-/usr/src/nvidia-current-290.10
-/usr/src/nvidia-current-290.10/patches
+/usr/src/nvidia-current-295.20
+/usr/src/nvidia-current-295.20/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-current
