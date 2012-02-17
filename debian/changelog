@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (290.10-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.20-0ubuntu1) UNRELEASED; urgency=low
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 26 Jan 2012 12:44:41 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 17 Feb 2012 14:40:20 +0100
 
 nvidia-graphics-drivers (290.10-0ubuntu2) precise; urgency=low
 
