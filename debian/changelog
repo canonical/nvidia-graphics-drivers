@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-updates (295.20-0ubuntu1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sat, 18 Feb 2012 10:03:06 +0100
+
 nvidia-graphics-drivers-updates (290.10-0ubuntu2) precise; urgency=low
 
   * Rebuild against new X ABI.
