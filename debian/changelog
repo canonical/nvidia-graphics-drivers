@@ -1,8 +1,33 @@
-nvidia-graphics-drivers (295.20-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.20-0ubuntu1) precise; urgency=low
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+      o NVS 5200M
+    - Fixed a bug that caused black areas to appear on the
+      back faces of some models in Maya.
+    - Fixed a bug that resulted in the printing of spurious
+      loader error messages.
+    - Fixed a bug that could cause X to crash after
+      hotplugging displays.
+    - Fixed a bug which caused face selections to be
+      misrendered in Maya when using the paint selection
+      tool.
+    - Improved performance for interactive tools in Mudbox.
+    - Added support for deleting SDI audio ancillary data
+      packets when a video frame is dropped on a Quadro SDI
+      Output device. See the NV_CTRL_GVO_AUDIO_BLANKING
+      attribute in NVCtrl.h for details. This option can be
+      set via the GvoAudioBlanking attribute in
+      nvidia-settings.
+  * debian/rules:
+    - Make sure that nouveau is blacklisted even when nvidia
+      is disabled. This is necessary in order to get hybrid
+      graphics to work.
+  * debian/nvidia-$(flavour).postinst{.in},
+    debian/nvidia-$(flavour).prerm{.in}:
+    - Make use of quirks from nvidia-common.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 17 Feb 2012 14:40:20 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Sat, 18 Feb 2012 09:59:52 +0100
 
 nvidia-graphics-drivers (290.10-0ubuntu2) precise; urgency=low
 
