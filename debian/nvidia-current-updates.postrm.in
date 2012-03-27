@@ -25,6 +25,12 @@ case "$1" in
         # #PKGLIBDIR32# are removed even if some
         # links are left. See LP: #540143
         rm -Rf #PKGLIBDIR# #PKGLIBDIR32#
+
+        # Remove the blacklist file for hybrid graphics
+        rm -f /etc/modprobe.d/#DRIVERNAME#_hybrid.conf
+
+        # Update initramfs, in case we were loaded into it
+        /usr/sbin/update-initramfs -u
     ;;
     
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
