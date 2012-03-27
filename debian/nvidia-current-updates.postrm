@@ -25,6 +25,12 @@ case "$1" in
         # /usr/lib32/nvidia-current-updates are removed even if some
         # links are left. See LP: #540143
         rm -Rf /usr/lib/nvidia-current-updates /usr/lib32/nvidia-current-updates
+
+        # Remove the blacklist file for hybrid graphics
+        rm -f /etc/modprobe.d/nvidia-current-updates_hybrid.conf
+
+        # Update initramfs, in case we were loaded into it
+        /usr/sbin/update-initramfs -u
     ;;
     
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

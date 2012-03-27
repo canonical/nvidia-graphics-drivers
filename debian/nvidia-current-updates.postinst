@@ -178,6 +178,11 @@ case "$1" in
             update-grub-gfxpayload
         fi
 
+        # Enable any quirks for the driver
+        if [ `which quirks-handler` ]; then
+           quirks-handler -e $PACKAGE_NAME -v
+        fi
+
         # If the delayed module build feature is enabled
         # i.e. if $DONT_BUILD_MODULE is set to 1
         # or if $TMP_FILE exists
