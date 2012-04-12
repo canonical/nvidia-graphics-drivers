@@ -1,8 +1,20 @@
-nvidia-graphics-drivers-updates (295.40-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (295.40-0ubuntu1) precise; urgency=low
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GT 635M
+      o GeForce 610M
+    - SECURITY UPDATE: privilege escalation via kernel
+      memory access (LP: #959842).
+    - Fixed a bug that caused DisplayPort devices to
+      occasionally fail to turn back on after the system
+      is resumed from suspend.
+    - Added a ModeValidation X configuration option token,
+      "AllowNon3DVisionModes", to allow modes that are not
+      optimized for NVIDIA 3D Vision to be validated on 3D
+      Vision monitors.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Apr 2012 17:24:18 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Apr 2012 17:24:57 +0200
 
 nvidia-graphics-drivers-updates (295.33-0ubuntu1) precise; urgency=low
 
