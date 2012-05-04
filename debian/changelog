@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-updates (295.49-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (295.49-0ubuntu0.1) precise-proposed; urgency=low
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+      o GeForce GTX 690
+    - Fixed a problem where starting, stopping, and moving
+      OpenGL application windows was very slow on Quadro
+      FX 4600, Quadro FX 5600, GeForce 8800 GTX, GeForce
+      8800 GTS, and GeForce 8800 Ultra (LP: #982710).
+    - Fixed an OpenGL performance regression which
+      affected Geforce 6 and Geforce 7 series integrated
+      GPUs (LP: #982485).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 04 May 2012 16:16:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 04 May 2012 16:42:10 +0200
 
 nvidia-graphics-drivers-updates (295.40-0ubuntu1) precise; urgency=low
 
