@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (295.53-0ubuntu1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 May 2012 11:24:08 +0200
+
 nvidia-graphics-drivers (295.33-0ubuntu1) precise; urgency=low
 
   * New upstream release:
