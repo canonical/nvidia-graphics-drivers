@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-updates (295.53-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (295.53-0ubuntu1) quantal; urgency=low
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+      o GeForce GTX 670
+      o GeForce 605
+      o GeForce GT 610
+      o GeForce GT 630
+      o GeForce GT 640
+      o GeForce GT 645
+    - Fixed a bug affecting some G-Sync configurations
+      which could cause active stereo content to be
+      inverted on some display devices.
+    - Add support for linux 3.4 (LP: #993506).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 May 2012 11:47:32 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 May 2012 11:59:03 +0200
 
 nvidia-graphics-drivers-updates (295.49-0ubuntu1) quantal; urgency=low
 
