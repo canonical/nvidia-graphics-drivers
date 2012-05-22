@@ -2,31 +2,31 @@ debian/nvidia-current-updates.override                 usr/share/lintian/overrid
 #Blacklist some card ids from GRUB gfxpayload=keep
 debian/nvidia-current-updates.grub-gfxpayload          /usr/share/nvidia-current-updates
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/nvidia_drv.so /usr/lib/nvidia-current-updates/xorg
-NVIDIA-Linux-x86_64-295.49-no-compat32/libglx.so.295.49 /usr/lib/nvidia-current-updates/xorg
+NVIDIA-Linux-x86_64-295.53-no-compat32/nvidia_drv.so /usr/lib/nvidia-current-updates/xorg
+NVIDIA-Linux-x86_64-295.53-no-compat32/libglx.so.295.53 /usr/lib/nvidia-current-updates/xorg
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/libGL*.so*                  /usr/lib/nvidia-current-updates
-NVIDIA-Linux-x86_64-295.49-no-compat32/libnv*.so*                  /usr/lib/nvidia-current-updates
-NVIDIA-Linux-x86_64-295.49-no-compat32/libcuda*.so*                /usr/lib/nvidia-current-updates
-NVIDIA-Linux-x86_64-295.49-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-current-updates
+NVIDIA-Linux-x86_64-295.53-no-compat32/libGL*.so*                  /usr/lib/nvidia-current-updates
+NVIDIA-Linux-x86_64-295.53-no-compat32/libnv*.so*                  /usr/lib/nvidia-current-updates
+NVIDIA-Linux-x86_64-295.53-no-compat32/libcuda*.so*                /usr/lib/nvidia-current-updates
+NVIDIA-Linux-x86_64-295.53-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-current-updates
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-current-updates/vdpau
-NVIDIA-Linux-x86_64-295.49-no-compat32/tls/*.so*                   /usr/lib/nvidia-current-updates/tls
+NVIDIA-Linux-x86_64-295.53-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-current-updates/vdpau
+NVIDIA-Linux-x86_64-295.53-no-compat32/tls/*.so*                   /usr/lib/nvidia-current-updates/tls
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/libXvMCNVIDIA.so.295.49  /usr/lib/nvidia-current-updates
+NVIDIA-Linux-x86_64-295.53-no-compat32/libXvMCNVIDIA.so.295.53  /usr/lib/nvidia-current-updates
 
-debian/dkms/patches/*                         usr/src/nvidia-current-updates-295.49/patches
-debian/dkms.conf                              usr/src/nvidia-current-updates-295.49
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-current-updates-295.49
+debian/dkms/patches/*                         usr/src/nvidia-current-updates-295.53/patches
+debian/dkms.conf                              usr/src/nvidia-current-updates-295.53
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-current-updates-295.53
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-current-updates/bin
-NVIDIA-Linux-x86_64-295.49-no-compat32/nvidia-xconfig /usr/lib/nvidia-current-updates/bin
-NVIDIA-Linux-x86_64-295.49-no-compat32/nvidia-smi /usr/lib/nvidia-current-updates/bin
+NVIDIA-Linux-x86_64-295.53-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-current-updates/bin
+NVIDIA-Linux-x86_64-295.53-no-compat32/nvidia-xconfig /usr/lib/nvidia-current-updates/bin
+NVIDIA-Linux-x86_64-295.53-no-compat32/nvidia-smi /usr/lib/nvidia-current-updates/bin
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/nvidia-current-updates-settings.png /usr/share/pixmaps
+NVIDIA-Linux-x86_64-295.53-no-compat32/nvidia-current-updates-settings.png /usr/share/pixmaps
 
 debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-current-updates
 
 debian/nvidia-autostart.desktop /usr/share/nvidia-current-updates
 
-NVIDIA-Linux-x86_64-295.49-no-compat32/nvidia.icd /usr/share/nvidia-current-updates
+NVIDIA-Linux-x86_64-295.53-no-compat32/nvidia.icd /usr/share/nvidia-current-updates
