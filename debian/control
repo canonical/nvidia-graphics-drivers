@@ -37,7 +37,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  
 Package: nvidia-current-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-current (>= 295.33)
+Depends: nvidia-current (>= 295.53)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
