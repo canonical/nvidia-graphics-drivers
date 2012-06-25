@@ -14,7 +14,7 @@ Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
  ${xviddriver:Depends}
-Recommends: nvidia-settings-updates
+Recommends: nvidia-settings-updates (>= #VERSION#)
 Provides: ${xviddriver:Provides}
 Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases
 Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases
