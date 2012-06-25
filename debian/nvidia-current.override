@@ -1,53 +1,53 @@
-nvidia-current: library-not-linked-against-libc ./usr/lib/libGL.so.295.53
+nvidia-current: library-not-linked-against-libc ./usr/lib/libGL.so.302.17
 
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.295.53
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.302.17
 
-nvidia-current: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.295.53
+nvidia-current: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.302.17
 
-nvidia-current: shlib-with-non-pic-code usr/lib/libGL.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/libGLcore.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.295.53
+nvidia-current: shlib-with-non-pic-code usr/lib/libGL.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/libGLcore.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.302.17
 
-nvidia-current: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.295.53 usr/lib/libGL.so
-nvidia-current: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.295.53 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-current: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.302.17 usr/lib/libGL.so
+nvidia-current: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.302.17 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-current: script-not-executable usr/src/nvidia-current-295.53/conftest.sh
+nvidia-current: script-not-executable usr/src/nvidia-current-302.17/conftest.sh
 nvidia-current: maintainer-script-ignores-errors prerm
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libGL.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libGL.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libGLcore.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libGLcore.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libXvMCNVIDIA.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libXvMCNVIDIA.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libcuda.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libcuda.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libnvidia-cfg.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libnvidia-cfg.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libnvidia-tls.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libnvidia-tls.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libvdpau.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/tls/libnvidia-tls.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/tls/libnvidia-tls.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/vdpau/libvdpau_trace.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/xorg/libglx.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/xorg/libglx.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.295.53
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libGL.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libGL.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libGLcore.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libGLcore.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libXvMCNVIDIA.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libXvMCNVIDIA.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libcuda.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libcuda.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libnvidia-cfg.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libnvidia-cfg.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/libnvidia-tls.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libnvidia-tls.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libvdpau.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/tls/libnvidia-tls.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/tls/libnvidia-tls.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/vdpau/libvdpau_nvidia.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/vdpau/libvdpau_trace.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/nvidia-current/xorg/libglx.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/xorg/libglx.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.302.17
 nvidia-current: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-current: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-current: prerm-calls-ldconfig
 nvidia-current: copyright-without-copyright-notice
 nvidia-current: desktop-command-not-in-package /usr/share/applications/nvidia-current/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/libnvidia-tls.so.295.53
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/tls/libnvidia-tls.so.295.53
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.295.53
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/libnvidia-tls.so.302.17
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/tls/libnvidia-tls.so.302.17
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.302.17
 nvidia-current: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -56,34 +56,34 @@ nvidia-glx-185-dev: extended-description-line-too-long
 nvidia-glx-185-dev: unknown-section restricted/misc
 nvidia-185-kernel-source: copyright-without-copyright-notice
 nvidia-185-kernel-source: unknown-section restricted/misc
-nvidia-current-dev: shlib-with-non-pic-code usr/lib/nvidia-current/libXvMCNVIDIA.so.295.53
-nvidia-current-dev: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libXvMCNVIDIA.so.295.53
+nvidia-current-dev: shlib-with-non-pic-code usr/lib/nvidia-current/libXvMCNVIDIA.so.302.17
+nvidia-current-dev: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current/libXvMCNVIDIA.so.302.17
 nvidia-current-dev: postinst-has-useless-call-to-ldconfig
 nvidia-current-dev: postrm-has-useless-call-to-ldconfig
 nvidia-current-dev: copyright-without-copyright-notice
-nvidia-current-dev: missing-dependency-on-libc needed by ./usr/lib/nvidia-current/libXvMCNVIDIA.so.295.53
+nvidia-current-dev: missing-dependency-on-libc needed by ./usr/lib/nvidia-current/libXvMCNVIDIA.so.302.17
 nvidia-current-dev: unknown-section restricted/misc
 nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-current-modaliases: copyright-without-copyright-notice
 
-nvidia-current: script-not-executable ./usr/src/nvidia-current-295.53/conftest.sh
+nvidia-current: script-not-executable ./usr/src/nvidia-current-302.17/conftest.sh
 nvidia-current: maintainer-script-ignores-errors prerm
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libGL.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libGLcore.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libXvMCNVIDIA.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current/libXvMCNVIDIA.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libcuda.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libnvidia-cfg.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libnvidia-tls.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libvdpau_nvidia.so.295.53
-nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/tls/libnvidia-tls.so.295.53
-nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current/tls/libnvidia-tls.so.295.53
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libGL.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libGLcore.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libXvMCNVIDIA.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current/libXvMCNVIDIA.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libcuda.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libnvidia-cfg.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libnvidia-tls.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/libvdpau_nvidia.so.302.17
+nvidia-current: shlib-with-non-pic-code usr/lib32/nvidia-current/tls/libnvidia-tls.so.302.17
+nvidia-current: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current/tls/libnvidia-tls.so.302.17
 
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/libnvidia-tls.so.295.53
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/tls/libnvidia-tls.so.295.53
-nvidia-current: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.295.53
-nvidia-current: shared-lib-without-dependency-information ./usr/lib32/nvidia-current/libnvidia-tls.so.295.53
-nvidia-current: shared-lib-without-dependency-information ./usr/lib32/nvidia-current/tls/libnvidia-tls.so.295.53
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/libnvidia-tls.so.302.17
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/nvidia-current/tls/libnvidia-tls.so.302.17
+nvidia-current: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.302.17
+nvidia-current: shared-lib-without-dependency-information ./usr/lib32/nvidia-current/libnvidia-tls.so.302.17
+nvidia-current: shared-lib-without-dependency-information ./usr/lib32/nvidia-current/tls/libnvidia-tls.so.302.17
 
 
