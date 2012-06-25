@@ -1,8 +1,88 @@
-nvidia-graphics-drivers (302.17-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (302.17-0ubuntu1) quantal; urgency=low
 
-  * 
+  * debian/control.in:
+    - Make sure to recommend nvidia-settings (>= version).
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GT 620M
+      o GeForce GT 640M
+      o GeForce GT 640M LE
+      o GeForce GT 650M
+      o GeForce GTX 660M
+      o GeForce GTX 670M
+      o GeForce GTX 675M
+      o GeForce GTX 555
+      o GeForce GTX 560 SE
+      o GeForce GT 415
+      o GeForce GTX 460 v2
+      o NVS 5400M
+      o NVS 310
+      o Quadro 410
+    - Made nvidiaXineramaInfoOrder consistent with the
+      RRSetOutputPrimary and RRGetOutputPrimary RandR
+      requests: changes to either nvidiaXineramaInfoOrder
+      or RandR OutputPrimary will be reflected in the
+      other.
+    - Fixed an interaction problem between RandR 1.2,
+      ConstrainCursor, and panning that prevented panning
+      from working properly.
+    - Fixed a bug that caused RandR RRNotify_CrtcChange
+      events to not be generated when switching between
+      MetaModes with the same total size but different
+      layout of display devices. This bug caused some
+      window managers to not update their layouts in
+      response to switching same-sized MetaModes.
+    - Added support for desktop panning when rotation,
+      reflection, or transformation is applied to a
+      display device (either through RandR or through
+      the MetaMode syntax); panning would previously be
+      ignored in that case.
+    - Added an "EDID" property to RandR 1.2 outputs.
+      This property contains the binary contents of the
+      connected monitor's extended display identification
+      data, which allows applications such as the GNOME
+      display properties dialog to query information about
+      it.
+    - Fixed a bug that caused audio over HDMI to not work
+      on some GPUs after querying the RandR configuration
+      (e.g., `xrandr -q`).
+    - Added the "nvidiaXineramaInfo" X configuration
+      option to report the layout of multiple display
+      devices within an X screen. This is enabled by
+      default. When disabled on X servers with RandR
+      1.2 support, the NVIDIA X driver will report one
+      screen-sized region. When disabled on X servers
+      without RandR 1.2 support, no Xinerama information
+      will be reported. For backwards compatibility, the
+      "NoTwinViewXineramaInfo" option disables
+      nvidiaXineramaInfo.
+    - Added the "nvidiaXineramaInfoOrder" X configuration
+      option as a replacement for
+      "TwinViewXineramaInfoOrder". For backwards
+      compatibility, "TwinViewXineramaInfoOrder" is kept
+      as a synonym for "nvidiaXineramaInfoOrder".
+    - Added the "nvidiaXineramaInfoOverride" X
+      configuration option as a replacement for
+      "TwinViewXineramaInfoOverride". For backwards
+      compatibility, "TwinViewXineramaInfoOverride" is
+      kept as a synonym for "nvidiaXineramaInfoOverride".
+    - Fixed a bug that prevented the use of some SLI Mosaic
+      topologies.
+    - Added the "MetaModeOrientation" X configuration
+      option as a replacement for "TwinViewOrientation".
+      "TwinViewOrientation" is kept as a synonym for
+      "MetaModeOrientation", for backwards compatibility.
+    - Disabled the use of certain OpenGL optimizations
+      with Autodesk Maya and Mudbox, due to conflicts
+      between these applications and the optimizations.
+      Some performance loss in Autodesk Maya and Mudbox
+      is possible, as a result.
+    - Fixed a behavior issue where redundant DPMS state
+      transitions were leading to unexpected screen
+      blanking on DisplayPort displays.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Jun 2012 13:45:15 +0200
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Jun 2012 15:51:46 +0200
 
 nvidia-graphics-drivers (295.53-0ubuntu1) quantal; urgency=low
 
