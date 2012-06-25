@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (302.17-0ubuntu1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Jun 2012 13:45:15 +0200
+
 nvidia-graphics-drivers (295.53-0ubuntu1) quantal; urgency=low
 
   * New upstream release:
