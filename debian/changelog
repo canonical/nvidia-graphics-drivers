@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (302.17-0ubuntu2) quantal; urgency=low
+
+  * Rebuild against the new xserver abi.
+
+ -- Timo Aaltonen <tjaalton@ubuntu.com>  Mon, 02 Jul 2012 23:00:16 +0300
+
 nvidia-graphics-drivers (302.17-0ubuntu1) quantal; urgency=low
 
   * debian/control.in:
