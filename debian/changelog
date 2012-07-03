@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-updates (302.17-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (302.17-0ubuntu2) quantal; urgency=low
 
-  * 
+  * Rebuild against the new xserver abi.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Jul 2012 16:00:22 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Jul 2012 16:00:47 +0200
 
 nvidia-graphics-drivers-updates (302.17-0ubuntu1) quantal; urgency=low
 
