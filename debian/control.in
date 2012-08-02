@@ -2,10 +2,10 @@ Source: #DRIVERSRCNAME#
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Build-Depends: debhelper (>= 6.0.7~), sed (>> 3.0), libxext6, bzip2,
- xserver-xorg-dev (>= 2:1.4), execstack, cdbs, libc6, libxvmc1,
+Build-Depends: debhelper (>= 7.0.50~), sed (>> 3.0), libxext6, bzip2,
+ xserver-xorg-dev (>= 2:1.4), execstack, libc6, libxvmc1,
  dh-modaliases, libxv1
-Standards-Version: 3.8.0
+Standards-Version: 3.9.1
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 

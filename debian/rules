@@ -9,8 +9,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-
 VIDEODEP = $(shell cat /usr/share/xserver-xorg/videodrvdep 2>/dev/null)
 VIDDRIVER_PROVIDES = xorg-driver-video
 
@@ -135,6 +133,10 @@ DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
 
+
+%:
+	dh $@
+
 # This makes sure that the xserver ABI is bumped to match the current one when the
 # packages are built
 .PHONY: serverabi
@@ -222,7 +224,7 @@ endif
 # Pre-config
 #makebuilddir/$(PKG_driver):: regen-from-templates
 
-configure/$(PKG_driver)::
+build: regen-from-templates
 	rm -rf $(dirname_x86) $(dirname_x86_64)
 
 	# Make the installers executable and extract them
@@ -264,9 +266,12 @@ endif
 	execstack -c $(CURDIR)/$(dirname)/nvidia-xconfig || true
 	execstack -c $(CURDIR)/$(dirname)/nvidia-smi || true
 
+	dh build
+
 #binary-install/$(PKG_driver_dev)::
 
-binary-install/$(PKG_driver):: serverabi
+#override_dh_install/$(PKG_driver): serverabi
+binary-arch: serverabi
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	#32 bit libraries on 64 bit
 	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)"
@@ -311,7 +316,7 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	echo "$(PKG_libdir32)" >>	$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)
 endif
 	# empty ld.so.conf for the fake multi-arch alternative
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
+	echo > "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)"
 
 	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
 	# and create an alias for the module so that it can be used as nvidia
@@ -337,8 +342,13 @@ endif
 
 	rm -rf debian/temp
 
+	dh binary-arch
 
-clean:: regen-from-templates
+binary: binary-arch binary-indep ;
+	#Run the normal stuff
+	dh binary
+
+override_dh_auto_clean: regen-from-templates
 #	for file in $(CURDIR)/debian/*.in \
 #	; do \
 #		if [ `basename $$file` != "control.in" ]; then \
@@ -348,4 +358,9 @@ clean:: regen-from-templates
 	rm -fr $(CURDIR)/$(dirname_x86) $(CURDIR)/$(dirname_x86_64)
 	rm -fr debian/temp
 
-
+override_dh_shlibdeps:
+ifeq ($(DEB_HOST_ARCH),amd64)
+	dh_shlibdeps -l$(CURDIR)/debian/$(PKG_driver)/$(PKG_libdir):$(CURDIR)/debian/$(PKG_driver)/$(PKG_libdir32) -Xlib32
+else
+	dh_shlibdeps -l$(CURDIR)/debian/$(PKG_driver)/$(PKG_libdir)
+endif
