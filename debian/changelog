@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (302.32-0ubuntu2) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 14:38:11 +0200
+
 nvidia-graphics-drivers (302.32-0ubuntu1) quantal; urgency=low
 
   * debian/control.in, debian/rules:
