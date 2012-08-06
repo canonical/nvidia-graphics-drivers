@@ -1,8 +1,55 @@
-nvidia-graphics-drivers-updates (304.32-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.32-0ubuntu1) quantal; urgency=low
 
-  * 
+  * debian/control.in, debian/rules:
+    - Switch from cdbs to debhelper.
+  * New upstream release:
+    - Fixed security issue that allowed an exploit to
+      use NVIDIA UNIX device files to map and program
+      registers to redirect the VGA window. Through the
+      VGA window, the exploit could access any region of
+      physical system memory. This arbitrary memory
+      access could then be further exploited, for
+      example, to escalate user privileges (LP: #1033452).
+    - Added support for xserver ABI 13 (xorg-server 1.13).
+    - Fixed a bug that caused RRSetOutputPrimary requests
+      to incorrectly generate BadValue errors when
+      setting the primary output to None. This caused
+      gnome-settings-daemon to crash after changing the
+      screen configuration in response to a display
+      hotplug or the display change hot-key being pressed.
+    - Fixed a problem where RENDER Glyphs operations
+      would exhibit severe performance issues in certain
+      cases, such as when used with gradients by Cairo
+      and Chromium.
+    - Fixed a bug that caused X to hang when resuming
+      certain DisplayPort display devices (such as Apple
+      brand mini-DisplayPort to dual-link DVI adapters)
+      from power-saving mode.
+    - Added support for the following GPU: Tesla K10
+    - Fixed a bug that caused an X screen to be extended
+      to Quadro SDI Output devices by default. An X
+      screen will still use an SDI Output device if it
+      is the only display device available. To use a SDI
+      Output device on an X screen with other display
+      devices available, include the SDI Output device
+      with either the "UseDisplayDevice" or "MetaMode"
+      X configuration options.
+    - Updated X11 modeline validation such that modes
+      not defined in a display device's EDID are
+      discarded if the EDID 1.3 "GTF Supported" flag is
+      unset or if the EDID 1.4 "Continuous Frequency"
+      flag is unset. The new "AllowNonEdidModes" token
+      for the ModeValidation X configuration option can
+      be used to disable this new check.
+    - Fixed a bug, introduced in the 295.xx release
+      series, with EDID detection on some laptop
+      internal panels. This bug caused the laptop
+      internal panel to show six small copies of the
+      desktop.
+    - Added support for FXAA, Fast Approximate
+      Anti-Aliasing.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 11:11:11 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 12:04:20 +0200
 
 nvidia-graphics-drivers-updates (302.17-0ubuntu2) quantal; urgency=low
 
