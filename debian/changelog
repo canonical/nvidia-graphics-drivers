@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (302.32-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (302.32-0ubuntu2) quantal-proposed; urgency=low
 
-  * 
+  * Rebuild against new X ABI.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 14:38:11 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 14:38:23 +0200
 
 nvidia-graphics-drivers (302.32-0ubuntu1) quantal; urgency=low
 
