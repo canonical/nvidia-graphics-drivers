@@ -1,8 +1,17 @@
-nvidia-graphics-drivers (304.32-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.32-0ubuntu1) quantal; urgency=low
 
-  * 
+  * Re-upload the source as the previous release was
+    accidentally uploaded as 302.32 instead of 304.32.
+  * debian/dkms/buildfix_kernel_3.6.patch:
+    - Add support for Linux 3.6
+  * debian/control.in, debian/rules:
+    - Revert switch to debhelper.
+  * nvidia-$flavour.install.in:
+    - Make sure to install dkms.conf after installing
+      the source. This makes sure we override the
+      dkms.conf from upstream.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 15:21:15 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2012 17:12:03 +0200
 
 nvidia-graphics-drivers (302.32-0ubuntu2) quantal-proposed; urgency=low
 
