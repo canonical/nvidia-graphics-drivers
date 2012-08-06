@@ -15,9 +15,9 @@ NVIDIA-Linux-x86_64-304.32-no-compat32/tls/*.so*                   /usr/lib/nvid
 
 NVIDIA-Linux-x86_64-304.32-no-compat32/libXvMCNVIDIA.so.304.32  /usr/lib/nvidia-current
 
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-current-304.32
 debian/dkms/patches/*                         usr/src/nvidia-current-304.32/patches
 debian/dkms.conf                              usr/src/nvidia-current-304.32
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-current-304.32
 
 NVIDIA-Linux-x86_64-304.32-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-current/bin
 NVIDIA-Linux-x86_64-304.32-no-compat32/nvidia-xconfig /usr/lib/nvidia-current/bin
