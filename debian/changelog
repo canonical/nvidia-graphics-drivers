@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-updates (304.32-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.32-0ubuntu5) quantal; urgency=low
 
-  * 
+  * debian/rules:
+    - Add ABIs 12 and 13.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Aug 2012 19:01:32 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Aug 2012 19:04:03 +0200
 
 nvidia-graphics-drivers-updates (304.32-0ubuntu4) quantal; urgency=low
 
