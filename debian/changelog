@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-updates (304.32-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.32-0ubuntu4) quantal; urgency=low
 
-  * 
+  * debian/rules:
+    - Hardcode X ABI to 11.
+  * debian/control.in:
+    - Remove versioned dependency on nvidia-settings
+      (LP: #1034035).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Aug 2012 18:00:40 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Aug 2012 18:40:47 +0200
 
 nvidia-graphics-drivers-updates (304.32-0ubuntu3) quantal; urgency=low
 
