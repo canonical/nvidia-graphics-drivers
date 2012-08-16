@@ -1,7 +1,7 @@
 Source: #DRIVERSRCNAME#
 Section: restricted/misc
 Priority: optional
-Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Build-Depends: debhelper (>= 6.0.7~), sed (>> 3.0), libxext6, bzip2,
  xserver-xorg-dev (>= 2:1.4), execstack, cdbs, libc6, libxvmc1,
  dh-modaliases, libxv1

@@ -1,3 +1,13 @@
+nvidia-graphics-drivers-updates (295.49-0ubuntu0.2) precise-security; urgency=low
+
+  * SECURITY UPDATE: privilege escalation via kernel memory access
+    - debian/dkms/patches/blacklist-vga-pmu-registers.patch: blacklist
+      more offsets in nv.{c,h}.
+    - debian/dkms.conf{.in}: added new patch.
+    - CVE number pending
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Sun, 05 Aug 2012 09:49:25 -0400
+
 nvidia-graphics-drivers-updates (295.49-0ubuntu0.1) precise-proposed; urgency=low
 
   * New upstream release:
