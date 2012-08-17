@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-updates (304.32-0ubuntu6) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.32-0ubuntu6) quantal; urgency=low
 
-  * 
+  * debian/rules:
+    - Disable support fo X ABI 13 since the driver doesn't
+      seem to work well with the new X.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 17 Aug 2012 18:41:20 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 17 Aug 2012 18:41:43 +0200
 
 nvidia-graphics-drivers-updates (304.32-0ubuntu5) quantal; urgency=low
 
