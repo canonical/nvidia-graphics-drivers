@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-updates (304.43-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.43-0ubuntu1) quantal; urgency=low
 
-  * 
+  * debian/rules:
+    - Add support for X ABI 13.
+  * New upstream release (LP: #1037483):
+    - Added support for the following GPUs:
+      o GeForce GTX 660 Ti
+      o Quadro K5000
+      o Quadro K5000M
+      o Quadro K4000M
+      o Quadro K3000M
+      o NVS 510
+    - Fixed a bug that caused pre-release versions of
+      X.Org xserver 1.13 to crash when certain GLX
+      operations were performed, such as when starting
+      Firefox.
+    - Fixed a bug that caused VDPAU to hang when
+      expanding the YouTube Flash Player.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Aug 2012 12:37:41 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Aug 2012 12:38:54 +0200
 
 nvidia-graphics-drivers-updates (304.32-0ubuntu6) quantal; urgency=low
 
