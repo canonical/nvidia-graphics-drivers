@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-updates (304.37-0ubuntu0.1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.43-0ubuntu0.1) UNRELEASED; urgency=low
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Aug 2012 17:48:27 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Aug 2012 17:08:54 +0200
 
 nvidia-graphics-drivers-updates (295.49-0ubuntu0.2) precise-security; urgency=low
 
