@@ -17,7 +17,7 @@ VIDDRIVER_PROVIDES = xorg-driver-video
 
 # Manual VIDEO ABI dependencies
 # Comment out the following line to re-enable automatic ABI detection
-VIDEODEP = xorg-video-abi-11|xorg-video-abi-12|xorg-video-abi-13, xserver-xorg-core (>= 2:1.11.99.901)
+VIDEODEP = xorg-video-abi-11|xorg-video-abi-12|xorg-video-abi-13, xserver-xorg-core (>= 2:1.10.99.901)
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # If the host is i386 set OTHER_ARCH to x86_64 and vice versa
