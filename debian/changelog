@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-updates (304.43-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.43-0ubuntu2) quantal; urgency=low
 
-  * 
+  * debian/dkms.conf.in:
+    - Drop patch for linux 3.6
+  * debian/rules:
+    - Lower the dependency on xserver-xorg-core
+      (>= 2:1.10.99.901) for easier backports.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 30 Aug 2012 17:01:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 30 Aug 2012 17:02:09 +0200
 
 nvidia-graphics-drivers-updates (304.43-0ubuntu1) quantal; urgency=low
 
