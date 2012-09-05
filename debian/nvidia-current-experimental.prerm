@@ -1,12 +1,12 @@
 #!/bin/sh
-# prerm script for nvidia-current-updates
+# prerm script for nvidia-current-experimental
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
 # Authors: Alberto Milone
 
 
-PACKAGE_NAME=nvidia-current-updates
+PACKAGE_NAME=nvidia-current-experimental
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 
 remove_dkms_module() {
@@ -22,8 +22,8 @@ case "$1" in
 	remove)
 		remove_dkms_module
 
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-current-updates/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-current-updates/alt_ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-current-experimental/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-current-experimental/alt_ld.so.conf
 
 		# Trigger gmenu so as to update the gnome menu
 		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true

@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-current-updates
+# postrm script for nvidia-current-experimental
 #
 # see: dh_installdeb(1)
 #
@@ -21,13 +21,13 @@ set -e
 
 case "$1" in
     remove|purge)
-        # This should make sure that /usr/lib/nvidia-current-updates and
-        # /usr/lib32/nvidia-current-updates are removed even if some
+        # This should make sure that /usr/lib/nvidia-current-experimental and
+        # /usr/lib32/nvidia-current-experimental are removed even if some
         # links are left. See LP: #540143
-        rm -Rf /usr/lib/nvidia-current-updates /usr/lib32/nvidia-current-updates
+        rm -Rf /usr/lib/nvidia-current-experimental /usr/lib32/nvidia-current-experimental
 
         # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-current-updates_hybrid.conf
+        rm -f /etc/modprobe.d/nvidia-current-experimental_hybrid.conf
 
         # Update initramfs, in case we were loaded into it
         /usr/sbin/update-initramfs -u

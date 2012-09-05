@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-current-updates
+# preinst script for nvidia-current-experimental
 #
 # see: dh_installdeb(1)
 #
