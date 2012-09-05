@@ -36,7 +36,7 @@ Kernel patches
 -------------------------
    32 bit libraries are provided on 64 bit systems for compatibility
    reasons.
-   
+
    The following templates are merged together into the same file on
    amd64:
    debian/nvidia-current.links32.in

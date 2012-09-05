@@ -14,7 +14,7 @@
 #PKGLIBDIR#/libcuda.so.#VERSION# #PKGLIBDIR#/libcuda.so.1
 
 #PKGVDPAUDIR#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR#/libvdpau_nvidia.so.1
-#PKGVDPAUDIR#/libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so 
+#PKGVDPAUDIR#/libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so
 
 #PKGLIBDIR#/libOpenCL.so.1.0.0 #PKGLIBDIR#/libOpenCL.so.1.0
 #PKGLIBDIR#/libOpenCL.so.1.0 #PKGLIBDIR#/libOpenCL.so.1

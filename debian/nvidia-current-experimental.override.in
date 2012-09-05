@@ -85,5 +85,3 @@ nvidia-glx-185: unknown-section restricted/misc
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.#VERSION#
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib32/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib32/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
-
-

@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for #DRIVERNAME#
+# postrm script for nvidia-current-updates
 #
 # see: dh_installdeb(1)
 #
@@ -21,18 +21,18 @@ set -e
 
 case "$1" in
     remove|purge)
-        # This should make sure that #PKGLIBDIR# and
-        # #PKGLIBDIR32# are removed even if some
+        # This should make sure that /usr/lib/nvidia-current-updates and
+        # /usr/lib32/nvidia-current-updates are removed even if some
         # links are left. See LP: #540143
-        rm -Rf #PKGLIBDIR# #PKGLIBDIR32#
+        rm -Rf /usr/lib/nvidia-current-updates /usr/lib32/nvidia-current-updates
 
         # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/#DRIVERNAME#_hybrid.conf
+        rm -f /etc/modprobe.d/nvidia-current-updates_hybrid.conf
 
         # Update initramfs, in case we were loaded into it
         /usr/sbin/update-initramfs -u
     ;;
-    
+
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 
 

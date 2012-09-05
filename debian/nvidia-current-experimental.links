@@ -14,7 +14,7 @@
 /usr/lib/nvidia-current-updates/libcuda.so.304.43 /usr/lib/nvidia-current-updates/libcuda.so.1
 
 /usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.304.43 /usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.1
-/usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so 
+/usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so
 
 /usr/lib/nvidia-current-updates/libOpenCL.so.1.0.0 /usr/lib/nvidia-current-updates/libOpenCL.so.1.0
 /usr/lib/nvidia-current-updates/libOpenCL.so.1.0 /usr/lib/nvidia-current-updates/libOpenCL.so.1

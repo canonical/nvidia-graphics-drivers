@@ -29,14 +29,14 @@ OTHER_ARCH := $(shell (echo "$(DEB_HOST_MULTIARCH)" | grep i386 >/dev/null) && \
 PATH := $(PATH):/usr/sbin
 
 # Package names
-PKG_driver           := nvidia-current-updates
+PKG_driver           := nvidia-current-experimental
 PKG_driver_dev       := $(PKG_driver)-dev
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
 
 # Priority of the alternative
-alt_priority         := 9900
+alt_priority         := 9901
 
 # Installer details
 dirname_x86          := NVIDIA-Linux-x86-$(PKG_version)
@@ -118,6 +118,7 @@ blacklist lbm-nouveau
 blacklist nvidia-173
 blacklist nvidia-96
 blacklist nvidia-current
+blacklist nvidia-current-updates
 blacklist nvidia-173-updates
 blacklist nvidia-96-updates
 alias nvidia $(PKG_module)
