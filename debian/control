@@ -15,9 +15,12 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
  ${xviddriver:Depends}
 Recommends: nvidia-settings-updates
-Provides: ${xviddriver:Provides}
-Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases
-Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases
+Provides: nvidia-driver, nvidia-current-updates, nvidia-current, nvidia-173,
+ nvidia-96, ${xviddriver:Provides}
+Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
+ nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96
+Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
+ nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
