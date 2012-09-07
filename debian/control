@@ -15,12 +15,14 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
  ${xviddriver:Depends}
 Recommends: nvidia-settings-updates
-Provides: nvidia-experimental, nvidia-current, nvidia-173,
- nvidia-96,  ${xviddriver:Provides}
+Provides: nvidia-experimental, nvidia-current, nvidia-173, nvidia-173-updates,
+ nvidia-96, nvidia-96-updates, fglrx, fglrx-updates, ${xviddriver:Provides}
 Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
- nvidia-current, nvidia-current-experimental, nvidia-173, nvidia-96
+ nvidia-current, nvidia-current-experimental, nvidia-173, nvidia-173-updates,
+ nvidia-96, nvidia-96-updates, fglrx, fglrx-updates
 Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
- nvidia-current, nvidia-current-experimental, nvidia-173, nvidia-96
+ nvidia-current, nvidia-current-experimental, nvidia-173, nvidia-173-updates,
+ nvidia-96, nvidia-96-updates, fglrx, fglrx-updates
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
@@ -34,10 +36,10 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
  GPUs such as GeForce series 6 or newer are supported.
  .
- See /usr/share/doc/nvidia-current-updates/README.txt.gz for a complete list 
+ See /usr/share/doc/nvidia-current-updates/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
  .
- 
+
 Package: nvidia-current-updates-dev
 Architecture: i386 amd64 lpia
 Depends: nvidia-current-updates (>= 304.43)
