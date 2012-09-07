@@ -24,7 +24,7 @@ Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliase
  nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96,
  fglrx, fglrx-updates
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
