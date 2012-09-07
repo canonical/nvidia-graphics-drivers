@@ -16,12 +16,12 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  ${xviddriver:Depends}
 Recommends: nvidia-settings-experimental
 Provides: nvidia-current-updates, nvidia-current, nvidia-173, nvidia-96,
- fglrx, fglrx-updates, ${xviddriver:Provides}
+ nvidia-96-updates, fglrx, fglrx-updates, ${xviddriver:Provides}
 Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
- nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96,
+ nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96, nvidia-96-updates,
  fglrx, fglrx-updates
 Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
- nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96,
+ nvidia-current, nvidia-current-updates, nvidia-173, nvidia-96, nvidia-96-updates,
  fglrx, fglrx-updates
 XB-Modaliases: ${modaliases}
 Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU library
