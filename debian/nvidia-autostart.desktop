@@ -5,5 +5,5 @@ Name=NVIDIA X Server Settings
 Comment=Configure NVIDIA X Server Settings
 Exec=sh -c '/usr/bin/nvidia-settings --load-config-only'
 Terminal=false
-Icon=nvidia-current-experimental-settings
+Icon=nvidia-experimental-settings
 Categories=System;Settings;

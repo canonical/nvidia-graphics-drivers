@@ -1,5 +1,5 @@
-NVIDIA-Linux-x86_64-304.43-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-current-experimental
+NVIDIA-Linux-x86_64-304.43-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-experimental
 
-debian/headers/cl*.h                           /usr/include/nvidia-current-experimental/CL
-debian/headers/gl*.h                           /usr/include/nvidia-current-experimental/GL
-debian/headers/cuda*.h                         /usr/include/nvidia-current-experimental/cuda
+debian/headers/cl*.h                           /usr/include/nvidia-experimental/CL
+debian/headers/gl*.h                           /usr/include/nvidia-experimental/GL
+debian/headers/cuda*.h                         /usr/include/nvidia-experimental/cuda
