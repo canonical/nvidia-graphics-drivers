@@ -32,14 +32,14 @@ Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU lib
  testers and early adopters, and not recommended for production hardware.
  .
  Release Notes:
- http://www.nvidia.com/object/linux-display-ia32-304.43-driver.html
+ https://plus.google.com/u/0/118125769023950376556/posts/bHW91CsG4bP
  .
  See /usr/share/doc/nvidia-experimental/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
 
 Package: nvidia-experimental-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-experimental (>= 304.43)
+Depends: nvidia-experimental (>= 304.48)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

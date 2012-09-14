@@ -1,60 +1,60 @@
-/usr/lib/nvidia-experimental/libGL.so.304.43 /usr/lib/nvidia-experimental/libGL.so.1
+/usr/lib/nvidia-experimental/libGL.so.304.48 /usr/lib/nvidia-experimental/libGL.so.1
 /usr/lib/nvidia-experimental/libGL.so.1 /usr/lib/nvidia-experimental/libGL.so
 
-/usr/lib/nvidia-experimental/libnvidia-cfg.so.304.43 /usr/lib/nvidia-experimental/libnvidia-cfg.so.1
+/usr/lib/nvidia-experimental/libnvidia-cfg.so.304.48 /usr/lib/nvidia-experimental/libnvidia-cfg.so.1
 /usr/lib/nvidia-experimental/libnvidia-cfg.so.1 /usr/lib/nvidia-experimental/libnvidia-cfg.so
 
-/usr/lib/nvidia-experimental/xorg/libglx.so.304.43 /usr/lib/nvidia-experimental/xorg/libglx.so
+/usr/lib/nvidia-experimental/xorg/libglx.so.304.48 /usr/lib/nvidia-experimental/xorg/libglx.so
 
-/usr/lib/nvidia-experimental/libXvMCNVIDIA.so.304.43 /usr/lib/nvidia-experimental/libXvMCNVIDIA.so
-/usr/lib/nvidia-experimental/libXvMCNVIDIA.so.304.43 /usr/lib/nvidia-experimental/libXvMCNVIDIA.so.1
-/usr/lib/nvidia-experimental/libXvMCNVIDIA.so.304.43 /usr/lib/nvidia-experimental/libXvMCNVIDIA_dynamic.so.1
+/usr/lib/nvidia-experimental/libXvMCNVIDIA.so.304.48 /usr/lib/nvidia-experimental/libXvMCNVIDIA.so
+/usr/lib/nvidia-experimental/libXvMCNVIDIA.so.304.48 /usr/lib/nvidia-experimental/libXvMCNVIDIA.so.1
+/usr/lib/nvidia-experimental/libXvMCNVIDIA.so.304.48 /usr/lib/nvidia-experimental/libXvMCNVIDIA_dynamic.so.1
 
-/usr/lib/nvidia-experimental/libcuda.so.304.43 /usr/lib/nvidia-experimental/libcuda.so
-/usr/lib/nvidia-experimental/libcuda.so.304.43 /usr/lib/nvidia-experimental/libcuda.so.1
+/usr/lib/nvidia-experimental/libcuda.so.304.48 /usr/lib/nvidia-experimental/libcuda.so
+/usr/lib/nvidia-experimental/libcuda.so.304.48 /usr/lib/nvidia-experimental/libcuda.so.1
 
-/usr/lib/nvidia-experimental/vdpau/libvdpau_nvidia.so.304.43 /usr/lib/nvidia-experimental/vdpau/libvdpau_nvidia.so.1
+/usr/lib/nvidia-experimental/vdpau/libvdpau_nvidia.so.304.48 /usr/lib/nvidia-experimental/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-experimental/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-experimental/vdpau/libvdpau_nvidia.so
 
 /usr/lib/nvidia-experimental/libOpenCL.so.1.0.0 /usr/lib/nvidia-experimental/libOpenCL.so.1.0
 /usr/lib/nvidia-experimental/libOpenCL.so.1.0 /usr/lib/nvidia-experimental/libOpenCL.so.1
 /usr/lib/nvidia-experimental/libOpenCL.so.1 /usr/lib/nvidia-experimental/libOpenCL.so
 
-/usr/lib/nvidia-experimental/libnvidia-compiler.so.304.43 /usr/lib/nvidia-experimental/libnvidia-compiler.so.1
+/usr/lib/nvidia-experimental/libnvidia-compiler.so.304.48 /usr/lib/nvidia-experimental/libnvidia-compiler.so.1
 /usr/lib/nvidia-experimental/libnvidia-compiler.so.1 /usr/lib/nvidia-experimental/libnvidia-compiler.so
 
-/usr/lib/nvidia-experimental/libnvidia-ml.so.304.43 /usr/lib/nvidia-experimental/libnvidia-ml.so.1
+/usr/lib/nvidia-experimental/libnvidia-ml.so.304.48 /usr/lib/nvidia-experimental/libnvidia-ml.so.1
 /usr/lib/nvidia-experimental/libnvidia-ml.so.1 /usr/lib/nvidia-experimental/libnvidia-ml.so
 
-/usr/lib/nvidia-experimental/libnvcuvid.so.304.43 /usr/lib/nvidia-experimental/libnvcuvid.so.1
+/usr/lib/nvidia-experimental/libnvcuvid.so.304.48 /usr/lib/nvidia-experimental/libnvcuvid.so.1
 /usr/lib/nvidia-experimental/libnvcuvid.so.1 /usr/lib/nvidia-experimental/libnvcuvid.so
-/usr/lib32/nvidia-experimental/libGL.so.304.43 /usr/lib32/nvidia-experimental/libGL.so.1
+/usr/lib32/nvidia-experimental/libGL.so.304.48 /usr/lib32/nvidia-experimental/libGL.so.1
 /usr/lib32/nvidia-experimental/libGL.so.1 /usr/lib32/nvidia-experimental/libGL.so
 
-/usr/lib32/nvidia-experimental/libnvidia-cfg.so.304.43 /usr/lib32/nvidia-experimental/libnvidia-cfg.so.1
+/usr/lib32/nvidia-experimental/libnvidia-cfg.so.304.48 /usr/lib32/nvidia-experimental/libnvidia-cfg.so.1
 /usr/lib32/nvidia-experimental/libnvidia-cfg.so.1 /usr/lib32/nvidia-experimental/libnvidia-cfg.so
 
-/usr/lib/nvidia-experimental/xorg/libglx.so.304.43 /usr/lib/nvidia-experimental/xorg/libglx.so
+/usr/lib/nvidia-experimental/xorg/libglx.so.304.48 /usr/lib/nvidia-experimental/xorg/libglx.so
 
-/usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.304.43 /usr/lib32/nvidia-experimental/libXvMCNVIDIA.so
-/usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.304.43 /usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.1
-/usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.304.43 /usr/lib32/nvidia-experimental/libXvMCNVIDIA_dynamic.so.1
+/usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.304.48 /usr/lib32/nvidia-experimental/libXvMCNVIDIA.so
+/usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.304.48 /usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.1
+/usr/lib32/nvidia-experimental/libXvMCNVIDIA.so.304.48 /usr/lib32/nvidia-experimental/libXvMCNVIDIA_dynamic.so.1
 
-/usr/lib32/nvidia-experimental/libcuda.so.304.43 /usr/lib32/nvidia-experimental/libcuda.so
-/usr/lib32/nvidia-experimental/libcuda.so.304.43 /usr/lib32/nvidia-experimental/libcuda.so.1
+/usr/lib32/nvidia-experimental/libcuda.so.304.48 /usr/lib32/nvidia-experimental/libcuda.so
+/usr/lib32/nvidia-experimental/libcuda.so.304.48 /usr/lib32/nvidia-experimental/libcuda.so.1
 
-/usr/lib32/nvidia-experimental/vdpau/libvdpau_nvidia.so.304.43 /usr/lib32/nvidia-experimental/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-experimental/vdpau/libvdpau_nvidia.so.304.48 /usr/lib32/nvidia-experimental/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-experimental/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-experimental/vdpau/libvdpau_nvidia.so
 
 /usr/lib32/nvidia-experimental/libOpenCL.so.1.0.0 /usr/lib32/nvidia-experimental/libOpenCL.so.1.0
 /usr/lib32/nvidia-experimental/libOpenCL.so.1.0 /usr/lib32/nvidia-experimental/libOpenCL.so.1
 /usr/lib32/nvidia-experimental/libOpenCL.so.1 /usr/lib32/nvidia-experimental/libOpenCL.so
 
-/usr/lib32/nvidia-experimental/libnvidia-compiler.so.304.43 /usr/lib32/nvidia-experimental/libnvidia-compiler.so.1
+/usr/lib32/nvidia-experimental/libnvidia-compiler.so.304.48 /usr/lib32/nvidia-experimental/libnvidia-compiler.so.1
 /usr/lib32/nvidia-experimental/libnvidia-compiler.so.1 /usr/lib32/nvidia-experimental/libnvidia-compiler.so
 
-/usr/lib32/nvidia-experimental/libnvidia-ml.so.304.43 /usr/lib32/nvidia-experimental/libnvidia-ml.so.1
+/usr/lib32/nvidia-experimental/libnvidia-ml.so.304.48 /usr/lib32/nvidia-experimental/libnvidia-ml.so.1
 /usr/lib32/nvidia-experimental/libnvidia-ml.so.1 /usr/lib32/nvidia-experimental/libnvidia-ml.so
 
-/usr/lib32/nvidia-experimental/libnvcuvid.so.304.43 /usr/lib32/nvidia-experimental/libnvcuvid.so.1
+/usr/lib32/nvidia-experimental/libnvcuvid.so.304.48 /usr/lib32/nvidia-experimental/libnvcuvid.so.1
 /usr/lib32/nvidia-experimental/libnvcuvid.so.1 /usr/lib32/nvidia-experimental/libnvcuvid.so
