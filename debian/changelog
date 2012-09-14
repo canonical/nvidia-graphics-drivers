@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-updates (304.43-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.43-0ubuntu4) quantal; urgency=low
 
-  * 
+  * debian/rules:
+    - Make it possible to set the xserver ABIs in debian/substvars.
+      It's all documented in the README file.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Sep 2012 15:21:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Sep 2012 15:58:40 +0200
 
 nvidia-graphics-drivers-updates (304.43-0ubuntu3) quantal; urgency=low
 
