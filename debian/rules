@@ -11,14 +11,6 @@
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 
-
-VIDEODEP = $(shell cat /usr/share/xserver-xorg/videodrvdep 2>/dev/null)
-VIDDRIVER_PROVIDES = xorg-driver-video
-
-# Manual VIDEO ABI dependencies
-# Comment out the following line to re-enable automatic ABI detection
-VIDEODEP = xorg-video-abi-11|xorg-video-abi-12|xorg-video-abi-13, xserver-xorg-core (>= 2:1.10.99.901)
-
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # If the host is i386 set OTHER_ARCH to x86_64 and vice versa
 OTHER_ARCH := $(shell (echo "$(DEB_HOST_MULTIARCH)" | grep i386 >/dev/null) && \
@@ -140,18 +132,10 @@ DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
 
-# This makes sure that the xserver ABI is bumped to match the current one when the
-# packages are built
-.PHONY: serverabi
-serverabi:
-ifeq ($(VIDEODEP),)
-	@echo 'error: xserver-xorg-dev >= 1.7.6.901 needs to be installed'
-	@exit 1
-else
-	echo "xviddriver:Depends=$(VIDEODEP)" >> debian/$(PKG_driver).substvars
-	# the following is there for compatibility...
-	echo "xviddriver:Provides=$(VIDDRIVER_PROVIDES)" >> debian/$(PKG_driver).substvars
-endif
+.PHONY: gen-abi-substvars
+gen-abi-substvars:
+	# Generate the xserver ABI dependencies
+	cat debian/substvars >> debian/$(PKG_driver).substvars
 
 .PHONY: regen-from-templates
 regen-from-templates:
@@ -271,7 +255,7 @@ endif
 
 #binary-install/$(PKG_driver_dev)::
 
-binary-install/$(PKG_driver):: serverabi
+binary-install/$(PKG_driver):: gen-abi-substvars
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	#32 bit libraries on 64 bit
 	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)"
@@ -352,5 +336,5 @@ clean:: regen-from-templates
 #	done
 	rm -fr $(CURDIR)/$(dirname_x86) $(CURDIR)/$(dirname_x86_64)
 	rm -fr debian/temp
-
+	rm -f debian/$(PKG_driver).substvars
 
