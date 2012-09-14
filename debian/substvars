@@ -1,0 +1,2 @@
+xviddriver:Depends=xorg-video-abi-11|xorg-video-abi-12|xorg-video-abi-13, xserver-xorg-core (>= 2:1.10.99.901)
+xviddriver:Provides=xorg-driver-video
