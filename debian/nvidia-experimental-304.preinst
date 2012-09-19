@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-experimental
+# preinst script for nvidia-experimental-304
 #
 # see: dh_installdeb(1)
 #

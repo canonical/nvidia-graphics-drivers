@@ -1,32 +1,32 @@
-debian/nvidia-experimental.override                 usr/share/lintian/overrides
+debian/nvidia-experimental-304.override                 usr/share/lintian/overrides
 #Blacklist some card ids from GRUB gfxpayload=keep
-debian/nvidia-experimental.grub-gfxpayload          /usr/share/nvidia-experimental
+debian/nvidia-experimental-304.grub-gfxpayload          /usr/share/nvidia-experimental-304
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia_drv.so /usr/lib/nvidia-experimental/xorg
-NVIDIA-Linux-x86_64-304.48-no-compat32/libglx.so.304.48 /usr/lib/nvidia-experimental/xorg
+NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia_drv.so /usr/lib/nvidia-experimental-304/xorg
+NVIDIA-Linux-x86_64-304.48-no-compat32/libglx.so.304.48 /usr/lib/nvidia-experimental-304/xorg
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/libGL*.so*                  /usr/lib/nvidia-experimental
-NVIDIA-Linux-x86_64-304.48-no-compat32/libnv*.so*                  /usr/lib/nvidia-experimental
-NVIDIA-Linux-x86_64-304.48-no-compat32/libcuda*.so*                /usr/lib/nvidia-experimental
-NVIDIA-Linux-x86_64-304.48-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-experimental
+NVIDIA-Linux-x86_64-304.48-no-compat32/libGL*.so*                  /usr/lib/nvidia-experimental-304
+NVIDIA-Linux-x86_64-304.48-no-compat32/libnv*.so*                  /usr/lib/nvidia-experimental-304
+NVIDIA-Linux-x86_64-304.48-no-compat32/libcuda*.so*                /usr/lib/nvidia-experimental-304
+NVIDIA-Linux-x86_64-304.48-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-experimental-304
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-experimental/vdpau
-NVIDIA-Linux-x86_64-304.48-no-compat32/tls/*.so*                   /usr/lib/nvidia-experimental/tls
+NVIDIA-Linux-x86_64-304.48-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-experimental-304/vdpau
+NVIDIA-Linux-x86_64-304.48-no-compat32/tls/*.so*                   /usr/lib/nvidia-experimental-304/tls
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/libXvMCNVIDIA.so.304.48  /usr/lib/nvidia-experimental
+NVIDIA-Linux-x86_64-304.48-no-compat32/libXvMCNVIDIA.so.304.48  /usr/lib/nvidia-experimental-304
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-experimental-304.48
-debian/dkms/patches/*                         usr/src/nvidia-experimental-304.48/patches
-debian/dkms.conf                              usr/src/nvidia-experimental-304.48
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-experimental-304-304.48
+debian/dkms/patches/*                         usr/src/nvidia-experimental-304-304.48/patches
+debian/dkms.conf                              usr/src/nvidia-experimental-304-304.48
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-experimental/bin
-NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-xconfig /usr/lib/nvidia-experimental/bin
-NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-smi /usr/lib/nvidia-experimental/bin
+NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-experimental-304/bin
+NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-xconfig /usr/lib/nvidia-experimental-304/bin
+NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-smi /usr/lib/nvidia-experimental-304/bin
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-experimental-settings.png /usr/share/pixmaps
+NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia-experimental-304-settings.png /usr/share/pixmaps
 
-debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-experimental
+debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-experimental-304
 
-debian/nvidia-autostart.desktop /usr/share/nvidia-experimental
+debian/nvidia-autostart.desktop /usr/share/nvidia-experimental-304
 
-NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia.icd /usr/share/nvidia-experimental
+NVIDIA-Linux-x86_64-304.48-no-compat32/nvidia.icd /usr/share/nvidia-experimental-304
