@@ -21,7 +21,8 @@ OTHER_ARCH := $(shell (echo "$(DEB_HOST_MULTIARCH)" | grep i386 >/dev/null) && \
 PATH := $(PATH):/usr/sbin
 
 # Package names
-PKG_driver           := nvidia-experimental-304
+PKG_flavour          := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p' | sed 's/nvidia\-graphics\-drivers\-//g')
+PKG_driver           := nvidia-$(PKG_flavour)
 PKG_driver_dev       := $(PKG_driver)-dev
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
@@ -187,6 +188,7 @@ regen-from-templates:
 			-e "s|#DRIVERNAME#|$(PKG_driver)|g" \
 			-e "s|#DRIVERDEVNAME#|$(PKG_driver_dev)|g" \
 			-e "s|#DRIVERSRCNAME#|$(PKG_source)|g" \
+			-e "s|#FLAVOUR#|$(PKG_flavour)|g" \
 			-e "s|#MODULENAME#|$(PKG_module)|g" \
 			-e "s|#DIRNAME#|$(dirname)|g" \
 			-e "s|#INCLUDEDIR#|$(includedir)|g" \
