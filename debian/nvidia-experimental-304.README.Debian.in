@@ -39,8 +39,8 @@ Kernel patches
 
    The following templates are merged together into the same file on
    amd64:
-   debian/nvidia-current.links32.in
-   debian/nvidia-current.links.in
+   debian/nvidia-#FLAVOUR#.links32.in
+   debian/nvidia-#FLAVOUR#.links.in
 
    $ld_so_conf_path lets the system know where it should look for 32
    bit libraries.
