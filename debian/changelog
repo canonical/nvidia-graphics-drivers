@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-updates (304.43-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.43-0ubuntu5) quantal; urgency=low
 
-  * 
+  * debian/control.in:
+    - Conflict with/replace/provide nvidia-experimental-304.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 19 Sep 2012 19:45:14 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 19 Sep 2012 21:26:25 +0200
 
 nvidia-graphics-drivers-updates (304.43-0ubuntu4) quantal; urgency=low
 
