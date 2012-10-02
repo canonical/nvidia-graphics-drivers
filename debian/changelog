@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-experimental-304 (304.48-0ubuntu0.1) precise-proposed; urgency=low
 
-  * Initial release (LP: #1050674)
+  * Initial release
+    (LP: #1047681)
 
  -- Alberto Milone <alberto.milone@canonical.com>  Mon, 24 Sep 2012 16:39:44 +0200
