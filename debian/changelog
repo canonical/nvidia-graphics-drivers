@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (304.43-0ubuntu6) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Oct 2012 12:48:34 +0200
+
 nvidia-graphics-drivers (304.43-0ubuntu5) quantal; urgency=low
 
   * debian/control.in:
