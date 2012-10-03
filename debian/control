@@ -1,4 +1,4 @@
-Source: nvidia-graphics-drivers-experimental-304
+Source: nvidia-graphics-drivers-experimental-310
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -9,12 +9,12 @@ Standards-Version: 3.8.0
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
-Package: nvidia-experimental-304
+Package: nvidia-experimental-310
 Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
  ${xviddriver:Depends}
-Recommends: nvidia-settings-experimental-304
+Recommends: nvidia-settings-experimental-310
 Provides: nvidia-current-updates, nvidia-current, nvidia-173, nvidia-173-updates,
  nvidia-96, nvidia-96-updates, fglrx, fglrx-updates, ${xviddriver:Provides}
 Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
@@ -34,12 +34,12 @@ Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU lib
  Release Notes:
  https://plus.google.com/u/0/118125769023950376556/posts/bHW91CsG4bP
  .
- See /usr/share/doc/nvidia-experimental-304/README.txt.gz for a complete list
+ See /usr/share/doc/nvidia-experimental-310/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
 
-Package: nvidia-experimental-304-dev
+Package: nvidia-experimental-310-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-experimental-304 (>= 304.48)
+Depends: nvidia-experimental-310 (>= 310)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

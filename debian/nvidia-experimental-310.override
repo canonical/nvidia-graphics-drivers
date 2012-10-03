@@ -1,54 +1,54 @@
-nvidia-experimental-304: library-not-linked-against-libc ./usr/lib/libGL.so.304.48
+nvidia-experimental-310: library-not-linked-against-libc ./usr/lib/libGL.so.310
 
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.304.48
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.310
 
-nvidia-experimental-304: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.304.48
+nvidia-experimental-310: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.310
 
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/libGL.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/libGLcore.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.304.48
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/libGL.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/libGLcore.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.310
 
-nvidia-experimental-304: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.304.48 usr/lib/libGL.so
-nvidia-experimental-304: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.304.48 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-experimental-310: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.310 usr/lib/libGL.so
+nvidia-experimental-310: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.310 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-experimental-304: script-not-executable usr/src/nvidia-experimental-304-304.48/conftest.sh
-nvidia-experimental-304: maintainer-script-ignores-errors prerm
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libGL.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libGL.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libGLcore.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libGLcore.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libcuda.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libcuda.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libnvidia-cfg.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libnvidia-cfg.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libvdpau.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/vdpau/libvdpau_nvidia.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/vdpau/libvdpau_nvidia.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/vdpau/libvdpau_trace.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/xorg/libglx.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/xorg/libglx.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.304.48
-nvidia-experimental-304: unused-shlib-entry-in-control-file libnvidia-tls 190
-nvidia-experimental-304: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
-nvidia-experimental-304: prerm-calls-ldconfig
-nvidia-experimental-304: copyright-without-copyright-notice
-nvidia-experimental-304: desktop-command-not-in-package /usr/share/applications/nvidia-experimental-304/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-304/libnvidia-tls.so.304.48
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: unknown-section restricted/misc
+nvidia-experimental-310: script-not-executable usr/src/nvidia-experimental-310-310/conftest.sh
+nvidia-experimental-310: maintainer-script-ignores-errors prerm
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libGL.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libGL.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libGLcore.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libGLcore.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libcuda.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libcuda.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libnvidia-cfg.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libnvidia-cfg.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libvdpau.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/vdpau/libvdpau_trace.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/xorg/libglx.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/xorg/libglx.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.310
+nvidia-experimental-310: unused-shlib-entry-in-control-file libnvidia-tls 190
+nvidia-experimental-310: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+nvidia-experimental-310: prerm-calls-ldconfig
+nvidia-experimental-310: copyright-without-copyright-notice
+nvidia-experimental-310: desktop-command-not-in-package /usr/share/applications/nvidia-experimental-310/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-310/libnvidia-tls.so.310
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-310/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.310
+nvidia-experimental-310: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
 nvidia-glx-185-dev: copyright-without-copyright-notice
@@ -56,32 +56,32 @@ nvidia-glx-185-dev: extended-description-line-too-long
 nvidia-glx-185-dev: unknown-section restricted/misc
 nvidia-185-kernel-source: copyright-without-copyright-notice
 nvidia-185-kernel-source: unknown-section restricted/misc
-nvidia-experimental-304-dev: shlib-with-non-pic-code usr/lib/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304-dev: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304-dev: postinst-has-useless-call-to-ldconfig
-nvidia-experimental-304-dev: postrm-has-useless-call-to-ldconfig
-nvidia-experimental-304-dev: copyright-without-copyright-notice
-nvidia-experimental-304-dev: missing-dependency-on-libc needed by ./usr/lib/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304-dev: unknown-section restricted/misc
+nvidia-experimental-310-dev: shlib-with-non-pic-code usr/lib/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310-dev: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310-dev: postinst-has-useless-call-to-ldconfig
+nvidia-experimental-310-dev: postrm-has-useless-call-to-ldconfig
+nvidia-experimental-310-dev: copyright-without-copyright-notice
+nvidia-experimental-310-dev: missing-dependency-on-libc needed by ./usr/lib/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310-dev: unknown-section restricted/misc
 nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
-nvidia-experimental-304-modaliases: copyright-without-copyright-notice
+nvidia-experimental-310-modaliases: copyright-without-copyright-notice
 
-nvidia-experimental-304: script-not-executable ./usr/src/nvidia-experimental-304-304.48/conftest.sh
-nvidia-experimental-304: maintainer-script-ignores-errors prerm
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libGL.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libGLcore.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-experimental-304/libXvMCNVIDIA.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libcuda.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libnvidia-cfg.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/libvdpau_nvidia.so.304.48
-nvidia-experimental-304: shlib-with-non-pic-code usr/lib32/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
+nvidia-experimental-310: script-not-executable ./usr/src/nvidia-experimental-310-310/conftest.sh
+nvidia-experimental-310: maintainer-script-ignores-errors prerm
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libGL.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libGLcore.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libcuda.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libnvidia-cfg.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/libvdpau_nvidia.so.310
+nvidia-experimental-310: shlib-with-non-pic-code usr/lib32/nvidia-experimental-310/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-experimental-310/tls/libnvidia-tls.so.310
 
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-304/libnvidia-tls.so.304.48
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.48
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib32/nvidia-experimental-304/libnvidia-tls.so.304.48
-nvidia-experimental-304: shared-lib-without-dependency-information ./usr/lib32/nvidia-experimental-304/tls/libnvidia-tls.so.304.48
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-310/libnvidia-tls.so.310
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/nvidia-experimental-310/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.310
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib32/nvidia-experimental-310/libnvidia-tls.so.310
+nvidia-experimental-310: shared-lib-without-dependency-information ./usr/lib32/nvidia-experimental-310/tls/libnvidia-tls.so.310
