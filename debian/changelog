@@ -1,8 +1,45 @@
-nvidia-graphics-drivers-updates (304.51-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.51-0ubuntu1) quantal; urgency=low
 
-  * 
+  * debian/nvidia-current-updates.grub-gfxpayload.in:
+    - Blacklist all NVIDIA graphics cards (LP#1057093).
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 660
+      o GeForce GTX 650
+      o GeForce GT 645M
+      o GeForce GTX 670MX
+    - Added support for the new Quadro Sync board for Quadro
+      Kepler GPUs. See the "Configuring Frame Lock and Genlock"
+      chapter in the README for details.
+    - Fixed an X server crash on X.Org xserver 1.13 when it is
+      compiled without support for DRI2.
+    - Fixed a regression that broke color controls on older X
+      servers.
+    - Fixed a bug that prevented panning from working correctly
+      after a modeswitch on some X servers with support for
+      cursor constraining.
+    - Gamma ramp and colormap adjustments now apply correctly
+      when screen transformations such as rotation and keystone
+      correction are in use.
+    - Fixed RandR per-CRTC gamma persistence across modeswitches
+      and VT-switches.
+    - Fixed a bug that caused the X server to sometimes hang in
+      response to input events.
+    - Fixed a reduction in rendering performance for core X11
+      rendering on certain GPUs that occurred in the 290.series
+      of releases.
+    - Fixed a bug that prevented PowerMizer from working
+      correctly on some boards with GDDR5 memory, such as some
+      GeForce GT 240 SKUs.
+    - Fixed a bug that caused OpenGL applications to not
+      animate properly when a rotation or a transformation was
+      applied on some older X server versions.
+    - Enabled FXAA with Unified Back Buffers.
+    - Fixed a bug that prevented the "Reset Hardware Defaults"
+      button in the Display Settings page of nvidia-settings
+      from being activated.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Oct 2012 12:54:49 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Oct 2012 17:50:50 +0200
 
 nvidia-graphics-drivers-updates (304.43-0ubuntu5) quantal; urgency=low
 
