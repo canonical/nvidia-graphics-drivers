@@ -1,53 +1,53 @@
-nvidia-current-updates: library-not-linked-against-libc ./usr/lib/libGL.so.304.43
+nvidia-current-updates: library-not-linked-against-libc ./usr/lib/libGL.so.304.51
 
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.304.43
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.304.51
 
-nvidia-current-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.304.43
+nvidia-current-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.304.51
 
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/libGL.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.304.43
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/libGL.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/libXvMCNVIDIA.so.304.51
 
-nvidia-current-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.304.43 usr/lib/libGL.so
-nvidia-current-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.304.43 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-current-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.304.51 usr/lib/libGL.so
+nvidia-current-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.304.51 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-current-updates: script-not-executable usr/src/nvidia-current-updates-304.43/conftest.sh
+nvidia-current-updates: script-not-executable usr/src/nvidia-current-updates-304.51/conftest.sh
 nvidia-current-updates: maintainer-script-ignores-errors prerm
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libGL.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libGL.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libGLcore.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libGLcore.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libcuda.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libcuda.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libnvidia-cfg.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libnvidia-cfg.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libvdpau.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/vdpau/libvdpau_trace.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/xorg/libglx.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/xorg/libglx.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.304.43
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libGL.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libGL.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libGLcore.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libGLcore.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libcuda.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libcuda.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libnvidia-cfg.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libnvidia-cfg.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libvdpau.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/vdpau/libvdpau_nvidia.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/vdpau/libvdpau_trace.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/nvidia-current-updates/xorg/libglx.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/xorg/libglx.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.304.51
 nvidia-current-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-current-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-current-updates: prerm-calls-ldconfig
 nvidia-current-updates: copyright-without-copyright-notice
 nvidia-current-updates: desktop-command-not-in-package /usr/share/applications/nvidia-current-updates/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/libnvidia-tls.so.304.43
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.43
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/libnvidia-tls.so.304.51
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.51
 nvidia-current-updates: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -56,34 +56,34 @@ nvidia-glx-185-dev: extended-description-line-too-long
 nvidia-glx-185-dev: unknown-section restricted/misc
 nvidia-185-kernel-source: copyright-without-copyright-notice
 nvidia-185-kernel-source: unknown-section restricted/misc
-nvidia-current-updates-dev: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.43
-nvidia-current-updates-dev: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.43
+nvidia-current-updates-dev: shlib-with-non-pic-code usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.51
+nvidia-current-updates-dev: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.51
 nvidia-current-updates-dev: postinst-has-useless-call-to-ldconfig
 nvidia-current-updates-dev: postrm-has-useless-call-to-ldconfig
 nvidia-current-updates-dev: copyright-without-copyright-notice
-nvidia-current-updates-dev: missing-dependency-on-libc needed by ./usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.43
+nvidia-current-updates-dev: missing-dependency-on-libc needed by ./usr/lib/nvidia-current-updates/libXvMCNVIDIA.so.304.51
 nvidia-current-updates-dev: unknown-section restricted/misc
 nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-current-updates-modaliases: copyright-without-copyright-notice
 
-nvidia-current-updates: script-not-executable ./usr/src/nvidia-current-updates-304.43/conftest.sh
+nvidia-current-updates: script-not-executable ./usr/src/nvidia-current-updates-304.51/conftest.sh
 nvidia-current-updates: maintainer-script-ignores-errors prerm
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libGL.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libGLcore.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libXvMCNVIDIA.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current-updates/libXvMCNVIDIA.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libcuda.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libnvidia-cfg.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libvdpau_nvidia.so.304.43
-nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current-updates/tls/libnvidia-tls.so.304.43
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libGL.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libGLcore.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libXvMCNVIDIA.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current-updates/libXvMCNVIDIA.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libcuda.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libnvidia-cfg.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/libvdpau_nvidia.so.304.51
+nvidia-current-updates: shlib-with-non-pic-code usr/lib32/nvidia-current-updates/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-current-updates/tls/libnvidia-tls.so.304.51
 
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/libnvidia-tls.so.304.43
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.43
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-current-updates/libnvidia-tls.so.304.43
-nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-current-updates/tls/libnvidia-tls.so.304.43
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/libnvidia-tls.so.304.51
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-current-updates/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.51
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-current-updates/libnvidia-tls.so.304.51
+nvidia-current-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-current-updates/tls/libnvidia-tls.so.304.51
 
 

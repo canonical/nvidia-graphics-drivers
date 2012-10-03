@@ -4,4 +4,4 @@
 # Blacklist cards here
 #
 # Example: blacklist all NVIDIA graphics cards
-# v10ded.*sv.*sd.*bc03sc.*
+v10ded.*sv.*sd.*bc03sc.*
