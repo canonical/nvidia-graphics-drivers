@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-experimental-304 (304.48-0ubuntu1) quantal; urgency=low
+nvidia-graphics-drivers-experimental-310 (310-0ubuntu1) UNRELEASED; urgency=low
 
-  * Initial release (LP: #1050674)
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 19 Sep 2012 13:22:24 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Oct 2012 11:57:03 +0200
