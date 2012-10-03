@@ -133,7 +133,6 @@ case "$1" in
             --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-experimental-310/bin/nvidia-smi \
             --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-experimental-310/bin/nvidia-xconfig \
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-experimental-310/bin/nvidia-bug-report.sh \
-            --slave /usr/lib/XvMCConfig x86_64-linux-gnu_xvmcconfig /usr/lib/nvidia-experimental-310/XvMCConfig \
             --slave /etc/xdg/autostart/nvidia-autostart.desktop x86_64-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-experimental-310/nvidia-autostart.desktop \
             --slave /etc/OpenCL/vendors/nvidia.icd x86_64-linux-gnu_nvidia.icd /usr/share/nvidia-experimental-310/nvidia.icd \
             --slave /usr/lib/libOpenCL.so x86_64-linux-gnu_libOpenCL.so /usr/lib/nvidia-experimental-310/libOpenCL.so \

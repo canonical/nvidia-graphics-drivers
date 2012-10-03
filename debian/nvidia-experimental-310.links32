@@ -6,10 +6,6 @@
 
 /usr/lib/nvidia-experimental-310/xorg/libglx.so.310 /usr/lib/nvidia-experimental-310/xorg/libglx.so
 
-/usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so.310 /usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so
-/usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so.310 /usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so.1
-/usr/lib32/nvidia-experimental-310/libXvMCNVIDIA.so.310 /usr/lib32/nvidia-experimental-310/libXvMCNVIDIA_dynamic.so.1
-
 /usr/lib32/nvidia-experimental-310/libcuda.so.310 /usr/lib32/nvidia-experimental-310/libcuda.so
 /usr/lib32/nvidia-experimental-310/libcuda.so.310 /usr/lib32/nvidia-experimental-310/libcuda.so.1
 

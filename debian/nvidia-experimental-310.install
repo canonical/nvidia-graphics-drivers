@@ -13,8 +13,6 @@ NVIDIA-Linux-x86_64-310-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-
 NVIDIA-Linux-x86_64-310-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-experimental-310/vdpau
 NVIDIA-Linux-x86_64-310-no-compat32/tls/*.so*                   /usr/lib/nvidia-experimental-310/tls
 
-NVIDIA-Linux-x86_64-310-no-compat32/libXvMCNVIDIA.so.310  /usr/lib/nvidia-experimental-310
-
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-experimental-310-310
 debian/dkms/patches/*                         usr/src/nvidia-experimental-310-310/patches
 debian/dkms.conf                              usr/src/nvidia-experimental-310-310
