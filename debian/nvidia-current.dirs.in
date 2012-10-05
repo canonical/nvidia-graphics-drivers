@@ -13,6 +13,7 @@
 #PKGDESKDIR#
 #MANDIR#
 #DATADIR#/pixmaps
+#DATADIR#/applications
 /usr/share/lintian/overrides
 /usr/share/grub-gfxpayload-lists/blacklist
 #PKGDRIVERSDIR#
