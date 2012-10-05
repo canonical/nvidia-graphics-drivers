@@ -8,6 +8,7 @@
 
 PACKAGE_NAME=nvidia-current
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
+CVERSION=${CVERSION#*really.}
 
 remove_dkms_module() {
 	echo "Removing all DKMS Modules"

@@ -6,6 +6,7 @@ set -e
 
 PACKAGE_NAME=nvidia-current
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
+CVERSION=${CVERSION#*really.}
 
 INIT_SCRIPT="/etc/init/build-$PACKAGE_NAME.conf"
 TMP_FILE="/tmp/do_not_build_dkms_module"
