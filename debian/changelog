@@ -1,8 +1,15 @@
-nvidia-graphics-drivers (304.51.really.304.43-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.51.really.304.43-0ubuntu1) quantal; urgency=low
 
-  * 
+  * Revert to 304.43 (LP: #1057000).
+  * debian/nvidia-current.dirs.in:
+    - Add /usr/share/applications. This should fix
+      nvidia-cuda-toolkit FTBFS (LP: #950963).
+  * debian/nvidia-current.{postinst|prerm}.in,
+    debian/rules:
+    - Make sure that the packaging knows how to deal with
+      reverted versions such as this one.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Oct 2012 16:01:53 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Oct 2012 18:52:59 +0200
 
 nvidia-graphics-drivers (304.51-0ubuntu1) quantal; urgency=low
 
