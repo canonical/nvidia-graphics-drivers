@@ -24,6 +24,7 @@ PATH := $(PATH):/usr/sbin
 PKG_driver           := nvidia-current
 PKG_driver_dev       := $(PKG_driver)-dev
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
+PKG_version          := $(shell echo $(PKG_version) | sed s/.*\.really\.//g)
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
 
