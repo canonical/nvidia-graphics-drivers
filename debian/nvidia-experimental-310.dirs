@@ -13,6 +13,7 @@
 /usr/share/nvidia-experimental-310
 /usr/share/man/man1
 /usr/share/pixmaps
+/usr/share/applications
 /usr/share/lintian/overrides
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-experimental-310/xorg
