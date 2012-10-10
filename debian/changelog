@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-experimental-310 (310-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-experimental-310 (310.12-0ubuntu1) UNRELEASED; urgency=low
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Oct 2012 11:57:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Oct 2012 11:23:14 +0200
