@@ -1,26 +1,26 @@
-/usr/lib32/nvidia-experimental-310/libGL.so.310 /usr/lib32/nvidia-experimental-310/libGL.so.1
+/usr/lib32/nvidia-experimental-310/libGL.so.310.12 /usr/lib32/nvidia-experimental-310/libGL.so.1
 /usr/lib32/nvidia-experimental-310/libGL.so.1 /usr/lib32/nvidia-experimental-310/libGL.so
 
-/usr/lib32/nvidia-experimental-310/libnvidia-cfg.so.310 /usr/lib32/nvidia-experimental-310/libnvidia-cfg.so.1
+/usr/lib32/nvidia-experimental-310/libnvidia-cfg.so.310.12 /usr/lib32/nvidia-experimental-310/libnvidia-cfg.so.1
 /usr/lib32/nvidia-experimental-310/libnvidia-cfg.so.1 /usr/lib32/nvidia-experimental-310/libnvidia-cfg.so
 
-/usr/lib/nvidia-experimental-310/xorg/libglx.so.310 /usr/lib/nvidia-experimental-310/xorg/libglx.so
+/usr/lib/nvidia-experimental-310/xorg/libglx.so.310.12 /usr/lib/nvidia-experimental-310/xorg/libglx.so
 
-/usr/lib32/nvidia-experimental-310/libcuda.so.310 /usr/lib32/nvidia-experimental-310/libcuda.so
-/usr/lib32/nvidia-experimental-310/libcuda.so.310 /usr/lib32/nvidia-experimental-310/libcuda.so.1
+/usr/lib32/nvidia-experimental-310/libcuda.so.310.12 /usr/lib32/nvidia-experimental-310/libcuda.so
+/usr/lib32/nvidia-experimental-310/libcuda.so.310.12 /usr/lib32/nvidia-experimental-310/libcuda.so.1
 
-/usr/lib32/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.310 /usr/lib32/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.310.12 /usr/lib32/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-experimental-310/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-experimental-310/vdpau/libvdpau_nvidia.so
 
 /usr/lib32/nvidia-experimental-310/libOpenCL.so.1.0.0 /usr/lib32/nvidia-experimental-310/libOpenCL.so.1.0
 /usr/lib32/nvidia-experimental-310/libOpenCL.so.1.0 /usr/lib32/nvidia-experimental-310/libOpenCL.so.1
 /usr/lib32/nvidia-experimental-310/libOpenCL.so.1 /usr/lib32/nvidia-experimental-310/libOpenCL.so
 
-/usr/lib32/nvidia-experimental-310/libnvidia-compiler.so.310 /usr/lib32/nvidia-experimental-310/libnvidia-compiler.so.1
+/usr/lib32/nvidia-experimental-310/libnvidia-compiler.so.310.12 /usr/lib32/nvidia-experimental-310/libnvidia-compiler.so.1
 /usr/lib32/nvidia-experimental-310/libnvidia-compiler.so.1 /usr/lib32/nvidia-experimental-310/libnvidia-compiler.so
 
-/usr/lib32/nvidia-experimental-310/libnvidia-ml.so.310 /usr/lib32/nvidia-experimental-310/libnvidia-ml.so.1
+/usr/lib32/nvidia-experimental-310/libnvidia-ml.so.310.12 /usr/lib32/nvidia-experimental-310/libnvidia-ml.so.1
 /usr/lib32/nvidia-experimental-310/libnvidia-ml.so.1 /usr/lib32/nvidia-experimental-310/libnvidia-ml.so
 
-/usr/lib32/nvidia-experimental-310/libnvcuvid.so.310 /usr/lib32/nvidia-experimental-310/libnvcuvid.so.1
+/usr/lib32/nvidia-experimental-310/libnvcuvid.so.310.12 /usr/lib32/nvidia-experimental-310/libnvcuvid.so.1
 /usr/lib32/nvidia-experimental-310/libnvcuvid.so.1 /usr/lib32/nvidia-experimental-310/libnvcuvid.so
