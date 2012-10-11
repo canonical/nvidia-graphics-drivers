@@ -1,5 +1,35 @@
-nvidia-graphics-drivers-experimental-310 (310.12-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-experimental-310 (310.12-0ubuntu1) quantal; urgency=low
 
-  * 
+  * New upstream release (LP: #1047681):
+    - Implemented workarounds for two Adobe Flash bugs by
+      applying libvdpau commit
+      ca9e637c61e80145f0625a590c91429db67d0a40 to the
+      version of libvdpau shipped with the NVIDIA driver.
+    - Fixed an issue which affected the performance of
+      moving windows of VDPAU applications when run in
+      some composite managers.
+    - Added unofficial GLX protocol support (i.e., for
+      GLX indirect rendering) for the
+      GL_ARB_pixel_buffer_object OpenGL extension.
+    - Added support for HDMI 3D Stereo with Quadro Kepler
+      and later GPUs. See the documentation for the
+      "Stereo" X configuration option in the README for
+      details.
+    - Added experimental support for OpenGL threaded
+      optimizations, available through the
+      __GL_THREADED_OPTIMIZATIONS environment variable.
+      For more information, please refer to the
+      "Threaded Optimizations" section in chapter
+      "Specifying OpenGL Environment Variable Settings"
+      of the README.
+    - Improved performance and responsiveness of
+      windowed OpenGL applications running inside a
+      Unity session.
+    - Added support for OpenGL 4.3.
+    - Fixed a bug that caused incorrect input
+      transformation after resizing an NVIDIA X screen
+      with xserver ABI 12 (xorg-server 1.12) or newer.
+    - Fixed a bug that caused GLX to leak memory when
+      Xinerama is enabled.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Oct 2012 11:23:14 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 22 Oct 2012 07:37:46 +0200
