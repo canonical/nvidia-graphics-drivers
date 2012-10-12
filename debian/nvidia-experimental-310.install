@@ -2,29 +2,29 @@ debian/nvidia-experimental-310.override                 usr/share/lintian/overri
 #Blacklist some card ids from GRUB gfxpayload=keep
 debian/nvidia-experimental-310.grub-gfxpayload          /usr/share/nvidia-experimental-310
 
-NVIDIA-Linux-x86_64-310.12-no-compat32/nvidia_drv.so /usr/lib/nvidia-experimental-310/xorg
-NVIDIA-Linux-x86_64-310.12-no-compat32/libglx.so.310.12 /usr/lib/nvidia-experimental-310/xorg
+NVIDIA-Linux-x86_64-310.14/nvidia_drv.so /usr/lib/nvidia-experimental-310/xorg
+NVIDIA-Linux-x86_64-310.14/libglx.so.310.14 /usr/lib/nvidia-experimental-310/xorg
 
-NVIDIA-Linux-x86_64-310.12-no-compat32/libGL*.so*                  /usr/lib/nvidia-experimental-310
-NVIDIA-Linux-x86_64-310.12-no-compat32/libnv*.so*                  /usr/lib/nvidia-experimental-310
-NVIDIA-Linux-x86_64-310.12-no-compat32/libcuda*.so*                /usr/lib/nvidia-experimental-310
-NVIDIA-Linux-x86_64-310.12-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-experimental-310
+NVIDIA-Linux-x86_64-310.14/libGL*.so*                  /usr/lib/nvidia-experimental-310
+NVIDIA-Linux-x86_64-310.14/libnv*.so*                  /usr/lib/nvidia-experimental-310
+NVIDIA-Linux-x86_64-310.14/libcuda*.so*                /usr/lib/nvidia-experimental-310
+NVIDIA-Linux-x86_64-310.14/libOpenCL*.so*              /usr/lib/nvidia-experimental-310
 
-NVIDIA-Linux-x86_64-310.12-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-experimental-310/vdpau
-NVIDIA-Linux-x86_64-310.12-no-compat32/tls/*.so*                   /usr/lib/nvidia-experimental-310/tls
+NVIDIA-Linux-x86_64-310.14/libvdpau_nvidia.so*   /usr/lib/nvidia-experimental-310/vdpau
+NVIDIA-Linux-x86_64-310.14/tls/*.so*                   /usr/lib/nvidia-experimental-310/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-experimental-310-310.12
-debian/dkms/patches/*                         usr/src/nvidia-experimental-310-310.12/patches
-debian/dkms.conf                              usr/src/nvidia-experimental-310-310.12
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-experimental-310-310.14
+debian/dkms/patches/*                         usr/src/nvidia-experimental-310-310.14/patches
+debian/dkms.conf                              usr/src/nvidia-experimental-310-310.14
 
-NVIDIA-Linux-x86_64-310.12-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-experimental-310/bin
-NVIDIA-Linux-x86_64-310.12-no-compat32/nvidia-xconfig /usr/lib/nvidia-experimental-310/bin
-NVIDIA-Linux-x86_64-310.12-no-compat32/nvidia-smi /usr/lib/nvidia-experimental-310/bin
+NVIDIA-Linux-x86_64-310.14/nvidia-bug-report.sh /usr/lib/nvidia-experimental-310/bin
+NVIDIA-Linux-x86_64-310.14/nvidia-xconfig /usr/lib/nvidia-experimental-310/bin
+NVIDIA-Linux-x86_64-310.14/nvidia-smi /usr/lib/nvidia-experimental-310/bin
 
-NVIDIA-Linux-x86_64-310.12-no-compat32/nvidia-experimental-310-settings.png /usr/share/pixmaps
+NVIDIA-Linux-x86_64-310.14/nvidia-experimental-310-settings.png /usr/share/pixmaps
 
 debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-experimental-310
 
 debian/nvidia-autostart.desktop /usr/share/nvidia-experimental-310
 
-NVIDIA-Linux-x86_64-310.12-no-compat32/nvidia.icd /usr/share/nvidia-experimental-310
+NVIDIA-Linux-x86_64-310.14/nvidia.icd /usr/share/nvidia-experimental-310
