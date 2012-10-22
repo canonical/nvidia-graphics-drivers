@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-updates (304.60-0ubuntu0.1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 22 Oct 2012 09:09:15 +0200
+
 nvidia-graphics-drivers-updates (304.51-0ubuntu1) quantal; urgency=low
 
   * debian/nvidia-current-updates.grub-gfxpayload.in:
