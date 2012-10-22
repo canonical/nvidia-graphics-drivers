@@ -39,7 +39,7 @@ Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU lib
 
 Package: nvidia-experimental-310-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-experimental-310 (>= 310.12)
+Depends: nvidia-experimental-310 (>= 310.14)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

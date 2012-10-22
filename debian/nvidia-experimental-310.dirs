@@ -18,8 +18,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-experimental-310/xorg
 /usr/lib/nvidia-experimental-310/xorg
-/usr/src/nvidia-experimental-310-310.12
-/usr/src/nvidia-experimental-310-310.12/patches
+/usr/src/nvidia-experimental-310-310.14
+/usr/src/nvidia-experimental-310-310.14/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-experimental-310
