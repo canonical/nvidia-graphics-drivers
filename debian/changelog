@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (304.51.really.304.43-0ubuntu2) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Nov 2012 13:35:33 +0100
+
 nvidia-graphics-drivers (304.51.really.304.43-0ubuntu1) quantal; urgency=low
 
   * Revert to 304.43 (LP: #1057000).
