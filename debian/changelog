@@ -1,8 +1,72 @@
-nvidia-graphics-drivers-updates (304.64-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-updates (304.64-0ubuntu1) raring; urgency=low
 
-  * 
+  * debian/dkms.conf.in,
+    make-use-of-the-new-uapi-framework.patch,
+    replace-VM_RESERVED-with-VM_DONTEXPAND-and-VM_DONTDU.patch:
+    - Add support for Linux 3.7 (LP: #1075937).
+  * New upstream release:
+    - Fixed a bug that caused the EIZO FlexScan SX2762W
+      monitor to remain blank when connected via
+      DisplayPort.
+    - Updated nvidia-settings to save and restore
+      per-monitor color correction settings when RandR
+      1.2 or later is available.
+    - Fixed a bug that caused too many display devices
+      to appear in the X Screen page of nvidia-settings
+      when SLI is enabled.
+    - Fixed a bug that caused applications to stop
+      rendering or the X server to hang in Xinerama
+      configurations when windows were moved, resized,
+      mapped, or unmapped.
+    - Fixed a bug that caused poor OpenGL performance
+      on GeForce 6 and 7 PCI cards.
+    - Fixed a bug in nvidia-settings that made it report
+      the status of ECC configuration incorrectly.
+    - Fixed a bug that caused the X server to crash if a
+      display was put into DPMS off mode and subsequently
+      reenabled while screen transformations are in use.
+    - Fixed a bug that caused the X Resize and Rotate
+      extension to be enabled when Xinerama is enabled.
+      These two X extensions are incompatible and having
+      them both enabled can confuse window managers such
+      as KDE's kwin. RandR is now correctly disabled when
+      Xinerama is enabled.
+    - Fixed a bug causing OpenGL stereo applications to
+      not work properly when using passive stereo modes 5
+      through 9 on Quadro Fermi and newer GPUs.
+    - Added support for the "Backlight" RandR output
+      property for configuring the brightness of some
+      notebook internal panels.
+    - Fixed a bug that prevented the Ubuntu Unity launcher
+      panel from unhiding (LP:# 1057000).
+    - Fixed a bug that caused incorrect input
+      transformation after resizing an NVIDIA X screen
+      with xserver ABI 12 (xorg-server 1.12) or newer.
+    - Fixed a bug that caused GLX to leak memory when
+      Xinerama is enabled.
+    - Fixed a regression in backlight control functionality
+      on some notebook configurations.
+    - Fixed a performance issue with recent Linux kernels
+      when allocating and freeing system memory.
+    - Fixed a bug that sometimes prevented the display
+      device / X screen selection menu from being displayed
+      in nvidia-settings.
+    - Fixed a bug that prevented X driver gamma
+      manipulation from working after a VT-switch on some
+      configurations.
+    - Added the option --output-file to nvidia-bug-report.sh
+      to allow specifying a custom filename for the log file.
+    - Fixed a hang when using OpenGL programs with some SLI
+      Mosaic configurations on pre-Fermi GPUs.
+    - Added sections to the Supported NVIDIA GPU Products
+      list for NVS, Tesla, and VGX products.
+    - Added support for the following GPUs:
+      o VGX K1
+      o VGX K2
+      o Tesla K20c
+      o Tesla K20m
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Nov 2012 11:28:27 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Nov 2012 13:10:27 +0100
 
 nvidia-graphics-drivers-updates (304.51-0ubuntu1) quantal; urgency=low
 
