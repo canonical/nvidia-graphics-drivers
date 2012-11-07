@@ -17,8 +17,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-current-updates/xorg
 /usr/lib/nvidia-current-updates/xorg
-/usr/src/nvidia-current-updates-304.51
-/usr/src/nvidia-current-updates-304.51/patches
+/usr/src/nvidia-current-updates-304.64
+/usr/src/nvidia-current-updates-304.64/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-current-updates
