@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-experimental-310 (310.14-0ubuntu0.2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-experimental-310 (310.14-0ubuntu0.2) precise-proposed; urgency=low
 
-  * 
+  * debian/dkms.conf.in,
+    make-use-of-the-new-uapi-framework.patch,
+    replace-VM_RESERVED-with-VM_DONTEXPAND-and-VM_DONTDU.patch:
+    - Add support for Linux 3.7 (LP: #1075937).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Nov 2012 16:34:43 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Nov 2012 16:35:50 +0100
 
 nvidia-graphics-drivers-experimental-310 (310.14-0ubuntu0.1) precise-proposed; urgency=low
 
