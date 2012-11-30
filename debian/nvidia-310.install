@@ -13,8 +13,6 @@ NVIDIA-Linux-x86_64-310.19-no-compat32/libOpenCL*.so*              /usr/lib/nvid
 NVIDIA-Linux-x86_64-310.19-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-310/vdpau
 NVIDIA-Linux-x86_64-310.19-no-compat32/tls/*.so*                   /usr/lib/nvidia-310/tls
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/libXvMCNVIDIA.so.310.19  /usr/lib/nvidia-310
-
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-310-310.19
 debian/dkms/patches/*                         usr/src/nvidia-310-310.19/patches
 debian/dkms.conf                              usr/src/nvidia-310-310.19

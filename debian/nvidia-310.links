@@ -6,10 +6,6 @@
 
 /usr/lib/nvidia-310/xorg/libglx.so.310.19 /usr/lib/nvidia-310/xorg/libglx.so
 
-/usr/lib/nvidia-310/libXvMCNVIDIA.so.310.19 /usr/lib/nvidia-310/libXvMCNVIDIA.so
-/usr/lib/nvidia-310/libXvMCNVIDIA.so.310.19 /usr/lib/nvidia-310/libXvMCNVIDIA.so.1
-/usr/lib/nvidia-310/libXvMCNVIDIA.so.310.19 /usr/lib/nvidia-310/libXvMCNVIDIA_dynamic.so.1
-
 /usr/lib/nvidia-310/libcuda.so.310.19 /usr/lib/nvidia-310/libcuda.so
 /usr/lib/nvidia-310/libcuda.so.310.19 /usr/lib/nvidia-310/libcuda.so.1
 
@@ -35,10 +31,6 @@
 /usr/lib32/nvidia-310/libnvidia-cfg.so.1 /usr/lib32/nvidia-310/libnvidia-cfg.so
 
 /usr/lib/nvidia-310/xorg/libglx.so.310.19 /usr/lib/nvidia-310/xorg/libglx.so
-
-/usr/lib32/nvidia-310/libXvMCNVIDIA.so.310.19 /usr/lib32/nvidia-310/libXvMCNVIDIA.so
-/usr/lib32/nvidia-310/libXvMCNVIDIA.so.310.19 /usr/lib32/nvidia-310/libXvMCNVIDIA.so.1
-/usr/lib32/nvidia-310/libXvMCNVIDIA.so.310.19 /usr/lib32/nvidia-310/libXvMCNVIDIA_dynamic.so.1
 
 /usr/lib32/nvidia-310/libcuda.so.310.19 /usr/lib32/nvidia-310/libcuda.so
 /usr/lib32/nvidia-310/libcuda.so.310.19 /usr/lib32/nvidia-310/libcuda.so.1
