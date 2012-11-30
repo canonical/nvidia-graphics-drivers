@@ -1,5 +1,3 @@
-#DIRNAME#/libXvMCNVIDIA.a       #PKGLIBDIR#
-
 debian/headers/cl*.h                           #INCLUDEDIR#/#DRIVERNAME#/CL
 debian/headers/gl*.h                           #INCLUDEDIR#/#DRIVERNAME#/GL
 debian/headers/cuda*.h                         #INCLUDEDIR#/#DRIVERNAME#/cuda
