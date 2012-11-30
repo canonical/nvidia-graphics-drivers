@@ -15,13 +15,13 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
  ${xviddriver:Depends}
 Recommends: nvidia-settings
-Provides: nvidia-current-updates, nvidia-experimental-304, nvidia-173,
+Provides: nvidia-current, nvidia-current-updates, nvidia-experimental-304, nvidia-173,
  nvidia-173-updates, nvidia-96, nvidia-96-updates, fglrx, fglrx-updates,
  ${xviddriver:Provides}
-Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
+Conflicts: nvidia-current, nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
  nvidia-experimental-304, nvidia-current-updates, nvidia-173, nvidia-173-updates,
  nvidia-96, nvidia-96-updates, fglrx, fglrx-updates
-Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
+Replaces: nvidia-current, nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
  nvidia-experimental-304, nvidia-current-updates, nvidia-173, nvidia-173-updates,
  nvidia-96, nvidia-96-updates, fglrx, fglrx-updates
 XB-Modaliases: ${modaliases}
