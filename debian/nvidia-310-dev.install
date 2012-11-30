@@ -1,5 +1,5 @@
-NVIDIA-Linux-x86_64-304.43-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-current
+NVIDIA-Linux-x86_64-310.19-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-310
 
-debian/headers/cl*.h                           /usr/include/nvidia-current/CL
-debian/headers/gl*.h                           /usr/include/nvidia-current/GL
-debian/headers/cuda*.h                         /usr/include/nvidia-current/cuda
+debian/headers/cl*.h                           /usr/include/nvidia-310/CL
+debian/headers/gl*.h                           /usr/include/nvidia-310/GL
+debian/headers/cuda*.h                         /usr/include/nvidia-310/cuda

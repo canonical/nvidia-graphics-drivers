@@ -9,7 +9,7 @@ Standards-Version: 3.8.0
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
-Package: nvidia-current
+Package: nvidia-310
 Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
@@ -37,13 +37,13 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
  GPUs such as GeForce series 6 or newer are supported.
  .
- See /usr/share/doc/nvidia-current/README.txt.gz for a complete list
+ See /usr/share/doc/nvidia-310/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
  .
 
-Package: nvidia-current-dev
+Package: nvidia-310-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-current (>= 304.43)
+Depends: nvidia-310 (>= 310.19)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
