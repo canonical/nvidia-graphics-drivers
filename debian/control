@@ -1,4 +1,4 @@
-Source: nvidia-graphics-drivers
+Source: nvidia-graphics-drivers-310
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
