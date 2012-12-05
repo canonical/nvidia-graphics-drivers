@@ -1,12 +1,12 @@
 #!/bin/sh
-# prerm script for nvidia-310
+# prerm script for nvidia-304
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
 # Authors: Alberto Milone
 
 
-PACKAGE_NAME=nvidia-310
+PACKAGE_NAME=nvidia-304
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
 
@@ -23,8 +23,8 @@ case "$1" in
 	remove)
 		remove_dkms_module 
 	
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-310/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-310/alt_ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-304/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-304/alt_ld.so.conf
 
 		# Trigger gmenu so as to update the gnome menu
 		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true

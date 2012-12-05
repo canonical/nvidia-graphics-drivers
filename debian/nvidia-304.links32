@@ -1,26 +1,26 @@
-/usr/lib32/nvidia-310/libGL.so.310.19 /usr/lib32/nvidia-310/libGL.so.1
-/usr/lib32/nvidia-310/libGL.so.1 /usr/lib32/nvidia-310/libGL.so
+/usr/lib32/nvidia-304/libGL.so.304.64 /usr/lib32/nvidia-304/libGL.so.1
+/usr/lib32/nvidia-304/libGL.so.1 /usr/lib32/nvidia-304/libGL.so
 
-/usr/lib32/nvidia-310/libnvidia-cfg.so.310.19 /usr/lib32/nvidia-310/libnvidia-cfg.so.1
-/usr/lib32/nvidia-310/libnvidia-cfg.so.1 /usr/lib32/nvidia-310/libnvidia-cfg.so
+/usr/lib32/nvidia-304/libnvidia-cfg.so.304.64 /usr/lib32/nvidia-304/libnvidia-cfg.so.1
+/usr/lib32/nvidia-304/libnvidia-cfg.so.1 /usr/lib32/nvidia-304/libnvidia-cfg.so
 
-/usr/lib/nvidia-310/xorg/libglx.so.310.19 /usr/lib/nvidia-310/xorg/libglx.so
+/usr/lib/nvidia-304/xorg/libglx.so.304.64 /usr/lib/nvidia-304/xorg/libglx.so
 
-/usr/lib32/nvidia-310/libcuda.so.310.19 /usr/lib32/nvidia-310/libcuda.so
-/usr/lib32/nvidia-310/libcuda.so.310.19 /usr/lib32/nvidia-310/libcuda.so.1
+/usr/lib32/nvidia-304/libcuda.so.304.64 /usr/lib32/nvidia-304/libcuda.so
+/usr/lib32/nvidia-304/libcuda.so.304.64 /usr/lib32/nvidia-304/libcuda.so.1
 
-/usr/lib32/nvidia-310/vdpau/libvdpau_nvidia.so.310.19 /usr/lib32/nvidia-310/vdpau/libvdpau_nvidia.so.1
-/usr/lib32/nvidia-310/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-310/vdpau/libvdpau_nvidia.so
+/usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so.304.64 /usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so
 
-/usr/lib32/nvidia-310/libOpenCL.so.1.0.0 /usr/lib32/nvidia-310/libOpenCL.so.1.0
-/usr/lib32/nvidia-310/libOpenCL.so.1.0 /usr/lib32/nvidia-310/libOpenCL.so.1
-/usr/lib32/nvidia-310/libOpenCL.so.1 /usr/lib32/nvidia-310/libOpenCL.so
+/usr/lib32/nvidia-304/libOpenCL.so.1.0.0 /usr/lib32/nvidia-304/libOpenCL.so.1.0
+/usr/lib32/nvidia-304/libOpenCL.so.1.0 /usr/lib32/nvidia-304/libOpenCL.so.1
+/usr/lib32/nvidia-304/libOpenCL.so.1 /usr/lib32/nvidia-304/libOpenCL.so
 
-/usr/lib32/nvidia-310/libnvidia-compiler.so.310.19 /usr/lib32/nvidia-310/libnvidia-compiler.so.1
-/usr/lib32/nvidia-310/libnvidia-compiler.so.1 /usr/lib32/nvidia-310/libnvidia-compiler.so
+/usr/lib32/nvidia-304/libnvidia-compiler.so.304.64 /usr/lib32/nvidia-304/libnvidia-compiler.so.1
+/usr/lib32/nvidia-304/libnvidia-compiler.so.1 /usr/lib32/nvidia-304/libnvidia-compiler.so
 
-/usr/lib32/nvidia-310/libnvidia-ml.so.310.19 /usr/lib32/nvidia-310/libnvidia-ml.so.1
-/usr/lib32/nvidia-310/libnvidia-ml.so.1 /usr/lib32/nvidia-310/libnvidia-ml.so
+/usr/lib32/nvidia-304/libnvidia-ml.so.304.64 /usr/lib32/nvidia-304/libnvidia-ml.so.1
+/usr/lib32/nvidia-304/libnvidia-ml.so.1 /usr/lib32/nvidia-304/libnvidia-ml.so
 
-/usr/lib32/nvidia-310/libnvcuvid.so.310.19 /usr/lib32/nvidia-310/libnvcuvid.so.1
-/usr/lib32/nvidia-310/libnvcuvid.so.1 /usr/lib32/nvidia-310/libnvcuvid.so
+/usr/lib32/nvidia-304/libnvcuvid.so.304.64 /usr/lib32/nvidia-304/libnvcuvid.so.1
+/usr/lib32/nvidia-304/libnvcuvid.so.1 /usr/lib32/nvidia-304/libnvcuvid.so

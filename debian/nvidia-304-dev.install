@@ -1,3 +1,3 @@
-debian/headers/cl*.h                           /usr/include/nvidia-310/CL
-debian/headers/gl*.h                           /usr/include/nvidia-310/GL
-debian/headers/cuda*.h                         /usr/include/nvidia-310/cuda
+debian/headers/cl*.h                           /usr/include/nvidia-304/CL
+debian/headers/gl*.h                           /usr/include/nvidia-304/GL
+debian/headers/cuda*.h                         /usr/include/nvidia-304/cuda
