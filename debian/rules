@@ -30,7 +30,7 @@ PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
 
 # Priority of the alternative
-alt_priority         := 9700
+alt_priority         := 9702
 
 # Installer details
 dirname_x86          := NVIDIA-Linux-x86-$(PKG_version)
