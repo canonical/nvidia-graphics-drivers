@@ -185,6 +185,7 @@ regen-from-templates:
 			-e "s|#XORGEXTRAPATH#|$(xorg_extra_path)|g" \
 			-e "s|#NVIDIAEXTENSION#|$(PKG_extensionsdir)|g" \
 			-e "s|#XORGEXTENSIONSDIR#|$(xorg_extensionsdir)|g" \
+			-e "s|#FLAVOUR#|$(PKG_flavour)|g" \
 			-e "s|#DRIVERNAME#|$(PKG_driver)|g" \
 			-e "s|#DRIVERDEVNAME#|$(PKG_driver_dev)|g" \
 			-e "s|#DRIVERSRCNAME#|$(PKG_source)|g" \
