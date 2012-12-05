@@ -6,6 +6,10 @@
 
 /usr/lib/nvidia-304/xorg/libglx.so.304.64 /usr/lib/nvidia-304/xorg/libglx.so
 
+/usr/lib32/nvidia-304/libXvMCNVIDIA.so.304.64 /usr/lib32/nvidia-304/libXvMCNVIDIA.so
+/usr/lib32/nvidia-304/libXvMCNVIDIA.so.304.64 /usr/lib32/nvidia-304/libXvMCNVIDIA.so.1
+/usr/lib32/nvidia-304/libXvMCNVIDIA.so.304.64 /usr/lib32/nvidia-304/libXvMCNVIDIA_dynamic.so.1
+
 /usr/lib32/nvidia-304/libcuda.so.304.64 /usr/lib32/nvidia-304/libcuda.so
 /usr/lib32/nvidia-304/libcuda.so.304.64 /usr/lib32/nvidia-304/libcuda.so.1
 

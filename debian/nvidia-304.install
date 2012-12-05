@@ -13,6 +13,8 @@ NVIDIA-Linux-x86_64-304.64-no-compat32/libOpenCL*.so*              /usr/lib/nvid
 NVIDIA-Linux-x86_64-304.64-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-304/vdpau
 NVIDIA-Linux-x86_64-304.64-no-compat32/tls/*.so*                   /usr/lib/nvidia-304/tls
 
+NVIDIA-Linux-x86_64-304.64-no-compat32/libXvMCNVIDIA.so.304.64  /usr/lib/nvidia-304
+
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-304-304.64
 debian/dkms/patches/*                         usr/src/nvidia-304-304.64/patches
 debian/dkms.conf                              usr/src/nvidia-304-304.64
