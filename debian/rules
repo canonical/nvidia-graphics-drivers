@@ -21,7 +21,7 @@ OTHER_ARCH := $(shell (echo "$(DEB_HOST_MULTIARCH)" | grep i386 >/dev/null) && \
 PATH := $(PATH):/usr/sbin
 
 # Package names
-PKG_flavour          := 310
+PKG_flavour          := 304
 PKG_driver           := nvidia-$(PKG_flavour)
 PKG_driver_dev       := $(PKG_driver)-dev
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
@@ -30,7 +30,7 @@ PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
 
 # Priority of the alternative
-alt_priority         := 9700
+alt_priority         := 9701
 
 # Installer details
 dirname_x86          := NVIDIA-Linux-x86-$(PKG_version)
