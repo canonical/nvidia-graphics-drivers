@@ -13,7 +13,7 @@ Package: #DRIVERNAME#
 Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
- ${xviddriver:Depends}
+ ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-#FLAVOUR#
 Provides: nvidia-304, nvidia-current, nvidia-current-updates, nvidia-experimental-304, nvidia-173,
  nvidia-173-updates, nvidia-96, nvidia-96-updates, fglrx, fglrx-updates,
@@ -43,7 +43,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
 
 Package: #DRIVERDEVNAME#
 Architecture: i386 amd64 lpia
-Depends: #DRIVERNAME# (>= #VERSION#)
+Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
