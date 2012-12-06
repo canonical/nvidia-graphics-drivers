@@ -1,6 +1,6 @@
-nvidia-graphics-drivers-304 (304.64-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.64-0ubuntu1) UNRELEASED; urgency=low
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 05 Dec 2012 10:31:12 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2012 16:16:46 +0100
 
