@@ -1,6 +1,5 @@
-nvidia-graphics-drivers-304-updates (304.64-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.64-0ubuntu1) raring; urgency=low
 
-  * 
+  * Initial release (LP: #1086718).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2012 16:16:46 +0100
-
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2012 16:53:42 +0100
