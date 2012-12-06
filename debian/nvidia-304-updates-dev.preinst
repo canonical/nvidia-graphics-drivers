@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-304-dev
+# preinst script for nvidia-304-updates-dev
 #
 # see: dh_installdeb(1)
 #
