@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=NVIDIA X Server Settings
 Comment=Configure NVIDIA X Server Settings
 Exec=/usr/bin/nvidia-settings
-Icon=nvidia-310-settings
+Icon=nvidia-310-updates-settings
 Categories=System;Settings;

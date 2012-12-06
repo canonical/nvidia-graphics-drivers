@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-310
+# preinst script for nvidia-310-updates
 #
 # see: dh_installdeb(1)
 #
