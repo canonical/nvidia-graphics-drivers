@@ -1,6 +1,5 @@
-nvidia-graphics-drivers-310-updates (310.19-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-310-updates (310.19-0ubuntu1) raring; urgency=low
 
-  * 
+  * Initial release (LP: #1086718).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2012 16:06:27 +0100
-
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2012 17:04:00 +0100
