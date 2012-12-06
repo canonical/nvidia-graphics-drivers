@@ -13,7 +13,7 @@ Package: nvidia-304
 Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
- ${xviddriver:Depends}
+ ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-304
 Provides: nvidia-310, nvidia-current, nvidia-current-updates, nvidia-experimental-304, nvidia-173,
  nvidia-173-updates, nvidia-96, nvidia-96-updates, fglrx, fglrx-updates,
@@ -43,7 +43,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
 
 Package: nvidia-304-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-304 (>= 304.64)
+Depends: ${misc:Depends}, nvidia-304 (>= 304.64)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
