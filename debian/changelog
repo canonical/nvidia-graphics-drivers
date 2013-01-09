@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-310-updates (310.19-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-310-updates (310.19-0ubuntu2) raring; urgency=low
 
-  * 
+  * debian/control.in:
+    - Fix typo in Provides.
+    - Conflict/replace/provide nvidia-310.
+  * debian/substvars: remove versioned dependency on
+    xserver-xorg-core.
+  * buildfix_kernel_3.8.patch:
+    - Add support for Linux 3.8.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Jan 2013 12:23:00 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Jan 2013 12:35:25 +0100
 
 nvidia-graphics-drivers-310-updates (310.19-0ubuntu1) raring; urgency=low
 
