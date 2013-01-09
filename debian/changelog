@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304-updates (304.64-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.64-0ubuntu2) raring; urgency=low
 
-  * 
+  * debian/control.in:
+    - Conflict/replace/provide nvidia-304.
+  * dkms.conf.in, buildfix_kernel_3.8.patch:
+    - Add support for Linux 3.8.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Jan 2013 16:36:08 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Jan 2013 16:44:02 +0100
 
 nvidia-graphics-drivers-304-updates (304.64-0ubuntu1) raring; urgency=low
 
