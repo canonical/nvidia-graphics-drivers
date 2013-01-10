@@ -57,3 +57,19 @@ Description: NVIDIA binary Xorg driver development files
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
 
+Package: nvidia-current-updates
+Architecture: i386 amd64 lpia
+Depends: nvidia-304-updates
+Description: Transitional package for nvidia-current-updates
+ This is a transitional package for nvidia-current-updates, and can be
+ safely removed after the installation is complete.
+ .
+
+Package: nvidia-current-updates-dev
+Architecture: i386 amd64 lpia
+Depends: nvidia-304-updates-dev
+Description: Transitional package for nvidia-current-updates-dev
+ This is a transitional package for nvidia-current-updates-dev, and can be
+ safely removed after the installation is complete.
+ .
+
