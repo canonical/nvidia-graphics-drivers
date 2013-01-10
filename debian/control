@@ -11,43 +11,12 @@ Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
 Package: nvidia-current
 Architecture: i386 amd64 lpia
-Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
- linux-headers-generic | linux-headers, patch, acpid, ${shlibs:Depends},
- ${xviddriver:Depends}
-Recommends: nvidia-settings
-Provides: nvidia-current-updates, nvidia-experimental-304, nvidia-173,
- nvidia-173-updates, nvidia-96, nvidia-96-updates, fglrx, fglrx-updates,
- ${xviddriver:Provides}
-Conflicts: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
- nvidia-experimental-304, nvidia-current-updates, nvidia-173, nvidia-173-updates,
- nvidia-96, nvidia-96-updates, fglrx, fglrx-updates
-Replaces: nvidia-current-modaliases, nvidia-180-modaliases, nvidia-185-modaliases,
- nvidia-experimental-304, nvidia-current-updates, nvidia-173, nvidia-173-updates,
- nvidia-96, nvidia-96-updates, fglrx, fglrx-updates
-XB-Modaliases: ${modaliases}
-Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
- The binary driver provide optimized hardware acceleration of OpenGL
- applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
- and flat panel displays are also supported.
- .
- This package also includes the source for building the kernel module
- required by the Xorg driver, and provides NVIDIA's implementation of
- the Video Decode and presentation API. The latter enables acceleration
- for GeForce 8 and later series cards for h264 video.
- .
- GPUs such as GeForce series 6 or newer are supported.
- .
- See /usr/share/doc/nvidia-current/README.txt.gz for a complete list
- of supported GPUs and PCIIDs
- .
+Depends: nvidia-304
+Description: NVIDIA binary Xorg driver (transitional package)
+ This is a transitional package to the nvidia-304 package.
 
 Package: nvidia-current-dev
 Architecture: i386 amd64 lpia
-Depends: nvidia-current (>= 304.43)
-Description: NVIDIA binary Xorg driver development files
- This package contains the NVIDIA binary Xorg driver
- development files.
- .
- For more information on this source package visit NVIDIA's homepage
- at http://www.nvidia.com/ .
-
+Depends: nvidia-304-dev
+Description: NVIDIA binary Xorg driver development files (transitional package)
+ This is a transitional package to the nvidia-304 development package.
