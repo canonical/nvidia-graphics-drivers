@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304-updates (304.64-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.64-0ubuntu3) raring; urgency=low
 
-  * 
+  * debian/control.in:
+    - Create transitional packages for nvidia-current and
+      nvidia-current-dev.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Jan 2013 12:33:32 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Jan 2013 13:11:18 +0100
 
 nvidia-graphics-drivers-304-updates (304.64-0ubuntu2) raring; urgency=low
 
