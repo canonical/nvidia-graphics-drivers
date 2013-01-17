@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-304-updates (304.64-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.64-0ubuntu4) raring; urgency=low
 
-  * 
+  * debian/control{.in}:
+    - Drop all the dependencies on the linux-headers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Jan 2013 16:38:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Jan 2013 16:39:53 +0100
 
 nvidia-graphics-drivers-304-updates (304.64-0ubuntu3) raring; urgency=low
 
