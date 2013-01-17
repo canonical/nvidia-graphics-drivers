@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-310 (310.19-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-310 (310.19-0ubuntu3) raring; urgency=low
 
-  * 
+  * debian/control{.in}:
+    - Drop all the dependencies on the linux-headers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Jan 2013 16:42:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Jan 2013 16:43:29 +0100
 
 nvidia-graphics-drivers-310 (310.19-0ubuntu2) raring; urgency=low
 
