@@ -18,8 +18,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-310-updates/xorg
 /usr/lib/nvidia-310-updates/xorg
-/usr/src/nvidia-310-updates-310.19
-/usr/src/nvidia-310-updates-310.19/patches
+/usr/src/nvidia-310-updates-310.32
+/usr/src/nvidia-310-updates-310.32/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-310-updates
