@@ -2,29 +2,29 @@ debian/nvidia-310.override                 usr/share/lintian/overrides
 #Blacklist some card ids from GRUB gfxpayload=keep
 debian/nvidia-310.grub-gfxpayload          /usr/share/nvidia-310
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/nvidia_drv.so /usr/lib/nvidia-310/xorg
-NVIDIA-Linux-x86_64-310.19-no-compat32/libglx.so.310.19 /usr/lib/nvidia-310/xorg
+NVIDIA-Linux-x86_64-310.32-no-compat32/nvidia_drv.so /usr/lib/nvidia-310/xorg
+NVIDIA-Linux-x86_64-310.32-no-compat32/libglx.so.310.32 /usr/lib/nvidia-310/xorg
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/libGL*.so*                  /usr/lib/nvidia-310
-NVIDIA-Linux-x86_64-310.19-no-compat32/libnv*.so*                  /usr/lib/nvidia-310
-NVIDIA-Linux-x86_64-310.19-no-compat32/libcuda*.so*                /usr/lib/nvidia-310
-NVIDIA-Linux-x86_64-310.19-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-310
+NVIDIA-Linux-x86_64-310.32-no-compat32/libGL*.so*                  /usr/lib/nvidia-310
+NVIDIA-Linux-x86_64-310.32-no-compat32/libnv*.so*                  /usr/lib/nvidia-310
+NVIDIA-Linux-x86_64-310.32-no-compat32/libcuda*.so*                /usr/lib/nvidia-310
+NVIDIA-Linux-x86_64-310.32-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-310
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-310/vdpau
-NVIDIA-Linux-x86_64-310.19-no-compat32/tls/*.so*                   /usr/lib/nvidia-310/tls
+NVIDIA-Linux-x86_64-310.32-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-310/vdpau
+NVIDIA-Linux-x86_64-310.32-no-compat32/tls/*.so*                   /usr/lib/nvidia-310/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-310-310.19
-debian/dkms/patches/*                         usr/src/nvidia-310-310.19/patches
-debian/dkms.conf                              usr/src/nvidia-310-310.19
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-310-310.32
+debian/dkms/patches/*                         usr/src/nvidia-310-310.32/patches
+debian/dkms.conf                              usr/src/nvidia-310-310.32
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-310/bin
-NVIDIA-Linux-x86_64-310.19-no-compat32/nvidia-xconfig /usr/lib/nvidia-310/bin
-NVIDIA-Linux-x86_64-310.19-no-compat32/nvidia-smi /usr/lib/nvidia-310/bin
+NVIDIA-Linux-x86_64-310.32-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-310/bin
+NVIDIA-Linux-x86_64-310.32-no-compat32/nvidia-xconfig /usr/lib/nvidia-310/bin
+NVIDIA-Linux-x86_64-310.32-no-compat32/nvidia-smi /usr/lib/nvidia-310/bin
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/nvidia-310-settings.png /usr/share/pixmaps
+NVIDIA-Linux-x86_64-310.32-no-compat32/nvidia-310-settings.png /usr/share/pixmaps
 
 debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-310
 
 debian/nvidia-autostart.desktop /usr/share/nvidia-310
 
-NVIDIA-Linux-x86_64-310.19-no-compat32/nvidia.icd /usr/share/nvidia-310
+NVIDIA-Linux-x86_64-310.32-no-compat32/nvidia.icd /usr/share/nvidia-310
