@@ -1,8 +1,50 @@
-nvidia-graphics-drivers-310 (310.32-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-310 (310.32-0ubuntu1) raring; urgency=low
 
-  * 
+  * debian/dkms.conf.in:
+    - Do not apply buildfix_kernel_3.8.patch any more.
+  * debian/rules:
+    - Update URL.
+  * debian/substvars:
+    - Add support for xserver ABI 1.14.
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 680MX
+      o Tesla K20Xm
+    - Fixed a bug when enabling framelock between displays
+      connected to the same GPU as other displays with
+      different refresh rates, which caused the latter to
+      be incorrectly assigned to the framelock group.
+    - Updated the reporting of HDMI 3D framerates and pixel
+      clocks to be more consistent with how they are
+      reported by HDMI 3D displays.
+    - Fixed a bug that sometimes prevented rotation controls
+      in the nvidia-settings control panel from working
+      after changing resolutions.
+    - Fixed a bug that could cause applications using
+      GL_NV_vdpau_interop to crash during modeswitches.
+    - Fixed a regression that could cause OpenGL applications
+      to crash while compiling shaders.
+    - Added a kernel module parameter, "NVreg_EnablePCIeGen3",
+      which can be used to enable PCIe gen 3 when possible.
+      Note that on many systems where the NVIDIA driver does
+      not allow PCIe gen 3 by default, stability problems can
+      be expected when this option is enabled: users should
+      do so at their own risk.
+    - Fixed a VDPAU bug that could cause the X server to hang
+      when decoding some corrupted video streams.
+    - Renamed VGX products to GRID products in the "Supported
+      NVIDIA GPU Products" list.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed libnvidia-encode.so library dependency by linking
+      it with libnvcuvid.so.1 instead of libnvcuvid.so while
+      creating it.
+    - Improved performance of OpenGL framebuffer object binds
+      with Xinerama enabled by 2000-3000% when the application's
+      windows do not span screen boundaries.
+    - Fix performance issues when using some versions of
+      HyperMesh with Quadro GPUs.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Jan 2013 12:11:54 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Jan 2013 15:58:45 +0100
 
 nvidia-graphics-drivers-310 (310.19-0ubuntu3) raring; urgency=low
 
