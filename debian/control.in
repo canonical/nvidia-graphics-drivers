@@ -20,12 +20,12 @@ Provides: nvidia-310, nvidia-310-updates, nvidia-current,
  nvidia-96-updates, fglrx, fglrx-updates, nvidia-304,
  ${xviddriver:Provides}
 Conflicts: nvidia-310, nvidia-310-updates, nvidia-current,
- nvidia-experimental-304, nvidia-current-updates, nvidia-173,
- nvidia-173-updates, nvidia-experimental-310, nvidia-96,
+ nvidia-experimental-304, nvidia-current-updates (<< 304.64-0ubuntu5),
+ nvidia-173, nvidia-173-updates, nvidia-experimental-310, nvidia-96,
  nvidia-96-updates, fglrx, fglrx-updates, nvidia-304
 Replaces: nvidia-310, nvidia-310-updates, nvidia-current,
- nvidia-experimental-304, nvidia-current-updates, nvidia-173,
- nvidia-173-updates, nvidia-experimental-310, nvidia-96,
+ nvidia-experimental-304, nvidia-current-updates (<< 304.64-0ubuntu5),
+ nvidia-173, nvidia-173-updates, nvidia-experimental-310, nvidia-96,
  nvidia-96-updates, fglrx, fglrx-updates, nvidia-304
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
