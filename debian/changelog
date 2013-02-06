@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-304-updates (304.64-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.64-0ubuntu5) raring; urgency=low
 
-  * 
+  * debian/control{.in}:
+    - Conflict/Replace nvidia-current-updates (<< 304.64-0ubuntu5).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Feb 2013 11:09:49 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Feb 2013 11:16:24 +0100
 
 nvidia-graphics-drivers-304-updates (304.64-0ubuntu4) raring; urgency=low
 
