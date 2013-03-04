@@ -1,0 +1,81 @@
+nvidia-313-updates: library-not-linked-against-libc ./usr/lib/libGL.so.313.18
+
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.313.18
+
+nvidia-313-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.313.18
+
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/libGL.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.313.18
+
+nvidia-313-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.313.18 usr/lib/libGL.so
+nvidia-313-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.313.18 usr/lib/xorg/modules/extensions/libglx.so
+
+
+nvidia-313-updates: script-not-executable usr/src/nvidia-313-updates-313.18/conftest.sh
+nvidia-313-updates: maintainer-script-ignores-errors prerm
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/libGL.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/libGL.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/libGLcore.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/libGLcore.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/libcuda.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/libcuda.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/libnvidia-cfg.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/libnvidia-cfg.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/libvdpau.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/vdpau/libvdpau_nvidia.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/vdpau/libvdpau_nvidia.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/vdpau/libvdpau_trace.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/nvidia-313-updates/xorg/libglx.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-313-updates/xorg/libglx.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.313.18
+nvidia-313-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
+nvidia-313-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+nvidia-313-updates: prerm-calls-ldconfig
+nvidia-313-updates: copyright-without-copyright-notice
+nvidia-313-updates: desktop-command-not-in-package /usr/share/applications/nvidia-313-updates/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-313-updates/libnvidia-tls.so.313.18
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: unknown-section restricted/misc
+nvidia-185-modaliases: copyright-without-copyright-notice
+nvidia-185-modaliases: extended-description-line-too-long
+nvidia-glx-185-dev: copyright-without-copyright-notice
+nvidia-glx-185-dev: extended-description-line-too-long
+nvidia-glx-185-dev: unknown-section restricted/misc
+nvidia-185-kernel-source: copyright-without-copyright-notice
+nvidia-185-kernel-source: unknown-section restricted/misc
+nvidia-313-updates-dev: postinst-has-useless-call-to-ldconfig
+nvidia-313-updates-dev: postrm-has-useless-call-to-ldconfig
+nvidia-313-updates-dev: copyright-without-copyright-notice
+nvidia-313-updates-dev: unknown-section restricted/misc
+nvidia-glx-185: copyright-without-copyright-notice
+nvidia-glx-185: unknown-section restricted/misc
+nvidia-313-updates-modaliases: copyright-without-copyright-notice
+
+nvidia-313-updates: script-not-executable ./usr/src/nvidia-313-updates-313.18/conftest.sh
+nvidia-313-updates: maintainer-script-ignores-errors prerm
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/libGL.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/libGLcore.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/libcuda.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/libnvidia-cfg.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/libvdpau_nvidia.so.313.18
+nvidia-313-updates: shlib-with-non-pic-code usr/lib32/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-313-updates/libnvidia-tls.so.313.18
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.313.18
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-313-updates/libnvidia-tls.so.313.18
+nvidia-313-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-313-updates/tls/libnvidia-tls.so.313.18
+
+
