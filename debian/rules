@@ -33,8 +33,8 @@ PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
 alt_priority         := 9701
 
 # Installer details
-dirname_x86          := NVIDIA-Linux-x86-$(PKG_version)
-dirname_x86_64       := NVIDIA-Linux-x86_64-$(PKG_version)-no-compat32
+dirname_x86          ?= NVIDIA-Linux-x86-$(PKG_version)
+dirname_x86_64       ?= NVIDIA-Linux-x86_64-$(PKG_version)-no-compat32
 filename_x86         := $(dirname_x86).run
 filename_x86_64      := $(dirname_x86_64).run
 url_x86              := ftp://download.nvidia.com/XFree86/Linux-x86/$(PKG_version)/$(filename_x86)
