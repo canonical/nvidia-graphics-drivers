@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-313-updates (313.18-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-313-updates (313.18-0ubuntu1) raring; urgency=low
 
-  * 
+  * Initial release (LP: #1144629).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2013 12:47:09 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2013 16:49:40 +0100
