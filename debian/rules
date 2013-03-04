@@ -142,26 +142,14 @@ gen-abi-substvars:
 .PHONY: regen-from-templates
 regen-from-templates:
 	#Create important strings
-	for i in dkms.conf \
-			 $(PKG_driver).README.Debian      \
-			 control                           \
-			 copyright                         \
-			 ubuntu-nvidia-settings.desktop    \
-			 nvidia-autostart.desktop          \
-			 $(PKG_driver).grub-gfxpayload     \
-			 $(PKG_driver).install             \
-			 $(PKG_driver_dev).install         \
-			 $(PKG_driver).links               \
-			 $(PKG_driver).links32             \
-			 $(PKG_driver_dev).links           \
-			 $(PKG_driver).override            \
-			 $(PKG_driver).dirs                \
-			 $(PKG_driver).docs                \
-			 $(PKG_driver).postrm              \
-			 $(PKG_driver).postinst            \
-			 $(PKG_driver).preinst             \
-			 $(PKG_driver).prerm               \
-			 $(PKG_driver_dev).preinst; do     \
+	for i in debian/templates/*.in; do \
+		dest=`echo $$i | sed -e "s|templates\/||g" | \
+				 sed -e "s|\.in\$$||g" | \
+				 sed -e "s|nvidia-graphics-drivers|$(PKG_driver)|"`; \
+		old=`echo $$i | sed -e "s|templates\/||g" | \
+				sed -e "s|\.in\$$||g" | \
+				sed -e "s|nvidia-graphics-drivers|nvidia-*|g"`; \
+		rm -f $$old; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#LIBDIR32#|$(libdir32)|g"     \
 			-e "s|#BINDIR#|$(bindir)|g"         \
@@ -204,7 +192,7 @@ regen-from-templates:
 			-e "s|#GRUBBLKLISTDIR#|$(grub_blacklistdir)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			-e "s|#OTHER_ARCH#|$(OTHER_ARCH)|g" \
-			debian/$$i.in > debian/$$i;      \
+			$$i > $$dest;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	cat $(CURDIR)/debian/$(PKG_driver).links $(CURDIR)/debian/$(PKG_driver).links32 > \
