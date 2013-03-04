@@ -1,8 +1,34 @@
-nvidia-graphics-drivers-304 (304.84-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.84-0ubuntu1) raring; urgency=low
 
-  * 
+  * debian/dkms.conf.in:
+    - Drop all patches.
+  * debian/control.in:
+    - Conflict/replace/provide nvidia-313-updates.
+  * debian/substvars:
+    - Add support for ABI 14.
+  * New upstream release:
+    - Fixed a bug that could lead to rendering corruption
+      after an X server generation (i.e., leaving an X
+      server running after all of its clients have exited).
+    - Fixed a bug that could cause the X server to crash
+      when performing an RandR 1.0 rotation (e.g., `xrandr
+      --orientation left`) after unplugging the last
+      connected monitor.
+    - Fixed a bug that caused the nvidia-xconfig(1) man
+      page to be blank.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed font rendering performance and corruption
+      problems on X servers with backported support for
+      the new glyph cache functionality added to Pixman 0.27.
+    - Fixed a potential X server crash during initialization,
+      when a graphics card with a TV connector has no TV
+      connected.
+    - Added a new X configuration option, "UseHotplugEvents",
+      to allow the suppression of RandR events when adding
+      or removing non-DisplayPort displays. See the
+      "X Config Options" appendix of the README for details.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2013 21:16:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2013 21:19:13 +0100
 
 nvidia-graphics-drivers-304 (304.64-0ubuntu5) raring; urgency=low
 
