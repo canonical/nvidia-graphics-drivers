@@ -1,4 +1,4 @@
-Source: nvidia-graphics-drivers-310-updates
+Source: nvidia-graphics-drivers-313-updates
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -9,11 +9,11 @@ Standards-Version: 3.8.0
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
-Package: nvidia-310-updates
+Package: nvidia-313-updates
 Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
-Recommends: nvidia-settings-310-updates
+Recommends: nvidia-settings-313-updates
 Provides: nvidia-304, nvidia-304-updates, nvidia-current,
  nvidia-current-updates, nvidia-experimental-304, nvidia-173,
  nvidia-173-updates, nvidia-96, nvidia-96-updates, fglrx,
@@ -40,13 +40,13 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
  GPUs such as GeForce series 6 or newer are supported.
  .
- See /usr/share/doc/nvidia-310-updates/README.txt.gz for a complete list
+ See /usr/share/doc/nvidia-313-updates/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
  .
 
-Package: nvidia-310-updates-dev
+Package: nvidia-313-updates-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-310-updates (>= 310.32)
+Depends: ${misc:Depends}, nvidia-313-updates (>= 313.18)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
