@@ -14,21 +14,9 @@ Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-#FLAVOUR#
-Provides: nvidia-310, nvidia-310-updates, nvidia-current,
- nvidia-current-updates, nvidia-experimental-304, nvidia-173,
- nvidia-experimental-310, nvidia-173-updates, nvidia-96,
- nvidia-96-updates, fglrx, fglrx-updates, nvidia-304,
- nvidia-313-updates, ${xviddriver:Provides}
-Conflicts: nvidia-310, nvidia-310-updates, nvidia-current,
- nvidia-experimental-304, nvidia-current-updates (<< 304.64-0ubuntu5),
- nvidia-173, nvidia-173-updates, nvidia-experimental-310, nvidia-96,
- nvidia-96-updates, fglrx, fglrx-updates, nvidia-304,
- nvidia-313-updates
-Replaces: nvidia-310, nvidia-310-updates, nvidia-current,
- nvidia-experimental-304, nvidia-current-updates (<< 304.64-0ubuntu5),
- nvidia-173, nvidia-173-updates, nvidia-experimental-310, nvidia-96,
- nvidia-96-updates, fglrx, fglrx-updates, nvidia-304,
- nvidia-313-updates
+Provides: xorg-driver-binary, ${xviddriver:Provides}
+Conflicts: xorg-driver-binary
+Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
