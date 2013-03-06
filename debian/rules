@@ -141,15 +141,17 @@ gen-abi-substvars:
 
 .PHONY: regen-from-templates
 regen-from-templates:
-	#Create important strings
+	# Get rid of files belonging to different flavours
+	for i in debian/templates/*.in; do \
+		old=`echo $$i | sed -e "s|templates\/||g" | \
+				sed -e "s|\.in\$$||g" | \
+				sed -e "s|nvidia-graphics-drivers|nvidia-*|g"`; \
+		rm -f $$old; done
+	# Create important strings
 	for i in debian/templates/*.in; do \
 		dest=`echo $$i | sed -e "s|templates\/||g" | \
 				 sed -e "s|\.in\$$||g" | \
 				 sed -e "s|nvidia-graphics-drivers|$(PKG_driver)|"`; \
-		old=`echo $$i | sed -e "s|templates\/||g" | \
-				sed -e "s|\.in\$$||g" | \
-				sed -e "s|nvidia-graphics-drivers|nvidia-*|g"`; \
-		rm -f $$old; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#LIBDIR32#|$(libdir32)|g"     \
 			-e "s|#BINDIR#|$(bindir)|g"         \
