@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-313-updates (313.26-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-313-updates (313.26-0ubuntu2) raring; urgency=low
 
-  * 
+  * debian/rules:
+    - Separate the clean-up from the templates' creation.
+      This fixes an issue which caused the accidental
+      removal of useful files.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:04:51 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:09:23 +0100
 
 nvidia-graphics-drivers-313-updates (313.26-0ubuntu1) raring; urgency=low
 
