@@ -1,8 +1,28 @@
-nvidia-graphics-drivers-304 (304.84-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.84-0ubuntu2) raring; urgency=low
 
-  * 
+  * debian/rules:
+    - Allow direct assignment of package name. Thanks to
+      Andy Dick <adick@nvidia.com> for the patch.
+    - Use flavour-agnostic template file names. The *.in
+      template files currently need to be renamed when
+      switching package flavours. To facilitate package
+      flavour switching, we use the flavour-agnostic
+      templates nvidia-graphics-drivers-*.in in the
+      debian/templates directory and generate flavour
+      specific files from them.
+      This work is based on the original implementation
+      by Daniel Dadap <ddadap@nvidia.com>.
+  * debian/templates/control.in:
+    - Conflict/replace/provide xorg-driver-binary.
+      Each nvidia and fglrx driver will do the same with
+      xorg-driver-binary.
+    - Drop any other conflicts/replaces/provides.
+  * debian/templates/nvidia-graphics-drivers.README.
+    Debian.in:
+    - Update the documentation so as to cover the
+      fact that we moved templates to debian/templates.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:17:14 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:25:21 +0100
 
 nvidia-graphics-drivers-304 (304.84-0ubuntu1) raring; urgency=low
 
