@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-313-updates (313.26-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-313-updates (313.26-0ubuntu3) raring; urgency=low
 
-  * 
+  * debian/templates/control.in:
+    - Conflict/replace/provide xorg-driver-binary.
+      Each nvidia and fglrx driver will do the same with
+      xorg-driver-binary.
+    - Drop any other conflicts/replaces/provides.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:42:09 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:44:39 +0100
 
 nvidia-graphics-drivers-313-updates (313.26-0ubuntu2) raring; urgency=low
 
