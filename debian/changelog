@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-304 (304.84-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.88-0ubuntu1) UNRELEASED; urgency=low
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Mar 2013 17:00:26 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Apr 2013 17:09:43 +0200
 
 nvidia-graphics-drivers-304 (304.84-0ubuntu2) raring; urgency=low
 
