@@ -1,50 +1,50 @@
-nvidia-310-updates: library-not-linked-against-libc ./usr/lib/libGL.so.310.32
+nvidia-310-updates: library-not-linked-against-libc ./usr/lib/libGL.so.310.44
 
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.310.32
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.310.44
 
-nvidia-310-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.310.32
+nvidia-310-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.310.44
 
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/libGL.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.310.32
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/libGL.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.310.44
 
-nvidia-310-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.310.32 usr/lib/libGL.so
-nvidia-310-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.310.32 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-310-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.310.44 usr/lib/libGL.so
+nvidia-310-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.310.44 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-310-updates: script-not-executable usr/src/nvidia-310-updates-310.32/conftest.sh
+nvidia-310-updates: script-not-executable usr/src/nvidia-310-updates-310.44/conftest.sh
 nvidia-310-updates: maintainer-script-ignores-errors prerm
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libGL.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libGL.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libGLcore.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libGLcore.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libcuda.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libcuda.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libnvidia-cfg.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libnvidia-cfg.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libvdpau.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/vdpau/libvdpau_trace.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/xorg/libglx.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/xorg/libglx.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.310.32
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libGL.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libGL.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libGLcore.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libGLcore.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libcuda.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libcuda.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libnvidia-cfg.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libnvidia-cfg.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/libvdpau.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/vdpau/libvdpau_trace.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/nvidia-310-updates/xorg/libglx.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-310-updates/xorg/libglx.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.310.44
 nvidia-310-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-310-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-310-updates: prerm-calls-ldconfig
 nvidia-310-updates: copyright-without-copyright-notice
 nvidia-310-updates: desktop-command-not-in-package /usr/share/applications/nvidia-310-updates/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/libnvidia-tls.so.310.32
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.310.32
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/libnvidia-tls.so.310.44
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.310.44
 nvidia-310-updates: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -61,21 +61,21 @@ nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-310-updates-modaliases: copyright-without-copyright-notice
 
-nvidia-310-updates: script-not-executable ./usr/src/nvidia-310-updates-310.32/conftest.sh
+nvidia-310-updates: script-not-executable ./usr/src/nvidia-310-updates-310.44/conftest.sh
 nvidia-310-updates: maintainer-script-ignores-errors prerm
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libGL.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libGLcore.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libcuda.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libnvidia-cfg.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libvdpau_nvidia.so.310.32
-nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-310-updates/tls/libnvidia-tls.so.310.32
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libGL.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libGLcore.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libcuda.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libnvidia-cfg.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/libvdpau_nvidia.so.310.44
+nvidia-310-updates: shlib-with-non-pic-code usr/lib32/nvidia-310-updates/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-310-updates/tls/libnvidia-tls.so.310.44
 
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/libnvidia-tls.so.310.32
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.310.32
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-310-updates/libnvidia-tls.so.310.32
-nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-310-updates/tls/libnvidia-tls.so.310.32
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/libnvidia-tls.so.310.44
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-310-updates/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.310.44
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-310-updates/libnvidia-tls.so.310.44
+nvidia-310-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-310-updates/tls/libnvidia-tls.so.310.44
 
 

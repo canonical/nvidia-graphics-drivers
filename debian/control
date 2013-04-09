@@ -36,7 +36,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
 
 Package: nvidia-310-updates-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-310-updates (>= 310.32)
+Depends: ${misc:Depends}, nvidia-310-updates (>= 310.44)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

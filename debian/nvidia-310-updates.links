@@ -1,52 +1,52 @@
-/usr/lib/nvidia-310-updates/libGL.so.310.32 /usr/lib/nvidia-310-updates/libGL.so.1
+/usr/lib/nvidia-310-updates/libGL.so.310.44 /usr/lib/nvidia-310-updates/libGL.so.1
 /usr/lib/nvidia-310-updates/libGL.so.1 /usr/lib/nvidia-310-updates/libGL.so
 
-/usr/lib/nvidia-310-updates/libnvidia-cfg.so.310.32 /usr/lib/nvidia-310-updates/libnvidia-cfg.so.1
+/usr/lib/nvidia-310-updates/libnvidia-cfg.so.310.44 /usr/lib/nvidia-310-updates/libnvidia-cfg.so.1
 /usr/lib/nvidia-310-updates/libnvidia-cfg.so.1 /usr/lib/nvidia-310-updates/libnvidia-cfg.so
 
-/usr/lib/nvidia-310-updates/xorg/libglx.so.310.32 /usr/lib/nvidia-310-updates/xorg/libglx.so
+/usr/lib/nvidia-310-updates/xorg/libglx.so.310.44 /usr/lib/nvidia-310-updates/xorg/libglx.so
 
-/usr/lib/nvidia-310-updates/libcuda.so.310.32 /usr/lib/nvidia-310-updates/libcuda.so
-/usr/lib/nvidia-310-updates/libcuda.so.310.32 /usr/lib/nvidia-310-updates/libcuda.so.1
+/usr/lib/nvidia-310-updates/libcuda.so.310.44 /usr/lib/nvidia-310-updates/libcuda.so
+/usr/lib/nvidia-310-updates/libcuda.so.310.44 /usr/lib/nvidia-310-updates/libcuda.so.1
 
-/usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.32 /usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.1
+/usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.44 /usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-310-updates/vdpau/libvdpau_nvidia.so 
 
 /usr/lib/nvidia-310-updates/libOpenCL.so.1.0.0 /usr/lib/nvidia-310-updates/libOpenCL.so.1.0
 /usr/lib/nvidia-310-updates/libOpenCL.so.1.0 /usr/lib/nvidia-310-updates/libOpenCL.so.1
 /usr/lib/nvidia-310-updates/libOpenCL.so.1 /usr/lib/nvidia-310-updates/libOpenCL.so
 
-/usr/lib/nvidia-310-updates/libnvidia-compiler.so.310.32 /usr/lib/nvidia-310-updates/libnvidia-compiler.so.1
+/usr/lib/nvidia-310-updates/libnvidia-compiler.so.310.44 /usr/lib/nvidia-310-updates/libnvidia-compiler.so.1
 /usr/lib/nvidia-310-updates/libnvidia-compiler.so.1 /usr/lib/nvidia-310-updates/libnvidia-compiler.so
 
-/usr/lib/nvidia-310-updates/libnvidia-ml.so.310.32 /usr/lib/nvidia-310-updates/libnvidia-ml.so.1
+/usr/lib/nvidia-310-updates/libnvidia-ml.so.310.44 /usr/lib/nvidia-310-updates/libnvidia-ml.so.1
 /usr/lib/nvidia-310-updates/libnvidia-ml.so.1 /usr/lib/nvidia-310-updates/libnvidia-ml.so
 
-/usr/lib/nvidia-310-updates/libnvcuvid.so.310.32 /usr/lib/nvidia-310-updates/libnvcuvid.so.1
+/usr/lib/nvidia-310-updates/libnvcuvid.so.310.44 /usr/lib/nvidia-310-updates/libnvcuvid.so.1
 /usr/lib/nvidia-310-updates/libnvcuvid.so.1 /usr/lib/nvidia-310-updates/libnvcuvid.so
-/usr/lib32/nvidia-310-updates/libGL.so.310.32 /usr/lib32/nvidia-310-updates/libGL.so.1
+/usr/lib32/nvidia-310-updates/libGL.so.310.44 /usr/lib32/nvidia-310-updates/libGL.so.1
 /usr/lib32/nvidia-310-updates/libGL.so.1 /usr/lib32/nvidia-310-updates/libGL.so
 
-/usr/lib32/nvidia-310-updates/libnvidia-cfg.so.310.32 /usr/lib32/nvidia-310-updates/libnvidia-cfg.so.1
+/usr/lib32/nvidia-310-updates/libnvidia-cfg.so.310.44 /usr/lib32/nvidia-310-updates/libnvidia-cfg.so.1
 /usr/lib32/nvidia-310-updates/libnvidia-cfg.so.1 /usr/lib32/nvidia-310-updates/libnvidia-cfg.so
 
-/usr/lib/nvidia-310-updates/xorg/libglx.so.310.32 /usr/lib/nvidia-310-updates/xorg/libglx.so
+/usr/lib/nvidia-310-updates/xorg/libglx.so.310.44 /usr/lib/nvidia-310-updates/xorg/libglx.so
 
-/usr/lib32/nvidia-310-updates/libcuda.so.310.32 /usr/lib32/nvidia-310-updates/libcuda.so
-/usr/lib32/nvidia-310-updates/libcuda.so.310.32 /usr/lib32/nvidia-310-updates/libcuda.so.1
+/usr/lib32/nvidia-310-updates/libcuda.so.310.44 /usr/lib32/nvidia-310-updates/libcuda.so
+/usr/lib32/nvidia-310-updates/libcuda.so.310.44 /usr/lib32/nvidia-310-updates/libcuda.so.1
 
-/usr/lib32/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.32 /usr/lib32/nvidia-310-updates/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-310-updates/vdpau/libvdpau_nvidia.so.310.44 /usr/lib32/nvidia-310-updates/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-310-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-310-updates/vdpau/libvdpau_nvidia.so
 
 /usr/lib32/nvidia-310-updates/libOpenCL.so.1.0.0 /usr/lib32/nvidia-310-updates/libOpenCL.so.1.0
 /usr/lib32/nvidia-310-updates/libOpenCL.so.1.0 /usr/lib32/nvidia-310-updates/libOpenCL.so.1
 /usr/lib32/nvidia-310-updates/libOpenCL.so.1 /usr/lib32/nvidia-310-updates/libOpenCL.so
 
-/usr/lib32/nvidia-310-updates/libnvidia-compiler.so.310.32 /usr/lib32/nvidia-310-updates/libnvidia-compiler.so.1
+/usr/lib32/nvidia-310-updates/libnvidia-compiler.so.310.44 /usr/lib32/nvidia-310-updates/libnvidia-compiler.so.1
 /usr/lib32/nvidia-310-updates/libnvidia-compiler.so.1 /usr/lib32/nvidia-310-updates/libnvidia-compiler.so
 
-/usr/lib32/nvidia-310-updates/libnvidia-ml.so.310.32 /usr/lib32/nvidia-310-updates/libnvidia-ml.so.1
+/usr/lib32/nvidia-310-updates/libnvidia-ml.so.310.44 /usr/lib32/nvidia-310-updates/libnvidia-ml.so.1
 /usr/lib32/nvidia-310-updates/libnvidia-ml.so.1 /usr/lib32/nvidia-310-updates/libnvidia-ml.so
 
-/usr/lib32/nvidia-310-updates/libnvcuvid.so.310.32 /usr/lib32/nvidia-310-updates/libnvcuvid.so.1
+/usr/lib32/nvidia-310-updates/libnvcuvid.so.310.44 /usr/lib32/nvidia-310-updates/libnvcuvid.so.1
 /usr/lib32/nvidia-310-updates/libnvcuvid.so.1 /usr/lib32/nvidia-310-updates/libnvcuvid.so
