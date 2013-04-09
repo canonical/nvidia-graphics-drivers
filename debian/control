@@ -14,9 +14,9 @@ Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-304
-Provides: xorg-driver-binary, ${xviddriver:Provides}
-Conflicts: xorg-driver-binary
-Replaces: xorg-driver-binary
+Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
+Conflicts: xorg-driver-binary, nvidia-driver-binary
+Replaces: xorg-driver-binary, nvidia-driver-binary
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
@@ -36,7 +36,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
 
 Package: nvidia-304-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-304 (>= 304.84)
+Depends: ${misc:Depends}, nvidia-304 (>= 304.88)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
