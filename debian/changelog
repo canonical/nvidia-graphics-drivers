@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-304 (304.88-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.88-0ubuntu1) raring; urgency=low
 
-  * 
+  * debian/templates/control.in:
+    - Conflict/replace/provide nvidia-driver-binary
+      which is specific to modern nvidia drivers.
+  * debian/dkms/patches/allow_sublevel_greater_than_5.patch,
+    debian/templates/dkms.conf.in:
+    - Allow SUBLEVEL variables greater than 5 in the
+      kernel Makefile (LP: #1166639).
+  * New upstream release:
+    - Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB
+      Cursor Buffer Overflow in "NoScanout" Mode. This
+      buffer overflow, which occurred when an X client
+      installed a large ARGB cursor on an X server
+      running in NoScanout mode, could cause a denial
+      of service (e.g., an X server segmentation fault),
+      or could be exploited to achieve arbitrary code
+      execution.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Apr 2013 17:09:43 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Apr 2013 17:20:04 +0200
 
 nvidia-graphics-drivers-304 (304.84-0ubuntu2) raring; urgency=low
 
