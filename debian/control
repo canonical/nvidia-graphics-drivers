@@ -60,3 +60,18 @@ Description: Transitional package for nvidia-current-updates-dev
  safely removed after the installation is complete.
  .
 
+Package: nvidia-experimental-304
+Architecture: i386 amd64 lpia
+Depends: nvidia-304-updates
+Description: Transitional package for nvidia-experimental-304
+ This is a transitional package for nvidia-experimental-304, and can be
+ safely removed after the installation is complete.
+ .
+
+Package: nvidia-experimental-304-dev
+Architecture: i386 amd64 lpia
+Depends: nvidia-304-updates-dev
+Description: Transitional package for nvidia-experimental-304-dev
+ This is a transitional package for nvidia-experimental-304-dev, and can be
+ safely removed after the installation is complete.
+ .
