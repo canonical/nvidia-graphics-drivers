@@ -142,6 +142,13 @@ DEB_DH_SHLIBDEPS_ARGS_$(PKG_libcuda1)="-X$(libdir_multiarch_other)"
 DEB_DH_SHLIBDEPS_ARGS_$(PKG_libopencl1)="-X$(libdir_multiarch_other)"
 DEB_DH_SHLIBDEPS_ARGS_$(PKG_opencl_icd)="-X$(libdir_multiarch_other)"
 
+.PHONY: download-sources
+download-sources:
+	# Remove any previous installers
+	rm -f NVIDIA-Linux-x86*
+	# Downloads the installers from NVIDIA's website
+	wget $(url_x86) $(url_x86_64)
+
 .PHONY: gen-abi-substvars
 gen-abi-substvars:
 	# Generate the xserver ABI dependencies
