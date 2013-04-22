@@ -44,11 +44,15 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 filename             := $(filename_x86_64)
 dirname              := $(dirname_x86_64)
 url                  := $(url_x86_64)
+web_arch             := amd64
 else
 filename             := $(filename_x86)
 dirname              := $(dirname_x86)
 url                  := $(url_x86)
+web_arch             := ia32
 endif
+
+release_notes        := http://www.nvidia.com/object/linux-display-$(web_arch)-$(PKG_version)-driver.html
 
 bindir               := /usr/bin
 datadir              := /usr/share
@@ -194,6 +198,7 @@ regen-from-templates:
 			-e "s|#GRUBBLKLISTDIR#|$(grub_blacklistdir)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			-e "s|#OTHER_ARCH#|$(OTHER_ARCH)|g" \
+			-e "s|#RELEASENOTES#|$(release_notes)|g" \
 			$$i > $$dest;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
