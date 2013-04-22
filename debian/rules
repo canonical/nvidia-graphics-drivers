@@ -139,6 +139,13 @@ DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
 
+.PHONY: download-sources
+download-sources:
+	# Remove any previous installers
+	rm -f NVIDIA-Linux-x86*
+	# Downloads the installers from NVIDIA's website
+	wget $(url_x86) $(url_x86_64)
+
 .PHONY: gen-abi-substvars
 gen-abi-substvars:
 	# Generate the xserver ABI dependencies
