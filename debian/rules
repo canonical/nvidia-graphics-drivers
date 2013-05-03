@@ -311,6 +311,7 @@ endif
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-xconfig.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-settings.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-smi.1.gz "$(mandir)";
+	dh_install -p$(PKG_driver) $(dirname)/nvidia-cuda-mps-control.1.gz "$(mandir)";
 
 	# Rename the man pages in order to use alternatives
 	for file in $(CURDIR)/debian/$(PKG_driver)$(mandir)/*.gz; do \
