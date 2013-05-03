@@ -1,4 +1,4 @@
-Source: nvidia-graphics-drivers-313-updates
+Source: nvidia-graphics-drivers-319
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -9,11 +9,11 @@ Standards-Version: 3.8.0
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
-Package: nvidia-313-updates
+Package: nvidia-319
 Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
-Recommends: nvidia-settings-313-updates
+Recommends: nvidia-settings-319
 Provides: xorg-driver-binary, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
@@ -30,13 +30,13 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
  GPUs such as GeForce series 6 or newer are supported.
  .
- See /usr/share/doc/nvidia-313-updates/README.txt.gz for a complete list
+ See /usr/share/doc/nvidia-319/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
  .
 
-Package: nvidia-313-updates-dev
+Package: nvidia-319-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-313-updates (>= 313.30)
+Depends: ${misc:Depends}, nvidia-319 (>= 319.17)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
