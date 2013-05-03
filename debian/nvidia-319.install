@@ -20,6 +20,9 @@ debian/dkms.conf                              usr/src/nvidia-319-319.17
 NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-319/bin
 NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-xconfig /usr/lib/nvidia-319/bin
 NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-smi /usr/lib/nvidia-319/bin
+NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-debugdump /usr/lib/nvidia-319/bin
+NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-cuda-mps-control /usr/lib/nvidia-319/bin
+NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-cuda-mps-server /usr/lib/nvidia-319/bin
 
 NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-319-settings.png /usr/share/pixmaps
 
@@ -28,3 +31,4 @@ debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-319
 debian/nvidia-autostart.desktop /usr/share/nvidia-319
 
 NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia.icd /usr/share/nvidia-319
+NVIDIA-Linux-x86_64-319.17-no-compat32/nvidia-application-profiles-319.17-rc /usr/share/nvidia-319

@@ -24,3 +24,6 @@
 
 /usr/lib32/nvidia-319/libnvcuvid.so.319.17 /usr/lib32/nvidia-319/libnvcuvid.so.1
 /usr/lib32/nvidia-319/libnvcuvid.so.1 /usr/lib32/nvidia-319/libnvcuvid.so
+
+/usr/lib32/nvidia-319/libnvidia-encode.so.319.17 /usr/lib32/nvidia-319/libnvidia-encode.so.1
+/usr/lib32/nvidia-319/libnvidia-encode.so.1 /usr/lib32/nvidia-319/libnvidia-encode.so
