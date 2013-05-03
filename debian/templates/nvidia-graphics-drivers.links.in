@@ -24,3 +24,6 @@
 
 #PKGLIBDIR#/libnvcuvid.so.#VERSION# #PKGLIBDIR#/libnvcuvid.so.1
 #PKGLIBDIR#/libnvcuvid.so.1 #PKGLIBDIR#/libnvcuvid.so
+
+#PKGLIBDIR#/libnvidia-encode.so.#VERSION# #PKGLIBDIR#/libnvidia-encode.so.1
+#PKGLIBDIR#/libnvidia-encode.so.1 #PKGLIBDIR#/libnvidia-encode.so
