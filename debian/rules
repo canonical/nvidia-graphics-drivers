@@ -56,6 +56,7 @@ release_notes        := http://www.nvidia.com/object/linux-display-$(web_arch)-$
 
 bindir               := /usr/bin
 datadir              := /usr/share
+nvidia_share         := /usr/share/nvidia
 PKG_datadir          := $(datadir)/$(PKG_driver)
 libdir               := /usr/lib
 libdir32             := /usr/lib32
@@ -199,6 +200,7 @@ regen-from-templates:
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			-e "s|#OTHER_ARCH#|$(OTHER_ARCH)|g" \
 			-e "s|#RELEASENOTES#|$(release_notes)|g" \
+			-e "s|#NVIDIASHARE#|$(nvidia_share)|g" \
 			$$i > $$dest;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)

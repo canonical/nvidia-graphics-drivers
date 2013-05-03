@@ -141,6 +141,7 @@ case "$1" in
             --slave #LIBDIR#/XvMCConfig #DEB_HOST_MULTIARCH#_xvmcconfig #PKGCONFIGDIR#/XvMCConfig \
             --slave #AUTOSTARTDIR#/#AUTOSTARTFILE# #DEB_HOST_MULTIARCH#_nvidia-autostart.desktop #PKGDATADIR#/#AUTOSTARTFILE# \
             --slave #SYSCONFDIR#/OpenCL/vendors/nvidia.icd #DEB_HOST_MULTIARCH#_nvidia.icd #PKGDATADIR#/nvidia.icd \
+            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
             --slave #LIBDIR#/libOpenCL.so #DEB_HOST_MULTIARCH#_libOpenCL.so #PKGLIBDIR#/libOpenCL.so \
             --slave #LIBDIR32#/libOpenCL.so #DEB_HOST_MULTIARCH#_libOpenCL.so_lib32 #PKGLIBDIR32#/libOpenCL.so \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \

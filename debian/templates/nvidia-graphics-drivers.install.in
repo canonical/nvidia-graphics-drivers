@@ -31,3 +31,4 @@ debian/ubuntu-nvidia-settings.desktop   #PKGDESKDIR#
 debian/#AUTOSTARTFILE# #PKGDATADIR#
 
 #DIRNAME#/nvidia.icd #PKGDATADIR#
+#DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
