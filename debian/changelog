@@ -1,56 +1,5 @@
-nvidia-graphics-drivers-319 (319.17-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319 (319.17-0ubuntu1) saucy; urgency=low
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 03 May 2013 11:13:35 +0200
-
-nvidia-graphics-drivers-313-updates (313.30-0ubuntu1) raring; urgency=low
-
-  * debian/dkms/patches/allow_sublevel_greater_than_5.patch,
-    debian/templates/dkms.conf.in:
-    - Allow SUBLEVEL variables greater than 5 in the
-      kernel Makefile (LP: #576648).
-  * New upstream release:
-    - Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB
-      Cursor Buffer Overflow in "NoScanout" Mode. This
-      buffer overflow, which occurred when an X client
-      installed a large ARGB cursor on an X server
-      running in NoScanout mode, could cause a denial
-      of service (e.g., an X server segmentation fault),
-      or could be exploited to achieve arbitrary code
-      execution.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Apr 2013 12:02:50 +0200
-
-nvidia-graphics-drivers-313-updates (313.26-0ubuntu3) raring; urgency=low
-
-  * debian/templates/control.in:
-    - Conflict/replace/provide xorg-driver-binary.
-      Each nvidia and fglrx driver will do the same with
-      xorg-driver-binary.
-    - Drop any other conflicts/replaces/provides.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:44:39 +0100
-
-nvidia-graphics-drivers-313-updates (313.26-0ubuntu2) raring; urgency=low
-
-  * debian/rules:
-    - Separate the clean-up from the templates' creation.
-      This fixes an issue which caused the accidental
-      removal of useful files.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 16:09:23 +0100
-
-nvidia-graphics-drivers-313-updates (313.26-0ubuntu1) raring; urgency=low
-
-  * New upstream release:
-    - Added support for the following GPUs:
-      o GeForce GTX TITAN
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2013 11:56:07 +0100
-
-nvidia-graphics-drivers-313-updates (313.18-0ubuntu1) raring; urgency=low
-
-  * Initial release (LP: #1144629).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2013 16:49:40 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 May 2013 10:41:54 +0200
