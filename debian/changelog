@@ -1,8 +1,30 @@
-nvidia-graphics-drivers-319 (319.23-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319 (319.23-0ubuntu1) saucy; urgency=low
 
-  * 
+  * debian/rules:
+    - Add the download-sources target.
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 780
+    - Fixed a regression that could cause X to crash when
+      querying GPU information through NV-CONTROL on multi-
+      GPU systems where some GPUs failed to be initialized
+      for X.
+    - Fixed a bug that could cause X to crash when using
+      Vertex Buffer Objects (VBOs) with indirect rendering.
+    - Fixed RandR panning reporting when the current
+      MetaMode is smaller than the X screen.
+    - Added the "ForceCompositionPipeline" and
+      "ForceFullCompositionPipeline" MetaMode options.
+      See the README for details.
+    - Added support for HDMI 4K resolutions. Using a 4K
+      resolution with an HDMI display requires a Kepler
+      or later GPU.
+    - Added support in VDPAU for 4k resolution MPEG-1/2
+      and H.264 video decoding, up to 4032x4048 for
+      MPEG-1/2 and 4032x4080 for H.264, and up to 65536
+      macroblocks for both.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 May 2013 16:20:07 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 May 2013 18:16:43 +0200
 
 nvidia-graphics-drivers-319 (319.17-0ubuntu1) saucy; urgency=low
 
