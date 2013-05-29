@@ -26,7 +26,7 @@ Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU lib
  testers and early adopters, and not recommended for production hardware.
  .
  Release Notes:
- http://www.nvidia.com/object/linux-display-amd64-319.17-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-319.23-driver.html
  .
  See /usr/share/doc/nvidia-319/README.txt.gz for a complete list
  of supported GPUs and PCIIDs
@@ -34,7 +34,7 @@ Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU lib
 
 Package: nvidia-319-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-319 (>= 319.17)
+Depends: ${misc:Depends}, nvidia-319 (>= 319.23)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
