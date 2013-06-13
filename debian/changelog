@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.88-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.88-0ubuntu2) saucy; urgency=low
 
-  * 
+  * debian/dkms/patches/buildfix_kernel_3.10.patch,
+    debian/templates/dkms.conf.in:
+    - Add support for Linux 3.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Jun 2013 15:33:10 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 Jun 2013 15:09:32 +0200
 
 nvidia-graphics-drivers-304 (304.88-0ubuntu1) raring; urgency=low
 
