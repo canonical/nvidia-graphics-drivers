@@ -1,4 +1,4 @@
-From 572253a46ba8af8733efdfc54965c86611820d0f Mon Sep 17 00:00:00 2001
+From 666209988e4bdbb659c077910b38eebec6689bea Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
 Date: Wed, 12 Jun 2013 15:31:53 +0200
 Subject: [PATCH 1/1] Add support for 3.10
@@ -43,7 +43,7 @@ index a702506..24c2611 100644
  
  #else // (defined(CONFIG_I2C) || defined(CONFIG_I2C_MODULE))
 diff --git a/nv-procfs.c b/nv-procfs.c
-index 3e05ef5..fe72bb2 100644
+index 3e05ef5..d4ca4b8 100644
 --- a/nv-procfs.c
 +++ b/nv-procfs.c
 @@ -60,60 +60,41 @@ static char nv_registry_keys[NV_MAX_REGISTRY_KEYS_LENGTH];
@@ -833,7 +833,7 @@ index 3e05ef5..fe72bb2 100644
 -            entry = NV_CREATE_PROC_FILE("gpu", proc_nvidia_agp,
 -                nv_procfs_read_agp_info, NULL, NULL, nv);
 +            entry = proc_create_data("gpu", NV_PROC_RO, proc_nvidia_agp,
-+                &nv_procfs_read_agp_info_fops, nv);
++                &nv_procfs_read_agp_info_gpu_fops, nv);
 +
              if (!entry)
                  goto failed;
