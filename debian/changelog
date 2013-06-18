@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304-updates (304.88-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.88-0ubuntu4) saucy; urgency=low
 
-  * 
+  * debian/dkms/patches/buildfix_kernel_3.10.patch:
+    - Use nv_procfs_read_agp_info_gpu_fops when creating
+      the "gpu" procfs file since we're passing data.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 18 Jun 2013 14:57:58 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 18 Jun 2013 14:58:24 +0200
 
 nvidia-graphics-drivers-304-updates (304.88-0ubuntu3) saucy; urgency=low
 
