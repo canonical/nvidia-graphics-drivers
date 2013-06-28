@@ -1,0 +1,81 @@
+nvidia-319-updates: library-not-linked-against-libc ./usr/lib/libGL.so.319.32
+
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.319.32
+
+nvidia-319-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.319.32
+
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/libGL.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.319.32
+
+nvidia-319-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.319.32 usr/lib/libGL.so
+nvidia-319-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.319.32 usr/lib/xorg/modules/extensions/libglx.so
+
+
+nvidia-319-updates: script-not-executable usr/src/nvidia-319-updates-319.32/conftest.sh
+nvidia-319-updates: maintainer-script-ignores-errors prerm
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/libGL.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/libGL.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/libGLcore.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/libGLcore.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/libcuda.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/libcuda.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/libnvidia-cfg.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/libnvidia-cfg.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/libvdpau.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/vdpau/libvdpau_trace.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/nvidia-319-updates/xorg/libglx.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319-updates/xorg/libglx.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.319.32
+nvidia-319-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
+nvidia-319-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+nvidia-319-updates: prerm-calls-ldconfig
+nvidia-319-updates: copyright-without-copyright-notice
+nvidia-319-updates: desktop-command-not-in-package /usr/share/applications/nvidia-319-updates/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-319-updates/libnvidia-tls.so.319.32
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: unknown-section restricted/misc
+nvidia-185-modaliases: copyright-without-copyright-notice
+nvidia-185-modaliases: extended-description-line-too-long
+nvidia-glx-185-dev: copyright-without-copyright-notice
+nvidia-glx-185-dev: extended-description-line-too-long
+nvidia-glx-185-dev: unknown-section restricted/misc
+nvidia-185-kernel-source: copyright-without-copyright-notice
+nvidia-185-kernel-source: unknown-section restricted/misc
+nvidia-319-updates-dev: postinst-has-useless-call-to-ldconfig
+nvidia-319-updates-dev: postrm-has-useless-call-to-ldconfig
+nvidia-319-updates-dev: copyright-without-copyright-notice
+nvidia-319-updates-dev: unknown-section restricted/misc
+nvidia-glx-185: copyright-without-copyright-notice
+nvidia-glx-185: unknown-section restricted/misc
+nvidia-319-updates-modaliases: copyright-without-copyright-notice
+
+nvidia-319-updates: script-not-executable ./usr/src/nvidia-319-updates-319.32/conftest.sh
+nvidia-319-updates: maintainer-script-ignores-errors prerm
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/libGL.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/libGLcore.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/libcuda.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/libnvidia-cfg.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/libvdpau_nvidia.so.319.32
+nvidia-319-updates: shlib-with-non-pic-code usr/lib32/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-319-updates/libnvidia-tls.so.319.32
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-319-updates/libnvidia-tls.so.319.32
+nvidia-319-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-319-updates/tls/libnvidia-tls.so.319.32
+
+
