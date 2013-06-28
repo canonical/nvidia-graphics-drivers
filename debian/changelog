@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-319-updates (319.32-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319-updates (319.32-0ubuntu1) saucy; urgency=low
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jun 2013 12:19:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jun 2013 13:43:07 +0200
