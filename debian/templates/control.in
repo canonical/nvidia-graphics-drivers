@@ -42,3 +42,19 @@ Description: NVIDIA binary Xorg driver development files
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
 
+Package: nvidia-310
+Architecture: i386 amd64 lpia
+Depends: #DRIVERNAME#
+Description: Transitional package for nvidia-310
+ This is a transitional package for nvidia-310, and can be
+ safely removed after the installation is complete.
+ .
+
+Package: nvidia-310-dev
+Architecture: i386 amd64 lpia
+Depends: #DRIVERDEVNAME#
+Description: Transitional package for nvidia-310-dev
+ This is a transitional package for nvidia-310-dev, and can be
+ safely removed after the installation is complete.
+ .
+
