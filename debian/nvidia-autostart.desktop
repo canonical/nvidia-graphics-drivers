@@ -5,5 +5,5 @@ Name=NVIDIA X Server Settings
 Comment=Configure NVIDIA X Server Settings
 Exec=sh -c '/usr/bin/nvidia-settings --load-config-only'
 Terminal=false
-Icon=nvidia-319-settings
+Icon=nvidia-319-updates-settings
 Categories=System;Settings;
