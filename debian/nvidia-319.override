@@ -1,50 +1,50 @@
-nvidia-319: library-not-linked-against-libc ./usr/lib/libGL.so.319.23
+nvidia-319: library-not-linked-against-libc ./usr/lib/libGL.so.319.32
 
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.319.23
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.319.32
 
-nvidia-319: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.319.23
+nvidia-319: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.319.32
 
-nvidia-319: shlib-with-non-pic-code usr/lib/libGL.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/libGLcore.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.319.23
+nvidia-319: shlib-with-non-pic-code usr/lib/libGL.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/libGLcore.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.319.32
 
-nvidia-319: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.319.23 usr/lib/libGL.so
-nvidia-319: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.319.23 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-319: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.319.32 usr/lib/libGL.so
+nvidia-319: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.319.32 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-319: script-not-executable usr/src/nvidia-319-319.23/conftest.sh
+nvidia-319: script-not-executable usr/src/nvidia-319-319.32/conftest.sh
 nvidia-319: maintainer-script-ignores-errors prerm
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libGL.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libGL.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libGLcore.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libGLcore.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libcuda.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libcuda.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libnvidia-cfg.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libnvidia-cfg.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libnvidia-tls.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libnvidia-tls.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libvdpau.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/tls/libnvidia-tls.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/tls/libnvidia-tls.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/vdpau/libvdpau_trace.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/xorg/libglx.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/xorg/libglx.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.319.23
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libGL.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libGL.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libGLcore.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libGLcore.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libcuda.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libcuda.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libnvidia-cfg.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libnvidia-cfg.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/libnvidia-tls.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libnvidia-tls.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/libvdpau.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/tls/libnvidia-tls.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/tls/libnvidia-tls.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/vdpau/libvdpau_trace.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/nvidia-319/xorg/libglx.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-319/xorg/libglx.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.319.32
 nvidia-319: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-319: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-319: prerm-calls-ldconfig
 nvidia-319: copyright-without-copyright-notice
 nvidia-319: desktop-command-not-in-package /usr/share/applications/nvidia-319/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/libnvidia-tls.so.319.23
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/tls/libnvidia-tls.so.319.23
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.319.23
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/libnvidia-tls.so.319.32
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/tls/libnvidia-tls.so.319.32
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.319.32
 nvidia-319: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -61,21 +61,21 @@ nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-319-modaliases: copyright-without-copyright-notice
 
-nvidia-319: script-not-executable ./usr/src/nvidia-319-319.23/conftest.sh
+nvidia-319: script-not-executable ./usr/src/nvidia-319-319.32/conftest.sh
 nvidia-319: maintainer-script-ignores-errors prerm
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libGL.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libGLcore.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libcuda.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libnvidia-cfg.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libnvidia-tls.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libvdpau_nvidia.so.319.23
-nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/tls/libnvidia-tls.so.319.23
-nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-319/tls/libnvidia-tls.so.319.23
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libGL.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libGLcore.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libcuda.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libnvidia-cfg.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libnvidia-tls.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/libvdpau_nvidia.so.319.32
+nvidia-319: shlib-with-non-pic-code usr/lib32/nvidia-319/tls/libnvidia-tls.so.319.32
+nvidia-319: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-319/tls/libnvidia-tls.so.319.32
 
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/libnvidia-tls.so.319.23
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/tls/libnvidia-tls.so.319.23
-nvidia-319: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.319.23
-nvidia-319: shared-lib-without-dependency-information ./usr/lib32/nvidia-319/libnvidia-tls.so.319.23
-nvidia-319: shared-lib-without-dependency-information ./usr/lib32/nvidia-319/tls/libnvidia-tls.so.319.23
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/libnvidia-tls.so.319.32
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/nvidia-319/tls/libnvidia-tls.so.319.32
+nvidia-319: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.319.32
+nvidia-319: shared-lib-without-dependency-information ./usr/lib32/nvidia-319/libnvidia-tls.so.319.32
+nvidia-319: shared-lib-without-dependency-information ./usr/lib32/nvidia-319/tls/libnvidia-tls.so.319.32
 
 

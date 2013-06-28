@@ -1,58 +1,58 @@
-/usr/lib/nvidia-319/libGL.so.319.23 /usr/lib/nvidia-319/libGL.so.1
+/usr/lib/nvidia-319/libGL.so.319.32 /usr/lib/nvidia-319/libGL.so.1
 /usr/lib/nvidia-319/libGL.so.1 /usr/lib/nvidia-319/libGL.so
 
-/usr/lib/nvidia-319/libnvidia-cfg.so.319.23 /usr/lib/nvidia-319/libnvidia-cfg.so.1
+/usr/lib/nvidia-319/libnvidia-cfg.so.319.32 /usr/lib/nvidia-319/libnvidia-cfg.so.1
 /usr/lib/nvidia-319/libnvidia-cfg.so.1 /usr/lib/nvidia-319/libnvidia-cfg.so
 
-/usr/lib/nvidia-319/xorg/libglx.so.319.23 /usr/lib/nvidia-319/xorg/libglx.so
+/usr/lib/nvidia-319/xorg/libglx.so.319.32 /usr/lib/nvidia-319/xorg/libglx.so
 
-/usr/lib/nvidia-319/libcuda.so.319.23 /usr/lib/nvidia-319/libcuda.so
-/usr/lib/nvidia-319/libcuda.so.319.23 /usr/lib/nvidia-319/libcuda.so.1
+/usr/lib/nvidia-319/libcuda.so.319.32 /usr/lib/nvidia-319/libcuda.so
+/usr/lib/nvidia-319/libcuda.so.319.32 /usr/lib/nvidia-319/libcuda.so.1
 
-/usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.319.23 /usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.1
+/usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.319.32 /usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-319/vdpau/libvdpau_nvidia.so 
 
 /usr/lib/nvidia-319/libOpenCL.so.1.0.0 /usr/lib/nvidia-319/libOpenCL.so.1.0
 /usr/lib/nvidia-319/libOpenCL.so.1.0 /usr/lib/nvidia-319/libOpenCL.so.1
 /usr/lib/nvidia-319/libOpenCL.so.1 /usr/lib/nvidia-319/libOpenCL.so
 
-/usr/lib/nvidia-319/libnvidia-compiler.so.319.23 /usr/lib/nvidia-319/libnvidia-compiler.so.1
+/usr/lib/nvidia-319/libnvidia-compiler.so.319.32 /usr/lib/nvidia-319/libnvidia-compiler.so.1
 /usr/lib/nvidia-319/libnvidia-compiler.so.1 /usr/lib/nvidia-319/libnvidia-compiler.so
 
-/usr/lib/nvidia-319/libnvidia-ml.so.319.23 /usr/lib/nvidia-319/libnvidia-ml.so.1
+/usr/lib/nvidia-319/libnvidia-ml.so.319.32 /usr/lib/nvidia-319/libnvidia-ml.so.1
 /usr/lib/nvidia-319/libnvidia-ml.so.1 /usr/lib/nvidia-319/libnvidia-ml.so
 
-/usr/lib/nvidia-319/libnvcuvid.so.319.23 /usr/lib/nvidia-319/libnvcuvid.so.1
+/usr/lib/nvidia-319/libnvcuvid.so.319.32 /usr/lib/nvidia-319/libnvcuvid.so.1
 /usr/lib/nvidia-319/libnvcuvid.so.1 /usr/lib/nvidia-319/libnvcuvid.so
 
-/usr/lib/nvidia-319/libnvidia-encode.so.319.23 /usr/lib/nvidia-319/libnvidia-encode.so.1
+/usr/lib/nvidia-319/libnvidia-encode.so.319.32 /usr/lib/nvidia-319/libnvidia-encode.so.1
 /usr/lib/nvidia-319/libnvidia-encode.so.1 /usr/lib/nvidia-319/libnvidia-encode.so
-/usr/lib32/nvidia-319/libGL.so.319.23 /usr/lib32/nvidia-319/libGL.so.1
+/usr/lib32/nvidia-319/libGL.so.319.32 /usr/lib32/nvidia-319/libGL.so.1
 /usr/lib32/nvidia-319/libGL.so.1 /usr/lib32/nvidia-319/libGL.so
 
-/usr/lib32/nvidia-319/libnvidia-cfg.so.319.23 /usr/lib32/nvidia-319/libnvidia-cfg.so.1
+/usr/lib32/nvidia-319/libnvidia-cfg.so.319.32 /usr/lib32/nvidia-319/libnvidia-cfg.so.1
 /usr/lib32/nvidia-319/libnvidia-cfg.so.1 /usr/lib32/nvidia-319/libnvidia-cfg.so
 
-/usr/lib/nvidia-319/xorg/libglx.so.319.23 /usr/lib/nvidia-319/xorg/libglx.so
+/usr/lib/nvidia-319/xorg/libglx.so.319.32 /usr/lib/nvidia-319/xorg/libglx.so
 
-/usr/lib32/nvidia-319/libcuda.so.319.23 /usr/lib32/nvidia-319/libcuda.so
-/usr/lib32/nvidia-319/libcuda.so.319.23 /usr/lib32/nvidia-319/libcuda.so.1
+/usr/lib32/nvidia-319/libcuda.so.319.32 /usr/lib32/nvidia-319/libcuda.so
+/usr/lib32/nvidia-319/libcuda.so.319.32 /usr/lib32/nvidia-319/libcuda.so.1
 
-/usr/lib32/nvidia-319/vdpau/libvdpau_nvidia.so.319.23 /usr/lib32/nvidia-319/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-319/vdpau/libvdpau_nvidia.so.319.32 /usr/lib32/nvidia-319/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-319/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-319/vdpau/libvdpau_nvidia.so
 
 /usr/lib32/nvidia-319/libOpenCL.so.1.0.0 /usr/lib32/nvidia-319/libOpenCL.so.1.0
 /usr/lib32/nvidia-319/libOpenCL.so.1.0 /usr/lib32/nvidia-319/libOpenCL.so.1
 /usr/lib32/nvidia-319/libOpenCL.so.1 /usr/lib32/nvidia-319/libOpenCL.so
 
-/usr/lib32/nvidia-319/libnvidia-compiler.so.319.23 /usr/lib32/nvidia-319/libnvidia-compiler.so.1
+/usr/lib32/nvidia-319/libnvidia-compiler.so.319.32 /usr/lib32/nvidia-319/libnvidia-compiler.so.1
 /usr/lib32/nvidia-319/libnvidia-compiler.so.1 /usr/lib32/nvidia-319/libnvidia-compiler.so
 
-/usr/lib32/nvidia-319/libnvidia-ml.so.319.23 /usr/lib32/nvidia-319/libnvidia-ml.so.1
+/usr/lib32/nvidia-319/libnvidia-ml.so.319.32 /usr/lib32/nvidia-319/libnvidia-ml.so.1
 /usr/lib32/nvidia-319/libnvidia-ml.so.1 /usr/lib32/nvidia-319/libnvidia-ml.so
 
-/usr/lib32/nvidia-319/libnvcuvid.so.319.23 /usr/lib32/nvidia-319/libnvcuvid.so.1
+/usr/lib32/nvidia-319/libnvcuvid.so.319.32 /usr/lib32/nvidia-319/libnvcuvid.so.1
 /usr/lib32/nvidia-319/libnvcuvid.so.1 /usr/lib32/nvidia-319/libnvcuvid.so
 
-/usr/lib32/nvidia-319/libnvidia-encode.so.319.23 /usr/lib32/nvidia-319/libnvidia-encode.so.1
+/usr/lib32/nvidia-319/libnvidia-encode.so.319.32 /usr/lib32/nvidia-319/libnvidia-encode.so.1
 /usr/lib32/nvidia-319/libnvidia-encode.so.1 /usr/lib32/nvidia-319/libnvidia-encode.so
