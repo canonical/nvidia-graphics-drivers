@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-304-updates (304.88-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.88-0ubuntu5) saucy; urgency=low
 
-  * 
+  * debian/templates/control.in:
+    - Provide libcuda-5.0-1 and libopencl1.
+    - Correct the package description.
+    - Add a link to the release notes.
+  * debian/rules:
+    - Dynamically generate a link to the release notes.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jul 2013 12:07:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jul 2013 12:08:26 +0200
 
 nvidia-graphics-drivers-304-updates (304.88-0ubuntu4) saucy; urgency=low
 
