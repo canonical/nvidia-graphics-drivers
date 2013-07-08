@@ -14,22 +14,23 @@ Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-319-updates, nvidia-persistenced
-Provides: xorg-driver-binary, ${xviddriver:Provides}
+Provides: xorg-driver-binary, libcuda-5.0-1, libopencl1,
+ ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
-Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU library
- 3D-accelerated proprietary graphics driver for NVIDIA cards. May be
- required for some newly released 3D software and games.
+Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+ The binary driver provide optimized hardware acceleration of OpenGL
+ applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
+ and flat panel displays are also supported.
  .
- WARNING: This is an unstable beta driver.  This package is intended for
- testers and early adopters, and not recommended for production hardware.
+ This package also includes the source for building the kernel module
+ required by the Xorg driver, and provides NVIDIA's implementation of
+ the Video Decode and presentation API. The latter enables acceleration
+ for GeForce 8 and later series cards for h264 video.
  .
- Release Notes:
+ Release Notes and supported GPUs:
  http://www.nvidia.com/object/linux-display-amd64-319.32-driver.html
- .
- See /usr/share/doc/nvidia-319-updates/README.txt.gz for a complete list
- of supported GPUs and PCIIDs
  .
 
 Package: nvidia-319-updates-dev
