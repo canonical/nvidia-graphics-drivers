@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-319 (319.32-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319 (319.32-0ubuntu2) saucy; urgency=low
 
-  * 
+  * debian/templates/control.in:
+    - Provide libcuda-5.0-1 and libopencl1.
+    - Correct the package description.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jul 2013 11:40:15 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jul 2013 11:59:22 +0200
 
 nvidia-graphics-drivers-319 (319.32-0ubuntu1) saucy; urgency=low
 
