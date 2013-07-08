@@ -18,18 +18,18 @@ Provides: xorg-driver-binary, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
-Description: Experimental NVIDIA binary Xorg driver, kernel module and VDPAU library
- 3D-accelerated proprietary graphics driver for NVIDIA cards. May be
- required for some newly released 3D software and games.
+Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+ The binary driver provide optimized hardware acceleration of OpenGL
+ applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
+ and flat panel displays are also supported.
  .
- WARNING: This is an unstable beta driver.  This package is intended for
- testers and early adopters, and not recommended for production hardware.
+ This package also includes the source for building the kernel module
+ required by the Xorg driver, and provides NVIDIA's implementation of
+ the Video Decode and presentation API. The latter enables acceleration
+ for GeForce 8 and later series cards for h264 video.
  .
- Release Notes:
+ Release Notes and supported GPUs:
  #RELEASENOTES#
- .
- See /usr/share/doc/#DRIVERNAME#/README.txt.gz for a complete list
- of supported GPUs and PCIIDs
  .
 
 Package: #DRIVERDEVNAME#
