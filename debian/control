@@ -14,7 +14,8 @@ Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-304-updates
-Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
+Provides: xorg-driver-binary, nvidia-driver-binary, libcuda-5.0-1,
+ libopencl1, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-driver-binary
 Replaces: xorg-driver-binary, nvidia-driver-binary
 XB-Modaliases: ${modaliases}
@@ -30,8 +31,8 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
  GPUs such as GeForce series 6 or newer are supported.
  .
- See /usr/share/doc/nvidia-304-updates/README.txt.gz for a complete list
- of supported GPUs and PCIIDs
+ Release Notes and supported GPUs:
+ http://www.nvidia.com/object/linux-display-amd64-304.88-driver.html
  .
 
 Package: nvidia-304-updates-dev
