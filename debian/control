@@ -14,10 +14,7 @@ Architecture: i386 amd64 lpia
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings-304-updates
-Provides: xorg-driver-binary, nvidia-driver-binary, libcuda-5.0-1,
- libopencl1, ${xviddriver:Provides}
-Conflicts: xorg-driver-binary, nvidia-driver-binary
-Replaces: xorg-driver-binary, nvidia-driver-binary
+Provides: libcuda-5.0-1, libopencl1, ${xviddriver:Provides}
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
