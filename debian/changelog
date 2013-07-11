@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-319-updates (319.32-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319-updates (319.32-0ubuntu3) saucy; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.shlibs.in:
+    - Remap libcuda and libOpenCL onto the virtual
+      packages.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jul 2013 15:11:22 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jul 2013 15:12:12 +0200
 
 nvidia-graphics-drivers-319-updates (319.32-0ubuntu2) saucy; urgency=low
 
