@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.88-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.88-0ubuntu5) saucy; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.shlibs.in:
+    - Remap libcuda and libOpenCL onto the virtual
+      packages.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jul 2013 14:33:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jul 2013 15:05:04 +0200
 
 nvidia-graphics-drivers-304 (304.88-0ubuntu4) saucy; urgency=low
 
