@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-319 (319.32-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319 (319.32-0ubuntu4) saucy; urgency=low
 
-  * 
+  [ Alberto Milone ]
+  * debian/templates/control.in:
+    - Provide the nvidia-driver-binary virtual package.
+  [ Graham Inggs ]
+  * debian/templates/control.in:
+    - Provide the opencl-icd virtual package (LP: #763457).
+    - Conflict with and Replace libopencl1.
+  * debian/templates/nvidia-graphics-drivers.shlibs.in:
+    - Remap libGL onto libgl1 virtual package.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 22 Jul 2013 11:52:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 22 Jul 2013 12:12:05 +0200
 
 nvidia-graphics-drivers-319 (319.32-0ubuntu3) saucy; urgency=low
 
