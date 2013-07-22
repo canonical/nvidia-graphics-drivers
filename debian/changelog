@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-304-updates (304.88-0ubuntu7) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.88-0ubuntu7) saucy; urgency=low
 
-  * 
+  [ Alberto Milone ]
+  * debian/templates/control.in:
+    - Do not conflict with or replace nvidia-driver-binary.
+  [ Graham Inggs ]
+  * debian/templates/control.in:
+    - Provide the opencl-icd virtual package (LP: #763457).
+    - Conflict with and Replace libopencl1.
+  * debian/templates/nvidia-graphics-drivers.shlibs.in:
+    - Remap libGL onto libgl1 virtual package.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 22 Jul 2013 12:27:19 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 22 Jul 2013 12:38:18 +0200
 
 nvidia-graphics-drivers-304-updates (304.88-0ubuntu6) saucy; urgency=low
 
