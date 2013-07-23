@@ -221,11 +221,12 @@ endif
 configure/$(PKG_driver)::
 	rm -rf $(dirname_x86) $(dirname_x86_64)
 
-	# Make the installers executable and extract them
-	chmod 755 $(filename_x86)
-	chmod 755 $(filename_x86_64)
-	./$(filename_x86) --extract-only
-	./$(filename_x86_64) --extract-only
+	# Extract the installers
+	sh $(filename) --extract-only
+
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	sh $(filename_x86) --extract-only
+endif
 
 	# Get around Xen checks
 	mv $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
