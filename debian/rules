@@ -226,17 +226,17 @@ configure/$(PKG_driver)::
 	./$(filename_x86_64) --extract-only
 
 	# Get around Xen checks
-	cp $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
-	cp $(dirname)/kernel/nv-linux.h $(dirname)/kernel/nv-linux1.h
+	mv $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
+	mv $(dirname)/kernel/nv-linux.h $(dirname)/kernel/nv-linux1.h
 	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nv1.c > $(dirname)/kernel/nv.c
 	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nv-linux1.h > $(dirname)/kernel/nv-linux.h
-	rm $(dirname)/kernel/nv1.c
-	rm $(dirname)/kernel/nv-linux1.h
+	rm -f $(dirname)/kernel/nv1.c
+	rm -f $(dirname)/kernel/nv-linux1.h
 
 	# kernel module source
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel
-	cp -R $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
-	cp $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
+	cp -Rf $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	cp -f $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
 	   $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile
 
 	# Rename the png file for nvidia-settings
@@ -294,7 +294,7 @@ endif
 		0x10de "0x$$id" "$(PKG_module)" "$(PKG_driver)" \
 		>> $(CURDIR)/debian/$(PKG_driver).modaliases; done
 	dh_modaliases
-	rm $(CURDIR)/debian/$(PKG_driver).modaliases
+	rm -f $(CURDIR)/debian/$(PKG_driver).modaliases
 
 	# Configuration stuff
 
