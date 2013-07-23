@@ -239,8 +239,11 @@ endif
 	# kernel module source
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel
 	cp -Rf $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
-	cp -f $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
-	   $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile
+	if [ -e "$(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild" ] ; \
+	then \
+		cp -f $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
+		$(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile ; \
+	fi;
 
 	# Rename the png file for nvidia-settings
 	mv $(CURDIR)/$(dirname)/nvidia-settings.png \
