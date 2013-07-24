@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-304-updates (304.88-0ubuntu8) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.88-0ubuntu8) saucy; urgency=low
 
-  * 
+  * debian/additional_card_ids:
+    - Add card id 11C4 (LP: #1199342).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Jul 2013 08:32:40 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Jul 2013 08:32:56 +0200
 
 nvidia-graphics-drivers-304-updates (304.88-0ubuntu7) saucy; urgency=low
 
