@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-319 (319.32-0ubuntu6) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319 (319.32-0ubuntu6) saucy; urgency=low
 
-  * 
+  * Add support for Linux 3.11.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Aug 2013 12:28:21 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Aug 2013 14:10:36 +0200
 
 nvidia-graphics-drivers-319 (319.32-0ubuntu5) saucy; urgency=low
 
