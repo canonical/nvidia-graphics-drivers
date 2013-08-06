@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.88-0ubuntu8) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.88-0ubuntu8) saucy; urgency=low
 
-  * 
+  * debian/dkms.conf.in,
+    debian/dkms/patches/fix-build-with-linux-3.11.patch:
+    - Add support for Linux 3.11.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Aug 2013 14:11:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Aug 2013 14:46:05 +0200
 
 nvidia-graphics-drivers-304 (304.88-0ubuntu7) saucy; urgency=low
 
