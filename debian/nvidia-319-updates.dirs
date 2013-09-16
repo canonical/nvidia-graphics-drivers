@@ -18,8 +18,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-319-updates/xorg
 /usr/lib/nvidia-319-updates/xorg
-/usr/src/nvidia-319-updates-319.32
-/usr/src/nvidia-319-updates-319.32/patches
+/usr/src/nvidia-319-updates-319.49
+/usr/src/nvidia-319-updates-319.49/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-319-updates

@@ -141,7 +141,7 @@ case "$1" in
             --slave /usr/lib/XvMCConfig x86_64-linux-gnu_xvmcconfig /usr/lib/nvidia-319-updates/XvMCConfig \
             --slave /etc/xdg/autostart/nvidia-autostart.desktop x86_64-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-319-updates/nvidia-autostart.desktop \
             --slave /etc/OpenCL/vendors/nvidia.icd x86_64-linux-gnu_nvidia.icd /usr/share/nvidia-319-updates/nvidia.icd \
-            --slave /usr/share/nvidia/nvidia-application-profiles-319.32-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-319-updates/nvidia-application-profiles-319.32-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-319.49-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-319-updates/nvidia-application-profiles-319.49-rc \
             --slave /usr/lib/libOpenCL.so x86_64-linux-gnu_libOpenCL.so /usr/lib/nvidia-319-updates/libOpenCL.so \
             --slave /usr/lib32/libOpenCL.so x86_64-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-319-updates/libOpenCL.so \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-319-updates/xorg/nvidia_drv.so \
