@@ -1,8 +1,51 @@
-nvidia-graphics-drivers-319-updates (319.49-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319-updates (319.49-0ubuntu1) saucy; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.{links|links32}.in:
+    - Create links for the new NvIFROpenGL library.
+  * debian/additional_card_ids:
+    - Remove card id 11C4 which is now officially supported.
+  * New upstream release (LP: #1219908, LP: #1222670):
+    - Added support for the following GPUs:
+      o GeForce GT 740A
+      o GeForce GT 745A
+      o GeForce GT 755M
+      o GeForce GT 625
+      o GeForce GTX 645
+      o GRID K340
+      o GRID K350
+      o NVS 315
+      o Quadro K500M
+   - Fixed a bug that caused DisplayPort monitors connected
+     to Quadro FX 3800, 4800, or 5800 to remain off after
+     DPMS.
+   - Added the NVIDIA OpenGL-based Inband Frame Readback
+     (NvIFROpenGL) library to the Linux driver package.
+     This library provides a high performance, low latency
+     interface to capture and optionally encode an
+     individual OpenGL framebuffer. NvIFROpenGL captures
+     pixels rendered by OpenGL only and is ideally suited
+     to application capture and remoting.
+   - Fixed a bug that caused applications using CUDA-GL
+     interop to crash when run on X servers with Xinerama
+     enabled.
+   - Fixed a bug that could prevent some double-bit ECC
+     errors from being properly reported.
+   - Fixed a bug which could cause a blank screen when
+     changing house sync settings on Quadro Kepler GPUs
+     with Quadro Sync boards.
+   - Fixed a bug that prevented nested loops with
+     identical loop conditions in GLSL shaders from
+     terminating correctly. This could cause hangs in
+     applications such as Exa PowerVIZ.
+   - Fixed a bug that resulted in corrupt texels when a
+     previously empty texture image was specified with
+     glXBindTexImageEXT. In GNOME 3, this caused
+     gnome-screenshot to produce garbled window
+     screenshots.
+   - Fixed a bug that caused the X server to crash when
+     querying the current mode of disabled displays.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Sep 2013 13:17:42 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Sep 2013 17:35:57 +0200
 
 nvidia-graphics-drivers-319-updates (319.32-0ubuntu6) saucy; urgency=low
 
