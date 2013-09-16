@@ -27,3 +27,6 @@
 
 #PKGLIBDIR32#/libnvidia-encode.so.#VERSION# #PKGLIBDIR32#/libnvidia-encode.so.1
 #PKGLIBDIR32#/libnvidia-encode.so.1 #PKGLIBDIR32#/libnvidia-encode.so
+
+#PKGLIBDIR32#/libnvidia-ifr.so.#VERSION# #PKGLIBDIR32#/libnvidia-ifr.so.1
+#PKGLIBDIR32#/libnvidia-ifr.so.1 #PKGLIBDIR32#/libnvidia-ifr.so
