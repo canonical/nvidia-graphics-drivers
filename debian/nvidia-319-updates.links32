@@ -27,3 +27,6 @@
 
 /usr/lib32/nvidia-319-updates/libnvidia-encode.so.319.49 /usr/lib32/nvidia-319-updates/libnvidia-encode.so.1
 /usr/lib32/nvidia-319-updates/libnvidia-encode.so.1 /usr/lib32/nvidia-319-updates/libnvidia-encode.so
+
+/usr/lib32/nvidia-319-updates/libnvidia-ifr.so.319.49 /usr/lib32/nvidia-319-updates/libnvidia-ifr.so.1
+/usr/lib32/nvidia-319-updates/libnvidia-ifr.so.1 /usr/lib32/nvidia-319-updates/libnvidia-ifr.so
