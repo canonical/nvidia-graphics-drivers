@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-319-updates (319.49-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319-updates (319.49-0ubuntu2) saucy; urgency=low
 
-  * 
+  * debian/templates/dkms.conf.in:
+    - Disable patch for Linux 3.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Sep 2013 19:11:11 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Sep 2013 19:12:48 +0200
 
 nvidia-graphics-drivers-319-updates (319.49-0ubuntu1) saucy; urgency=low
 
