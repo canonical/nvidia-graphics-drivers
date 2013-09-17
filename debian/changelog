@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-319 (319.32-0ubuntu7) UNRELEASED; urgency=low
+nvidia-graphics-drivers-319 (319.32-0ubuntu7) saucy; urgency=low
 
-  * 
+  * debian/additional_card_ids:
+    - Remove card id 11C4 which is not supported (LP: #1222670).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 17 Sep 2013 08:00:46 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 17 Sep 2013 08:04:14 +0200
 
 nvidia-graphics-drivers-319 (319.32-0ubuntu6) saucy; urgency=low
 
