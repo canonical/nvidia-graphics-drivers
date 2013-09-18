@@ -261,6 +261,10 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	cat $(CURDIR)/debian/$(PKG_opencl_icd).links $(CURDIR)/debian/$(PKG_opencl_icd).links32 > \
 	$(CURDIR)/debian/$(PKG_opencl_icd).links_new
 	mv -f $(CURDIR)/debian/$(PKG_opencl_icd).links_new $(CURDIR)/debian/$(PKG_opencl_icd).links
+
+	cat $(CURDIR)/debian/$(PKG_driver).dirs $(CURDIR)/debian/$(PKG_driver).dirs32 > \
+	$(CURDIR)/debian/$(PKG_driver).dirs_new
+	mv -f $(CURDIR)/debian/$(PKG_driver).dirs_new $(CURDIR)/debian/$(PKG_driver).dirs
 endif
 
 override_dh_auto_configure:
