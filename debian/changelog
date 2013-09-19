@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-304-updates (304.108-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.108-0ubuntu1) saucy; urgency=low
 
-  * 
+  * debian/templates/dkms.conf.in:
+    - Drop patch for Linux 3.10.
+  * New upstream release (LP: #1219908):
+    - Implemented workarounds for two Adobe Flash bugs by
+      applying libvdpau commit
+      ca9e637c61e80145f0625a590c91429db67d0a40 to the
+      version of libvdpau shipped with the NVIDIA driver.
+    - Fixed a bug in nvidia-settings that could cause the
+      wrong resolution to be set in basic mode for setups
+      based on one display per X screen.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 18 Sep 2013 11:46:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Sep 2013 12:21:41 +0200
 
 nvidia-graphics-drivers-304-updates (304.88-0ubuntu9) saucy; urgency=low
 
