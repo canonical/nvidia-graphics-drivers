@@ -29,12 +29,12 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  GPUs such as GeForce series 6 or newer are supported.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-304.88-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-304.108-driver.html
  .
 
 Package: nvidia-304-updates-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-304-updates (>= 304.88)
+Depends: ${misc:Depends}, nvidia-304-updates (>= 304.108)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
