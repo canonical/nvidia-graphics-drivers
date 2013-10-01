@@ -6,6 +6,7 @@
 #PKGBINDIR#
 #PKGLIBDIR#
 #PKGLIBDIR32#
+#PKGPRIMELIBDIR#
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
 #XORGEXTRAPATH#

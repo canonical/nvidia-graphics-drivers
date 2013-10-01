@@ -35,7 +35,8 @@ PKG_opencl_icd       := nvidia-opencl-icd-$(PKG_flavour)
 
 
 # Priority of the alternative
-alt_priority         := 8602
+alt_priority         := 8604
+pm_alt_priority      := 8603
 
 # Installer details
 dirname_x86          ?= NVIDIA-Linux-x86-$(PKG_version)
@@ -71,6 +72,8 @@ includedir           := /usr/include
 sysconfdir           := /etc
 PKG_libdir           := $(libdir)/$(PKG_driver)
 PKG_libdir32         := $(libdir32)/$(PKG_driver)
+mesa_libdir          := $(libdir)/$(DEB_HOST_MULTIARCH)/mesa
+mesa_libdir_other    := $(libdir)/$(OTHER_ARCH)/mesa
 xorg_libdir          := $(libdir)/xorg
 xorg_extra_path      := $(libdir)/$(DEB_HOST_MULTIARCH)/xorg
 xorg_extra_modules   := $(xorg_extra_path)/extra-modules
@@ -85,6 +88,12 @@ ld_so_conf_file      := ld.so.conf
 alt_ld_so_conf_file  := alt_ld.so.conf
 ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
 alt_ld_so_conf_path  := $(ld_so_conf_dir)/$(alt_ld_so_conf_file)
+
+#Prime
+PKG_prime            := $(PKG_driver)-prime
+PKG_prime_libdir     := $(libdir)/$(PKG_prime)
+pm_ld_so_conf_path      := $(PKG_prime_libdir)/$(ld_so_conf_file)
+pm_alt_ld_so_conf_path  := $(PKG_prime_libdir)/$(alt_ld_so_conf_file)
 
 mandir               := /usr/share/man/man1
 PKG_bugdir           := /usr/share/bug/$(PKG_driver)
@@ -193,7 +202,10 @@ regen-from-templates:
 			-e "s|#MANDIR#|$(mandir)|g" \
 			-e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
 			-e "s|#ALTLDSOCONF#|$(alt_ld_so_conf_path)|g" \
+			-e "s|#PMLDSOCONF#|$(pm_ld_so_conf_path)|g" \
+			-e "s|#PMALTLDSOCONF#|$(pm_alt_ld_so_conf_path)|g" \
 			-e "s|#ALTPRIORITY#|$(alt_priority)|g" \
+			-e "s|#PMALTPRIORITY#|$(pm_alt_priority)|g" \
 			-e "s|#AUTOSTARTDIR#|$(autostartdir)|g" \
 			-e "s|#AUTOSTARTFILE#|$(autostartfile)|g" \
 			-e "s|#DATADIR#|$(datadir)|g" \
@@ -203,6 +215,9 @@ regen-from-templates:
 			-e "s|#PKGBINDIR#|$(PKG_bindir)|g" \
 			-e "s|#PKGLIBDIR#|$(PKG_libdir)|g" \
 			-e "s|#PKGLIBDIR32#|$(PKG_libdir32)|g" \
+			-e "s|#PKGPRIMELIBDIR#|$(PKG_prime_libdir)|g" \
+			-e "s|#MESALIBDIR#|$(mesa_libdir)|g" \
+			-e "s|#MESALIBDIROTHER#|$(mesa_libdir_other)|g" \
 			-e "s|#PKGDRIVERSDIR#|$(PKG_driversdir)|g" \
 			-e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
 			-e "s|#XORGEXTRAPATH#|$(xorg_extra_path)|g" \
@@ -380,11 +395,14 @@ endif
 	# ld.so.conf
 	dh_installdirs -p$(PKG_driver) "$(ld_so_conf_dir)"
 	echo "$(PKG_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
+	echo "$(mesa_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
 ifeq ($(DEB_BUILD_ARCH),amd64)
-	echo "$(PKG_libdir32)" >>	$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)
+	echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
+	echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
 endif
 	# empty ld.so.conf for the fake multi-arch alternative
 	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
+	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
 
 	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
 	# and create an alias for the module so that it can be used as nvidia

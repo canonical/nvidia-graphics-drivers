@@ -150,10 +150,35 @@ case "$1" in
             --slave #LIBDIR32#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so \
             --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
 
-	# Install just the ld.so.conf.d alternative for the secondary architecture.
-	# We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
-	update-alternatives --force \
-	    --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
+        # Alternative for PRIME power saving mode
+        # In this case only intel is enabled and we only need to make
+        # sure that nvidia-settings can be launched and that nouveau
+        # is still blacklisted
+        update-alternatives --force \
+            --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf #PMLDSOCONF# #PMALTPRIORITY# \
+            --slave #MANDIR#/nvidia-xconfig.1.gz #DEB_HOST_MULTIARCH#_man_nvidiaxconfig.gz #MANDIR#/alt-#DRIVERNAME#-xconfig.1.gz \
+            --slave #MANDIR#/nvidia-smi.1.gz #DEB_HOST_MULTIARCH#_nvidia-smi.1.gz #MANDIR#/alt-#DRIVERNAME#-smi.1.gz \
+            --slave #DATADIR#/applications/ubuntu-nvidia-settings.desktop #DEB_HOST_MULTIARCH#_nvidia_desktop #PKGDESKDIR#/ubuntu-nvidia-settings.desktop \
+            --slave #BINDIR#/nvidia-smi #DEB_HOST_MULTIARCH#_nvidia_smi #PKGBINDIR#/nvidia-smi \
+            --slave #BINDIR#/nvidia-xconfig #DEB_HOST_MULTIARCH#_nvidia_xconfig #PKGBINDIR#/nvidia-xconfig \
+            --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
+            --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
+            --slave #AUTOSTARTDIR#/#AUTOSTARTFILE# #DEB_HOST_MULTIARCH#_nvidia-autostart.desktop #PKGDATADIR#/#AUTOSTARTFILE# \
+            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
+            --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
+            --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
+
+        # Install just the ld.so.conf.d alternative for the secondary architecture.
+        # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
+        update-alternatives --force \
+            --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
+
+        # Install just the ld.so.conf.d alternative for PRIME for the
+        # secondary architecture.
+        # We need to ensure that the NVIDIA libraries for the other
+        # architecture are not used.
+        update-alternatives --force \
+            --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
 
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
