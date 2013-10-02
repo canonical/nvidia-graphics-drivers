@@ -30,12 +30,12 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-319.49-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-319.60-driver.html
  .
 
 Package: nvidia-319-updates-dev
 Architecture: i386 amd64 lpia
-Depends: ${misc:Depends}, nvidia-319-updates (>= 319.49)
+Depends: ${misc:Depends}, nvidia-319-updates (>= 319.60)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
