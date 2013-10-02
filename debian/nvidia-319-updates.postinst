@@ -144,6 +144,8 @@ case "$1" in
             --slave /usr/share/nvidia/nvidia-application-profiles-319.60-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-319-updates/nvidia-application-profiles-319.60-rc \
             --slave /usr/lib/libOpenCL.so x86_64-linux-gnu_libOpenCL.so /usr/lib/nvidia-319-updates/libOpenCL.so \
             --slave /usr/lib32/libOpenCL.so x86_64-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-319-updates/libOpenCL.so \
+            --slave /usr/lib/libcuda.so x86_64-linux-gnu_libcuda.so /usr/lib/nvidia-319-updates/libcuda.so \
+            --slave /usr/lib32/libcuda.so x86_64-linux-gnu_libcuda.so_lib32 /usr/lib32/nvidia-319-updates/libcuda.so \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-319-updates/xorg/nvidia_drv.so \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-319-updates/modprobe.conf \
             --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-319-updates/xorg \
