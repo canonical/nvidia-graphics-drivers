@@ -263,6 +263,10 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	# Disable the stack markings of 32bit binaries on amd64
 	# See (LP: #409456)
 	find $(CURDIR)/$(dirname_x86) -name *.so* | xargs -n1 execstack -c
+
+	# Remove libGLES* for since it's 32 bit only
+	find $(CURDIR)/$(dirname_x86) -name 'libGLES*.so*' | xargs /bin/rm -f
+	find $(CURDIR)/$(dirname_x86) -name 'libnvidia-eglcore*.so*' | xargs /bin/rm -f
 endif
 	# Disable the stack markings of other binaries (only for the current arch)
 	#   Note: don't use for loops or pass more than 1 argument to execstack
