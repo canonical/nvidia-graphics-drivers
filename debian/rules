@@ -102,6 +102,11 @@ grub_blacklistdir    := /usr/share/grub-gfxpayload-lists/blacklist
 # See LP: #538071.
 PKG_libconfdir := /lib/$(PKG_driver)
 
+# blacklist either the -updates or the non updates flavour
+opposite_flavour := $(shell (echo "$(PKG_driver)" | grep updates >/dev/null) && \
+        echo "$(PKG_driver)" | sed s/-updates// || \
+        echo "$(PKG_driver)-updates")
+
 #These "define" bits are needed for the blacklist file
 define newline
 
@@ -119,6 +124,7 @@ blacklist nvidia-96
 blacklist nvidia-current-updates
 blacklist nvidia-173-updates
 blacklist nvidia-96-updates
+blacklist $(opposite_flavour)
 alias nvidia $(PKG_module)
 alias nouveau off
 alias lbm-nouveau off
