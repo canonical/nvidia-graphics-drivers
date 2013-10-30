@@ -14,8 +14,8 @@ debian/#DRIVERNAME#.grub-gfxpayload          #PKGDATADIR#
 #DIRNAME#/tls/*.so*                   #PKGTLSDIR#
 
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/#DRIVERNAME#-#VERSION#
-debian/dkms/patches/*                         usr/src/#DRIVERNAME#-#VERSION#/patches
-debian/dkms.conf                              usr/src/#DRIVERNAME#-#VERSION#
+debian/dkms_nvidia/patches/*                  usr/src/#DRIVERNAME#-#VERSION#/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 
 #DIRNAME#/nvidia-bug-report.sh #PKGBINDIR#
 #DIRNAME#/nvidia-xconfig #PKGBINDIR#

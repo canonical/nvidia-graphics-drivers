@@ -1,0 +1,27 @@
+#!/bin/sh
+# prerm script for #DRIVERNAME#
+#
+# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2009 Canonical Ltd
+# Authors: Alberto Milone
+
+
+PACKAGE_NAME=#DRIVERUVMNAME#
+CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
+CVERSION=${CVERSION#*really.}
+
+ARCH=`dpkg --print-architecture`
+
+remove_dkms_module() {
+	echo "Removing all DKMS Modules"
+	dkms remove -m $PACKAGE_NAME -v $CVERSION --all > /dev/null
+	echo "Done."
+}
+
+case "$1" in
+	upgrade|remove)
+		remove_dkms_module
+	;;
+esac
+
+#DEBHELPER#

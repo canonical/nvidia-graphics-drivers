@@ -24,6 +24,7 @@ PATH := $(PATH):/usr/sbin
 PKG_flavour          := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p' | sed 's/nvidia\-graphics\-drivers\-//g')
 PKG_driver           := nvidia-$(PKG_flavour)
 PKG_driver_dev       := $(PKG_driver)-dev
+PKG_driver_uvm       := $(PKG_driver)-uvm
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_version          := $(shell echo $(PKG_version) | sed s/.*\.really\.//g)
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
@@ -126,6 +127,7 @@ blacklist nvidia-173-updates
 blacklist nvidia-96-updates
 blacklist $(opposite_flavour)
 alias nvidia $(PKG_module)
+alias nvidia-uvm $(PKG_module)-uvm
 alias nouveau off
 alias lbm-nouveau off
 endef
@@ -196,6 +198,7 @@ regen-from-templates:
 			-e "s|#FLAVOUR#|$(PKG_flavour)|g" \
 			-e "s|#DRIVERNAME#|$(PKG_driver)|g" \
 			-e "s|#DRIVERDEVNAME#|$(PKG_driver_dev)|g" \
+			-e "s|#DRIVERUVMNAME#|$(PKG_driver_uvm)|g" \
 			-e "s|#DRIVERSRCNAME#|$(PKG_source)|g" \
 			-e "s|#MODULENAME#|$(PKG_module)|g" \
 			-e "s|#DIRNAME#|$(dirname)|g" \
@@ -245,6 +248,7 @@ endif
 	# kernel module source
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel
 	cp -Rf $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	rm -rf $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/uvm
 	if [ -e "$(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild" ] ; \
 	then \
 		cp -f $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
@@ -254,6 +258,9 @@ endif
 	# Rename the png file for nvidia-settings
 	mv $(CURDIR)/$(dirname)/nvidia-settings.png \
 	$(CURDIR)/$(dirname)/$(PKG_driver)-settings.png
+
+	mkdir -p $(CURDIR)/debian/dkms_nvidia
+	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms_nvidia/dkms.conf
 
 	# Disable the stack markings of binaries for security reasons.
 	# See (LP: #409456)
@@ -273,6 +280,14 @@ endif
 	#         or it will fail.
 	execstack -c $(CURDIR)/$(dirname)/nvidia-xconfig || true
 	execstack -c $(CURDIR)/$(dirname)/nvidia-smi || true
+
+configure/$(PKG_driver_uvm)::configure/$(PKG_driver)
+	# Kernel module files
+	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel
+	cp -Rf $(CURDIR)/$(dirname)/kernel/uvm $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel/
+
+	mkdir -p $(CURDIR)/debian/dkms_nvidia_uvm
+	cp -f $(CURDIR)/debian/dkms_nvidia_uvm.conf $(CURDIR)/debian/dkms_nvidia_uvm/dkms.conf
 
 #binary-install/$(PKG_driver_dev)::
 
@@ -341,8 +356,10 @@ endif
 		mv $$file $(CURDIR)/debian/$(PKG_driver)$(mandir)/`basename $$file | sed 's/nvidia/alt-$(PKG_driver)/'`; \
 	done
 
-	rm -rf debian/temp
+	rm -rf debian/temp/modules/nvidia-kernel
 
+binary-install/$(PKG_driver_uvm):: gen-abi-substvars
+	rm -rf debian/temp/modules/nvidia-uvm-kernel
 
 clean:: regen-from-templates
 #	for file in $(CURDIR)/debian/*.in \

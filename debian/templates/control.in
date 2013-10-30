@@ -75,3 +75,9 @@ Description: Transitional package for nvidia-313-updates-dev
  safely removed after the installation is complete.
  .
 
+Package: #DRIVERUVMNAME#
+Architecture: i386 amd64 lpia armhf
+Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
+Description: NVIDIA Unified Memory kernel module
+ This package contains the NVIDIA Unified Memory kernel module.
+
