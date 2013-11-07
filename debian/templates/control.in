@@ -14,11 +14,11 @@ Architecture: i386 amd64
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64],
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
-Recommends: nvidia-settings-#FLAVOUR#, nvidia-persistenced
-Provides: xorg-driver-binary, libcuda-5.0-1, libopencl1,
- opencl-icd, nvidia-driver-binary, ${xviddriver:Provides}
-Conflicts: xorg-driver-binary, libopencl1
-Replaces: xorg-driver-binary, libopencl1
+Recommends: nvidia-settings-#FLAVOUR#, nvidia-persistenced,
+ #LIBCUDA1#, #LIBOPENCL1#, #OPENCLICD#
+Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
+Conflicts: xorg-driver-binary
+Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
@@ -43,6 +43,51 @@ Description: NVIDIA binary Xorg driver development files
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
+
+Package: #LIBCUDA1#
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: libcuda-5.0-1
+Conflicts: libcuda-5.0-1
+Replaces: libcuda-5.0-1
+Description: NVIDIA CUDA runtime library
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the driver specific runtime library.
+ .
+ Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
+ series, as well as the Tesla computing processors.
+
+Package: #LIBOPENCL1#
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libopencl1
+Replaces: libopencl1
+Provides: libopencl1
+Suggests: #OPENCLICD#
+Description: NVIDIA OpenCL Driver and ICD Loader library
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package contains NVIDIA's OpenCL implementation and the ICD Loader
+ library. This library supports only OpenCL 1.1.
+
+Package: #OPENCLICD#
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: opencl-icd
+Conflicts: opencl-icd
+Replaces: opencl-icd
+Description: NVIDIA OpenCL ICD
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package provides the NVIDIA installable client driver (ICD) for OpenCL
+ which supports NVIDIA GPUs.
 
 Package: nvidia-310-updates
 Architecture: i386 amd64

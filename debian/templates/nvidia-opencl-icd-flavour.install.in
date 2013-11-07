@@ -1,0 +1,2 @@
+#DIRNAME#/nvidia.icd  etc/OpenCL/vendors/
+#DIRNAME#/libnvidia-opencl.so.#VERSION#   #LIBDIRMULTIARCH#/
