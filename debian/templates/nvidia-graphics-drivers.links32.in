@@ -10,15 +10,8 @@
 #PKGLIBDIR32#/libXvMCNVIDIA.so.#VERSION# #PKGLIBDIR32#/libXvMCNVIDIA.so.1
 #PKGLIBDIR32#/libXvMCNVIDIA.so.#VERSION# #PKGLIBDIR32#/libXvMCNVIDIA_dynamic.so.1
 
-#PKGLIBDIR32#/libcuda.so.#VERSION# #PKGLIBDIR32#/libcuda.so
-#PKGLIBDIR32#/libcuda.so.#VERSION# #PKGLIBDIR32#/libcuda.so.1
-
 #PKGVDPAUDIR32#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR32#/libvdpau_nvidia.so.1
 #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 #PKGVDPAUDIR32#/libvdpau_nvidia.so
-
-#PKGLIBDIR32#/libOpenCL.so.1.0.0 #PKGLIBDIR32#/libOpenCL.so.1.0
-#PKGLIBDIR32#/libOpenCL.so.1.0 #PKGLIBDIR32#/libOpenCL.so.1
-#PKGLIBDIR32#/libOpenCL.so.1 #PKGLIBDIR32#/libOpenCL.so
 
 #PKGLIBDIR32#/libnvidia-compiler.so.#VERSION# #PKGLIBDIR32#/libnvidia-compiler.so.1
 #PKGLIBDIR32#/libnvidia-compiler.so.1 #PKGLIBDIR32#/libnvidia-compiler.so

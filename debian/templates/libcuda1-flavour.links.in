@@ -1,0 +1,2 @@
+#LIBDIRMULTIARCH#/libcuda.so.#VERSION#	#LIBDIRMULTIARCH#/libcuda.so.1
+#LIBDIRMULTIARCH#/libcuda.so.1		#LIBDIRMULTIARCH#/libcuda.so
