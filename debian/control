@@ -89,41 +89,25 @@ Description: NVIDIA OpenCL ICD
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
 
-Package: nvidia-310-updates
-Architecture: i386 amd64
-Depends: nvidia-331-updates
-Description: Transitional package for nvidia-310-updates
- This is a transitional package for nvidia-310-updates, and can be
- safely removed after the installation is complete.
- .
-
-Package: nvidia-310-updates-dev
-Architecture: i386 amd64
-Depends: nvidia-331-updates-dev
-Description: Transitional package for nvidia-310-updates-dev
- This is a transitional package for nvidia-310-updates-dev, and can be
- safely removed after the installation is complete.
- .
-
-Package: nvidia-313-updates
-Architecture: i386 amd64
-Depends: nvidia-331-updates
-Description: Transitional package for nvidia-313-updates
- This is a transitional package for nvidia-313-updates, and can be
- safely removed after the installation is complete.
- .
-
-Package: nvidia-313-updates-dev
-Architecture: i386 amd64
-Depends: nvidia-331-updates-dev
-Description: Transitional package for nvidia-313-updates-dev
- This is a transitional package for nvidia-313-updates-dev, and can be
- safely removed after the installation is complete.
- .
-
 Package: nvidia-331-updates-uvm
 Architecture: i386 amd64
 Depends: ${misc:Depends}, nvidia-331-updates (>= 331.20)
 Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
+
+Package: nvidia-319-updates
+Architecture: i386 amd64
+Depends: nvidia-331-updates
+Description: Transitional package for nvidia-319-updates
+ This is a transitional package for nvidia-319-updates, and can be
+ safely removed after the installation is complete.
+ .
+
+Package: nvidia-319-updates-dev
+Architecture: i386 amd64
+Depends: nvidia-331-updates-dev
+Description: Transitional package for nvidia-319-updates-dev
+ This is a transitional package for nvidia-319-updates-dev, and can be
+ safely removed after the installation is complete.
+ .
 
