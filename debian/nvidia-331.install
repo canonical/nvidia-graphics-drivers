@@ -7,8 +7,6 @@ NVIDIA-Linux-x86_64-331.17-no-compat32/libglx.so.331.17 /usr/lib/nvidia-331/xorg
 
 NVIDIA-Linux-x86_64-331.17-no-compat32/libGL*.so*                  /usr/lib/nvidia-331
 NVIDIA-Linux-x86_64-331.17-no-compat32/libnv*.so*                  /usr/lib/nvidia-331
-NVIDIA-Linux-x86_64-331.17-no-compat32/libcuda*.so*                /usr/lib/nvidia-331
-NVIDIA-Linux-x86_64-331.17-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-331
 
 NVIDIA-Linux-x86_64-331.17-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-331/vdpau
 NVIDIA-Linux-x86_64-331.17-no-compat32/tls/*.so*                   /usr/lib/nvidia-331/tls

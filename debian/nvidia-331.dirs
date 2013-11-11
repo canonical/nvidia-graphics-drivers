@@ -1,11 +1,12 @@
 /etc/modprobe.d
-/etc/OpenCL/vendors
+/usr/lib/x86_64-linux-gnu
 /etc/xdg/autostart
 /usr/bin
 /usr/lib/nvidia-331/tls
 /usr/lib/nvidia-331/bin
 /usr/lib/nvidia-331
 /usr/lib32/nvidia-331
+/usr/lib/nvidia-331-prime
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
 /usr/lib/x86_64-linux-gnu/xorg
