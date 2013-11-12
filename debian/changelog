@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-331-updates (331.20-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331-updates (331.20-0ubuntu1) trusty; urgency=low
 
-  * 
+  * Initial release (LP: #1250449).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Nov 2013 17:29:10 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Nov 2013 13:48:36 +0100
