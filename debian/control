@@ -19,6 +19,7 @@ Recommends: nvidia-settings-331, nvidia-persistenced,
 Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
+Suggests: nvidia-331-uvm
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  The binary driver provide optimized hardware acceleration of OpenGL
@@ -81,6 +82,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: opencl-icd
 Conflicts: opencl-icd
 Replaces: opencl-icd
+Suggests: nvidia-libopencl1-331
 Description: NVIDIA OpenCL ICD
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
