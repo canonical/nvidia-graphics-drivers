@@ -10,15 +10,8 @@
 /usr/lib/nvidia-304/libXvMCNVIDIA.so.304.88 /usr/lib/nvidia-304/libXvMCNVIDIA.so.1
 /usr/lib/nvidia-304/libXvMCNVIDIA.so.304.88 /usr/lib/nvidia-304/libXvMCNVIDIA_dynamic.so.1
 
-/usr/lib/nvidia-304/libcuda.so.304.88 /usr/lib/nvidia-304/libcuda.so
-/usr/lib/nvidia-304/libcuda.so.304.88 /usr/lib/nvidia-304/libcuda.so.1
-
 /usr/lib/nvidia-304/vdpau/libvdpau_nvidia.so.304.88 /usr/lib/nvidia-304/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-304/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-304/vdpau/libvdpau_nvidia.so 
-
-/usr/lib/nvidia-304/libOpenCL.so.1.0.0 /usr/lib/nvidia-304/libOpenCL.so.1.0
-/usr/lib/nvidia-304/libOpenCL.so.1.0 /usr/lib/nvidia-304/libOpenCL.so.1
-/usr/lib/nvidia-304/libOpenCL.so.1 /usr/lib/nvidia-304/libOpenCL.so
 
 /usr/lib/nvidia-304/libnvidia-compiler.so.304.88 /usr/lib/nvidia-304/libnvidia-compiler.so.1
 /usr/lib/nvidia-304/libnvidia-compiler.so.1 /usr/lib/nvidia-304/libnvidia-compiler.so
@@ -40,15 +33,8 @@
 /usr/lib32/nvidia-304/libXvMCNVIDIA.so.304.88 /usr/lib32/nvidia-304/libXvMCNVIDIA.so.1
 /usr/lib32/nvidia-304/libXvMCNVIDIA.so.304.88 /usr/lib32/nvidia-304/libXvMCNVIDIA_dynamic.so.1
 
-/usr/lib32/nvidia-304/libcuda.so.304.88 /usr/lib32/nvidia-304/libcuda.so
-/usr/lib32/nvidia-304/libcuda.so.304.88 /usr/lib32/nvidia-304/libcuda.so.1
-
 /usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so.304.88 /usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-304/vdpau/libvdpau_nvidia.so
-
-/usr/lib32/nvidia-304/libOpenCL.so.1.0.0 /usr/lib32/nvidia-304/libOpenCL.so.1.0
-/usr/lib32/nvidia-304/libOpenCL.so.1.0 /usr/lib32/nvidia-304/libOpenCL.so.1
-/usr/lib32/nvidia-304/libOpenCL.so.1 /usr/lib32/nvidia-304/libOpenCL.so
 
 /usr/lib32/nvidia-304/libnvidia-compiler.so.304.88 /usr/lib32/nvidia-304/libnvidia-compiler.so.1
 /usr/lib32/nvidia-304/libnvidia-compiler.so.1 /usr/lib32/nvidia-304/libnvidia-compiler.so

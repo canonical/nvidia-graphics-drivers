@@ -136,9 +136,6 @@ case "$1" in
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-304/bin/nvidia-bug-report.sh \
             --slave /usr/lib/XvMCConfig x86_64-linux-gnu_xvmcconfig /usr/lib/nvidia-304/XvMCConfig \
             --slave /etc/xdg/autostart/nvidia-autostart.desktop x86_64-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-304/nvidia-autostart.desktop \
-            --slave /etc/OpenCL/vendors/nvidia.icd x86_64-linux-gnu_nvidia.icd /usr/share/nvidia-304/nvidia.icd \
-            --slave /usr/lib/libOpenCL.so x86_64-linux-gnu_libOpenCL.so /usr/lib/nvidia-304/libOpenCL.so \
-            --slave /usr/lib32/libOpenCL.so x86_64-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-304/libOpenCL.so \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-304/xorg/nvidia_drv.so \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-304/modprobe.conf \
             --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-304/xorg \
