@@ -10,7 +10,7 @@ Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
 Package: #DRIVERNAME#
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20)
@@ -33,7 +33,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
 
 Package: #DRIVERDEVNAME#
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
@@ -43,7 +43,7 @@ Description: NVIDIA binary Xorg driver development files
  at http://www.nvidia.com/ .
 
 Package: nvidia-current-updates
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: #DRIVERNAME#
 Description: Transitional package for nvidia-current-updates
  This is a transitional package for nvidia-current-updates, and can be
@@ -51,7 +51,7 @@ Description: Transitional package for nvidia-current-updates
  .
 
 Package: nvidia-current-updates-dev
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: #DRIVERDEVNAME#
 Description: Transitional package for nvidia-current-updates-dev
  This is a transitional package for nvidia-current-updates-dev, and can be
@@ -59,7 +59,7 @@ Description: Transitional package for nvidia-current-updates-dev
  .
 
 Package: nvidia-experimental-304
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: #DRIVERNAME#
 Description: Transitional package for nvidia-experimental-304
  This is a transitional package for nvidia-experimental-304, and can be
@@ -67,7 +67,7 @@ Description: Transitional package for nvidia-experimental-304
  .
 
 Package: nvidia-experimental-304-dev
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: #DRIVERDEVNAME#
 Description: Transitional package for nvidia-experimental-304-dev
  This is a transitional package for nvidia-experimental-304-dev, and can be
