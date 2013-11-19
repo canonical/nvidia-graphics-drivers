@@ -10,7 +10,7 @@ Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
 Package: nvidia-304
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64],
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
@@ -37,7 +37,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  .
 
 Package: nvidia-304-dev
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: ${misc:Depends}, nvidia-304 (>= 304.88)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
@@ -92,7 +92,7 @@ Description: NVIDIA OpenCL ICD
  which supports NVIDIA GPUs.
 
 Package: nvidia-current
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: nvidia-304
 Description: Transitional package for nvidia-current
  This is a transitional package for nvidia-current, and can be
@@ -100,7 +100,7 @@ Description: Transitional package for nvidia-current
  .
 
 Package: nvidia-current-dev
-Architecture: i386 amd64 lpia
+Architecture: i386 amd64
 Depends: nvidia-304-dev
 Description: Transitional package for nvidia-current-dev
  This is a transitional package for nvidia-current-dev, and can be
