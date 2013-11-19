@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-304 (304.88-0ubuntu9) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.88-0ubuntu9) trusty; urgency=low
 
-  * 
+  [ Andy Dick ]
+  * debian/templates/nvidia-graphics-drivers.preinst.in:
+    - Attempt uninstallation of any existing .run file
+      installation before installing Debian-packaged driver.
+  * debian/rules:
+    - Don't assume that extracted files are writable.
+    - Avoid extracting unnecessary .run files.
+    - Conditionalize the copying of Makefile.kbuild to Makefile.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Nov 2013 14:58:10 +0100
+  [ Alberto Milone ]
+  * debian/templates/control.in, debian/rules:
+    - Depend on lib32gcc1 [amd64], libc6-i386 [amd64]
+    - Split libcuda1-$flavour, nvidia-libopencl1-$flavour and
+      nvidia-opencl-icd-$flavour into separate packages.
+    - Remove the lpia architecture.
+    - Recommend nvidia-settings (>= 331.20).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Nov 2013 15:48:10 +0100
 
 nvidia-graphics-drivers-304 (304.88-0ubuntu8) saucy; urgency=low
 
