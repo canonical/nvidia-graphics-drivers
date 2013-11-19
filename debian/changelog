@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-331 (331.20-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331 (331.20-0ubuntu2) trusty; urgency=low
 
-  * 
+  * debian/templates/control.in:
+    - Recommend nvidia-settings >= 331.20, as this is now the
+      unified package.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Nov 2013 12:20:59 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Nov 2013 14:44:09 +0100
 
 nvidia-graphics-drivers-331 (331.20-0ubuntu1) trusty; urgency=low
 
