@@ -10,15 +10,8 @@
 /usr/lib32/nvidia-304-updates/libXvMCNVIDIA.so.304.108 /usr/lib32/nvidia-304-updates/libXvMCNVIDIA.so.1
 /usr/lib32/nvidia-304-updates/libXvMCNVIDIA.so.304.108 /usr/lib32/nvidia-304-updates/libXvMCNVIDIA_dynamic.so.1
 
-/usr/lib32/nvidia-304-updates/libcuda.so.304.108 /usr/lib32/nvidia-304-updates/libcuda.so
-/usr/lib32/nvidia-304-updates/libcuda.so.304.108 /usr/lib32/nvidia-304-updates/libcuda.so.1
-
 /usr/lib32/nvidia-304-updates/vdpau/libvdpau_nvidia.so.304.108 /usr/lib32/nvidia-304-updates/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-304-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-304-updates/vdpau/libvdpau_nvidia.so
-
-/usr/lib32/nvidia-304-updates/libOpenCL.so.1.0.0 /usr/lib32/nvidia-304-updates/libOpenCL.so.1.0
-/usr/lib32/nvidia-304-updates/libOpenCL.so.1.0 /usr/lib32/nvidia-304-updates/libOpenCL.so.1
-/usr/lib32/nvidia-304-updates/libOpenCL.so.1 /usr/lib32/nvidia-304-updates/libOpenCL.so
 
 /usr/lib32/nvidia-304-updates/libnvidia-compiler.so.304.108 /usr/lib32/nvidia-304-updates/libnvidia-compiler.so.1
 /usr/lib32/nvidia-304-updates/libnvidia-compiler.so.1 /usr/lib32/nvidia-304-updates/libnvidia-compiler.so

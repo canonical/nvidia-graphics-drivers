@@ -7,8 +7,6 @@ NVIDIA-Linux-x86_64-304.108-no-compat32/libglx.so.304.108 /usr/lib/nvidia-304-up
 
 NVIDIA-Linux-x86_64-304.108-no-compat32/libGL*.so*                  /usr/lib/nvidia-304-updates
 NVIDIA-Linux-x86_64-304.108-no-compat32/libnv*.so*                  /usr/lib/nvidia-304-updates
-NVIDIA-Linux-x86_64-304.108-no-compat32/libcuda*.so*                /usr/lib/nvidia-304-updates
-NVIDIA-Linux-x86_64-304.108-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-304-updates
 
 NVIDIA-Linux-x86_64-304.108-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-304-updates/vdpau
 NVIDIA-Linux-x86_64-304.108-no-compat32/tls/*.so*                   /usr/lib/nvidia-304-updates/tls

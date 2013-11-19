@@ -1,5 +1,5 @@
 /etc/modprobe.d
-/etc/OpenCL/vendors
+/usr/lib/x86_64-linux-gnu
 /etc/xdg/autostart
 /usr/bin
 /usr/lib/nvidia-304-updates/tls
