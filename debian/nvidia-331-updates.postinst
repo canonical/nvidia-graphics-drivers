@@ -138,7 +138,6 @@ case "$1" in
             --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-331-updates/bin/nvidia-debugdump \
             --slave /usr/bin/nvidia-cuda-mps-control x86_64-linux-gnu_nvidia-cuda-mps-control /usr/lib/nvidia-331-updates/bin/nvidia-cuda-mps-control \
             --slave /usr/bin/nvidia-cuda-mps-server x86_64-linux-gnu_nvidia-cuda-mps-server /usr/lib/nvidia-331-updates/bin/nvidia-cuda-mps-server \
-            --slave /usr/lib/XvMCConfig x86_64-linux-gnu_xvmcconfig /usr/lib/nvidia-331-updates/XvMCConfig \
             --slave /etc/xdg/autostart/nvidia-autostart.desktop x86_64-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-331-updates/nvidia-autostart.desktop \
             --slave /usr/share/nvidia/nvidia-application-profiles-331.20-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-331-updates/nvidia-application-profiles-331.20-rc \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-331-updates/xorg/nvidia_drv.so \
