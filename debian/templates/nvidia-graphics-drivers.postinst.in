@@ -138,7 +138,6 @@ case "$1" in
             --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
             --slave #BINDIR#/nvidia-cuda-mps-control #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control #PKGBINDIR#/nvidia-cuda-mps-control \
             --slave #BINDIR#/nvidia-cuda-mps-server #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-server #PKGBINDIR#/nvidia-cuda-mps-server \
-            --slave #LIBDIR#/XvMCConfig #DEB_HOST_MULTIARCH#_xvmcconfig #PKGCONFIGDIR#/XvMCConfig \
             --slave #AUTOSTARTDIR#/#AUTOSTARTFILE# #DEB_HOST_MULTIARCH#_nvidia-autostart.desktop #PKGDATADIR#/#AUTOSTARTFILE# \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
