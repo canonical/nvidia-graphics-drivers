@@ -131,14 +131,12 @@ case "$1" in
             --slave #MANDIR#/nvidia-xconfig.1.gz #DEB_HOST_MULTIARCH#_man_nvidiaxconfig.gz #MANDIR#/alt-#DRIVERNAME#-xconfig.1.gz \
             --slave #MANDIR#/nvidia-smi.1.gz #DEB_HOST_MULTIARCH#_nvidia-smi.1.gz #MANDIR#/alt-#DRIVERNAME#-smi.1.gz \
             --slave #MANDIR#/nvidia-cuda-mps-control.1.gz #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control.1.gz #MANDIR#/alt-#DRIVERNAME#-cuda-mps-control.1.gz \
-            --slave #DATADIR#/applications/ubuntu-nvidia-settings.desktop #DEB_HOST_MULTIARCH#_nvidia_desktop #PKGDESKDIR#/ubuntu-nvidia-settings.desktop \
             --slave #BINDIR#/nvidia-smi #DEB_HOST_MULTIARCH#_nvidia_smi #PKGBINDIR#/nvidia-smi \
             --slave #BINDIR#/nvidia-xconfig #DEB_HOST_MULTIARCH#_nvidia_xconfig #PKGBINDIR#/nvidia-xconfig \
             --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
             --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
             --slave #BINDIR#/nvidia-cuda-mps-control #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control #PKGBINDIR#/nvidia-cuda-mps-control \
             --slave #BINDIR#/nvidia-cuda-mps-server #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-server #PKGBINDIR#/nvidia-cuda-mps-server \
-            --slave #AUTOSTARTDIR#/#AUTOSTARTFILE# #DEB_HOST_MULTIARCH#_nvidia-autostart.desktop #PKGDATADIR#/#AUTOSTARTFILE# \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
@@ -157,12 +155,10 @@ case "$1" in
             --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf #PMLDSOCONF# #PMALTPRIORITY# \
             --slave #MANDIR#/nvidia-xconfig.1.gz #DEB_HOST_MULTIARCH#_man_nvidiaxconfig.gz #MANDIR#/alt-#DRIVERNAME#-xconfig.1.gz \
             --slave #MANDIR#/nvidia-smi.1.gz #DEB_HOST_MULTIARCH#_nvidia-smi.1.gz #MANDIR#/alt-#DRIVERNAME#-smi.1.gz \
-            --slave #DATADIR#/applications/ubuntu-nvidia-settings.desktop #DEB_HOST_MULTIARCH#_nvidia_desktop #PKGDESKDIR#/ubuntu-nvidia-settings.desktop \
             --slave #BINDIR#/nvidia-smi #DEB_HOST_MULTIARCH#_nvidia_smi #PKGBINDIR#/nvidia-smi \
             --slave #BINDIR#/nvidia-xconfig #DEB_HOST_MULTIARCH#_nvidia_xconfig #PKGBINDIR#/nvidia-xconfig \
             --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
             --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
-            --slave #AUTOSTARTDIR#/#AUTOSTARTFILE# #DEB_HOST_MULTIARCH#_nvidia-autostart.desktop #PKGDATADIR#/#AUTOSTARTFILE# \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
@@ -182,9 +178,6 @@ case "$1" in
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
         LDCONFIG_NOTRIGGER=y ldconfig
-
-        # Trigger gmenu so that the icons will show up in the menu
-        dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
 
         CURRENT_KERNEL=$(uname -r)
         NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")

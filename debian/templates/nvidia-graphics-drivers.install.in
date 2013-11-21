@@ -22,11 +22,5 @@ debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 #DIRNAME#/nvidia-cuda-mps-control #PKGBINDIR#
 #DIRNAME#/nvidia-cuda-mps-server #PKGBINDIR#
 
-#DIRNAME#/#DRIVERNAME#-settings.png #DATADIR#/pixmaps
-
-debian/ubuntu-nvidia-settings.desktop   #PKGDESKDIR#
-
-debian/#AUTOSTARTFILE# #PKGDATADIR#
-
 #DIRNAME#/nvidia.icd #PKGDATADIR#
 #DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
