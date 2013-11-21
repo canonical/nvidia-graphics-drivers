@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=NVIDIA X Server Settings
-Comment=Configure NVIDIA X Server Settings
-Exec=#BINDIR#/nvidia-settings
-Icon=#DRIVERNAME#-settings
-Categories=System;Settings;
