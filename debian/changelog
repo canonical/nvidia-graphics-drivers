@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-304-updates (304.108-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.108-0ubuntu3) trusty; urgency=low
 
-  * 
+  * Remove nvidia-settings icon, desktop file, and autostart
+    file. This is all provided by nvidia-settings now.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Nov 2013 13:01:17 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Nov 2013 13:02:06 +0100
 
 nvidia-graphics-drivers-304-updates (304.108-0ubuntu2) trusty; urgency=low
 
