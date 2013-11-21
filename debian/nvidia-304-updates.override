@@ -44,7 +44,6 @@ nvidia-304-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-304-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-304-updates: prerm-calls-ldconfig
 nvidia-304-updates: copyright-without-copyright-notice
-nvidia-304-updates: desktop-command-not-in-package /usr/share/applications/nvidia-304-updates/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
 nvidia-304-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-304-updates/libnvidia-tls.so.304.108
 nvidia-304-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-304-updates/tls/libnvidia-tls.so.304.108
 nvidia-304-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.108
