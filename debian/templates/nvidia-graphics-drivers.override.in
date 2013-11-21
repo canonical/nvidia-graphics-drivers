@@ -41,7 +41,6 @@
 #DRIVERNAME#: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 #DRIVERNAME#: prerm-calls-ldconfig
 #DRIVERNAME#: copyright-without-copyright-notice
-#DRIVERNAME#: desktop-command-not-in-package /usr/share/applications/#DRIVERNAME#/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/#DRIVERNAME#/libnvidia-tls.so.#VERSION#
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/#DRIVERNAME#/tls/libnvidia-tls.so.#VERSION#
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.#VERSION#
