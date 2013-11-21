@@ -130,12 +130,10 @@ case "$1" in
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-304/ld.so.conf 9701 \
             --slave /usr/share/man/man1/nvidia-xconfig.1.gz x86_64-linux-gnu_man_nvidiaxconfig.gz /usr/share/man/man1/alt-nvidia-304-xconfig.1.gz \
             --slave /usr/share/man/man1/nvidia-smi.1.gz x86_64-linux-gnu_nvidia-smi.1.gz /usr/share/man/man1/alt-nvidia-304-smi.1.gz \
-            --slave /usr/share/applications/ubuntu-nvidia-settings.desktop x86_64-linux-gnu_nvidia_desktop /usr/share/nvidia-304/ubuntu-nvidia-settings.desktop \
             --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-304/bin/nvidia-smi \
             --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-304/bin/nvidia-xconfig \
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-304/bin/nvidia-bug-report.sh \
             --slave /usr/lib/XvMCConfig x86_64-linux-gnu_xvmcconfig /usr/lib/nvidia-304/XvMCConfig \
-            --slave /etc/xdg/autostart/nvidia-autostart.desktop x86_64-linux-gnu_nvidia-autostart.desktop /usr/share/nvidia-304/nvidia-autostart.desktop \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-304/xorg/nvidia_drv.so \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-304/modprobe.conf \
             --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-304/xorg \
@@ -153,9 +151,6 @@ case "$1" in
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
         LDCONFIG_NOTRIGGER=y ldconfig
-
-        # Trigger gmenu so that the icons will show up in the menu
-        dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
 
         CURRENT_KERNEL=$(uname -r)
         NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")

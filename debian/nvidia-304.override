@@ -44,7 +44,6 @@ nvidia-304: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-304: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-304: prerm-calls-ldconfig
 nvidia-304: copyright-without-copyright-notice
-nvidia-304: desktop-command-not-in-package /usr/share/applications/nvidia-304/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
 nvidia-304: shared-lib-without-dependency-information ./usr/lib/nvidia-304/libnvidia-tls.so.304.88
 nvidia-304: shared-lib-without-dependency-information ./usr/lib/nvidia-304/tls/libnvidia-tls.so.304.88
 nvidia-304: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.304.88
