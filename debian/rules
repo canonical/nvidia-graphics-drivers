@@ -70,7 +70,6 @@ xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
 PKG_driversdir       := $(libdir)/$(PKG_driver)/xorg
 PKG_extensionsdir    := $(PKG_driversdir)
 PKG_bindir           := $(PKG_libdir)/bin
-PKG_deskdir          := $(PKG_datadir)
 PKG_configdir        := $(PKG_libdir)
 ld_so_conf_dir       := $(PKG_configdir)
 ld_so_conf_file      := ld.so.conf
@@ -80,10 +79,6 @@ alt_ld_so_conf_path  := $(ld_so_conf_dir)/$(alt_ld_so_conf_file)
 
 mandir               := /usr/share/man/man1
 PKG_bugdir           := /usr/share/bug/$(PKG_driver)
-autostartdir         := /etc/xdg/autostart
-PKG_autostartdir     := $(PKG_configdir)
-autostartfile        := nvidia-autostart.desktop
-desktopfile          := ubuntu-nvidia-settings.desktop
 PKG_vdpaudir         := $(PKG_libdir)/vdpau
 PKG_tlsdir           := $(PKG_libdir)/tls
 PKG_vdpaudir32       := $(PKG_libdir32)/vdpau
@@ -182,10 +177,7 @@ regen-from-templates:
 			-e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
 			-e "s|#ALTLDSOCONF#|$(alt_ld_so_conf_path)|g" \
 			-e "s|#ALTPRIORITY#|$(alt_priority)|g" \
-			-e "s|#AUTOSTARTDIR#|$(autostartdir)|g" \
-			-e "s|#AUTOSTARTFILE#|$(autostartfile)|g" \
 			-e "s|#DATADIR#|$(datadir)|g" \
-			-e "s|#PKGDESKDIR#|$(PKG_deskdir)|g" \
 			-e "s|#PKGDATADIR#|$(PKG_datadir)|g" \
 			-e "s|#PKGCONFIGDIR#|$(PKG_configdir)|g" \
 			-e "s|#PKGBINDIR#|$(PKG_bindir)|g" \
@@ -248,10 +240,6 @@ configure/$(PKG_driver)::
 	cp -R $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
 	cp $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
 	   $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile
-
-	# Rename the png file for nvidia-settings
-	mv $(CURDIR)/$(dirname)/nvidia-settings.png \
-	$(CURDIR)/$(dirname)/$(PKG_driver)-settings.png
 
 	# Disable the stack markings of binaries for security reasons.
 	# See (LP: #409456)
@@ -331,7 +319,6 @@ endif
 	echo "libXvMCNVIDIA_dynamic.so.1" > $(CURDIR)/debian/$(PKG_driver)/$(PKG_configdir)/XvMCConfig
 
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-xconfig.1.gz "$(mandir)";
-	dh_install -p$(PKG_driver) $(dirname)/nvidia-settings.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-smi.1.gz "$(mandir)";
 
 	# Rename the man pages in order to use alternatives
