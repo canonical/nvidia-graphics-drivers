@@ -1,6 +1,5 @@
 #SYSCONFDIR#/modprobe.d
 #LIBDIRMULTIARCH#
-#AUTOSTARTDIR#
 #BINDIR#
 #PKGTLSDIR#
 #PKGBINDIR#
@@ -10,10 +9,7 @@
 /usr/lib/xorg/modules/extensions
 #XORGEXTRAPATH#
 #PKGDATADIR#
-#PKGDESKDIR#
 #MANDIR#
-#DATADIR#/pixmaps
-#DATADIR#/applications
 /usr/share/lintian/overrides
 /usr/share/grub-gfxpayload-lists/blacklist
 #PKGDRIVERSDIR#
