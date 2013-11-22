@@ -22,11 +22,5 @@ NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia-debugdump /usr/lib/nvidia-331/bin
 NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia-cuda-mps-control /usr/lib/nvidia-331/bin
 NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia-cuda-mps-server /usr/lib/nvidia-331/bin
 
-NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia-331-settings.png /usr/share/pixmaps
-
-debian/ubuntu-nvidia-settings.desktop   /usr/share/nvidia-331
-
-debian/nvidia-autostart.desktop /usr/share/nvidia-331
-
 NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia.icd /usr/share/nvidia-331
 NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia-application-profiles-331.20-rc /usr/share/nvidia-331
