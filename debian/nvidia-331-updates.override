@@ -41,7 +41,6 @@ nvidia-331-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-331-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-331-updates: prerm-calls-ldconfig
 nvidia-331-updates: copyright-without-copyright-notice
-nvidia-331-updates: desktop-command-not-in-package /usr/share/applications/nvidia-331-updates/ubuntu-nvidia-settings.desktop /usr/bin/nvidia-settings
 nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/libnvidia-tls.so.331.20
 nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.20
 nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.331.20

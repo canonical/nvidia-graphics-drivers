@@ -1,6 +1,5 @@
 /etc/modprobe.d
 /usr/lib/x86_64-linux-gnu
-/etc/xdg/autostart
 /usr/bin
 /usr/lib/nvidia-331-updates/tls
 /usr/lib/nvidia-331-updates/bin
@@ -11,10 +10,7 @@
 /usr/lib/xorg/modules/extensions
 /usr/lib/x86_64-linux-gnu/xorg
 /usr/share/nvidia-331-updates
-/usr/share/nvidia-331-updates
 /usr/share/man/man1
-/usr/share/pixmaps
-/usr/share/applications
 /usr/share/lintian/overrides
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-331-updates/xorg
