@@ -7,6 +7,8 @@ debian/#DRIVERNAME#.grub-gfxpayload          #PKGDATADIR#
 
 #DIRNAME#/libGL*.so*                  #PKGLIBDIR#
 #DIRNAME#/libnv*.so*                  #PKGLIBDIR#
+#DIRNAME#/libcuda*.so*                #PKGLIBDIR#
+#DIRNAME#/libOpenCL*.so*              #PKGLIBDIR#
 
 #DIRNAME#/libvdpau_nvidia.so*   #PKGVDPAUDIR#
 #DIRNAME#/tls/*.so*                   #PKGTLSDIR#

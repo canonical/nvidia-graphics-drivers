@@ -29,10 +29,6 @@ PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {pr
 PKG_version          := $(shell echo $(PKG_version) | sed s/.*\.really\.//g)
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
-PKG_libcuda1         := libcuda1-$(PKG_flavour)
-PKG_libopencl1       := nvidia-libopencl1-$(PKG_flavour)
-PKG_opencl_icd       := nvidia-opencl-icd-$(PKG_flavour)
-
 
 # Priority of the alternative
 alt_priority         := 8604
@@ -66,8 +62,6 @@ nvidia_share         := /usr/share/nvidia
 PKG_datadir          := $(datadir)/$(PKG_driver)
 libdir               := /usr/lib
 libdir32             := /usr/lib32
-libdir_multiarch     := $(libdir)/$(DEB_HOST_MULTIARCH)
-libdir_multiarch_other := $(libdir)/$(OTHER_ARCH)
 includedir           := /usr/include
 sysconfdir           := /etc
 PKG_libdir           := $(libdir)/$(PKG_driver)
@@ -156,9 +150,6 @@ endef
 DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
 DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_libcuda1)="-X$(libdir_multiarch_other)"
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_libopencl1)="-X$(libdir_multiarch_other)"
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_opencl_icd)="-X$(libdir_multiarch_other)"
 
 .PHONY: download-sources
 download-sources:
@@ -178,19 +169,15 @@ regen-from-templates:
 	for i in debian/templates/*.in; do \
 		old=`echo $$i | sed -e "s|templates\/||g" | \
 				sed -e "s|\.in\$$||g" | \
-				sed -e "s|nvidia-graphics-drivers|nvidia-*|g" | \
-				sed -e "s|flavour|*|g"`; \
+				sed -e "s|nvidia-graphics-drivers|nvidia-*|g"`; \
 		rm -f $$old; done
 	# Create important strings
 	for i in debian/templates/*.in; do \
 		dest=`echo $$i | sed -e "s|templates\/||g" | \
 				 sed -e "s|\.in\$$||g" | \
-				 sed -e "s|nvidia-graphics-drivers|$(PKG_driver)|g" | \
-				 sed -e "s|flavour|$(PKG_flavour)|g"`; \
+				 sed -e "s|nvidia-graphics-drivers|$(PKG_driver)|"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#LIBDIR32#|$(libdir32)|g"     \
-			-e "s|#LIBDIRMULTIARCH#|$(libdir_multiarch)|g" \
-			-e "s|#LIBDIRMULTIARCHOTHER#|$(libdir_multiarch_other)|g" \
 			-e "s|#BINDIR#|$(bindir)|g"         \
 			-e "s|#VERSION#|$(PKG_version)|g"   \
 			-e "s|#SYSCONFDIR#|$(sysconfdir)|g" \
@@ -221,9 +208,6 @@ regen-from-templates:
 			-e "s|#DRIVERUVMNAME#|$(PKG_driver_uvm)|g" \
 			-e "s|#DRIVERSRCNAME#|$(PKG_source)|g" \
 			-e "s|#MODULENAME#|$(PKG_module)|g" \
-			-e "s|#LIBCUDA1#|$(PKG_libcuda1)|g" \
-			-e "s|#LIBOPENCL1#|$(PKG_libopencl1)|g" \
-			-e "s|#OPENCLICD#|$(PKG_opencl_icd)|g" \
 			-e "s|#DIRNAME#|$(dirname)|g" \
 			-e "s|#INCLUDEDIR#|$(includedir)|g" \
 			-e "s|#URL#|$(url)|g" \
@@ -243,27 +227,9 @@ regen-from-templates:
 			$$i > $$dest;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
-	# Deal with the links for 32 bit libraries
-
-	# $(PKG_driver)
 	cat $(CURDIR)/debian/$(PKG_driver).links $(CURDIR)/debian/$(PKG_driver).links32 > \
 	$(CURDIR)/debian/$(PKG_driver).links_new
 	mv -f $(CURDIR)/debian/$(PKG_driver).links_new $(CURDIR)/debian/$(PKG_driver).links
-
-	# $(PKG_libcuda1)
-	cat $(CURDIR)/debian/$(PKG_libcuda1).links $(CURDIR)/debian/$(PKG_libcuda1).links32 > \
-	$(CURDIR)/debian/$(PKG_libcuda1).links_new
-	mv -f $(CURDIR)/debian/$(PKG_libcuda1).links_new $(CURDIR)/debian/$(PKG_libcuda1).links
-
-	# $(PKG_libopencl1)
-	cat $(CURDIR)/debian/$(PKG_libopencl1).links $(CURDIR)/debian/$(PKG_libopencl1).links32 > \
-	$(CURDIR)/debian/$(PKG_libopencl1).links_new
-	mv -f $(CURDIR)/debian/$(PKG_libopencl1).links_new $(CURDIR)/debian/$(PKG_libopencl1).links
-
-	# $(PKG_opencl_icd)
-	cat $(CURDIR)/debian/$(PKG_opencl_icd).links $(CURDIR)/debian/$(PKG_opencl_icd).links32 > \
-	$(CURDIR)/debian/$(PKG_opencl_icd).links_new
-	mv -f $(CURDIR)/debian/$(PKG_opencl_icd).links_new $(CURDIR)/debian/$(PKG_opencl_icd).links
 endif
 # Pre-config
 #makebuilddir/$(PKG_driver):: regen-from-templates
@@ -277,11 +243,6 @@ configure/$(PKG_driver)::
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	sh $(filename_x86) --extract-only
 endif
-
-	# Temporarily rename libnvidia-opencl so that the .install file does
-	# not catch it, as $(PKG_libcuda1) will instead
-	mv $(CURDIR)/$(dirname)/libnvidia-opencl.so.$(PKG_version) \
-	   $(CURDIR)/$(dirname)/_libnvidia-opencl.so.$(PKG_version)
 
 	# Get around Xen checks
 	mv $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
@@ -316,10 +277,6 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	# Remove libGLES* for since it's 32 bit only
 	find $(CURDIR)/$(dirname_x86) -name 'libGLES*.so*' | xargs /bin/rm -f
 	find $(CURDIR)/$(dirname_x86) -name 'libnvidia-eglcore*.so*' | xargs /bin/rm -f
-
-	# Temporarily rename libnvidia-opencl
-	mv $(CURDIR)/$(dirname_x86)/libnvidia-opencl.so.$(PKG_version) \
-	   $(CURDIR)/$(dirname_x86)/_libnvidia-opencl.so.$(PKG_version)
 endif
 	# Disable the stack markings of other binaries (only for the current arch)
 	#   Note: don't use for loops or pass more than 1 argument to execstack
@@ -346,22 +303,16 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL.la"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libcuda*.so*"  "$(PKG_libdir32)"
 
 	dh_install -p$(PKG_driver)  "$(dirname_x86)/libvdpau*"  "$(PKG_vdpaudir32)"
 	dh_install -p$(PKG_driver)  "$(dirname_x86)/tls/lib*"  "$(PKG_tlsdir32)"
 
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libOpenCL*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-compiler*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvcuvid*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-ml*.so*"  "$(PKG_libdir32)"
-
-	# Move 32bit libnvidia-opencl back
-	mv $(CURDIR)/$(dirname_x86)/_libnvidia-opencl.so.$(PKG_version) \
-	   $(CURDIR)/$(dirname_x86)/libnvidia-opencl.so.$(PKG_version)
 endif
-
-	# Move libnvidia-opencl back
-	mv $(CURDIR)/$(dirname)/_libnvidia-opencl.so.$(PKG_version) \
-	   $(CURDIR)/$(dirname)/libnvidia-opencl.so.$(PKG_version)
 
 	# Generate modaliases for Jockey and nvidia-common
 	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
@@ -412,29 +363,8 @@ endif
 
 	rm -rf debian/temp/modules/nvidia-kernel
 
-	# Remove libnvidia-opencl
-	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
-
 binary-install/$(PKG_driver_uvm):: gen-abi-substvars
 	rm -rf debian/temp/modules/nvidia-uvm-kernel
-
-binary-install/$(PKG_libcuda1)::
-ifeq ($(DEB_BUILD_ARCH),amd64)
-	dh_installdirs -p$(PKG_libcuda1) "$(libdir_multiarch_other)"
-	dh_install -p$(PKG_libcuda1) "$(dirname_x86)/libcuda*.so*"  "$(libdir_multiarch_other)"
-endif
-
-binary-install/$(PKG_libopencl1)::
-ifeq ($(DEB_BUILD_ARCH),amd64)
-	dh_installdirs -p$(PKG_libopencl1) "$(libdir_multiarch_other)"
-	dh_install -p$(PKG_libopencl1) "$(dirname_x86)/libOpenCL*.so*"  "$(libdir_multiarch_other)"
-endif
-
-binary-install/$(PKG_opencl_icd)::
-ifeq ($(DEB_BUILD_ARCH),amd64)
-	dh_installdirs -p$(PKG_opencl_icd) "$(libdir_multiarch_other)"
-	dh_install -p$(PKG_opencl_icd) "$(dirname_x86)/libnvidia-opencl.so*"  "$(libdir_multiarch_other)"
-endif
 
 clean:: regen-from-templates
 #	for file in $(CURDIR)/debian/*.in \
