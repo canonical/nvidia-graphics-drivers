@@ -6,8 +6,15 @@
 
 #NVIDIAEXTENSION#/libglx.so.#VERSION# #NVIDIAEXTENSION#/libglx.so
 
+#PKGLIBDIR#/libcuda.so.#VERSION# #PKGLIBDIR#/libcuda.so
+#PKGLIBDIR#/libcuda.so.#VERSION# #PKGLIBDIR#/libcuda.so.1
+
 #PKGVDPAUDIR#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR#/libvdpau_nvidia.so.1
 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so 
+
+#PKGLIBDIR#/libOpenCL.so.1.0.0 #PKGLIBDIR#/libOpenCL.so.1.0
+#PKGLIBDIR#/libOpenCL.so.1.0 #PKGLIBDIR#/libOpenCL.so.1
+#PKGLIBDIR#/libOpenCL.so.1 #PKGLIBDIR#/libOpenCL.so
 
 #PKGLIBDIR#/libnvidia-compiler.so.#VERSION# #PKGLIBDIR#/libnvidia-compiler.so.1
 #PKGLIBDIR#/libnvidia-compiler.so.1 #PKGLIBDIR#/libnvidia-compiler.so
