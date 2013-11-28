@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-331-updates (331.20-0ubuntu5) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331-updates (331.20-0ubuntu5) trusty; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.{install|postinst|prerm}.in,
+    debian/glamor.conf:
+    - Do not update gmenucache.
+    - Disable the glamoregl module.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 28 Nov 2013 14:34:27 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 28 Nov 2013 14:35:23 +0100
 
 nvidia-graphics-drivers-331-updates (331.20-0ubuntu4) trusty; urgency=low
 
