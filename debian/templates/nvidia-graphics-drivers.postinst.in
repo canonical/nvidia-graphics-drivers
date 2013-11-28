@@ -180,6 +180,11 @@ case "$1" in
         update-alternatives --force \
             --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
 
+        # Make sure glamoregl is disabled
+        update-alternatives --force \
+            --install /usr/share/X11/xorg.conf.d/glamoregl.conf glamor_conf \
+            #PKGDATADIR#/glamor.conf 600
+
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
         LDCONFIG_NOTRIGGER=y ldconfig
