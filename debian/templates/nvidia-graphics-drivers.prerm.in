@@ -27,9 +27,6 @@ case "$1" in
 		update-alternatives --remove #OTHER_ARCH#_gl_conf #ALTLDSOCONF#
 		update-alternatives --remove glamor_conf #PKGDATADIR#/glamor.conf
 
-		# Trigger gmenu so as to update the gnome menu
-		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
-
 		# explicit ldconfig due to alternatives
 		ldconfig
 
