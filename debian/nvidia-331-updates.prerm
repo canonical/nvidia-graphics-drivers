@@ -25,9 +25,7 @@ case "$1" in
 	
 		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-331-updates/ld.so.conf
 		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-331-updates/alt_ld.so.conf
-
-		# Trigger gmenu so as to update the gnome menu
-		dpkg-trigger --by-package=$PACKAGE_NAME gmenucache || true
+		update-alternatives --remove glamor_conf /usr/share/nvidia-331-updates/glamor.conf
 
 		# explicit ldconfig due to alternatives
 		ldconfig
