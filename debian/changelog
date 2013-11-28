@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304-updates (304.108-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.108-0ubuntu4) trusty; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.{install|postinst|prerm}.in,
+    debian/glamor.conf:
+    - Do not update gmenucache.
+    - Disable the glamoregl module.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 28 Nov 2013 14:57:41 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 28 Nov 2013 14:57:53 +0100
 
 nvidia-graphics-drivers-304-updates (304.108-0ubuntu3) trusty; urgency=low
 
