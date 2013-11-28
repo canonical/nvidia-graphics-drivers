@@ -2,6 +2,8 @@ debian/nvidia-331.override                 usr/share/lintian/overrides
 #Blacklist some card ids from GRUB gfxpayload=keep
 debian/nvidia-331.grub-gfxpayload          /usr/share/nvidia-331
 
+debian/glamor.conf                           /usr/share/nvidia-331
+
 NVIDIA-Linux-x86_64-331.20-no-compat32/nvidia_drv.so /usr/lib/nvidia-331/xorg
 NVIDIA-Linux-x86_64-331.20-no-compat32/libglx.so.331.20 /usr/lib/nvidia-331/xorg
 
