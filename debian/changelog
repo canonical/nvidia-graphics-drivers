@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-304 (304.88-0ubuntu11) UNRELEASED; urgency=low
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 28 Nov 2013 14:37:49 +0100
+
 nvidia-graphics-drivers-304 (304.88-0ubuntu10) trusty; urgency=low
 
   * Remove nvidia-settings icon, desktop file, and autostart
