@@ -148,6 +148,11 @@ case "$1" in
 	update-alternatives --force \
 	    --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-304-updates/alt_ld.so.conf 9701
 
+        # Make sure glamoregl is disabled
+        update-alternatives --force \
+            --install /usr/share/X11/xorg.conf.d/glamoregl.conf glamor_conf \
+            /usr/share/nvidia-304-updates/glamor.conf 600
+
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.
         LDCONFIG_NOTRIGGER=y ldconfig
