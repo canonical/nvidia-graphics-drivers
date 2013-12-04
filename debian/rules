@@ -139,6 +139,7 @@ define blacklist_file
 
 blacklist nouveau
 blacklist lbm-nouveau
+blacklist nvidia-current
 blacklist nvidia-173
 blacklist nvidia-96
 blacklist nvidia-current-updates
