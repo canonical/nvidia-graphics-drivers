@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-331-updates (331.20-0ubuntu6) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331-updates (331.20-0ubuntu6) trusty; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.prerm.in:
+    - Make sure to remove the alternatives for PRIME
+      (LP: #1257434).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 05 Dec 2013 08:26:36 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 05 Dec 2013 08:27:05 +0100
 
 nvidia-graphics-drivers-331-updates (331.20-0ubuntu5) trusty; urgency=low
 
