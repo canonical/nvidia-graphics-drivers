@@ -159,6 +159,7 @@ DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(P
 DEB_DH_SHLIBDEPS_ARGS_$(PKG_libcuda1)="-X$(libdir_multiarch_other)"
 DEB_DH_SHLIBDEPS_ARGS_$(PKG_libopencl1)="-X$(libdir_multiarch_other)"
 DEB_DH_SHLIBDEPS_ARGS_$(PKG_opencl_icd)="-X$(libdir_multiarch_other)"
+DEB_DH_INSTALLINIT_ARGS_$(PKG_driver)="--name=debian/nvidia-persistenced.upstart"
 
 .PHONY: download-sources
 download-sources:
@@ -326,6 +327,7 @@ endif
 	#         or it will fail.
 	execstack -c $(CURDIR)/$(dirname)/nvidia-xconfig || true
 	execstack -c $(CURDIR)/$(dirname)/nvidia-smi || true
+	execstack -c $(CURDIR)/$(dirname)/nvidia-persistenced || true
 
 configure/$(PKG_driver_uvm)::configure/$(PKG_driver)
 	# Kernel module files
@@ -404,6 +406,7 @@ endif
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-xconfig.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-smi.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-cuda-mps-control.1.gz "$(mandir)";
+	dh_install -p$(PKG_driver) $(dirname)/nvidia-persistenced.1.gz "$(mandir)";
 
 	# Rename the man pages in order to use alternatives
 	for file in $(CURDIR)/debian/$(PKG_driver)$(mandir)/*.gz; do \

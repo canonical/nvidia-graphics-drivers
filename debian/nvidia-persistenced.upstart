@@ -1,0 +1,18 @@
+# nvidia-persistenced - support for NVIDIA's persistence mode
+#
+# Start and stop nvidia-persistenced when it's convenient.
+# This job takes into account hybrid graphics.
+
+description "NVIDIA Persistenced Daemon"
+author      "Alberto Milone <alberto.milone@canonical.com>"
+
+start on bbswitch-ready
+stop on (runlevel [016] or nvidia-off)
+
+expect fork
+
+exec /usr/bin/nvidia-persistenced --user nvidia-persistenced
+
+post-stop script
+    rm -rf /var/run/nvidia-persistenced
+end script
