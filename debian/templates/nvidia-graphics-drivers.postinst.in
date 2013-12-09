@@ -8,6 +8,8 @@ PACKAGE_NAME=#DRIVERNAME#
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
 
+NVPD_USER="nvidia-persistenced"
+
 INIT_SCRIPT="/etc/init/build-$PACKAGE_NAME.conf"
 TMP_FILE="/tmp/do_not_build_dkms_module"
 
@@ -131,12 +133,14 @@ case "$1" in
             --slave #MANDIR#/nvidia-xconfig.1.gz #DEB_HOST_MULTIARCH#_man_nvidiaxconfig.gz #MANDIR#/alt-#DRIVERNAME#-xconfig.1.gz \
             --slave #MANDIR#/nvidia-smi.1.gz #DEB_HOST_MULTIARCH#_nvidia-smi.1.gz #MANDIR#/alt-#DRIVERNAME#-smi.1.gz \
             --slave #MANDIR#/nvidia-cuda-mps-control.1.gz #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control.1.gz #MANDIR#/alt-#DRIVERNAME#-cuda-mps-control.1.gz \
+            --slave #MANDIR#/nvidia-persistenced.1.gz #DEB_HOST_MULTIARCH#_man_persistenced.gz #MANDIR#/alt-#DRIVERNAME#-persistenced.1.gz \
             --slave #BINDIR#/nvidia-smi #DEB_HOST_MULTIARCH#_nvidia_smi #PKGBINDIR#/nvidia-smi \
             --slave #BINDIR#/nvidia-xconfig #DEB_HOST_MULTIARCH#_nvidia_xconfig #PKGBINDIR#/nvidia-xconfig \
             --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
             --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
             --slave #BINDIR#/nvidia-cuda-mps-control #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control #PKGBINDIR#/nvidia-cuda-mps-control \
             --slave #BINDIR#/nvidia-cuda-mps-server #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-server #PKGBINDIR#/nvidia-cuda-mps-server \
+            --slave #BINDIR#/nvidia-persistenced #DEB_HOST_MULTIARCH#_nvidia_persistenced #PKGBINDIR#/nvidia-persistenced \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
@@ -206,6 +210,14 @@ case "$1" in
         # Enable any quirks for the driver
         if [ `which quirks-handler` ]; then
            quirks-handler -e $PACKAGE_NAME -v
+        fi
+
+        if ! id "$NVPD_USER" > /dev/null 2>&1; then
+            # Create the user and group for nvidia-persistenced
+            adduser --system --no-create-home --home '/' \
+            --shell '/sbin/nologin' \
+            --gecos 'NVIDIA Persistence Daemon' \
+            --group "$NVPD_USER"
         fi
 
         # If the delayed module build feature is enabled

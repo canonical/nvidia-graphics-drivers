@@ -1,0 +1,1 @@
+ACTION=="add" DEVPATH=="/module/bbswitch" SUBSYSTEM=="module" RUN+="/usr/bin/start-nvidia-persistenced"

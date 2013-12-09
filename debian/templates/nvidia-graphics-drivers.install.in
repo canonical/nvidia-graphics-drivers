@@ -4,6 +4,9 @@ debian/#DRIVERNAME#.grub-gfxpayload          #PKGDATADIR#
 
 debian/glamor.conf                           #PKGDATADIR#
 
+debian/69-nvidia-persistenced.rules          lib/udev/rules.d
+debian/start-nvidia-persistenced             usr/bin
+
 #DIRNAME#/nvidia_drv.so #PKGDRIVERSDIR#
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
@@ -23,6 +26,6 @@ debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 #DIRNAME#/nvidia-debugdump #PKGBINDIR#
 #DIRNAME#/nvidia-cuda-mps-control #PKGBINDIR#
 #DIRNAME#/nvidia-cuda-mps-server #PKGBINDIR#
+#DIRNAME#/nvidia-persistenced #PKGBINDIR#
 
-#DIRNAME#/nvidia.icd #PKGDATADIR#
 #DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
