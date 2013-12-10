@@ -126,9 +126,12 @@ blacklist nouveau
 blacklist lbm-nouveau
 blacklist nvidia-173
 blacklist nvidia-96
+blacklist nvidia-304
+blacklist nvidia-current
 blacklist nvidia-current-updates
 blacklist nvidia-173-updates
 blacklist nvidia-96-updates
+blacklist nvidia-304-updates
 blacklist $(opposite_flavour)
 alias nvidia $(PKG_module)
 alias nvidia-uvm $(PKG_module)-uvm
