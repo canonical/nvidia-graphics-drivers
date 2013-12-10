@@ -1,5 +1,5 @@
 /etc/modprobe.d
-/usr/lib/x86_64-linux-gnu
+/etc/OpenCL/vendors
 /usr/bin
 /usr/lib/nvidia-331/tls
 /usr/lib/nvidia-331/bin

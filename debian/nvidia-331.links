@@ -6,8 +6,15 @@
 
 /usr/lib/nvidia-331/xorg/libglx.so.331.20 /usr/lib/nvidia-331/xorg/libglx.so
 
+/usr/lib/nvidia-331/libcuda.so.331.20 /usr/lib/nvidia-331/libcuda.so
+/usr/lib/nvidia-331/libcuda.so.331.20 /usr/lib/nvidia-331/libcuda.so.1
+
 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.331.20 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so 
+
+/usr/lib/nvidia-331/libOpenCL.so.1.0.0 /usr/lib/nvidia-331/libOpenCL.so.1.0
+/usr/lib/nvidia-331/libOpenCL.so.1.0 /usr/lib/nvidia-331/libOpenCL.so.1
+/usr/lib/nvidia-331/libOpenCL.so.1 /usr/lib/nvidia-331/libOpenCL.so
 
 /usr/lib/nvidia-331/libnvidia-compiler.so.331.20 /usr/lib/nvidia-331/libnvidia-compiler.so.1
 /usr/lib/nvidia-331/libnvidia-compiler.so.1 /usr/lib/nvidia-331/libnvidia-compiler.so
@@ -31,8 +38,15 @@
 
 /usr/lib/nvidia-331/xorg/libglx.so.331.20 /usr/lib/nvidia-331/xorg/libglx.so
 
+/usr/lib32/nvidia-331/libcuda.so.331.20 /usr/lib32/nvidia-331/libcuda.so
+/usr/lib32/nvidia-331/libcuda.so.331.20 /usr/lib32/nvidia-331/libcuda.so.1
+
 /usr/lib32/nvidia-331/vdpau/libvdpau_nvidia.so.331.20 /usr/lib32/nvidia-331/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-331/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-331/vdpau/libvdpau_nvidia.so
+
+/usr/lib32/nvidia-331/libOpenCL.so.1.0.0 /usr/lib32/nvidia-331/libOpenCL.so.1.0
+/usr/lib32/nvidia-331/libOpenCL.so.1.0 /usr/lib32/nvidia-331/libOpenCL.so.1
+/usr/lib32/nvidia-331/libOpenCL.so.1 /usr/lib32/nvidia-331/libOpenCL.so
 
 /usr/lib32/nvidia-331/libnvidia-compiler.so.331.20 /usr/lib32/nvidia-331/libnvidia-compiler.so.1
 /usr/lib32/nvidia-331/libnvidia-compiler.so.1 /usr/lib32/nvidia-331/libnvidia-compiler.so
