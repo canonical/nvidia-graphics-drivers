@@ -51,16 +51,16 @@ Description: NVIDIA Unified Memory kernel module
 Package: nvidia-319-updates
 Architecture: i386 amd64
 Depends: #DRIVERNAME#
-Description: Transitional package for nvidia-319-updates
- This is a transitional package for nvidia-319-updates, and can be
+Description: Transitional package for nvidia-331-updates
+ This is a transitional package for nvidia-331-updates, and can be
  safely removed after the installation is complete.
  .
 
 Package: nvidia-319-updates-dev
 Architecture: i386 amd64
 Depends: #DRIVERDEVNAME#
-Description: Transitional package for nvidia-319-updates-dev
- This is a transitional package for nvidia-319-updates-dev, and can be
+Description: Transitional package for nvidia-331-updates-dev
+ This is a transitional package for nvidia-331-updates-dev, and can be
  safely removed after the installation is complete.
  .
 
