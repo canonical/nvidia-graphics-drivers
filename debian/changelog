@@ -1,44 +1,5 @@
-nvidia-graphics-drivers-331 (331.20-0ubuntu6) trusty; urgency=low
+nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.1) UNRELEASED; urgency=low
 
-  * debian/templates/nvidia-graphics-drivers.prerm.in:
-    - Make sure to remove the alternatives for PRIME
-      (LP: #1257434).
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 05 Dec 2013 08:24:34 +0100
-
-nvidia-graphics-drivers-331 (331.20-0ubuntu5) trusty; urgency=low
-
-  * debian/templates/nvidia-graphics-drivers.{install|postinst|prerm}.in,
-    debian/glamor.conf:
-    - Do not update gmenucache.
-    - Disable the glamoregl module.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 28 Nov 2013 14:32:33 +0100
-
-nvidia-graphics-drivers-331 (331.20-0ubuntu4) trusty; urgency=low
-
-  * Remove nvidia-settings icon, desktop file, and autostart
-    file. This is all provided by nvidia-settings now.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Nov 2013 12:45:31 +0100
-
-nvidia-graphics-drivers-331 (331.20-0ubuntu3) trusty; urgency=low
-
-  * debian/templates/nvidia-graphics-drivers.postinst.in:
-    - Remove link to XvMCConfig.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 20 Nov 2013 17:14:48 +0100
-
-nvidia-graphics-drivers-331 (331.20-0ubuntu2) trusty; urgency=low
-
-  * debian/templates/control.in:
-    - Recommend nvidia-settings >= 331.20, as this is now the
-      unified package.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Nov 2013 14:44:09 +0100
-
-nvidia-graphics-drivers-331 (331.20-0ubuntu1) trusty; urgency=low
-
-  * Initial release (LP: #1250449).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Nov 2013 13:44:17 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Dec 2013 09:11:15 +0100
