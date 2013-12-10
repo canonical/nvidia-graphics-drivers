@@ -1,2 +1,2 @@
-xviddriver:Depends=xorg-video-abi-11|xorg-video-abi-12|xorg-video-abi-13|xorg-video-abi-14, xserver-xorg-core
+xviddriver:Depends=xorg-video-abi-11|xorg-video-abi-12|xorg-video-abi-13|xorg-video-abi-14, xserver-xorg-core | xserver-xorg-core-lts-quantal | xserver-xorg-core-lts-raring | xserver-xorg-core-lts-saucy
 xviddriver:Provides=xorg-driver-video
