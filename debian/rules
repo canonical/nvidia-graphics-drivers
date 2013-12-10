@@ -118,11 +118,15 @@ define blacklist_file
 
 blacklist nouveau
 blacklist lbm-nouveau
-blacklist nvidia-173
 blacklist nvidia-96
+blacklist nvidia-current
 blacklist nvidia-current-updates
 blacklist nvidia-173-updates
 blacklist nvidia-96-updates
+blacklist nvidia-319
+blacklist nvidia-319-updates
+blacklist nvidia-331
+blacklist nvidia-331-updates
 blacklist $(opposite_flavour)
 alias nvidia $(PKG_module)
 alias nouveau off
