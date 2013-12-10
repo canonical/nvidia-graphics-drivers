@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-304 (304.116-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.116-0ubuntu1) trusty; urgency=low
 
-  * 
+  * New upstream release:
+    - Improved compatibility with recent Linux kernels.
+    - Updated the NVIDIA OpenGL driver to write temporary files to
+      $TMPDIR if it is set, instead of unconditionally writing to
+      /tmp (LP: #1212425).
+    - Updated a fallback of writing temporary files to $HOME/.nvidia
+      to use $HOME/.nv instead, as the latter path is already used
+      for other NVIDIA driver related files.
+  * debian/templates/dkms.conf.in:
+    - Drop patches for Linux 3.10 and 3.11.
+  * debian/rules:
+    - Add the download-sources target.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Dec 2013 09:56:19 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Dec 2013 10:43:46 +0100
 
 nvidia-graphics-drivers-304 (304.88-0ubuntu11) trusty; urgency=low
 
