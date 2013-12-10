@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.1) precise-proposed; urgency=low
 
-  * 
+  * Initial release (LP: #1259237).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Dec 2013 09:11:15 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 Dec 2013 09:25:58 +0100
