@@ -23,6 +23,11 @@ fi
 case "$1" in
     install|upgrade)
 
+    # Attempt to remove a .run file installation of the driver before installing the package
+    if [ -x /usr/bin/nvidia-uninstall ]; then
+        /usr/bin/nvidia-uninstall -s || :
+    fi;
+
     # We need to remove diversions from previous versions of the package
 
     # clean up from old diversions
