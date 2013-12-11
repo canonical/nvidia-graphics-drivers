@@ -1,8 +1,67 @@
-nvidia-graphics-drivers-304-updates (304.116-0ubuntu0.0.1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.116-0ubuntu0.0.1) precise-proposed; urgency=low
 
-  * 
+  * New upstream release (LP: #1259237):
+    - Improved compatibility with recent Linux kernels.
+    - Updated the NVIDIA OpenGL driver to write temporary files to
+      $TMPDIR if it is set, instead of unconditionally writing to
+      /tmp (LP: #1212425).
+    - Updated a fallback of writing temporary files to $HOME/.nvidia
+      to use $HOME/.nv instead, as the latter path is already used
+      for other NVIDIA driver related files.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Dec 2013 12:51:37 +0100
+  [ Alberto Milone ]
+  * debian/substvars:
+    - Add support for lts flavours up to saucy.
+  * debian/templates/control.in:
+    - Depend on lib32gcc1 [amd64], libc6-i386 [amd64]
+      (LP: #1236945).
+    - Drop lpia.
+  * debian/templates/dkms.conf.in:
+    - Drop patche for Linux 3.11.
+  * debian/rules:
+    - Blacklist the opposite flavour.
+    - Blacklist kernel modules from the other flavours.
+  * debian/templates/nvidia-graphics-drivers.dirs.in,
+    debian/templates/nvidia-graphics-drivers.install.in,
+    debian/templates/nvidia-graphics-drivers.override.in,
+    debian/templates/nvidia-graphics-drivers.postinst.in,
+    debian/nvidia-autostart.desktop.in,
+    debian/ubuntu-nvidia-settings.desktop.in:
+    - Remove nvidia-settings icon, desktop file, and autostart file.
+      This is all provided by nvidia-settings now.
+  * debian/templates/nvidia-graphics-drivers.prerm.in,
+    debian/templates/nvidia-graphics-drivers.install.in,
+    debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Disable glamoregl.
+    - Do not update gmenucache any more.
+
+  [ Andy Dick ]
+  * debian/templates/nvidia-graphics-drivers.preinst.in:
+    - Attempt uninstallation of any existing .run file
+      installation before installing Debian-packaged
+      driver.
+  * debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Add libcuda.so symlinks in /usr/lib*.
+  * debian/rules:
+    - Conditionalize the copying of Makefile.kbuild to
+      Makefile. This adds support for newer drivers,
+      while maintaining support for packaging older drivers.
+    - Avoid extracting unnecessary .run files. The 64-bit
+      package needs both the 32- and 64-bit .run files, but
+      the 32-bit package does not. Change the unpackaging
+      rules to unpack only the native package by default,
+      and only unpack the 32-bit x86 package on amd64.
+      Also, instead of changing the .run file permissions
+      to ensure that the .run file is executable, just call
+      it as an argument to sh.
+    - Don't assume that extracted files are writable.
+      The package contents extracted from some .run file
+      installers may not have write permissions enabled.
+      To work around this, move files instead of copying
+      them to a temporary location before running sed
+      scripts, and add force flags to applicable commands.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Dec 2013 14:02:39 +0100
 
 nvidia-graphics-drivers-304-updates (304.108-0ubuntu0.0.1) precise-proposed; urgency=low
 
