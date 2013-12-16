@@ -9,8 +9,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # If the host is i386 set OTHER_ARCH to x86_64 and vice versa
 OTHER_ARCH := $(shell (echo "$(DEB_HOST_MULTIARCH)" | grep i386 >/dev/null) && \
@@ -152,17 +150,15 @@ alias nouveau off
 alias lbm-nouveau off
 endef
 
-# -Xlib32
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_driver)="-Xtls -Xconf" -X$(PKG_libdir32)#
-DEB_SHLIBDEPS_INCLUDE_$(PKG_driver) := $(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(libdir)/
-DEB_SHLIBDEPS_INCLUDE_$(PKG_driver_dev) := $(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_libcuda1)="-X$(libdir_multiarch_other)"
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_libopencl1)="-X$(libdir_multiarch_other)"
-DEB_DH_SHLIBDEPS_ARGS_$(PKG_opencl_icd)="-X$(libdir_multiarch_other)"
-DEB_DH_INSTALLINIT_ARGS_$(PKG_driver)="--name=debian/nvidia-persistenced.upstart"
+%:
+	dh $@
 
-.PHONY: download-sources
-download-sources:
+override_dh_shlibdeps:
+	dh_shlibdeps -Xtls -Xconf -X$(PKG_libdir32) -X$(libdir_multiarch_other) \
+	-l$(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
+
+.PHONY: get-orig-source
+get-orig-source:
 	# Remove any previous installers
 	rm -f NVIDIA-Linux-x86*
 	# Downloads the installers from NVIDIA's website
@@ -266,10 +262,8 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	$(CURDIR)/debian/$(PKG_opencl_icd).links_new
 	mv -f $(CURDIR)/debian/$(PKG_opencl_icd).links_new $(CURDIR)/debian/$(PKG_opencl_icd).links
 endif
-# Pre-config
-#makebuilddir/$(PKG_driver):: regen-from-templates
 
-configure/$(PKG_driver)::
+override_dh_auto_configure:
 	rm -rf $(dirname_x86) $(dirname_x86_64)
 
 	# Extract the installers
@@ -329,7 +323,7 @@ endif
 	execstack -c $(CURDIR)/$(dirname)/nvidia-smi || true
 	execstack -c $(CURDIR)/$(dirname)/nvidia-persistenced || true
 
-configure/$(PKG_driver_uvm)::configure/$(PKG_driver)
+	# Part about $(PKG_driver_uvm)
 	# Kernel module files
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel
 	cp -Rf $(CURDIR)/$(dirname)/kernel/uvm $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel/
@@ -337,9 +331,8 @@ configure/$(PKG_driver_uvm)::configure/$(PKG_driver)
 	mkdir -p $(CURDIR)/debian/dkms_nvidia_uvm
 	cp -f $(CURDIR)/debian/dkms_nvidia_uvm.conf $(CURDIR)/debian/dkms_nvidia_uvm/dkms.conf
 
-#binary-install/$(PKG_driver_dev)::
-
-binary-install/$(PKG_driver):: gen-abi-substvars
+override_dh_install: gen-abi-substvars
+	dh_install -p$(PKG_driver)
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	#32 bit libraries on 64 bit
 	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)"
@@ -418,28 +411,36 @@ endif
 	# Remove libnvidia-opencl
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
 
-binary-install/$(PKG_driver_uvm):: gen-abi-substvars
+	# Part about $(PKG_driver_uvm):
+	dh_install -p$(PKG_driver_uvm)
 	rm -rf debian/temp/modules/nvidia-uvm-kernel
 
-binary-install/$(PKG_libcuda1)::
+	# Part about $(PKG_libcuda1):
+	dh_install -p$(PKG_libcuda1)
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	dh_installdirs -p$(PKG_libcuda1) "$(libdir_multiarch_other)"
 	dh_install -p$(PKG_libcuda1) "$(dirname_x86)/libcuda*.so*"  "$(libdir_multiarch_other)"
 endif
 
-binary-install/$(PKG_libopencl1)::
+	# Part about $(PKG_libopencl1)
+	dh_install -p$(PKG_libopencl1)
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	dh_installdirs -p$(PKG_libopencl1) "$(libdir_multiarch_other)"
 	dh_install -p$(PKG_libopencl1) "$(dirname_x86)/libOpenCL*.so*"  "$(libdir_multiarch_other)"
 endif
 
-binary-install/$(PKG_opencl_icd)::
+	# Part about $(PKG_opencl_icd)
+	dh_install -p$(PKG_opencl_icd)
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	dh_installdirs -p$(PKG_opencl_icd) "$(libdir_multiarch_other)"
 	dh_install -p$(PKG_opencl_icd) "$(dirname_x86)/libnvidia-opencl.so*"  "$(libdir_multiarch_other)"
 endif
 
-clean:: regen-from-templates
+override_dh_strip:
+
+override_dh_clean: regen-from-templates
+	dh_clean
+#clean: regen-from-templates
 #	for file in $(CURDIR)/debian/*.in \
 #	; do \
 #		if [ `basename $$file` != "control.in" ]; then \
