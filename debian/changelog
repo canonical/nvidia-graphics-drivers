@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-331 (331.20-0ubuntu7) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331 (331.20-0ubuntu7) trusty; urgency=low
 
-  * 
+  * debian/rules, debian/templates/control.in,
+    debian/templates/nvidia-graphics-drivers.dirs.in,
+    debian/templates/nvidia-graphics-drivers.install.in,
+    debian/templates/nvidia-graphics-drivers.postinst.in,
+    debian/templates/nvidia-graphics-drivers.postrm.in,
+    debian/nvidia-persistenced.conf:
+    - Add support for nvidia-persistenced.
+    - Conflict/replace/provide with nvidia-persistenced
+      to avoid potential problems with packages from
+      xorg-edgers or other PPAs.
+    - Depend on passwd and adduser.
+    - Drop Recommend nvidia-persistenced.
+    - Recommend nvidia-prime. Keep bumblebee as an
+      alternative, so that users who prefer to use
+      bumblebee, can keep doing so.
+    - Drop cdbs and switch to debhelper 7.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Dec 2013 15:52:30 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 17 Dec 2013 13:08:33 +0100
 
 nvidia-graphics-drivers-331 (331.20-0ubuntu6) trusty; urgency=low
 
