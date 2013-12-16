@@ -8,6 +8,8 @@ PACKAGE_NAME=nvidia-331-updates
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
 
+NVPD_USER="nvidia-persistenced"
+
 INIT_SCRIPT="/etc/init/build-$PACKAGE_NAME.conf"
 TMP_FILE="/tmp/do_not_build_dkms_module"
 
@@ -131,12 +133,14 @@ case "$1" in
             --slave /usr/share/man/man1/nvidia-xconfig.1.gz x86_64-linux-gnu_man_nvidiaxconfig.gz /usr/share/man/man1/alt-nvidia-331-updates-xconfig.1.gz \
             --slave /usr/share/man/man1/nvidia-smi.1.gz x86_64-linux-gnu_nvidia-smi.1.gz /usr/share/man/man1/alt-nvidia-331-updates-smi.1.gz \
             --slave /usr/share/man/man1/nvidia-cuda-mps-control.1.gz x86_64-linux-gnu_nvidia-cuda-mps-control.1.gz /usr/share/man/man1/alt-nvidia-331-updates-cuda-mps-control.1.gz \
+            --slave /usr/share/man/man1/nvidia-persistenced.1.gz x86_64-linux-gnu_man_persistenced.gz /usr/share/man/man1/alt-nvidia-331-updates-persistenced.1.gz \
             --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-331-updates/bin/nvidia-smi \
             --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-331-updates/bin/nvidia-xconfig \
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-331-updates/bin/nvidia-bug-report.sh \
             --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-331-updates/bin/nvidia-debugdump \
             --slave /usr/bin/nvidia-cuda-mps-control x86_64-linux-gnu_nvidia-cuda-mps-control /usr/lib/nvidia-331-updates/bin/nvidia-cuda-mps-control \
             --slave /usr/bin/nvidia-cuda-mps-server x86_64-linux-gnu_nvidia-cuda-mps-server /usr/lib/nvidia-331-updates/bin/nvidia-cuda-mps-server \
+            --slave /usr/bin/nvidia-persistenced x86_64-linux-gnu_nvidia_persistenced /usr/lib/nvidia-331-updates/bin/nvidia-persistenced \
             --slave /usr/share/nvidia/nvidia-application-profiles-331.20-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-331-updates/nvidia-application-profiles-331.20-rc \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-331-updates/xorg/nvidia_drv.so \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-331-updates/modprobe.conf \
@@ -206,6 +210,14 @@ case "$1" in
         # Enable any quirks for the driver
         if [ `which quirks-handler` ]; then
            quirks-handler -e $PACKAGE_NAME -v
+        fi
+
+        if ! id "$NVPD_USER" > /dev/null 2>&1; then
+            # Create the user and group for nvidia-persistenced
+            adduser --system --no-create-home --home '/' \
+            --shell '/sbin/nologin' \
+            --gecos 'NVIDIA Persistence Daemon' \
+            --group "$NVPD_USER"
         fi
 
         # If the delayed module build feature is enabled

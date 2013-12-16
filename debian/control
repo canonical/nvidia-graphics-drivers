@@ -12,13 +12,14 @@ Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 Package: nvidia-331-updates
 Architecture: i386 amd64
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
- patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64],
+ patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
-Recommends: nvidia-settings (>= 331.20), nvidia-persistenced,
+Recommends: nvidia-settings (>= 331.20),
  libcuda1-331-updates, nvidia-libopencl1-331-updates, nvidia-opencl-icd-331-updates
-Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
-Conflicts: xorg-driver-binary
-Replaces: xorg-driver-binary
+Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
+ ${xviddriver:Provides}
+Conflicts: xorg-driver-binary, nvidia-persistenced
+Replaces: xorg-driver-binary, nvidia-persistenced
 Suggests: nvidia-331-updates-uvm
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library

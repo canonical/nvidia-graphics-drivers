@@ -19,6 +19,8 @@ set -e
 #        * <disappearer's-postrm> `disappear' <r>overwrit>r> <new-version>
 # for details, see /usr/share/doc/packaging-manual/
 
+NVPD_USER="nvidia-persistenced"
+
 case "$1" in
     remove|purge)
         # This should make sure that /usr/lib/nvidia-331-updates and
@@ -28,6 +30,12 @@ case "$1" in
 
         # Remove the blacklist file for hybrid graphics
         rm -f /etc/modprobe.d/nvidia-331-updates_hybrid.conf
+
+        # Remove the nvidia-persistenced user
+        if id "$NVPD_USER" > /dev/null 2>&1; then
+            stop nvidia-persistenced || true
+            userdel "$NVPD_USER"
+        fi
 
         # Update initramfs, in case we were loaded into it
         /usr/sbin/update-initramfs -u
