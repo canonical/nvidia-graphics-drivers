@@ -2,8 +2,8 @@ Source: nvidia-graphics-drivers-331
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Build-Depends: debhelper (>= 6.0.7~), sed (>> 3.0), libxext6, bzip2,
- xserver-xorg-dev (>= 2:1.4), execstack, cdbs, libc6, libxvmc1,
+Build-Depends: debhelper (>= 8.0.0), sed (>> 3.0), libxext6, bzip2,
+ xserver-xorg-dev (>= 2:1.4), execstack, libc6, libxvmc1,
  dh-modaliases, libxv1
 Standards-Version: 3.8.0
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
@@ -12,13 +12,14 @@ Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 Package: nvidia-331
 Architecture: i386 amd64
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
- patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64],
+ patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
-Recommends: nvidia-settings (>= 331.20), nvidia-persistenced,
+Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
  libcuda1-331, nvidia-libopencl1-331, nvidia-opencl-icd-331
-Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
-Conflicts: xorg-driver-binary
-Replaces: xorg-driver-binary
+Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
+ ${xviddriver:Provides}
+Conflicts: xorg-driver-binary, nvidia-persistenced
+Replaces: xorg-driver-binary, nvidia-persistenced
 Suggests: nvidia-331-uvm
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
@@ -32,7 +33,7 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-331.20-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-331.20-driver.html
  .
 
 Package: nvidia-331-dev

@@ -1,4 +1,5 @@
 /etc/modprobe.d
+/etc/init
 /usr/lib/x86_64-linux-gnu
 /usr/bin
 /usr/lib/nvidia-331/tls
@@ -21,3 +22,4 @@
 /usr/lib32/vdpau
 /lib/nvidia-331
 /usr/share/nvidia
+/lib/udev/rules.d
