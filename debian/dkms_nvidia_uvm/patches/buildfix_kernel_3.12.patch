@@ -1,0 +1,37 @@
+From f90d220381f34b3b588149f3f9d85935019e59fb Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 7 Jan 2014 16:55:45 +0100
+Subject: [PATCH 1/1] uvm: add support for Linux 3.12
+
+---
+ nvidia_uvm_linux.h |    9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/nvidia_uvm_linux.h b/nvidia_uvm_linux.h
+index e2b4620..eec6e59 100644
+--- a/nvidia_uvm_linux.h
++++ b/nvidia_uvm_linux.h
+@@ -390,11 +390,20 @@ typedef void irqreturn_t;
+ //
+ //
+ #if defined(NV_TASK_STRUCT_HAS_CRED)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,0)
++#define NV_CURRENT_EUID() \
++    (((typeof(*current->cred) __force __kernel *)current->cred)->euid.val)
++#else
+ #define NV_CURRENT_EUID() \
+     (((typeof(*current->cred) __force __kernel *)current->cred)->euid)
++#endif
++#else
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,0)
++#define NV_CURRENT_EUID() (current->euid.val)
+ #else
+ #define NV_CURRENT_EUID() (current->euid)
+ #endif
++#endif
+ 
+ #if !defined(VM_FAULT_NOPAGE)
+ #define VM_FAULT_NOPAGE 0x0100  /* ->fault installed the pte, not return page */
+-- 
+1.7.9.5
+
