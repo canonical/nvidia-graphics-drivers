@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-331 (331.20-0ubuntu8) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331 (331.20-0ubuntu8) trusty; urgency=low
 
-  * 
+  * debian/templates/nvidia-graphics-drivers-uvm.install.in,
+    debian/templates/dkms_nvidia_uvm.conf,
+    debian/dkms_nvidia_uvm/patches/buildfix_kernel_3.12.patch:
+    - Add support for Linux 3.12.
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_3.13.patch:
+    - Add support for Linux 3.13.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Jan 2014 17:08:08 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Jan 2014 14:58:56 +0100
 
 nvidia-graphics-drivers-331 (331.20-0ubuntu7) trusty; urgency=low
 
