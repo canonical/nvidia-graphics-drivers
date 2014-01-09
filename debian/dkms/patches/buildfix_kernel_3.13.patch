@@ -1,0 +1,29 @@
+From 7b0ce52930451cb8959779e9ff4e32f1a64c8884 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 9 Jan 2014 12:49:55 +0100
+Subject: [PATCH 1/1] nv-acpi.c: add support for Linux 3.13
+
+There's no need to call acpi_os_wait_events_complete() (or its
+NVIDIA equivalent) as, in 3.13, acpi_remove_notify_handler() waits
+for events to finish.
+---
+ nv-acpi.c |    2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/nv-acpi.c b/nv-acpi.c
+index 1be0059..01864e6 100644
+--- a/nv-acpi.c
++++ b/nv-acpi.c
+@@ -299,7 +299,9 @@ static int nv_acpi_remove(struct acpi_device *device, int type)
+ 
+     if (pNvAcpiObject->notify_handler_installed)
+     {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 13, 0)
+         NV_ACPI_OS_WAIT_EVENTS_COMPLETE();
++#endif
+ 
+         // remove event notifier
+         status = acpi_remove_notify_handler(device->handle, ACPI_DEVICE_NOTIFY, nv_acpi_event);
+-- 
+1.7.9.5
+
