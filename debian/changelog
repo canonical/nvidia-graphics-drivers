@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-331-updates (331.20-0ubuntu9) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331-updates (331.20-0ubuntu9) trusty; urgency=low
 
-  * 
+  * debian/dkms_nvidia_uvm/patches/buildfix_kernel_3.12.patch:
+    - Apparently the kuid change doesn't affect only Linux >= 3.12.
+      Let's check CONFIG_UIDGID_STRICT_TYPE_CHECKS and act
+      accordingly (LP: #1252664).
+      Thanks to Joseph Yasi for spotting the problem and
+      suggesting a fix.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Jan 2014 12:30:40 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Jan 2014 12:31:09 +0100
 
 nvidia-graphics-drivers-331-updates (331.20-0ubuntu8) trusty; urgency=low
 
