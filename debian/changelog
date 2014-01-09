@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.116-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304 (304.116-0ubuntu2) trusty; urgency=low
 
-  * 
+  * debian/templates/dkms.conf.in,
+    debian/dkms/patches/buildfix_kernel_3.13.patch:
+    - Add support for Linux 3.13.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Jan 2014 12:51:48 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Jan 2014 15:05:58 +0100
 
 nvidia-graphics-drivers-304 (304.116-0ubuntu1) trusty; urgency=low
 
