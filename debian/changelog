@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-304-updates (304.117-0ubuntu1) UNRELEASED; urgency=low
+nvidia-graphics-drivers-304-updates (304.117-0ubuntu1) trusty; urgency=low
 
-  * 
+  * debian/templates/control.in:
+    - Change the description of the driver. It will be more
+      usable in the UI now.
+  * debian/substvars:
+    - Add support for X ABI 15.
+  * New upstream release:
+    - Added support for X.org xserver ABI 15 (xorg-server 1.15).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Sat, 18 Jan 2014 18:48:25 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Sat, 18 Jan 2014 19:04:21 +0100
 
 nvidia-graphics-drivers-304-updates (304.116-0ubuntu2) trusty; urgency=low
 
