@@ -20,7 +20,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+Description: NVIDIA legacy binary driver - version #VERSION#
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
