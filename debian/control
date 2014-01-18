@@ -22,7 +22,7 @@ Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 Suggests: nvidia-331-uvm
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+Description: NVIDIA binary driver - version 331.38
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -33,12 +33,12 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-331.20-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-331.38-driver.html
  .
 
 Package: nvidia-331-dev
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-331 (>= 331.20)
+Depends: ${misc:Depends}, nvidia-331 (>= 331.38)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -94,7 +94,7 @@ Description: NVIDIA OpenCL ICD
 
 Package: nvidia-331-uvm
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-331 (>= 331.20)
+Depends: ${misc:Depends}, nvidia-331 (>= 331.38)
 Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 
