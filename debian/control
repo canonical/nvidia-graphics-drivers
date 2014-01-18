@@ -22,7 +22,7 @@ Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 Suggests: nvidia-331-updates-uvm
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
+Description: NVIDIA binary driver - version 331.38
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
