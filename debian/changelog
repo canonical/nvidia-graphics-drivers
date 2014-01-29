@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-331 (331.38-0ubuntu2) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331 (331.38-0ubuntu2) trusty; urgency=low
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_3.13.patch:
+    - Fix issues with PRIME (LP: #1268771).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 Jan 2014 20:22:01 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 Jan 2014 20:22:27 +0100
 
 nvidia-graphics-drivers-331 (331.38-0ubuntu1) trusty; urgency=low
 
