@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-331-updates (331.38-0ubuntu3) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331-updates (331.38-0ubuntu3) trusty; urgency=low
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_3.13.patch:
+    - Fix check for acpi_os_wait_events_complete() (LP: #1268771).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 30 Jan 2014 11:50:50 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 30 Jan 2014 11:51:20 +0100
 
 nvidia-graphics-drivers-331-updates (331.38-0ubuntu2) trusty; urgency=low
 
