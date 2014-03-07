@@ -49,9 +49,9 @@ Description: NVIDIA binary Xorg driver development files
 Package: libcuda1-331-updates
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Provides: libcuda-5.0-1
-Conflicts: libcuda-5.0-1
-Replaces: libcuda-5.0-1
+Provides: libcuda-5.0-1, libcuda-5.5-1
+Breaks: libcuda-5.0-1, libcuda-5.5-1
+Replaces: libcuda-5.0-1, libcuda-5.5-1
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
