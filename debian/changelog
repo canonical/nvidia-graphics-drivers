@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-331 (331.38-0ubuntu4) UNRELEASED; urgency=low
+nvidia-graphics-drivers-331 (331.38-0ubuntu4) trusty; urgency=low
 
-  * 
+  [ Graham Inggs ]
+  * debian/templates/nvidia-libopencl1-flavour.links*.in:
+    - Remove libOpenCL.so symlink (LP: #1260974).
+  * debian/templates/nvidia-graphics-drivers.shlibs.in,
+    debian/templates/control.in:
+    - Update for NVIDIA CUDA Toolkit 5.5.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 07 Mar 2014 12:49:29 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 07 Mar 2014 12:52:58 +0100
 
 nvidia-graphics-drivers-331 (331.38-0ubuntu3) trusty; urgency=low
 
