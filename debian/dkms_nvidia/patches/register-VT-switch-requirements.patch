@@ -1,0 +1,93 @@
+From 2be405b4145842cd1d2a1df11eeb3d49401fadf2 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Mon, 10 Mar 2014 14:53:04 +0100
+Subject: [PATCH 1/1] Register VT switch requirements
+
+Make sure to call pm_vt_switch_{required,unregister}(), so that
+the kernel knows that the driver requires a vt switch at
+suspend/resume time.
+
+This resolves a corruption issue on resume from S3 (LP: #1210077).
+
+Thanks to NVIDIA for providing the patch.
+---
+ Makefile    |    3 ++-
+ conftest.sh |   23 +++++++++++++++++++++++
+ nv.c        |    6 ++++++
+ 3 files changed, 31 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index ca5399d..8b0c77d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -130,7 +130,8 @@ COMPILE_TESTS = \
+ 	drm_available \
+ 	proc_create_data \
+ 	pde_data \
+-	proc_remove
++	proc_remove \
++	pm_vt_switch_required
+ 
+ #
+ # CFLAGS dependent on the type of builds (e.g. single/muliple module, debug)
+diff --git a/conftest.sh b/conftest.sh
+index fbaaff6..9b297ff 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -1829,6 +1829,29 @@ compile_test() {
+             fi
+         ;;
+ 
++        pm_vt_switch_required)
++            #
++            # Determine if the pm_vt_switch_required() function is present.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/pm.h>
++            void conftest_pm_vt_switch_required(void) {
++                pm_vt_switch_required();
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                rm -f conftest$$.o
++                echo "#undef NV_PM_VT_SWITCH_REQUIRED_PRESENT" | append_conftest "functions"
++                return
++            else
++                echo "#define NV_PM_VT_SWITCH_REQUIRED_PRESENT" | append_conftest "functions"
++                return
++            fi
++        ;;
++
+     esac
+ }
+ 
+diff --git a/nv.c b/nv.c
+index 343332c..b9d889c 100644
+--- a/nv.c
++++ b/nv.c
+@@ -1066,6 +1066,9 @@ int __init nvidia_init_module(void)
+ #else
+         nvl->nv_state.flags &= ~NV_FLAG_S4_AVAILABLE;
+ #endif
++#if defined(NV_PM_VT_SWITCH_REQUIRED_PRESENT)
++        pm_vt_switch_required(&nvl->dev->dev, NV_TRUE);
++#endif
+     }
+     return 0;
+ 
+@@ -1169,6 +1172,9 @@ void __exit nvidia_exit_module(void)
+ 
+         if ((dev = nvl->dev) != NULL)
+         {
++#if defined(NV_PM_VT_SWITCH_REQUIRED_PRESENT)
++            pm_vt_switch_unregister(&dev->dev);
++#endif
+             if (NV_IS_GVI_DEVICE(nv))
+             {
+                 NV_TASKQUEUE_FLUSH();
+-- 
+1.7.9.5
+
