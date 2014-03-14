@@ -1,8 +1,21 @@
-nvidia-graphics-drivers-331 (331.38-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.38-0ubuntu5) trusty; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/dkms_nvidia/patches/register-VT-switch-requirements.patch:
+    - Make sure to call pm_vt_switch_{required,unregister}(), so that
+      the kernel knows that the driver requires a vt switch at
+      suspend/resume time. This resolves a corruption issue on resume
+      from S3 (LP: #1210077).
+      Thanks to NVIDIA for the patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Mar 2014 15:41:05 +0100
+  [ Graham Inggs ]
+  * debian/templates/nvidia-graphics-drivers.shlibs.in,
+    debian/templates/libcuda1-flavour.shlibs.in,
+    debian/templates/nvidia-libopencl1-flavour.shlibs.in:
+    - Separate .shlibs for libcuda1 and nvidia-libopencl1
+      (LP: #1260974).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Mar 2014 15:55:26 +0100
 
 nvidia-graphics-drivers-331 (331.38-0ubuntu4) trusty; urgency=low
 
