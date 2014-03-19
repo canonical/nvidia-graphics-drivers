@@ -1,6 +1,9 @@
 nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.2) UNRELEASED; urgency=medium
 
-  * 
+  [ Shih-Yuan Lee (FourDollars) ]
+  * debian/nvidia_supported,
+    debian/rules:
+    - Add subsystem ID parsing support for LP: #1255813.
 
  -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Mar 2014 11:17:57 +0100
 
