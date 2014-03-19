@@ -325,10 +325,15 @@ endif
 		$(dirname)/kernel/nv-kernel.o \
 		> $(CURDIR)/debian/$(PKG_driver).modaliases
 	# Take additional card ids from a text file
-	for id in $(shell cat $(CURDIR)/debian/additional_card_ids); do \
-		printf 'alias pci:v%08Xd%08Xsv*sd*bc03sc*i* %s %s\n' \
-		0x10de "0x$$id" "$(PKG_module)" "$(PKG_driver)" \
-		>> $(CURDIR)/debian/$(PKG_driver).modaliases; done
+	while read id sid; do \
+		if [ -z $$sid ]; then \
+			printf 'alias pci:v%08Xd%08Xsv*sd*bc03sc*i* %s %s\n' \
+			0x10de "0x$$id" "$(PKG_module)" "$(PKG_driver)" \
+		;else \
+			printf 'alias pci:v%08Xd%08Xsv*sd%08Xbc03sc*i* %s %s\n' \
+			0x10de "0x$$id" "0x$$sid" "$(PKG_module)" "$(PKG_driver)" \
+		;fi \
+	done <$(CURDIR)/debian/additional_card_ids >>$(CURDIR)/debian/$(PKG_driver).modaliases
 	dh_modaliases
 	rm -f $(CURDIR)/debian/$(PKG_driver).modaliases
 
