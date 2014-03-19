@@ -1,11 +1,11 @@
-nvidia-graphics-drivers-331-updates (331.38-0ubuntu6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331-updates (331.38-0ubuntu6) trusty; urgency=medium
 
   [ Shih-Yuan Lee (FourDollars) ]
   * debian/nvidia_supported,
     debian/rules:
     - Add subsystem ID parsing support for LP: #1255813.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 17 Mar 2014 10:28:50 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 19 Mar 2014 15:57:33 +0100
 
 nvidia-graphics-drivers-331-updates (331.38-0ubuntu5) trusty; urgency=medium
 
