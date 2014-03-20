@@ -1,11 +1,22 @@
-nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.2) precise-proposed; urgency=medium
 
   [ Shih-Yuan Lee (FourDollars) ]
   * debian/nvidia_supported,
     debian/rules:
     - Add subsystem ID parsing support for LP: #1255813.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Mar 2014 11:17:57 +0100
+  [ Alberto Milone ]
+  * debian/dkms_nvidia/patches/register-VT-switch-requirements.patch:
+    - Make sure to call pm_vt_switch_{required,unregister}(), so that
+      the kernel knows that the driver requires a vt switch at
+      suspend/resume time. This resolves a corruption issue on resume
+      from S3 (LP: #1210077).
+      Thanks to NVIDIA for the patch.
+  * debian/dkms_nvidia_uvm/patches/buildfix_kernel_3.12.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_3.13.patch:
+    - Add support for Linux 3.13 (LP: #1294163).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Mar 2014 11:50:12 +0100
 
 nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.1) precise-proposed; urgency=low
 
