@@ -1,11 +1,80 @@
-nvidia-graphics-drivers-331-updates (331.38-0ubuntu0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331-updates (331.38-0ubuntu0.0.1) precise-proposed; urgency=medium
 
   [ Shih-Yuan Lee (FourDollars) ]
   * debian/nvidia_supported,
     debian/rules:
     - Add subsystem ID parsing support for LP: #1255813.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Mar 2014 11:53:01 +0100
+  [ Alberto Milone ]
+  * debian/dkms_nvidia/patches/register-VT-switch-requirements.patch:
+    - Make sure to call pm_vt_switch_{required,unregister}(), so that
+      the kernel knows that the driver requires a vt switch at
+      suspend/resume time. This resolves a corruption issue on resume
+      from S3 (LP: #1210077).
+      Thanks to NVIDIA for the patch.
+  * debian/dkms_nvidia_uvm/patches/buildfix_kernel_3.12.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_3.13.patch:
+    - Add support for Linux 3.13 (LP: #1294163).
+  * debian/substvars:
+    - Add support for X ABI 15 and lts-trusty.
+  * New upstream release:
+    - Added support for X.org xserver ABI 15 (xorg-server 1.15).
+    - Fixed a bug that caused the X server to crash if video memory
+      is exhausted and the GPU does not support rendering to system
+      memory.
+    - Updated nvidia-installer to make the --multiple-kernel-modules
+      option imply the --no-unified-memory option: Unified memory is
+      incompatible with multiple kernel modules.
+    - Updated the behavior of the nvidia-settings PowerMizer
+      Preferred Mode drop-down menu, to make the setting apply
+      consistently across all GPUs in an SLI group.
+    - Improved the robustness of the NVIDIA X driver in scenarios
+      where GPU-accessible memory for allocating pixmaps was
+      exhausted.
+    - Added NV-CONTROL attributes to control the brightness of the
+      illuminated logos on certain graphics boards.For example, to
+      turn off the illumination of the
+      GEFORCE GTX
+      lettering on the GeForce GTX 780, use
+      nvidia-settings --assign GPULogoBrightness=0
+    - Fixed a bug that prevented screen transformations from being
+      applied properly when starting X.
+    - GLX protocol for the following OpenGL extensions from OpenGL
+      2.1 and OpenGL 3.0 have been promoted from unofficial to ARB
+      approved official status:
+        GL_ARB_pixel_buffer_object
+        GL_NV_conditional_render
+        GL_ARB_map_buffer_range
+        GL_EXT_texture_integer
+        GL_ARB_vertex_array_object
+      GL_ARB_pixel_buffer_object was the last piece of protocol
+      needed to have official support for indirect rendering with all
+      OpenGL 2.1 commands.
+    - GLX Protocol for the miscellaneous OpenGL 3.0 commands not
+      associated with specific extensions has also been promoted from
+      unofficial to ARB approved status.
+    - Deprecated display mask related configuration of display
+      devices via NV-CONTROL and nvidia-settings.Display target
+      specifications should be used instead - A display target is one
+      of the display's valid names, with an optional GPU or X screen
+      qualifier.
+    - Deprecated the following NV-CONTROL attributes:
+        NV_CTRL_CONNECTED_DISPLAYS
+        NV_CTRL_ENABLED_DISPLAYS
+        NV_CTRL_ASSOCIATED_DISPLAYS
+        NV_CTRL_NOTEBOOK_INTERNAL_LCD
+        NV_CTRL_FRAMELOCK_MASTER
+        NV_CTRL_FRAMELOCK_SLAVES
+        NV_CTRL_FRAMELOCK_MASTERABLE
+        NV_CTRL_FRAMELOCK_SLAVEABLE
+      Also, although NV_CTRL_PROBE_DISPLAYS is still operational, the
+      return value has been deprecated and should not be used.
+    - Added deprecation warning messages in nvidia-settings when
+      deprecated attributes are used.This also includes display mask
+      usage.
+
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Mar 2014 13:08:57 +0100
 
 nvidia-graphics-drivers-331-updates (331.20-0ubuntu0.0.1) precise-proposed; urgency=low
 
