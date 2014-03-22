@@ -1,0 +1,43 @@
+diff --git a/nv-acpi.c b/nv-acpi.c
+index b0138cd..1ee05bd 100644
+--- a/nv-acpi.c
++++ b/nv-acpi.c
+@@ -48,6 +48,12 @@ static const struct acpi_device_id nv_video_device_ids[] = {
+ };
+ #endif
+ 
++#ifndef DEVICE_ACPI_HANDLE
++#ifdef ACPI_HANDLE
++#define DEVICE_ACPI_HANDLE ACPI_HANDLE
++#endif
++#endif
++
+ static struct acpi_driver *nv_acpi_driver;
+ static acpi_handle nvif_handle = NULL;
+ static acpi_handle nvif_parent_gpu_handle  = NULL;
+@@ -303,7 +309,9 @@ static int nv_acpi_remove(struct acpi_device *device, int type)
+ 
+     if (pNvAcpiObject->notify_handler_installed)
+     {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 13, 0)
+         NV_ACPI_OS_WAIT_EVENTS_COMPLETE();
++#endif
+ 
+         // remove event notifier
+         status = acpi_remove_notify_handler(device->handle, ACPI_DEVICE_NOTIFY, nv_acpi_event);
+diff --git a/nv-linux.h b/nv-linux.h
+index 8d5d04b..7825518 100644
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -267,7 +267,11 @@ extern int nv_pat_mode;
+ 
+ #if !defined(NV_VMWARE) && defined(CONFIG_ACPI)
+ #include <acpi/acpi.h>
++#include <linux/acpi.h>
+ #include <acpi/acpi_drivers.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 14, 0)
++#include <acpi/acpi_bus.h>
++#endif
+ #if defined(NV_ACPI_DEVICE_OPS_HAS_MATCH) || defined(ACPI_VIDEO_HID)
+ #define NV_LINUX_ACPI_EVENTS_SUPPORTED 1
+ #endif
