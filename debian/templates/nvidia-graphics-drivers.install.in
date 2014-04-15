@@ -15,7 +15,7 @@ debian/nvidia-persistenced.conf              etc/init
 #DIRNAME#/libnv*.so*                  #PKGLIBDIR#
 
 #DIRNAME#/libvdpau_nvidia.so*   #PKGVDPAUDIR#
-#DIRNAME#/tls/*.so*                   #PKGTLSDIR#
+#ARM_EXCLUDED##DIRNAME#/tls/*.so*                   #PKGTLSDIR#
 
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/#DRIVERNAME#-#VERSION#
 debian/dkms_nvidia/patches/*                  usr/src/#DRIVERNAME#-#VERSION#/patches
