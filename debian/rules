@@ -39,10 +39,13 @@ pm_alt_priority      := 8603
 # Installer details
 dirname_x86          ?= NVIDIA-Linux-x86-$(PKG_version)
 dirname_x86_64       ?= NVIDIA-Linux-x86_64-$(PKG_version)-no-compat32
+dirname_armhf        ?= NVIDIA-Linux-armv7l-gnueabihf-$(PKG_version)
 filename_x86         := $(dirname_x86).run
 filename_x86_64      := $(dirname_x86_64).run
+filename_armhf       := $(dirname_armhf).run
 url_x86              := http://us.download.nvidia.com/XFree86/Linux-x86/$(PKG_version)/$(filename_x86)
 url_x86_64           := http://us.download.nvidia.com/XFree86/Linux-x86_64/$(PKG_version)/$(filename_x86_64)
+url_armhf            := http://us.download.nvidia.com/XFree86/Linux-x86-ARM/$(PKG_version)/$(filename_armhf)
 
 ifeq ($(DEB_BUILD_ARCH),amd64)
 filename             := $(filename_x86_64)
@@ -50,10 +53,18 @@ dirname              := $(dirname_x86_64)
 url                  := $(url_x86_64)
 web_arch             := amd64
 else
+ifeq ($(DEB_BUILD_ARCH),armhf)
+filename             := $(filename_armhf)
+dirname              := $(dirname_armhf)
+url                  := $(url_armhf)
+web_arch             := 32bit-arm
+arm_excluded         := \#
+else
 filename             := $(filename_x86)
 dirname              := $(dirname_x86)
 url                  := $(url_x86)
 web_arch             := ia32
+endif
 endif
 
 release_notes        := http://www.nvidia.com/object/linux-display-$(web_arch)-$(PKG_version)-driver.html
@@ -160,9 +171,9 @@ override_dh_shlibdeps:
 .PHONY: get-orig-source
 get-orig-source:
 	# Remove any previous installers
-	rm -f NVIDIA-Linux-x86*
+	rm -f NVIDIA-Linux-*.run
 	# Downloads the installers from NVIDIA's website
-	wget $(url_x86) $(url_x86_64)
+	wget $(url_x86) $(url_x86_64) $(url_armhf)
 
 .PHONY: gen-abi-substvars
 gen-abi-substvars:
@@ -237,6 +248,7 @@ regen-from-templates:
 			-e "s|#OTHER_ARCH#|$(OTHER_ARCH)|g" \
 			-e "s|#RELEASENOTES#|$(release_notes)|g" \
 			-e "s|#NVIDIASHARE#|$(nvidia_share)|g" \
+			-e "s|#ARM_EXCLUDED#|$(arm_excluded)|g" \
 			$$i > $$dest;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
@@ -268,7 +280,7 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 endif
 
 override_dh_auto_configure:
-	rm -rf $(dirname_x86) $(dirname_x86_64)
+	rm -rf $(dirname_x86) $(dirname_x86_64) $(dirname_armhf)
 
 	# Extract the installers
 	sh $(filename) --extract-only
@@ -277,10 +289,12 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	sh $(filename_x86) --extract-only
 endif
 
+ifneq ($(DEB_BUILD_ARCH),armhf)
 	# Temporarily rename libnvidia-opencl so that the .install file does
 	# not catch it, as $(PKG_libcuda1) will instead
 	mv $(CURDIR)/$(dirname)/libnvidia-opencl.so.$(PKG_version) \
 	   $(CURDIR)/$(dirname)/_libnvidia-opencl.so.$(PKG_version)
+endif
 
 	# Get around Xen checks
 	mv $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
@@ -358,9 +372,11 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	   $(CURDIR)/$(dirname_x86)/libnvidia-opencl.so.$(PKG_version)
 endif
 
+ifneq ($(DEB_BUILD_ARCH),armhf)
 	# Move libnvidia-opencl back
 	mv $(CURDIR)/$(dirname)/_libnvidia-opencl.so.$(PKG_version) \
 	   $(CURDIR)/$(dirname)/libnvidia-opencl.so.$(PKG_version)
+endif
 
 	# Generate modaliases for Jockey and nvidia-common
 	mkdir -p $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/
@@ -456,7 +472,7 @@ override_dh_clean: regen-from-templates
 #			rm -f $(CURDIR)/debian/`basename $$file | sed 's/\.in\$$//'`; \
 #		fi \
 #	done
-	rm -fr $(CURDIR)/$(dirname_x86) $(CURDIR)/$(dirname_x86_64)
+	rm -fr $(CURDIR)/$(dirname_x86) $(CURDIR)/$(dirname_x86_64) $(CURDIR)/$(dirname_armhf)
 	rm -fr debian/temp
 	rm -f debian/$(PKG_driver).substvars
 

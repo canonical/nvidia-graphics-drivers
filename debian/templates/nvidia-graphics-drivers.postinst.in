@@ -24,6 +24,9 @@ case $ARCH in
     i386)
         ARCH="i686"
         ;;
+    armhf)
+        ARCH="armhf"
+        ;;
     *)
         echo "WARNING: unsupported arch: $ARCH"
         ARCH="$ARCH"
@@ -167,17 +170,19 @@ case "$1" in
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
 
-        # Install just the ld.so.conf.d alternative for the secondary architecture.
-        # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
-        update-alternatives --force \
-            --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
+        if [ "$ARCH" != "armhf" ]; then
+            # Install just the ld.so.conf.d alternative for the secondary architecture.
+            # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
+            update-alternatives --force \
+                --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
 
-        # Install just the ld.so.conf.d alternative for PRIME for the
-        # secondary architecture.
-        # We need to ensure that the NVIDIA libraries for the other
-        # architecture are not used.
-        update-alternatives --force \
-            --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
+            # Install just the ld.so.conf.d alternative for PRIME for the
+            # secondary architecture.
+            # We need to ensure that the NVIDIA libraries for the other
+            # architecture are not used.
+            update-alternatives --force \
+                --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
+        fi
 
         # Make sure glamoregl is disabled
         update-alternatives --force \
