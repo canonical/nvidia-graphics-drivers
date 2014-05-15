@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.117-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.117-0ubuntu2) utopic; urgency=medium
 
-  * 
+  * debian/templates/dkms.conf.in,
+    debian/dkms/patches/buildfix_kernel_3.14.patch:
+    - Add support for Linux 3.14.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 May 2014 10:42:20 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 May 2014 11:16:32 +0200
 
 nvidia-graphics-drivers-304 (304.117-0ubuntu1) trusty; urgency=low
 
