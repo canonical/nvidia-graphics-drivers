@@ -1,0 +1,27 @@
+From 2f72af34b80dea510dd17cd7f3df41cfd304d8a0 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 15 May 2014 10:54:53 +0200
+Subject: [PATCH 1/1] Add support for Linux 3.14
+
+---
+ nv-linux.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/nv-linux.h b/nv-linux.h
+index 0e1a5a7..09c5c9c 100644
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -291,6 +291,10 @@ extern int nv_pat_mode;
+ #if !defined(NV_VMWARE) && defined(CONFIG_ACPI)
+ #include <acpi/acpi.h>
+ #include <acpi/acpi_drivers.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 14, 0)
++#include <linux/acpi.h>
++#include <acpi/acpi_bus.h>
++#endif
+ #if defined(NV_ACPI_DEVICE_OPS_HAS_MATCH) || defined(ACPI_VIDEO_HID)
+ #define NV_LINUX_ACPI_EVENTS_SUPPORTED 1
+ #endif
+-- 
+1.9.1
+
