@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-331 (331.38-0ubuntu8) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.38-0ubuntu8) utopic; urgency=medium
 
-  * 
+  [ Graham Inggs ]
+  * debian/templates/control.in, package nvidia-opencl-icd-*:
+    - Remove breaks/replaces on opencl-icd (LP: #1247736).
+    - Depend on ocl-icd-libopencl1 | nvidia-libopencl1-*.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 22 May 2014 15:57:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 22 May 2014 16:03:40 +0200
 
 nvidia-graphics-drivers-331 (331.38-0ubuntu7) trusty; urgency=medium
 
