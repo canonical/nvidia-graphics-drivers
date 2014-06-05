@@ -8,25 +8,25 @@ debian/69-nvidia-persistenced.rules          lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/nvidia-persistenced.conf              etc/init
 
-NVIDIA-Linux-x86-331.38/nvidia_drv.so /usr/lib/nvidia-331-updates/xorg
-NVIDIA-Linux-x86-331.38/libglx.so.331.38 /usr/lib/nvidia-331-updates/xorg
+NVIDIA-Linux-x86-331.79/nvidia_drv.so /usr/lib/nvidia-331-updates/xorg
+NVIDIA-Linux-x86-331.79/libglx.so.331.79 /usr/lib/nvidia-331-updates/xorg
 
-NVIDIA-Linux-x86-331.38/libGL*.so*                  /usr/lib/nvidia-331-updates
-NVIDIA-Linux-x86-331.38/libnv*.so*                  /usr/lib/nvidia-331-updates
+NVIDIA-Linux-x86-331.79/libGL*.so*                  /usr/lib/nvidia-331-updates
+NVIDIA-Linux-x86-331.79/libnv*.so*                  /usr/lib/nvidia-331-updates
 
-NVIDIA-Linux-x86-331.38/libvdpau_nvidia.so*   /usr/lib/nvidia-331-updates/vdpau
-NVIDIA-Linux-x86-331.38/tls/*.so*                   /usr/lib/nvidia-331-updates/tls
+NVIDIA-Linux-x86-331.79/libvdpau_nvidia.so*   /usr/lib/nvidia-331-updates/vdpau
+NVIDIA-Linux-x86-331.79/tls/*.so*                   /usr/lib/nvidia-331-updates/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-331-updates-331.38
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-331-updates-331.38/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-331-updates-331.38
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-331-updates-331.79
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-331-updates-331.79/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-331-updates-331.79
 
-NVIDIA-Linux-x86-331.38/nvidia-bug-report.sh /usr/lib/nvidia-331-updates/bin
-NVIDIA-Linux-x86-331.38/nvidia-xconfig /usr/lib/nvidia-331-updates/bin
-NVIDIA-Linux-x86-331.38/nvidia-smi /usr/lib/nvidia-331-updates/bin
-NVIDIA-Linux-x86-331.38/nvidia-debugdump /usr/lib/nvidia-331-updates/bin
-NVIDIA-Linux-x86-331.38/nvidia-cuda-mps-control /usr/lib/nvidia-331-updates/bin
-NVIDIA-Linux-x86-331.38/nvidia-cuda-mps-server /usr/lib/nvidia-331-updates/bin
-NVIDIA-Linux-x86-331.38/nvidia-persistenced /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-bug-report.sh /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-xconfig /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-smi /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-debugdump /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-cuda-mps-control /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-cuda-mps-server /usr/lib/nvidia-331-updates/bin
+NVIDIA-Linux-x86-331.79/nvidia-persistenced /usr/lib/nvidia-331-updates/bin
 
-NVIDIA-Linux-x86-331.38/nvidia-application-profiles-331.38-rc /usr/share/nvidia-331-updates
+NVIDIA-Linux-x86-331.79/nvidia-application-profiles-331.79-rc /usr/share/nvidia-331-updates

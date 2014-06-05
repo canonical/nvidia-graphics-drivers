@@ -1,49 +1,49 @@
-nvidia-331-updates: library-not-linked-against-libc ./usr/lib/libGL.so.331.38
+nvidia-331-updates: library-not-linked-against-libc ./usr/lib/libGL.so.331.79
 
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.331.38
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.331.79
 
-nvidia-331-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.331.38
+nvidia-331-updates: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.331.79
 
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/libGL.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.331.38
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/libGL.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/libGLcore.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.331.79
 
-nvidia-331-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.331.38 usr/lib/libGL.so
-nvidia-331-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.331.38 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-331-updates: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.331.79 usr/lib/libGL.so
+nvidia-331-updates: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.331.79 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-331-updates: script-not-executable usr/src/nvidia-331-updates-331.38/conftest.sh
+nvidia-331-updates: script-not-executable usr/src/nvidia-331-updates-331.79/conftest.sh
 nvidia-331-updates: maintainer-script-ignores-errors prerm
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libGL.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libGL.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libGLcore.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libGLcore.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libcuda.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libcuda.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libnvidia-cfg.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libnvidia-cfg.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libvdpau.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/vdpau/libvdpau_nvidia.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/vdpau/libvdpau_nvidia.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/vdpau/libvdpau_trace.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/xorg/libglx.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/xorg/libglx.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.331.38
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libGL.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libGL.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libGLcore.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libGLcore.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libcuda.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libcuda.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libnvidia-cfg.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libnvidia-cfg.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/libvdpau.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/vdpau/libvdpau_nvidia.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/vdpau/libvdpau_nvidia.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/vdpau/libvdpau_trace.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/nvidia-331-updates/xorg/libglx.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-331-updates/xorg/libglx.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.331.79
 nvidia-331-updates: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-331-updates: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-331-updates: prerm-calls-ldconfig
 nvidia-331-updates: copyright-without-copyright-notice
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/libnvidia-tls.so.331.38
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.331.38
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/libnvidia-tls.so.331.79
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.331.79
 nvidia-331-updates: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -60,21 +60,21 @@ nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-331-updates-modaliases: copyright-without-copyright-notice
 
-nvidia-331-updates: script-not-executable ./usr/src/nvidia-331-updates-331.38/conftest.sh
+nvidia-331-updates: script-not-executable ./usr/src/nvidia-331-updates-331.79/conftest.sh
 nvidia-331-updates: maintainer-script-ignores-errors prerm
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libGL.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libGLcore.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libcuda.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libnvidia-cfg.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libvdpau_nvidia.so.331.38
-nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-331-updates/tls/libnvidia-tls.so.331.38
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libGL.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libGLcore.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libcuda.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libnvidia-cfg.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/libvdpau_nvidia.so.331.79
+nvidia-331-updates: shlib-with-non-pic-code usr/lib32/nvidia-331-updates/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-331-updates/tls/libnvidia-tls.so.331.79
 
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/libnvidia-tls.so.331.38
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.331.38
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-331-updates/libnvidia-tls.so.331.38
-nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-331-updates/tls/libnvidia-tls.so.331.38
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/libnvidia-tls.so.331.79
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/nvidia-331-updates/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.331.79
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-331-updates/libnvidia-tls.so.331.79
+nvidia-331-updates: shared-lib-without-dependency-information ./usr/lib32/nvidia-331-updates/tls/libnvidia-tls.so.331.79
 
 
