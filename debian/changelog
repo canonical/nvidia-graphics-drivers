@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304 (304.117-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.117-0ubuntu3) utopic; urgency=medium
 
-  * 
+  [ Graham Inggs ]
+  * debian/templates/control.in:
+    - Remove conflicts/replaces on opencl-icd, and depend on
+      ocl-icd-libopencl1 | nvidia-libopencl1-* (LP: #1247736).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 09 Jun 2014 15:29:42 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 09 Jun 2014 15:33:44 +0200
 
 nvidia-graphics-drivers-304 (304.117-0ubuntu2) utopic; urgency=medium
 
