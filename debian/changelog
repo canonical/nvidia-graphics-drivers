@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-304-updates (304.117-0ubuntu2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 27 Jun 2014 09:46:18 +0200
+
 nvidia-graphics-drivers-304-updates (304.117-0ubuntu1) trusty; urgency=low
 
   * debian/templates/control.in:
