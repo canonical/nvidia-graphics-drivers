@@ -1,8 +1,30 @@
-nvidia-graphics-drivers-331-updates (331.89-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331-updates (331.89-0ubuntu1) utopic; urgency=medium
 
-  * 
+  * debian/substvars:
+    - Add support for X ABI 18.
+  * New upstream release:
+    - Added support for the following GPU:
+      o GeForce GT 730
+  * Fixed a race condition in the NVIDIA kernel module that caused
+    some GPUs to sporadically become unresponsive.
+  * Updated the error reporting in the NVIDIA kernel module to
+    include the GPU serial number, when available, in error messages
+    written to the system log.
+  * Fixed a bug that caused blank screens when transforming or
+    rotating displays in an SLI Mosaic layout.
+  * Fixed a bug that corrupted certain software rendering on 32-bit
+    systems.
+  * Improved compatibility with recent Linux kernels.
+  * Fixed a bug that could result in system instability while
+    restoring the VGA console.
+  * Fixed an interaction problem with xserver 1.15 that occasionally
+    caused OpenGL applications to continue rendering when they are
+    minimized or unmapped.
+  * Updated nvidia-bug-report.sh to search the systemd journal for X
+    server logs and messages from the NVIDIA kernel module.
+  * Added support for X.org xserver ABI 18 (xorg-server 1.16).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Jul 2014 10:23:01 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Jul 2014 10:25:43 +0200
 
 nvidia-graphics-drivers-331-updates (331.79-0ubuntu1) utopic; urgency=medium
 
