@@ -5,7 +5,6 @@
 /usr/lib/nvidia-331-updates/tls
 /usr/lib/nvidia-331-updates/bin
 /usr/lib/nvidia-331-updates
-/usr/lib32/nvidia-331-updates
 /usr/lib/nvidia-331-updates-prime
 /usr/lib/xorg/modules/drivers
 /usr/lib/xorg/modules/extensions
@@ -16,10 +15,9 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-331-updates/xorg
 /usr/lib/nvidia-331-updates/xorg
-/usr/src/nvidia-331-updates-331.79
-/usr/src/nvidia-331-updates-331.79/patches
+/usr/src/nvidia-331-updates-331.89
+/usr/src/nvidia-331-updates-331.89/patches
 /usr/lib/vdpau
-/usr/lib32/vdpau
 /lib/nvidia-331-updates
 /usr/share/nvidia
 /lib/udev/rules.d
