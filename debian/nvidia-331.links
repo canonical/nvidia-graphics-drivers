@@ -1,25 +1,25 @@
-/usr/lib/nvidia-331/libGL.so.331.79 /usr/lib/nvidia-331/libGL.so.1
+/usr/lib/nvidia-331/libGL.so.331.89 /usr/lib/nvidia-331/libGL.so.1
 /usr/lib/nvidia-331/libGL.so.1 /usr/lib/nvidia-331/libGL.so
 
-/usr/lib/nvidia-331/libnvidia-cfg.so.331.79 /usr/lib/nvidia-331/libnvidia-cfg.so.1
+/usr/lib/nvidia-331/libnvidia-cfg.so.331.89 /usr/lib/nvidia-331/libnvidia-cfg.so.1
 /usr/lib/nvidia-331/libnvidia-cfg.so.1 /usr/lib/nvidia-331/libnvidia-cfg.so
 
-/usr/lib/nvidia-331/xorg/libglx.so.331.79 /usr/lib/nvidia-331/xorg/libglx.so
+/usr/lib/nvidia-331/xorg/libglx.so.331.89 /usr/lib/nvidia-331/xorg/libglx.so
 
-/usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.331.79 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.1
+/usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.331.89 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-331/vdpau/libvdpau_nvidia.so 
 
-/usr/lib/nvidia-331/libnvidia-compiler.so.331.79 /usr/lib/nvidia-331/libnvidia-compiler.so.1
+/usr/lib/nvidia-331/libnvidia-compiler.so.331.89 /usr/lib/nvidia-331/libnvidia-compiler.so.1
 /usr/lib/nvidia-331/libnvidia-compiler.so.1 /usr/lib/nvidia-331/libnvidia-compiler.so
 
-/usr/lib/nvidia-331/libnvidia-ml.so.331.79 /usr/lib/nvidia-331/libnvidia-ml.so.1
+/usr/lib/nvidia-331/libnvidia-ml.so.331.89 /usr/lib/nvidia-331/libnvidia-ml.so.1
 /usr/lib/nvidia-331/libnvidia-ml.so.1 /usr/lib/nvidia-331/libnvidia-ml.so
 
-/usr/lib/nvidia-331/libnvcuvid.so.331.79 /usr/lib/nvidia-331/libnvcuvid.so.1
+/usr/lib/nvidia-331/libnvcuvid.so.331.89 /usr/lib/nvidia-331/libnvcuvid.so.1
 /usr/lib/nvidia-331/libnvcuvid.so.1 /usr/lib/nvidia-331/libnvcuvid.so
 
-/usr/lib/nvidia-331/libnvidia-encode.so.331.79 /usr/lib/nvidia-331/libnvidia-encode.so.1
+/usr/lib/nvidia-331/libnvidia-encode.so.331.89 /usr/lib/nvidia-331/libnvidia-encode.so.1
 /usr/lib/nvidia-331/libnvidia-encode.so.1 /usr/lib/nvidia-331/libnvidia-encode.so
 
-/usr/lib/nvidia-331/libnvidia-ifr.so.331.79 /usr/lib/nvidia-331/libnvidia-ifr.so.1
+/usr/lib/nvidia-331/libnvidia-ifr.so.331.89 /usr/lib/nvidia-331/libnvidia-ifr.so.1
 /usr/lib/nvidia-331/libnvidia-ifr.so.1 /usr/lib/nvidia-331/libnvidia-ifr.so
