@@ -4,6 +4,8 @@ debian/#DRIVERNAME#.grub-gfxpayload          #PKGDATADIR#
 
 debian/glamor.conf                           #PKGDATADIR#
 
+debian/71-nvidia.rules                       lib/udev/rules.d
+
 #DIRNAME#/nvidia_drv.so #PKGDRIVERSDIR#
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
