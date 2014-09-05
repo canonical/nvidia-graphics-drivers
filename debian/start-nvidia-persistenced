@@ -1,5 +1,3 @@
 #!/bin/sh
-# Give bbswitch some time to load and perform its operations
-sleep 10
-# Finally tell nvidia-persistenced it can start
-/sbin/initctl emit bbswitch-ready
+# Start nvidia-persistenced
+exec /usr/bin/nvidia-persistenced --user nvidia-persistenced
