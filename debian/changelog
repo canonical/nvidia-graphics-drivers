@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.123-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.123-0ubuntu3) utopic; urgency=medium
 
-  * 
+  * debian/71-nvidia.rules,
+    debian/templates/nvidia-graphics-drivers.install.in:
+    - Tag devices for logind (LP: #1365336).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Sep 2014 15:04:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Sep 2014 15:19:01 +0200
 
 nvidia-graphics-drivers-304 (304.123-0ubuntu2) utopic; urgency=medium
 
