@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-331-updates (331.89-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331-updates (331.89-0ubuntu3) utopic; urgency=medium
 
-  * 
+  * debian/71-nvidia.rules, debian/nvidia-persistenced.conf,
+    debian/start-nvidia-persistenced, debian/stop-nvidia-persistenced,
+    debian/templates/nvidia-graphics-drivers.install.in:
+    - Tag devices for logind (LP: #1365336).
+    - Start and stop nvidia-persistenced using udev rules. This
+      gets rid of the upstart job.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Sep 2014 15:00:31 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Sep 2014 15:01:18 +0200
 
 nvidia-graphics-drivers-331-updates (331.89-0ubuntu2) utopic; urgency=medium
 
