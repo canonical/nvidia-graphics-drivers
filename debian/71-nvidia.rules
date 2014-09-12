@@ -1,3 +1,3 @@
 # Tag the device as master-of-seat so that logind is happy
 # (see LP: #1365336)
-SUBSYSTEM=="drm", KERNEL=="card[0-9]*", ATTRS{vendor}=="0x10de", DRIVERS=="nvidia", TAG+="master-of-seat"
+SUBSYSTEM=="pci", ATTRS{vendor}=="0x10de", DRIVERS=="nvidia", TAG+="seat", TAG+="master-of-seat"
