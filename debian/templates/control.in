@@ -15,12 +15,11 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- #LIBCUDA1#, #LIBOPENCL1#, #OPENCLICD#
+ #LIBCUDA1#, #OPENCLICD#, #DRIVERUVMNAME#
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
-Suggests: #DRIVERUVMNAME#
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary driver - version #VERSION#
  The binary driver provide optimized hardware acceleration of OpenGL
@@ -81,7 +80,9 @@ Package: #OPENCLICD#
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | #LIBOPENCL1#
 Enhances: libopencl1
-Provides: opencl-icd
+Conflicts: nvidia-opencl-icd
+Replaces: nvidia-opencl-icd
+Provides: nvidia-opencl-icd, opencl-icd
 Description: NVIDIA OpenCL ICD
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -93,6 +94,9 @@ Description: NVIDIA OpenCL ICD
 Package: #DRIVERUVMNAME#
 Architecture: i386 amd64 armhf
 Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
+Conflicts: nvidia-uvm
+Replaces: nvidia-uvm
+Provides: nvidia-uvm
 Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 
