@@ -1,8 +1,21 @@
-nvidia-graphics-drivers-331 (331.89-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.89-0ubuntu4) utopic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/71-nvidia.rules:
+    - Make the rule more generic.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Sep 2014 09:57:37 +0200
+  [ Graham Inggs ]
+  * debian/templates/control.in:
+    - Drop the recommends on nvidia-libopencl1-$flavour,
+      as nvidia-opencl-icd-$flavour already has its own
+      dependencies.
+    - Recommend the uvm driver instead of suggesting it.
+    - Create the 'nvidia-opencl-icd' and the 'nvidia-uvm'
+      virtual packages so that the real packages stop
+      trying to overwrite each other's files
+      (LP: #1328762, LP: #1347926).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 12 Sep 2014 16:34:08 +0200
 
 nvidia-graphics-drivers-331 (331.89-0ubuntu3) utopic; urgency=medium
 
