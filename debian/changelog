@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-304-updates (304.123-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304-updates (304.123-0ubuntu3) utopic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/71-nvidia.rules:
+    - Make the rule more generic.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 12 Sep 2014 16:13:12 +0200
+  [ Graham Inggs ]
+  * debian/templates/nvidia-libopencl1-flavour.links.in:
+    - Remove link to libOpenCL.so.1 (LP: #1260974).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 12 Sep 2014 16:14:51 +0200
 
 nvidia-graphics-drivers-304-updates (304.123-0ubuntu2) utopic; urgency=medium
 
