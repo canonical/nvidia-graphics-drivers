@@ -79,10 +79,11 @@ Description: NVIDIA OpenCL Driver and ICD Loader library
 
 Package: #OPENCLICD#
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Provides: opencl-icd
-Conflicts: opencl-icd
-Replaces: opencl-icd
+Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | #LIBOPENCL1#
+Enhances: libopencl1
+Conflicts: nvidia-opencl-icd
+Replaces: nvidia-opencl-icd
+Provides: nvidia-opencl-icd, opencl-icd
 Description: NVIDIA OpenCL ICD
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
