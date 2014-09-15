@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-304 (304.123-0ubuntu0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.123-0ubuntu0.0.1) precise-proposed; urgency=medium
 
-  * 
+  * debian/substvars:
+    - Add support for X ABIs 15 and 18 and for lts-trusty (LP: #1294163).
+  * New upstream release:
+    - Improved compatibility with recent Linux kernels (LP: #1294163).
+    - Fixed a bug that could result in system instability while
+      restoring the VGA console.
+    - Fixed an interaction problem with xserver 1.15 that
+      occasionally caused OpenGL applications to continue rendering
+      when they are minimized or unmapped.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      X server logs and messages from the NVIDIA kernel module.
+    - Added support for X.org xserver ABI 18 (xorg-server 1.16).
+    - Fixed a bug that caused corruption or blank screens on monitors
+      that use EDID version 1.3 or older when they are connected via
+      DisplayPort on graphics boards that use external DisplayPort
+      encoders, such as the Quadro FX 4800.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Sep 2014 16:09:47 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Sep 2014 16:17:18 +0200
 
 nvidia-graphics-drivers-304 (304.116-0ubuntu0.0.1) precise-proposed; urgency=low
 
