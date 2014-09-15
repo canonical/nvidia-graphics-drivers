@@ -352,6 +352,7 @@ endif
 
 override_dh_install: gen-abi-substvars
 	dh_install -p$(PKG_driver)
+	dh_install -p$(PKG_driver_dev)
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	#32 bit libraries on 64 bit
 	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)"
