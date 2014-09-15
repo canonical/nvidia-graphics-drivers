@@ -81,7 +81,9 @@ Package: #OPENCLICD#
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | #LIBOPENCL1#
 Enhances: libopencl1
-Provides: opencl-icd
+Conflicts: nvidia-opencl-icd
+Replaces: nvidia-opencl-icd
+Provides: nvidia-opencl-icd, opencl-icd
 Description: NVIDIA OpenCL ICD
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
