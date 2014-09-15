@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304 (304.123-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.123-0ubuntu5) utopic; urgency=medium
 
-  * 
+  * debian/templates/control.in
+    - Add the nvidia-opencl-icd virtual package.
+    - Drop dependency on nvidia-libopencl1-$flavour.
+    Thanks to Graham Inggs for both changes.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Sep 2014 10:50:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Sep 2014 11:28:15 +0200
 
 nvidia-graphics-drivers-304 (304.123-0ubuntu4) utopic; urgency=medium
 
