@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-331 (331.89-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.89-0ubuntu5) utopic; urgency=medium
 
-  * 
+  [ Graham Inggs ]
+  * debian/templates/control.in,
+    debian/templates/nvidia-graphics-drivers.shlibs.in:
+    - Add virtual packages for CUDA 6.0 (LP: #1346220).
+  * debian/rules:
+    - Make sure to install the files into -dev package (LP: #1335942).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Sep 2014 10:33:24 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Sep 2014 10:34:42 +0200
 
 nvidia-graphics-drivers-331 (331.89-0ubuntu4) utopic; urgency=medium
 
