@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-331-updates (331.89-0ubuntu6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331-updates (331.89-0ubuntu6) vivid; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_3.18.patch:
+    - Add support for Linux 3.18.
+      Thanks to Rico Tzschichholz for recommending the patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Nov 2014 16:30:39 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Nov 2014 16:31:25 +0100
 
 nvidia-graphics-drivers-331-updates (331.89-0ubuntu5) utopic; urgency=medium
 
