@@ -1,0 +1,27 @@
+From 43233f997193b09e9764b5cf22ad286397d2c3dc Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 6 Nov 2014 16:10:57 +0100
+Subject: [PATCH 1/1] nv-drm.c: include drm/drm_gem.h
+
+This is needed in Linux 3.18 or higher
+---
+ nv-drm.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/nv-drm.c b/nv-drm.c
+index fb8d1bd..fb2a027 100644
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -17,6 +17,9 @@
+ #if defined(NV_DRM_AVAILABLE)
+ 
+ #include <drm/drmP.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
++#include <drm/drm_gem.h>
++#endif
+ 
+ extern nv_linux_state_t *nv_linux_devices;
+ 
+-- 
+1.9.1
+
