@@ -1,3 +1,3 @@
-debian/temp/modules/nvidia-uvm-kernel/uvm/*    usr/src/nvidia-331-updates-uvm-331.38
-debian/dkms_nvidia_uvm/patches/*               usr/src/nvidia-331-updates-uvm-331.38/patches
-debian/dkms_nvidia_uvm/dkms.conf               usr/src/nvidia-331-updates-uvm-331.38
+debian/temp/modules/nvidia-uvm-kernel/uvm/*    usr/src/nvidia-331-updates-uvm-331.113
+debian/dkms_nvidia_uvm/patches/*               usr/src/nvidia-331-updates-uvm-331.113/patches
+debian/dkms_nvidia_uvm/dkms.conf               usr/src/nvidia-331-updates-uvm-331.113
