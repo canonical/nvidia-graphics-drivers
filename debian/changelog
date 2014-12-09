@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-331 (331.113-0ubuntu0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.113-0ubuntu0.0.1) trusty-security; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/substvars:
+    - Add support for video ABIs up to 19.
+  * debian/templates/control.in:
+    - Make libcuda1-$flavour depend on nvidia-$flavour-uvm.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop all the patches.
+  * SECURITY UPDATE:
+    - CVE-2014-8091, CVE-2014-8098, CVE-2014-8298 (LP: #1400673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 16:25:16 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 16:26:55 +0100
 
 nvidia-graphics-drivers-331 (331.38-0ubuntu7.1) trusty; urgency=medium
 
