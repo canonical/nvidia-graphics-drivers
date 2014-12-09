@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304-updates (304.125-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304-updates (304.125-0ubuntu1) vivid; urgency=medium
 
-  * 
+  * New upstream release.
+  * debian/substvars:
+    - Add support for video ABIs up to 19.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 17:42:35 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 17:53:44 +0100
 
 nvidia-graphics-drivers-304-updates (304.123-0ubuntu4) utopic; urgency=medium
 
