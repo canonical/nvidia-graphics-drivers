@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-304 (304.125-0ubuntu0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.125-0ubuntu0.0.1) trusty-security; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release.
+  * debian/substvars:
+    - Add support for video ABIs up to 19.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop the patches for recent kernels.
+  * SECURITY UPDATE:
+    - CVE-2014-8091, CVE-2014-8098, CVE-2014-8298 (LP: #1400673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 18:29:10 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 18:42:30 +0100
 
 nvidia-graphics-drivers-304 (304.117-0ubuntu1) trusty; urgency=low
 
