@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-331 (331.113-0ubuntu0.0.0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.113-0ubuntu0.0.0.1) precise-security; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/substvars:
+    - Add support for video ABIs up to 19.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop all the patches.
+  * SECURITY UPDATE:
+    - CVE-2014-8091, CVE-2014-8098, CVE-2014-8298 (LP: #1400673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 11:34:39 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 12:10:46 +0100
 
 nvidia-graphics-drivers-331 (331.20-0ubuntu0.0.2) precise-proposed; urgency=medium
 
