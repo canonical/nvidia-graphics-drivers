@@ -1,3 +1,13 @@
+nvidia-graphics-drivers-331-updates (331.38-0ubuntu7.1) trusty; urgency=medium
+
+  * Backport the followings changes from 331.38-0ubuntu8 in Utopic to make
+    packages using CUDA and OpenCL co-installable:
+    - debian/templates/control.in, package nvidia-opencl-icd-*:
+      - Remove breaks/replaces on opencl-icd (LP: #1247736).
+      - Depend on ocl-icd-libopencl1 | nvidia-libopencl1-*.
+
+ -- Graham Inggs <graham@nerve.org.za>  Sun, 08 Jun 2014 11:59:01 +0200
+
 nvidia-graphics-drivers-331-updates (331.38-0ubuntu7) trusty; urgency=medium
 
   [ Tim O'Shea ]
