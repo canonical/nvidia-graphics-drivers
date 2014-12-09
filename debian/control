@@ -29,12 +29,12 @@ Description: NVIDIA binary Xorg driver, kernel module and VDPAU library
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-331.38-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-331.113-driver.html
  .
 
 Package: nvidia-331-updates-dev
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-331-updates (>= 331.38)
+Depends: ${misc:Depends}, nvidia-331-updates (>= 331.113)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -44,7 +44,7 @@ Description: NVIDIA binary Xorg driver development files
 
 Package: nvidia-331-updates-uvm
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-331-updates (>= 331.38)
+Depends: ${misc:Depends}, nvidia-331-updates (>= 331.113)
 Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 

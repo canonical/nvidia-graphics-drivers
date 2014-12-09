@@ -138,7 +138,7 @@ case "$1" in
             --slave /usr/bin/nvidia-cuda-mps-control x86_64-linux-gnu_nvidia-cuda-mps-control /usr/lib/nvidia-331-updates/bin/nvidia-cuda-mps-control \
             --slave /usr/bin/nvidia-cuda-mps-server x86_64-linux-gnu_nvidia-cuda-mps-server /usr/lib/nvidia-331-updates/bin/nvidia-cuda-mps-server \
             --slave /etc/OpenCL/vendors/nvidia.icd x86_64-linux-gnu_nvidia.icd /usr/share/nvidia-331-updates/nvidia.icd \
-            --slave /usr/share/nvidia/nvidia-application-profiles-331.38-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-331-updates/nvidia-application-profiles-331.38-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-331.113-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-331-updates/nvidia-application-profiles-331.113-rc \
             --slave /usr/lib/libOpenCL.so x86_64-linux-gnu_libOpenCL.so /usr/lib/nvidia-331-updates/libOpenCL.so \
             --slave /usr/lib32/libOpenCL.so x86_64-linux-gnu_libOpenCL.so_lib32 /usr/lib32/nvidia-331-updates/libOpenCL.so \
             --slave /usr/lib/libcuda.so x86_64-linux-gnu_libcuda.so /usr/lib/nvidia-331-updates/libcuda.so \
@@ -164,7 +164,7 @@ case "$1" in
             --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-331-updates/bin/nvidia-xconfig \
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-331-updates/bin/nvidia-bug-report.sh \
             --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-331-updates/bin/nvidia-debugdump \
-            --slave /usr/share/nvidia/nvidia-application-profiles-331.38-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-331-updates/nvidia-application-profiles-331.38-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-331.113-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-331-updates/nvidia-application-profiles-331.113-rc \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-331-updates/modprobe.conf \
             --slave /usr/share/grub-gfxpayload-lists/blacklist/10_proprietary-graphics-drivers x86_64-linux-gnu_grub_fb_blacklist /usr/share/nvidia-331-updates/nvidia-331-updates.grub-gfxpayload
 
