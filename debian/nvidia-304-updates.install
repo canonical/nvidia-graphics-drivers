@@ -4,25 +4,25 @@ debian/nvidia-304-updates.grub-gfxpayload          /usr/share/nvidia-304-updates
 
 debian/glamor.conf                           /usr/share/nvidia-304-updates
 
-NVIDIA-Linux-x86_64-304.123-no-compat32/nvidia_drv.so /usr/lib/nvidia-304-updates/xorg
-NVIDIA-Linux-x86_64-304.123-no-compat32/libglx.so.304.123 /usr/lib/nvidia-304-updates/xorg
+NVIDIA-Linux-x86_64-304.125-no-compat32/nvidia_drv.so /usr/lib/nvidia-304-updates/xorg
+NVIDIA-Linux-x86_64-304.125-no-compat32/libglx.so.304.125 /usr/lib/nvidia-304-updates/xorg
 
-NVIDIA-Linux-x86_64-304.123-no-compat32/libGL*.so*                  /usr/lib/nvidia-304-updates
-NVIDIA-Linux-x86_64-304.123-no-compat32/libnv*.so*                  /usr/lib/nvidia-304-updates
-NVIDIA-Linux-x86_64-304.123-no-compat32/libcuda*.so*                /usr/lib/nvidia-304-updates
-NVIDIA-Linux-x86_64-304.123-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-304-updates
+NVIDIA-Linux-x86_64-304.125-no-compat32/libGL*.so*                  /usr/lib/nvidia-304-updates
+NVIDIA-Linux-x86_64-304.125-no-compat32/libnv*.so*                  /usr/lib/nvidia-304-updates
+NVIDIA-Linux-x86_64-304.125-no-compat32/libcuda*.so*                /usr/lib/nvidia-304-updates
+NVIDIA-Linux-x86_64-304.125-no-compat32/libOpenCL*.so*              /usr/lib/nvidia-304-updates
 
-NVIDIA-Linux-x86_64-304.123-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-304-updates/vdpau
-NVIDIA-Linux-x86_64-304.123-no-compat32/tls/*.so*                   /usr/lib/nvidia-304-updates/tls
+NVIDIA-Linux-x86_64-304.125-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-304-updates/vdpau
+NVIDIA-Linux-x86_64-304.125-no-compat32/tls/*.so*                   /usr/lib/nvidia-304-updates/tls
 
-NVIDIA-Linux-x86_64-304.123-no-compat32/libXvMCNVIDIA.so.304.123  /usr/lib/nvidia-304-updates
+NVIDIA-Linux-x86_64-304.125-no-compat32/libXvMCNVIDIA.so.304.125  /usr/lib/nvidia-304-updates
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-304-updates-304.123
-debian/dkms/patches/*                         usr/src/nvidia-304-updates-304.123/patches
-debian/dkms.conf                              usr/src/nvidia-304-updates-304.123
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-304-updates-304.125
+debian/dkms/patches/*                         usr/src/nvidia-304-updates-304.125/patches
+debian/dkms.conf                              usr/src/nvidia-304-updates-304.125
 
-NVIDIA-Linux-x86_64-304.123-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-304-updates/bin
-NVIDIA-Linux-x86_64-304.123-no-compat32/nvidia-xconfig /usr/lib/nvidia-304-updates/bin
-NVIDIA-Linux-x86_64-304.123-no-compat32/nvidia-smi /usr/lib/nvidia-304-updates/bin
+NVIDIA-Linux-x86_64-304.125-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-304-updates/bin
+NVIDIA-Linux-x86_64-304.125-no-compat32/nvidia-xconfig /usr/lib/nvidia-304-updates/bin
+NVIDIA-Linux-x86_64-304.125-no-compat32/nvidia-smi /usr/lib/nvidia-304-updates/bin
 
-NVIDIA-Linux-x86_64-304.123-no-compat32/nvidia.icd /usr/share/nvidia-304-updates
+NVIDIA-Linux-x86_64-304.125-no-compat32/nvidia.icd /usr/share/nvidia-304-updates
