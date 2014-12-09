@@ -63,7 +63,7 @@ Description: NVIDIA CUDA runtime library
 
 Package: #LIBOPENCL1#
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: #DRIVERUVMNAME#, ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libopencl1
 Replaces: libopencl1
 Provides: libopencl1
