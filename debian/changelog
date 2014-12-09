@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-304 (304.125-0ubuntu0.0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.125-0ubuntu0.0.0.1) precise-security; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release.
+  * debian/substvars:
+    - Add support for video ABIs up to 19.
+  * SECURITY UPDATE:
+    - CVE-2014-8091, CVE-2014-8098, CVE-2014-8298 (LP: #1400673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 18:50:07 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Dec 2014 18:52:16 +0100
 
 nvidia-graphics-drivers-304 (304.123-0ubuntu0.0.1) precise-proposed; urgency=medium
 
