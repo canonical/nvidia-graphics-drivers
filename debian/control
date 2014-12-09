@@ -21,7 +21,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 331.89
+Description: NVIDIA binary driver - version 331.113
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 331.89
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-331.89-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-331.113-driver.html
  .
 
 Package: nvidia-331-updates-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-331-updates (>= 331.89)
+Depends: ${misc:Depends}, nvidia-331-updates (>= 331.113)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -63,7 +63,7 @@ Description: NVIDIA CUDA runtime library
 
 Package: nvidia-libopencl1-331-updates
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: nvidia-331-updates-uvm, ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libopencl1
 Replaces: libopencl1
 Provides: libopencl1
@@ -93,7 +93,7 @@ Description: NVIDIA OpenCL ICD
 
 Package: nvidia-331-updates-uvm
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-331-updates (>= 331.89)
+Depends: ${misc:Depends}, nvidia-331-updates (>= 331.113)
 Conflicts: nvidia-uvm
 Replaces: nvidia-uvm
 Provides: nvidia-uvm

@@ -15,8 +15,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-331-updates/xorg
 /usr/lib/nvidia-331-updates/xorg
-/usr/src/nvidia-331-updates-331.89
-/usr/src/nvidia-331-updates-331.89/patches
+/usr/src/nvidia-331-updates-331.113
+/usr/src/nvidia-331-updates-331.113/patches
 /usr/lib/vdpau
 /lib/nvidia-331-updates
 /usr/share/nvidia
