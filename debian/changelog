@@ -1,8 +1,26 @@
-nvidia-graphics-drivers-331 (331.113-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-331 (331.113-0ubuntu2) vivid; urgency=medium
 
-  * 
+  [ Jason Gerard DeRose ]
+  * debian/templates/nvidia-graphics-drivers.postrm.in:
+    - Fix broken postrm script, plus add work-around for upgrading
+      from previous broken versions of the same (LP: #1394348).
+    - No longer call `stop nvidia-persistenced` as the Upstart job was
+      removed in 331.89-0ubuntu3.
+    - Remove "nvidia-persistenced" user/group in a failsafe manner
+      (ie. even if userdel fails, postrm will not exit with a non-zero
+      status).
+  * debian/templates/nvidia-graphics-drivers.preinst.in:
+    - Call `/usr/bin/stop-nvidia-persistenced` to work-around
+      the broken postrm script introduced in 331.89-0ubuntu3; without
+      this, upgrading between major nvidia driver versions (eg. 331=>343)
+      will break.
+  * debian/templates/nvidia-graphics-drivers.prerm.in:
+    - Call `/usr/bin/stop-nvidia-persistenced` so that the
+      nvidia-persistenced process is killed prior to the postrm script
+      being called (which means that removing the "nvidia-persistenced"
+      user/group can actually succeed).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Dec 2014 10:28:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Dec 2014 10:33:28 +0100
 
 nvidia-graphics-drivers-331 (331.113-0ubuntu1) vivid; urgency=medium
 
