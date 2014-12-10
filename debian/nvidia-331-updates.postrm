@@ -33,8 +33,7 @@ case "$1" in
 
         # Remove the nvidia-persistenced user
         if id "$NVPD_USER" > /dev/null 2>&1; then
-            stop nvidia-persistenced || true
-            userdel "$NVPD_USER"
+            userdel "$NVPD_USER" || true
         fi
 
         # Update initramfs, in case we were loaded into it

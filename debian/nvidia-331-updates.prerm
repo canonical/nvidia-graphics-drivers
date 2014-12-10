@@ -11,6 +11,9 @@ CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' 
 CVERSION=${CVERSION#*really.}
 
 remove_dkms_module() {
+	echo "Stopping nvidia-persistenced"
+	/usr/bin/stop-nvidia-persistenced || true
+	echo "Done."
 	echo "Removing all DKMS Modules"
 	dkms remove -m $PACKAGE_NAME -v $CVERSION --all > /dev/null
 	echo "Done."
