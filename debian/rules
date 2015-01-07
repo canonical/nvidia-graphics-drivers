@@ -297,6 +297,12 @@ ifneq ($(DEB_BUILD_ARCH),armhf)
 	   $(CURDIR)/$(dirname)/_libnvidia-opencl.so.$(PKG_version)
 endif
 
+	# Remove nvidia-settings gtk+ libraries
+	rm -rf $(CURDIR)/$(dirname)/libnvidia-gtk*.so*
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	rm -rf $(CURDIR)/$(dirname_x86)/libnvidia-gtk*.so*
+endif
+
 	# Get around Xen checks
 	mv $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
 	mv $(dirname)/kernel/nv-linux.h $(dirname)/kernel/nv-linux1.h
@@ -327,10 +333,6 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	# See (LP: #409456)
 	find $(CURDIR)/$(dirname_x86) -name *.so* | xargs -n1 execstack -c
 
-	# Remove libGLES* for since it's 32 bit only
-	find $(CURDIR)/$(dirname_x86) -name 'libGLES*.so*' | xargs /bin/rm -f
-	find $(CURDIR)/$(dirname_x86) -name 'libnvidia-eglcore*.so*' | xargs /bin/rm -f
-
 	# Temporarily rename libnvidia-opencl
 	mv $(CURDIR)/$(dirname_x86)/libnvidia-opencl.so.$(PKG_version) \
 	   $(CURDIR)/$(dirname_x86)/_libnvidia-opencl.so.$(PKG_version)
@@ -342,6 +344,7 @@ endif
 	execstack -c $(CURDIR)/$(dirname)/nvidia-smi || true
 	execstack -c $(CURDIR)/$(dirname)/nvidia-persistenced || true
 
+ifneq ($(DEB_BUILD_ARCH),i386)
 	# Part about $(PKG_driver_uvm)
 	# Kernel module files
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel
@@ -349,6 +352,7 @@ endif
 
 	mkdir -p $(CURDIR)/debian/dkms_nvidia_uvm
 	cp -f $(CURDIR)/debian/dkms_nvidia_uvm.conf $(CURDIR)/debian/dkms_nvidia_uvm/dkms.conf
+endif
 
 override_dh_install: gen-abi-substvars
 	dh_install -p$(PKG_driver)
@@ -360,6 +364,7 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL.la"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libEGL*.so*"  "$(PKG_libdir32)"
 	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia*.so*"  "$(PKG_libdir32)"
 
 	dh_install -p$(PKG_driver)  "$(dirname_x86)/libvdpau*"  "$(PKG_vdpaudir32)"
@@ -438,9 +443,11 @@ endif
 	# Remove libnvidia-opencl
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
 
+ifneq ($(DEB_BUILD_ARCH),i386)
 	# Part about $(PKG_driver_uvm):
 	dh_install -p$(PKG_driver_uvm)
 	rm -rf debian/temp/modules/nvidia-uvm-kernel
+endif
 
 	# Part about $(PKG_libcuda1):
 	dh_install -p$(PKG_libcuda1)

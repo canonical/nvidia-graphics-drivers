@@ -12,6 +12,7 @@ debian/stop-nvidia-persistenced              usr/bin
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
 #DIRNAME#/libGL*.so*                  #PKGLIBDIR#
+#DIRNAME#/libEGL*.so*                 #PKGLIBDIR#
 #DIRNAME#/libnv*.so*                  #PKGLIBDIR#
 
 #DIRNAME#/libvdpau_nvidia.so*   #PKGVDPAUDIR#
@@ -30,3 +31,4 @@ debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 #DIRNAME#/nvidia-persistenced #PKGBINDIR#
 
 #DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
+#DIRNAME#/nvidia-application-profiles-#VERSION#-key-documentation #PKGDATADIR#

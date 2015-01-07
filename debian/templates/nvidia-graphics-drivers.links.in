@@ -1,6 +1,15 @@
 #PKGLIBDIR#/libGL.so.#VERSION# #PKGLIBDIR#/libGL.so.1
 #PKGLIBDIR#/libGL.so.1 #PKGLIBDIR#/libGL.so
 
+#PKGLIBDIR#/libEGL.so.#VERSION# #PKGLIBDIR#/libEGL.so.1
+#PKGLIBDIR#/libEGL.so.1 #PKGLIBDIR#/libEGL.so
+
+#PKGLIBDIR#/libGLESv1_CM.so.#VERSION# #PKGLIBDIR#/libGLESv1_CM.so.1
+#PKGLIBDIR#/libGLESv1_CM.so.1 #PKGLIBDIR#/libGLESv1_CM.so
+
+#PKGLIBDIR#/libGLESv2.so.#VERSION# #PKGLIBDIR#/libGLESv2.so.2
+#PKGLIBDIR#/libGLESv2.so.2 #PKGLIBDIR#/libGLESv2.so
+
 #PKGLIBDIR#/libnvidia-cfg.so.#VERSION# #PKGLIBDIR#/libnvidia-cfg.so.1
 #PKGLIBDIR#/libnvidia-cfg.so.1 #PKGLIBDIR#/libnvidia-cfg.so
 

@@ -145,6 +145,7 @@ case "$1" in
             --slave #BINDIR#/nvidia-cuda-mps-server #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-server #PKGBINDIR#/nvidia-cuda-mps-server \
             --slave #BINDIR#/nvidia-persistenced #DEB_HOST_MULTIARCH#_nvidia_persistenced #PKGBINDIR#/nvidia-persistenced \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
+            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION# \
@@ -167,6 +168,7 @@ case "$1" in
             --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
             --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
+            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
 
