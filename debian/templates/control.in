@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- #LIBCUDA1#, #OPENCLICD#, #DRIVERUVMNAME#
+ #LIBCUDA1#, #OPENCLICD#, #DRIVERUVMNAME# [!i386]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -63,7 +63,7 @@ Description: NVIDIA CUDA runtime library
 
 Package: #LIBOPENCL1#
 Architecture: i386 amd64
-Depends: #DRIVERUVMNAME#, ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libopencl1
 Replaces: libopencl1
 Provides: libopencl1
@@ -92,7 +92,7 @@ Description: NVIDIA OpenCL ICD
  which supports NVIDIA GPUs.
 
 Package: #DRIVERUVMNAME#
-Architecture: i386 amd64 armhf
+Architecture: amd64 armhf
 Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
 Conflicts: nvidia-uvm
 Replaces: nvidia-uvm
