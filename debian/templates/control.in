@@ -100,19 +100,19 @@ Provides: nvidia-uvm
 Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 
-Package: nvidia-319
+Package: nvidia-331
 Architecture: i386 amd64
 Depends: #DRIVERNAME#
-Description: Transitional package for nvidia-319
- This is a transitional package for nvidia-319, and can be
+Description: Transitional package for nvidia-331
+ This is a transitional package for nvidia-331, and can be
  safely removed after the installation is complete.
  .
 
-Package: nvidia-319-dev
+Package: nvidia-331-dev
 Architecture: i386 amd64
 Depends: #DRIVERDEVNAME#
-Description: Transitional package for nvidia-319-dev
- This is a transitional package for nvidia-319-dev, and can be
+Description: Transitional package for nvidia-331-dev
+ This is a transitional package for nvidia-331-dev, and can be
  safely removed after the installation is complete.
  .
 
