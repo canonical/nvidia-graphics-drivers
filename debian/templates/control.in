@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- #LIBCUDA1#, #OPENCLICD#, #DRIVERUVMNAME#
+ #LIBCUDA1#, #OPENCLICD# [!armhf], #DRIVERUVMNAME# [!i386]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -101,18 +101,43 @@ Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 
 Package: nvidia-331
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends: #DRIVERNAME#
 Description: Transitional package for nvidia-331
  This is a transitional package for nvidia-331, and can be
  safely removed after the installation is complete.
- .
 
 Package: nvidia-331-dev
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends: #DRIVERDEVNAME#
-Description: Transitional package for nvidia-331-dev
- This is a transitional package for nvidia-331-dev, and can be
+Description: Transitional package for #DRIVERDEVNAME#
+ This is a transitional package for #DRIVERDEVNAME#, and can be
  safely removed after the installation is complete.
- .
 
+Package: nvidia-331-uvm
+Architecture: amd64
+Depends: #DRIVERUVMNAME#
+Description: Transitional package for #DRIVERUVMNAME#
+ This is a transitional package for #DRIVERUVMNAME#, and can be
+ safely removed after the installation is complete.
+
+Package: ocl-icd-libopencl1
+Architecture: i386 amd64
+Depends: #LIBOPENCL1#
+Description: Transitional package for #LIBOPENCL1#
+ This is a transitional package for #LIBOPENCL1#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-331
+Architecture: i386 amd64
+Depends: #OPENCLICD#
+Description: Transitional package for #OPENCLICD#
+ This is a transitional package for #OPENCLICD#, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-331
+Architecture: i386 amd64 armhf
+Depends: #LIBCUDA1#
+Description: Transitional package for #LIBCUDA1#
+ This is a transitional package for #LIBCUDA1#, and can be
+ safely removed after the installation is complete.
