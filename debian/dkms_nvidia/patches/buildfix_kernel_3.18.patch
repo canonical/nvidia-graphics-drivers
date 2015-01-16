@@ -1,27 +1,73 @@
-From 43233f997193b09e9764b5cf22ad286397d2c3dc Mon Sep 17 00:00:00 2001
+From bdd84c964caa9f7d22135a31d19c639a7a429d20 Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
-Date: Thu, 6 Nov 2014 16:10:57 +0100
-Subject: [PATCH 1/1] nv-drm.c: include drm/drm_gem.h
+Date: Fri, 16 Jan 2015 19:02:09 +0100
+Subject: [PATCH 1/1] Add support for Linux 3.18
 
-This is needed in Linux 3.18 or higher
 ---
- nv-drm.c | 3 +++
- 1 file changed, 3 insertions(+)
+ nv-drm.c      | 4 ++++
+ nv-frontend.c | 8 ++++++++
+ nv.c          | 4 ++++
+ 3 files changed, 16 insertions(+)
 
 diff --git a/nv-drm.c b/nv-drm.c
-index fb8d1bd..fb2a027 100644
+index f3b74d5..1c04500 100644
 --- a/nv-drm.c
 +++ b/nv-drm.c
-@@ -17,6 +17,9 @@
- #if defined(NV_DRM_AVAILABLE)
+@@ -128,6 +128,10 @@ static struct drm_driver nv_drm_driver = {
+     .gem_prime_vmap = nv_gem_prime_vmap,
+     .gem_prime_vunmap = nv_gem_prime_vunmap,
  
- #include <drm/drmP.h>
 +#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
-+#include <drm/drm_gem.h>
++    .set_busid = drm_pci_set_busid,
 +#endif
++
+     .name = "nvidia-drm",
+     .desc = "NVIDIA DRM driver",
+     .date = "20130102",
+diff --git a/nv-frontend.c b/nv-frontend.c
+index c8c8af1..1967683 100644
+--- a/nv-frontend.c
++++ b/nv-frontend.c
+@@ -327,7 +327,11 @@ long nvidia_frontend_unlocked_ioctl(
+     unsigned long i_arg
+ )
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
++    return nvidia_frontend_ioctl(file->f_path.dentry->d_inode, file, cmd, i_arg);
++#else
+     return nvidia_frontend_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
++#endif
+ }
  
- extern nv_linux_state_t *nv_linux_devices;
+ long nvidia_frontend_compat_ioctl(
+@@ -336,7 +340,11 @@ long nvidia_frontend_compat_ioctl(
+     unsigned long i_arg
+ )
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
++    return nvidia_frontend_ioctl(file->f_path.dentry->d_inode, file, cmd, i_arg);
++#else
+     return nvidia_frontend_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
++#endif
+ }
  
+ int nvidia_frontend_mmap(
+diff --git a/nv.c b/nv.c
+index 6b31000..da36d93 100644
+--- a/nv.c
++++ b/nv.c
+@@ -1796,7 +1796,11 @@ nvidia_unlocked_ioctl(
+     unsigned long i_arg
+ )
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
++    return nvidia_ioctl(file->f_path.dentry->d_inode, file, cmd, i_arg);
++#else
+     return nvidia_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
++#endif
+ }
+ 
+ /*
 -- 
 1.9.1
 
