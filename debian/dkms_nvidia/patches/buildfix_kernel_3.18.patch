@@ -1,13 +1,12 @@
-From bdd84c964caa9f7d22135a31d19c639a7a429d20 Mon Sep 17 00:00:00 2001
+From 74913be28d94226022941c83fa3f71c8f395d631 Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
-Date: Fri, 16 Jan 2015 19:02:09 +0100
+Date: Mon, 19 Jan 2015 17:00:23 +0100
 Subject: [PATCH 1/1] Add support for Linux 3.18
 
+Set drm_driver.set_busid()
 ---
- nv-drm.c      | 4 ++++
- nv-frontend.c | 8 ++++++++
- nv.c          | 4 ++++
- 3 files changed, 16 insertions(+)
+ nv-drm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/nv-drm.c b/nv-drm.c
 index f3b74d5..1c04500 100644
@@ -24,50 +23,6 @@ index f3b74d5..1c04500 100644
      .name = "nvidia-drm",
      .desc = "NVIDIA DRM driver",
      .date = "20130102",
-diff --git a/nv-frontend.c b/nv-frontend.c
-index c8c8af1..1967683 100644
---- a/nv-frontend.c
-+++ b/nv-frontend.c
-@@ -327,7 +327,11 @@ long nvidia_frontend_unlocked_ioctl(
-     unsigned long i_arg
- )
- {
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
-+    return nvidia_frontend_ioctl(file->f_path.dentry->d_inode, file, cmd, i_arg);
-+#else
-     return nvidia_frontend_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
-+#endif
- }
- 
- long nvidia_frontend_compat_ioctl(
-@@ -336,7 +340,11 @@ long nvidia_frontend_compat_ioctl(
-     unsigned long i_arg
- )
- {
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
-+    return nvidia_frontend_ioctl(file->f_path.dentry->d_inode, file, cmd, i_arg);
-+#else
-     return nvidia_frontend_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
-+#endif
- }
- 
- int nvidia_frontend_mmap(
-diff --git a/nv.c b/nv.c
-index 6b31000..da36d93 100644
---- a/nv.c
-+++ b/nv.c
-@@ -1796,7 +1796,11 @@ nvidia_unlocked_ioctl(
-     unsigned long i_arg
- )
- {
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
-+    return nvidia_ioctl(file->f_path.dentry->d_inode, file, cmd, i_arg);
-+#else
-     return nvidia_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
-+#endif
- }
- 
- /*
 -- 
 1.9.1
 
