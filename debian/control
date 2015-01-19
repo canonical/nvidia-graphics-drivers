@@ -15,13 +15,13 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- libcuda1-346-updates, nvidia-opencl-icd-346-updates, nvidia-346-updates-uvm [!i386]
+ libcuda1-346-updates, nvidia-opencl-icd-346-updates [!armhf], nvidia-346-updates-uvm [!i386]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 346.22
+Description: NVIDIA binary driver - version 346.35
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 346.22
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-346.22-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-346.35-driver.html
  .
 
 Package: nvidia-346-updates-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-346-updates (>= 346.22)
+Depends: ${misc:Depends}, nvidia-346-updates (>= 346.35)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -93,7 +93,7 @@ Description: NVIDIA OpenCL ICD
 
 Package: nvidia-346-updates-uvm
 Architecture: amd64 armhf
-Depends: ${misc:Depends}, nvidia-346-updates (>= 346.22)
+Depends: ${misc:Depends}, nvidia-346-updates (>= 346.35)
 Conflicts: nvidia-uvm
 Replaces: nvidia-uvm
 Provides: nvidia-uvm
@@ -101,18 +101,43 @@ Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 
 Package: nvidia-331-updates
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends: nvidia-346-updates
 Description: Transitional package for nvidia-331-updates
  This is a transitional package for nvidia-331-updates, and can be
  safely removed after the installation is complete.
- .
 
 Package: nvidia-331-updates-dev
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends: nvidia-346-updates-dev
-Description: Transitional package for nvidia-331-updates-dev
- This is a transitional package for nvidia-331-updates-dev, and can be
+Description: Transitional package for nvidia-346-updates-dev
+ This is a transitional package for nvidia-346-updates-dev, and can be
  safely removed after the installation is complete.
- .
 
+Package: nvidia-331-updates-uvm
+Architecture: i386 amd64
+Depends: nvidia-346-updates-uvm [!i386]
+Description: Transitional package for nvidia-346-updates-uvm
+ This is a transitional package for nvidia-346-updates-uvm, and can be
+ safely removed after the installation is complete.
+
+Package: ocl-icd-libopencl1
+Architecture: i386 amd64
+Depends: nvidia-libopencl1-346-updates
+Description: Transitional package for nvidia-libopencl1-346-updates
+ This is a transitional package for nvidia-libopencl1-346-updates, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-331-updates
+Architecture: i386 amd64
+Depends: nvidia-opencl-icd-346-updates
+Description: Transitional package for nvidia-opencl-icd-346-updates
+ This is a transitional package for nvidia-opencl-icd-346-updates, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-331-updates
+Architecture: i386 amd64 armhf
+Depends: libcuda1-346-updates
+Description: Transitional package for libcuda1-346-updates
+ This is a transitional package for libcuda1-346-updates, and can be
+ safely removed after the installation is complete.
