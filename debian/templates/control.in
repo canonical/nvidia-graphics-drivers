@@ -92,7 +92,7 @@ Description: NVIDIA OpenCL ICD
  which supports NVIDIA GPUs.
 
 Package: #DRIVERUVMNAME#
-Architecture: i386 amd64 armhf
+Architecture: amd64 armhf
 Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
 Conflicts: nvidia-uvm
 Replaces: nvidia-uvm
