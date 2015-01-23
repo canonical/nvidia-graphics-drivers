@@ -121,7 +121,7 @@ Description: Transitional package for #DRIVERUVMNAME#
  This is a transitional package for #DRIVERUVMNAME#, and can be
  safely removed after the installation is complete.
 
-Package: ocl-icd-libopencl1
+Package: nvidia-libopencl1-331
 Architecture: i386 amd64
 Depends: #LIBOPENCL1#
 Description: Transitional package for #LIBOPENCL1#
