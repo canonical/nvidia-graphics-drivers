@@ -115,8 +115,8 @@ Description: Transitional package for #DRIVERDEVNAME#
  safely removed after the installation is complete.
 
 Package: nvidia-331-updates-uvm
-Architecture: i386 amd64
-Depends: #DRIVERUVMNAME# [!i386]
+Architecture: amd64
+Depends: #DRIVERUVMNAME#
 Description: Transitional package for #DRIVERUVMNAME#
  This is a transitional package for #DRIVERUVMNAME#, and can be
  safely removed after the installation is complete.
