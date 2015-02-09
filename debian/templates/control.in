@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- #LIBCUDA1#, #OPENCLICD# [!armhf], #DRIVERUVMNAME# [!i386]
+ #LIBCUDA1#, #OPENCLICD# [!armhf], #DRIVERUVMNAME#
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -116,7 +116,7 @@ Description: Transitional package for #DRIVERDEVNAME#
 
 Package: nvidia-331-uvm
 Architecture: i386 amd64 armhf
-Depends: #DRIVERUVMNAME# [!i386]
+Depends: #DRIVERUVMNAME#
 Description: Transitional package for #DRIVERUVMNAME#
  This is a transitional package for #DRIVERUVMNAME#, and can be
  safely removed after the installation is complete.
