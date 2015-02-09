@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- #LIBCUDA1#, #OPENCLICD# [!armhf], #DRIVERUVMNAME# [!i386]
+ #LIBCUDA1#, #OPENCLICD# [!armhf], #DRIVERUVMNAME#
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -92,7 +92,7 @@ Description: NVIDIA OpenCL ICD
  which supports NVIDIA GPUs.
 
 Package: #DRIVERUVMNAME#
-Architecture: amd64 armhf
+Architecture: i386 amd64 armhf
 Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
 Conflicts: nvidia-uvm
 Replaces: nvidia-uvm
@@ -115,22 +115,22 @@ Description: Transitional package for #DRIVERDEVNAME#
  safely removed after the installation is complete.
 
 Package: nvidia-331-updates-uvm
-Architecture: amd64
+Architecture: i386 amd64 armhf
 Depends: #DRIVERUVMNAME#
 Description: Transitional package for #DRIVERUVMNAME#
  This is a transitional package for #DRIVERUVMNAME#, and can be
  safely removed after the installation is complete.
 
 Package: nvidia-libopencl1-331-updates
-Architecture: i386 amd64
-Depends: #LIBOPENCL1#
+Architecture: i386 amd64 armhf
+Depends: #LIBOPENCL1# [!armhf]
 Description: Transitional package for #LIBOPENCL1#
  This is a transitional package for #LIBOPENCL1#, and can be
  safely removed after the installation is complete.
 
 Package: nvidia-opencl-icd-331-updates
-Architecture: i386 amd64
-Depends: #OPENCLICD#
+Architecture: i386 amd64 armhf
+Depends: #OPENCLICD# [!armhf]
 Description: Transitional package for #OPENCLICD#
  This is a transitional package for #OPENCLICD#, and can be
  safely removed after the installation is complete.
