@@ -1,0 +1,34 @@
+debian/nvidia-340-updates.override                 usr/share/lintian/overrides
+#Blacklist some card ids from GRUB gfxpayload=keep
+debian/nvidia-340-updates.grub-gfxpayload          /usr/share/nvidia-340-updates
+
+debian/glamor.conf                           /usr/share/nvidia-340-updates
+
+debian/71-nvidia.rules                       lib/udev/rules.d
+debian/start-nvidia-persistenced             usr/bin
+debian/stop-nvidia-persistenced              usr/bin
+
+NVIDIA-Linux-x86-340.76/nvidia_drv.so /usr/lib/nvidia-340-updates/xorg
+NVIDIA-Linux-x86-340.76/libglx.so.340.76 /usr/lib/nvidia-340-updates/xorg
+
+NVIDIA-Linux-x86-340.76/libGL*.so*                  /usr/lib/nvidia-340-updates
+NVIDIA-Linux-x86-340.76/libEGL*.so*                 /usr/lib/nvidia-340-updates
+NVIDIA-Linux-x86-340.76/libnv*.so*                  /usr/lib/nvidia-340-updates
+
+NVIDIA-Linux-x86-340.76/libvdpau_nvidia.so*   /usr/lib/nvidia-340-updates/vdpau
+NVIDIA-Linux-x86-340.76/tls/*.so*                   /usr/lib/nvidia-340-updates/tls
+
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-340-updates-340.76
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-340-updates-340.76/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-340-updates-340.76
+
+NVIDIA-Linux-x86-340.76/nvidia-bug-report.sh /usr/lib/nvidia-340-updates/bin
+NVIDIA-Linux-x86-340.76/nvidia-xconfig /usr/lib/nvidia-340-updates/bin
+NVIDIA-Linux-x86-340.76/nvidia-smi /usr/lib/nvidia-340-updates/bin
+NVIDIA-Linux-x86-340.76/nvidia-debugdump /usr/lib/nvidia-340-updates/bin
+NVIDIA-Linux-x86-340.76/nvidia-cuda-mps-control /usr/lib/nvidia-340-updates/bin
+NVIDIA-Linux-x86-340.76/nvidia-cuda-mps-server /usr/lib/nvidia-340-updates/bin
+NVIDIA-Linux-x86-340.76/nvidia-persistenced /usr/lib/nvidia-340-updates/bin
+
+NVIDIA-Linux-x86-340.76/nvidia-application-profiles-340.76-rc /usr/share/nvidia-340-updates
+NVIDIA-Linux-x86-340.76/nvidia-application-profiles-340.76-key-documentation /usr/share/nvidia-340-updates
