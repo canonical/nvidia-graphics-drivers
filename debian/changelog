@@ -1,6 +1,5 @@
-nvidia-graphics-drivers-340-updates (340.76-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340-updates (340.76-0ubuntu1) vivid; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 09 Feb 2015 17:24:57 +0100
-
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Feb 2015 17:24:47 +0100
