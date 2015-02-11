@@ -48,9 +48,12 @@ Description: NVIDIA binary Xorg driver development files
 Package: libcuda1-346
 Architecture: i386 amd64 armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1
-Breaks: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1
-Replaces: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1
+Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
+ libcuda-7.0-1
+Breaks: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
+ libcuda-7.0-1
+Replaces: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
+ libcuda-7.0-1
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -63,7 +66,7 @@ Description: NVIDIA CUDA runtime library
 
 Package: nvidia-libopencl1-346
 Architecture: i386 amd64
-Depends: nvidia-346-uvm, ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libopencl1
 Replaces: libopencl1
 Provides: libopencl1
@@ -100,44 +103,3 @@ Provides: nvidia-uvm
 Description: NVIDIA Unified Memory kernel module
  This package contains the NVIDIA Unified Memory kernel module.
 
-Package: nvidia-331
-Architecture: i386 amd64 armhf
-Depends: nvidia-346
-Description: Transitional package for nvidia-331
- This is a transitional package for nvidia-331, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-331-dev
-Architecture: i386 amd64 armhf
-Depends: nvidia-346-dev
-Description: Transitional package for nvidia-346-dev
- This is a transitional package for nvidia-346-dev, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-331-uvm
-Architecture: i386 amd64
-Depends: nvidia-346-uvm [!i386]
-Description: Transitional package for nvidia-346-uvm
- This is a transitional package for nvidia-346-uvm, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-libopencl1-331
-Architecture: i386 amd64
-Depends: nvidia-libopencl1-346
-Description: Transitional package for nvidia-libopencl1-346
- This is a transitional package for nvidia-libopencl1-346, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-opencl-icd-331
-Architecture: i386 amd64
-Depends: nvidia-opencl-icd-346
-Description: Transitional package for nvidia-opencl-icd-346
- This is a transitional package for nvidia-opencl-icd-346, and can be
- safely removed after the installation is complete.
-
-Package: libcuda1-331
-Architecture: i386 amd64 armhf
-Depends: libcuda1-346
-Description: Transitional package for libcuda1-346
- This is a transitional package for libcuda1-346, and can be
- safely removed after the installation is complete.
