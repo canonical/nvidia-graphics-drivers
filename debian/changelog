@@ -1,8 +1,29 @@
-nvidia-graphics-drivers-346 (346.47-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346 (346.47-0ubuntu1) vivid; urgency=medium
 
-  * 
+  * debian/rules, debian/templates/control.in:
+    - Drop UVM on armhf, as upstream removed it from the installer.
+      Fixes FTBFS.
+  * New upstream release:
+    - Added support for the following GPUs:
+        Quadro K620M
+        Quadro K2200M
+        GeForce GTX 965M
+    - Fixed a bug that could cause rendering corruption in GLX
+      clients using PBOs and/or VBOs when using GLX indirect
+      rendering.
+    - Fixed a bug that caused Xinerama layouts which included X
+      screens with 'Option "UseDisplayDevice" "none"' to be
+      represented incorrectly in the nvidia-settings control
+      panel.
+    - Fixed a bug that could cause glXSwapBuffer() to block for
+      longer than necessary in multi-threaded GLX applications using
+      the GLX_NV_delay_before_swap extension.
+    - Fixed a bug that caused OpenGL applications using the
+      NV_path_rendering extension to crash after a modeswitch event.
+    - Fixed a bug that caused DisplayPort audio to stop working after
+      monitors are hotplugged.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 02 Mar 2015 18:07:46 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Mar 2015 18:05:26 +0100
 
 nvidia-graphics-drivers-346 (346.35-0ubuntu1) vivid; urgency=medium
 
