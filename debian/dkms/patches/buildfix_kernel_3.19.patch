@@ -1,0 +1,40 @@
+From b1dc72e5ec00720baaf457e6c23d5192b1075a13 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Wed, 4 Mar 2015 12:07:04 +0100
+Subject: [PATCH 1/1] Add support for Linux 3.19
+
+---
+ nv.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/nv.c b/nv.c
+index 50fdd90..dc3c283 100644
+--- a/nv.c
++++ b/nv.c
+@@ -2026,7 +2026,11 @@ long nv_kern_unlocked_ioctl(
+     unsigned long i_arg
+ )
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0)
++    return nv_kern_ioctl(file_inode(file), file, cmd, i_arg);
++#else
+     return nv_kern_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
++#endif
+ }
+ 
+ long nv_kern_compat_ioctl(
+@@ -2035,7 +2039,11 @@ long nv_kern_compat_ioctl(
+     unsigned long i_arg
+ )
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0)
++    return nv_kern_ioctl(file_inode(file), file, cmd, i_arg);
++#else
+     return nv_kern_ioctl(file->f_dentry->d_inode, file, cmd, i_arg);
++#endif
+ }
+ 
+ /*
+-- 
+1.9.1
+
