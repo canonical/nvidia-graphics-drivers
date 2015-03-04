@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304-updates (304.125-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304-updates (304.125-0ubuntu2) vivid; urgency=medium
 
-  * 
+  * debian/templates/dkms.conf.in,
+    debian/dkms/patches/buildfix_kernel_3.19.patch:
+    - Add support for Linux 3.19 (LP: #1427924).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Mar 2015 17:54:10 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Mar 2015 17:54:42 +0100
 
 nvidia-graphics-drivers-304-updates (304.125-0ubuntu1) vivid; urgency=medium
 
