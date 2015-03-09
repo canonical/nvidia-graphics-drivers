@@ -344,7 +344,7 @@ endif
 	execstack -c $(CURDIR)/$(dirname)/nvidia-smi || true
 	execstack -c $(CURDIR)/$(dirname)/nvidia-persistenced || true
 
-ifneq ($(DEB_BUILD_ARCH),i386)
+ifeq ($(DEB_BUILD_ARCH),amd64)
 	# Part about $(PKG_driver_uvm)
 	# Kernel module files
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel
@@ -443,7 +443,7 @@ endif
 	# Remove libnvidia-opencl
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
 
-ifneq ($(DEB_BUILD_ARCH),i386)
+ifeq ($(DEB_BUILD_ARCH),amd64)
 	# Part about $(PKG_driver_uvm):
 	dh_install -p$(PKG_driver_uvm)
 	rm -rf debian/temp/modules/nvidia-uvm-kernel
