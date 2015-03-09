@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- libcuda1-346, nvidia-opencl-icd-346 [!armhf], nvidia-346-uvm [!i386]
+ libcuda1-346, nvidia-opencl-icd-346 [!armhf], nvidia-346-uvm [amd64]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -95,7 +95,7 @@ Description: NVIDIA OpenCL ICD
  which supports NVIDIA GPUs.
 
 Package: nvidia-346-uvm
-Architecture: amd64 armhf
+Architecture: amd64
 Depends: ${misc:Depends}, nvidia-346 (>= 346.47)
 Conflicts: nvidia-uvm
 Replaces: nvidia-uvm
