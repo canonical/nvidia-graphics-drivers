@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-346 (346.47-0ubuntu2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Mar 2015 17:29:42 +0100
+
 nvidia-graphics-drivers-346 (346.47-0ubuntu1) vivid; urgency=medium
 
   * debian/rules, debian/templates/control.in:
