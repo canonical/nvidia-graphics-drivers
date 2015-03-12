@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-346-updates (346.47-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346-updates (346.47-0ubuntu2) vivid; urgency=medium
 
-  * 
+  * debian/nvidia_supported:
+    - Update the script to parse the format of the new README.
+      This fixes the lack of modaliases in the packages.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Mar 2015 17:03:52 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Mar 2015 17:04:33 +0100
 
 nvidia-graphics-drivers-346-updates (346.47-0ubuntu1) vivid; urgency=medium
 
