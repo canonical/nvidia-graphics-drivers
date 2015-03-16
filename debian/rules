@@ -320,6 +320,9 @@ endif
 		$(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile ; \
 	fi;
 
+	# Remove the dkms.conf(s) from upstream
+	find $(CURDIR)/debian/temp/modules/nvidia-kernel/ -name dkms.conf* | xargs rm -f
+
 	mkdir -p $(CURDIR)/debian/dkms_nvidia
 	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms_nvidia/dkms.conf
 
