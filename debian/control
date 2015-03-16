@@ -96,10 +96,7 @@ Description: NVIDIA OpenCL ICD
 
 Package: nvidia-346-updates-uvm
 Architecture: amd64
-Depends: ${misc:Depends}, nvidia-346-updates (>= 346.47)
-Conflicts: nvidia-uvm
-Replaces: nvidia-uvm
-Provides: nvidia-uvm
-Description: NVIDIA Unified Memory kernel module
- This package contains the NVIDIA Unified Memory kernel module.
+Depends: nvidia-346-updates
+Description: Transitional package for nvidia-346-updates
+ This is a transitional package for nvidia-346-updates.
 
