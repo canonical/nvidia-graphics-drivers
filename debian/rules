@@ -314,7 +314,6 @@ endif
 	# kernel module source
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel
 	cp -Rf $(CURDIR)/$(dirname)/kernel $(CURDIR)/debian/temp/modules/nvidia-kernel/
-	rm -rf $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/uvm
 	if [ -e "$(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild" ] ; \
 	then \
 		cp -f $(CURDIR)/debian/temp/modules/nvidia-kernel/kernel/Makefile.kbuild \
@@ -345,13 +344,8 @@ endif
 	execstack -c $(CURDIR)/$(dirname)/nvidia-persistenced || true
 
 ifeq ($(DEB_BUILD_ARCH),amd64)
-	# Part about $(PKG_driver_uvm)
-	# Kernel module files
-	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel
-	cp -Rf $(CURDIR)/$(dirname)/kernel/uvm $(CURDIR)/debian/temp/modules/nvidia-uvm-kernel/
-
-	mkdir -p $(CURDIR)/debian/dkms_nvidia_uvm
-	cp -f $(CURDIR)/debian/dkms_nvidia_uvm.conf $(CURDIR)/debian/dkms_nvidia_uvm/dkms.conf
+	# Make sure the UVM module is built
+	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms_nvidia/dkms.conf
 endif
 
 override_dh_install: gen-abi-substvars
@@ -442,12 +436,6 @@ endif
 
 	# Remove libnvidia-opencl
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
-
-ifeq ($(DEB_BUILD_ARCH),amd64)
-	# Part about $(PKG_driver_uvm):
-	dh_install -p$(PKG_driver_uvm)
-	rm -rf debian/temp/modules/nvidia-uvm-kernel
-endif
 
 	# Part about $(PKG_libcuda1):
 	dh_install -p$(PKG_libcuda1)
