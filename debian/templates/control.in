@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- #LIBCUDA1#, #OPENCLICD# [!armhf], #DRIVERUVMNAME#
+ #LIBCUDA1#, #OPENCLICD# [!armhf]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -93,12 +93,9 @@ Description: NVIDIA OpenCL ICD
 
 Package: #DRIVERUVMNAME#
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
-Conflicts: nvidia-uvm
-Replaces: nvidia-uvm
-Provides: nvidia-uvm
-Description: NVIDIA Unified Memory kernel module
- This package contains the NVIDIA Unified Memory kernel module.
+Depends: #DRIVERNAME#
+Description: Transitional package for #DRIVERNAME#
+ This is a transitional package for #DRIVERNAME#.
 
 Package: nvidia-331-updates
 Architecture: i386 amd64 armhf
