@@ -1,8 +1,20 @@
-nvidia-graphics-drivers-346-updates (346.47-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346-updates (346.47-0ubuntu3) vivid; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/templates/dkms.conf.fragment.in,
+    debian/templates/control.in,
+    debian/templates/dkms_nvidia_uvm.conf.in,
+    debian/templates/nvidia-graphics-drivers-uvm.dirs.in,
+    debian/templates/nvidia-graphics-drivers-uvm.install.in,
+    debian/templates/nvidia-graphics-drivers-uvm.postinst.in,
+    debian/templates/nvidia-graphics-drivers-uvm.prerm.in:
+    - Build nvidia and nvidia-uvm together, as the latter
+      build depends on the former (LP: #1431753).
+    - Merge the -uvm package into the main nvidia driver
+      package, and provide a transitional package for -uvm.
+    - Make sure to remove all upstream dkms.conf files.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Mar 2015 18:23:36 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Mar 2015 18:24:46 +0100
 
 nvidia-graphics-drivers-346-updates (346.47-0ubuntu2) vivid; urgency=medium
 
