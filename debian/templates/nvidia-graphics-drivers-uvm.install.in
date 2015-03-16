@@ -1,3 +1,0 @@
-debian/temp/modules/nvidia-uvm-kernel/uvm/*    usr/src/#DRIVERUVMNAME#-#VERSION#
-debian/dkms_nvidia_uvm/patches/*               usr/src/#DRIVERUVMNAME#-#VERSION#/patches
-debian/dkms_nvidia_uvm/dkms.conf               usr/src/#DRIVERUVMNAME#-#VERSION#
