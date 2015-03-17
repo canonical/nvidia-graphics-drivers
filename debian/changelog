@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-346-updates (346.47-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346-updates (346.47-0ubuntu4) vivid; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Stop recommending the uvm package now that it's a
+      transitional package. Thanks to Jason De Rose for
+      spotting the error.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 17 Mar 2015 20:08:25 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 17 Mar 2015 20:10:05 +0100
 
 nvidia-graphics-drivers-346-updates (346.47-0ubuntu3) vivid; urgency=medium
 
