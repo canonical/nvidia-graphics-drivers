@@ -15,7 +15,7 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- libcuda1-340-updates, nvidia-opencl-icd-340-updates [!armhf], nvidia-340-updates-uvm
+ libcuda1-340-updates, nvidia-opencl-icd-340-updates [!armhf]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
@@ -93,12 +93,9 @@ Description: NVIDIA OpenCL ICD
 
 Package: nvidia-340-updates-uvm
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-340-updates (>= 340.76)
-Conflicts: nvidia-uvm
-Replaces: nvidia-uvm
-Provides: nvidia-uvm
-Description: NVIDIA Unified Memory kernel module
- This package contains the NVIDIA Unified Memory kernel module.
+Depends: nvidia-340-updates
+Description: Transitional package for nvidia-340-updates
+ This is a transitional package for nvidia-340-updates.
 
 Package: nvidia-331-updates
 Architecture: i386 amd64 armhf
