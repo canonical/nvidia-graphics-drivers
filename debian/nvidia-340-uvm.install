@@ -1,3 +1,0 @@
-debian/temp/modules/nvidia-uvm-kernel/uvm/*    usr/src/nvidia-340-uvm-340.76
-debian/dkms_nvidia_uvm/patches/*               usr/src/nvidia-340-uvm-340.76/patches
-debian/dkms_nvidia_uvm/dkms.conf               usr/src/nvidia-340-uvm-340.76
