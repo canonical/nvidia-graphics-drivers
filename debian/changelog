@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-340 (340.76-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.76-0ubuntu2) vivid; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/templates/control.in,
+    debian/templates/dkms_nvidia_uvm.conf.in,
+    debian/templates/nvidia-graphics-drivers-uvm.dirs.in,
+    debian/templates/nvidia-graphics-drivers-uvm.install.in,
+    debian/templates/nvidia-graphics-drivers-uvm.postinst.in,
+    debian/templates/nvidia-graphics-drivers-uvm.prerm.in:
+    - Build nvidia and nvidia-uvm together, as the latter
+      build depends on the former (LP: #1431753).
+    - Merge the -uvm package into the main nvidia driver
+      package, and provide a transitional package for -uvm.
+    - Make sure to remove all upstream dkms.conf files.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Mar 2015 15:52:16 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Mar 2015 17:09:32 +0200
 
 nvidia-graphics-drivers-340 (340.76-0ubuntu1) vivid; urgency=medium
 
