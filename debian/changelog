@@ -1,8 +1,26 @@
-nvidia-graphics-drivers-346-updates (346.59-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346-updates (346.59-0ubuntu1) vivid; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        Quadro K1200
+        Quadro M6000
+        GeForce 920M
+        GeForce 930A
+        GeForce 930M
+        GeForce 940M
+        GeForce GTX 950M
+        GeForce GTX 960M
+        GeForce GTX TITAN X
+    - Fixed a bug that caused corruption when switching display modes
+      in some applications that use transform feedback.
+    - Fixed a bug that caused texture corruption on framebuffer depth
+      attachments cleared using glClearTexImage().
+    - Fixed a bug that artificially limited the maximum pixel clock
+      on displays in some SLI Mosaic configurations.
+    - Fixed a kernel memory leak that occurred when looping hardware-
+      accelerated video decoding with VDPAU on Maxell-based GPUs.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Apr 2015 10:51:21 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Apr 2015 10:52:39 +0200
 
 nvidia-graphics-drivers-346-updates (346.47-0ubuntu4) vivid; urgency=medium
 
