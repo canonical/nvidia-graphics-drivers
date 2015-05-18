@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-346 (346.72-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346 (346.72-0ubuntu1) wily; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a bug causing loss of stereo synchronization in certain
+      Quadro Sync framelock configurations.
+    - Fixed Pixel Buffer Object operations when row length is less
+      than width. GL_[UN]PACK_ROW_LENGTH can be set to a value lower
+      than the width of the operation being carried out. The OpenGL
+      specification allows for this (the source or destination lines
+      will be overlapping). Previously, our implementation of Pixel
+      Buffer Objects did not support this case and would throw an
+      error.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 May 2015 17:05:36 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 May 2015 17:59:00 +0200
 
 nvidia-graphics-drivers-346 (346.59-0ubuntu1) vivid; urgency=medium
 
