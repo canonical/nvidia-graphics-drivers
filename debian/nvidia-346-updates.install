@@ -8,27 +8,27 @@ debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 
-NVIDIA-Linux-x86-346.59/nvidia_drv.so /usr/lib/nvidia-346-updates/xorg
-NVIDIA-Linux-x86-346.59/libglx.so.346.59 /usr/lib/nvidia-346-updates/xorg
+NVIDIA-Linux-x86-346.72/nvidia_drv.so /usr/lib/nvidia-346-updates/xorg
+NVIDIA-Linux-x86-346.72/libglx.so.346.72 /usr/lib/nvidia-346-updates/xorg
 
-NVIDIA-Linux-x86-346.59/libGL*.so*                  /usr/lib/nvidia-346-updates
-NVIDIA-Linux-x86-346.59/libEGL*.so*                 /usr/lib/nvidia-346-updates
-NVIDIA-Linux-x86-346.59/libnv*.so*                  /usr/lib/nvidia-346-updates
+NVIDIA-Linux-x86-346.72/libGL*.so*                  /usr/lib/nvidia-346-updates
+NVIDIA-Linux-x86-346.72/libEGL*.so*                 /usr/lib/nvidia-346-updates
+NVIDIA-Linux-x86-346.72/libnv*.so*                  /usr/lib/nvidia-346-updates
 
-NVIDIA-Linux-x86-346.59/libvdpau_nvidia.so*   /usr/lib/nvidia-346-updates/vdpau
-NVIDIA-Linux-x86-346.59/tls/*.so*                   /usr/lib/nvidia-346-updates/tls
+NVIDIA-Linux-x86-346.72/libvdpau_nvidia.so*   /usr/lib/nvidia-346-updates/vdpau
+NVIDIA-Linux-x86-346.72/tls/*.so*                   /usr/lib/nvidia-346-updates/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-346-updates-346.59
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-346-updates-346.59/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-346-updates-346.59
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-346-updates-346.72
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-346-updates-346.72/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-346-updates-346.72
 
-NVIDIA-Linux-x86-346.59/nvidia-bug-report.sh /usr/lib/nvidia-346-updates/bin
-NVIDIA-Linux-x86-346.59/nvidia-xconfig /usr/lib/nvidia-346-updates/bin
-NVIDIA-Linux-x86-346.59/nvidia-smi /usr/lib/nvidia-346-updates/bin
-NVIDIA-Linux-x86-346.59/nvidia-debugdump /usr/lib/nvidia-346-updates/bin
-NVIDIA-Linux-x86-346.59/nvidia-cuda-mps-control /usr/lib/nvidia-346-updates/bin
-NVIDIA-Linux-x86-346.59/nvidia-cuda-mps-server /usr/lib/nvidia-346-updates/bin
-NVIDIA-Linux-x86-346.59/nvidia-persistenced /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-bug-report.sh /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-xconfig /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-smi /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-debugdump /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-cuda-mps-control /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-cuda-mps-server /usr/lib/nvidia-346-updates/bin
+NVIDIA-Linux-x86-346.72/nvidia-persistenced /usr/lib/nvidia-346-updates/bin
 
-NVIDIA-Linux-x86-346.59/nvidia-application-profiles-346.59-rc /usr/share/nvidia-346-updates
-NVIDIA-Linux-x86-346.59/nvidia-application-profiles-346.59-key-documentation /usr/share/nvidia-346-updates
+NVIDIA-Linux-x86-346.72/nvidia-application-profiles-346.72-rc /usr/share/nvidia-346-updates
+NVIDIA-Linux-x86-346.72/nvidia-application-profiles-346.72-key-documentation /usr/share/nvidia-346-updates
