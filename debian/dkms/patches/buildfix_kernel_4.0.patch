@@ -1,0 +1,28 @@
+From ecd067e4a516b52d53fc55e07f95ba78a24de99e Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Fri, 5 Jun 2015 17:11:33 +0200
+Subject: [PATCH 1/1] Add support for Linux 4.0
+
+---
+ nv-pat.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/nv-pat.c b/nv-pat.c
+index f83181b..0c61485 100644
+--- a/nv-pat.c
++++ b/nv-pat.c
+@@ -30,6 +30,11 @@ static unsigned long orig_pat1, orig_pat2;
+ #define NV_PAT_ENTRY(pat, index) \
+     (((pat) & (0xff << ((index)*8))) >> ((index)*8))
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 20, 0)
++#define read_cr4()       __read_cr4()
++#define write_cr4(cr4)   __write_cr4(cr4)
++#endif
++
+ static inline void nv_disable_caches(unsigned long *cr4)
+ {
+     unsigned long cr0 = read_cr0();
+-- 
+1.9.1
+
