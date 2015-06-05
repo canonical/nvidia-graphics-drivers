@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-340-updates (340.76-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340-updates (340.76-0ubuntu3) wily; urgency=medium
 
-  * 
+  *  debian/templates/dkms_nvidia.conf.in,
+     debian/dkms_nvidia/patches/buildfix_kernel_4.0.patch:
+     - Add support for Linux 4.0.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Jun 2015 17:00:34 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Jun 2015 17:01:09 +0200
 
 nvidia-graphics-drivers-340-updates (340.76-0ubuntu2) vivid; urgency=medium
 
