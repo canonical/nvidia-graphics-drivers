@@ -1,30 +1,5 @@
-nvidia-graphics-drivers-340 (340.76-0ubuntu3) wily; urgency=medium
-
-  *  debian/templates/dkms_nvidia.conf.in,
-     debian/dkms_nvidia/patches/buildfix_kernel_4.0.patch:
-     - Add support for Linux 4.0.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Jun 2015 16:57:37 +0200
-
-nvidia-graphics-drivers-340 (340.76-0ubuntu2) vivid; urgency=medium
-
-  * debian/rules,
-    debian/templates/control.in,
-    debian/templates/dkms_nvidia_uvm.conf.in,
-    debian/templates/nvidia-graphics-drivers-uvm.dirs.in,
-    debian/templates/nvidia-graphics-drivers-uvm.install.in,
-    debian/templates/nvidia-graphics-drivers-uvm.postinst.in,
-    debian/templates/nvidia-graphics-drivers-uvm.prerm.in:
-    - Build nvidia and nvidia-uvm together, as the latter
-      build depends on the former (LP: #1431753).
-    - Merge the -uvm package into the main nvidia driver
-      package, and provide a transitional package for -uvm.
-    - Make sure to remove all upstream dkms.conf files.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Mar 2015 17:09:32 +0200
-
-nvidia-graphics-drivers-340 (340.76-0ubuntu1) vivid; urgency=medium
+nvidia-graphics-drivers-340 (340.76-0ubuntu0.1) UNRELEASED; urgency=medium
 
   * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Feb 2015 17:25:50 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Jun 2015 14:29:07 +0200
