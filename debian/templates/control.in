@@ -79,7 +79,7 @@ Description: NVIDIA OpenCL Driver and ICD Loader library
 
 Package: #OPENCLICD#
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | #LIBOPENCL1#
+Depends: ${shlibs:Depends}, ${misc:Depends}, #LIBOPENCL1# | ocl-icd-libopencl1
 Enhances: libopencl1
 Conflicts: nvidia-opencl-icd
 Replaces: nvidia-opencl-icd
