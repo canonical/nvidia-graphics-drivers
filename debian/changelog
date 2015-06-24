@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-346-updates (346.82-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Jun 2015 12:32:06 +0200
+
 nvidia-graphics-drivers-346-updates (346.72-0ubuntu1) wily; urgency=medium
 
   * New upstream release:
