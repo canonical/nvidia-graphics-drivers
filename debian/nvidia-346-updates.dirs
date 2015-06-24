@@ -15,8 +15,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-346-updates/xorg
 /usr/lib/nvidia-346-updates/xorg
-/usr/src/nvidia-346-updates-346.72
-/usr/src/nvidia-346-updates-346.72/patches
+/usr/src/nvidia-346-updates-346.82
+/usr/src/nvidia-346-updates-346.82/patches
 /usr/lib/vdpau
 /lib/nvidia-346-updates
 /usr/share/nvidia
