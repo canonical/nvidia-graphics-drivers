@@ -1,5 +1,9 @@
-nvidia-graphics-drivers-340 (340.76-0ubuntu0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.76-0ubuntu0.1) trusty-proposed; urgency=medium
 
-  * Initial release.
+  * Initial release (LP: #1465706, LP: #1431753).
+  * Changes in this backport, compared to wily:
+    - Try to clean up the libraries and links left by the 331 series.
+    - Allow nvidia-opencl-icd-$flavour to replace nvidia-opencl-icd-331 and
+      nvidia-opencl-icd-331-updates for a smooth upgrade.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Jun 2015 14:29:07 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 Jun 2015 11:42:38 +0200
