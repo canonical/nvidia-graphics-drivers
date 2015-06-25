@@ -227,6 +227,10 @@ case "$1" in
             --group "$NVPD_USER"
         fi
 
+        # Try to remove the leftovers from 331
+        rm -Rf /usr/lib/nvidia-331*
+        rm -Rf /usr/lib32/nvidia-331*
+
         # If the delayed module build feature is enabled
         # i.e. if $DONT_BUILD_MODULE is set to 1
         # or if $TMP_FILE exists
