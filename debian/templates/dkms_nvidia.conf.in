@@ -6,7 +6,7 @@ AUTOINSTALL="yes"
 # this will cause the kernel module build to infer that it was invoked via
 # Kbuild directly instead of DKMS. The dkms(8) manual page recommends quoting
 # the 'make' command name to suppress this behavior.
-MAKE[0]="'make' -j8 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=${kernelver} modules"
+MAKE[0]="'make' -j$(nproc) NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=${kernelver} IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=$kernel_source_dir LD=/usr/bin/ld.bfd modules"
 
 BUILT_MODULE_NAME[0]="nvidia"
 DEST_MODULE_NAME[0]="#MODULENAME#"
