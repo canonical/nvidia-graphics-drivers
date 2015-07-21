@@ -1,6 +1,6 @@
 BUILT_MODULE_NAME[1]="nvidia-uvm"
 BUILT_MODULE_LOCATION[1]="uvm/"
 DEST_MODULE_LOCATION[1]="/kernel/drivers/video"
-DEST_MODULE_NAME[1]="nvidia_346_uvm"
+DEST_MODULE_NAME[1]="nvidia_352_uvm"
 MAKE[0]+="; make -C uvm module KERNEL_UNAME=${kernelver} KBUILD_EXTMOD=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build/uvm"
 CLEAN+="; make -C uvm clean"
