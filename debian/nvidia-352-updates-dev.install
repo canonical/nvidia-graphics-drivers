@@ -1,0 +1,3 @@
+debian/headers/cl*.h                           /usr/include/nvidia-352-updates/CL
+debian/headers/gl*.h                           /usr/include/nvidia-352-updates/GL
+debian/headers/cuda*.h                         /usr/include/nvidia-352-updates/cuda
