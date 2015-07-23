@@ -1,6 +1,5 @@
-nvidia-graphics-drivers-352 (352.21-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352 (352.21-0ubuntu1) wily; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 21 Jul 2015 09:39:16 +0200
-
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 23 Jul 2015 12:05:01 +0200
