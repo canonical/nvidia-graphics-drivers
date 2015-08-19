@@ -1,0 +1,80 @@
+nvidia-355: library-not-linked-against-libc ./usr/lib/libGL.so.355.06
+
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.355.06
+
+nvidia-355: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.355.06
+
+nvidia-355: shlib-with-non-pic-code usr/lib/libGL.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/libGLcore.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.355.06
+
+nvidia-355: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.355.06 usr/lib/libGL.so
+nvidia-355: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.355.06 usr/lib/xorg/modules/extensions/libglx.so
+
+
+nvidia-355: script-not-executable usr/src/nvidia-355-355.06/conftest.sh
+nvidia-355: maintainer-script-ignores-errors prerm
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/libGL.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/libGL.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/libGLcore.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/libGLcore.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/libcuda.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/libcuda.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/libnvidia-cfg.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/libnvidia-cfg.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/libnvidia-tls.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/libnvidia-tls.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/libvdpau.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/tls/libnvidia-tls.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/tls/libnvidia-tls.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/vdpau/libvdpau_nvidia.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/vdpau/libvdpau_nvidia.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/vdpau/libvdpau_trace.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/nvidia-355/xorg/libglx.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-355/xorg/libglx.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.355.06
+nvidia-355: unused-shlib-entry-in-control-file libnvidia-tls 190
+nvidia-355: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+nvidia-355: prerm-calls-ldconfig
+nvidia-355: copyright-without-copyright-notice
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/nvidia-355/libnvidia-tls.so.355.06
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/nvidia-355/tls/libnvidia-tls.so.355.06
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.355.06
+nvidia-355: unknown-section restricted/misc
+nvidia-185-modaliases: copyright-without-copyright-notice
+nvidia-185-modaliases: extended-description-line-too-long
+nvidia-glx-185-dev: copyright-without-copyright-notice
+nvidia-glx-185-dev: extended-description-line-too-long
+nvidia-glx-185-dev: unknown-section restricted/misc
+nvidia-185-kernel-source: copyright-without-copyright-notice
+nvidia-185-kernel-source: unknown-section restricted/misc
+nvidia-355-dev: postinst-has-useless-call-to-ldconfig
+nvidia-355-dev: postrm-has-useless-call-to-ldconfig
+nvidia-355-dev: copyright-without-copyright-notice
+nvidia-355-dev: unknown-section restricted/misc
+nvidia-glx-185: copyright-without-copyright-notice
+nvidia-glx-185: unknown-section restricted/misc
+nvidia-355-modaliases: copyright-without-copyright-notice
+
+nvidia-355: script-not-executable ./usr/src/nvidia-355-355.06/conftest.sh
+nvidia-355: maintainer-script-ignores-errors prerm
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/libGL.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/libGLcore.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/libcuda.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/libnvidia-cfg.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/libnvidia-tls.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/libvdpau_nvidia.so.355.06
+nvidia-355: shlib-with-non-pic-code usr/lib32/nvidia-355/tls/libnvidia-tls.so.355.06
+nvidia-355: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-355/tls/libnvidia-tls.so.355.06
+
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/nvidia-355/libnvidia-tls.so.355.06
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/nvidia-355/tls/libnvidia-tls.so.355.06
+nvidia-355: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.355.06
+nvidia-355: shared-lib-without-dependency-information ./usr/lib32/nvidia-355/libnvidia-tls.so.355.06
+nvidia-355: shared-lib-without-dependency-information ./usr/lib32/nvidia-355/tls/libnvidia-tls.so.355.06
+
+
