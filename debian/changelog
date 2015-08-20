@@ -1,8 +1,29 @@
-nvidia-graphics-drivers-352-updates (352.30-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352-updates (352.30-0ubuntu1) wily; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+        Quadro M5000
+        Quadro M4000
+        GeForce 910M
+    - Fixed a bug that caused poor video post-processing performance
+      in VDPAU when operating on a large number of video streams
+      simultaneously.
+    - Fixed a bug that could cause an Xid error when terminating a
+      video playback application using the overlay presentation queue
+      in VDPAU.
+    - Fixed a rare deadlock condition when running applications that
+      use OpenGL in multiple threads on a Quadro GPU.
+    - Fixed a kernel memory leak that occurred when looping hardware
+      - accelerated video decoding with VDPAU on Maxwell-based GPUs.
+    - Fixed a bug that caused the X server to crash if a RandR 1.4
+      output provided by a Sink Output provider was selected as the
+      primary output on X.Org xserver 1.17 and higher.
+    - Fixed a bug that caused waiting on X Sync Fence objects in
+      OpenGL to hang indefinitely in some cases.
+    - Fixed a bug that prevented OpenGL from properly recovering from
+      hardware errors or sync object waits that had timed out.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Aug 2015 17:48:54 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Aug 2015 17:49:42 +0200
 
 nvidia-graphics-drivers-352-updates (352.21-0ubuntu1) wily; urgency=medium
 
