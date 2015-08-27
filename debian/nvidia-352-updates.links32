@@ -1,34 +1,34 @@
-/usr/lib32/nvidia-352-updates/libGL.so.352.30 /usr/lib32/nvidia-352-updates/libGL.so.1
+/usr/lib32/nvidia-352-updates/libGL.so.352.41 /usr/lib32/nvidia-352-updates/libGL.so.1
 /usr/lib32/nvidia-352-updates/libGL.so.1 /usr/lib32/nvidia-352-updates/libGL.so
 
-/usr/lib32/nvidia-352-updates/libEGL.so.352.30 /usr/lib32/nvidia-352-updates/libEGL.so.1
+/usr/lib32/nvidia-352-updates/libEGL.so.352.41 /usr/lib32/nvidia-352-updates/libEGL.so.1
 /usr/lib32/nvidia-352-updates/libEGL.so.1 /usr/lib32/nvidia-352-updates/libEGL.so
 
-/usr/lib32/nvidia-352-updates/libGLESv1_CM.so.352.30 /usr/lib32/nvidia-352-updates/libGLESv1_CM.so.1
+/usr/lib32/nvidia-352-updates/libGLESv1_CM.so.352.41 /usr/lib32/nvidia-352-updates/libGLESv1_CM.so.1
 /usr/lib32/nvidia-352-updates/libGLESv1_CM.so.1 /usr/lib32/nvidia-352-updates/libGLESv1_CM.so
 
-/usr/lib32/nvidia-352-updates/libGLESv2.so.352.30 /usr/lib32/nvidia-352-updates/libGLESv2.so.2
+/usr/lib32/nvidia-352-updates/libGLESv2.so.352.41 /usr/lib32/nvidia-352-updates/libGLESv2.so.2
 /usr/lib32/nvidia-352-updates/libGLESv2.so.2 /usr/lib32/nvidia-352-updates/libGLESv2.so
 
-/usr/lib32/nvidia-352-updates/libnvidia-cfg.so.352.30 /usr/lib32/nvidia-352-updates/libnvidia-cfg.so.1
+/usr/lib32/nvidia-352-updates/libnvidia-cfg.so.352.41 /usr/lib32/nvidia-352-updates/libnvidia-cfg.so.1
 /usr/lib32/nvidia-352-updates/libnvidia-cfg.so.1 /usr/lib32/nvidia-352-updates/libnvidia-cfg.so
 
-/usr/lib/nvidia-352-updates/xorg/libglx.so.352.30 /usr/lib/nvidia-352-updates/xorg/libglx.so
+/usr/lib/nvidia-352-updates/xorg/libglx.so.352.41 /usr/lib/nvidia-352-updates/xorg/libglx.so
 
-/usr/lib32/nvidia-352-updates/vdpau/libvdpau_nvidia.so.352.30 /usr/lib32/nvidia-352-updates/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-352-updates/vdpau/libvdpau_nvidia.so.352.41 /usr/lib32/nvidia-352-updates/vdpau/libvdpau_nvidia.so.1
 /usr/lib32/nvidia-352-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-352-updates/vdpau/libvdpau_nvidia.so
 
-/usr/lib32/nvidia-352-updates/libnvidia-compiler.so.352.30 /usr/lib32/nvidia-352-updates/libnvidia-compiler.so.1
+/usr/lib32/nvidia-352-updates/libnvidia-compiler.so.352.41 /usr/lib32/nvidia-352-updates/libnvidia-compiler.so.1
 /usr/lib32/nvidia-352-updates/libnvidia-compiler.so.1 /usr/lib32/nvidia-352-updates/libnvidia-compiler.so
 
-/usr/lib32/nvidia-352-updates/libnvidia-ml.so.352.30 /usr/lib32/nvidia-352-updates/libnvidia-ml.so.1
+/usr/lib32/nvidia-352-updates/libnvidia-ml.so.352.41 /usr/lib32/nvidia-352-updates/libnvidia-ml.so.1
 /usr/lib32/nvidia-352-updates/libnvidia-ml.so.1 /usr/lib32/nvidia-352-updates/libnvidia-ml.so
 
-/usr/lib32/nvidia-352-updates/libnvcuvid.so.352.30 /usr/lib32/nvidia-352-updates/libnvcuvid.so.1
+/usr/lib32/nvidia-352-updates/libnvcuvid.so.352.41 /usr/lib32/nvidia-352-updates/libnvcuvid.so.1
 /usr/lib32/nvidia-352-updates/libnvcuvid.so.1 /usr/lib32/nvidia-352-updates/libnvcuvid.so
 
-/usr/lib32/nvidia-352-updates/libnvidia-encode.so.352.30 /usr/lib32/nvidia-352-updates/libnvidia-encode.so.1
+/usr/lib32/nvidia-352-updates/libnvidia-encode.so.352.41 /usr/lib32/nvidia-352-updates/libnvidia-encode.so.1
 /usr/lib32/nvidia-352-updates/libnvidia-encode.so.1 /usr/lib32/nvidia-352-updates/libnvidia-encode.so
 
-/usr/lib32/nvidia-352-updates/libnvidia-ifr.so.352.30 /usr/lib32/nvidia-352-updates/libnvidia-ifr.so.1
+/usr/lib32/nvidia-352-updates/libnvidia-ifr.so.352.41 /usr/lib32/nvidia-352-updates/libnvidia-ifr.so.1
 /usr/lib32/nvidia-352-updates/libnvidia-ifr.so.1 /usr/lib32/nvidia-352-updates/libnvidia-ifr.so
