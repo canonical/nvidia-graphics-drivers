@@ -15,8 +15,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-352/xorg
 /usr/lib/nvidia-352/xorg
-/usr/src/nvidia-352-352.30
-/usr/src/nvidia-352-352.30/patches
+/usr/src/nvidia-352-352.41
+/usr/src/nvidia-352-352.41/patches
 /usr/lib/vdpau
 /lib/nvidia-352
 /usr/share/nvidia
