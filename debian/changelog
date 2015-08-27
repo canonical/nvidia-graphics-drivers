@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.93-0ubuntu0.0.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2015 15:44:32 +0200
+
 nvidia-graphics-drivers-340 (340.76-0ubuntu0.1) trusty-proposed; urgency=medium
 
   * Initial release (LP: #1465706, LP: #1431753).
