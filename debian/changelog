@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-346 (346.96-0ubuntu0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-346 (346.96-0ubuntu0.1) vivid-security; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release:
+   - Added support for the following GPU:
+     o Tesla K80
+   - Fixed a bug that caused the X server to crash if an
+     OpenGL application tried to allocate a drawable when
+     GPU-accessible memory is exhausted.
+  * SECURITY UPDATE:
+    - CVE-2015-5950 (LP: #1489391).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2015 13:11:38 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2015 14:46:29 +0200
 
 nvidia-graphics-drivers-346 (346.59-0ubuntu1) vivid; urgency=medium
 
