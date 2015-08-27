@@ -1,8 +1,21 @@
-nvidia-graphics-drivers-352-updates (352.41-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352-updates (352.41-0ubuntu1) wily; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add support for libcuda-7.5-1. Thanks to Graham Inggs for
+      spotting the problem.
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 950
+      o Quadro M4000
+      o Quadro M5000
+    - Fixed a bug that caused VDPAU to only display the top
+      half of a video frame when decoding and displaying
+      H.265/HEVC encoded video streams.
+    - Fixed a bug that caused the X server to crash if an
+      OpenGL application tried to allocate a drawable when
+      GPU-accessible memory is exhausted.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2015 12:36:47 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2015 12:37:34 +0200
 
 nvidia-graphics-drivers-352-updates (352.30-0ubuntu1) wily; urgency=medium
 
