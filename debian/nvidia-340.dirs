@@ -15,8 +15,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-340/xorg
 /usr/lib/nvidia-340/xorg
-/usr/src/nvidia-340-340.76
-/usr/src/nvidia-340-340.76/patches
+/usr/src/nvidia-340-340.93
+/usr/src/nvidia-340-340.93/patches
 /usr/lib/vdpau
 /lib/nvidia-340
 /usr/share/nvidia
