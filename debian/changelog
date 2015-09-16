@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-304 (304.128-0ubuntu0.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.128-0ubuntu0.0.1) trusty-security; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/templates/dkms.conf.in:
+    - Drop patches for Linux 3.19 and 4.0.
+  * New upstream release:
+    - Removed libvdpau and libvdpau_trace from the NVIDIA driver
+      package. VDPAU is not supported on the legacy hardware
+      supported on the release 304 legacy driver branch. The
+      libvdpau_nvidia vendor library is still included, so users who
+      wish to use VDPAU with newer hardware that still works with
+      release 304 drivers may install libvdpau from packages provided
+      by the OS vendor where available, or from the source code
+      available at:
+      http://people.freedesktop.org/~aplattner/vdpau/
+  * SECURITY UPDATE:
+    - CVE-2015-5950 (LP: #1489391).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Sep 2015 16:52:55 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Sep 2015 16:55:41 +0200
 
 nvidia-graphics-drivers-304 (304.125-0ubuntu0.0.2) trusty-proposed; urgency=medium
 
