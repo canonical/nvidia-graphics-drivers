@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-352-updates (352.41-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352-updates (352.41-0ubuntu3) xenial; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add dependency on xserver-xorg-legacy.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Nov 2015 17:09:34 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Nov 2015 17:09:56 +0100
 
 nvidia-graphics-drivers-352-updates (352.41-0ubuntu2) xenial; urgency=medium
 
