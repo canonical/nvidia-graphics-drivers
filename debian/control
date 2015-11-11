@@ -13,7 +13,7 @@ Package: nvidia-352-updates
 Architecture: i386 amd64 armhf
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
- ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
+ xserver-xorg-legacy, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
  libcuda1-352-updates, nvidia-opencl-icd-352-updates [!armhf]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
