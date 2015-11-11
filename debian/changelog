@@ -1,8 +1,32 @@
-nvidia-graphics-drivers-352 (352.63-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352 (352.63-0ubuntu1) xenial; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_4.3.patch. The upstream code already
+      includes this fix.
+  * debian/substvars:
+    - Add support for X ABI 20.
+  * New upstream release:
+    - Added support for the following GPUs:
+      GeForce 945M
+      Quadro M5000M
+      Quadro M4000M
+      Quadro M3000M
+      Quadro M2000M
+      Quadro M1000M
+      Quadro M600M
+      NVS 810
+    - Fixed a regression that prevented DPMS from working
+      correctly on some DisplayPort displays.
+    - Fixed a bug that could prevent X from starting when
+      configured with multiple X screens, some of which
+      scan out to display devices, and some of which do not.
+    - Fixed a bug that could cause texture corruption in
+      some OpenGL applications when video memory is exhausted
+      by a combination of simultaneously running graphical
+      and compute workloads.
+    - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Nov 2015 17:44:52 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Nov 2015 17:45:41 +0100
 
 nvidia-graphics-drivers-352 (352.41-0ubuntu3) xenial; urgency=medium
 
