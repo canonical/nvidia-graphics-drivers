@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-340 (340.96-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.96-0ubuntu1) xenial; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop all the patches.
+  * debian/substvars:
+    - Add support for X ABI 20.
+  * New upstream release:
+    - Fixed a bug that could cause texture corruption in some OpenGL
+      applications when video memory is exhausted by a combination
+      of simultaneously running graphical and compute workloads.
+    - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Nov 2015 11:41:46 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Nov 2015 11:45:52 +0100
 
 nvidia-graphics-drivers-340 (340.93-0ubuntu2) xenial; urgency=medium
 
