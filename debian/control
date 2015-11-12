@@ -20,7 +20,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
-Description: NVIDIA legacy binary driver - version 304.128
+Description: NVIDIA legacy binary driver - version 304.131
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -33,12 +33,12 @@ Description: NVIDIA legacy binary driver - version 304.128
  GPUs such as GeForce series 6 or newer are supported.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-304.128-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-304.131-driver.html
  .
 
 Package: nvidia-304-dev
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-304 (>= 304.128)
+Depends: ${misc:Depends}, nvidia-304 (>= 304.131)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
