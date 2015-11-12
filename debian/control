@@ -21,7 +21,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 340.93
+Description: NVIDIA binary driver - version 340.96
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 340.93
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-340.93-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-340.96-driver.html
  .
 
 Package: nvidia-340-updates-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-340-updates (>= 340.93)
+Depends: ${misc:Depends}, nvidia-340-updates (>= 340.96)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
