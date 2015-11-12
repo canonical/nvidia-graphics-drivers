@@ -8,27 +8,27 @@ debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 
-NVIDIA-Linux-x86-352.41/nvidia_drv.so /usr/lib/nvidia-352/xorg
-NVIDIA-Linux-x86-352.41/libglx.so.352.41 /usr/lib/nvidia-352/xorg
+NVIDIA-Linux-x86-352.63/nvidia_drv.so /usr/lib/nvidia-352/xorg
+NVIDIA-Linux-x86-352.63/libglx.so.352.63 /usr/lib/nvidia-352/xorg
 
-NVIDIA-Linux-x86-352.41/libGL*.so*                  /usr/lib/nvidia-352
-NVIDIA-Linux-x86-352.41/libEGL*.so*                 /usr/lib/nvidia-352
-NVIDIA-Linux-x86-352.41/libnv*.so*                  /usr/lib/nvidia-352
+NVIDIA-Linux-x86-352.63/libGL*.so*                  /usr/lib/nvidia-352
+NVIDIA-Linux-x86-352.63/libEGL*.so*                 /usr/lib/nvidia-352
+NVIDIA-Linux-x86-352.63/libnv*.so*                  /usr/lib/nvidia-352
 
-NVIDIA-Linux-x86-352.41/libvdpau_nvidia.so*   /usr/lib/nvidia-352/vdpau
-NVIDIA-Linux-x86-352.41/tls/*.so*                   /usr/lib/nvidia-352/tls
+NVIDIA-Linux-x86-352.63/libvdpau_nvidia.so*   /usr/lib/nvidia-352/vdpau
+NVIDIA-Linux-x86-352.63/tls/*.so*                   /usr/lib/nvidia-352/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-352-352.41
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-352-352.41/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-352-352.41
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-352-352.63
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-352-352.63/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-352-352.63
 
-NVIDIA-Linux-x86-352.41/nvidia-bug-report.sh /usr/lib/nvidia-352/bin
-NVIDIA-Linux-x86-352.41/nvidia-xconfig /usr/lib/nvidia-352/bin
-NVIDIA-Linux-x86-352.41/nvidia-smi /usr/lib/nvidia-352/bin
-NVIDIA-Linux-x86-352.41/nvidia-debugdump /usr/lib/nvidia-352/bin
-NVIDIA-Linux-x86-352.41/nvidia-cuda-mps-control /usr/lib/nvidia-352/bin
-NVIDIA-Linux-x86-352.41/nvidia-cuda-mps-server /usr/lib/nvidia-352/bin
-NVIDIA-Linux-x86-352.41/nvidia-persistenced /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-bug-report.sh /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-xconfig /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-smi /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-debugdump /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-cuda-mps-control /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-cuda-mps-server /usr/lib/nvidia-352/bin
+NVIDIA-Linux-x86-352.63/nvidia-persistenced /usr/lib/nvidia-352/bin
 
-NVIDIA-Linux-x86-352.41/nvidia-application-profiles-352.41-rc /usr/share/nvidia-352
-NVIDIA-Linux-x86-352.41/nvidia-application-profiles-352.41-key-documentation /usr/share/nvidia-352
+NVIDIA-Linux-x86-352.63/nvidia-application-profiles-352.63-rc /usr/share/nvidia-352
+NVIDIA-Linux-x86-352.63/nvidia-application-profiles-352.63-key-documentation /usr/share/nvidia-352
