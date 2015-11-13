@@ -14,8 +14,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-304/xorg
 /usr/lib/nvidia-304/xorg
-/usr/src/nvidia-304-304.128
-/usr/src/nvidia-304-304.128/patches
+/usr/src/nvidia-304-304.131
+/usr/src/nvidia-304-304.131/patches
 /usr/lib/vdpau
 /usr/lib32/vdpau
 /lib/nvidia-304

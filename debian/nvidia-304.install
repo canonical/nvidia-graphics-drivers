@@ -4,23 +4,23 @@ debian/nvidia-304.grub-gfxpayload          /usr/share/nvidia-304
 
 debian/glamor.conf                           /usr/share/nvidia-304
 
-NVIDIA-Linux-x86_64-304.128-no-compat32/nvidia_drv.so /usr/lib/nvidia-304/xorg
-NVIDIA-Linux-x86_64-304.128-no-compat32/libglx.so.304.128 /usr/lib/nvidia-304/xorg
+NVIDIA-Linux-x86_64-304.131-no-compat32/nvidia_drv.so /usr/lib/nvidia-304/xorg
+NVIDIA-Linux-x86_64-304.131-no-compat32/libglx.so.304.131 /usr/lib/nvidia-304/xorg
 
-NVIDIA-Linux-x86_64-304.128-no-compat32/libGL*.so*                  /usr/lib/nvidia-304
-NVIDIA-Linux-x86_64-304.128-no-compat32/libnv*.so*                  /usr/lib/nvidia-304
+NVIDIA-Linux-x86_64-304.131-no-compat32/libGL*.so*                  /usr/lib/nvidia-304
+NVIDIA-Linux-x86_64-304.131-no-compat32/libnv*.so*                  /usr/lib/nvidia-304
 
-NVIDIA-Linux-x86_64-304.128-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-304/vdpau
-NVIDIA-Linux-x86_64-304.128-no-compat32/tls/*.so*                   /usr/lib/nvidia-304/tls
+NVIDIA-Linux-x86_64-304.131-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-304/vdpau
+NVIDIA-Linux-x86_64-304.131-no-compat32/tls/*.so*                   /usr/lib/nvidia-304/tls
 
-NVIDIA-Linux-x86_64-304.128-no-compat32/libXvMCNVIDIA.so.304.128  /usr/lib/nvidia-304
+NVIDIA-Linux-x86_64-304.131-no-compat32/libXvMCNVIDIA.so.304.131  /usr/lib/nvidia-304
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-304-304.128
-debian/dkms/patches/*                         usr/src/nvidia-304-304.128/patches
-debian/dkms.conf                              usr/src/nvidia-304-304.128
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-304-304.131
+debian/dkms/patches/*                         usr/src/nvidia-304-304.131/patches
+debian/dkms.conf                              usr/src/nvidia-304-304.131
 
-NVIDIA-Linux-x86_64-304.128-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-304/bin
-NVIDIA-Linux-x86_64-304.128-no-compat32/nvidia-xconfig /usr/lib/nvidia-304/bin
-NVIDIA-Linux-x86_64-304.128-no-compat32/nvidia-smi /usr/lib/nvidia-304/bin
+NVIDIA-Linux-x86_64-304.131-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-304/bin
+NVIDIA-Linux-x86_64-304.131-no-compat32/nvidia-xconfig /usr/lib/nvidia-304/bin
+NVIDIA-Linux-x86_64-304.131-no-compat32/nvidia-smi /usr/lib/nvidia-304/bin
 
-NVIDIA-Linux-x86_64-304.128-no-compat32/nvidia.icd /usr/share/nvidia-304
+NVIDIA-Linux-x86_64-304.131-no-compat32/nvidia.icd /usr/share/nvidia-304
