@@ -281,7 +281,7 @@ endif
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	# Disable the stack markings of 32bit binaries on amd64
 	# See (LP: #409456)
-	find $(CURDIR)/$(dirname_x86) -name *.so* | xargs -n1 execstack -c
+	find $(CURDIR)/$(dirname_x86) -name *.so* | xargs -n1 execstack -c || true
 
 	# Temporarily rename libnvidia-opencl
 	mv $(CURDIR)/$(dirname_x86)/libnvidia-opencl.so.$(PKG_version) \
