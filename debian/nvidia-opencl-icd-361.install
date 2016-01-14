@@ -1,0 +1,2 @@
+NVIDIA-Linux-x86-361.18/nvidia.icd  etc/OpenCL/vendors/
+NVIDIA-Linux-x86-361.18/libnvidia-opencl.so.361.18   /usr/lib/x86_64-linux-gnu/

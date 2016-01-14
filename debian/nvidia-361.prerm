@@ -1,12 +1,12 @@
 #!/bin/sh
-# prerm script for nvidia-352
+# prerm script for nvidia-361
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
 # Authors: Alberto Milone
 
 
-PACKAGE_NAME=nvidia-352
+PACKAGE_NAME=nvidia-361
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
 
@@ -26,13 +26,17 @@ case "$1" in
 	remove)
 		remove_dkms_module 
 	
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-352/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-352/alt_ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-361/ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-361/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-361/alt_ld.so.conf
+		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-361/alt_ld.so.conf
 		# Remove the alternatives for PRIME
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-352-prime/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-352-prime/alt_ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-361-prime/ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-361-prime/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-361-prime/alt_ld.so.conf
+		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-361-prime/alt_ld.so.conf
 		# Remove the alternative for glamor-egl
-		update-alternatives --remove glamor_conf /usr/share/nvidia-352/glamor.conf
+		update-alternatives --remove glamor_conf /usr/share/nvidia-361/glamor.conf
 
 		# explicit ldconfig due to alternatives
 		ldconfig
