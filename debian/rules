@@ -284,10 +284,10 @@ override_dh_auto_configure:
 	rm -rf $(dirname_x86) $(dirname_x86_64) $(dirname_armhf)
 
 	# Extract the installers
-	sh $(filename) --extract-only
+	sh $(filename) --extract-only --target $(dirname)
 
 ifeq ($(DEB_BUILD_ARCH),amd64)
-	sh $(filename_x86) --extract-only
+	sh $(filename_x86) --extract-only --target $(dirname_x86)
 endif
 
 ifneq ($(DEB_BUILD_ARCH),armhf)
@@ -304,12 +304,12 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 endif
 
 	# Get around Xen checks
-	mv $(dirname)/kernel/nv.c $(dirname)/kernel/nv1.c
-	mv $(dirname)/kernel/nv-linux.h $(dirname)/kernel/nv-linux1.h
-	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nv1.c > $(dirname)/kernel/nv.c
-	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nv-linux1.h > $(dirname)/kernel/nv-linux.h
-	rm -f $(dirname)/kernel/nv1.c
-	rm -f $(dirname)/kernel/nv-linux1.h
+	mv $(dirname)/kernel/nvidia/nv.c $(dirname)/kernel/nvidia/nv1.c
+	mv $(dirname)/kernel/common/inc/nv-linux.h $(dirname)/kernel/common/inc/nv-linux1.h
+	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/nvidia/nv1.c > $(dirname)/kernel/nvidia/nv.c
+	sed 's/CONFIG_XEN/CONFIG_ALB/g'  $(dirname)/kernel/common/inc/nv-linux1.h > $(dirname)/kernel/common/inc/nv-linux.h
+	rm -f $(dirname)/kernel/nvidia/nv1.c
+	rm -f $(dirname)/kernel/common/inc/nv-linux1.h
 
 	# kernel module source
 	mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel
@@ -387,7 +387,7 @@ endif
 	sh -e $(CURDIR)/debian/nvidia_supported \
 		$(PKG_module) $(PKG_driver) \
 		$(dirname)/README.txt \
-		$(dirname)/kernel/nv-kernel.o \
+		$(dirname)/kernel/nv-kernel.o_binary \
 		> $(CURDIR)/debian/$(PKG_driver).modaliases
 	# Take additional card ids from a text file
 	while read id sid; do \
