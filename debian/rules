@@ -115,6 +115,12 @@ vdpaudir32           := $(libdir32)/vdpau
 tlsdir32             := $(libdir32)/tls
 grub_blacklistdir    := /usr/share/grub-gfxpayload-lists/blacklist
 
+ifeq ($(DEB_BUILD_ARCH),amd64)
+DKMS_disabled_modules :=
+else
+DKMS_disabled_modules := nvidia-uvm
+endif
+
 # This is a hack to make sure that
 # the blacklist file is available
 # early in the boot process when
@@ -250,6 +256,7 @@ regen-from-templates:
 			-e "s|#RELEASENOTES#|$(release_notes)|g" \
 			-e "s|#NVIDIASHARE#|$(nvidia_share)|g" \
 			-e "s|#ARM_EXCLUDED#|$(arm_excluded)|g" \
+			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
 			$$i > $$dest;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
