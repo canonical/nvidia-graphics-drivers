@@ -13,6 +13,7 @@ debian/create-uvm-dev-node                   sbin
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
 #DIRNAME#/libGL*.so*                  #PKGLIBDIR#
+#DIRNAME#/libOpenGL*.so*              #PKGLIBDIR#
 #DIRNAME#/libEGL*.so*                 #PKGLIBDIR#
 #DIRNAME#/libnv*.so*                  #PKGLIBDIR#
 
