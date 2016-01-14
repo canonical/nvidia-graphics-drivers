@@ -12,3 +12,7 @@ ACTION=="remove" DEVPATH=="/bus/acpi/drivers/NVIDIA ACPI Video Driver" SUBSYSTEM
 ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/start-nvidia-persistenced"
 ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/stop-nvidia-persistenced"
 
+# Load and unload nvidia-modeset module
+ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-modeset"
+ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-modeset"
+
