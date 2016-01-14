@@ -154,6 +154,9 @@ case "$1" in
             --slave #VDPAUDIR32#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 \
             --slave #LIBDIR32#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so \
             --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
+        update-alternatives --force \
+            --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_EGL.conf #DEB_HOST_MULTIARCH#_egl_conf #LDSOCONF# #ALTPRIORITY#
+
 
         # Alternative for PRIME power saving mode
         # In this case only intel is enabled and we only need to make
@@ -171,12 +174,16 @@ case "$1" in
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
             --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
+        update-alternatives --force \
+            --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_EGL.conf #DEB_HOST_MULTIARCH#_egl_conf #PMLDSOCONF# #PMALTPRIORITY#
 
         if [ "$ARCH" != "armhf" ]; then
             # Install just the ld.so.conf.d alternative for the secondary architecture.
             # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
             update-alternatives --force \
                 --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
+            update-alternatives --force \
+                --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_EGL.conf #OTHER_ARCH#_egl_conf #ALTLDSOCONF# #ALTPRIORITY#
 
             # Install just the ld.so.conf.d alternative for PRIME for the
             # secondary architecture.
@@ -184,6 +191,8 @@ case "$1" in
             # architecture are not used.
             update-alternatives --force \
                 --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
+            update-alternatives --force \
+                --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_EGL.conf #OTHER_ARCH#_egl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
         fi
 
         # Make sure glamoregl is disabled
