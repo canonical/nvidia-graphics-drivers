@@ -82,7 +82,9 @@ sysconfdir           := /etc
 PKG_libdir           := $(libdir)/$(PKG_driver)
 PKG_libdir32         := $(libdir32)/$(PKG_driver)
 mesa_libdir          := $(libdir)/$(DEB_HOST_MULTIARCH)/mesa
+mesa_egl_libdir      := $(libdir)/$(DEB_HOST_MULTIARCH)/mesa-egl
 mesa_libdir_other    := $(libdir)/$(OTHER_ARCH)/mesa
+mesa_egl_libdir_other := $(libdir)/$(OTHER_ARCH)/mesa-egl
 xorg_libdir          := $(libdir)/xorg
 xorg_extra_path      := $(libdir)/$(DEB_HOST_MULTIARCH)/xorg
 xorg_extra_modules   := $(xorg_extra_path)/extra-modules
@@ -408,9 +410,11 @@ endif
 	dh_installdirs -p$(PKG_driver) "$(ld_so_conf_dir)"
 	echo "$(PKG_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
 	echo "$(mesa_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
+	echo "$(mesa_egl_libdir)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
 	echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
+	echo "$(mesa_egl_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
 endif
 	# empty ld.so.conf for the fake multi-arch alternative
 	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
