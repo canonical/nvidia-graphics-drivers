@@ -12,3 +12,12 @@ ACTION=="remove" DEVPATH=="/bus/acpi/drivers/NVIDIA ACPI Video Driver" SUBSYSTEM
 ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/start-nvidia-persistenced"
 ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/stop-nvidia-persistenced"
 
+# Load and unload nvidia-uvm module
+ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-uvm"
+ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-uvm"
+
+# This will create the device nvidia device nodes
+ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/nvidia-smi"
+
+# Create the device node for the nvidia-uvm module
+ACTION=="add" DEVPATH=="/module/nvidia_uvm" SUBSYSTEM=="module" RUN+="/sbin/create-uvm-dev-node"
