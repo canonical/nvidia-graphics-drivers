@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-352-updates (352.63-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352-updates (352.63-0ubuntu2) xenial; urgency=medium
 
-  * 
+  * debian/71-nvidia.rules, debian/create-uvm-dev-node,
+    debian/templates/nvidia-graphics-drivers.install.in:
+    - Add support for creating the device nodes, and for
+      loading the uvm module (LP: #1540896).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Feb 2016 17:09:59 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Feb 2016 17:10:31 +0100
 
 nvidia-graphics-drivers-352-updates (352.63-0ubuntu1) xenial; urgency=medium
 
