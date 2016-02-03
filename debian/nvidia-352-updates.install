@@ -7,6 +7,7 @@ debian/glamor.conf                           /usr/share/nvidia-352-updates
 debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
+debian/create-uvm-dev-node                   sbin
 
 NVIDIA-Linux-x86-352.63/nvidia_drv.so /usr/lib/nvidia-352-updates/xorg
 NVIDIA-Linux-x86-352.63/libglx.so.352.63 /usr/lib/nvidia-352-updates/xorg
