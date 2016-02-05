@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-352 (352.63-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-352 (352.63-0ubuntu3) xenial; urgency=medium
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.postinst.in,
+    debian/templates/nvidia-graphics-drivers.prerm.in,
+    debian/rules:
+    - Add EGL alternatives. Thanks to Michael Marley and Rico Tzschichholz.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Feb 2016 17:53:14 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Feb 2016 17:59:24 +0100
 
 nvidia-graphics-drivers-352 (352.63-0ubuntu2) xenial; urgency=medium
 
