@@ -1,15 +1,33 @@
+# GLVND GLX client libraries
+
+#PKGLIBDIR32#/libGL.so.1.0.0 #PKGLIBDIR32#/libGL.so.1
 #PKGLIBDIR32#/libGL.so.1 #PKGLIBDIR32#/libGL.so
+
+#PKGLIBDIR32#/libOpenGL.so.0 #PKGLIBDIR32#/libOpenGL.so
+
+#PKGLIBDIR32#/libGLX.so.0 #PKGLIBDIR32#/libGLX.so
+
+# For an easy transition from a non-GLVND installation
+
+#PKGLIBDIR32#/libGLX_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLX_nvidia.so.0
+#PKGLIBDIR32#/libGLX_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLX_indirect.so.0
+
+# EGL client libraries
 
 #PKGLIBDIR32#/libEGL.so.1 #PKGLIBDIR32#/libEGL.so
 
 #PKGLIBDIR32#/libGLESv1_CM.so.1 #PKGLIBDIR32#/libGLESv1_CM.so
-
 #PKGLIBDIR32#/libGLESv2.so.2 #PKGLIBDIR32#/libGLESv2.so
+
+#PKGLIBDIR32#/libEGL_nvidia.so.#VERSION# #PKGLIBDIR32#/libEGL_nvidia.so.0
+
+#PKGLIBDIR32#/libGLESv1_CM_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLESv1_CM_nvidia.so.1
+#PKGLIBDIR32#/libGLESv2_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLESv2_nvidia.so.2
+
+# Misc
 
 #PKGLIBDIR32#/libnvidia-cfg.so.#VERSION# #PKGLIBDIR32#/libnvidia-cfg.so.1
 #PKGLIBDIR32#/libnvidia-cfg.so.1 #PKGLIBDIR32#/libnvidia-cfg.so
-
-#NVIDIAEXTENSION#/libglx.so.#VERSION# #NVIDIAEXTENSION#/libglx.so
 
 #PKGVDPAUDIR32#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR32#/libvdpau_nvidia.so.1
 #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 #PKGVDPAUDIR32#/libvdpau_nvidia.so
