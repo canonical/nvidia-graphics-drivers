@@ -290,6 +290,16 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	mv -f $(CURDIR)/debian/$(PKG_driver).dirs_new $(CURDIR)/debian/$(PKG_driver).dirs
 endif
 
+ifeq ($(DEB_BUILD_ARCH),armhf)
+	# The libraries have not been renamed, as with the
+	# other architectures yet
+
+	# $(PKG_driver)
+	cat $(CURDIR)/debian/$(PKG_driver).links.armhf > \
+	$(CURDIR)/debian/$(PKG_driver).links
+endif
+
+
 override_dh_auto_configure:
 	rm -rf $(dirname_x86) $(dirname_x86_64) $(dirname_armhf)
 
@@ -451,6 +461,11 @@ endif
 
 	# Remove libnvidia-opencl
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
+
+ifneq ($(DEB_BUILD_ARCH),armhf)
+	# Remove the non-GLVND libGL libraries
+	find $(CURDIR)/debian/$(PKG_driver) -name "libGL.so.$(PKG_version)" | xargs /bin/rm -f
+endif
 
 	# Part about $(PKG_libcuda1):
 	dh_install -p$(PKG_libcuda1)
