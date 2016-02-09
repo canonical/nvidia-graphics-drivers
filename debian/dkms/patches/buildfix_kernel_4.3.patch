@@ -1,0 +1,82 @@
+From 66b9ca32afa877003721ed3f38be9e001d82d4c4 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 9 Feb 2016 18:04:01 +0100
+Subject: [PATCH 1/1] Add support for Linux 4.3
+
+---
+ os-agp.c  | 12 ++++++++++++
+ os-mtrr.c |  8 ++++++++
+ 2 files changed, 20 insertions(+)
+
+diff --git a/os-agp.c b/os-agp.c
+index 6f7c29d..3fde76c 100644
+--- a/os-agp.c
++++ b/os-agp.c
+@@ -123,8 +123,12 @@ RM_STATUS KernInitAGP(
+          * be due to the presence of other memory ranges with conflicting
+          * caching  attributes. Play safe and fail AGP initialization.
+          */
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+         if (mtrr_add(agp_info.aper_base, agp_info.aper_size << 20,
+                 MTRR_TYPE_WRCOMB, 0) < 0)
++#else
++        if (arch_phys_wc_add(agp_info.aper_base, agp_info.aper_size << 20) < 0)
++#endif
+ #endif
+         {
+             nv_printf(NV_DBG_ERRORS, 
+@@ -176,7 +180,11 @@ RM_STATUS KernInitAGP(
+ failed:
+ #ifdef CONFIG_MTRR
+     if (nv_pat_mode == NV_PAT_MODE_DISABLED)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+         mtrr_del(-1, agp_info.aper_base, agp_info.aper_size << 20);
++#else
++        arch_phys_wc_del(-1);
++#endif
+ #endif
+ release:
+     NV_AGPGART_BACKEND_RELEASE(drm_agp_p, nvl->agp_bridge);
+@@ -206,7 +214,11 @@ RM_STATUS KernTeardownAGP(
+ 
+ #ifdef CONFIG_MTRR
+     if (nv_pat_mode == NV_PAT_MODE_DISABLED)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+         mtrr_del(-1, nv->agp.address, nv->agp.size);
++#else
++        arch_phys_wc_del(-1);
++#endif
+ #endif
+ 
+     NV_AGPGART_BACKEND_RELEASE(drm_agp_p, nvl->agp_bridge);
+diff --git a/os-mtrr.c b/os-mtrr.c
+index 907daa5..2016b50 100644
+--- a/os-mtrr.c
++++ b/os-mtrr.c
+@@ -24,7 +24,11 @@ RM_STATUS NV_API_CALL os_set_mem_range(
+     if (mode != NV_MEMORY_WRITECOMBINED)
+         return RM_ERROR;
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+     if (mtrr_add(start, size, MTRR_TYPE_WRCOMB, 0x0) < 0)
++#else
++    if (arch_phys_wc_add(start, size) < 0)
++#endif
+     {
+         nv_printf(NV_DBG_ERRORS,
+             "NVRM: failed to write-combine %lluM @ 0x%0llx.\n",
+@@ -43,7 +47,11 @@ RM_STATUS NV_API_CALL os_unset_mem_range(
+ )
+ {
+ #if defined(CONFIG_MTRR)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+     mtrr_del(-1, start, size);
++#else
++    arch_phys_wc_del(-1);
++#endif
+     return RM_OK;
+ #endif
+     return RM_ERR_NOT_SUPPORTED;
+-- 
+1.9.1
+
