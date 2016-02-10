@@ -1,30 +1,11 @@
-# GLVND GLX client libraries
-
-/usr/lib/nvidia-361-updates/libGL.so.1.0.0 /usr/lib/nvidia-361-updates/libGL.so.1
+/usr/lib/nvidia-361-updates/libGL.so.361.28 /usr/lib/nvidia-361-updates/libGL.so.1
 /usr/lib/nvidia-361-updates/libGL.so.1 /usr/lib/nvidia-361-updates/libGL.so
-
-/usr/lib/nvidia-361-updates/libOpenGL.so.0 /usr/lib/nvidia-361-updates/libOpenGL.so
-
-/usr/lib/nvidia-361-updates/libGLX.so.0 /usr/lib/nvidia-361-updates/libGLX.so
-
-# For an easy transition from a non-GLVND installation
-
-/usr/lib/nvidia-361-updates/libGLX_nvidia.so.361.28 /usr/lib/nvidia-361-updates/libGLX_nvidia.so.0
-/usr/lib/nvidia-361-updates/libGLX_nvidia.so.361.28 /usr/lib/nvidia-361-updates/libGLX_indirect.so.0
-
-# EGL client libraries
 
 /usr/lib/nvidia-361-updates/libEGL.so.1 /usr/lib/nvidia-361-updates/libEGL.so
 
 /usr/lib/nvidia-361-updates/libGLESv1_CM.so.1 /usr/lib/nvidia-361-updates/libGLESv1_CM.so
+
 /usr/lib/nvidia-361-updates/libGLESv2.so.2 /usr/lib/nvidia-361-updates/libGLESv2.so
-
-/usr/lib/nvidia-361-updates/libEGL_nvidia.so.361.28 /usr/lib/nvidia-361-updates/libEGL_nvidia.so.0
-
-/usr/lib/nvidia-361-updates/libGLESv1_CM_nvidia.so.361.28 /usr/lib/nvidia-361-updates/libGLESv1_CM_nvidia.so.1
-/usr/lib/nvidia-361-updates/libGLESv2_nvidia.so.361.28 /usr/lib/nvidia-361-updates/libGLESv2_nvidia.so.2
-
-# Misc
 
 /usr/lib/nvidia-361-updates/libnvidia-cfg.so.361.28 /usr/lib/nvidia-361-updates/libnvidia-cfg.so.1
 /usr/lib/nvidia-361-updates/libnvidia-cfg.so.1 /usr/lib/nvidia-361-updates/libnvidia-cfg.so
@@ -33,9 +14,6 @@
 
 /usr/lib/nvidia-361-updates/vdpau/libvdpau_nvidia.so.361.28 /usr/lib/nvidia-361-updates/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-361-updates/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-361-updates/vdpau/libvdpau_nvidia.so
-
-/usr/lib/nvidia-361-updates/libnvidia-compiler.so.361.28 /usr/lib/nvidia-361-updates/libnvidia-compiler.so.1
-/usr/lib/nvidia-361-updates/libnvidia-compiler.so.1 /usr/lib/nvidia-361-updates/libnvidia-compiler.so
 
 /usr/lib/nvidia-361-updates/libnvidia-ml.so.361.28 /usr/lib/nvidia-361-updates/libnvidia-ml.so.1
 /usr/lib/nvidia-361-updates/libnvidia-ml.so.1 /usr/lib/nvidia-361-updates/libnvidia-ml.so

@@ -13,6 +13,7 @@ NVIDIA-Linux-x86-361.28/nvidia_drv.so /usr/lib/nvidia-361-updates/xorg
 NVIDIA-Linux-x86-361.28/libglx.so.361.28 /usr/lib/nvidia-361-updates/xorg
 
 NVIDIA-Linux-x86-361.28/libGL*.so*                  /usr/lib/nvidia-361-updates
+NVIDIA-Linux-x86-361.28/libOpenGL*.so*              /usr/lib/nvidia-361-updates
 NVIDIA-Linux-x86-361.28/libEGL*.so*                 /usr/lib/nvidia-361-updates
 NVIDIA-Linux-x86-361.28/libnv*.so*                  /usr/lib/nvidia-361-updates
 
