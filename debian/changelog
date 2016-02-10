@@ -1,5 +1,7 @@
-nvidia-graphics-drivers-361-updates (361.28-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-361-updates (361.28-0ubuntu1) xenial; urgency=medium
 
-  * 
+  * Initial release.
+    Thanks to Andy Dick, Michael Marley, and Rico Tzschichholz for their
+    contributions.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Feb 2016 17:44:19 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Feb 2016 18:08:42 +0100
