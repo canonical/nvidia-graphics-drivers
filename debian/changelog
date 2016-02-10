@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.131-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.131-0ubuntu3) xenial; urgency=medium
 
-  * 
+  * debian/dkms/patches/buildfix_kernel_4.3.patch,
+    debian/templates/dkms.conf.in:
+    - Add support for Linux 4.3.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Feb 2016 18:04:54 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Feb 2016 16:23:35 +0100
 
 nvidia-graphics-drivers-304 (304.131-0ubuntu2) xenial; urgency=medium
 
