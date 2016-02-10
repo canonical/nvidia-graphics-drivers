@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-352-updates
+# preinst script for nvidia-361-updates
 #
 # see: dh_installdeb(1)
 #
