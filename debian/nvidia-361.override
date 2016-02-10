@@ -1,49 +1,49 @@
-nvidia-361: library-not-linked-against-libc ./usr/lib/libGL.so.361.18
+nvidia-361: library-not-linked-against-libc ./usr/lib/libGL.so.361.28
 
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.361.18
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.361.28
 
-nvidia-361: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.361.18
+nvidia-361: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.361.28
 
-nvidia-361: shlib-with-non-pic-code usr/lib/libGL.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/libGLcore.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.361.18
+nvidia-361: shlib-with-non-pic-code usr/lib/libGL.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/libGLcore.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.361.28
 
-nvidia-361: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.361.18 usr/lib/libGL.so
-nvidia-361: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.361.18 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-361: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.361.28 usr/lib/libGL.so
+nvidia-361: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.361.28 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-361: script-not-executable usr/src/nvidia-361-361.18/conftest.sh
+nvidia-361: script-not-executable usr/src/nvidia-361-361.28/conftest.sh
 nvidia-361: maintainer-script-ignores-errors prerm
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libGL.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libGL.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libGLcore.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libGLcore.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libcuda.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libcuda.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libnvidia-cfg.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libnvidia-cfg.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libnvidia-tls.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libnvidia-tls.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libvdpau.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/tls/libnvidia-tls.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/tls/libnvidia-tls.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/vdpau/libvdpau_nvidia.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/vdpau/libvdpau_nvidia.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/vdpau/libvdpau_trace.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/xorg/libglx.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/xorg/libglx.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.361.18
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libGL.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libGL.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libGLcore.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libGLcore.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libcuda.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libcuda.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libnvidia-cfg.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libnvidia-cfg.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/libnvidia-tls.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libnvidia-tls.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/libvdpau.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/tls/libnvidia-tls.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/tls/libnvidia-tls.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/vdpau/libvdpau_nvidia.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/vdpau/libvdpau_nvidia.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/vdpau/libvdpau_trace.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/nvidia-361/xorg/libglx.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-361/xorg/libglx.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.361.28
 nvidia-361: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-361: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-361: prerm-calls-ldconfig
 nvidia-361: copyright-without-copyright-notice
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/libnvidia-tls.so.361.18
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/tls/libnvidia-tls.so.361.18
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.361.18
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/libnvidia-tls.so.361.28
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/tls/libnvidia-tls.so.361.28
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.361.28
 nvidia-361: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -60,21 +60,21 @@ nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-361-modaliases: copyright-without-copyright-notice
 
-nvidia-361: script-not-executable ./usr/src/nvidia-361-361.18/conftest.sh
+nvidia-361: script-not-executable ./usr/src/nvidia-361-361.28/conftest.sh
 nvidia-361: maintainer-script-ignores-errors prerm
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libGL.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libGLcore.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libcuda.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libnvidia-cfg.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libnvidia-tls.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libvdpau_nvidia.so.361.18
-nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/tls/libnvidia-tls.so.361.18
-nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-361/tls/libnvidia-tls.so.361.18
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libGL.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libGLcore.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libcuda.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libnvidia-cfg.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libnvidia-tls.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/libvdpau_nvidia.so.361.28
+nvidia-361: shlib-with-non-pic-code usr/lib32/nvidia-361/tls/libnvidia-tls.so.361.28
+nvidia-361: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-361/tls/libnvidia-tls.so.361.28
 
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/libnvidia-tls.so.361.18
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/tls/libnvidia-tls.so.361.18
-nvidia-361: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.361.18
-nvidia-361: shared-lib-without-dependency-information ./usr/lib32/nvidia-361/libnvidia-tls.so.361.18
-nvidia-361: shared-lib-without-dependency-information ./usr/lib32/nvidia-361/tls/libnvidia-tls.so.361.18
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/libnvidia-tls.so.361.28
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/nvidia-361/tls/libnvidia-tls.so.361.28
+nvidia-361: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.361.28
+nvidia-361: shared-lib-without-dependency-information ./usr/lib32/nvidia-361/libnvidia-tls.so.361.28
+nvidia-361: shared-lib-without-dependency-information ./usr/lib32/nvidia-361/tls/libnvidia-tls.so.361.28
 
 

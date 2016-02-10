@@ -13,7 +13,7 @@ Package: nvidia-361
 Architecture: i386 amd64 armhf
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
- xserver-xorg-legacy, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
+ ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
  libcuda1-361, nvidia-opencl-icd-361 [!armhf]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
@@ -21,7 +21,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 361.18
+Description: NVIDIA binary driver - version 361.28
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 361.18
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-361.18-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-361.28-driver.html
  .
 
 Package: nvidia-361-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-361 (>= 361.18)
+Depends: ${misc:Depends}, nvidia-361 (>= 361.28)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

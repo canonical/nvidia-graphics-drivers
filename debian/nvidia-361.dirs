@@ -15,8 +15,8 @@
 /usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-361/xorg
 /usr/lib/nvidia-361/xorg
-/usr/src/nvidia-361-361.18
-/usr/src/nvidia-361-361.18/patches
+/usr/src/nvidia-361-361.28
+/usr/src/nvidia-361-361.28/patches
 /usr/lib/vdpau
 /lib/nvidia-361
 /usr/share/nvidia
