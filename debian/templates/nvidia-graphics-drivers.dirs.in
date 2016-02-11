@@ -21,3 +21,4 @@
 #PKGLIBCONFDIR#
 #NVIDIASHARE#
 /lib/udev/rules.d
+/usr/share/vulkan/icd.d

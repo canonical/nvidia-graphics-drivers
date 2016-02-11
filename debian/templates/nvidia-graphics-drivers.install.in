@@ -34,3 +34,5 @@ debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 
 #DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
 #DIRNAME#/nvidia-application-profiles-#VERSION#-key-documentation #PKGDATADIR#
+
+#DIRNAME#/nvidia_icd.json usr/share/vulkan/icd.d
