@@ -16,6 +16,10 @@ ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/st
 ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-modeset"
 ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-modeset"
 
+# Load and unload nvidia-drm module
+ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-drm modeset=1"
+ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-drm"
+
 # Load and unload nvidia-uvm module
 ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-uvm"
 ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-uvm"
