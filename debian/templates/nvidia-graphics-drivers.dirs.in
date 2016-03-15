@@ -22,3 +22,4 @@
 #NVIDIASHARE#
 /lib/udev/rules.d
 /usr/share/vulkan/icd.d
+/usr/share/X11/xorg.conf.d
