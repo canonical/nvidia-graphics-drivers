@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-361
+# postrm script for nvidia-364
 #
 # see: dh_installdeb(1)
 #
@@ -23,13 +23,13 @@ NVPD_USER="nvidia-persistenced"
 
 case "$1" in
     remove|purge)
-        # This should make sure that /usr/lib/nvidia-361 and
-        # /usr/lib32/nvidia-361 are removed even if some
+        # This should make sure that /usr/lib/nvidia-364 and
+        # /usr/lib32/nvidia-364 are removed even if some
         # links are left. See LP: #540143
-        rm -Rf /usr/lib/nvidia-361 /usr/lib32/nvidia-361
+        rm -Rf /usr/lib/nvidia-364 /usr/lib32/nvidia-364
 
         # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-361_hybrid.conf
+        rm -f /etc/modprobe.d/nvidia-364_hybrid.conf
 
         # Remove the nvidia-persistenced user
         if id "$NVPD_USER" > /dev/null 2>&1; then

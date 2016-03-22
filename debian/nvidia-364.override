@@ -1,0 +1,80 @@
+nvidia-364: library-not-linked-against-libc ./usr/lib/libGL.so.364.12
+
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.364.12
+
+nvidia-364: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.364.12
+
+nvidia-364: shlib-with-non-pic-code usr/lib/libGL.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/libGLcore.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.364.12
+
+nvidia-364: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.364.12 usr/lib/libGL.so
+nvidia-364: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.364.12 usr/lib/xorg/modules/extensions/libglx.so
+
+
+nvidia-364: script-not-executable usr/src/nvidia-364-364.12/conftest.sh
+nvidia-364: maintainer-script-ignores-errors prerm
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/libGL.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/libGL.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/libGLcore.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/libGLcore.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/libcuda.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/libcuda.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/libnvidia-cfg.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/libnvidia-cfg.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/libnvidia-tls.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/libnvidia-tls.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/libvdpau.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/tls/libnvidia-tls.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/tls/libnvidia-tls.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/vdpau/libvdpau_nvidia.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/vdpau/libvdpau_nvidia.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/vdpau/libvdpau_trace.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/nvidia-364/xorg/libglx.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-364/xorg/libglx.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.364.12
+nvidia-364: unused-shlib-entry-in-control-file libnvidia-tls 190
+nvidia-364: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+nvidia-364: prerm-calls-ldconfig
+nvidia-364: copyright-without-copyright-notice
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/nvidia-364/libnvidia-tls.so.364.12
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/nvidia-364/tls/libnvidia-tls.so.364.12
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.364.12
+nvidia-364: unknown-section restricted/misc
+nvidia-185-modaliases: copyright-without-copyright-notice
+nvidia-185-modaliases: extended-description-line-too-long
+nvidia-glx-185-dev: copyright-without-copyright-notice
+nvidia-glx-185-dev: extended-description-line-too-long
+nvidia-glx-185-dev: unknown-section restricted/misc
+nvidia-185-kernel-source: copyright-without-copyright-notice
+nvidia-185-kernel-source: unknown-section restricted/misc
+nvidia-364-dev: postinst-has-useless-call-to-ldconfig
+nvidia-364-dev: postrm-has-useless-call-to-ldconfig
+nvidia-364-dev: copyright-without-copyright-notice
+nvidia-364-dev: unknown-section restricted/misc
+nvidia-glx-185: copyright-without-copyright-notice
+nvidia-glx-185: unknown-section restricted/misc
+nvidia-364-modaliases: copyright-without-copyright-notice
+
+nvidia-364: script-not-executable ./usr/src/nvidia-364-364.12/conftest.sh
+nvidia-364: maintainer-script-ignores-errors prerm
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/libGL.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/libGLcore.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/libcuda.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/libnvidia-cfg.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/libnvidia-tls.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/libvdpau_nvidia.so.364.12
+nvidia-364: shlib-with-non-pic-code usr/lib32/nvidia-364/tls/libnvidia-tls.so.364.12
+nvidia-364: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-364/tls/libnvidia-tls.so.364.12
+
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/nvidia-364/libnvidia-tls.so.364.12
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/nvidia-364/tls/libnvidia-tls.so.364.12
+nvidia-364: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.364.12
+nvidia-364: shared-lib-without-dependency-information ./usr/lib32/nvidia-364/libnvidia-tls.so.364.12
+nvidia-364: shared-lib-without-dependency-information ./usr/lib32/nvidia-364/tls/libnvidia-tls.so.364.12
+
+

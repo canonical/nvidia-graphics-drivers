@@ -1,0 +1,39 @@
+debian/nvidia-364.override                 usr/share/lintian/overrides
+#Blacklist some card ids from GRUB gfxpayload=keep
+debian/nvidia-364.grub-gfxpayload          /usr/share/nvidia-364
+
+debian/glamor.conf                           /usr/share/nvidia-364
+
+debian/71-nvidia.rules                       lib/udev/rules.d
+debian/start-nvidia-persistenced             usr/bin
+debian/stop-nvidia-persistenced              usr/bin
+debian/create-uvm-dev-node                   sbin
+
+NVIDIA-Linux-x86-364.12/nvidia_drv.so /usr/lib/nvidia-364/xorg
+NVIDIA-Linux-x86-364.12/libglx.so.364.12 /usr/lib/nvidia-364/xorg
+
+NVIDIA-Linux-x86-364.12/libGL*.so*                  /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.12/libOpenGL*.so*              /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.12/libEGL*.so*                 /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.12/libnv*.so*                  /usr/lib/nvidia-364
+
+NVIDIA-Linux-x86-364.12/libvdpau_nvidia.so*   /usr/lib/nvidia-364/vdpau
+NVIDIA-Linux-x86-364.12/tls/*.so*                   /usr/lib/nvidia-364/tls
+
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-364-364.12
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-364-364.12/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-364-364.12
+
+NVIDIA-Linux-x86-364.12/nvidia-bug-report.sh /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.12/nvidia-xconfig /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.12/nvidia-smi /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.12/nvidia-debugdump /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.12/nvidia-cuda-mps-control /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.12/nvidia-cuda-mps-server /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.12/nvidia-persistenced /usr/lib/nvidia-364/bin
+
+NVIDIA-Linux-x86-364.12/nvidia-application-profiles-364.12-rc /usr/share/nvidia-364
+NVIDIA-Linux-x86-364.12/nvidia-application-profiles-364.12-key-documentation /usr/share/nvidia-364
+
+NVIDIA-Linux-x86-364.12/nvidia_icd.json usr/share/vulkan/icd.d
+NVIDIA-Linux-x86-364.12/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
