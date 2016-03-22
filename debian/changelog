@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-364 (364.12-0ubuntu1~gpu16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-364 (364.12-0ubuntu1~gpu16.04.1) xenial; urgency=medium
 
-  * 
+  * New upstream release.
+  * debian/templates/control.in:
+    - Drop transitional packages.
+    - Add build dependency on libwayland-dev.
+  * debian/templates/nvidia-graphics-drivers.dirs.in,
+    debian/templates/nvidia-graphics-drivers.install.in:
+    - Install nvidia-drm-outputclass.conf.
+    - Add support for Vulkan.
+  * debian/71-nvidia.rules, debian/templates/dkms.conf.fragment.in,
+    debian/templates/dkms_nvidia.conf.in:
+    - Build the nvidia-drm module.
+    - Load the nvidia-drm module, and enable KMS.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Mar 2016 16:22:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Mar 2016 16:29:22 +0100
 
 nvidia-graphics-drivers-361 (361.28-0ubuntu1) xenial; urgency=medium
 
