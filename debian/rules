@@ -160,6 +160,8 @@ alias nvidia-modeset $(PKG_module)_modeset
 alias nvidia-drm $(PKG_module)_drm
 alias nouveau off
 alias lbm-nouveau off
+
+options $(PKG_module)_drm modeset=1
 endef
 
 define blacklist_hybrid
