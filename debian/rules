@@ -155,9 +155,9 @@ blacklist nvidia-173-updates
 blacklist nvidia-96-updates
 blacklist $(opposite_flavour)
 alias nvidia $(PKG_module)
-alias nvidia-uvm $(PKG_module)-uvm
-alias nvidia-modeset $(PKG_module)-modeset
-alias nvidia-drm $(PKG_module)-drm
+alias nvidia-uvm $(PKG_module)_uvm
+alias nvidia-modeset $(PKG_module)_modeset
+alias nvidia-drm $(PKG_module)_drm
 alias nouveau off
 alias lbm-nouveau off
 endef
