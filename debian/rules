@@ -157,6 +157,7 @@ blacklist $(opposite_flavour)
 alias nvidia $(PKG_module)
 alias nvidia-uvm $(PKG_module)-uvm
 alias nvidia-modeset $(PKG_module)-modeset
+alias nvidia-drm $(PKG_module)-drm
 alias nouveau off
 alias lbm-nouveau off
 endef
