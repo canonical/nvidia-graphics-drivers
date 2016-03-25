@@ -8,6 +8,7 @@ debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 debian/create-uvm-dev-node                   sbin
+debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 
 NVIDIA-Linux-x86-364.12/nvidia_drv.so /usr/lib/nvidia-364/xorg
 NVIDIA-Linux-x86-364.12/libglx.so.364.12 /usr/lib/nvidia-364/xorg
