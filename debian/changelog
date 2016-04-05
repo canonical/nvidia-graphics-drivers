@@ -1,8 +1,18 @@
-nvidia-graphics-drivers-361 (361.42-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-361 (361.42-0ubuntu1) xenial; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        GeForce 920MX
+        GeForce 930MX
+        Quadro M6000 24GB
+    - Fixed a regression that caused GPU exceptions and incorrect
+      rendering when using pbuffers with EGLDevice.
+    - Fixed a bug that caused nvidia-settings to crash when pairing
+      glasses with the 3D Vision Pro transmitter on some systems.
+    - Fixed a regression that caused the HSync and VSync mode timing
+      polarity flags to be inverted.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Apr 2016 12:18:35 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Apr 2016 11:40:08 +0200
 
 nvidia-graphics-drivers-361 (361.28-0ubuntu1) xenial; urgency=medium
 
