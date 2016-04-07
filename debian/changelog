@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-364 (364.15-0ubuntu1~gpu16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-364 (364.15-0ubuntu1~gpu16.04.1) xenial; urgency=medium
 
-  * 
+  * New upstream release
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 07 Apr 2016 13:57:06 +0200
+ -- Michael Marley <michael@michaelmarley.com>  Wed, 06 Apr 2016 16:15:00 -0400
 
 nvidia-graphics-drivers-364 (364.12-0ubuntu1~gpu16.04.2) xenial; urgency=medium
 
