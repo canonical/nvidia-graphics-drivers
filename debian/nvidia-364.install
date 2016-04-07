@@ -9,32 +9,33 @@ debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
+debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 
-NVIDIA-Linux-x86-364.12/nvidia_drv.so /usr/lib/nvidia-364/xorg
-NVIDIA-Linux-x86-364.12/libglx.so.364.12 /usr/lib/nvidia-364/xorg
+NVIDIA-Linux-x86-364.15/nvidia_drv.so /usr/lib/nvidia-364/xorg
+NVIDIA-Linux-x86-364.15/libglx.so.364.15 /usr/lib/nvidia-364/xorg
 
-NVIDIA-Linux-x86-364.12/libGL*.so*                  /usr/lib/nvidia-364
-NVIDIA-Linux-x86-364.12/libOpenGL*.so*              /usr/lib/nvidia-364
-NVIDIA-Linux-x86-364.12/libEGL*.so*                 /usr/lib/nvidia-364
-NVIDIA-Linux-x86-364.12/libnv*.so*                  /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.15/libGL*.so*                  /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.15/libOpenGL*.so*              /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.15/libEGL*.so*                 /usr/lib/nvidia-364
+NVIDIA-Linux-x86-364.15/libnv*.so*                  /usr/lib/nvidia-364
 
-NVIDIA-Linux-x86-364.12/libvdpau_nvidia.so*   /usr/lib/nvidia-364/vdpau
-NVIDIA-Linux-x86-364.12/tls/*.so*                   /usr/lib/nvidia-364/tls
+NVIDIA-Linux-x86-364.15/libvdpau_nvidia.so*   /usr/lib/nvidia-364/vdpau
+NVIDIA-Linux-x86-364.15/tls/*.so*                   /usr/lib/nvidia-364/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-364-364.12
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-364-364.12/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-364-364.12
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-364-364.15
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-364-364.15/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-364-364.15
 
-NVIDIA-Linux-x86-364.12/nvidia-bug-report.sh /usr/lib/nvidia-364/bin
-NVIDIA-Linux-x86-364.12/nvidia-xconfig /usr/lib/nvidia-364/bin
-NVIDIA-Linux-x86-364.12/nvidia-smi /usr/lib/nvidia-364/bin
-NVIDIA-Linux-x86-364.12/nvidia-debugdump /usr/lib/nvidia-364/bin
-NVIDIA-Linux-x86-364.12/nvidia-cuda-mps-control /usr/lib/nvidia-364/bin
-NVIDIA-Linux-x86-364.12/nvidia-cuda-mps-server /usr/lib/nvidia-364/bin
-NVIDIA-Linux-x86-364.12/nvidia-persistenced /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-bug-report.sh /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-xconfig /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-smi /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-debugdump /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-cuda-mps-control /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-cuda-mps-server /usr/lib/nvidia-364/bin
+NVIDIA-Linux-x86-364.15/nvidia-persistenced /usr/lib/nvidia-364/bin
 
-NVIDIA-Linux-x86-364.12/nvidia-application-profiles-364.12-rc /usr/share/nvidia-364
-NVIDIA-Linux-x86-364.12/nvidia-application-profiles-364.12-key-documentation /usr/share/nvidia-364
+NVIDIA-Linux-x86-364.15/nvidia-application-profiles-364.15-rc /usr/share/nvidia-364
+NVIDIA-Linux-x86-364.15/nvidia-application-profiles-364.15-key-documentation /usr/share/nvidia-364
 
-NVIDIA-Linux-x86-364.12/nvidia_icd.json usr/share/vulkan/icd.d
-NVIDIA-Linux-x86-364.12/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
+NVIDIA-Linux-x86-364.15/nvidia_icd.json usr/share/vulkan/icd.d
+NVIDIA-Linux-x86-364.15/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
