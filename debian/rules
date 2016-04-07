@@ -499,6 +499,7 @@ override_dh_strip:
 override_dh_fixperms:
 	dh_fixperms
 	chmod 755 $(CURDIR)/debian/$(PKG_driver)/usr/share/initramfs-tools/hooks/framebuffer-nvidia
+	chmod 755 $(CURDIR)/debian/$(PKG_driver)/usr/share/initramfs-tools/hooks/copy-nvidia-options
 
 override_dh_clean: regen-from-templates
 	dh_clean

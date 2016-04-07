@@ -9,6 +9,7 @@ debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
+debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 
 #DIRNAME#/nvidia_drv.so #PKGDRIVERSDIR#
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
