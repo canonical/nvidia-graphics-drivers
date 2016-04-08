@@ -12,7 +12,6 @@
 /usr/share/nvidia-364
 /usr/share/man/man1
 /usr/share/lintian/overrides
-/usr/share/grub-gfxpayload-lists/blacklist
 /usr/lib/nvidia-364/xorg
 /usr/lib/nvidia-364/xorg
 /usr/src/nvidia-364-364.15

@@ -1,9 +1,6 @@
 debian/nvidia-364.override                 usr/share/lintian/overrides
-#Blacklist some card ids from GRUB gfxpayload=keep
-debian/nvidia-364.grub-gfxpayload          /usr/share/nvidia-364
 
 debian/glamor.conf                           /usr/share/nvidia-364
-
 debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin

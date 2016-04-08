@@ -152,8 +152,7 @@ case "$1" in
             --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-364/vdpau/libvdpau_nvidia.so.1 \
             --slave /usr/lib/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-364/vdpau/libvdpau_nvidia.so \
             --slave /usr/lib32/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1_lib32 /usr/lib32/nvidia-364/vdpau/libvdpau_nvidia.so.1 \
-            --slave /usr/lib32/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so_lib32 /usr/lib32/nvidia-364/vdpau/libvdpau_nvidia.so \
-            --slave /usr/share/grub-gfxpayload-lists/blacklist/10_proprietary-graphics-drivers x86_64-linux-gnu_grub_fb_blacklist /usr/share/nvidia-364/nvidia-364.grub-gfxpayload
+            --slave /usr/lib32/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so_lib32 /usr/lib32/nvidia-364/vdpau/libvdpau_nvidia.so
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-364/ld.so.conf 8604
 
@@ -172,8 +171,7 @@ case "$1" in
             --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-364/bin/nvidia-debugdump \
             --slave /usr/share/nvidia/nvidia-application-profiles-364.15-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-364/nvidia-application-profiles-364.15-rc \
             --slave /usr/share/nvidia/nvidia-application-profiles-364.15-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-364/nvidia-application-profiles-364.15-key-documentation \
-            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-364/modprobe.conf \
-            --slave /usr/share/grub-gfxpayload-lists/blacklist/10_proprietary-graphics-drivers x86_64-linux-gnu_grub_fb_blacklist /usr/share/nvidia-364/nvidia-364.grub-gfxpayload
+            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-364/modprobe.conf
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-364-prime/ld.so.conf 8603
 
@@ -216,11 +214,6 @@ case "$1" in
                 # This can fail when dealing with a chroot see LP: #556653
                 update-initramfs -u -k $CURRENT_KERNEL || true
             fi
-        fi
-
-        # Update the grub gfxpayload blacklist
-        if which update-grub-gfxpayload >/dev/null 2>&1; then
-            update-grub-gfxpayload
         fi
 
         # Enable any quirks for the driver
