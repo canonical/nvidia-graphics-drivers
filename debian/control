@@ -113,9 +113,9 @@ Description: Transitional package for nvidia-340-dev
 
 Package: nvidia-331-uvm
 Architecture: i386 amd64 armhf
-Depends: nvidia-340-uvm
-Description: Transitional package for nvidia-340-uvm
- This is a transitional package for nvidia-340-uvm, and can be
+Depends: nvidia-340
+Description: Transitional package for nvidia-340
+ This is a transitional package for nvidia-340, and can be
  safely removed after the installation is complete.
 
 Package: nvidia-libopencl1-331
@@ -133,6 +133,83 @@ Description: Transitional package for nvidia-opencl-icd-340
  safely removed after the installation is complete.
 
 Package: libcuda1-331
+Architecture: i386 amd64 armhf
+Depends: libcuda1-340
+Description: Transitional package for libcuda1-340
+ This is a transitional package for libcuda1-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-331-updates
+Architecture: i386 amd64 armhf
+Depends: nvidia-340
+Description: Transitional package for nvidia-340
+ This is a transitional package for nvidia-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-331-updates-dev
+Architecture: i386 amd64 armhf
+Depends: nvidia-340-dev
+Description: Transitional package for nvidia-340-dev
+ This is a transitional package for nvidia-340-dev, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-331-updates-uvm
+Architecture: i386 amd64 armhf
+Depends: nvidia-340
+Description: Transitional package for nvidia-340
+ This is a transitional package for nvidia-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-331-updates
+Architecture: i386 amd64 armhf
+Depends: nvidia-libopencl1-340 [!armhf]
+Description: Transitional package for nvidia-libopencl1-340
+ This is a transitional package for nvidia-libopencl1-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-331-updates
+Architecture: i386 amd64 armhf
+Depends: nvidia-opencl-icd-340 [!armhf]
+Description: Transitional package for nvidia-opencl-icd-340
+ This is a transitional package for nvidia-opencl-icd-340, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-331-updates
+Architecture: i386 amd64 armhf
+Depends: libcuda1-340
+Description: Transitional package for libcuda1-340
+ This is a transitional package for libcuda1-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-340-updates
+Architecture: i386 amd64 armhf
+Depends: nvidia-340
+Description: Transitional package for nvidia-340
+ This is a transitional package for nvidia-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-340-updates-dev
+Architecture: i386 amd64 armhf
+Depends: nvidia-340-dev
+Description: Transitional package for nvidia-340-dev
+ This is a transitional package for nvidia-340-dev, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-340-updates
+Architecture: i386 amd64
+Depends: nvidia-libopencl1-340
+Description: Transitional package for nvidia-libopencl1-340
+ This is a transitional package for nvidia-libopencl1-340, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-340-updates
+Architecture: i386 amd64
+Depends: nvidia-opencl-icd-340
+Description: Transitional package for nvidia-opencl-icd-340
+ This is a transitional package for nvidia-opencl-icd-340, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-340-updates
 Architecture: i386 amd64 armhf
 Depends: libcuda1-340
 Description: Transitional package for libcuda1-340
