@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-361 (361.42-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-361 (361.42-0ubuntu3) yakkety; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_4.6.patch:
+    - Add support for Linux 4.6.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 May 2016 17:36:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 May 2016 16:25:22 +0200
 
 nvidia-graphics-drivers-361 (361.42-0ubuntu2) xenial; urgency=medium
 
