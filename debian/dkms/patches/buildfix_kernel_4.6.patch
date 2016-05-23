@@ -1,0 +1,66 @@
+From 0fbcfd7b0b9a86ba4c33ab541cd9dbc8229951a9 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Mon, 23 May 2016 15:59:58 +0200
+Subject: [PATCH 1/1] Add support for Linux 4.6
+
+Deal with the now dropped put_page() and with get_user_pages()
+taking fewer arguments.
+---
+ nv-mlock.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/nv-mlock.c b/nv-mlock.c
+index 670ddfe..1f89019 100644
+--- a/nv-mlock.c
++++ b/nv-mlock.c
+@@ -49,7 +49,11 @@ RM_STATUS NV_API_CALL nv_lock_user_pages(
+     }
+ 
+     down_read(&mm->mmap_sem);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+     ret = get_user_pages(current, mm, (unsigned long)address,
++#else
++    ret = get_user_pages((unsigned long)address,
++#endif
+             page_count, write, force, user_pages, NULL);
+     up_read(&mm->mmap_sem);
+     pinned = ret;
+@@ -62,7 +66,11 @@ RM_STATUS NV_API_CALL nv_lock_user_pages(
+     else if (pinned < page_count)
+     {
+         for (i = 0; i < pinned; i++)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+             page_cache_release(user_pages[i]);
++#else
++            put_page(user_pages[i]);
++#endif
+         os_free_mem(user_pages);
+         return RM_ERR_INVALID_ADDRESS;
+     }
+@@ -80,7 +88,11 @@ RM_STATUS NV_API_CALL nv_lock_user_pages(
+             {
+                 pci_unmap_page(dev, pte_array[j],
+                         PAGE_SIZE, PCI_DMA_BIDIRECTIONAL);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+                 page_cache_release(user_pages[j]);
++#else
++                put_page(user_pages[j]);
++#endif
+             }
+             os_free_mem(user_pages);
+             return RM_ERR_OPERATING_SYSTEM;
+@@ -114,7 +126,11 @@ RM_STATUS NV_API_CALL nv_unlock_user_pages(
+                 PAGE_SIZE, PCI_DMA_BIDIRECTIONAL);
+         if (write)
+             set_page_dirty_lock(user_pages[i]);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+         page_cache_release(user_pages[i]);
++#else
++        put_page(user_pages[i]);
++#endif
+     }
+ 
+     os_free_mem(user_pages);
+-- 
+1.9.1
+
