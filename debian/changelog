@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.131-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.131-0ubuntu4) yakkety; urgency=medium
 
-  * 
+  * debian/templates/dkms.conf.in,
+    debian/dkms/patches/buildfix_kernel_4.6.patch:
+    - Add support for Linux 4.6.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 23 May 2016 16:25:40 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 23 May 2016 16:36:38 +0200
 
 nvidia-graphics-drivers-304 (304.131-0ubuntu3) xenial; urgency=medium
 
