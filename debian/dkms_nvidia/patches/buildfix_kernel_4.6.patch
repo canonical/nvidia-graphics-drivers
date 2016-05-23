@@ -1,0 +1,78 @@
+From 068914f069b0e85d83b8324da339bc4db31de1bc Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Mon, 23 May 2016 15:38:51 +0200
+Subject: [PATCH 1/1] Add support for Linux 4.6
+
+Deal with the now dropped put_page(), get_user_pages(), and
+VM_FAULT_MINOR
+---
+ os-mlock.c            | 13 +++++++++++++
+ uvm/nvidia_uvm_lite.c |  4 ++++
+ 2 files changed, 17 insertions(+)
+
+diff --git a/os-mlock.c b/os-mlock.c
+index dc30e1c..db7d3a7 100644
+--- a/os-mlock.c
++++ b/os-mlock.c
+@@ -45,7 +45,12 @@ RM_STATUS NV_API_CALL os_lock_user_pages(
+     }
+ 
+     down_read(&mm->mmap_sem);
++
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+     ret = get_user_pages(current, mm, (unsigned long)address,
++#else
++    ret = get_user_pages((unsigned long)address,
++#endif
+             page_count, write, force, user_pages, NULL);
+     up_read(&mm->mmap_sem);
+     pinned = ret;
+@@ -58,7 +63,11 @@ RM_STATUS NV_API_CALL os_lock_user_pages(
+     else if (pinned < page_count)
+     {
+         for (i = 0; i < pinned; i++)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+             page_cache_release(user_pages[i]);
++#else
++            put_page(user_pages[i]);
++#endif
+         os_free_mem(user_pages);
+         return RM_ERR_INVALID_ADDRESS;
+     }
+@@ -85,7 +94,11 @@ RM_STATUS NV_API_CALL os_unlock_user_pages(
+     {
+         if (write)
+             set_page_dirty_lock(user_pages[i]);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 6, 0)
+         page_cache_release(user_pages[i]);
++#else
++        put_page(user_pages[i]);
++#endif
+     }
+ 
+     os_free_mem(user_pages);
+diff --git a/uvm/nvidia_uvm_lite.c b/uvm/nvidia_uvm_lite.c
+index 442a0a8..9677e2f 100644
+--- a/uvm/nvidia_uvm_lite.c
++++ b/uvm/nvidia_uvm_lite.c
+@@ -42,6 +42,9 @@
+ #error "Building uvmlite code without RM enabled!"
+ #endif
+ 
++#ifndef VM_FAULT_MINOR
++#define VM_FAULT_MINOR 0
++#endif
+ 
+ static struct cdev g_uvmlite_cdev;
+ 
+@@ -785,6 +788,7 @@ int _fault_common(struct vm_area_struct *vma, unsigned long vaddr,
+         // a reference so that the fault handling logic is correct:
+         //
+         get_page(pTracking->uvmPage);
++
+         retValue = VM_FAULT_MINOR;
+     }
+ 
+-- 
+1.9.1
+
