@@ -1,8 +1,28 @@
-nvidia-graphics-drivers-361 (361.45.11-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-361 (361.45.11-0ubuntu1) yakkety; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop patch for Linux 4.6.
+  * New upstream release:
+    - Added support for the following GPUs:
+        Quadro M5500
+    - Fixed a bug that sometimes prevented flipping from being
+      enabled on systems with multiple displays.
+    - Fixed a bug that could cause applications to crash when using
+      the EGL_EXT_platform_device extension on a system with multiple
+      GPUs.
+    - Fixed a bug that could cause nvidia-installer's runtime loader
+      test to fail spuriously on some systems.
+    - The NVIDIA Unified Virtual Memory kernel module, nvidia-uvm.ko,
+      now has a minimum kernel requirement of Linux 2.6.32. On older
+      kernel versions, nvidia-uvm.ko will be compiled as a stub
+      kernel module which does not provide any functionality.
+    - Updated the libglvnd snapshot included in the NVIDIA driver
+      package to libglvnd commit b7d75429677eecc00c3701aaa4deac1304bc51ff.
+      This contains a new revision of the libglvnd ABI. The driver is not
+      compatible with a libglvnd older than commit
+      c5bcda3b848fe52d6ae6ef25c917431c06d62d27.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 25 May 2016 12:35:01 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 25 May 2016 13:29:26 +0200
 
 nvidia-graphics-drivers-361 (361.42-0ubuntu3) yakkety; urgency=medium
 
