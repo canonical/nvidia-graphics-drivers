@@ -9,28 +9,28 @@ debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 debian/create-uvm-dev-node                   sbin
 
-NVIDIA-Linux-x86-361.42/nvidia_drv.so /usr/lib/nvidia-361/xorg
-NVIDIA-Linux-x86-361.42/libglx.so.361.42 /usr/lib/nvidia-361/xorg
+NVIDIA-Linux-x86-361.45.11/nvidia_drv.so /usr/lib/nvidia-361/xorg
+NVIDIA-Linux-x86-361.45.11/libglx.so.361.45.11 /usr/lib/nvidia-361/xorg
 
-NVIDIA-Linux-x86-361.42/libGL*.so*                  /usr/lib/nvidia-361
-NVIDIA-Linux-x86-361.42/libOpenGL*.so*              /usr/lib/nvidia-361
-NVIDIA-Linux-x86-361.42/libEGL*.so*                 /usr/lib/nvidia-361
-NVIDIA-Linux-x86-361.42/libnv*.so*                  /usr/lib/nvidia-361
+NVIDIA-Linux-x86-361.45.11/libGL*.so*                  /usr/lib/nvidia-361
+NVIDIA-Linux-x86-361.45.11/libOpenGL*.so*              /usr/lib/nvidia-361
+NVIDIA-Linux-x86-361.45.11/libEGL*.so*                 /usr/lib/nvidia-361
+NVIDIA-Linux-x86-361.45.11/libnv*.so*                  /usr/lib/nvidia-361
 
-NVIDIA-Linux-x86-361.42/libvdpau_nvidia.so*   /usr/lib/nvidia-361/vdpau
-NVIDIA-Linux-x86-361.42/tls/*.so*                   /usr/lib/nvidia-361/tls
+NVIDIA-Linux-x86-361.45.11/libvdpau_nvidia.so*   /usr/lib/nvidia-361/vdpau
+NVIDIA-Linux-x86-361.45.11/tls/*.so*                   /usr/lib/nvidia-361/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-361-361.42
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-361-361.42/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-361-361.42
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-361-361.45.11
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-361-361.45.11/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-361-361.45.11
 
-NVIDIA-Linux-x86-361.42/nvidia-bug-report.sh /usr/lib/nvidia-361/bin
-NVIDIA-Linux-x86-361.42/nvidia-xconfig /usr/lib/nvidia-361/bin
-NVIDIA-Linux-x86-361.42/nvidia-smi /usr/lib/nvidia-361/bin
-NVIDIA-Linux-x86-361.42/nvidia-debugdump /usr/lib/nvidia-361/bin
-NVIDIA-Linux-x86-361.42/nvidia-cuda-mps-control /usr/lib/nvidia-361/bin
-NVIDIA-Linux-x86-361.42/nvidia-cuda-mps-server /usr/lib/nvidia-361/bin
-NVIDIA-Linux-x86-361.42/nvidia-persistenced /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-bug-report.sh /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-xconfig /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-smi /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-debugdump /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-cuda-mps-control /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-cuda-mps-server /usr/lib/nvidia-361/bin
+NVIDIA-Linux-x86-361.45.11/nvidia-persistenced /usr/lib/nvidia-361/bin
 
-NVIDIA-Linux-x86-361.42/nvidia-application-profiles-361.42-rc /usr/share/nvidia-361
-NVIDIA-Linux-x86-361.42/nvidia-application-profiles-361.42-key-documentation /usr/share/nvidia-361
+NVIDIA-Linux-x86-361.45.11/nvidia-application-profiles-361.45.11-rc /usr/share/nvidia-361
+NVIDIA-Linux-x86-361.45.11/nvidia-application-profiles-361.45.11-key-documentation /usr/share/nvidia-361
