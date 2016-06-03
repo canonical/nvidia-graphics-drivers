@@ -4,6 +4,8 @@ debian/nvidia-340.grub-gfxpayload          /usr/share/nvidia-340
 
 debian/glamor.conf                           /usr/share/nvidia-340
 
+debian/*.mount                               /lib/systemd/system
+
 debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin

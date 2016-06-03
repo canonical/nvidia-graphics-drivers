@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount unit for nvidia support in snappy
+
+[Mount]
+What=/usr/lib/nvidia-340
+Where=/var/lib/snapd/lib/gl
+Options=bind
+Type=none
+
+[Install]
+WantedBy=multi-user.target
