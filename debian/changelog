@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-340 (340.96-0ubuntu5.16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.96-0ubuntu3.16.04.1) xenial-proposed; urgency=medium
 
   [ Michael Vogt ]
   * debian/rules, debian/templates/control.in,
@@ -13,7 +13,7 @@ nvidia-graphics-drivers-340 (340.96-0ubuntu5.16.04.1) UNRELEASED; urgency=medium
     debian/dkms_nvidia/patches/buildfix_kernel_4.6.patch:
     - Add support for Linux 4.6.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 03 Jun 2016 10:22:01 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 03 Jun 2016 10:26:25 +0200
 
 nvidia-graphics-drivers-340 (340.96-0ubuntu3) xenial; urgency=medium
 
