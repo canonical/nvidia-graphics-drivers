@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount unit for nvidia support in snappy
+
+[Mount]
+What=/usr/lib/#DRIVERNAME#
+Where=/var/lib/snapd/lib/gl
+Options=bind
+Type=none
+
+[Install]
+WantedBy=multi-user.target
