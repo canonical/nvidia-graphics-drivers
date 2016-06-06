@@ -110,8 +110,6 @@ get_newest_kernel() {
     echo $NEWEST_KERNEL
 }
 
-#DEBHELPER#
-
 case "$1" in
     configure)
         # Deal with alternatives
@@ -268,3 +266,4 @@ EOF
     ;;
 esac
 
+#DEBHELPER#

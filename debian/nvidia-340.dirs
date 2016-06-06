@@ -21,4 +21,3 @@
 /lib/nvidia-340
 /usr/share/nvidia
 /lib/udev/rules.d
-/var/lib/snapd/lib/gl
