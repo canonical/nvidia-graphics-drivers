@@ -21,4 +21,3 @@
 #PKGLIBCONFDIR#
 #NVIDIASHARE#
 /lib/udev/rules.d
-/var/lib/snapd/lib/gl

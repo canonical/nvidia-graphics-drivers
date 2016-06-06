@@ -163,13 +163,7 @@ alias lbm-nouveau off
 endef
 
 %:
-	dh $@ --with=systemd
-
-override_dh_systemd_enable:
-	dh_systemd_enable var-lib-snapd-lib-gl.mount
-
-override_dh_systemd_start:
-	dh_systemd_start var-lib-snapd-lib-gl.mount
+	dh $@
 
 override_dh_shlibdeps:
 	dh_shlibdeps -Xtls -Xconf -X$(PKG_libdir32) -X$(libdir_multiarch_other) \
