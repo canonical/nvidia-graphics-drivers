@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-340 (340.96-0ubuntu6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.96-0ubuntu6) yakkety; urgency=medium
 
-  * 
+  * debian/rules, debian/templates/control.in,
+    debian/templates/nvidia-graphics-drivers.dirs.in,
+    debian/templates/nvidia-graphics-drivers.install.in,
+    debian/templates/nvidia-graphics-drivers.postinst.in,
+    debian/templates/var-lib-snapd-lib-gl.mount.in:
+    - Revert bind mount unit for snappy, as it causes a regression.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Jun 2016 15:57:47 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Jun 2016 15:58:23 +0200
 
 nvidia-graphics-drivers-340 (340.96-0ubuntu5) yakkety; urgency=medium
 
