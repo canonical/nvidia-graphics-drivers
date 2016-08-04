@@ -1,63 +1,6 @@
-nvidia-graphics-drivers-364 (364.19-0ubuntu1~gpu16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.35-0ubuntu1) UNRELEASED; urgency=medium
 
   * 
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Apr 2016 14:50:04 +0200
-
-nvidia-graphics-drivers-364 (364.15-0ubuntu1~gpu16.04.2) xenial; urgency=medium
-
-  * debian/copy-nvidia-options, debian/rules:
-    - Make sure to copy the file itself in /etc/modprobe.d rather
-      than copying a link to it.
-    - Enable KMS by default.
-  * debian/templates/nvidia-graphics-drivers.dirs.in,
-    debian/templates/nvidia-graphics-drivers.grub-gfxpayload.in,
-    debian/templates/nvidia-graphics-drivers.install.in,
-    debian/templates/nvidia-graphics-drivers.postinst.in:
-    - No longer blacklist nvidia cards in Grub.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 08 Apr 2016 17:30:42 +0200
-
-nvidia-graphics-drivers-364 (364.15-0ubuntu1~gpu16.04.1) xenial; urgency=medium
-
-  * New upstream release
-
- -- Michael Marley <michael@michaelmarley.com>  Wed, 06 Apr 2016 16:15:00 -0400
-
-nvidia-graphics-drivers-364 (364.12-0ubuntu1~gpu16.04.2) xenial; urgency=medium
-
-  * debian/71-nvidia.rules, debian/rules, debian/framebuffer-nvidia,
-    debian/templates/nvidia-graphics-drivers.install.in:
-    - Keep KMS disabled, as it prevents hybrid graphics and SLI from
-      working. To enable KMS, users can set modeset=1 (instead of 0) in
-      /etc/modprobe.d/nvidia-graphics-drivers.conf, and update the
-      initramfs.
-    - Add an initramfs hook for users who run encrypted systems.
-    - Correct the module aliases, so that modprobe works correctly.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Mar 2016 16:31:28 +0100
-
-nvidia-graphics-drivers-364 (364.12-0ubuntu1~gpu16.04.1) xenial; urgency=medium
-
-  * New upstream release.
-  * debian/templates/control.in:
-    - Drop transitional packages.
-    - Add build dependency on libwayland-dev.
-  * debian/templates/nvidia-graphics-drivers.dirs.in,
-    debian/templates/nvidia-graphics-drivers.install.in:
-    - Install nvidia-drm-outputclass.conf.
-    - Add support for Vulkan.
-  * debian/71-nvidia.rules, debian/templates/dkms.conf.fragment.in,
-    debian/templates/dkms_nvidia.conf.in:
-    - Build the nvidia-drm module.
-    - Load the nvidia-drm module, and enable KMS.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Mar 2016 16:29:22 +0100
-
-nvidia-graphics-drivers-361 (361.28-0ubuntu1) xenial; urgency=medium
-
-  * Initial release.
-    Thanks to Andy Dick, Michael Marley, and Rico Tzschichholz for their
-    contributions.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Feb 2016 17:41:08 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Aug 2016 11:31:02 +0200
