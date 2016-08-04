@@ -1,4 +1,4 @@
-Source: nvidia-graphics-drivers-364
+Source: nvidia-graphics-drivers-367
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -9,19 +9,19 @@ Standards-Version: 3.8.0
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
-Package: nvidia-364
+Package: nvidia-367
 Architecture: i386 amd64 armhf
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) | bumblebee,
- libcuda1-364, nvidia-opencl-icd-364 [!armhf]
+ libcuda1-367, nvidia-opencl-icd-367 [!armhf]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
  ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 364.15
+Description: NVIDIA binary driver - version 367.35
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 364.15
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-364.15-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-367.35-driver.html
  .
 
-Package: nvidia-364-dev
+Package: nvidia-367-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-364 (>= 364.15)
+Depends: ${misc:Depends}, nvidia-367 (>= 367.35)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -45,7 +45,7 @@ Description: NVIDIA binary Xorg driver development files
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
 
-Package: libcuda1-364
+Package: libcuda1-367
 Architecture: i386 amd64 armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
@@ -64,13 +64,13 @@ Description: NVIDIA CUDA runtime library
  Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
  series, as well as the Tesla computing processors.
 
-Package: nvidia-libopencl1-364
+Package: nvidia-libopencl1-367
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libopencl1
 Replaces: libopencl1
 Provides: libopencl1
-Suggests: nvidia-opencl-icd-364
+Suggests: nvidia-opencl-icd-367
 Description: NVIDIA OpenCL Driver and ICD Loader library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -79,9 +79,9 @@ Description: NVIDIA OpenCL Driver and ICD Loader library
  This package contains NVIDIA's OpenCL implementation and the ICD Loader
  library. This library supports only OpenCL 1.1.
 
-Package: nvidia-opencl-icd-364
+Package: nvidia-opencl-icd-367
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | nvidia-libopencl1-364
+Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | nvidia-libopencl1-367
 Enhances: libopencl1
 Conflicts: nvidia-opencl-icd
 Replaces: nvidia-opencl-icd

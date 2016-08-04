@@ -1,12 +1,12 @@
 #!/bin/sh
-# prerm script for nvidia-364
+# prerm script for nvidia-367
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
 # Authors: Alberto Milone
 
 
-PACKAGE_NAME=nvidia-364
+PACKAGE_NAME=nvidia-367
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
 
@@ -26,17 +26,17 @@ case "$1" in
 	remove)
 		remove_dkms_module 
 	
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-364/ld.so.conf
-		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-364/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-364/alt_ld.so.conf
-		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-364/alt_ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-367/ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-367/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-367/alt_ld.so.conf
+		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-367/alt_ld.so.conf
 		# Remove the alternatives for PRIME
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-364-prime/ld.so.conf
-		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-364-prime/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-364-prime/alt_ld.so.conf
-		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-364-prime/alt_ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-367-prime/ld.so.conf
+		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-367-prime/ld.so.conf
+		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-367-prime/alt_ld.so.conf
+		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-367-prime/alt_ld.so.conf
 		# Remove the alternative for glamor-egl
-		update-alternatives --remove glamor_conf /usr/share/nvidia-364/glamor.conf
+		update-alternatives --remove glamor_conf /usr/share/nvidia-367/glamor.conf
 
 		# explicit ldconfig due to alternatives
 		ldconfig
