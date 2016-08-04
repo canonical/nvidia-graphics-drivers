@@ -17,8 +17,5 @@ esac
 
 . /usr/share/initramfs-tools/hook-functions
 
-src=/etc/modprobe.d/nvidia-graphics-drivers.conf
-[ "${verbose}" = "y" ] && echo "Dereferencing and copying ${src}"
-
-cp -pL --remove-destination "${src}" "${DESTDIR}${src}"
+cp -pL --remove-destination "/lib/nvidia-367/modprobe.conf" "${DESTDIR}/etc/modprobe.d/nvidia-graphics-drivers.conf"
 
