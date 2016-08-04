@@ -161,7 +161,7 @@ alias nvidia-drm $(PKG_module)_drm
 alias nouveau off
 alias lbm-nouveau off
 
-options $(PKG_module)_drm modeset=1
+options $(PKG_module)_drm modeset=0
 
 endef
 
