@@ -1,0 +1,30 @@
+From fbed6cf9673cb6e89fcefabcd96b807a35483e3a Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 4 Aug 2016 16:01:52 +0200
+Subject: [PATCH 2/2] Add support for Linux 4.7 amd64 only
+
+---
+ nvidia-uvm/uvm_linux.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/nvidia-uvm/uvm_linux.h b/nvidia-uvm/uvm_linux.h
+index e150687..fdf764d 100644
+--- a/nvidia-uvm/uvm_linux.h
++++ b/nvidia-uvm/uvm_linux.h
+@@ -554,11 +554,13 @@ static void uvm_init_radix_tree_preloadable(struct radix_tree_root *tree)
+     INIT_RADIX_TREE(tree, GFP_NOWAIT);
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 7, 0)
+ static bool radix_tree_empty(struct radix_tree_root *tree)
+ {
+     void *dummy;
+     return radix_tree_gang_lookup(tree, &dummy, 0, 1) == 0;
+ }
++#endif
+ 
+ 
+ #if !defined(NV_USLEEP_RANGE_PRESENT)
+-- 
+2.7.4
+
