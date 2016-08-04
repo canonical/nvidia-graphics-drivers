@@ -93,3 +93,38 @@ Description: NVIDIA OpenCL ICD
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
+
+Package: nvidia-361
+Architecture: i386 amd64 armhf
+Depends: #DRIVERNAME#
+Description: Transitional package for #DRIVERNAME#
+ This is a transitional package for #DRIVERNAME#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-361-dev
+Architecture: i386 amd64 armhf
+Depends: #DRIVERDEVNAME#
+Description: Transitional package for #DRIVERDEVNAME#
+ This is a transitional package for #DRIVERDEVNAME#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-361
+Architecture: i386 amd64
+Depends: #LIBOPENCL1#
+Description: Transitional package for #LIBOPENCL1#
+ This is a transitional package for #LIBOPENCL1#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-361
+Architecture: i386 amd64
+Depends: #OPENCLICD#
+Description: Transitional package for #OPENCLICD#
+ This is a transitional package for #OPENCLICD#, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-361
+Architecture: i386 amd64 armhf
+Depends: #LIBCUDA1#
+Description: Transitional package for #LIBCUDA1#
+ This is a transitional package for #LIBCUDA1#, and can be
+ safely removed after the installation is complete.
