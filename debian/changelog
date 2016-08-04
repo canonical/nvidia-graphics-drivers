@@ -1,6 +1,6 @@
-nvidia-graphics-drivers-367 (367.35-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.35-0ubuntu1) yakkety; urgency=medium
 
-  * 
-  * 
+  * Initial release.
+  * This package replaces the 361 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Aug 2016 11:31:02 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Aug 2016 12:17:39 +0200
