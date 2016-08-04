@@ -1,0 +1,21 @@
+#!/bin/sh
+
+PREREQ=""
+
+prereqs()
+{
+        echo "$PREREQ"
+}
+
+case $1 in
+# get pre-requisites
+prereqs)
+        prereqs
+        exit 0
+        ;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+cp -pL --remove-destination "#PKGLIBCONFDIR#/modprobe.conf" "${DESTDIR}#SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf"
+
