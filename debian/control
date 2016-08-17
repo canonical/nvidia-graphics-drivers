@@ -92,6 +92,41 @@ Description: NVIDIA OpenCL ICD
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
 
+Package: nvidia-304-updates
+Architecture: i386 amd64
+Depends: nvidia-304
+Description: Transitional package for nvidia-304
+ This is a transitional package for nvidia-304, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-304-updates-dev
+Architecture: i386 amd64
+Depends: nvidia-304-dev
+Description: Transitional package for nvidia-304-dev
+ This is a transitional package for nvidia-304-dev, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-304-updates
+Architecture: i386 amd64
+Depends: nvidia-libopencl1-304
+Description: Transitional package for nvidia-libopencl1-304
+ This is a transitional package for nvidia-libopencl1-304, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-304-updates
+Architecture: i386 amd64
+Depends: nvidia-opencl-icd-304
+Description: Transitional package for nvidia-opencl-icd-304
+ This is a transitional package for nvidia-opencl-icd-304, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-304-updates
+Architecture: i386 amd64
+Depends: libcuda1-304
+Description: Transitional package for libcuda1-304
+ This is a transitional package for libcuda1-304, and can be
+ safely removed after the installation is complete.
+
 Package: nvidia-current
 Architecture: i386 amd64
 Depends: nvidia-304
