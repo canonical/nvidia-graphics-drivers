@@ -1,4 +1,0 @@
-#!/bin/sh
-# Stop nvidia-persistenced
-killall nvidia-persistenced || true
-rm -rf /var/run/nvidia-persistenced

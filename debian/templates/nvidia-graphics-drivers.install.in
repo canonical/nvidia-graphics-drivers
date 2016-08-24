@@ -2,8 +2,7 @@ debian/#DRIVERNAME#.override                 usr/share/lintian/overrides
 
 debian/glamor.conf                           #PKGDATADIR#
 debian/71-nvidia.rules                       lib/udev/rules.d
-debian/start-nvidia-persistenced             usr/bin
-debian/stop-nvidia-persistenced              usr/bin
+debian/nvidia-persistenced.service           lib/systemd/system
 debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks

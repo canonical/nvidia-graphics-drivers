@@ -1,3 +1,0 @@
-#!/bin/sh
-# Start nvidia-persistenced
-exec /usr/bin/nvidia-persistenced --user nvidia-persistenced
