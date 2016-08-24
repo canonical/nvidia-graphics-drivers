@@ -1,4 +1,4 @@
 BUILT_MODULE_NAME[3]="nvidia-uvm"
 DEST_MODULE_LOCATION[3]="/kernel/drivers/char/drm"
 DEST_MODULE_NAME[3]="#MODULENAME#_uvm"
-PATCH[1]="buildfix_kernel_4.7_amd64_only.patch"
+#PATCH[1]="buildfix_kernel_4.7_amd64_only.patch"
