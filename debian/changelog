@@ -1,8 +1,44 @@
-nvidia-graphics-drivers-367 (367.44-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.44-0ubuntu1) yakkety; urgency=medium
 
-  * 
+  * debian/templates/dkms.conf.fragment.in,
+    debian/templates/dkms_nvidia.conf.in:
+    - Drop patches for Linux 4.7.
+  * debian/71-nvidia.rules, debian/nvidia-persistenced.service,
+    debian/start-nvidia-persistenced,
+    debian/stop-nvidia-persistenced,
+    debian/templates/nvidia-graphics-drivers.install.in:
+    - Use udev and systemd to start and to stop nvidia-persistenced,
+      as opposed to using only udev. This fixes a problem with the
+      daemon dying shortly after being started.
+      Thanks to William Davis for providing a solution.
+  * New upstream release:
+    - Added support for the following GPUs:
+      o TITAN X (Pascal)
+      o GeForce GTX 1060 6GB
+      o GeForce GTX 1060 3GB
+    - Fixed a regression that caused applications using
+      indirect GLX to crash.
+    - Fixed a regression introduced in 367.35 that caused
+      the first modeset of the X server to display blank
+      if the features requested in the X configuration file
+      enabled the X driver's composition pipeline. This would
+      be triggered, e.g., by MetaMode tokens such as
+      ForceCompositionPipeline, ForceFullCompositionPipeline,
+      Rotation, Reflection, and Transform.
+    - Fixed a bug that could cause OpenGL applications to
+      leak open file descriptors under some circumstances.
+    - Fixed a crash in the OpenGL and OpenGL ES drivers in
+      situations where some of the NVIDIA device nodes were
+      not accessible.
+    - Fixed a crash when querying the CUDA device handle of
+      an EGLDevice in a system with multiple GPUs when the
+      NVIDIA UVM device node or kernel module was not
+      accessible.
+    - Changed the behavior of nvidia-persistenced to enable
+      persistence mode by default for all GPUs when the daemon
+      is started.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Aug 2016 09:47:24 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Aug 2016 15:21:40 +0200
 
 nvidia-graphics-drivers-367 (367.35-0ubuntu1) yakkety; urgency=medium
 
