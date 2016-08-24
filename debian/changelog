@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-367 (367.44-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Aug 2016 09:47:24 +0200
+
 nvidia-graphics-drivers-367 (367.35-0ubuntu1) yakkety; urgency=medium
 
   * Initial release.
