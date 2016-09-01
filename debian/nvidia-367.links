@@ -9,8 +9,8 @@
 
 # For an easy transition from a non-GLVND installation
 
-/usr/lib/nvidia-367/libGLX_nvidia.so.367.35 /usr/lib/nvidia-367/libGLX_nvidia.so.0
-/usr/lib/nvidia-367/libGLX_nvidia.so.367.35 /usr/lib/nvidia-367/libGLX_indirect.so.0
+/usr/lib/nvidia-367/libGLX_nvidia.so.367.44 /usr/lib/nvidia-367/libGLX_nvidia.so.0
+/usr/lib/nvidia-367/libGLX_nvidia.so.367.44 /usr/lib/nvidia-367/libGLX_indirect.so.0
 
 # EGL client libraries
 
@@ -19,32 +19,32 @@
 /usr/lib/nvidia-367/libGLESv1_CM.so.1 /usr/lib/nvidia-367/libGLESv1_CM.so
 /usr/lib/nvidia-367/libGLESv2.so.2 /usr/lib/nvidia-367/libGLESv2.so
 
-/usr/lib/nvidia-367/libEGL_nvidia.so.367.35 /usr/lib/nvidia-367/libEGL_nvidia.so.0
+/usr/lib/nvidia-367/libEGL_nvidia.so.367.44 /usr/lib/nvidia-367/libEGL_nvidia.so.0
 
-/usr/lib/nvidia-367/libGLESv1_CM_nvidia.so.367.35 /usr/lib/nvidia-367/libGLESv1_CM_nvidia.so.1
-/usr/lib/nvidia-367/libGLESv2_nvidia.so.367.35 /usr/lib/nvidia-367/libGLESv2_nvidia.so.2
+/usr/lib/nvidia-367/libGLESv1_CM_nvidia.so.367.44 /usr/lib/nvidia-367/libGLESv1_CM_nvidia.so.1
+/usr/lib/nvidia-367/libGLESv2_nvidia.so.367.44 /usr/lib/nvidia-367/libGLESv2_nvidia.so.2
 
 # Misc
 
-/usr/lib/nvidia-367/libnvidia-cfg.so.367.35 /usr/lib/nvidia-367/libnvidia-cfg.so.1
+/usr/lib/nvidia-367/libnvidia-cfg.so.367.44 /usr/lib/nvidia-367/libnvidia-cfg.so.1
 /usr/lib/nvidia-367/libnvidia-cfg.so.1 /usr/lib/nvidia-367/libnvidia-cfg.so
 
-/usr/lib/nvidia-367/xorg/libglx.so.367.35 /usr/lib/nvidia-367/xorg/libglx.so
+/usr/lib/nvidia-367/xorg/libglx.so.367.44 /usr/lib/nvidia-367/xorg/libglx.so
 
-/usr/lib/nvidia-367/vdpau/libvdpau_nvidia.so.367.35 /usr/lib/nvidia-367/vdpau/libvdpau_nvidia.so.1
+/usr/lib/nvidia-367/vdpau/libvdpau_nvidia.so.367.44 /usr/lib/nvidia-367/vdpau/libvdpau_nvidia.so.1
 /usr/lib/nvidia-367/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-367/vdpau/libvdpau_nvidia.so
 
-/usr/lib/nvidia-367/libnvidia-compiler.so.367.35 /usr/lib/nvidia-367/libnvidia-compiler.so.1
+/usr/lib/nvidia-367/libnvidia-compiler.so.367.44 /usr/lib/nvidia-367/libnvidia-compiler.so.1
 /usr/lib/nvidia-367/libnvidia-compiler.so.1 /usr/lib/nvidia-367/libnvidia-compiler.so
 
-/usr/lib/nvidia-367/libnvidia-ml.so.367.35 /usr/lib/nvidia-367/libnvidia-ml.so.1
+/usr/lib/nvidia-367/libnvidia-ml.so.367.44 /usr/lib/nvidia-367/libnvidia-ml.so.1
 /usr/lib/nvidia-367/libnvidia-ml.so.1 /usr/lib/nvidia-367/libnvidia-ml.so
 
-/usr/lib/nvidia-367/libnvcuvid.so.367.35 /usr/lib/nvidia-367/libnvcuvid.so.1
+/usr/lib/nvidia-367/libnvcuvid.so.367.44 /usr/lib/nvidia-367/libnvcuvid.so.1
 /usr/lib/nvidia-367/libnvcuvid.so.1 /usr/lib/nvidia-367/libnvcuvid.so
 
-/usr/lib/nvidia-367/libnvidia-encode.so.367.35 /usr/lib/nvidia-367/libnvidia-encode.so.1
+/usr/lib/nvidia-367/libnvidia-encode.so.367.44 /usr/lib/nvidia-367/libnvidia-encode.so.1
 /usr/lib/nvidia-367/libnvidia-encode.so.1 /usr/lib/nvidia-367/libnvidia-encode.so
 
-/usr/lib/nvidia-367/libnvidia-ifr.so.367.35 /usr/lib/nvidia-367/libnvidia-ifr.so.1
+/usr/lib/nvidia-367/libnvidia-ifr.so.367.44 /usr/lib/nvidia-367/libnvidia-ifr.so.1
 /usr/lib/nvidia-367/libnvidia-ifr.so.1 /usr/lib/nvidia-367/libnvidia-ifr.so
