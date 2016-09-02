@@ -1,0 +1,89 @@
+From 2628297a619f28a9bf41aa1aa21d0ecdab414a5c Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 1 Sep 2016 16:41:46 +0200
+Subject: [PATCH 1/1] Add support for Linux 4.8
+
+---
+ nvidia-drm/nvidia-drm-drv.c     | 16 ++++++++++++++++
+ nvidia-drm/nvidia-drm-modeset.c |  5 +++++
+ 2 files changed, 21 insertions(+)
+
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 2543a7d..7dda847 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -35,7 +35,11 @@
+ 
+ #include "nvidia-drm-ioctl.h"
+ 
++#include <linux/version.h>
+ #include <drm/drmP.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 8, 0)
++#include <drm/drm_auth.h>
++#endif
+ 
+ #include <drm/drm_crtc_helper.h>
+ 
+@@ -419,7 +423,11 @@ static int nvidia_drm_master_set(struct drm_device *dev,
+ 
+ static
+ void nvidia_drm_master_drop(struct drm_device *dev,
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 8, 0)
+                             struct drm_file *file_priv, bool from_release)
++#else
++                            struct drm_file *file_priv)
++#endif
+ {
+     struct nvidia_drm_device *nv_dev = dev->dev_private;
+     int ret;
+@@ -452,7 +460,11 @@ int nvidia_drm_migrate_modeset_ownership(struct drm_device *dev,
+     mutex_lock(&dev->master_mutex);
+ 
+     if (!file_priv->is_master ||
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 8, 0)
+         !file_priv->minor->master)
++#else
++        !file_priv->master)
++#endif
+     {
+         goto done;
+     }
+@@ -473,7 +485,11 @@ int nvidia_drm_migrate_modeset_ownership(struct drm_device *dev,
+      * NVKMS modeset ownership, because nvidia_drm_master_set()'s call to
+      * grabOwnership() will fail.
+      */
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 8, 0)
+     drm_master_put(&file_priv->minor->master);
++#else
++    drm_master_put(&file_priv->master);
++#endif
+     file_priv->is_master = 0;
+ 
+     ret = 0;
+diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
+index fed32ec..157465c 100644
+--- a/nvidia-drm/nvidia-drm-modeset.c
++++ b/nvidia-drm/nvidia-drm-modeset.c
+@@ -33,6 +33,7 @@
+ #include "nvidia-drm-encoder.h"
+ #include "nvidia-drm-os-interface.h"
+ 
++#include <linux/version.h>
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_crtc.h>
+@@ -675,7 +676,11 @@ int nvidia_drm_atomic_commit(struct drm_device *dev,
+         goto failed;
+     }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 8, 0)
+     drm_atomic_helper_swap_state(dev, state);
++#else
++    drm_atomic_helper_swap_state(state, true);
++#endif
+ 
+     nvidia_drm_update_head_mode_config(state, requested_config);
+ 
+-- 
+2.7.4
+
