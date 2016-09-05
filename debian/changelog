@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-367 (367.44-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.44-0ubuntu2) yakkety; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_4.8.patch:
+    - Add support for Linux 4.8.
+  * debian/templates/nvidia-graphics-drivers.preinst.in,
+    debian/templates/nvidia-graphics-drivers.prerm.in:
+    - Check if nvidia-persistenced is available before stopping it.
+      Also, call the systemd unit, now that we have switched to it.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Sep 2016 16:28:19 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Sep 2016 16:52:23 +0200
 
 nvidia-graphics-drivers-367 (367.44-0ubuntu1) yakkety; urgency=medium
 
