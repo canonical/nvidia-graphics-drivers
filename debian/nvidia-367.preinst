@@ -34,11 +34,13 @@ case "$1" in
     # nvidia-331 to nvidia-343 (although you could still upgrade to a newer
     # nvidia-331 version/revision without error).  For details, see:
     #   https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-331/+bug/1394348
-    if [ -x /usr/bin/stop-nvidia-persistenced ]; then
+    if [ -e /usr/bin/stop-nvidia-persistenced ] && [ -x /usr/bin/stop-nvidia-persistenced ]; then
 	    echo "Stopping previous nvidia-persistenced"
 	    /usr/bin/stop-nvidia-persistenced || true
 	    echo "Done."
-    fi;
+    elif [ -e /lib/systemd/system/nvidia-persistenced.service ]; then
+        /bin/systemctl stop --no-block nvidia-persistenced || true
+    fi
 
     # We need to remove diversions from previous versions of the package
 
