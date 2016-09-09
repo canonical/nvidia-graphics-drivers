@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-367 (367.44-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.44-0ubuntu3) yakkety; urgency=medium
 
-  * 
+  * debian/templates/nvidia-opencl-icd-361.prerm.in:
+    - Add an empty prerm script for the transitional 361. We need
+      this to work around a problem introduced by a previous revision
+      that was available only in xenial-proposed and in yakkety
+      (LP: #1621780).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Sep 2016 15:53:26 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Sep 2016 15:54:07 +0200
 
 nvidia-graphics-drivers-367 (367.44-0ubuntu2) yakkety; urgency=medium
 
