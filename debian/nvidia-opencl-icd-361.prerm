@@ -1,0 +1,9 @@
+#!/bin/sh
+# prerm script for nvidia-opencl-icd-361
+#
+# See LP: #1621780
+#
+# Copyright (C) 2016 Canonical Ltd
+# Authors: Alberto Milone
+
+exit 0
