@@ -201,8 +201,8 @@ case "$1" in
         ALTERNATIVE=$(readlink /etc/alternatives/#DEB_HOST_MULTIARCH#_gl_conf)
         if [ "$ALTERNATIVE" = "#LDSOCONF#" ]; then
             # Update initramfs so that the blacklist ends up in the initramfs
-            update-initramfs -u
-            
+            update-initramfs -u || true
+
             if [ -n "$NEWEST_KERNEL" ] && [ ${CURRENT_KERNEL} != ${NEWEST_KERNEL} ]; then
                 # This can fail when dealing with a chroot see LP: #556653
                 update-initramfs -u -k $CURRENT_KERNEL || true
