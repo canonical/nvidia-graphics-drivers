@@ -14,8 +14,8 @@
 /usr/share/lintian/overrides
 /usr/lib/nvidia-367/xorg
 /usr/lib/nvidia-367/xorg
-/usr/src/nvidia-367-367.44
-/usr/src/nvidia-367-367.44/patches
+/usr/src/nvidia-367-367.57
+/usr/src/nvidia-367-367.57/patches
 /usr/lib/vdpau
 /lib/nvidia-367
 /usr/share/nvidia
