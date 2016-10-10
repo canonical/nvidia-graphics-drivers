@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.98-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Oct 2016 17:16:33 +0200
+
 nvidia-graphics-drivers-340 (340.96-0ubuntu6) yakkety; urgency=medium
 
   * debian/rules, debian/templates/control.in,
