@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-340 (340.98-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.98-0ubuntu1) yakkety; urgency=medium
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Do not fail if update-initramfs is not available (LP: #1629274).
+  * New upstream release:
+    - Added support for the screen_info.ext_lfb_base field, on
+      kernels that have it, in order to properly handle UEFI
+      framebuffer consoles with physical addresses above 4GB.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Oct 2016 17:16:33 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Oct 2016 18:03:45 +0200
 
 nvidia-graphics-drivers-340 (340.96-0ubuntu6) yakkety; urgency=medium
 
