@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-367 (367.57-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.57-0ubuntu1) yakkety; urgency=medium
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Do not fail if update-initramfs is not available (LP: #1629274).
+  * New upstream release:
+    - Fixed a bug that could prevent systems with GPUs configured in
+      SLI from resuming correctly from ACPI S3/S4 sleep/hibernate
+      states.
+    - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR
+      emitter can be used with stereo mode "10" set in the X
+      configuration file.
+    - Fixed a bug in nvidia-persistenced that caused it to
+      incorrectly delete the PID file if a second instance of the
+      daemon is started.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Oct 2016 11:21:43 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Oct 2016 16:53:48 +0200
 
 nvidia-graphics-drivers-367 (367.44-0ubuntu3) yakkety; urgency=medium
 
