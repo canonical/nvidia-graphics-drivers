@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-304 (304.132-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.132-0ubuntu1) yakkety; urgency=medium
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Do not fail if update-initramfs is not available (LP: #1629274).
+  * New upstream release:
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA
+      driver on v4.5 and newer Linux kernels built with
+      CONFIG_DEBUG_VM_PGFLAGS.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Oct 2016 09:51:41 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Oct 2016 10:09:32 +0200
 
 nvidia-graphics-drivers-304 (304.131-0ubuntu5) yakkety; urgency=medium
 
