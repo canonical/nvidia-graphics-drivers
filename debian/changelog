@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-367 (367.57-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.57-0ubuntu2) yakkety; urgency=medium
 
-  * 
+  * debian/templates/libcuda1-361.prerm.in,
+    debian/templates/nvidia-libopencl1-361.prerm.in:
+    - Add empty prerm scripts for 361 (LP: #1621780).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Oct 2016 10:44:37 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Oct 2016 12:00:14 +0200
 
 nvidia-graphics-drivers-367 (367.57-0ubuntu1) yakkety; urgency=medium
 
