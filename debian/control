@@ -49,11 +49,11 @@ Package: libcuda1-367
 Architecture: i386 amd64 armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1
 Breaks: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1
 Replaces: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
