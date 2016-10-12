@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-367 (367.57-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.57-0ubuntu3) yakkety; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add support for libcuda-8.0-1. Thanks to Graham Inggs.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Oct 2016 16:49:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Oct 2016 17:10:10 +0200
 
 nvidia-graphics-drivers-367 (367.57-0ubuntu2) yakkety; urgency=medium
 
