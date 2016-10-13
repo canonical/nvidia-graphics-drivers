@@ -1,30 +1,22 @@
-nvidia-graphics-drivers-304 (304.132-0ubuntu1) yakkety; urgency=medium
+nvidia-graphics-drivers-304 (304.132-0ubuntu0.16.04.1) UNRELEASED; urgency=medium
 
-  * debian/templates/nvidia-graphics-drivers.postinst.in:
-    - Do not fail if update-initramfs is not available (LP: #1629274).
+  * SECURITY UPDATE:
+    - CVE-2016-7382, 2016-7389 (LP: #1627055).
   * New upstream release:
     - Added /var/log/dmesg to the list of paths which are searched by
       nvidia-bug-report.sh for kernel messages.
     - Fixed a bug that caused kernel panics when using the NVIDIA
       driver on v4.5 and newer Linux kernels built with
       CONFIG_DEBUG_VM_PGFLAGS.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Oct 2016 10:09:32 +0200
-
-nvidia-graphics-drivers-304 (304.131-0ubuntu5) yakkety; urgency=medium
-
   * debian/templates/control.in:
     - Add transitional packages to deprecate the -updates flavour.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Aug 2016 11:59:21 +0200
-
-nvidia-graphics-drivers-304 (304.131-0ubuntu4) yakkety; urgency=medium
-
   * debian/templates/dkms.conf.in,
     debian/dkms/patches/buildfix_kernel_4.6.patch:
     - Add support for Linux 4.6.
+  * debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Do not fail if update-initramfs is not available (LP: #1629274).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 23 May 2016 16:36:38 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 Oct 2016 17:15:40 +0200
 
 nvidia-graphics-drivers-304 (304.131-0ubuntu3) xenial; urgency=medium
 
