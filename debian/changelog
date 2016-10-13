@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-304 (304.132-0ubuntu0.16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.132-0ubuntu0.16.04.1) xenial-security; urgency=medium
 
   * SECURITY UPDATE:
     - CVE-2016-7382, 2016-7389 (LP: #1627055).
@@ -10,13 +10,12 @@ nvidia-graphics-drivers-304 (304.132-0ubuntu0.16.04.1) UNRELEASED; urgency=mediu
       CONFIG_DEBUG_VM_PGFLAGS.
   * debian/templates/control.in:
     - Add transitional packages to deprecate the -updates flavour.
-  * debian/templates/dkms.conf.in,
-    debian/dkms/patches/buildfix_kernel_4.6.patch:
-    - Add support for Linux 4.6.
+  * debian/dkms/patches/buildfix_kernel_4.3.patch:
+    - Refresh the patch.
   * debian/templates/nvidia-graphics-drivers.postinst.in:
     - Do not fail if update-initramfs is not available (LP: #1629274).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 Oct 2016 17:15:40 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 Oct 2016 17:23:23 +0200
 
 nvidia-graphics-drivers-304 (304.131-0ubuntu3) xenial; urgency=medium
 
