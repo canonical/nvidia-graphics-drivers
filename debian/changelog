@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.98-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Oct 2016 11:24:30 +0200
+
 nvidia-graphics-drivers-340 (340.96-0ubuntu0.14.04.1) trusty-security; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in:
