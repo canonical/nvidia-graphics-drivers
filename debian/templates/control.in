@@ -79,7 +79,7 @@ Description: NVIDIA OpenCL Driver and ICD Loader library
 
 Package: #OPENCLICD#
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, #LIBOPENCL1# | ocl-icd-libopencl1
+Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | #LIBOPENCL1#
 Enhances: libopencl1
 Conflicts: nvidia-opencl-icd
 Replaces: nvidia-opencl-icd
@@ -91,6 +91,41 @@ Description: NVIDIA OpenCL ICD
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
+
+Package: nvidia-304-updates
+Architecture: i386 amd64
+Depends: #DRIVERNAME#
+Description: Transitional package for #DRIVERNAME#
+ This is a transitional package for #DRIVERNAME#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-304-updates-dev
+Architecture: i386 amd64
+Depends: #DRIVERDEVNAME#
+Description: Transitional package for #DRIVERDEVNAME#
+ This is a transitional package for #DRIVERDEVNAME#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-304-updates
+Architecture: i386 amd64
+Depends: #LIBOPENCL1#
+Description: Transitional package for #LIBOPENCL1#
+ This is a transitional package for #LIBOPENCL1#, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-304-updates
+Architecture: i386 amd64
+Depends: #OPENCLICD#
+Description: Transitional package for #OPENCLICD#
+ This is a transitional package for #OPENCLICD#, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-304-updates
+Architecture: i386 amd64
+Depends: #LIBCUDA1#
+Description: Transitional package for #LIBCUDA1#
+ This is a transitional package for #LIBCUDA1#, and can be
+ safely removed after the installation is complete.
 
 Package: nvidia-current
 Architecture: i386 amd64
