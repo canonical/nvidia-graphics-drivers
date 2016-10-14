@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-304 (304.132-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.132-0ubuntu0.14.04.1) trusty-security; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE-2016-7382, 2016-7389 (LP: #1627055).
+  * New upstream release:
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA
+      driver on v4.5 and newer Linux kernels built with
+      CONFIG_DEBUG_VM_PGFLAGS.
+  * debian/dkms/patches/buildfix_kernel_4.3.patch:
+    - Refresh the patch.
+  * debian/templates/control.in:
+    - Add transitional packages to deprecate the -updates flavour.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Oct 2016 17:07:51 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Oct 2016 17:22:43 +0200
 
 nvidia-graphics-drivers-304 (304.131-0ubuntu0.14.04.2) trusty-proposed; urgency=medium
 
