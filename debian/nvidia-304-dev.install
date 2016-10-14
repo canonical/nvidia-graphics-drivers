@@ -1,4 +1,4 @@
-NVIDIA-Linux-x86_64-304.131-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-304
+NVIDIA-Linux-x86_64-304.132-no-compat32/libXvMCNVIDIA.a       /usr/lib/nvidia-304
 
 debian/headers/cl*.h                           /usr/include/nvidia-304/CL
 debian/headers/gl*.h                           /usr/include/nvidia-304/GL

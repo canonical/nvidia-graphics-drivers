@@ -20,7 +20,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary
 Replaces: xorg-driver-binary
 XB-Modaliases: ${modaliases}
-Description: NVIDIA legacy binary driver - version 304.131
+Description: NVIDIA legacy binary driver - version 304.132
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -33,12 +33,12 @@ Description: NVIDIA legacy binary driver - version 304.131
  GPUs such as GeForce series 6 or newer are supported.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-304.131-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-304.132-driver.html
  .
 
 Package: nvidia-304-dev
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-304 (>= 304.131)
+Depends: ${misc:Depends}, nvidia-304 (>= 304.132)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -79,7 +79,7 @@ Description: NVIDIA OpenCL Driver and ICD Loader library
 
 Package: nvidia-opencl-icd-304
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-libopencl1-304 | ocl-icd-libopencl1
+Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | nvidia-libopencl1-304
 Enhances: libopencl1
 Conflicts: nvidia-opencl-icd
 Replaces: nvidia-opencl-icd
@@ -91,6 +91,41 @@ Description: NVIDIA OpenCL ICD
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
+
+Package: nvidia-304-updates
+Architecture: i386 amd64
+Depends: nvidia-304
+Description: Transitional package for nvidia-304
+ This is a transitional package for nvidia-304, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-304-updates-dev
+Architecture: i386 amd64
+Depends: nvidia-304-dev
+Description: Transitional package for nvidia-304-dev
+ This is a transitional package for nvidia-304-dev, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-304-updates
+Architecture: i386 amd64
+Depends: nvidia-libopencl1-304
+Description: Transitional package for nvidia-libopencl1-304
+ This is a transitional package for nvidia-libopencl1-304, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-304-updates
+Architecture: i386 amd64
+Depends: nvidia-opencl-icd-304
+Description: Transitional package for nvidia-opencl-icd-304
+ This is a transitional package for nvidia-opencl-icd-304, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-304-updates
+Architecture: i386 amd64
+Depends: libcuda1-304
+Description: Transitional package for libcuda1-304
+ This is a transitional package for libcuda1-304, and can be
+ safely removed after the installation is complete.
 
 Package: nvidia-current
 Architecture: i386 amd64
