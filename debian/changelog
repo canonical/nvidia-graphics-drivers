@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-304 (304.132-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Oct 2016 17:07:51 +0200
+
 nvidia-graphics-drivers-304 (304.131-0ubuntu0.14.04.2) trusty-proposed; urgency=medium
 
   * debian/dkms/patches/buildfix_kernel_4.3.patch,
