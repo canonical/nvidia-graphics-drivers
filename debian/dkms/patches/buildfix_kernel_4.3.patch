@@ -1,6 +1,6 @@
-From 66b9ca32afa877003721ed3f38be9e001d82d4c4 Mon Sep 17 00:00:00 2001
+From cd37d0f0a8909bc8e0dbeee35a22fe61678d58ef Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
-Date: Tue, 9 Feb 2016 18:04:01 +0100
+Date: Wed, 2 Nov 2016 16:46:08 +0100
 Subject: [PATCH 1/1] Add support for Linux 4.3
 
 ---
@@ -78,5 +78,5 @@ index 907daa5..2016b50 100644
  #endif
      return RM_ERR_NOT_SUPPORTED;
 -- 
-1.9.1
+2.7.4
 
