@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-367 (367.57-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-367 (367.57-0ubuntu4) zesty; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch:
+    - Add support for Linux 4.9.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Nov 2016 11:44:31 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Nov 2016 12:46:48 +0100
 
 nvidia-graphics-drivers-367 (367.57-0ubuntu3) yakkety; urgency=medium
 
