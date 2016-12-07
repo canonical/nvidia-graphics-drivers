@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304 (304.132-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.132-0ubuntu3) zesty; urgency=medium
 
-  * 
+  * debian/templates/dkms.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch:
+    - Add support for Linux 4.9. Credit goes to Michael Marley for
+      finding out about the new required DRIVER_LEGACY flag.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Dec 2016 18:34:06 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Dec 2016 18:35:10 +0100
 
 nvidia-graphics-drivers-304 (304.132-0ubuntu2) zesty; urgency=medium
 
