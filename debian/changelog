@@ -1,3 +1,13 @@
+nvidia-graphics-drivers-367 (367.57-0ubuntu5) zesty; urgency=medium
+
+  * Make the maintainer scripts behave better in chroots without kernels:
+    - postinst: don't assume /boot/config-* exist, test -f before use.
+    - postinst, postrm: test -x update-initramfs, don't short results.
+    - preinst, prerm: test -x systemctl before use to skip ugly noise.
+  * Move the uvm bits to amd64-specific patch to fix broken dkms on i386.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Fri, 16 Dec 2016 08:30:44 -0700
+
 nvidia-graphics-drivers-367 (367.57-0ubuntu4) zesty; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in,

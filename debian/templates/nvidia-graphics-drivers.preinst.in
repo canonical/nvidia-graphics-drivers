@@ -39,7 +39,9 @@ case "$1" in
 	    /usr/bin/stop-nvidia-persistenced || true
 	    echo "Done."
     elif [ -e /lib/systemd/system/nvidia-persistenced.service ]; then
-        /bin/systemctl stop --no-block nvidia-persistenced || true
+        if [ -x /bin/systemctl ]; then
+            /bin/systemctl stop --no-block nvidia-persistenced || true
+        fi
     fi
 
     # We need to remove diversions from previous versions of the package
