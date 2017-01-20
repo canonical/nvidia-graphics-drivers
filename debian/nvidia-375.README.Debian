@@ -48,12 +48,12 @@ Kernel patches
 Update procedure
 -------------------------
 When a new NVIDIA is available, do the following to update
-nvidia-367:
+nvidia-375:
 
 0.  On your build system, make sure you have the prerequisites
     installed:
 
-    $ sudo apt-get build-dep nvidia-367
+    $ sudo apt-get build-dep nvidia-375
 
 1.  Download the NVIDIA installers i.e. the .run files.
 
@@ -70,7 +70,7 @@ nvidia-367:
 
 4.  Temporarily move the debian/ directory out of the source directory
     and compress it as $SOURCE_NAME _ $NEW_VERSION . orig . tar . gz
-    e.g. nvidia-graphics-drivers-367_367.57.orig.tar.gz
+    e.g. nvidia-graphics-drivers-375_375.26.orig.tar.gz
 
 5.  Move the debian/ directory back to the source directory and type
     debuild -S -sa to produce a new .dsc

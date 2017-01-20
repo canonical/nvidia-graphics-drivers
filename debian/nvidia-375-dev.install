@@ -1,0 +1,3 @@
+debian/headers/cl*.h                           /usr/include/nvidia-375/CL
+debian/headers/gl*.h                           /usr/include/nvidia-375/GL
+debian/headers/cuda*.h                         /usr/include/nvidia-375/cuda

@@ -1,0 +1,80 @@
+nvidia-375: library-not-linked-against-libc ./usr/lib/libGL.so.375.26
+
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.375.26
+
+nvidia-375: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.375.26
+
+nvidia-375: shlib-with-non-pic-code usr/lib/libGL.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/libGLcore.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.375.26
+
+nvidia-375: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.375.26 usr/lib/libGL.so
+nvidia-375: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.375.26 usr/lib/xorg/modules/extensions/libglx.so
+
+
+nvidia-375: script-not-executable usr/src/nvidia-375-375.26/conftest.sh
+nvidia-375: maintainer-script-ignores-errors prerm
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/libGL.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/libGL.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/libGLcore.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/libGLcore.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/libcuda.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/libcuda.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/libnvidia-cfg.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/libnvidia-cfg.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/libnvidia-tls.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/libnvidia-tls.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/libvdpau.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/tls/libnvidia-tls.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/tls/libnvidia-tls.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/vdpau/libvdpau_nvidia.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/vdpau/libvdpau_nvidia.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/vdpau/libvdpau_trace.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/nvidia-375/xorg/libglx.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-375/xorg/libglx.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.375.26
+nvidia-375: unused-shlib-entry-in-control-file libnvidia-tls 190
+nvidia-375: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
+nvidia-375: prerm-calls-ldconfig
+nvidia-375: copyright-without-copyright-notice
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/nvidia-375/libnvidia-tls.so.375.26
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/nvidia-375/tls/libnvidia-tls.so.375.26
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.375.26
+nvidia-375: unknown-section restricted/misc
+nvidia-185-modaliases: copyright-without-copyright-notice
+nvidia-185-modaliases: extended-description-line-too-long
+nvidia-glx-185-dev: copyright-without-copyright-notice
+nvidia-glx-185-dev: extended-description-line-too-long
+nvidia-glx-185-dev: unknown-section restricted/misc
+nvidia-185-kernel-source: copyright-without-copyright-notice
+nvidia-185-kernel-source: unknown-section restricted/misc
+nvidia-375-dev: postinst-has-useless-call-to-ldconfig
+nvidia-375-dev: postrm-has-useless-call-to-ldconfig
+nvidia-375-dev: copyright-without-copyright-notice
+nvidia-375-dev: unknown-section restricted/misc
+nvidia-glx-185: copyright-without-copyright-notice
+nvidia-glx-185: unknown-section restricted/misc
+nvidia-375-modaliases: copyright-without-copyright-notice
+
+nvidia-375: script-not-executable ./usr/src/nvidia-375-375.26/conftest.sh
+nvidia-375: maintainer-script-ignores-errors prerm
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/libGL.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/libGLcore.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/libcuda.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/libnvidia-cfg.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/libnvidia-tls.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/libvdpau_nvidia.so.375.26
+nvidia-375: shlib-with-non-pic-code usr/lib32/nvidia-375/tls/libnvidia-tls.so.375.26
+nvidia-375: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-375/tls/libnvidia-tls.so.375.26
+
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/nvidia-375/libnvidia-tls.so.375.26
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/nvidia-375/tls/libnvidia-tls.so.375.26
+nvidia-375: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.375.26
+nvidia-375: shared-lib-without-dependency-information ./usr/lib32/nvidia-375/libnvidia-tls.so.375.26
+nvidia-375: shared-lib-without-dependency-information ./usr/lib32/nvidia-375/tls/libnvidia-tls.so.375.26
+
+

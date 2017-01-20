@@ -1,0 +1,48 @@
+# GLVND GLX client libraries
+
+/usr/lib32/nvidia-375/libGL.so.1.0.0 /usr/lib32/nvidia-375/libGL.so.1
+/usr/lib32/nvidia-375/libGL.so.1 /usr/lib32/nvidia-375/libGL.so
+
+/usr/lib32/nvidia-375/libOpenGL.so.0 /usr/lib32/nvidia-375/libOpenGL.so
+
+/usr/lib32/nvidia-375/libGLX.so.0 /usr/lib32/nvidia-375/libGLX.so
+
+# For an easy transition from a non-GLVND installation
+
+/usr/lib32/nvidia-375/libGLX_nvidia.so.375.26 /usr/lib32/nvidia-375/libGLX_nvidia.so.0
+/usr/lib32/nvidia-375/libGLX_nvidia.so.375.26 /usr/lib32/nvidia-375/libGLX_indirect.so.0
+
+# EGL client libraries
+
+/usr/lib32/nvidia-375/libEGL.so.1 /usr/lib32/nvidia-375/libEGL.so
+
+/usr/lib32/nvidia-375/libGLESv1_CM.so.1 /usr/lib32/nvidia-375/libGLESv1_CM.so
+/usr/lib32/nvidia-375/libGLESv2.so.2 /usr/lib32/nvidia-375/libGLESv2.so
+
+/usr/lib32/nvidia-375/libEGL_nvidia.so.375.26 /usr/lib32/nvidia-375/libEGL_nvidia.so.0
+
+/usr/lib32/nvidia-375/libGLESv1_CM_nvidia.so.375.26 /usr/lib32/nvidia-375/libGLESv1_CM_nvidia.so.1
+/usr/lib32/nvidia-375/libGLESv2_nvidia.so.375.26 /usr/lib32/nvidia-375/libGLESv2_nvidia.so.2
+
+# Misc
+
+/usr/lib32/nvidia-375/libnvidia-cfg.so.375.26 /usr/lib32/nvidia-375/libnvidia-cfg.so.1
+/usr/lib32/nvidia-375/libnvidia-cfg.so.1 /usr/lib32/nvidia-375/libnvidia-cfg.so
+
+/usr/lib32/nvidia-375/vdpau/libvdpau_nvidia.so.375.26 /usr/lib32/nvidia-375/vdpau/libvdpau_nvidia.so.1
+/usr/lib32/nvidia-375/vdpau/libvdpau_nvidia.so.1 /usr/lib32/nvidia-375/vdpau/libvdpau_nvidia.so
+
+/usr/lib32/nvidia-375/libnvidia-compiler.so.375.26 /usr/lib32/nvidia-375/libnvidia-compiler.so.1
+/usr/lib32/nvidia-375/libnvidia-compiler.so.1 /usr/lib32/nvidia-375/libnvidia-compiler.so
+
+/usr/lib32/nvidia-375/libnvidia-ml.so.375.26 /usr/lib32/nvidia-375/libnvidia-ml.so.1
+/usr/lib32/nvidia-375/libnvidia-ml.so.1 /usr/lib32/nvidia-375/libnvidia-ml.so
+
+/usr/lib32/nvidia-375/libnvcuvid.so.375.26 /usr/lib32/nvidia-375/libnvcuvid.so.1
+/usr/lib32/nvidia-375/libnvcuvid.so.1 /usr/lib32/nvidia-375/libnvcuvid.so
+
+/usr/lib32/nvidia-375/libnvidia-encode.so.375.26 /usr/lib32/nvidia-375/libnvidia-encode.so.1
+/usr/lib32/nvidia-375/libnvidia-encode.so.1 /usr/lib32/nvidia-375/libnvidia-encode.so
+
+/usr/lib32/nvidia-375/libnvidia-ifr.so.375.26 /usr/lib32/nvidia-375/libnvidia-ifr.so.1
+/usr/lib32/nvidia-375/libnvidia-ifr.so.1 /usr/lib32/nvidia-375/libnvidia-ifr.so

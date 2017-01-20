@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-367
+# preinst script for nvidia-375
 #
 # see: dh_installdeb(1)
 #

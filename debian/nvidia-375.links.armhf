@@ -1,0 +1,28 @@
+/usr/lib/nvidia-375/libGL.so.375.26 /usr/lib/nvidia-375/libGL.so.1
+/usr/lib/nvidia-375/libGL.so.1 /usr/lib/nvidia-375/libGL.so
+
+/usr/lib/nvidia-375/libEGL.so.1 /usr/lib/nvidia-375/libEGL.so
+
+/usr/lib/nvidia-375/libGLESv1_CM.so.1 /usr/lib/nvidia-375/libGLESv1_CM.so
+
+/usr/lib/nvidia-375/libGLESv2.so.2 /usr/lib/nvidia-375/libGLESv2.so
+
+/usr/lib/nvidia-375/libnvidia-cfg.so.375.26 /usr/lib/nvidia-375/libnvidia-cfg.so.1
+/usr/lib/nvidia-375/libnvidia-cfg.so.1 /usr/lib/nvidia-375/libnvidia-cfg.so
+
+/usr/lib/nvidia-375/xorg/libglx.so.375.26 /usr/lib/nvidia-375/xorg/libglx.so
+
+/usr/lib/nvidia-375/vdpau/libvdpau_nvidia.so.375.26 /usr/lib/nvidia-375/vdpau/libvdpau_nvidia.so.1
+/usr/lib/nvidia-375/vdpau/libvdpau_nvidia.so.1 /usr/lib/nvidia-375/vdpau/libvdpau_nvidia.so
+
+/usr/lib/nvidia-375/libnvidia-ml.so.375.26 /usr/lib/nvidia-375/libnvidia-ml.so.1
+/usr/lib/nvidia-375/libnvidia-ml.so.1 /usr/lib/nvidia-375/libnvidia-ml.so
+
+/usr/lib/nvidia-375/libnvcuvid.so.375.26 /usr/lib/nvidia-375/libnvcuvid.so.1
+/usr/lib/nvidia-375/libnvcuvid.so.1 /usr/lib/nvidia-375/libnvcuvid.so
+
+/usr/lib/nvidia-375/libnvidia-encode.so.375.26 /usr/lib/nvidia-375/libnvidia-encode.so.1
+/usr/lib/nvidia-375/libnvidia-encode.so.1 /usr/lib/nvidia-375/libnvidia-encode.so
+
+/usr/lib/nvidia-375/libnvidia-ifr.so.375.26 /usr/lib/nvidia-375/libnvidia-ifr.so.1
+/usr/lib/nvidia-375/libnvidia-ifr.so.1 /usr/lib/nvidia-375/libnvidia-ifr.so

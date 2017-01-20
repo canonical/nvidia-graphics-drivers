@@ -1,3 +1,0 @@
-libGL      1 libgl1
-libcuda 1 libcuda-6.0-1
-libnvidia-fatbinaryloader 367.57 nvidia-367 (>= 367.57)
