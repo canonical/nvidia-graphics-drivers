@@ -46,3 +46,6 @@
 
 #PKGLIBDIR32#/libnvidia-ifr.so.#VERSION# #PKGLIBDIR32#/libnvidia-ifr.so.1
 #PKGLIBDIR32#/libnvidia-ifr.so.1 #PKGLIBDIR32#/libnvidia-ifr.so
+
+#PKGLIBDIR32#/libnvidia-fbc.so.#VERSION# #PKGLIBDIR32#/libnvidia-fbc.so.1
+#PKGLIBDIR32#/libnvidia-fbc.so.1 #PKGLIBDIR32#/libnvidia-fbc.so
