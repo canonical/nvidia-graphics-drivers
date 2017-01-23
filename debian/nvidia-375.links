@@ -48,3 +48,6 @@
 
 /usr/lib/nvidia-375/libnvidia-ifr.so.375.26 /usr/lib/nvidia-375/libnvidia-ifr.so.1
 /usr/lib/nvidia-375/libnvidia-ifr.so.1 /usr/lib/nvidia-375/libnvidia-ifr.so
+
+/usr/lib/nvidia-375/libnvidia-fbc.so.375.26 /usr/lib/nvidia-375/libnvidia-fbc.so.1
+/usr/lib/nvidia-375/libnvidia-fbc.so.1 /usr/lib/nvidia-375/libnvidia-fbc.so
