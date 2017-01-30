@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-304 (304.134-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.134-0ubuntu0.14.04.1) trusty; urgency=medium
 
-  * 
+  * New upstream release.
+  * debian/substvars:
+     - Add support for X ABI 23.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Jan 2017 17:50:51 +0100
+ -- Robert Hooker <sarvatt@ubuntu.com>  Thu, 15 Dec 2016 12:08:23 -0500
 
 nvidia-graphics-drivers-304 (304.132-0ubuntu0.14.04.1) trusty-security; urgency=medium
 
