@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-340 (340.101-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.101-0ubuntu1) zesty; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch:
+    - Refresh patch for new upstream release.
+  * debian/substvars:
+    - Add support for X ABI 23.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Jan 2017 12:22:06 +0100
+ -- Robert Hooker <sarvatt@ubuntu.com>  Thu, 15 Dec 2016 11:01:15 -0500
 
 nvidia-graphics-drivers-340 (340.98-0ubuntu2) zesty; urgency=medium
 
