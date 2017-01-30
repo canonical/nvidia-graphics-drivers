@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-304 (304.134-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.134-0ubuntu1) zesty; urgency=medium
 
-  * 
+  * New upstream release. (LP: #1639180)
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch:
+    - Refresh patch for new upstream release.
+  * debian/substvars:
+    - Add support for X ABI 23.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Jan 2017 17:32:56 +0100
+ -- Robert Hooker <sarvatt@ubuntu.com>  Thu, 15 Dec 2016 11:38:45 -0500
 
 nvidia-graphics-drivers-304 (304.132-0ubuntu3) zesty; urgency=medium
 
