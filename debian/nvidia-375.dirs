@@ -14,8 +14,8 @@
 /usr/share/lintian/overrides
 /usr/lib/nvidia-375/xorg
 /usr/lib/nvidia-375/xorg
-/usr/src/nvidia-375-375.26
-/usr/src/nvidia-375-375.26/patches
+/usr/src/nvidia-375-375.35
+/usr/src/nvidia-375-375.35/patches
 /usr/lib/vdpau
 /lib/nvidia-375
 /usr/share/nvidia
