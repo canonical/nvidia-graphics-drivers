@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-340 (340.101-0ubuntu0.16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.101-0ubuntu0.16.04.1) xenial; urgency=medium
 
-  * 
+  * New upstream release.
+  * debian/substvars:
+    - Add support for X ABI 23.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Jan 2017 16:40:26 +0100
+ -- Robert Hooker <sarvatt@ubuntu.com>  Thu, 15 Dec 2016 11:27:21 -0500
 
 nvidia-graphics-drivers-340 (340.98-0ubuntu0.16.04.1) xenial-security; urgency=medium
 
