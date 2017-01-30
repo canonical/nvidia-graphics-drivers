@@ -25,40 +25,6 @@ index ba9fa61..bf7a177 100644
      .load = nv_drm_load,
      .unload = nv_drm_unload,
      .fops = &nv_drm_fops,
-diff --git a/nv-linux.h b/nv-linux.h
-index 1903e74..58ff998 100644
---- a/nv-linux.h
-+++ b/nv-linux.h
-@@ -1831,8 +1831,13 @@ static inline NvU64 nv_node_end_pfn(int nid)
-     #define NV_GET_USER_PAGES           get_user_pages
-     #define NV_GET_USER_PAGES_REMOTE    get_user_pages_remote
- #else
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 9, 0)
-+    #define NV_GET_USER_PAGES(start, nr_pages, gup_flags, pages, vmas) \
-+        get_user_pages(current, current->mm, start, nr_pages, gup_flags, pages, vmas)
-+#else
-     #define NV_GET_USER_PAGES(start, nr_pages, write, force, pages, vmas) \
-         get_user_pages(current, current->mm, start, nr_pages, write, force, pages, vmas)
-+#endif
- 
-     #define NV_GET_USER_PAGES_REMOTE    get_user_pages
- #endif
-diff --git a/nv-mlock.c b/nv-mlock.c
-index 0f795a5..0dcce35 100644
---- a/nv-mlock.c
-+++ b/nv-mlock.c
-@@ -50,7 +50,11 @@ RM_STATUS NV_API_CALL nv_lock_user_pages(
- 
-     down_read(&mm->mmap_sem);
-     ret = NV_GET_USER_PAGES((unsigned long)address,
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 9, 0)
-+                            page_count, write ? FOLL_WRITE : 0, user_pages, NULL);
-+#else
-                             page_count, write, force, user_pages, NULL);
-+#endif
-     up_read(&mm->mmap_sem);
-     pinned = ret;
- 
 -- 
 2.7.4
 
