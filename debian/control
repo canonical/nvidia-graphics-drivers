@@ -21,7 +21,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
 Conflicts: xorg-driver-binary, nvidia-persistenced
 Replaces: xorg-driver-binary, nvidia-persistenced
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 375.35
+Description: NVIDIA binary driver - version 375.39
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 375.35
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-375.35-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-375.39-driver.html
  .
 
 Package: nvidia-375-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-375 (>= 375.35)
+Depends: ${misc:Depends}, nvidia-375 (>= 375.39)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

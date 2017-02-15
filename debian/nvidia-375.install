@@ -7,31 +7,31 @@ debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 
-NVIDIA-Linux-x86-375.35/nvidia_drv.so /usr/lib/nvidia-375/xorg
-NVIDIA-Linux-x86-375.35/libglx.so.375.35 /usr/lib/nvidia-375/xorg
+NVIDIA-Linux-x86-375.39/nvidia_drv.so /usr/lib/nvidia-375/xorg
+NVIDIA-Linux-x86-375.39/libglx.so.375.39 /usr/lib/nvidia-375/xorg
 
-NVIDIA-Linux-x86-375.35/libGL*.so*                  /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.35/libOpenGL*.so*              /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.35/libEGL*.so*                 /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.35/libnv*.so*                  /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.39/libGL*.so*                  /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.39/libOpenGL*.so*              /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.39/libEGL*.so*                 /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.39/libnv*.so*                  /usr/lib/nvidia-375
 
-NVIDIA-Linux-x86-375.35/libvdpau_nvidia.so*   /usr/lib/nvidia-375/vdpau
-NVIDIA-Linux-x86-375.35/tls/*.so*                   /usr/lib/nvidia-375/tls
+NVIDIA-Linux-x86-375.39/libvdpau_nvidia.so*   /usr/lib/nvidia-375/vdpau
+NVIDIA-Linux-x86-375.39/tls/*.so*                   /usr/lib/nvidia-375/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-375-375.35
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-375-375.35/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-375-375.35
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-375-375.39
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-375-375.39/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-375-375.39
 
-NVIDIA-Linux-x86-375.35/nvidia-bug-report.sh /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.35/nvidia-xconfig /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.35/nvidia-smi /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.35/nvidia-debugdump /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.35/nvidia-cuda-mps-control /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.35/nvidia-cuda-mps-server /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.35/nvidia-persistenced /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-bug-report.sh /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-xconfig /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-smi /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-debugdump /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-cuda-mps-control /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-cuda-mps-server /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.39/nvidia-persistenced /usr/lib/nvidia-375/bin
 
-NVIDIA-Linux-x86-375.35/nvidia-application-profiles-375.35-rc /usr/share/nvidia-375
-NVIDIA-Linux-x86-375.35/nvidia-application-profiles-375.35-key-documentation /usr/share/nvidia-375
+NVIDIA-Linux-x86-375.39/nvidia-application-profiles-375.39-rc /usr/share/nvidia-375
+NVIDIA-Linux-x86-375.39/nvidia-application-profiles-375.39-key-documentation /usr/share/nvidia-375
 
-NVIDIA-Linux-x86-375.35/nvidia_icd.json usr/share/vulkan/icd.d
-NVIDIA-Linux-x86-375.35/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
+NVIDIA-Linux-x86-375.39/nvidia_icd.json usr/share/vulkan/icd.d
+NVIDIA-Linux-x86-375.39/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
