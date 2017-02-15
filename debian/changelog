@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-340 (340.102-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.102-0ubuntu1) zesty; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+    - Fixed a bug that allowed nvidia-installer to attempt loading
+      kernel modules that were built against non-running kernels.
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 4.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Feb 2017 16:21:43 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Feb 2017 17:34:22 +0100
 
 nvidia-graphics-drivers-340 (340.101-0ubuntu1) zesty; urgency=medium
 
