@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-375 (375.39-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-375 (375.39-0ubuntu2) zesty; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch:
+    - Add workaround for build failure on i386.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 22 Feb 2017 12:48:20 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 22 Feb 2017 13:41:06 +0100
 
 nvidia-graphics-drivers-375 (375.39-0ubuntu1) zesty; urgency=medium
 
