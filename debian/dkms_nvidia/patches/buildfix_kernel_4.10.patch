@@ -1,18 +1,18 @@
-From ca8b106738521823707f3567cedb41ca158792a3 Mon Sep 17 00:00:00 2001
+From ed31850d53d8ca64c481e9ca8e6c466af03ef321 Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
 Date: Wed, 15 Feb 2017 10:53:42 +0100
 Subject: [PATCH 1/1] Add support for Linux 4.10
 
 ---
- common/inc/nv-mm.h            |  9 ++++--
+ common/inc/nv-mm.h            | 12 ++++++++
  nvidia-drm/nvidia-drm-fence.c | 72 +++++++++++++++++++++++++++++++++++++++++++
  nvidia-drm/nvidia-drm-gem.h   |  6 ++++
  nvidia-drm/nvidia-drm-priv.h  |  7 +++++
  nvidia/nv-pat.c               | 40 ++++++++++++++++++++++++
- 5 files changed, 132 insertions(+), 2 deletions(-)
+ 5 files changed, 137 insertions(+)
 
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index 06d7da4..e5cc56a 100644
+index 06d7da4..a7cdbf6 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
 @@ -46,6 +46,8 @@
@@ -24,22 +24,33 @@ index 06d7da4..e5cc56a 100644
  #if defined(NV_GET_USER_PAGES_REMOTE_PRESENT)
      #if defined(NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS)
          #define NV_GET_USER_PAGES           get_user_pages
-@@ -92,10 +94,13 @@
-                                             pages, vmas, NULL);
+@@ -93,8 +95,13 @@
  
          #else
--
+ 
 +#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
                 return get_user_pages_remote(tsk, mm, start, nr_pages, flags,
                                              pages, vmas);
--
 +#else
 +               return get_user_pages_remote(tsk, mm, start, nr_pages, flags,
 +                                            pages, vmas, NULL);
 +#endif
+ 
          #endif
  
-         }
+@@ -134,7 +141,12 @@
+     #if defined(NV_VM_FAULT_HAS_ADDRESS)
+         return vmf->address;
+     #else
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
++/* For some reason this check fails on i386 */
+         return (unsigned long)(uintptr_t)(vmf->virtual_address);
++#else
++        return vmf->address;
++#endif
+     #endif
+     }
+ #endif // NV_VM_FAULT_PRESENT
 diff --git a/nvidia-drm/nvidia-drm-fence.c b/nvidia-drm/nvidia-drm-fence.c
 index 5e98c5f..fa2c508 100644
 --- a/nvidia-drm/nvidia-drm-fence.c
