@@ -1,7 +1,7 @@
-nvidia-graphics-drivers-375 (375.39-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-375 (375.39-0ubuntu0.16.10.1) yakkety; urgency=medium
 
   * SECURITY UPDATE:
     - CVE-2016-8826, CVE-2017-0318 (LP: #1659586).
   * Initial release. It replaces the deprecated 367 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 24 Jan 2017 12:16:15 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Mar 2017 16:21:47 +0100
