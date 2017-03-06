@@ -1,37 +1,7 @@
-nvidia-graphics-drivers-375 (375.39-0ubuntu2) zesty; urgency=medium
+nvidia-graphics-drivers-375 (375.39-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
 
-  * debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch:
-    - Add workaround for build failure on i386.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 22 Feb 2017 13:41:06 +0100
-
-nvidia-graphics-drivers-375 (375.39-0ubuntu1) zesty; urgency=medium
-
-  * New upstream release:
-    - Added support for the following GPU(s):
-        Quadro GP100
-        Quadro P4000
-        Quadro P2000
-        Quadro P1000
-        Quadro P600
-        Quadro P400
-        Quadro M1200
-        Quadro M2200
-    - Fixed a bug that caused system hangs when resuming from suspend
-      with some GPUs.
-    - Fixed a regression that could cause corruption when hot-
-      plugging displays.
-    - Fixed a regression that prevented systems with multiple
-      DisplayPort monitors from resuming correctly from suspend.
-  * debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch,
-    debian/templates/dkms_nvidia.conf.in:
-    - Add support for Linux 4.10.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Feb 2017 16:10:22 +0100
-
-nvidia-graphics-drivers-375 (375.26-0ubuntu1) zesty; urgency=medium
-
-  * Initial release.
-  * This package replaces the 367 series.
+  * SECURITY UPDATE:
+    - CVE-2016-8826, CVE-2017-0318 (LP: #1659586).
+  * Initial release. It replaces the deprecated 367 series.
 
  -- Alberto Milone <alberto.milone@canonical.com>  Tue, 24 Jan 2017 12:16:15 +0100
