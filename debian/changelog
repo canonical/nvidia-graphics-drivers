@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.1) xenial; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE-2017-0318 (LP: #1659586).
+  * New upstream release.
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 4.9 and 4.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Mar 2017 13:13:24 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Mar 2017 15:02:55 +0100
 
 nvidia-graphics-drivers-304 (304.134-0ubuntu0.16.04.1) xenial; urgency=medium
 
