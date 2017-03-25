@@ -1,5 +1,9 @@
 nvidia-graphics-drivers-375 (375.66-0ubuntu0.16.10.1) UNRELEASED; urgency=medium
 
+  [ Thomas Foster ]
+  * debian/nvidia-375.install:
+    - install glvnd EGL vendor configuration file (LP: #1674677)
+
   * 
 
  -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 May 2017 15:20:46 +0200
