@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-340 (340.102-0ubuntu0.16.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.102-0ubuntu0.16.04.2) xenial-proposed; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch:
+    - Sync patch with the one in Zesty to fix build issue with
+      linux-image-generic-hwe-16.04-edge (LP: #1677327).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 03 Apr 2017 15:01:51 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 03 Apr 2017 17:36:55 +0200
 
 nvidia-graphics-drivers-340 (340.102-0ubuntu0.16.04.1) xenial; urgency=medium
 
