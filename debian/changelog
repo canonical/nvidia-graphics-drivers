@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-375 (375.39-0ubuntu3) UNRELEASED; urgency=medium
+
+  * debian/nvidia-375.install:
+    - install glvnd EGL vendor configuration file (LP: #1674677)
+
+ -- Thomas Foster <thomasvfoster@gmail.com>  Sat, 25 Mar 2017 13:49:35 +0000
+
 nvidia-graphics-drivers-375 (375.39-0ubuntu2) zesty; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch:

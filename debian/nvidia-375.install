@@ -33,5 +33,6 @@ NVIDIA-Linux-x86-375.39/nvidia-persistenced /usr/lib/nvidia-375/bin
 NVIDIA-Linux-x86-375.39/nvidia-application-profiles-375.39-rc /usr/share/nvidia-375
 NVIDIA-Linux-x86-375.39/nvidia-application-profiles-375.39-key-documentation /usr/share/nvidia-375
 
+NVIDIA-Linux-x86-375.39/10_nvidia.json usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux-x86-375.39/nvidia_icd.json usr/share/vulkan/icd.d
 NVIDIA-Linux-x86-375.39/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
