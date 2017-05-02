@@ -1,3 +1,15 @@
+nvidia-graphics-drivers-375 (375.39-0ubuntu6) artful; urgency=medium
+
+  * Depend on xserver-xorg-legacy (LP: #1559576)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 02 May 2017 15:49:41 -0400
+
+nvidia-graphics-drivers-375 (375.39-0ubuntu5) zesty; urgency=medium
+
+  * Drop nvidia-prime and bumblebee Recommends on armhf (LP: #1566446)
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Fri, 07 Apr 2017 04:59:01 -0600
+
 nvidia-graphics-drivers-375 (375.39-0ubuntu3) zesty; urgency=medium
 
   [ Thomas Foster ]
