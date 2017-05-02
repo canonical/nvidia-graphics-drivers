@@ -1,5 +1,8 @@
 nvidia-graphics-drivers-375 (375.66-0ubuntu0.16.04.1) UNRELEASED; urgency=medium
 
+  [ Adam Conrad ]
+  * Drop nvidia-prime and bumblebee Recommends on armhf (LP: #1566446)
+
   [ Thomas Foster ]
   * debian/nvidia-375.install:
     - install glvnd EGL vendor configuration file (LP: #1674677)
