@@ -1,15 +1,66 @@
-nvidia-graphics-drivers-375 (375.66-0ubuntu0.16.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-375 (375.66-0ubuntu0.16.10.1) yakkety; urgency=medium
+
+  * SECURITY UPDATE:
+    - CVE-2017-0350, 2017-0351, 2017-0353 (LP: #1689336).
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 1080 Ti
+      o Quadro P3000
+      o Quadro M520
+      o TITAN Xp
+    - Fixed a bug that could cause EGL applications to crash when
+      calling eglInitialize() multiple times on X11-backed displays.
+    - Fixed a regression that could cause rendering corruption on a
+      monitor connected via DisplayPort upon a modeset event (for
+      example, changing resolutions or power cycling the monitor).
+    - Fixed a bug that could cause OpenGL applications to crash when
+      VT switching between multiple X servers.
+    - Fixed a bug that caused the system to become unresponsive after
+      resuming from power management suspend/hibernate.  Additional
+      symptoms of this bug included display flickering and "Xid 56"
+      errors in the kernel log.
+    - Fixed a bug that caused backlight brightness to not be
+      controllable on some notebooks with DisplayPort internal
+      panels.
+    - Fixed a bug that left HDMI and DisplayPort audio muted after a
+      framebuffer console mode was restored. For some displays, this
+      caused the display to remain blank.
+    - Fixed a bug that caused audio over DisplayPort to stop working
+      when the monitor was unplugged and plugged back in or awoken
+      from DPMS power-saving mode.
+    - Restored support for the following GPU:
+      GRID K520
+    - Fixed a regression that caused corruption in certain
+      applications, such as window border shadows in Unity, after
+      resuming from suspend.
+    - Fixed a bug that could cause some applications to crash when
+      running with PRIME Sync.
+    - Fixed a bug that prevented PRIME Sync from working on notebooks
+      with GeForce GTX 4xx and 5xx series GPUs.
+    - Fixed a bug that caused OpenGL apps to have excessive CPU usage
+      when running with PRIME Sync but without native displays
+      enabled.
+    - Fixed a bug that could cause PRIME Sync to deadlock in the
+      kernel, particularly common on Linux 4.10.
+    - Fixed a bug that caused PRIME Sync to run slowly on systems
+      with Pascal GPUs.
 
   [ Adam Conrad ]
-  * Drop nvidia-prime and bumblebee Recommends on armhf (LP: #1566446)
+  * Drop nvidia-prime and bumblebee Recommends on armhf (LP: #1566446).
+
+  [ Alberto Milone ]
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_4.10.patch.
+    - Limit the amount of cores to a maximum of 16 (LP: #1688431).
+
+  [ Jeremy Bicha ]
+  * Depend on xserver-xorg-legacy (LP: #1559576).
 
   [ Thomas Foster ]
   * debian/nvidia-375.install:
-    - install glvnd EGL vendor configuration file (LP: #1674677)
+    - install glvnd EGL vendor configuration file (LP: #1674677).
 
-  * 
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 May 2017 15:20:46 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 May 2017 15:25:44 +0200
 
 nvidia-graphics-drivers-375 (375.39-0ubuntu0.16.10.1) yakkety; urgency=medium
 
