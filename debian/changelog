@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.102-0ubuntu3) zesty; urgency=medium
+
+  * Drop nvidia-prime and bumblebee Recommends on armhf (LP: #1566446)
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Fri, 07 Apr 2017 04:57:50 -0600
+
 nvidia-graphics-drivers-340 (340.102-0ubuntu1) zesty; urgency=medium
 
   * New upstream release:
