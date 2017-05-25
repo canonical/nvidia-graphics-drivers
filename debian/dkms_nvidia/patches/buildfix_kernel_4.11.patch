@@ -1,0 +1,122 @@
+From f063f9ac77aab7795dee1bf0f9fab84e7f87ad3a Mon Sep 17 00:00:00 2001
+From: Seth Forshee <seth.forshee@canonical.com>
+Date: Mon, 22 May 2017 16:58:53 -0500
+Subject: [PATCH] Add support for Linux 4.11
+
+---
+ nv-drm.c               | 17 ++++++++++++++---
+ uvm/conftest.sh        |  7 ++++++-
+ uvm/nvidia_uvm_linux.h |  4 ++++
+ uvm/nvidia_uvm_lite.c  | 11 +++++++++++
+ 4 files changed, 35 insertions(+), 4 deletions(-)
+
+diff --git a/nv-drm.c b/nv-drm.c
+index ea9f17ebab59..0146c4219ee9 100644
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -48,11 +48,19 @@ static int nv_drm_load(
+     return -ENODEV;
+ }
+ 
+-static int nv_drm_unload(
++#define UNLOAD_RETURNS_INT (LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0))
++
++#if UNLOAD_RETURNS_INT
++static int
++#else
++static void
++#endif
++nv_drm_unload(
+     struct drm_device *dev
+ )
+ {
+     nv_linux_state_t *nvl;
++    int err = -ENODEV;
+ 
+     for (nvl = nv_linux_devices; nvl != NULL; nvl = nvl->next)
+     {
+@@ -60,11 +68,14 @@ static int nv_drm_unload(
+         {
+             BUG_ON(nvl->drm != dev);
+             nvl->drm = NULL;
+-            return 0;
++            err = 0;
++            break;
+         }
+     }
+ 
+-    return -ENODEV;
++#if UNLOAD_RETURNS_INT
++    return err;
++#endif
+ }
+ 
+ static void nv_gem_free(
+diff --git a/uvm/conftest.sh b/uvm/conftest.sh
+index d74ddf35d5d2..9eb132e27152 100755
+--- a/uvm/conftest.sh
++++ b/uvm/conftest.sh
+@@ -1569,7 +1569,12 @@ compile_test() {
+             # Determine if fatal_signal_pending is present.
+             #
+             CODE="
+-            #include <linux/sched.h>
++            #include <linux/version.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
++              #include <linux/sched.h>
++            #else
++              #include <linux/sched/signal.h>
++            #endif
+             void conftest_fatal_signal_pending(void) {
+                 fatal_signal_pending();
+             }"
+diff --git a/uvm/nvidia_uvm_linux.h b/uvm/nvidia_uvm_linux.h
+index f69c107937c3..6631f57de466 100644
+--- a/uvm/nvidia_uvm_linux.h
++++ b/uvm/nvidia_uvm_linux.h
+@@ -130,6 +130,10 @@
+ #endif
+ #include <asm/kmap_types.h>         /* page table entry lookup          */
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++#include <linux/sched/signal.h>     /* fatal_signal_pending()           */
++#endif
++
+ #include <linux/interrupt.h>        /* tasklets, interrupt helpers      */
+ #include <linux/timer.h>
+ #include <linux/time.h>             /* do_gettimeofday()*/
+diff --git a/uvm/nvidia_uvm_lite.c b/uvm/nvidia_uvm_lite.c
+index 2158b45c147d..fbc67d0dec4b 100644
+--- a/uvm/nvidia_uvm_lite.c
++++ b/uvm/nvidia_uvm_lite.c
+@@ -818,8 +818,15 @@ done:
+ }
+ 
+ #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+ int _fault(struct vm_area_struct *vma, struct vm_fault *vmf)
++#else
++int _fault(struct vm_fault *vmf)
++#endif
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++    struct vm_area_struct *vma = vmf->vma;
++#endif
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     unsigned long vaddr = (unsigned long)vmf->virtual_address;
+ #else
+@@ -866,7 +873,11 @@ static struct vm_operations_struct uvmlite_vma_ops =
+ // it's dealing with anonymous mapping (see handle_pte_fault).
+ //
+ #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+ int _sigbus_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
++#else
++int _sigbus_fault(struct vm_fault *vmf)
++#endif
+ {
+     vmf->page = NULL;
+     return VM_FAULT_SIGBUS;
+-- 
+2.11.0
+
