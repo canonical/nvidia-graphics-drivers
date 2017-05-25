@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-340 (340.102-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.102-0ubuntu4) artful; urgency=medium
 
-  * 
+  [ Seth Forshee ]
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.11.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 4.11 (LP: #1691841).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 May 2017 16:16:41 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 May 2017 16:19:24 +0200
 
 nvidia-graphics-drivers-340 (340.102-0ubuntu3) zesty; urgency=medium
 
