@@ -29,3 +29,6 @@ ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/nvidi
 
 # Create the device node for the nvidia-uvm module
 ACTION=="add" DEVPATH=="/module/nvidia_uvm" SUBSYSTEM=="module" RUN+="/sbin/create-uvm-dev-node"
+
+# Make sure the status of KMS is readable
+ACTION=="add" DEVPATH=="/module/nvidia_drm" SUBSYSTEM=="module" RUN+="/bin/chmod 0444 /sys/module/nvidia_drm/parameters/modeset"
