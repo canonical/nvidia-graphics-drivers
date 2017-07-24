@@ -10,8 +10,13 @@ debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 NVIDIA-Linux-x86-375.66/nvidia_drv.so /usr/lib/nvidia-375/xorg
 NVIDIA-Linux-x86-375.66/libglx.so.375.66 /usr/lib/nvidia-375/xorg
 
-NVIDIA-Linux-x86-375.66/libGL*.so*                  /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.66/libOpenGL*.so*              /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.66/libGL.so.1.0.0              /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.66/libGLdispatch.so.0          /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.66/libGLESv1_CM.so.1           /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.66/libGLESv2.so.2              /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.66/libGLX.so.0                 /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.66/libOpenGL.so.0              /usr/lib/nvidia-375
+
 NVIDIA-Linux-x86-375.66/libEGL*.so*                 /usr/lib/nvidia-375
 NVIDIA-Linux-x86-375.66/libnv*.so*                  /usr/lib/nvidia-375
 

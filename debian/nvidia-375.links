@@ -16,6 +16,9 @@
 
 /usr/lib/nvidia-375/libEGL.so.1 /usr/lib/nvidia-375/libEGL.so
 
+/usr/lib/nvidia-375/libGLESv1_CM.so.1 /usr/lib/nvidia-375/libGLESv1_CM.so.375.66
+/usr/lib/nvidia-375/libGLESv2.so.2 /usr/lib/nvidia-375/libGLESv2.so.375.66
+
 /usr/lib/nvidia-375/libGLESv1_CM.so.1 /usr/lib/nvidia-375/libGLESv1_CM.so
 /usr/lib/nvidia-375/libGLESv2.so.2 /usr/lib/nvidia-375/libGLESv2.so
 
