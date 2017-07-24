@@ -10,8 +10,13 @@ debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 #DIRNAME#/nvidia_drv.so #PKGDRIVERSDIR#
 #DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
 
-#DIRNAME#/libGL*.so*                  #PKGLIBDIR#
-#DIRNAME#/libOpenGL*.so*              #PKGLIBDIR#
+#DIRNAME#/libGL.so.1.0.0              #PKGLIBDIR#
+#DIRNAME#/libGLdispatch.so.0          #PKGLIBDIR#
+#DIRNAME#/libGLESv1_CM.so.1           #PKGLIBDIR#
+#DIRNAME#/libGLESv2.so.2              #PKGLIBDIR#
+#DIRNAME#/libGLX.so.0                 #PKGLIBDIR#
+#DIRNAME#/libOpenGL.so.0              #PKGLIBDIR#
+
 #DIRNAME#/libEGL*.so*                 #PKGLIBDIR#
 #DIRNAME#/libnv*.so*                  #PKGLIBDIR#
 
