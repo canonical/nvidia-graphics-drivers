@@ -146,8 +146,8 @@ case "$1" in
             --slave /usr/bin/nvidia-cuda-mps-control x86_64-linux-gnu_nvidia-cuda-mps-control /usr/lib/nvidia-375/bin/nvidia-cuda-mps-control \
             --slave /usr/bin/nvidia-cuda-mps-server x86_64-linux-gnu_nvidia-cuda-mps-server /usr/lib/nvidia-375/bin/nvidia-cuda-mps-server \
             --slave /usr/bin/nvidia-persistenced x86_64-linux-gnu_nvidia_persistenced /usr/lib/nvidia-375/bin/nvidia-persistenced \
-            --slave /usr/share/nvidia/nvidia-application-profiles-375.66-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-375/nvidia-application-profiles-375.66-rc \
-            --slave /usr/share/nvidia/nvidia-application-profiles-375.66-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-375/nvidia-application-profiles-375.66-key-documentation \
+            --slave /usr/share/nvidia/nvidia-application-profiles-375.82-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-375/nvidia-application-profiles-375.82-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-375.82-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-375/nvidia-application-profiles-375.82-key-documentation \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-375/xorg/nvidia_drv.so \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-375/modprobe.conf \
             --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-375/xorg \
@@ -171,8 +171,8 @@ case "$1" in
             --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-375/bin/nvidia-xconfig \
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-375/bin/nvidia-bug-report.sh \
             --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-375/bin/nvidia-debugdump \
-            --slave /usr/share/nvidia/nvidia-application-profiles-375.66-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-375/nvidia-application-profiles-375.66-rc \
-            --slave /usr/share/nvidia/nvidia-application-profiles-375.66-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-375/nvidia-application-profiles-375.66-key-documentation \
+            --slave /usr/share/nvidia/nvidia-application-profiles-375.82-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-375/nvidia-application-profiles-375.82-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-375.82-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-375/nvidia-application-profiles-375.82-key-documentation \
             --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-375/modprobe.conf
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-375-prime/ld.so.conf 8603
