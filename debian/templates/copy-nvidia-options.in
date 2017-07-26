@@ -17,5 +17,5 @@ esac
 
 . /usr/share/initramfs-tools/hook-functions
 
-cp -pL --remove-destination "#PKGLIBCONFDIR#/modprobe.conf" "${DESTDIR}#SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf"
+cp -pL --remove-destination "#SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf" "${DESTDIR}#SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf"
 

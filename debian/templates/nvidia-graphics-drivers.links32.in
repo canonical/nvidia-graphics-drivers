@@ -1,51 +1,51 @@
 # GLVND GLX client libraries
 
-#PKGLIBDIR32#/libGL.so.1.0.0 #PKGLIBDIR32#/libGL.so.1
-#PKGLIBDIR32#/libGL.so.1 #PKGLIBDIR32#/libGL.so
+#LIBDIRMULTIARCHOTHER#/libGL.so.1.0.0 #LIBDIRMULTIARCHOTHER#/libGL.so.1
+#LIBDIRMULTIARCHOTHER#/libGL.so.1 #LIBDIRMULTIARCHOTHER#/libGL.so
 
-#PKGLIBDIR32#/libOpenGL.so.0 #PKGLIBDIR32#/libOpenGL.so
+#LIBDIRMULTIARCHOTHER#/libOpenGL.so.0 #LIBDIRMULTIARCHOTHER#/libOpenGL.so
 
-#PKGLIBDIR32#/libGLX.so.0 #PKGLIBDIR32#/libGLX.so
+#LIBDIRMULTIARCHOTHER#/libGLX.so.0 #LIBDIRMULTIARCHOTHER#/libGLX.so
 
 # For an easy transition from a non-GLVND installation
 
-#PKGLIBDIR32#/libGLX_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLX_nvidia.so.0
-#PKGLIBDIR32#/libGLX_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLX_indirect.so.0
+#LIBDIRMULTIARCHOTHER#/libGLX_nvidia.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libGLX_nvidia.so.0
+#LIBDIRMULTIARCHOTHER#/libGLX_nvidia.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libGLX_indirect.so.0
 
 # EGL client libraries
 
-#PKGLIBDIR32#/libEGL.so.1 #PKGLIBDIR32#/libEGL.so
+#LIBDIRMULTIARCHOTHER#/libEGL.so.1 #LIBDIRMULTIARCHOTHER#/libEGL.so
 
-#PKGLIBDIR32#/libGLESv1_CM.so.1 #PKGLIBDIR32#/libGLESv1_CM.so
-#PKGLIBDIR32#/libGLESv2.so.2 #PKGLIBDIR32#/libGLESv2.so
+#LIBDIRMULTIARCHOTHER#/libGLESv1_CM.so.1 #LIBDIRMULTIARCHOTHER#/libGLESv1_CM.so
+#LIBDIRMULTIARCHOTHER#/libGLESv2.so.2 #LIBDIRMULTIARCHOTHER#/libGLESv2.so
 
-#PKGLIBDIR32#/libEGL_nvidia.so.#VERSION# #PKGLIBDIR32#/libEGL_nvidia.so.0
+#LIBDIRMULTIARCHOTHER#/libEGL_nvidia.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libEGL_nvidia.so.0
 
-#PKGLIBDIR32#/libGLESv1_CM_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLESv1_CM_nvidia.so.1
-#PKGLIBDIR32#/libGLESv2_nvidia.so.#VERSION# #PKGLIBDIR32#/libGLESv2_nvidia.so.2
+#LIBDIRMULTIARCHOTHER#/libGLESv1_CM_nvidia.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libGLESv1_CM_nvidia.so.1
+#LIBDIRMULTIARCHOTHER#/libGLESv2_nvidia.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libGLESv2_nvidia.so.2
 
 # Misc
 
-#PKGLIBDIR32#/libnvidia-cfg.so.#VERSION# #PKGLIBDIR32#/libnvidia-cfg.so.1
-#PKGLIBDIR32#/libnvidia-cfg.so.1 #PKGLIBDIR32#/libnvidia-cfg.so
+#LIBDIRMULTIARCHOTHER#/libnvidia-cfg.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvidia-cfg.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-cfg.so.1 #LIBDIRMULTIARCHOTHER#/libnvidia-cfg.so
 
-#PKGVDPAUDIR32#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR32#/libvdpau_nvidia.so.1
-#PKGVDPAUDIR32#/libvdpau_nvidia.so.1 #PKGVDPAUDIR32#/libvdpau_nvidia.so
+#VDPAUDIR32#/libvdpau_nvidia.so.#VERSION# #VDPAUDIR32#/libvdpau_nvidia.so.1
+#VDPAUDIR32#/libvdpau_nvidia.so.1 #VDPAUDIR32#/libvdpau_nvidia.so
 
-#PKGLIBDIR32#/libnvidia-compiler.so.#VERSION# #PKGLIBDIR32#/libnvidia-compiler.so.1
-#PKGLIBDIR32#/libnvidia-compiler.so.1 #PKGLIBDIR32#/libnvidia-compiler.so
+#LIBDIRMULTIARCHOTHER#/libnvidia-compiler.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvidia-compiler.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-compiler.so.1 #LIBDIRMULTIARCHOTHER#/libnvidia-compiler.so
 
-#PKGLIBDIR32#/libnvidia-ml.so.#VERSION# #PKGLIBDIR32#/libnvidia-ml.so.1
-#PKGLIBDIR32#/libnvidia-ml.so.1 #PKGLIBDIR32#/libnvidia-ml.so
+#LIBDIRMULTIARCHOTHER#/libnvidia-ml.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvidia-ml.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-ml.so.1 #LIBDIRMULTIARCHOTHER#/libnvidia-ml.so
 
-#PKGLIBDIR32#/libnvcuvid.so.#VERSION# #PKGLIBDIR32#/libnvcuvid.so.1
-#PKGLIBDIR32#/libnvcuvid.so.1 #PKGLIBDIR32#/libnvcuvid.so
+#LIBDIRMULTIARCHOTHER#/libnvcuvid.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvcuvid.so.1
+#LIBDIRMULTIARCHOTHER#/libnvcuvid.so.1 #LIBDIRMULTIARCHOTHER#/libnvcuvid.so
 
-#PKGLIBDIR32#/libnvidia-encode.so.#VERSION# #PKGLIBDIR32#/libnvidia-encode.so.1
-#PKGLIBDIR32#/libnvidia-encode.so.1 #PKGLIBDIR32#/libnvidia-encode.so
+#LIBDIRMULTIARCHOTHER#/libnvidia-encode.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvidia-encode.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-encode.so.1 #LIBDIRMULTIARCHOTHER#/libnvidia-encode.so
 
-#PKGLIBDIR32#/libnvidia-ifr.so.#VERSION# #PKGLIBDIR32#/libnvidia-ifr.so.1
-#PKGLIBDIR32#/libnvidia-ifr.so.1 #PKGLIBDIR32#/libnvidia-ifr.so
+#LIBDIRMULTIARCHOTHER#/libnvidia-ifr.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvidia-ifr.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-ifr.so.1 #LIBDIRMULTIARCHOTHER#/libnvidia-ifr.so
 
-#PKGLIBDIR32#/libnvidia-fbc.so.#VERSION# #PKGLIBDIR32#/libnvidia-fbc.so.1
-#PKGLIBDIR32#/libnvidia-fbc.so.1 #PKGLIBDIR32#/libnvidia-fbc.so
+#LIBDIRMULTIARCHOTHER#/libnvidia-fbc.so.#VERSION# #LIBDIRMULTIARCHOTHER#/libnvidia-fbc.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-fbc.so.1 #LIBDIRMULTIARCHOTHER#/libnvidia-fbc.so

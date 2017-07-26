@@ -1,42 +1,42 @@
 debian/#DRIVERNAME#.override                 usr/share/lintian/overrides
 
-debian/glamor.conf                           #PKGDATADIR#
 debian/71-nvidia.rules                       lib/udev/rules.d
 debian/nvidia-persistenced.service           lib/systemd/system
 debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 
-#DIRNAME#/nvidia_drv.so #PKGDRIVERSDIR#
-#DIRNAME#/libglx.so.#VERSION# #NVIDIAEXTENSION#
+#DIRNAME#/nvidia_drv.so #XORGEXTRA#
+#DIRNAME#/libglx.so.#VERSION# #XORGEXTRA#
+#DIRNAME#/libnvidia-wfb*.so*  #XORGEXTENSIONSDIR#
 
-#DIRNAME#/libGL.so.1.0.0              #PKGLIBDIR#
-#DIRNAME#/libGLdispatch.so.0          #PKGLIBDIR#
-#DIRNAME#/libGLESv1_CM.so.1           #PKGLIBDIR#
-#DIRNAME#/libGLESv2.so.2              #PKGLIBDIR#
-#DIRNAME#/libGLX.so.0                 #PKGLIBDIR#
-#DIRNAME#/libOpenGL.so.0              #PKGLIBDIR#
+#DIRNAME#/libGL.so.1.0.0              #LIBDIRMULTIARCH#
+#DIRNAME#/libGLdispatch.so.0          #LIBDIRMULTIARCH#
+#DIRNAME#/libGLESv1_CM.so.1           #LIBDIRMULTIARCH#
+#DIRNAME#/libGLESv2.so.2              #LIBDIRMULTIARCH#
+#DIRNAME#/libGLX.so.0                 #LIBDIRMULTIARCH#
+#DIRNAME#/libOpenGL.so.0              #LIBDIRMULTIARCH#
 
-#DIRNAME#/libEGL*.so*                 #PKGLIBDIR#
-#DIRNAME#/libnv*.so*                  #PKGLIBDIR#
+#DIRNAME#/libEGL*.so*                 #LIBDIRMULTIARCH#
+#DIRNAME#/libnv*.so*                  #LIBDIRMULTIARCH#
 
-#DIRNAME#/libvdpau_nvidia.so*   #PKGVDPAUDIR#
-#ARM_EXCLUDED##DIRNAME#/tls/*.so*                   #PKGTLSDIR#
+#DIRNAME#/libvdpau_nvidia.so*   #VDPAUDIR#
+#ARM_EXCLUDED##DIRNAME#/tls/*.so*                   #TLSDIR#
 
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/#DRIVERNAME#-#VERSION#
 debian/dkms_nvidia/patches/*                  usr/src/#DRIVERNAME#-#VERSION#/patches
 debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 
-#DIRNAME#/nvidia-bug-report.sh #PKGBINDIR#
-#DIRNAME#/nvidia-xconfig #PKGBINDIR#
-#DIRNAME#/nvidia-smi #PKGBINDIR#
-#DIRNAME#/nvidia-debugdump #PKGBINDIR#
-#DIRNAME#/nvidia-cuda-mps-control #PKGBINDIR#
-#DIRNAME#/nvidia-cuda-mps-server #PKGBINDIR#
-#DIRNAME#/nvidia-persistenced #PKGBINDIR#
+#DIRNAME#/nvidia-bug-report.sh #BINDIR#
+#DIRNAME#/nvidia-xconfig #BINDIR#
+#DIRNAME#/nvidia-smi #BINDIR#
+#DIRNAME#/nvidia-debugdump #BINDIR#
+#DIRNAME#/nvidia-cuda-mps-control #BINDIR#
+#DIRNAME#/nvidia-cuda-mps-server #BINDIR#
+#DIRNAME#/nvidia-persistenced #BINDIR#
 
-#DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
-#DIRNAME#/nvidia-application-profiles-#VERSION#-key-documentation #PKGDATADIR#
+#DIRNAME#/nvidia-application-profiles-#VERSION#-rc #NVIDIASHARE#
+#DIRNAME#/nvidia-application-profiles-#VERSION#-key-documentation #NVIDIASHARE#
 
 #DIRNAME#/10_nvidia.json usr/share/glvnd/egl_vendor.d
 #ARM_EXCLUDED##DIRNAME#/nvidia_icd.json usr/share/vulkan/icd.d

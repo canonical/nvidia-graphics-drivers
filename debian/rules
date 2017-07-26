@@ -89,6 +89,7 @@ xorg_libdir          := $(libdir)/xorg
 xorg_extra_path      := $(libdir)/$(DEB_HOST_MULTIARCH)/xorg
 xorg_extra_modules   := $(xorg_extra_path)/extra-modules
 xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
+xorg_driversdir      := $(libdir)/xorg/modules
 PKG_driversdir       := $(libdir)/$(PKG_driver)/xorg
 PKG_extensionsdir    := $(PKG_driversdir)
 PKG_bindir           := $(PKG_libdir)/bin
@@ -111,10 +112,10 @@ PKG_vdpaudir         := $(PKG_libdir)/vdpau
 PKG_tlsdir           := $(PKG_libdir)/tls
 PKG_vdpaudir32       := $(PKG_libdir32)/vdpau
 PKG_tlsdir32         := $(PKG_libdir32)/tls
-vdpaudir             := $(libdir)/vdpau
-tlsdir               := $(libdir)/tls
-vdpaudir32           := $(libdir32)/vdpau
-tlsdir32             := $(libdir32)/tls
+vdpaudir             := $(libdir_multiarch)/vdpau
+tlsdir               := $(libdir_multiarch)/tls
+vdpaudir32           := $(libdir_multiarch_other)/vdpau
+tlsdir32             := $(libdir_multiarch_other)/tls
 grub_blacklistdir    := /usr/share/grub-gfxpayload-lists/blacklist
 
 ifeq ($(DEB_BUILD_ARCH),amd64)
@@ -229,10 +230,9 @@ regen-from-templates:
 			-e "s|#PKGBINDIR#|$(PKG_bindir)|g" \
 			-e "s|#PKGLIBDIR#|$(PKG_libdir)|g" \
 			-e "s|#PKGLIBDIR32#|$(PKG_libdir32)|g" \
-			-e "s|#PKGPRIMELIBDIR#|$(PKG_prime_libdir)|g" \
 			-e "s|#MESALIBDIR#|$(mesa_libdir)|g" \
 			-e "s|#MESALIBDIROTHER#|$(mesa_libdir_other)|g" \
-			-e "s|#PKGDRIVERSDIR#|$(PKG_driversdir)|g" \
+			-e "s|#XORGDRIVERSDIR#|$(xorg_driversdir)|g" \
 			-e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
 			-e "s|#XORGEXTRAPATH#|$(xorg_extra_path)|g" \
 			-e "s|#NVIDIAEXTENSION#|$(PKG_extensionsdir)|g" \
@@ -252,6 +252,7 @@ regen-from-templates:
 			-e "s|#VDPAUDIR#|$(vdpaudir)|g" \
 			-e "s|#VDPAUDIR32#|$(vdpaudir32)|g" \
 			-e "s|#TLSDIR#|$(tlsdir)|g" \
+			-e "s|#TLSDIR32#|$(tlsdir32)|g" \
 			-e "s|#PKGVDPAUDIR#|$(PKG_vdpaudir)|g" \
 			-e "s|#PKGVDPAUDIR32#|$(PKG_vdpaudir32)|g" \
 			-e "s|#PKGTLSDIR#|$(PKG_tlsdir)|g" \
@@ -380,20 +381,20 @@ override_dh_install: gen-abi-substvars
 	dh_install -p$(PKG_driver_dev)
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	#32 bit libraries on 64 bit
-	dh_installdirs -p$(PKG_driver) "$(PKG_libdir32)"
-	dh_installdirs -p$(PKG_driver) "$(PKG_tlsdir32)"
+	dh_installdirs -p$(PKG_driver) "$(libdir_multiarch_other)"
+	dh_installdirs -p$(PKG_driver) "$(tlsdir32)"
 
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL*.so*"  "$(PKG_libdir32)"
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL.la"  "$(PKG_libdir32)"
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libEGL*.so*"  "$(PKG_libdir32)"
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL*.so*"  "$(libdir_multiarch_other)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libGL.la"  "$(libdir_multiarch_other)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libEGL*.so*"  "$(libdir_multiarch_other)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia*.so*"  "$(libdir_multiarch_other)"
 
-	dh_install -p$(PKG_driver)  "$(dirname_x86)/libvdpau*"  "$(PKG_vdpaudir32)"
-	dh_install -p$(PKG_driver)  "$(dirname_x86)/tls/lib*"  "$(PKG_tlsdir32)"
+	dh_install -p$(PKG_driver)  "$(dirname_x86)/libvdpau*"  "$(vdpaudir32)"
+	dh_install -p$(PKG_driver)  "$(dirname_x86)/tls/lib*"  "$(tlsdir32)"
 
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-compiler*.so*"  "$(PKG_libdir32)"
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvcuvid*.so*"  "$(PKG_libdir32)"
-	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-ml*.so*"  "$(PKG_libdir32)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-compiler*.so*"  "$(libdir_multiarch_other)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvcuvid*.so*"  "$(libdir_multiarch_other)"
+	dh_install -p$(PKG_driver) "$(dirname_x86)/libnvidia-ml*.so*"  "$(libdir_multiarch_other)"
 
 	# Move 32bit libnvidia-opencl back
 	mv $(CURDIR)/$(dirname_x86)/_libnvidia-opencl.so.$(PKG_version) \
@@ -428,28 +429,14 @@ endif
 
 	# Configuration stuff
 
-	# ld.so.conf
-	dh_installdirs -p$(PKG_driver) "$(ld_so_conf_dir)"
-	echo "$(PKG_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
-	echo "$(mesa_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-	echo "$(mesa_egl_libdir)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-ifeq ($(DEB_BUILD_ARCH),amd64)
-	echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
-	echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-	echo "$(mesa_egl_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-endif
-	# empty ld.so.conf for the fake multi-arch alternative
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
-
 	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
 	# and create an alias for the module so that it can be used as nvidia
-	printf '$(subst $(newline),\n,${blacklist_file})' > $(CURDIR)/debian/$(PKG_driver)$(PKG_libconfdir)/modprobe.conf
+	printf '$(subst $(newline),\n,${blacklist_file})' > $(CURDIR)/debian/$(PKG_driver)/etc/modprobe.d/nvidia-graphics-drivers.conf
 
 	# Permanently blacklist nouveau so that hybrid graphics can work without having to rebuild
 	# the initramfs when nvidia is installed but disabled
-	printf '$(subst $(newline),\n,${blacklist_hybrid})' > \
-               $(CURDIR)/debian/$(PKG_driver)$(sysconfdir)/modprobe.d/$(PKG_driver)_hybrid.conf
+	#printf '$(subst $(newline),\n,${blacklist_hybrid})' > \
+    #           $(CURDIR)/debian/$(PKG_driver)$(sysconfdir)/modprobe.d/$(PKG_driver)_hybrid.conf
 
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-xconfig.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-smi.1.gz "$(mandir)";
