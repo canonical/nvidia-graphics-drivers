@@ -32,20 +32,20 @@ case "$1" in
 	remove)
 		remove_dkms_module 
 	
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-375/ld.so.conf
-		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-375/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-375/alt_ld.so.conf
-		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-375/alt_ld.so.conf
+		#update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-375/ld.so.conf
+		#update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-375/ld.so.conf
+		#update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-375/alt_ld.so.conf
+		#update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-375/alt_ld.so.conf
 		# Remove the alternatives for PRIME
-		update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-375-prime/ld.so.conf
-		update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-375-prime/ld.so.conf
-		update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-375-prime/alt_ld.so.conf
-		update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-375-prime/alt_ld.so.conf
+		#update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-375-prime/ld.so.conf
+		#update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-375-prime/ld.so.conf
+		#update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-375-prime/alt_ld.so.conf
+		#update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-375-prime/alt_ld.so.conf
 		# Remove the alternative for glamor-egl
-		update-alternatives --remove glamor_conf /usr/share/nvidia-375/glamor.conf
+		#update-alternatives --remove glamor_conf /usr/share/nvidia-375/glamor.conf
 
 		# explicit ldconfig due to alternatives
-		ldconfig
+		#ldconfig
 
 		# Update the grub gfxpayload blacklist
 		if which update-grub-gfxpayload >/dev/null 2>&1; then

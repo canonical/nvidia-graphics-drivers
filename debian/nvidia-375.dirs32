@@ -1,2 +1,3 @@
-/usr/lib32/nvidia-375
-/usr/lib32/vdpau
+/usr/lib32
+/usr/lib/i386-linux-gnu
+/usr/lib/i386-linux-gnu/vdpau

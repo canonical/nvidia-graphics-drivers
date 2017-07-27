@@ -1,42 +1,42 @@
 debian/nvidia-375.override                 usr/share/lintian/overrides
 
-debian/glamor.conf                           /usr/share/nvidia-375
 debian/71-nvidia.rules                       lib/udev/rules.d
 debian/nvidia-persistenced.service           lib/systemd/system
 debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 
-NVIDIA-Linux-x86-375.82/nvidia_drv.so /usr/lib/nvidia-375/xorg
-NVIDIA-Linux-x86-375.82/libglx.so.375.82 /usr/lib/nvidia-375/xorg
+NVIDIA-Linux-x86-375.82/nvidia_drv.so /usr/lib/x86_64-linux-gnu/xorg/extra-modules
+NVIDIA-Linux-x86-375.82/libglx.so.375.82 /usr/lib/x86_64-linux-gnu/xorg/extra-modules
+NVIDIA-Linux-x86-375.82/libnvidia-wfb*.so*  /usr/lib/xorg/modules/extensions
 
-NVIDIA-Linux-x86-375.82/libGL.so.1.0.0              /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.82/libGLdispatch.so.0          /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.82/libGLESv1_CM.so.1           /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.82/libGLESv2.so.2              /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.82/libGLX.so.0                 /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.82/libOpenGL.so.0              /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.82/libGL.so.1.0.0              /usr/lib/x86_64-linux-gnu
+NVIDIA-Linux-x86-375.82/libGLdispatch.so.0          /usr/lib/x86_64-linux-gnu
+NVIDIA-Linux-x86-375.82/libGLESv1_CM.so.1           /usr/lib/x86_64-linux-gnu
+NVIDIA-Linux-x86-375.82/libGLESv2.so.2              /usr/lib/x86_64-linux-gnu
+NVIDIA-Linux-x86-375.82/libGLX.so.0                 /usr/lib/x86_64-linux-gnu
+NVIDIA-Linux-x86-375.82/libOpenGL.so.0              /usr/lib/x86_64-linux-gnu
 
-NVIDIA-Linux-x86-375.82/libEGL*.so*                 /usr/lib/nvidia-375
-NVIDIA-Linux-x86-375.82/libnv*.so*                  /usr/lib/nvidia-375
+NVIDIA-Linux-x86-375.82/libEGL*.so*                 /usr/lib/x86_64-linux-gnu
+NVIDIA-Linux-x86-375.82/libnv*.so*                  /usr/lib/x86_64-linux-gnu
 
-NVIDIA-Linux-x86-375.82/libvdpau_nvidia.so*   /usr/lib/nvidia-375/vdpau
-NVIDIA-Linux-x86-375.82/tls/*.so*                   /usr/lib/nvidia-375/tls
+NVIDIA-Linux-x86-375.82/libvdpau_nvidia.so*   /usr/lib/x86_64-linux-gnu/vdpau
+NVIDIA-Linux-x86-375.82/tls/*.so*                   /usr/lib/x86_64-linux-gnu/tls
 
 debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-375-375.82
 debian/dkms_nvidia/patches/*                  usr/src/nvidia-375-375.82/patches
 debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-375-375.82
 
-NVIDIA-Linux-x86-375.82/nvidia-bug-report.sh /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.82/nvidia-xconfig /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.82/nvidia-smi /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.82/nvidia-debugdump /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.82/nvidia-cuda-mps-control /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.82/nvidia-cuda-mps-server /usr/lib/nvidia-375/bin
-NVIDIA-Linux-x86-375.82/nvidia-persistenced /usr/lib/nvidia-375/bin
+NVIDIA-Linux-x86-375.82/nvidia-bug-report.sh /usr/bin
+NVIDIA-Linux-x86-375.82/nvidia-xconfig /usr/bin
+NVIDIA-Linux-x86-375.82/nvidia-smi /usr/bin
+NVIDIA-Linux-x86-375.82/nvidia-debugdump /usr/bin
+NVIDIA-Linux-x86-375.82/nvidia-cuda-mps-control /usr/bin
+NVIDIA-Linux-x86-375.82/nvidia-cuda-mps-server /usr/bin
+NVIDIA-Linux-x86-375.82/nvidia-persistenced /usr/bin
 
-NVIDIA-Linux-x86-375.82/nvidia-application-profiles-375.82-rc /usr/share/nvidia-375
-NVIDIA-Linux-x86-375.82/nvidia-application-profiles-375.82-key-documentation /usr/share/nvidia-375
+NVIDIA-Linux-x86-375.82/nvidia-application-profiles-375.82-rc /usr/share/nvidia
+NVIDIA-Linux-x86-375.82/nvidia-application-profiles-375.82-key-documentation /usr/share/nvidia
 
 NVIDIA-Linux-x86-375.82/10_nvidia.json usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux-x86-375.82/nvidia_icd.json usr/share/vulkan/icd.d
