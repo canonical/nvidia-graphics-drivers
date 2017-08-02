@@ -1,0 +1,71 @@
+From f64fbc7f5f8f1b8341afd4c8ab913ad84a905109 Mon Sep 17 00:00:00 2001
+From: Seth Forshee <seth.forshee@canonical.com>
+Date: Thu, 13 Jul 2017 15:25:27 -0500
+Subject: [PATCH] Add support for Linux 4.12
+
+---
+ conftest.sh | 18 +++++++++++++++---
+ nv-linux.h  |  4 ++++
+ 2 files changed, 19 insertions(+), 3 deletions(-)
+
+diff --git a/conftest.sh b/conftest.sh
+index d74ddf35d5d2..a00a64616ac2 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -362,7 +362,11 @@ compile_test() {
+             # Determine if the set_memory_uc() function is present.
+             #
+             CODE="
+-            #include <asm/cacheflush.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 12, 0)
++              #include <asm/cacheflush.h>
++            #else
++              #include <asm/set_memory.h>
++            #endif
+             void conftest_set_memory_uc(void) {
+                 set_memory_uc();
+             }"
+@@ -375,7 +379,11 @@ compile_test() {
+             # Determine if the set_memory_array_uc() function is present.
+             #
+             CODE="
+-            #include <asm/cacheflush.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 12, 0)
++              #include <asm/cacheflush.h>
++            #else
++              #include <asm/set_memory.h>
++            #endif
+             void conftest_set_memory_array_uc(void) {
+                 set_memory_array_uc();
+             }"
+@@ -388,7 +396,11 @@ compile_test() {
+             # Determine if the set_pages_uc() function is present.
+             #
+             CODE="
+-            #include <asm/cacheflush.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 12, 0)
++              #include <asm/cacheflush.h>
++            #else
++              #include <asm/set_memory.h>
++            #endif
+             void conftest_set_pages_uc(void) {
+                 set_pages_uc();
+             }"
+diff --git a/nv-linux.h b/nv-linux.h
+index 2d62492b9fbf..784024f254cd 100644
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -149,6 +149,10 @@
+ #include <linux/completion.h>
+ #include <linux/highmem.h>
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 12, 0)
++#include <asm/set_memory.h>         /* set_memory_*(), set_pages_*()    */
++#endif
++
+ #include <linux/workqueue.h>        /* workqueue                        */
+ 
+ #if !defined(NV_VMWARE)
+-- 
+2.11.0
+
