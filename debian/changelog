@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304 (304.135-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.135-0ubuntu3) artful; urgency=medium
 
-  * 
+  [ Seth Forshee ]
+  * debian/dkms/patches/buildfix_kernel_4.12.patch,
+    debian/templates/dkms.conf.in:
+    - Add support for Linux 4.12 (LP: #1700798).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 03 Aug 2017 10:30:38 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 04 Aug 2017 14:53:25 +0200
 
 nvidia-graphics-drivers-304 (304.135-0ubuntu2) artful; urgency=medium
 
