@@ -1,24 +1,22 @@
-From 065bb96831cc805b7a173edc267c7af347310d3a Mon Sep 17 00:00:00 2001
+From 5c46c537c864f08b22c6db4c187755c66bfcaa70 Mon Sep 17 00:00:00 2001
 From: Seth Forshee <seth.forshee@canonical.com>
 Date: Tue, 25 Jul 2017 08:05:39 -0500
 Subject: [PATCH] Add support for Linux 4.12
 
 ---
- nv-linux.h | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ nv-linux.h | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
 diff --git a/nv-linux.h b/nv-linux.h
-index b46e71fedd97..8fb691ff7d73 100644
+index 3081c065992b..c22b103c7c1f 100644
 --- a/nv-linux.h
 +++ b/nv-linux.h
-@@ -1378,7 +1378,25 @@ typedef void irqreturn_t;
+@@ -1378,7 +1378,23 @@ typedef void irqreturn_t;
     })
  #define NV_PMD_UNMAP(pmd) pmd_unmap(pmd);
  #else
 -#if defined(PUD_SHIFT) /* 4-level pgtable */
-+#if CONFIG_PGTABLE_LEVELS >= 5 /* Unsupported */
-+#error "CONFIG_PGTABLE_LEVELS greater than 4 not supported"
-+#elif CONFIG_PGTABLE_LEVELS == 4 /* 5-level pgtable */
++#if defined(P4D_SHIFT) /* 5-level pgtable */
 +#define NV_PMD_OFFSET(address, pgd)                     \
 +   ({                                                   \
 +        pmd_t *__pmd;                                   \
