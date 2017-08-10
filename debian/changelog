@@ -1,8 +1,34 @@
-nvidia-graphics-drivers-375 (375.82-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-375 (375.82-0ubuntu0.14.04.1) trusty; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE-2017-6257, 2017-6259 (LP: #1709827).
+  * New upstream release:
+    - Fix a bug with GLX_EXT_buffer_age where incorrect buffer
+      age values would be reported for SLI AFR configurations.
+      In such configurations buffer age may now be greater than 3
+      the previous maximum buffer age.
+    - Fixed a bug that could cause hanging and Xids when performing
+      RandR transforms with Overlay and SLI enabled.
+    - Improved handling of framebuffer console restore on systems
+      booted in UEFI mode.
+    - Extended the information reported by the NVIDIA Xinerama X
+      extension to report PRIME displays in addition to
+      directly-connected displays.
+    - Fixed a bug that caused HDMI audio devices to appear or
+      disappear inconsistently when HDMI devices were hotplugged or
+      unplugged.
+    - Fixed a bug that could cause driver errors when setting modes
+      on X screens running at Depth 8 or Depth 15.
+    - Fixed a bug that could cause intermittent kernel panics when
+      running with PRIME Sync.
+    - Fixed a bug that caused a kernel panic when hotplugging HDMI
+      displays on some Zotac mini PCs.
+    - Updated nvidia-installer to label kernel modules with SELinux
+      file type 'modules_object_t'. Some system SELinux policies
+      only permit loading of kernel modules with this SELinux file
+      type.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Aug 2017 12:01:56 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Aug 2017 12:02:32 +0200
 
 nvidia-graphics-drivers-375 (375.66-0ubuntu0.14.04.1) trusty; urgency=medium
 
