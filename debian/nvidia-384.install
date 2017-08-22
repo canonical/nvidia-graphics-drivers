@@ -1,0 +1,38 @@
+debian/nvidia-384.override                 usr/share/lintian/overrides
+
+debian/glamor.conf                           /usr/share/nvidia-384
+debian/71-nvidia.rules                       lib/udev/rules.d
+debian/nvidia-persistenced.service           lib/systemd/system
+debian/create-uvm-dev-node                   sbin
+debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
+debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
+
+NVIDIA-Linux-x86-384.69/nvidia_drv.so /usr/lib/nvidia-384/xorg
+NVIDIA-Linux-x86-384.69/libglx.so.384.69 /usr/lib/nvidia-384/xorg
+
+NVIDIA-Linux-x86-384.69/libGL*.so*                  /usr/lib/nvidia-384
+NVIDIA-Linux-x86-384.69/libOpenGL*.so*              /usr/lib/nvidia-384
+NVIDIA-Linux-x86-384.69/libEGL*.so*                 /usr/lib/nvidia-384
+NVIDIA-Linux-x86-384.69/libnv*.so*                  /usr/lib/nvidia-384
+
+NVIDIA-Linux-x86-384.69/libvdpau_nvidia.so*   /usr/lib/nvidia-384/vdpau
+NVIDIA-Linux-x86-384.69/tls/*.so*                   /usr/lib/nvidia-384/tls
+
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-384-384.69
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-384-384.69/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-384-384.69
+
+NVIDIA-Linux-x86-384.69/nvidia-bug-report.sh /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86-384.69/nvidia-xconfig /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86-384.69/nvidia-smi /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86-384.69/nvidia-debugdump /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86-384.69/nvidia-cuda-mps-control /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86-384.69/nvidia-cuda-mps-server /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86-384.69/nvidia-persistenced /usr/lib/nvidia-384/bin
+
+NVIDIA-Linux-x86-384.69/nvidia-application-profiles-384.69-rc /usr/share/nvidia-384
+NVIDIA-Linux-x86-384.69/nvidia-application-profiles-384.69-key-documentation /usr/share/nvidia-384
+
+NVIDIA-Linux-x86-384.69/10_nvidia.json usr/share/glvnd/egl_vendor.d
+NVIDIA-Linux-x86-384.69/nvidia_icd.json usr/share/vulkan/icd.d
+NVIDIA-Linux-x86-384.69/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
