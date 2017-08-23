@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-375 (375.82-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-375 (375.82-0ubuntu2) artful; urgency=medium
 
-  * 
+  * debian/71-nvidia.rules:
+    - Make the KMS status (y/n) readable. This is required by the Gnome
+      Shell, which doesn't have root privileges when using libgdm.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Aug 2017 18:54:34 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Aug 2017 18:55:25 +0200
 
 nvidia-graphics-drivers-375 (375.82-0ubuntu1) artful; urgency=medium
 
