@@ -34,5 +34,6 @@ NVIDIA-Linux-x86-384.69/nvidia-application-profiles-384.69-rc /usr/share/nvidia-
 NVIDIA-Linux-x86-384.69/nvidia-application-profiles-384.69-key-documentation /usr/share/nvidia-384
 
 NVIDIA-Linux-x86-384.69/10_nvidia.json usr/share/glvnd/egl_vendor.d
+NVIDIA-Linux-x86-384.69/10_nvidia_wayland.json usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux-x86-384.69/nvidia_icd.json usr/share/vulkan/icd.d
 NVIDIA-Linux-x86-384.69/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
