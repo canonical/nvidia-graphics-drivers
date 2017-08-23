@@ -34,5 +34,6 @@ debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 #DIRNAME#/nvidia-application-profiles-#VERSION#-key-documentation #PKGDATADIR#
 
 #DIRNAME#/10_nvidia.json usr/share/glvnd/egl_vendor.d
+#DIRNAME#/10_nvidia_wayland.json usr/share/glvnd/egl_vendor.d
 #ARM_EXCLUDED##DIRNAME#/nvidia_icd.json usr/share/vulkan/icd.d
 #DIRNAME#/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
