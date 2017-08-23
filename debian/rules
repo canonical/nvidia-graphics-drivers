@@ -327,6 +327,11 @@ ifeq ($(DEB_BUILD_ARCH),amd64)
 	rm -rf $(CURDIR)/$(dirname_x86)/libnvidia-gtk*.so*
 endif
 
+	# This is for non-GLVND LibGL libraries
+	# Replace with libGLX_nvidia.so.0 when the transition to GLVND is complete
+	sed 's/__NV_VK_ICD__/libGL.so.1/g'  $(dirname)/nvidia_icd.json.template > \
+		$(dirname)/nvidia_icd.json
+
 	# Get around Xen checks
 	mv $(dirname)/kernel/nvidia/nv.c $(dirname)/kernel/nvidia/nv1.c
 	mv $(dirname)/kernel/common/inc/nv-linux.h $(dirname)/kernel/common/inc/nv-linux1.h
