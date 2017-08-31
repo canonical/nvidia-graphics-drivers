@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-375 (375.82-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-375 (375.82-0ubuntu3) artful; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Conflict/provide/replace nvidia-smi (LP: #1714069).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 31 Aug 2017 15:47:32 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 31 Aug 2017 16:07:47 +0200
 
 nvidia-graphics-drivers-375 (375.82-0ubuntu2) artful; urgency=medium
 
