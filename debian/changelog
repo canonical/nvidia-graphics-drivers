@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-304 (304.135-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.135-0ubuntu5) artful; urgency=medium
 
-  * 
+  * debian/dkms/patches/buildfix_kernel_4.12.patch:
+    - Fix additional failures at runtime (LP: #1711758).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Sep 2017 13:25:29 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Sep 2017 15:57:09 +0200
 
 nvidia-graphics-drivers-304 (304.135-0ubuntu4) artful; urgency=medium
 
