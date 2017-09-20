@@ -41,8 +41,8 @@ dirname_x86          ?= NVIDIA-Linux-x86-$(PKG_version)
 dirname_x86_64       ?= NVIDIA-Linux-x86_64-$(PKG_version)-no-compat32
 filename_x86         := $(dirname_x86).run
 filename_x86_64      := $(dirname_x86_64).run
-url_x86              := ftp://download.nvidia.com/XFree86/Linux-x86/$(PKG_version)/$(filename_x86)
-url_x86_64           := ftp://download.nvidia.com/XFree86/Linux-x86_64/$(PKG_version)/$(filename_x86_64)
+url_x86              := http://us.download.nvidia.com/XFree86/Linux-x86/$(PKG_version)/$(filename_x86)
+url_x86_64           := http://us.download.nvidia.com/XFree86/Linux-x86_64/$(PKG_version)/$(filename_x86_64)
 
 ifeq ($(DEB_BUILD_ARCH),amd64)
 filename             := $(filename_x86_64)
