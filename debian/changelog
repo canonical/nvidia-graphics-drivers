@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-304 (304.137-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.137-0ubuntu1) artful; urgency=medium
 
-  * 
+  * New upstream release:
+    - Improved compatibility with recent Linux kernels.
+  * debian/templates/dkms.conf.in:
+    - Drop all the patches.
+  * debian/rules:
+    - Update the URLs.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 20 Sep 2017 13:00:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 20 Sep 2017 16:28:04 +0200
 
 nvidia-graphics-drivers-304 (304.135-0ubuntu5) artful; urgency=medium
 
