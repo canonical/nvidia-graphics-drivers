@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-340 (340.104-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.104-0ubuntu2) artful; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.11.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Refresh and re-enable patch for Linux 4.11, as the driver
+      is still missing some changes.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Sep 2017 13:07:07 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Sep 2017 16:02:09 +0200
 
 nvidia-graphics-drivers-340 (340.104-0ubuntu1) artful; urgency=medium
 
