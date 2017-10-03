@@ -1,0 +1,141 @@
+From 52fb32b8ca57e80897752bf191cd0c0781f6e6f2 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 3 Oct 2017 16:05:43 +0200
+Subject: [PATCH 1/1] Add partial support for Linux 4.14 (OEM kernel)
+
+Original author: Timo Aaltonen
+---
+ conftest.sh                     | 41 +++++++++++++++++++++++++++++++++++++++++
+ nvidia-drm/nvidia-drm-crtc.c    | 17 +++++++++++++++--
+ nvidia-drm/nvidia-drm-encoder.c |  2 +-
+ nvidia-drm/nvidia-drm.Kbuild    |  2 ++
+ 4 files changed, 59 insertions(+), 3 deletions(-)
+
+diff --git a/conftest.sh b/conftest.sh
+index f6a555d..4af2607 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2216,6 +2216,47 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_LEGACY_DEV_LIST" "" "types"
+         ;;
+ 
++        drm_crtc_helper_funcs_has_atomic_enable)
++            #
++            # Determine if the 'drm_crtc_helper_funcs' structure has an 'atomic_enable' field.
++            #
++            # it was added in
++            #   2017-06-30  0b20a0f8c3cb6f74fe326101b62eeb5e2c56a53c
++            #
++            CODE="
++            #include <drm/drm_modeset_helper_vtables.h>
++            int conftest_drm_crtc_helper_funcs_has_atomic_enable(void) {
++                return offsetof(struct drm_crtc_helper_funcs, atomic_enable);
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE" "" "types"
++        ;;
++
++        drm_universal_plane_init_has_modifier_name_arg)
++            #
++            # Determine if drm_universal_plane_init()
++            # has a 'format_modifier' and 'name' argument, which was added by these commits:
++            #   drm_universal_plane_init:   2017-07-23  e6fc3b68558e4c6d8d160b5daf2511b99afa8814
++            #
++            CODE="
++            #include <drm/drmP.h>
++            int conftest_drm_universal_plane_init_has_modifier_name_arg(void) {
++                return
++                    drm_universal_plane_init(
++                            NULL,  /* struct drm_device *dev */
++                            NULL,  /* struct drm_plane *plane */
++                            0,     /* unsigned long possible_crtcs */
++                            NULL,  /* const struct drm_plane_funcs *funcs */
++                            NULL,  /* const uint32_t *formats */
++                            0,     /* unsigned int format_count */
++                            NULL,  /* const uint64_t *format_modifiers */
++                            DRM_PLANE_TYPE_PRIMARY,
++                            NULL);  /* const char *name */
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_UNIVERSAL_PLANE_INIT_HAS_MODIFIER_NAME_ARG" "" "types"
++        ;;
++
+         drm_init_functions_have_name_arg)
+             #
+             # Determine if these functions:
+diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
+index 3b05c8b..2f5c2e3 100644
+--- a/nvidia-drm/nvidia-drm-crtc.c
++++ b/nvidia-drm/nvidia-drm-crtc.c
+@@ -167,10 +167,20 @@ static void nvidia_crtc_enable(struct drm_crtc *crtc)
+ 
+ }
+ 
++static void nvidia_crtc_atomic_enable(struct drm_crtc *crtc,
++                                      struct drm_crtc_state *old_state)
++{
++
++}
++
+ static const struct drm_crtc_helper_funcs nv_crtc_helper_funcs = {
+     .prepare    = nvidia_crtc_prepare,
+     .commit     = nvidia_crtc_commit,
++#if defined(NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE)
++    .atomic_enable = nvidia_crtc_atomic_enable,
++#else
+     .enable     = nvidia_crtc_enable,
++#endif
+     .disable    = nvidia_crtc_disable,
+     .mode_fixup = nvidia_crtc_mode_fixup,
+ };
+@@ -220,8 +230,11 @@ static struct drm_plane *nvidia_plane_create
+         dev,
+         plane, crtc_mask, funcs,
+         formats, formats_count,
++#if defined(NV_DRM_UNIVERSAL_PLANE_INIT_HAS_MODIFIER_NAME_ARG)
++        NULL,
++#endif
+         plane_type
+-#if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG)
++#if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG) || defined(NV_DRM_UNIVERSAL_PLANE_INIT_HAS_MODIFIER_NAME_ARG)
+         , NULL
+ #endif
+         );
+@@ -349,7 +362,7 @@ struct drm_crtc *nvidia_drm_add_crtc(struct drm_device *dev, NvU32 head)
+                                     &nv_crtc->base,
+                                     primary_plane, cursor_plane,
+                                     &nv_crtc_funcs
+-#if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG)
++#if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG) || defined(NV_DRM_UNIVERSAL_PLANE_INIT_HAS_MODIFIER_NAME_ARG)
+                                     , NULL
+ #endif
+                                     );
+diff --git a/nvidia-drm/nvidia-drm-encoder.c b/nvidia-drm/nvidia-drm-encoder.c
+index 9d3a267..c5c6779 100644
+--- a/nvidia-drm/nvidia-drm-encoder.c
++++ b/nvidia-drm/nvidia-drm-encoder.c
+@@ -150,7 +150,7 @@ nvidia_encoder_new(struct drm_device *dev,
+     ret = drm_encoder_init(dev,
+                            &nv_encoder->base, &nv_encoder_funcs,
+                            nvkms_connector_signal_to_drm_encoder_signal(format)
+-#if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG)
++#if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG) || defined(NV_DRM_UNIVERSAL_PLANE_INIT_HAS_MODIFIER_NAME_ARG)
+                            , NULL
+ #endif
+                            );
+diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
+index 86dd0ab..ff03ba0 100644
+--- a/nvidia-drm/nvidia-drm.Kbuild
++++ b/nvidia-drm/nvidia-drm.Kbuild
+@@ -67,6 +67,8 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_get_name
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_legacy_dev_list
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_set_busid
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_crtc_state_has_connectors_changed
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_crtc_helper_funcs_has_atomic_enable
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_universal_plane_init_has_modifier_name_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_init_functions_have_name_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_connector_list_update_has_merge_type_bits_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_helper_mode_fill_fb_struct
+-- 
+2.7.4
+
