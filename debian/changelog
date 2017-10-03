@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-384 (384.90-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.90-0ubuntu1) artful; urgency=medium
 
-  * 
+  * Initial release. This replaces the 375 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 02 Oct 2017 10:19:28 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Oct 2017 16:57:25 +0200
