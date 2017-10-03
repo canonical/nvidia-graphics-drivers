@@ -16,12 +16,12 @@ Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc
  xserver-xorg-legacy, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) [!armhf] | bumblebee [!armhf],
  libcuda1-384, nvidia-opencl-icd-384 [!armhf]
-Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
+Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced, nvidia-smi,
  ${xviddriver:Provides}
-Conflicts: xorg-driver-binary, nvidia-persistenced
-Replaces: xorg-driver-binary, nvidia-persistenced
+Conflicts: xorg-driver-binary, nvidia-persistenced, nvidia-smi
+Replaces: xorg-driver-binary, nvidia-persistenced, nvidia-smi
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 384.69
+Description: NVIDIA binary driver - version 384.90
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 384.69
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-384.69-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-384.90-driver.html
  .
 
 Package: nvidia-384-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-384 (>= 384.69)
+Depends: ${misc:Depends}, nvidia-384 (>= 384.90)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.

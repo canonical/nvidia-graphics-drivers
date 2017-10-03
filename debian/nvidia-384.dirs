@@ -14,8 +14,8 @@
 /usr/share/lintian/overrides
 /usr/lib/nvidia-384/xorg
 /usr/lib/nvidia-384/xorg
-/usr/src/nvidia-384-384.69
-/usr/src/nvidia-384-384.69/patches
+/usr/src/nvidia-384-384.90
+/usr/src/nvidia-384-384.90/patches
 /usr/lib/vdpau
 /lib/nvidia-384
 /usr/share/nvidia
