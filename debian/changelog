@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-384 (384.90-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.90-0ubuntu0.14.04.1) trusty; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE-2017-6266, 2017-6267, 2017-6272 (LP: #1721219).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Oct 2017 12:09:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 05 Oct 2017 14:56:38 +0200
