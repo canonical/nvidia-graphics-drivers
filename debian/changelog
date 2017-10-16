@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-384 (384.90-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.90-0ubuntu3) artful; urgency=medium
 
-  * 
+  * debian/rules:
+    - Make sure to remove the GLVND EGL libraries too
+      Thanks to Michael Marley for the fix.
+    - Replace DEB_BUILD_ARCH with DEB_HOST_ARCH.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Oct 2017 16:29:07 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Oct 2017 11:20:47 +0200
 
 nvidia-graphics-drivers-384 (384.90-0ubuntu2) artful; urgency=medium
 
