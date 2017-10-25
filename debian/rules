@@ -474,8 +474,8 @@ endif
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
 
 ifneq ($(DEB_HOST_ARCH),armhf)
-	# Remove the non-GLVND libGL libraries
-	find $(CURDIR)/debian/$(PKG_driver) -name "libGL.so.$(PKG_version)" | xargs /bin/rm -f
+	# Remove the non-GLVND libGL and libEGL libraries
+	find $(CURDIR)/debian/$(PKG_driver) -name "libGL.so.1.0.0" -o -name "libEGL.so.1" | xargs /bin/rm -f
 endif
 
 	# Part about $(PKG_libcuda1):
