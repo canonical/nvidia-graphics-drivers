@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.2) xenial-proposed; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/templates/nvidia-graphics-drivers.links.in,
+    debian/templates/nvidia-graphics-drivers.links32.in:
+    - Ship the correct (non GLVND) libGL and libEGL libraries (LP: #1726809).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2017 17:48:42 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2017 17:49:28 +0100
 
 nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.1) xenial; urgency=medium
 
