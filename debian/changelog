@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-340 (340.104-0ubuntu0.16.04.1) xenial; urgency=medium
+
+  * Support for kernel 4.11 (including 4.13). (LP: #1724872)
+    - New upstream release.
+    - Remove incompatible patches for 4.9 and 4.10.
+    - debian/dkms_nvidia/patches/buildfix_kernel_4.11.patch
+
+ -- Marcelo Henrique Cerri <marcelo.cerri@canonical.com>  Mon, 06 Nov 2017 14:52:28 -0200
+
 nvidia-graphics-drivers-340 (340.102-0ubuntu0.16.04.2) xenial-proposed; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_4.9.patch:
