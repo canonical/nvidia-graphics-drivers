@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.2) xenial; urgency=medium
+
+  * Support for kernel 4.11 and 4.12. (LP: #1724871)
+    - debian/dkms/patches/buildfix_kernel_4.11.patch
+    - debian/dkms/patches/buildfix_kernel_4.12.patch
+
+ -- Marcelo Henrique Cerri <marcelo.cerri@canonical.com>  Wed, 01 Nov 2017 16:57:45 -0200
+
 nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.1) xenial; urgency=medium
 
   * SECURITY UPDATE:
