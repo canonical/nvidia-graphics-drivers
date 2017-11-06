@@ -1,0 +1,42 @@
+From d7fb95a0289cab10a846c49186977a4afd9d1458 Mon Sep 17 00:00:00 2001
+From: Seth Forshee <seth.forshee@canonical.com>
+Date: Mon, 22 May 2017 16:29:26 -0500
+Subject: [PATCH] Add support for Linux 4.11
+
+---
+ nv-drm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/nv-drm.c b/nv-drm.c
+index ba9fa6183dd6..0347725ef3a0 100644
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -42,6 +42,7 @@ static int nv_drm_load(
+     return -ENODEV;
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+ static int nv_drm_unload(
+     struct drm_device *dev
+ )
+@@ -58,6 +59,7 @@ static int nv_drm_unload(
+ 
+     return -ENODEV;
+ }
++#endif
+ 
+ static const struct file_operations nv_drm_fops = {
+     .owner = THIS_MODULE,
+@@ -73,7 +75,9 @@ static const struct file_operations nv_drm_fops = {
+ static struct drm_driver nv_drm_driver = {
+     .driver_features = 0,
+     .load = nv_drm_load,
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+     .unload = nv_drm_unload,
++#endif
+     .fops = &nv_drm_fops,
+ #if defined(NV_DRM_PCI_SET_BUSID_PRESENT)
+     .set_busid = drm_pci_set_busid,
+-- 
+2.11.0
+
