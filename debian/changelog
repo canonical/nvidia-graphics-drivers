@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-340 (340.104-0ubuntu0.16.04.1) xenial; urgency=medium
+nvidia-graphics-drivers-340 (340.104-0ubuntu0.16.04.1) xenial-proposed; urgency=medium
 
   * Support for kernel 4.11 (including 4.13). (LP: #1724872)
     - New upstream release.
