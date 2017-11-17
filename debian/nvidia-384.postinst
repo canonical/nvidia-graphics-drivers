@@ -209,16 +209,13 @@ case "$1" in
         CURRENT_KERNEL=$(uname -r)
         NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
 
-        ALTERNATIVE=$(readlink /etc/alternatives/x86_64-linux-gnu_gl_conf)
-        if [ "$ALTERNATIVE" = "/usr/lib/nvidia-384/ld.so.conf" ]; then
-            # Update initramfs so that the blacklist ends up in the initramfs
-            if [ -x /usr/sbin/update-initramfs ]; then            
-                /usr/sbin/update-initramfs -u
+        # Update initramfs so that the blacklist ends up in the initramfs
+        if [ -x /usr/sbin/update-initramfs ]; then
+            /usr/sbin/update-initramfs -u
 
-                if [ -n "$NEWEST_KERNEL" ] && [ ${CURRENT_KERNEL} != ${NEWEST_KERNEL} ]; then
-                    # This can fail when dealing with a chroot see LP: #556653
-                    /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL
-                fi
+            if [ -n "$NEWEST_KERNEL" ] && [ ${CURRENT_KERNEL} != ${NEWEST_KERNEL} ]; then
+                # This can fail when dealing with a chroot see LP: #556653
+                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL
             fi
         fi
 
