@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-304 (304.137-0ubuntu2) bionic; urgency=medium
+
+  * debian/dkms/patches/buildfix_kernel_4.14.patch:
+    - Fix dkms module build failures. (LP: #1727015)
+
+ -- Seth Forshee <seth.forshee@canonical.com>  Wed, 08 Nov 2017 13:55:06 -0600
+
 nvidia-graphics-drivers-304 (304.137-0ubuntu1) artful; urgency=medium
 
   * New upstream release:

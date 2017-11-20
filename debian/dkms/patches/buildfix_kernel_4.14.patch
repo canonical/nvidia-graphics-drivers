@@ -1,0 +1,32 @@
+From fbab53d42d3f102a42d1677de40559d7df59bf59 Mon Sep 17 00:00:00 2001
+From: Seth Forshee <seth.forshee@canonical.com>
+Date: Wed, 8 Nov 2017 13:30:28 -0600
+Subject: [PATCH] Build fixes for Linux 4.14
+
+---
+ nv-drm.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/nv-drm.c b/nv-drm.c
+index 0d37447915c5..c93de108ebc3 100644
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -22,6 +22,15 @@
+ #include <drm/drm_gem.h>
+ #endif
+ 
++/*
++ * drm_pci_(init|exit) were renamed to drm_legacy_pci_(init|exit)
++ * in 4.14; map the new interface names to the old ones.
++ */
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 14, 0)
++# define drm_pci_init drm_legacy_pci_init
++# define drm_pci_exit drm_legacy_pci_exit
++#endif
++
+ extern nv_linux_state_t *nv_linux_devices;
+ 
+ static int nv_drm_load(
+-- 
+2.14.1
+
