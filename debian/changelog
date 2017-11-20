@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.3) xenial-proposed; urgency=medium
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Make sure to update the initramfs also in power saving
+      mode (LP: #1717151).
+    - Make sure that deferred DKMS build works with systemd (LP: #1732206).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 Nov 2017 16:57:25 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 Nov 2017 16:59:33 +0100
 
 nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.2) xenial-proposed; urgency=medium
 
