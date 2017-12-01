@@ -6,12 +6,12 @@
 include /usr/share/dpkg/architecture.mk
 include /usr/share/dpkg/pkg-info.mk
 
-#include debian/rules.defs
+include debian/rules.defs
 #NVIDIA_LEGACY		?=
 #WATCH_VERSION		?= $(NVIDIA_LEGACY)
 #WATCH_PATTERN		?=
-#XORG_ABI_LIST		?=
-#XORG_BOUND		?=
+XORG_ABI_LIST		?=
+XORG_BOUND		?=
 #LINUX_KMOD_TESTED	?=
 #NVIDIA_LEGACY_CHECK	?=
 #NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
@@ -21,13 +21,18 @@ include /usr/share/dpkg/pkg-info.mk
 #VULKAN_ARCH_LIST	?= i386 amd64
 
 version			 = $(DEB_VERSION_UPSTREAM)
+NVIDIA_RELEASE   = $(version)
 version_major		 = $(firstword $(subst ., ,$(version)))
 
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 
 flavour := $(version_major)
+pkg_meta         := nvidia-driver-$(flavour)
 pkg_driver       := nvidia-$(flavour)
+xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
+pkg_module       := $(shell echo "$(pkg_driver)" | sed s/\-/_/g)
+
 
 ifeq ($(DEB_HOST_ARCH),armhf)
 arm_excluded         := \#
@@ -68,6 +73,12 @@ DEFAULT_PPC64LE_TRIPLET_LIBDIR =   "lib/powerpc64le-linux-gnu"
 
 dkms_source	 = debian/nvidia-kernel-$(version_major)/usr/src/$(module)-$(version)
 
+comma		 = ,
+xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
+xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
+xorg_provides	 = xorg-driver-video
+
+
 .PHONY: autogen prepare patch
 autogen: $(AUTOGEN)
 prepare: autogen unpack-stamp compare-copyright-license
@@ -94,22 +105,6 @@ ifneq ($(DEB_HOST_ARCH),armhf)
 	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/g'  NVIDIA-Linux/nvidia_icd.json.template > \
 		NVIDIA-Linux/nvidia_icd.json
 endif
-
-#nv-readme.ids: unpack-stamp
-#	sed	-e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
-#		-e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
-#		-e '0,/^Below\|APPENDIX B/{/ 0x/s/.*  0x\([0-9a-fA-F]\{4\}\).*/10de\1/p; /^.\{41\} [0-9a-fA-F]\{4\} /s/^.\{41\} \([0-9a-fA-F]\{4\}\) .*/10de\1/p};d' \
-#		NVIDIA-Linux/README.txt \
-#		| tr a-f A-F | sort -u > $@
-#	@set -e -x ; \
-#	if ! cmp -s debian/$@ $@ ; then \
-#		diff -u debian/$@ $@ || true ; \
-#		: "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
-#		exit 1 ; \
-#	fi
-
-#nvidia.ids: nv-readme.ids
-#	cp $< $@
 
 # Reformat the LICENSE to the format needed for debian/copyright.
 LICENSE.txt: unpack-stamp
@@ -141,7 +136,10 @@ override_dh_clean: regen-from-templates
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
-override_dh_auto_configure: prepare generate-nvidia-icd-json remove-stack-markings gen-abi-substvars
+override_dh_auto_configure: prepare generate-nvidia-icd-json remove-stack-markings
+
+override_dh_install: generate-modaliases
+	dh_install
 
 remove-stack-markings:
 	# Disable the stack markings of binaries for security reasons.
@@ -157,11 +155,6 @@ remove-stack-markings:
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -X$(libdir_compat)
-
-.PHONY: gen-abi-substvars
-gen-abi-substvars:
-	# Generate the xserver ABI dependencies
-	cat debian/substvars >> debian/$(pkg_driver).substvars
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
@@ -202,57 +195,6 @@ regen-from-templates:
 			$$i > $$dest;      \
 	done
 
-
-#debian/module/debian/changelog: debian/changelog
-#	sed '1s/^nvidia-graphics-drivers$(legacy)/$(nvidia)-kernel/g' $< > $@
-
-
-# Renaming control files for legacy packaging
-#define rename-template
-#$2%: $1%
-#	cp -a $$< $$@
-#endef
-#ifneq (,$(legacy))
-#$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p,$(call renamed_prefix,$p))))
-#endif
-
-#include debian/bug-control.mk
-
-############################################################################
-
-# only invoked manually
-%.txt: %.list
-	cat $< \
-	| sed -e 's/^10DE.... *//; /^$$/d' \
-	| uniq \
-	| sed -e 's/ /#/g; s/#*$$/,/; $$ s/,$$/./' \
-	| ( tr '\n' ' '; echo ) \
-	| fold -s -w 78 \
-	| sed -e 's/#/ /g; s/ *$$//' > $@
-
-# only invoked manually
-pci.ids.nvidia: /usr/share/misc/pci.ids
-	sed -nr '/^10de/,/^10df/ { /^\t\t/d; /\t/ { s/  (.*) \[(.*)\]$$/  \2 [\1]/; s/^\t/10de/; p} }' $< > $@.tmp
-	cut -c 1-8 $@.tmp | tr a-f A-F > $@.tmp1
-	cut -c 9- $@.tmp | paste -d '' $@.tmp1 - > $@
-	$(RM) $@.tmp $@.tmp1
-
-# only invoked manually
-%.names: %.ids pci.ids.nvidia
-	cat $< | \
-	while read id ; do \
-		grep ^$$id pci.ids.nvidia || echo $$id ; \
-	done > $@
-
-# only invoked manually
-file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
-debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
-	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
-
-# only invoked manually
-check-whitespace:
-	grep -r --exclude-dir=.svn --exclude-dir=.git --exclude '*.patch' -E '\s$$' debian || true
-
 ############################################################################
 
 CACHE			?= ../.cache
@@ -267,6 +209,48 @@ TARBALL.empty		?= $(TARBALL)
 get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
+
+override_dh_gencontrol: regen-from-templates
+	dh_gencontrol -- -V'nvidia:Version=$(version)' \
+		-V'xviddriver:Depends=$(xorg_depends)' \
+		-V'xviddriver:Provides=$(xorg_provides)' \
+		-V'nvidia:xorgDepends=$(xorg_depends)' \
+		-V'nvidia:xorgProvides=$(xorg_provides)'
+#       -V'nvidia:Deb-Version-After:jessie=$(deb_version_after_jessie)' \
+#       -V'nvidia:xorgDepends=$(xorg_depends)' \
+#       -V'nvidia:xorgProvides=$(xorg_provides)' \
+#       -V'nvidia=$(nvidia)' \
+#       -V'libcuda1=$(libcuda1)' \
+#       -V'nvidia:Legacy=$(legacy)' \
+#       -V'nvidia:LegacyDesc=$(legacy_description)' \
+#       -V'nvidia:LegacyDescShort=$(legacy_description_short)' \
+#       -V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
+#       -V'nvidia-settings=$(NVIDIA_SETTINGS)' \
+#       -V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
+#       -V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
+#       -V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
+#       -Vnvidia:kmod:Description="`cat debian/control.kmod`" \
+#       -Vnvidia:Models="`cat debian/control.models`"
+
+generate-modaliases:
+	# Generate modaliases for the restricted drivers manager
+	mkdir -p $(CURDIR)/debian/$(pkg_meta)-modaliases/usr/share/jockey/modaliases/
+	sh -e $(CURDIR)/debian/nvidia_supported \
+		$(pkg_module) $(pkg_meta) \
+		NVIDIA-Linux/README.txt \
+		> $(CURDIR)/debian/$(pkg_meta).modaliases
+	# Take additional card ids from a text file
+	while read id sid; do \
+		if [ -z $$sid ]; then \
+			printf 'alias pci:v%08Xd%08Xsv*sd*bc03sc*i* %s %s\n' \
+			0x10de "0x$$id" "$(pkg_module)" "$(pkg_meta)" \
+		;else \
+			printf 'alias pci:v%08Xd%08Xsv*sd%08Xbc03sc*i* %s %s\n' \
+			0x10de "0x$$id" "0x$$sid" "$(pkg_module)" "$(pkg_meta)" \
+		;fi \
+	done <$(CURDIR)/debian/additional_card_ids >>$(CURDIR)/debian/$(pkg_meta).modaliases
+	dh_modaliases
+	rm -f $(CURDIR)/debian/$(pkg_meta).modaliases
 
 get-orig-source-prepare:
 	$(RM) -r get-orig-source
