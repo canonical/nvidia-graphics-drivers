@@ -31,8 +31,9 @@ flavour := $(version_major)
 pkg_meta         := nvidia-driver-$(flavour)
 pkg_driver       := nvidia-$(flavour)
 xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
-pkg_module       := $(shell echo "$(pkg_driver)" | sed s/\-/_/g)
-
+#pkg_module       := $(shell echo "$(pkg_driver)" | sed s/\-/_/g)
+pkg_module       := nvidia
+pkg_kernel       := nvidia-kernel-$(flavour)
 
 ifeq ($(DEB_HOST_ARCH),armhf)
 arm_excluded         := \#
@@ -130,15 +131,25 @@ override_dh_auto_clean:
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
 	test ! -d debian/po || debconf-updatepo
 	rm -f debian/$(pkg_driver).substvars
+	rm -f debian/dkms.conf
 
 override_dh_clean: regen-from-templates
 	dh_clean
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
-override_dh_auto_configure: prepare generate-nvidia-icd-json remove-stack-markings
+override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-json remove-stack-markings
 
 override_dh_install: generate-modaliases
+	# Use our custom dkms.conf file
+	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
+	echo "debian/dkms.conf         usr/src/$(pkg_driver)" >> $(CURDIR)/debian/$(pkg_kernel).install
+
+ifeq ($(DEB_HOST_ARCH),amd64)
+	# Make sure the UVM module is built
+	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
+endif
+
 	dh_install
 
 remove-stack-markings:
@@ -192,6 +203,9 @@ regen-from-templates:
 			-e "s|#AMD64_ONLY#|$(amd64_only)|g" \
 			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
 			-e "s|#FLAVOUR#|$(flavour)|g" \
+			-e "s|#DRIVERNAME#|$(pkg_driver)|g" \
+			-e "s|#VERSION#|$(version)|g" \
+			-e "s|#MODULENAME#|$(version)|g" \
 			$$i > $$dest;      \
 	done
 
@@ -210,7 +224,7 @@ get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTP
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
-override_dh_gencontrol: regen-from-templates
+override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
 		-V'xviddriver:Depends=$(xorg_depends)' \
 		-V'xviddriver:Provides=$(xorg_provides)' \
