@@ -1,0 +1,50 @@
+#!/bin/sh
+
+OPTION=FRAMEBUFFER
+PREREQ=""
+
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case $1 in
+# get pre-requisites
+prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+
+# Copy entire subtrees to the initramfs as long as they match a pattern
+copy_modules_dir_filter()
+{
+    local kmod exclude
+    local dir="$1"
+    shift
+    local pattern="$1"
+    shift
+
+    if ! [ -d "${MODULESDIR}/${dir}" ]; then
+        return;
+    fi
+    if [ "${verbose}" = "y" ]; then
+        echo "Copying module directory ${dir}"
+        if [ $# -ge 1 ]; then
+            echo "(excluding $*)"
+        fi
+    fi
+    while [ $# -ge 1 ]; do
+        exclude="${exclude:-} -name $1 -prune -o "
+        shift
+    done
+    for kmod in $(find "${MODULESDIR}/${dir}" ${exclude:-} -name "$pattern*.ko" -print); do
+        manual_add_modules $(basename ${kmod} .ko)
+    done
+}
+
+copy_modules_dir_filter updates/dkms nvidia
+
