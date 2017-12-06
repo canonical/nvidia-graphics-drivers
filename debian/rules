@@ -7,18 +7,8 @@ include /usr/share/dpkg/architecture.mk
 include /usr/share/dpkg/pkg-info.mk
 
 include debian/rules.defs
-#NVIDIA_LEGACY		?=
-#WATCH_VERSION		?= $(NVIDIA_LEGACY)
-#WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
-#LINUX_KMOD_TESTED	?=
-#NVIDIA_LEGACY_CHECK	?=
-#NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
-#ARCH_LIST		?= i386 amd64
-#ARCH_DEPS_i386		?=
-#UVM_ARCH_LIST		?= $(ARCH_LIST)
-#VULKAN_ARCH_LIST	?= i386 amd64
 
 version			 = $(DEB_VERSION_UPSTREAM)
 NVIDIA_RELEASE   = $(version)
@@ -143,7 +133,6 @@ override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-jso
 override_dh_install: generate-modaliases
 	# Use our custom dkms.conf file
 	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
-	echo "debian/dkms.conf         usr/src/$(pkg_driver)" >> $(CURDIR)/debian/$(pkg_kernel).install
 
 ifeq ($(DEB_HOST_ARCH),amd64)
 	# Make sure the UVM module is built
@@ -226,25 +215,8 @@ get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
-		-V'xviddriver:Depends=$(xorg_depends)' \
-		-V'xviddriver:Provides=$(xorg_provides)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)'
-#       -V'nvidia:Deb-Version-After:jessie=$(deb_version_after_jessie)' \
-#       -V'nvidia:xorgDepends=$(xorg_depends)' \
-#       -V'nvidia:xorgProvides=$(xorg_provides)' \
-#       -V'nvidia=$(nvidia)' \
-#       -V'libcuda1=$(libcuda1)' \
-#       -V'nvidia:Legacy=$(legacy)' \
-#       -V'nvidia:LegacyDesc=$(legacy_description)' \
-#       -V'nvidia:LegacyDescShort=$(legacy_description_short)' \
-#       -V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
-#       -V'nvidia-settings=$(NVIDIA_SETTINGS)' \
-#       -V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
-#       -V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
-#       -V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
-#       -Vnvidia:kmod:Description="`cat debian/control.kmod`" \
-#       -Vnvidia:Models="`cat debian/control.models`"
 
 generate-modaliases:
 	# Generate modaliases for the restricted drivers manager
