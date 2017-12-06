@@ -1,0 +1,366 @@
+Source: nvidia-graphics-drivers-384
+Section: non-free/libs
+Priority: optional
+Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Uploaders:
+ Alberto Milone <alberto.milone@canonical.com>,
+Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
+Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers/tree/384
+Build-Depends:
+ debhelper (>= 10),
+ dpkg-dev (>= 1.17),
+ xz-utils,
+ dkms,
+ libwayland-client0,
+ libwayland-server0,
+ libxext6 [!ppc64el],
+ quilt,
+ po-debconf,
+ libglvnd0,
+ execstack,
+ dh-modaliases,
+ xserver-xorg-dev (>= 2:1.4),
+Build-Conflicts:
+ libglvnd-dev,
+Standards-Version: 4.1.1
+Homepage: http://www.nvidia.com
+XS-Autobuild: yes
+
+Package: nvidia-driver-384
+Architecture: i386 amd64 armhf
+Depends:
+ libnvidia-gl-384 (= ${binary:Version}),
+ nvidia-kernel-384 (= ${binary:Version}),
+ nvidia-compute-384 (= ${binary:Version}),
+ libnvidia-decode-384 (= ${binary:Version}),
+ libnvidia-encode-384 (= ${binary:Version}),
+ nvidia-utils-384 (= ${binary:Version}),
+ xserver-xorg-video-nvidia-384 (= ${binary:Version}),
+ libnvidia-cfg1-384 (= ${binary:Version}),
+ libnvidia-ifr1-384 (= ${binary:Version}),
+ libnvidia-fbc1-384 (= ${binary:Version}),
+ ${misc:Depends}
+Recommends:
+ nvidia-settings,
+ nvidia-persistenced,
+Provides: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
+Conflicts: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
+Replaces: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
+Breaks:
+ nvidia-384,
+XB-Modaliases: ${modaliases}
+Description: NVIDIA driver metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland.
+ .
+ See /usr/share/doc/nvidia-driver-384/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-kernel-dkms-384
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Conflicts:
+ nvidia-dkms-kernel
+Replaces:
+ nvidia-dkms-kernel
+Provides:
+ nvidia-dkms-kernel
+Depends:
+ dkms,
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA DKMS package
+ This package builds the NVIDIA kernel module needed by the userspace
+ driver, using DKMS.
+ Provided that you have the kernel header packages installed, the kernel
+ module will be built for your running kernel, and automatically rebuilt for
+ any new kernel headers that are installed.
+
+Package: nvidia-utils-384
+Architecture: i386 amd64 armhf
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Suggests:
+ nvidia-driver-384,
+Provides:
+ nvidia-utils,
+Conflicts:
+ nvidia-utils,
+Replaces:
+ nvidia-utils,
+Description: NVIDIA driver support binaries
+ This package contains supporting binaries for the NVIDIA driver.
+
+Package: libnvidia-compute-384
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Depends:
+  ${misc:Depends}, ${shlibs:Depends}
+Recommends:
+ libnvidia-compute-384-i386 [amd64],
+Description: NVIDIA libcompute package
+ This package provides a set of libraries which enable the NVIDIA driver
+ to use GPUs for parallel general purpose computation through CUDA and
+ OpenCL.
+
+Package: libnvidia-compute-384-i386
+Architecture: i386
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA libcompute package
+ This package provides a set of 32 bit libraries which enable the NVIDIA
+ driver to use GPUs for parallel general purpose computation through CUDA
+ and OpenCL.
+
+Package: nvidia-compute-utils-384
+Architecture: i386 amd64 armhf
+Depends:
+ libnvidia-compute-384,
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA compute utilities
+ This package provides utility binaries for paraller general purpose
+ computing use cases with the NVIDIA driver.
+ .
+ CUDA MPS is a feature that allows multiple CUDA processes to share a single
+ GPU context. CUDA MPS should be transparent to CUDA programs.
+ .
+ CUDA MPS requires a device that supports Unified Virtual Address (UVA) and
+ has compute capability SM 3.5 or higher.
+ Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
+
+Package: nvidia-compute-384
+Architecture: i386 amd64 armhf
+Depends:
+ nvidia-kernel-384 (= ${binary:Version}),
+ libnvidia-compute-384 (= ${binary:Version}),
+ nvidia-compute-utils-384 (= ${binary:Version}),
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA computing metapackage
+ This metapackage installs the NVIDIA driver and the libraries that enable
+ parallel general purpose computation through CUDA and
+ OpenCL.
+ .
+ Install this package if you do not need X11 or Wayland support, which is
+ provided by the nvidia-driver-384 metapackage.
+
+Package: libnvidia-gl-384
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Depends:
+ libglvnd0, libegl1,
+ ${misc:Depends}, ${shlibs:Depends}
+Recommends:
+ libnvidia-gl-384-i386 [amd64]
+Provides:
+ libopengl0, libglx0,
+Conflicts:
+ libopengl0, libglx0, nvidia-384,
+Replaces:
+ libopengl0, libglx0,
+Description: NVIDIA OpenGL/GLX/EGL/GLES libraries and Vulkan ICD
+ This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
+ Vulkan ICD.
+
+Package: libnvidia-gl-384-i386
+Architecture: i386
+Multi-Arch: foreign
+Depends:
+# libglvnd0,
+ ${misc:Depends}, ${shlibs:Depends}
+Conflicts:
+ nvidia-384,
+Description: NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries)
+ This package provides the NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries.
+
+Package: xserver-xorg-video-nvidia-384
+Section: non-free/x11
+Architecture: i386 amd64 armhf
+Depends:
+ libnvidia-cfg1-384 (= ${binary:Version}),
+ ${nvidia:xorgDepends},
+ ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ xorg-driver-binary, nvidia-driver-binary,
+ ${nvidia:xorgProvides}
+Conflicts:
+ nvidia-384,
+Description: NVIDIA binary Xorg driver
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
+ .
+ See /usr/share/doc/nvidia-driver-384/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: libnvidia-cfg1-384
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-cfg1-any,
+Conflicts:
+ libnvidia-cfg1-any,
+Replaces:
+ libnvidia-cfg1-any,
+Description: NVIDIA binary OpenGL/GLX configuration library
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
+ .
+ This package contains the libnvidia-cfg.so.1 runtime library.
+
+Package: libnvidia-ifr1-384
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libnvidia-gl-384, libx11-6,
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ libnvidia-ifr1-384-i386 [amd64]
+Provides:
+ libnvidia-ifr1,
+Conflicts:
+ libnvidia-ifr1,
+Replaces:
+ libnvidia-ifr1,
+Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
+ The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
+ approved partners for use in remote graphics scenarios.
+ .
+ This package contains the NvIFROpenGL runtime library.
+
+Package: libnvidia-ifr1-384-i386
+Architecture: i386
+Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libnvidia-gl-384-i386,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA OpenGL-based Inband Frame Readback 32-bit runtime library
+ The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
+ approved partners for use in remote graphics scenarios.
+ .
+ This package contains the NvIFROpenGL 32-bit runtime library.
+
+Package: libnvidia-fbc1-384
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+# ${nvidia}-alternative (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ libnvidia-fbc1-384-i386 [amd64],
+Provides:
+ libnvidia-fbc1,
+Conflicts:
+ libnvidia-fbc1,
+Replaces:
+ libnvidia-fbc1,
+Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
+ The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
+ approved partners for use in remote graphics scenarios.
+ .
+ This package contains the NvFBCOpenGL runtime library.
+
+Package: libnvidia-fbc1-384-i386
+Architecture: i386
+Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA OpenGL-based Framebuffer Capture 32-bit runtime library
+ The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
+ approved partners for use in remote graphics scenarios.
+ .
+ This package contains the NvFBCOpenGL 32-bit runtime library.
+
+Package: libnvidia-decode-384
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libnvidia-compute-384 (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ libnvidia-decode-384-i386,
+Conflicts:
+ libnvidia-decode,
+Replaces:
+ libnvidia-decode,
+Provides:
+ libnvidia-decode,
+Description: NVIDIA Video Decoding runtime libraries
+ This package includes the NVIDIA CUDA Video Decoder (NVCUVID) library which
+ provides an interface to hardware video decoding capabilities on NVIDIA GPUs with CUDA.
+ .
+ The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
+ systems) library for the NVIDIA vendor implementation.
+
+Package: libnvidia-decode-384-i386
+Architecture: i386
+Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libnvidia-compute-384-i386,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA Video Decoding 32-bit runtime libraries
+ This package includes the NVIDIA CUDA Video Decoder (NVCUVID) 32-bit library which
+ provides an interface to hardware video decoding capabilities on NVIDIA GPUs with CUDA.
+ .
+ The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
+ systems) 32-bit library for the NVIDIA vendor implementation.
+
+Package: libnvidia-encode-384
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ libnvidia-encode-384-i386 [amd64],
+Conflicts:
+ libnvidia-encode,
+Provides:
+ libnvidia-encode
+Replaces:
+ libnvidia-encode
+Description: NVENC Video Encoding runtime library
+ The NVENC Video Encoding library provides an interface to video encoder
+ hardware on supported NVIDIA GPUs.
+ .
+ This package contains the nvidia-encode runtime library.
+
+Package: libnvidia-encode-384-i386
+Architecture: i386
+Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVENC Video Encoding 32-bit runtime library
+ The NVENC Video Encoding library provides an interface to video encoder
+ hardware on supported NVIDIA GPUs.
+ .
+ This package contains the nvidia-encode 32-bit runtime library.
+
