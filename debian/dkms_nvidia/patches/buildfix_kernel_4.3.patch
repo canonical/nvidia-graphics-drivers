@@ -1,0 +1,44 @@
+From 29130678d44c8ec1e2575608678ccbda26855cff Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 29 Oct 2015 12:58:45 +0100
+Subject: [PATCH 1/1] Add support for Linux 4.3
+
+Original patch:
+https://github.com/OpenELEC/OpenELEC.tv/commit/0c863255d905a0499cc8a3064b606818b794a6ce
+---
+ nv-procfs.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/nv-procfs.c b/nv-procfs.c
+index 5f85365..b6d69af 100644
+--- a/nv-procfs.c
++++ b/nv-procfs.c
+@@ -358,7 +358,12 @@ nv_procfs_read_registry(
+     registry_keys = ((nvl != NULL) ?
+             nvl->registry_keys : nv_registry_keys);
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+     return seq_printf(s, "Binary: \"%s\"\n", registry_keys);
++#else
++    seq_printf(s, "Binary: \"%s\"\n", registry_keys);
++    return 0;
++#endif
+ }
+ 
+ static ssize_t
+@@ -558,7 +563,12 @@ nv_procfs_read_text_file(
+     void *v
+ )
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 3, 0)
+     return seq_puts(s, s->private);
++#else
++    seq_puts(s, s->private);
++    return 0;
++#endif
+ }
+ 
+ NV_DEFINE_PROCFS_SINGLE_FILE(text_file);
+-- 
+1.9.1
+
