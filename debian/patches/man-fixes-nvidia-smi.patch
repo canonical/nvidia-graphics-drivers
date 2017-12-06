@@ -1,0 +1,329 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: fix hyphenation and spelling in nvidia-smi.1
+
+--- a/NVIDIA-Linux/nvidia-smi.1
++++ b/NVIDIA-Linux/nvidia-smi.1
+@@ -8,7 +8,7 @@
+ 
+ .SH "SYNOPSIS"
+ .PP
+-nvidia-smi [OPTION1 [ARG1]] [OPTION2 [ARG2]] ...
++nvidia\-smi [OPTION1 [ARG1]] [OPTION2 [ARG2]] ...
+ 
+ 
+ .PP 
+@@ -85,7 +85,7 @@
+ Flags can be combined with comma e.g.
+ "MEMORY,ECC".
+ Sampling data with max, min and avg is also returned for POWER, UTILIZATION and CLOCK display types.
+-Doesn\(aqt work with -u/--unit or -x/--xml-format flags.
++Doesn\(aqt work with \-u/\-\-unit or \-x/\-\-xml-format flags.
+ 
+ 
+ .SS "\-l SEC, \-\-loop=SEC"
+@@ -225,7 +225,7 @@
+ Optional \fI\-i\fR switch can be used to target one or more specific devices.
+ Without this option, all GPUs are reset.
+ Requires root.
+-There can\(aqt be any applications using these devices (e.g. CUDA application, graphics application like X server, monitoring application like other instance of nvidia-smi).
++There can\(aqt be any applications using these devices (e.g. CUDA application, graphics application like X server, monitoring application like other instance of nvidia\-smi).
+ There also can\(aqt be any compute applications running on any other GPU in the system.
+ 
+ When resetting GPUs that have active NVLink connections to other GPUs, all GPUs with active NVLink connections must be reset together, either by omitting the \fI\-i\fR switch or using the \fI\-i\fR switch to specify all GPUs with active NVLink connections.
+@@ -261,7 +261,7 @@
+ Accepts integer and floating point numbers.
+ Only on supported devices from Kepler family.
+ Requires administrator privileges.
+-Value needs to be between Min and Max Power Limit as reported by nvidia-smi.
++Value needs to be between Min and Max Power Limit as reported by nvidia\-smi.
+ 
+ .SS "\-am, \-\-accounting\-mode=MODE"
+ Enables or disables GPU Accounting.
+@@ -336,10 +336,10 @@
+ Display Unit DTD instead of device DTD.
+ 
+ .SS "stats"
+-Display statistics information about the GPU.  Use "nvidia-smi stats -h" for more information.  Linux only.
++Display statistics information about the GPU.  Use "nvidia-smi stats \-h" for more information.  Linux only.
+ 
+ .SS "topo"
+-Display topology information about the system.  Use "nvidia-smi topo -h" for more information.  Linux only.
++Display topology information about the system.  Use "nvidia-smi topo \-h" for more information.  Linux only.
+ Shows all GPUs NVML is able to detect but CPU affinity information will only be shown for GPUs with Kepler or
+ newer architectures.
+ Note: GPU enumeration is the same as NVML.
+@@ -424,7 +424,7 @@
+ .SS "Persistence Mode"
+ A flag that indicates whether persistence mode is enabled for the GPU.
+ Value is either "Enabled" or "Disabled".
+-When persistence mode is enabled the NVIDIA driver remains loaded even when no active clients, such as X11 or nvidia-smi, exist.
++When persistence mode is enabled the NVIDIA driver remains loaded even when no active clients, such as X11 or nvidia\-smi, exist.
+ This minimizes the driver load latency associated with running dependent apps, such as CUDA programs.
+ For all CUDA-capable products.
+ Linux only.
+@@ -434,7 +434,7 @@
+ Value is either \"Enabled\" or \"Disabled\"
+ When accounting is enabled statistics are calculated for each compute process running on the GPU.
+ Statistics can be queried during the lifetime or after termination of the process. The execution time of process is reported as 0 while the process is in running state and updated to actual execution time after the process has terminated.
+-See --help-query-accounted-apps for more info.
++See \-\-help\-query\-accounted\-apps for more info.
+ 
+ .SS "Accounting Mode Buffer Size"
+ Returns the size of the circular buffer that holds list of processes that can be queried for accounting stats.
+@@ -508,7 +508,7 @@
+ 
+ 
+ .SS "GPU Operation Mode"
+-GOM allows to reduce power usage and optimize GPU throughput by disabling GPU features.
++GOM allows one to reduce power usage and optimize GPU throughput by disabling GPU features.
+ 
+ Each GOM is designed to meet specific user needs.
+ 
+@@ -841,7 +841,7 @@
+ 
+ .TP 15
+ .B "Power Limit"
+-The software power limit, in watts.  Set by software such as nvidia-smi.
++The software power limit, in watts.  Set by software such as nvidia\-smi.
+ Only available if power management is supported.
+ Requires Inforom PWR object version 3.0 or higher or Kepler device.
+ On Kepler devices Power Limit can be adjusted using \-pl,\-\-power\-limit= switches.
+@@ -1372,7 +1372,7 @@
+ .PP
+ .SH "UNIT ATTRIBUTES"
+ .PP
+-The following list describes all possible data returned by the \fB\-q -u\fR unit query option.
++The following list describes all possible data returned by the \fB\-q \-u\fR unit query option.
+ Unless otherwise noted all numerical results are base 10 and unitless.
+ 
+ .SS "Timestamp"
+@@ -1484,7 +1484,7 @@
+ .PP
+ .SH "NOTES"
+ .PP
+-On Linux, NVIDIA device files may be modified by nvidia-smi if run as root.
++On Linux, NVIDIA device files may be modified by nvidia\-smi if run as root.
+ Please see the relevant section of the driver README file.
+ 
+ .PP
+@@ -1502,7 +1502,7 @@
+ Query ECC errors and power consumption for GPU 0 at a frequency of 10 seconds, indefinitely, and record to the file out.log.
+ .SS 
+ "nvidia\-smi -c 1 -i GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8"
+-Set the compute mode to "PROHIBITED" for GPU with UUID "GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8".
++Set the compute mode to "PROHIBITED" for GPU with UUID "GPU-b2f5f1b745e3d23d-65a3a26d-097db358-7303e0b6-149642ff3d219f8587cde3a8".
+ .SS "nvidia\-smi -q -u -x --dtd"
+ Query attributes for all Units once, and display in XML format with embedded DTD to stdout.
+ .SS "nvidia\-smi --dtd -u -f nvsmi_unit.dtd"
+@@ -1589,13 +1589,13 @@
+   * Added support for K40d and K80.
+ .PP 1
+ 
+-  * Added reporting of max, min and avg for samples (power, utilization, clock changes). Example commandline: nvidia-smi -q -d power,utilization, clock
++  * Added reporting of max, min and avg for samples (power, utilization, clock changes). Example commandline: nvidia-smi \-q \-d power,utilization, clock
+ .PP 1
+ 
+   * Added nvidia-smi stats interface to collect statistics such as power, utilization, clock changes, xid events and perf capping counters with a notion of time attached to each sample. Example commandline: nvidia-smi stats
+ .PP 1
+ 
+-  * Added support for collectively reporting metrics on more than one GPU. Used with comma separated with "-i" option. Example: nvidia-smi -i 0,1,2
++  * Added support for collectively reporting metrics on more than one GPU. Used with comma separated with "\-i" option. Example: nvidia-smi \-i 0,1,2
+ .PP 1
+ 
+   * Added support for displaying the GPU encoder and decoder utilizations
+@@ -1628,19 +1628,19 @@
+  
+ .PP 1
+ 
+-  === Changes between nvidia-smi v4.319 Production and v4.319 Update ===
++  === Changes between nvidia\-smi v4.319 Production and v4.319 Update ===
+ .PP 1
+ 
+  
+ .PP 1
+ 
+-  * Added new --applications-clocks-permission switch to change permission requirements for setting and resetting applications clocks.
++  * Added new \-\-applications\-clocks\-permission switch to change permission requirements for setting and resetting applications clocks.
+ .PP 1
+ 
+  
+ .PP 1
+ 
+-  === Changes between nvidia-smi v4.304 and v4.319 Production ===
++  === Changes between nvidia\-smi v4.304 and v4.319 Production ===
+ .PP 1
+ 
+  
+@@ -1649,13 +1649,13 @@
+   * Added reporting of Display Active state and updated documentation to clarify how it differs from Display Mode and Display Active state
+ .PP 1
+ 
+-  * For consistency on multi-GPU boards nvidia-smi -L always displays UUID instead of serial number
++  * For consistency on multi-GPU boards nvidia\-smi \-L always displays UUID instead of serial number
+ .PP 1
+ 
+-  * Added machine readable selective reporting. See SELECTIVE QUERY OPTIONS section of nvidia-smi -h
++  * Added machine readable selective reporting. See SELECTIVE QUERY OPTIONS section of nvidia\-smi \-h
+ .PP 1
+ 
+-  * Added queries for page retirement information.  See --help-query-retired-pages and -d PAGE_RETIREMENT
++  * Added queries for page retirement information.  See \-\-help\-query\-retired\-pages and \-d PAGE_RETIREMENT
+ .PP 1
+ 
+   * Renamed Clock Throttle Reason User Defined Clocks to Applications Clocks Setting
+@@ -1664,16 +1664,16 @@
+   * On error, return codes have distinct non zero values for each error class. See RETURN VALUE section
+ .PP 1
+ 
+-  * nvidia-smi -i can now query information from healthy GPU when there is a problem with other GPU in the system
++  * nvidia\-smi \-i can now query information from healthy GPU when there is a problem with other GPU in the system
+ .PP 1
+ 
+   * All messages that point to a problem with a GPU print pci bus id of a GPU at fault
+ .PP 1
+ 
+-  * New flag --loop-ms for querying information at higher rates than once a second (can have negative impact on system performance)
++  * New flag \-\-loop\-ms for querying information at higher rates than once a second (can have negative impact on system performance)
+ .PP 1
+ 
+-  * Added queries for accounting procsses.  See --help-query-accounted-apps and -d ACCOUNTING
++  * Added queries for accounting procsses.  See \-\-help\-query\-accounted\-apps and \-d ACCOUNTING
+ .PP 1
+ 
+   * Added the enforced power limit to the query output
+@@ -1682,7 +1682,7 @@
+  
+ .PP 1
+ 
+-  === Changes between nvidia-smi v4.304 RC and v4.304 Production ===
++  === Changes between nvidia\-smi v4.304 RC and v4.304 Production ===
+ .PP 1
+ 
+  
+@@ -1691,13 +1691,13 @@
+   * Added reporting of GPU Operation Mode (GOM)
+ .PP 1
+ 
+-  * Added new --gom switch to set GPU Operation Mode
++  * Added new \-\-gom switch to set GPU Operation Mode
+ .PP 1
+ 
+  
+ .PP 1
+ 
+-  === Changes between nvidia-smi v3.295 and v4.304 RC ===
++  === Changes between nvidia\-smi v3.295 and v4.304 RC ===
+ .PP 1
+ 
+  
+@@ -1712,10 +1712,10 @@
+   * Better error handling when NVML shared library is not present in the system
+ .PP 1
+ 
+-  * Added new --applications-clocks switch
++  * Added new \-\-applications-clocks switch
+ .PP 1
+ 
+-  * Added new filter to --display switch. Run with -d SUPPORTED_CLOCKS to list possible clocks on a GPU
++  * Added new filter to \-\-display switch. Run with \-d SUPPORTED_CLOCKS to list possible clocks on a GPU
+ .PP 1
+ 
+   * When reporting free memory, calculate it from the rounded total and used memory so that values add up
+@@ -1724,7 +1724,7 @@
+   * Added reporting of power management limit constraints and default limit
+ .PP 1
+ 
+-  * Added new --power-limit switch
++  * Added new \-\-power\-limit switch
+ .PP 1
+ 
+   * Added reporting of texture memory ECC errors
+@@ -1736,7 +1736,7 @@
+  
+ .PP 1
+ 
+-  === Changes between nvidia-smi v2.285 and v3.295 ===
++  === Changes between nvidia\-smi v2.285 and v3.295 ===
+ .PP 1
+ 
+   
+@@ -1748,7 +1748,7 @@
+   * When running commands on multiple GPUs at once N/A errors are treated as warnings.
+ .PP 1
+ 
+-  * nvidia-smi -i now also supports UUID
++  * nvidia\-smi \-i now also supports UUID
+ .PP 1
+ 
+   * UUID format changed to match UUID standard and will report a different value.
+@@ -1757,7 +1757,7 @@
+  
+ .PP 1
+ 
+-  === Changes between nvidia-smi v2.0 and v2.285 ===
++  === Changes between nvidia\-smi v2.0 and v2.285 ===
+ .PP 1
+ 
+   
+@@ -1766,7 +1766,7 @@
+   * Report VBIOS version.
+ .PP 1
+ 
+-  * Added -d/--display flag to filter parts of data
++  * Added \-d/\-\-display flag to filter parts of data
+ .PP 1
+ 
+   * Added reporting of PCI Sub System ID
+@@ -1775,13 +1775,13 @@
+   * Updated docs to indicate we support M2075 and C2075
+ .PP 1
+ 
+-  * Report HIC HWBC firmware version with -u switch
++  * Report HIC HWBC firmware version with \-u switch
+ .PP 1
+ 
+   * Report max(P0) clocks next to current clocks
+ .PP 1
+ 
+-  * Added --dtd flag to print the device or unit DTD
++  * Added \-\-dtd flag to print the device or unit DTD
+ .PP 1
+ 
+   * Added message when NVIDIA driver is not running
+@@ -1793,19 +1793,19 @@
+   * Getting pending driver model works on non-admin
+ .PP 1
+ 
+-  * Added support for running nvidia-smi on Windows Guest accounts
++  * Added support for running nvidia\-smi on Windows Guest accounts
+ .PP 1
+ 
+-  * Running nvidia-smi without -q command will output non verbose version of -q instead of help
++  * Running nvidia\-smi without \-q command will output non verbose version of \-q instead of help
+ .PP 1
+ 
+-  * Fixed parsing of -l/--loop= argument (default value, 0, to big value)
++  * Fixed parsing of \-l/\-\-loop= argument (default value, 0, to big value)
+ .PP 1
+ 
+   * Changed format of pciBusId (to XXXX:XX:XX.X - this change was visible in 280)
+ .PP 1
+ 
+-  * Parsing of busId for -i command is less restrictive. You can pass 0:2:0.0 or 0000:02:00 and other variations
++  * Parsing of busId for \-i command is less restrictive. You can pass 0:2:0.0 or 0000:02:00 and other variations
+ .PP 1
+ 
+   * Changed versioning scheme to also include "driver version"
+@@ -1814,10 +1814,10 @@
+   * XML format always conforms to DTD, even when error conditions occur
+ .PP 1
+ 
+-  * Added support for single and double bit ECC events and XID errors (enabled by default with -l flag disabled for -x flag)
++  * Added support for single and double bit ECC events and XID errors (enabled by default with \-l flag disabled for \-x flag)
+ .PP 1
+ 
+-  * Added device reset -r --gpu-reset flags
++  * Added device reset \-r \-\-gpu\-reset flags
+ .PP 1
+ 
+   * Added listing of compute running processes 
