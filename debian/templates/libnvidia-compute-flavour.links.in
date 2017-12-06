@@ -1,0 +1,7 @@
+#LIBDIR#/libnvidia-ml.so.384.90                                                 #LIBDIR#/libnvidia-ml.so.1
+#LIBDIR#/libnvidia-ml.so.1                                                      #LIBDIR#/libnvidia-ml.so
+#LIBDIR#/libcuda.so.384.90                                                      #LIBDIR#/libcuda.so.1
+#LIBDIR#/libcuda.so.1                                                           #LIBDIR#/libcuda.so
+#LIBDIR#/libnvidia-opencl.so.384.90                                             #LIBDIR#/libnvidia-opencl.so.1
+#LIBDIR#/libnvidia-ptxjitcompiler.so.384.90                                     #LIBDIR#/libnvidia-ptxjitcompiler.so.1
+#LIBDIR#/libnvidia-ptxjitcompiler.so.1                                          #LIBDIR#/libnvidia-ptxjitcompiler.so

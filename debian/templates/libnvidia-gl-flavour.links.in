@@ -1,0 +1,9 @@
+#LIBDIR#/xorg/extra-modules/libglx.so.384.90                                    #LIBDIR#/xorg/extra-modules/libglx.so
+#LIBDIR#/libGLX_nvidia.so.384.90                                                #LIBDIR#/libGLX_nvidia.so.0
+#LIBDIR#/libGLX_nvidia.so.384.90                                                #LIBDIR#/libGLX_indirect.so.0
+#LIBDIR#/libGLESv1_CM.so.1                                                      #LIBDIR#/libGLESv1_CM.so
+#LIBDIR#/libGLESv2.so.2                                                         #LIBDIR#/libGLESv2.so
+#LIBDIR#/libEGL_nvidia.so.384.90                                                #LIBDIR#/libEGL_nvidia.so.0
+#LIBDIR#/libGLESv2_nvidia.so.384.90                                             #LIBDIR#/libGLESv2_nvidia.so.2
+#LIBDIR#/libGLESv1_CM_nvidia.so.384.90                                          #LIBDIR#/libGLESv1_CM_nvidia.so.1
+#LIBDIR#/libnvidia-egl-wayland.so.1.0.1                                         #LIBDIR#/libnvidia-egl-wayland.so.1

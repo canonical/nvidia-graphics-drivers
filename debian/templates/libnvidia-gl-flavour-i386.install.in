@@ -1,0 +1,11 @@
+NVIDIA-Linux/32/libGLESv2.so.2                                       #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libGLESv1_CM.so.1                                    #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libGLX_nvidia.so.384.90                              #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libnvidia-glcore.so.384.90                           #LIBDIR_COMPAT#
+#ARM_EXCLUDED#NVIDIA-Linux/32/libnvidia-tls.so.384.90                #LIBDIR_COMPAT#/
+#ARM_EXCLUDED#NVIDIA-Linux/32/tls/libnvidia-tls.so.384.90            #LIBDIR_COMPAT#/tls
+NVIDIA-Linux/32/libnvidia-eglcore.so.384.90                          #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libnvidia-glsi.so.384.90                             #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libEGL_nvidia.so.384.90                              #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libGLESv2_nvidia.so.384.90                           #LIBDIR_COMPAT#
+NVIDIA-Linux/32/libGLESv1_CM_nvidia.so.384.90                        #LIBDIR_COMPAT#
