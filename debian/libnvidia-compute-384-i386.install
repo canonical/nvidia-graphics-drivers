@@ -1,0 +1,6 @@
+NVIDIA-Linux/32/libcuda.so.384.90                                    usr/lib/i386-linux-gnu
+NVIDIA-Linux/32/libnvidia-fatbinaryloader.so.384.90                  usr/lib/i386-linux-gnu
+NVIDIA-Linux/32/libnvidia-ptxjitcompiler.so.384.90                   usr/lib/i386-linux-gnu
+NVIDIA-Linux/32/libnvidia-ml.so.384.90                               usr/lib/i386-linux-gnu
+NVIDIA-Linux/32/libnvidia-compiler.so.384.90                         usr/lib/i386-linux-gnu
+NVIDIA-Linux/32/libnvidia-opencl.so.384.90                           usr/lib/i386-linux-gnu
