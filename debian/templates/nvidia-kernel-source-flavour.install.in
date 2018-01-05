@@ -25,10 +25,12 @@ NVIDIA-Linux/kernel/nvidia/nv-pci-table.c                            usr/src/nvi
 NVIDIA-Linux/kernel/nvidia/nv-kthread-q.c                            usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nv-kthread-q-selftest.c                   usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nv-memdbg.c                               usr/src/nvidia-#VERSION#
+NVIDIA-Linux/kernel/nvidia/nv-report-err.c                           usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/conftest.sh                                      usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv.h                                  usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv-pgprot.h                           usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv-mm.h                               usr/src/nvidia-#VERSION#
+NVIDIA-Linux/kernel/common/inc/nv-timer.h                            usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv-kref.h                             usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv-list-helpers.h                     usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv-linux.h                            usr/src/nvidia-#VERSION#
@@ -49,6 +51,7 @@ NVIDIA-Linux/kernel/common/inc/nv-kthread-q.h                        usr/src/nvi
 NVIDIA-Linux/kernel/common/inc/nv-lock.h                             usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nv-pat.h                                  usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv-gpu-numa.h                         usr/src/nvidia-#VERSION#
+NVIDIA-Linux/kernel/nvidia/nv-report-err.h                           usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nv_uvm_interface.c                        usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv_uvm_interface.h                    usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/common/inc/nv_uvm_types.h                        usr/src/nvidia-#VERSION#
@@ -289,11 +292,10 @@ NVIDIA-Linux/kernel/nvidia/nvlink_proto.h                            usr/src/nvi
 NVIDIA-Linux/kernel/nvidia/nvlink_errors.h                           usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nvlink_pci.h                              usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nvlink_export.h                           usr/src/nvidia-#VERSION#
-debian/copy-nvidia-options                                           usr/share/initramfs-tools/hooks
 debian/71-nvidia.rules                                               lib/udev/rules.d
-debian/dkms.conf                                                     usr/src/nvidia-#VERSION#
-debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d
 debian/dkms_nvidia/patches/*                                         usr/src/nvidia-#VERSION#/patches
-debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
-debian/create-uvm-dev-node                                           sbin
 debian/nvidia-persistenced.service                                   lib/systemd/system
+debian/create-uvm-dev-node                                           sbin
+debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
+debian/copy-nvidia-options                                           usr/share/initramfs-tools/hooks
+debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d

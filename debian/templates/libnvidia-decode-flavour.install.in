@@ -1,2 +1,2 @@
-NVIDIA-Linux/libvdpau_nvidia.so.384.90                               #LIBDIR#
-NVIDIA-Linux/libnvcuvid.so.384.90                                    #LIBDIR#
+NVIDIA-Linux/libvdpau_nvidia.so.384.111                              #LIBDIR#
+NVIDIA-Linux/libnvcuvid.so.384.111                                   #LIBDIR#
