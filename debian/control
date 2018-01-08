@@ -21,7 +21,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced, nvidia-
 Conflicts: xorg-driver-binary, nvidia-persistenced, nvidia-smi
 Replaces: xorg-driver-binary, nvidia-persistenced, nvidia-smi
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 384.90
+Description: NVIDIA binary driver - version 384.111
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -32,12 +32,12 @@ Description: NVIDIA binary driver - version 384.90
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-384.90-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-384.111-driver.html
  .
 
 Package: nvidia-384-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-384 (>= 384.90)
+Depends: ${misc:Depends}, nvidia-384 (>= 384.111)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
@@ -49,11 +49,11 @@ Package: libcuda1-384
 Architecture: i386 amd64 armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
 Breaks: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
 Replaces: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
