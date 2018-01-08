@@ -1,8 +1,26 @@
-nvidia-graphics-drivers-384 (384.111-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.111-0ubuntu0.14.04.1) trusty; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE-2017-5753 (LP: #1741807).
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce MX130
+      o GeForce MX110
+      o GeForce GTX 1050 Ti with Max-Q Design
+      o Quadro P500
+    - Fixed a regression that prevented displays connected via some
+      types of passive adapters (e.g. DMS-59 to VGA or DVI) from
+      working correctly. The regression was introduced with driver
+      version 384.98.
+    - Fixed a bug that caused Quadro M2200 GPUs to enter the lowest
+      available PowerMizer performance level when under load.
+  * debian/templates/control.in:
+    - Add Replaces/Conflicts/Provide for libcuda-9.0-1.
+      Thanks to Graham Inggs for his contribution.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_4.14.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jan 2018 16:11:07 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jan 2018 16:11:38 +0100
 
 nvidia-graphics-drivers-384 (384.90-0ubuntu0.14.04.1) trusty; urgency=medium
 
