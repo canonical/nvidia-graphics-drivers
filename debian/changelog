@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-384 (384.111-0ubuntu0.16.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 08 Jan 2018 15:22:04 +0100
+
 nvidia-graphics-drivers-384 (384.90-0ubuntu0.16.04.3) xenial-proposed; urgency=medium
 
   * debian/templates/nvidia-graphics-drivers.postinst.in:
