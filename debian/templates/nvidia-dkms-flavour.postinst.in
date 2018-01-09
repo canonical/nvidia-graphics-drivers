@@ -1,0 +1,196 @@
+#!/bin/sh
+# postinst script for nvidia-dkms-384
+#
+# see: dh_installdeb(1)
+#
+# Copyright (C) 2007-2008 Mario Limonciello
+# Copyright (C) 2009 Canonical Ltd
+# Authors: Alberto Milone
+set -e
+
+PACKAGE_NAME=nvidia
+CVERSION=#VERSION#
+CVERSION=${CVERSION#*really.}
+
+NVPD_USER="nvidia-persistenced"
+
+INIT_DIR="/lib/systemd/system"
+INIT_SCRIPT_NAME="$PACKAGE_NAME.service"
+INIT_SCRIPT="$INIT_DIR/$INIT_SCRIPT_NAME"
+TMP_FILE="/tmp/do_not_build_dkms_module"
+
+ARCH=`dpkg --print-architecture`
+case $ARCH in
+    amd64)
+        ARCH="x86_64"
+        ;;
+    lpia)
+        ARCH="i686"
+        ;;
+    i386)
+        ARCH="i686"
+        ;;
+    armhf)
+        ARCH="armhf"
+        ;;
+    *)
+        echo "WARNING: unsupported arch: $ARCH"
+        ARCH="$ARCH"
+        ;;
+esac
+
+# Check the existence of a kernel named as $1
+_is_kernel_name_correct() {
+    CORRECT="no"
+    KERNEL_NAME=$1
+ 
+    for kernel in /boot/config-*; do
+        [ -f "$kernel" ] || continue
+        KERNEL=${kernel#*-}
+        if [ "${KERNEL}" = "${KERNEL_NAME}" ]; then
+            CORRECT="yes"
+            break
+        fi
+    done
+
+    echo $CORRECT
+}
+
+# Get the most recent kernel on Debian based systems. This keeps
+# into account both the version and the ABI. If the current kernel
+# is the most recent kernel then the function will print a null string.
+_get_newest_kernel_debian() {
+    NEWEST_KERNEL=
+    NEWEST_VERSION=
+    NEWEST_ABI=
+
+    for kernel in /boot/config-*; do
+        [ -f "$kernel" ] || continue
+        KERNEL=${kernel#*-}
+        KERNEL_VERSION=${KERNEL%-*}
+        ABI=${KERNEL#*-}
+        ABI=${ABI%-*}
+
+        if [ -z "$NEWEST_KERNEL" ]; then
+            # The 1st time get a version which is bigger than $1
+            COMPARE_TO=$1
+        else
+            # Get the biggest version
+            COMPARE_TO="$NEWEST_VERSION-$NEWEST_ABI"
+        fi
+
+        # if $kernel is greater than $COMPARE_TO
+        if [ `dpkg --compare-versions "$KERNEL_VERSION-$ABI" gt "$COMPARE_TO" && echo "yes" ||               echo "no"` = "yes" ]; then
+            NEWEST_KERNEL=$KERNEL
+            NEWEST_VERSION=$KERNEL_VERSION
+            NEWEST_ABI=$ABI
+        fi
+    done
+
+    echo "$NEWEST_KERNEL"
+}
+
+
+get_newest_kernel() {
+    NEWEST_KERNEL=
+    # Try Debian first as rpm can be installed in Debian based distros
+    if [ -e /usr/bin/dpkg ]; then
+        # If DEB based
+        CURRENT_KERNEL=$1
+        CURRENT_VERSION=${CURRENT_KERNEL%-*}
+        CURRENT_ABI=${CURRENT_KERNEL#*-}
+        CURRENT_FLAVOUR=${CURRENT_ABI#*-}
+        CURRENT_ABI=${CURRENT_ABI%-*}
+        NEWEST_KERNEL=$(_get_newest_kernel_debian "$CURRENT_VERSION-$CURRENT_ABI")
+
+    elif [ `which rpm &>/dev/null` ]; then
+        # If RPM based
+        NEWEST_KERNEL=$(_get_newest_kernel_rhel)
+    fi
+
+    # Make sure that kernel name that we extracted corresponds to an installed
+    # kernel
+    if [ -n "$NEWEST_KERNEL" ] && [ `_is_kernel_name_correct $NEWEST_KERNEL` = "no" ]; then
+        NEWEST_KERNEL=
+    fi
+
+    echo $NEWEST_KERNEL
+}
+
+case "$1" in
+    configure)
+        # Deal with alternatives
+
+        # Clean up any previous non-multi-arch alternatives
+        if [ -n "$(update-alternatives --list gl_conf 2>/dev/null)" ]; then
+            set -a $(update-alternatives --list gl_conf 2>/dev/null)
+            while [ $# -ge 1 ] && [ "$#" != "configure" ]; do
+                ALTERNATIVE=${1}
+                update-alternatives --remove gl_conf $ALTERNATIVE
+                shift
+            done
+        fi
+
+
+        CURRENT_KERNEL=$(uname -r)
+        NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
+
+        # Update initramfs so that the blacklist ends up in the initramfs
+        if [ -x /usr/sbin/update-initramfs ]; then
+            /usr/sbin/update-initramfs -u
+
+            if [ -n "$NEWEST_KERNEL" ] && [ ${CURRENT_KERNEL} != ${NEWEST_KERNEL} ]; then
+                # This can fail when dealing with a chroot see LP: #556653
+                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL
+            fi
+        fi
+
+        # Enable any quirks for the driver
+        if [ `which quirks-handler` ]; then
+           quirks-handler -e $PACKAGE_NAME -v
+        fi
+
+        if ! id "$NVPD_USER" > /dev/null 2>&1; then
+            # Create the user and group for nvidia-persistenced
+            adduser --system --no-create-home --home '/'             --shell '/sbin/nologin'             --gecos 'NVIDIA Persistence Daemon'             --group "$NVPD_USER"
+        fi
+
+        # If the delayed module build feature is enabled
+        # i.e. if $DONT_BUILD_MODULE is set to 1
+        # or if $TMP_FILE exists
+        if [ "${DONT_BUILD_MODULE}1" -eq "11" ] || [ -e $TMP_FILE ]; then
+            # Do not build the module and create
+            # the Upstart script which will
+            # build the module on next boot
+            cat > $INIT_SCRIPT <<EOF
+# Warning: This file is autogenerated by $PACKAGE_NAME. All changes to this file will be lost.
+
+[Unit]
+Description=Detect the available GPUs and deal with any system changes
+Before=display-manager.service oem-config.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -ec '    /usr/sbin/dkms add -m $PACKAGE_NAME -v $CVERSION;     /usr/lib/dkms/dkms_autoinstaller start || ( rm -f $INIT_SCRIPT && exit 1 );     /sbin/modprobe $PACKAGE_NAME || true ;     /bin/systemctl disable $INIT_SCRIPT_NAME || true ;     rm -f $INIT_SCRIPT'
+
+[Install]
+WantedBy=display-manager.service oem-config.service
+EOF
+            /bin/systemctl enable $INIT_SCRIPT_NAME
+        else
+            # Build the kernel module
+            /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
+            exit $?
+        fi
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+            echo "postinst called with unknown argument \`$1'" >&2
+            exit 1
+    ;;
+esac
+
+#DEBHELPER#

@@ -293,9 +293,9 @@ NVIDIA-Linux/kernel/nvidia/nvlink_errors.h                           usr/src/nvi
 NVIDIA-Linux/kernel/nvidia/nvlink_pci.h                              usr/src/nvidia-#VERSION#
 NVIDIA-Linux/kernel/nvidia/nvlink_export.h                           usr/src/nvidia-#VERSION#
 debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
-debian/nvidia-persistenced.service                                   lib/systemd/system
 debian/71-nvidia.rules                                               lib/udev/rules.d
+debian/nvidia-persistenced.service                                   lib/systemd/system
 debian/copy-nvidia-options                                           usr/share/initramfs-tools/hooks
+debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d
 debian/dkms_nvidia/patches/*                                         usr/src/nvidia-#VERSION#/patches
 debian/create-uvm-dev-node                                           sbin
-debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d
