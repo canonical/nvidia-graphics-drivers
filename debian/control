@@ -30,7 +30,7 @@ Package: nvidia-driver-384
 Architecture: i386 amd64 armhf
 Depends:
  libnvidia-gl-384 (= ${binary:Version}),
- nvidia-kernel-384 (= ${binary:Version}),
+ nvidia-dkms-384 (= ${binary:Version}),
  nvidia-compute-384 (= ${binary:Version}),
  libnvidia-decode-384 (= ${binary:Version}),
  libnvidia-encode-384 (= ${binary:Version}),
@@ -57,7 +57,22 @@ Description: NVIDIA driver metapackage
  See /usr/share/doc/nvidia-driver-384/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-kernel-dkms-384
+Package: nvidia-kernel-source-384
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Conflicts:
+ nvidia-kernel-source
+Replaces:
+ nvidia-kernel-source
+Provides:
+ nvidia-kernel-source
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA kernel source package
+ This package provides the NVIDIA kernel source needed by the userspace
+ driver.
+
+Package: nvidia-dkms-384
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Conflicts:
@@ -67,7 +82,7 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms,
+ dkms, nvidia-kernel-source-384
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -129,12 +144,27 @@ Description: NVIDIA compute utilities
  has compute capability SM 3.5 or higher.
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
+Package: nvidia-compute-no-dkms-384
+Architecture: i386 amd64 armhf
+Depends:
+ nvidia-kernel-source-384 (= ${binary:Version}),
+ libnvidia-compute-384 (= ${binary:Version}),
+ nvidia-compute-utils-384 (= ${binary:Version}),
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA computing metapackage - no DKMS
+ This metapackage installs the NVIDIA driver and the libraries that enable
+ parallel general purpose computation through CUDA and
+ OpenCL. DKMS will not be installed, and, therefore, the kernel module
+ will not be built.
+ .
+ Install this package if you do not need X11 or Wayland support, which is
+ provided by the nvidia-driver-384 metapackage.
+
 Package: nvidia-compute-384
 Architecture: i386 amd64 armhf
 Depends:
- nvidia-kernel-384 (= ${binary:Version}),
- libnvidia-compute-384 (= ${binary:Version}),
- nvidia-compute-utils-384 (= ${binary:Version}),
+ nvidia-compute-no-dkms-384,
+ nvidia-dkms-384,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA computing metapackage
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -148,16 +178,12 @@ Package: libnvidia-gl-384
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
- libglvnd0, libegl1,
+ libglvnd0, libegl1, libopengl0, libglx0,
  ${misc:Depends}, ${shlibs:Depends}
 Recommends:
  libnvidia-gl-384-i386 [amd64]
-Provides:
- libopengl0, libglx0,
 Conflicts:
- libopengl0, libglx0, nvidia-384,
-Replaces:
- libopengl0, libglx0,
+ nvidia-384,
 Description: NVIDIA OpenGL/GLX/EGL/GLES libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
