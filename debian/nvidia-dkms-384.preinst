@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-384
+# preinst script for nvidia-dkms-384
 #
 # see: dh_installdeb(1)
 #

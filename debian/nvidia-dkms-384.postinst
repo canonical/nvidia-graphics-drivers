@@ -1,11 +1,15 @@
 #!/bin/sh
+# postinst script for nvidia-dkms-384
+#
+# see: dh_installdeb(1)
+#
 # Copyright (C) 2007-2008 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
 # Authors: Alberto Milone
 set -e
 
-PACKAGE_NAME=nvidia-384
-CVERSION=384.90
+PACKAGE_NAME=nvidia
+CVERSION=384.111
 CVERSION=${CVERSION#*really.}
 
 NVPD_USER="nvidia-persistenced"
@@ -63,9 +67,9 @@ _get_newest_kernel_debian() {
     for kernel in /boot/config-*; do
         [ -f "$kernel" ] || continue
         KERNEL=${kernel#*-}
-        KERNEL_VERSION=${KERNEL%%-*}
+        KERNEL_VERSION=${KERNEL%-*}
         ABI=${KERNEL#*-}
-        ABI=${ABI%%-*}
+        ABI=${ABI%-*}
 
         if [ -z "$NEWEST_KERNEL" ]; then
             # The 1st time get a version which is bigger than $1
@@ -76,8 +80,7 @@ _get_newest_kernel_debian() {
         fi
 
         # if $kernel is greater than $COMPARE_TO
-        if [ `dpkg --compare-versions "$KERNEL_VERSION-$ABI" gt "$COMPARE_TO" && echo "yes" || \
-              echo "no"` = "yes" ]; then
+        if [ `dpkg --compare-versions "$KERNEL_VERSION-$ABI" gt "$COMPARE_TO" && echo "yes" ||               echo "no"` = "yes" ]; then
             NEWEST_KERNEL=$KERNEL
             NEWEST_VERSION=$KERNEL_VERSION
             NEWEST_ABI=$ABI
@@ -94,10 +97,10 @@ get_newest_kernel() {
     if [ -e /usr/bin/dpkg ]; then
         # If DEB based
         CURRENT_KERNEL=$1
-        CURRENT_VERSION=${CURRENT_KERNEL%%-*}
+        CURRENT_VERSION=${CURRENT_KERNEL%-*}
         CURRENT_ABI=${CURRENT_KERNEL#*-}
         CURRENT_FLAVOUR=${CURRENT_ABI#*-}
-        CURRENT_ABI=${CURRENT_ABI%%-*}
+        CURRENT_ABI=${CURRENT_ABI%-*}
         NEWEST_KERNEL=$(_get_newest_kernel_debian "$CURRENT_VERSION-$CURRENT_ABI")
 
     elif [ `which rpm &>/dev/null` ]; then
@@ -149,10 +152,7 @@ case "$1" in
 
         if ! id "$NVPD_USER" > /dev/null 2>&1; then
             # Create the user and group for nvidia-persistenced
-            adduser --system --no-create-home --home '/' \
-            --shell '/sbin/nologin' \
-            --gecos 'NVIDIA Persistence Daemon' \
-            --group "$NVPD_USER"
+            adduser --system --no-create-home --home '/'             --shell '/sbin/nologin'             --gecos 'NVIDIA Persistence Daemon'             --group "$NVPD_USER"
         fi
 
         # If the delayed module build feature is enabled
@@ -171,12 +171,7 @@ Before=display-manager.service oem-config.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -ec '\
-    /usr/sbin/dkms add -m $PACKAGE_NAME -v $CVERSION; \
-    /usr/lib/dkms/dkms_autoinstaller start || ( rm -f $INIT_SCRIPT && exit 1 ); \
-    /sbin/modprobe $PACKAGE_NAME || true ; \
-    /bin/systemctl disable $INIT_SCRIPT_NAME || true ; \
-    rm -f $INIT_SCRIPT'
+ExecStart=/bin/sh -ec '    /usr/sbin/dkms add -m $PACKAGE_NAME -v $CVERSION;     /usr/lib/dkms/dkms_autoinstaller start || ( rm -f $INIT_SCRIPT && exit 1 );     /sbin/modprobe $PACKAGE_NAME || true ;     /bin/systemctl disable $INIT_SCRIPT_NAME || true ;     rm -f $INIT_SCRIPT'
 
 [Install]
 WantedBy=display-manager.service oem-config.service
