@@ -6,8 +6,6 @@ NVIDIA-Linux/nvidia_icd.json                                         etc/vulkan/
 NVIDIA-Linux/nvidia-application-profiles-384.111-rc                  usr/share/nvidia/
 NVIDIA-Linux/nvidia-application-profiles-384.111-key-documentation   usr/share/nvidia/
 NVIDIA-Linux/libGLX_nvidia.so.384.111                                usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libGLESv1_CM.so.1                                       usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libGLESv2.so.2                                          usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/10_nvidia.json                                          usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux/libnvidia-eglcore.so.384.111                            usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-glsi.so.384.111                               usr/lib/x86_64-linux-gnu
