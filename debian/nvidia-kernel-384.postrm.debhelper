@@ -1,5 +1,0 @@
-# Automatically added by dh_systemd_start/10.7.2ubuntu2
-if [ -d /run/systemd/system ]; then
-	systemctl --system daemon-reload >/dev/null || true
-fi
-# End automatically added section

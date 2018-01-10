@@ -12,7 +12,7 @@ PACKAGE_NAME=nvidia
 CVERSION=384.111
 CVERSION=${CVERSION#*really.}
 
-NVPD_USER="nvidia-persistenced"
+#NVPD_USER="nvidia-persistenced"
 
 INIT_DIR="/lib/systemd/system"
 INIT_SCRIPT_NAME="$PACKAGE_NAME.service"
@@ -150,10 +150,13 @@ case "$1" in
            quirks-handler -e $PACKAGE_NAME -v
         fi
 
-        if ! id "$NVPD_USER" > /dev/null 2>&1; then
+        #if ! id "$NVPD_USER" > /dev/null 2>&1; then
             # Create the user and group for nvidia-persistenced
-            adduser --system --no-create-home --home '/'             --shell '/sbin/nologin'             --gecos 'NVIDIA Persistence Daemon'             --group "$NVPD_USER"
-        fi
+        #    adduser --system --no-create-home --home '/' \
+        #    --shell '/sbin/nologin' \
+        #    --gecos 'NVIDIA Persistence Daemon' \
+        #    --group "$NVPD_USER"
+        #fi
 
         # If the delayed module build feature is enabled
         # i.e. if $DONT_BUILD_MODULE is set to 1
@@ -171,7 +174,12 @@ Before=display-manager.service oem-config.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -ec '    /usr/sbin/dkms add -m $PACKAGE_NAME -v $CVERSION;     /usr/lib/dkms/dkms_autoinstaller start || ( rm -f $INIT_SCRIPT && exit 1 );     /sbin/modprobe $PACKAGE_NAME || true ;     /bin/systemctl disable $INIT_SCRIPT_NAME || true ;     rm -f $INIT_SCRIPT'
+ExecStart=/bin/sh -ec '\
+    /usr/sbin/dkms add -m $PACKAGE_NAME -v $CVERSION; \
+    /usr/lib/dkms/dkms_autoinstaller start || ( rm -f $INIT_SCRIPT && exit 1 ); \
+    /sbin/modprobe $PACKAGE_NAME || true ; \
+    /bin/systemctl disable $INIT_SCRIPT_NAME || true ; \
+    rm -f $INIT_SCRIPT'
 
 [Install]
 WantedBy=display-manager.service oem-config.service
