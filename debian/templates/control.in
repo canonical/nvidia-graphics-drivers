@@ -152,6 +152,7 @@ Description: NVIDIA compute utilities
 
 Package: nvidia-compute-no-dkms-#FLAVOUR#
 Architecture: i386 amd64 armhf
+Provides: nvidia-384
 Depends:
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
