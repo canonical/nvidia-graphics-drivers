@@ -1,7 +1,7 @@
-#LIBDIR_COMPAT#/libcuda.so.384.111                                              #LIBDIR_COMPAT#/libcuda.so.1
+#LIBDIR_COMPAT#/libcuda.so.390.12                                               #LIBDIR_COMPAT#/libcuda.so.1
 #LIBDIR_COMPAT#/libcuda.so.1                                                    #LIBDIR_COMPAT#/libcuda.so
-#LIBDIR_COMPAT#/libnvidia-ptxjitcompiler.so.384.111                             #LIBDIR_COMPAT#/libnvidia-ptxjitcompiler.so.1
+#LIBDIR_COMPAT#/libnvidia-ptxjitcompiler.so.390.12                              #LIBDIR_COMPAT#/libnvidia-ptxjitcompiler.so.1
 #LIBDIR_COMPAT#/libnvidia-ptxjitcompiler.so.1                                   #LIBDIR_COMPAT#/libnvidia-ptxjitcompiler.so
-#LIBDIR_COMPAT#/libnvidia-ml.so.384.111                                         #LIBDIR_COMPAT#/libnvidia-ml.so.1
+#LIBDIR_COMPAT#/libnvidia-ml.so.390.12                                          #LIBDIR_COMPAT#/libnvidia-ml.so.1
 #LIBDIR_COMPAT#/libnvidia-ml.so.1                                               #LIBDIR_COMPAT#/libnvidia-ml.so
-#LIBDIR_COMPAT#/libnvidia-opencl.so.384.111                                     #LIBDIR_COMPAT#/libnvidia-opencl.so.1
+#LIBDIR_COMPAT#/libnvidia-opencl.so.390.12                                      #LIBDIR_COMPAT#/libnvidia-opencl.so.1

@@ -1,4 +1,4 @@
-#LIBDIR#/libvdpau_nvidia.so.384.111                                             #LIBDIR#/libvdpau_nvidia.so.1
-#LIBDIR#/vdpau/libvdpau_nvidia.so.384.111                                       #LIBDIR#/libvdpau_nvidia.so
-#LIBDIR#/libnvcuvid.so.384.111                                                  #LIBDIR#/libnvcuvid.so.1
+#LIBDIR#/libvdpau_nvidia.so.390.12                                              #LIBDIR#/libvdpau_nvidia.so.1
+#LIBDIR#/vdpau/libvdpau_nvidia.so.390.12                                        #LIBDIR#/libvdpau_nvidia.so
+#LIBDIR#/libnvcuvid.so.390.12                                                   #LIBDIR#/libnvcuvid.so.1
 #LIBDIR#/libnvcuvid.so.1                                                        #LIBDIR#/libnvcuvid.so
