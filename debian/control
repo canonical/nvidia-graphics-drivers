@@ -42,10 +42,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  nvidia-settings,
- nvidia-persistenced,
-Provides: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
-Conflicts: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
-Replaces: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
+# nvidia-persistenced,
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
@@ -96,11 +93,11 @@ Depends:
 Suggests:
  nvidia-driver-384,
 Provides:
- nvidia-utils,
+ nvidia-utils, nvidia-smi
 Conflicts:
- nvidia-utils,
+ nvidia-utils, nvidia-smi
 Replaces:
- nvidia-utils,
+ nvidia-utils, nvidia-smi
 Description: NVIDIA driver support binaries
  This package contains supporting binaries for the NVIDIA driver.
 
@@ -137,6 +134,9 @@ Architecture: i386 amd64 armhf
 Depends:
  libnvidia-compute-384,
  ${misc:Depends}, ${shlibs:Depends}
+Provides: nvidia-persistenced
+Conflicts: nvidia-persistenced
+Replaces: nvidia-persistenced
 Description: NVIDIA compute utilities
  This package provides utility binaries for paraller general purpose
  computing use cases with the NVIDIA driver.
