@@ -152,6 +152,7 @@ Description: NVIDIA compute utilities
 
 Package: nvidia-compute-no-dkms-384
 Architecture: i386 amd64 armhf
+Provides: nvidia-384
 Depends:
  nvidia-kernel-source-384 (= ${binary:Version}),
  libnvidia-compute-384 (= ${binary:Version}),
