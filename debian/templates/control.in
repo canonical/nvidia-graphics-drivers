@@ -216,8 +216,6 @@ Depends:
 Provides:
  xorg-driver-binary, nvidia-driver-binary,
  ${nvidia:xorgProvides}
-Conflicts:
- nvidia-384,
 Description: NVIDIA binary Xorg driver
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
