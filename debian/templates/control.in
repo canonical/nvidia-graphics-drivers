@@ -189,8 +189,6 @@ Depends:
  ${misc:Depends}, ${shlibs:Depends}
 Recommends:
  libnvidia-gl-#FLAVOUR#-i386 [amd64]
-Conflicts:
- nvidia-384,
 Description: NVIDIA OpenGL/GLX/EGL/GLES libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
@@ -201,8 +199,6 @@ Multi-Arch: foreign
 Depends:
 # libglvnd0,
  ${misc:Depends}, ${shlibs:Depends}
-Conflicts:
- nvidia-384,
 Description: NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries)
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries.
 
