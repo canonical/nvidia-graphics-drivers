@@ -46,8 +46,6 @@ Recommends:
 Provides: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
 Conflicts: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
 Replaces: nvidia-driver-binary, nvidia-persistenced, nvidia-smi
-Breaks:
- nvidia-384,
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
