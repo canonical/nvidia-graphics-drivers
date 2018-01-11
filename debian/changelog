@@ -1,35 +1,5 @@
-nvidia-graphics-drivers-384 (384.111-0ubuntu2~ppa1) bionic; urgency=medium
+nvidia-graphics-drivers-390 (390.12-0ubuntu1~ppa1) UNRELEASED; urgency=medium
 
-  * New experimental packaging.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jan 2018 13:27:18 +0100
-
-nvidia-graphics-drivers-384 (384.111-0ubuntu1) bionic; urgency=medium
-
-  * New upstream release:
-    - Added support for the following GPUs:
-      o GeForce MX130
-      o GeForce MX110
-      o GeForce GTX 1050 Ti with Max-Q Design
-      o Quadro P500
-    - Fixed a regression that prevented displays connected via some
-      types of passive adapters (e.g. DMS-59 to VGA or DVI) from
-      working correctly. The regression was introduced with driver
-      version 384.98.
-    - Fixed a bug that caused Quadro M2200 GPUs to enter the lowest
-      available PowerMizer performance level when under load.
-  * debian/templates/control.in:
-    - Add Replaces/Conflicts/Provide for libcuda-9.0-1.
-      Thanks to Graham Inggs for his contribution.
-  * debian/templates/dkms_nvidia.conf.in:
-    - Drop buildfix_kernel_4.14.patch.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Jan 2018 17:22:52 +0100
-
-nvidia-graphics-drivers-384 (384.90-0ubuntu6) bionic; urgency=medium
-
-  * debian/templates/nvidia-graphics-drivers.postinst.in:
-    - Make sure to update the initramfs regardless of the power
-      profile (LP: #1717151).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 17 Nov 2017 09:27:59 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jan 2018 13:41:43 +0100
