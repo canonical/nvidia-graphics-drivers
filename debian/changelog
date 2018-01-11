@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-384 (384.111-0ubuntu2~ppa) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.111-0ubuntu2~ppa1) bionic; urgency=medium
 
-  * 
+  * New experimental packaging.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Jan 2018 11:37:50 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Jan 2018 13:27:18 +0100
 
 nvidia-graphics-drivers-384 (384.111-0ubuntu1) bionic; urgency=medium
 
