@@ -164,6 +164,11 @@ License: NVIDIA-graphics-drivers
  OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF NVIDIA HAS
  BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
  .
+ 6.3  Specific Use.  SOFTWARE is licensed only for use with NVIDIA products.
+ Customer’s use of NVIDIA products with any other firmware is at its own
+ risk and may cause an NVIDIA product to become non-compliant with certain
+ of its certification markings.
+ .
  7.  MISCELLANEOUS
  .
  The United Nations Convention on Contracts for the International
