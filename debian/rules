@@ -255,6 +255,7 @@ get-orig-source-download/%: get-orig-source-prepare
 get-orig-source-files/%: get-orig-source-prepare/% get-orig-source-download/%
 	@set -e -x ; \
 	    cd get-orig-source ; \
+		rm -f ../$*/*.run; mkdir ../$* || true; cp $(NVIDIA_FILENAME_$*) ../$*/; \
 	    mv $(NVIDIA_FILENAME_$*) $(call get_origdir,$*)/ ; \
 	    chmod 0755 $(call get_origdir,$*)/* ; \
 	    touch $(call get_origdir,$*).stamp -r $$(ls -tr $$(find $(call get_origdir,$*) -type f) | tail -n 1)
