@@ -17,6 +17,7 @@ Build-Depends:
  quilt,
  po-debconf,
  libglvnd0,
+ libgl1,
  execstack,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
