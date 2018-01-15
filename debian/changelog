@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-390 (390.12-0ubuntu1~ppa2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Jan 2018 23:16:07 +0100
+
 nvidia-graphics-drivers-390 (390.12-0ubuntu1~ppa1) bionic; urgency=medium
 
   * New experimental packaging.
