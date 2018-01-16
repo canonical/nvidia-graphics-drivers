@@ -38,7 +38,7 @@ DKMS_disabled_modules :=
 amd64_only :=
 else
 DKMS_disabled_modules := nvidia-uvm
-libdir_compat :=
+libdir_compat := \#
 OTHER_ARCH :=
 amd64_only := \#
 endif
