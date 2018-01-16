@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-390 (390.12-0ubuntu1~ppa3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.12-0ubuntu1~ppa3) bionic; urgency=medium
 
-  * 
+  * debian/templates/libnvidia-compute-flavour-i386.install.in,
+    debian/templates/libnvidia-compute-flavour-i386.links.in,
+    debian/templates/libnvidia-compute-flavour.install.in,
+    debian/templates/libnvidia-compute-flavour.links.in,
+    debian/templates/libnvidia-decode-flavour-i386.install.in,
+    debian/templates/libnvidia-encode-flavour-i386.install.in,
+    debian/templates/libnvidia-fbc1-flavour-i386.install.in,
+    debian/templates/libnvidia-gl-flavour-i386.install.in,
+    debian/templates/libnvidia-ifr1-flavour-i386.install.in,
+    debian/templates/nvidia-kernel-source-flavour.install.in:
+    - Correct path for i386 compatibility, and remove libraries that are
+      unavailable on armhf.
+  * debian/rules:
+    - Do not install compatibility libraries on architectures other than
+      amd64.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Jan 2018 12:32:36 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Jan 2018 13:42:43 +0100
 
 nvidia-graphics-drivers-390 (390.12-0ubuntu1~ppa2) bionic; urgency=medium
 
