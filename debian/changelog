@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-340 (340.106-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.106-0ubuntu1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a compatibility problem between the nvidia.ko's Page
+      Attribute Table (PAT) support and the kernel Page Table
+      Isolation (PTI) patches.
+      To optimize stores to memory, nvidia.ko contains support for
+      configuring the CPU's PAT registers, as a fallback for Linux
+      kernels that predate kernel native PAT support.  On any recent
+      kernel with CONFIG_X86_PAT enabled, the driver will detect that
+      setup has already been done and skip its PAT setup.  However, a
+      static inline function called by nvidia.ko's PAT fallback
+      support was updated in the PTI patches to use the
+      EXPORT_SYMBOL_GPL symbol 'cpu_tlbstate'. nvidia.ko was updated
+      to only contain its PAT fallback support, at build time, on
+      kernels without CONFIG_X86_PAT.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_4.14.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jan 2018 09:34:51 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jan 2018 09:40:30 +0100
 
 nvidia-graphics-drivers-340 (340.104-0ubuntu3) bionic; urgency=medium
 
