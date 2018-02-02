@@ -1,1 +1,1 @@
-NVIDIA-Linux/libnvidia-fbc.so.390.12                                 #LIBDIR#
+NVIDIA-Linux/libnvidia-fbc.so.#VERSION#                              #LIBDIR#

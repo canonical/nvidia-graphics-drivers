@@ -1,1 +1,1 @@
-NVIDIA-Linux/libnvidia-ifr.so.390.12                                 #LIBDIR#
+NVIDIA-Linux/libnvidia-ifr.so.#VERSION#                              #LIBDIR#

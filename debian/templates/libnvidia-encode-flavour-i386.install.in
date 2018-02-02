@@ -1,1 +1,1 @@
-NVIDIA-Linux/libnvidia-encode.so.390.12                              #LIBDIR_COMPAT#
+NVIDIA-Linux/libnvidia-encode.so.#VERSION#                           #LIBDIR_COMPAT#

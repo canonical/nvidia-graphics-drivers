@@ -1,1 +1,1 @@
-NVIDIA-Linux/libnvidia-cfg.so.390.12                                 #LIBDIR#
+NVIDIA-Linux/libnvidia-cfg.so.#VERSION#                              #LIBDIR#

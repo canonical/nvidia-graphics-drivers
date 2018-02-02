@@ -1,2 +1,2 @@
-NVIDIA-Linux/libvdpau_nvidia.so.390.12                               #LIBDIR_COMPAT#
-NVIDIA-Linux/libnvcuvid.so.390.12                                    #LIBDIR_COMPAT#
+NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#                            #LIBDIR_COMPAT#
+NVIDIA-Linux/libnvcuvid.so.#VERSION#                                 #LIBDIR_COMPAT#

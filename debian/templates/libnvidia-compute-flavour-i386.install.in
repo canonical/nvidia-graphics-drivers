@@ -1,6 +1,6 @@
-NVIDIA-Linux/libcuda.so.390.12                                       #LIBDIR_COMPAT#
-NVIDIA-Linux/libnvidia-fatbinaryloader.so.390.12                     #LIBDIR_COMPAT#
-NVIDIA-Linux/libnvidia-ptxjitcompiler.so.390.12                      #LIBDIR_COMPAT#
-NVIDIA-Linux/libnvidia-ml.so.390.12                                  #LIBDIR_COMPAT#
-#ARM_EXCLUDED#NVIDIA-Linux/libnvidia-compiler.so.390.12              #LIBDIR_COMPAT#
-#ARM_EXCLUDED#NVIDIA-Linux/libnvidia-opencl.so.390.12                #LIBDIR_COMPAT#
+NVIDIA-Linux/libcuda.so.#VERSION#                                    #LIBDIR_COMPAT#
+NVIDIA-Linux/libnvidia-fatbinaryloader.so.#VERSION#                  #LIBDIR_COMPAT#
+NVIDIA-Linux/libnvidia-ptxjitcompiler.so.#VERSION#                   #LIBDIR_COMPAT#
+NVIDIA-Linux/libnvidia-ml.so.#VERSION#                               #LIBDIR_COMPAT#
+#ARM_EXCLUDED#NVIDIA-Linux/libnvidia-compiler.so.#VERSION#           #LIBDIR_COMPAT#
+#ARM_EXCLUDED#NVIDIA-Linux/libnvidia-opencl.so.#VERSION#             #LIBDIR_COMPAT#
