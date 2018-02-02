@@ -92,9 +92,12 @@ unpack-stamp: NVIDIA-Linux-$(DEB_HOST_ARCH)
 generate-nvidia-icd-json:
 ifneq ($(DEB_HOST_ARCH),armhf)
 	# This is for GLVND LibGL libraries
-	# non-GLVND libraries will need libGL.so.1
 	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/g'  NVIDIA-Linux/nvidia_icd.json.template > \
 		NVIDIA-Linux/nvidia_icd.json
+	# non-GLVND only
+	mkdir NVIDIA-Linux/nonglvnd || true
+	sed 's/__NV_VK_ICD__/libGL.so.1/g'  NVIDIA-Linux/nvidia_icd.json.template > \
+        NVIDIA-Linux/nonglvnd/nvidia_icd.json
 endif
 
 # Reformat the LICENSE to the format needed for debian/copyright.
