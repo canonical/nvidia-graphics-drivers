@@ -1,6 +1,7 @@
 NVIDIA-Linux/NVIDIA_Changelog
 NVIDIA-Linux/LICENSE
 NVIDIA-Linux/README.txt
+NVIDIA-Linux/nvidia-persistenced-init.tar.bz2
 NVIDIA-Linux/html/acknowledgements.html
 NVIDIA-Linux/html/addressingcapabilities.html
 NVIDIA-Linux/html/addtlresources.html
@@ -30,7 +31,10 @@ NVIDIA-Linux/html/kms.html
 NVIDIA-Linux/html/knownissues.html
 NVIDIA-Linux/html/minimumrequirements.html
 NVIDIA-Linux/html/newusertips.html
+NVIDIA-Linux/html/nvidia-debugdump.html
 NVIDIA-Linux/html/nvidia-ml.html
+NVIDIA-Linux/html/nvidia-persistenced.html
+NVIDIA-Linux/html/nvidia-smi.html
 NVIDIA-Linux/html/nvidiasettings.html
 NVIDIA-Linux/html/openglenvvariables.html
 NVIDIA-Linux/html/optimus.html
