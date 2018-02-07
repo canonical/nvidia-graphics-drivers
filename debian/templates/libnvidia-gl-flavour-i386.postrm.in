@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for libnvidia-gl-390-nonglvnd
+# postrm script for libnvidia-gl-390-i386
 #
 # see: dh_installdeb(1)
 #
@@ -19,7 +19,7 @@ set -e
 #        * <disappearer's-postrm> `disappear' <r>overwrit>r> <new-version>
 # for details, see /usr/share/doc/packaging-manual/
 
-library_dir=#LIBDIR#
+library_dir=#LIBDIR_COMPAT#
 
 case "$1" in
     remove|purge|failed-upgrade|abort-install|disappear)
