@@ -184,7 +184,7 @@ Description: NVIDIA computing metapackage
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-390 metapackage.
 
-Package: libnvidia-gl-390-nonglvnd
+Package: libnvidia-gl-390
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts: libnvidia-gl
@@ -193,12 +193,12 @@ Provides: libnvidia-gl
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
 Recommends:
- libnvidia-gl-390-nonglvnd-i386 [amd64]
+ libnvidia-gl-390-i386 [amd64]
 Description: NVIDIA OpenGL/GLX/EGL/GLES libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
 
-Package: libnvidia-gl-390-nonglvnd-i386
+Package: libnvidia-gl-390-i386
 Architecture: i386
 Multi-Arch: foreign
 Conflicts: libnvidia-gl-i386
