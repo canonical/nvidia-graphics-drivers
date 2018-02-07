@@ -16,6 +16,7 @@ Build-Depends:
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
+# libglvnd0,
  libgl1,
  execstack,
  dh-modaliases,
@@ -42,7 +43,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  nvidia-settings,
- #nvidia-prime (>= 0.5) | bumblebee
+#nvidia-prime (>= 0.5) | bumblebee
 # nvidia-persistenced,
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
