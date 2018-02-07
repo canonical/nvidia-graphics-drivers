@@ -16,8 +16,8 @@ Build-Depends:
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
- libglvnd0,
- libgl1,
+ libglvnd0,#FIXME
+ libgl1,#FIXME
  execstack,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
@@ -43,6 +43,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  nvidia-settings,
+ #nvidia-prime (>= 0.5) | bumblebee
 # nvidia-persistenced,
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
@@ -182,33 +183,6 @@ Description: NVIDIA computing metapackage
  .
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-390 metapackage.
-
-Package: libnvidia-gl-390
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Conflicts: libnvidia-gl
-Replaces: libnvidia-gl
-Provides: libnvidia-gl
-Depends:
- libglvnd0, libegl1, libopengl0, libglx0,
- ${misc:Depends}, ${shlibs:Depends}
-Recommends:
- libnvidia-gl-390-i386 [amd64]
-Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
- This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
- Vulkan ICD.
-
-Package: libnvidia-gl-390-i386
-Architecture: i386
-Multi-Arch: foreign
-Conflicts: libnvidia-gl-i386
-Replaces: libnvidia-gl-i386
-Provides: libnvidia-gl-i386
-Depends:
-# libglvnd0,
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND 32-bit libraries)
- This package provides the NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries.
 
 Package: libnvidia-gl-390-nonglvnd
 Architecture: i386 amd64 armhf

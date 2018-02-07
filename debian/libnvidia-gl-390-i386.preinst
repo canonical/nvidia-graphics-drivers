@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for libnvidia-gl-390
+# preinst script for libnvidia-gl-390-i386
 #
 # see: dh_installdeb(1)
 #
@@ -16,18 +16,13 @@ set -e
 #
 # For details see /usr/share/doc/packaging-manual/
 
-library_dir=usr/lib/i386-linux-gnu
-
 case "$1" in
     install)
-        # Make sure that no diversion is still there
+        # Add diversions on the (E)GL libraries
         set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so"
         while [ $# -ge 1 ]; do
             libname=$1
-            if dpkg-divert --list | grep -F "/$library_dir/$libname.distrib"
-            then
-                dpkg-divert --remove --rename /$library_dir/$libname
-            fi
+            dpkg-divert --add --rename /usr/lib/i386-linux-gnu/$libname
             shift
         done
     ;;
