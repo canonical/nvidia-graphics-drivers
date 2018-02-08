@@ -25,6 +25,10 @@ xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
 pkg_module       := nvidia
 pkg_kernel       := nvidia-kernel-$(flavour)
 
+# Priority of the alternative
+alt_priority         := 8604
+pm_alt_priority      := 8603
+
 ifeq ($(DEB_HOST_ARCH),armhf)
 arm_excluded         := \#
 else
@@ -202,6 +206,9 @@ regen-from-templates:
 			-e "s|#DRIVERNAME#|$(pkg_driver)|g" \
 			-e "s|#VERSION#|$(version)|g" \
 			-e "s|#MODULENAME#|$(version)|g" \
+			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
+			-e "s|#ALTPRIORITY#|$(alt_priority)|g" \
+			-e "s|#PMALTPRIORITY#|$(pm_alt_priority)|g" \
 			$$i > $$dest;      \
 	done
 
