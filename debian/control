@@ -187,12 +187,12 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts: libnvidia-gl
 Replaces: libnvidia-gl
-Provides: libnvidia-gl
+Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
 Recommends:
  libnvidia-gl-390-i386 [amd64]
-Description: NVIDIA OpenGL/GLX/EGL/GLES libraries and Vulkan ICD
+Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
 
@@ -204,7 +204,7 @@ Replaces: libnvidia-gl-i386
 Provides: libnvidia-gl-i386
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries)
+Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND 32-bit libraries)
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries.
 
 Package: xserver-xorg-video-nvidia-390
