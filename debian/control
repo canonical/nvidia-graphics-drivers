@@ -19,8 +19,7 @@ Build-Depends:
  execstack,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
-#Build-Conflicts:
-# libglvnd-dev,
+ libglvnd-dev,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
