@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for libnvidia-gl-390-i386
+# preinst script for libnvidia-gl-390
 #
 # see: dh_installdeb(1)
 #
@@ -16,19 +16,35 @@ set -e
 #
 # For details see /usr/share/doc/packaging-manual/
 
+library_dir=#LIBDIR_COMPAT#
+diversion_added_version=390.25-0ubuntu1
+package_name=libnvidia-gl-390
+this_version=`dpkg-query -W -f='${Version}' $package_name | awk -F "-" '{print $1}' | cut -d\: -f2`
+this_version=${this_version#*really.}
+
+
+_remove_diversions() {
+    set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so"
+    while [ $# -ge 1 ]; do
+        libname=$1
+        if dpkg-divert --list | grep -F "/$library_dir/$libname.distrib"
+        then
+            dpkg-divert --remove --rename /$library_dir/$libname
+        fi
+        shift
+    done
+}
+
+
 case "$1" in
-    install)
-        # Add diversions on the (E)GL libraries
-        set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so"
-        while [ $# -ge 1 ]; do
-            libname=$1
-            dpkg-divert --add --rename /#LIBDIR_COMPAT#/$libname
-            shift
-        done
+    install|upgrade)
+        # Make sure that no diversion is still there
+        _remove_diversions
     ;;
 
-    upgrade)
-    ;;
+    # FIXME: this should really check the version
+    #upgrade)
+    #;;
 
     abort-upgrade)
     ;;
