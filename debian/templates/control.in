@@ -110,13 +110,13 @@ Recommends:
  libnvidia-compute-#FLAVOUR#-i386 [amd64],
 Provides: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1
+ libcuda-9.0-1, libcuda-9.1-1
 Breaks: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1
+ libcuda-9.0-1, libcuda-9.1-1
 Replaces: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1
+ libcuda-9.0-1, libcuda-9.1-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
  to use GPUs for parallel general purpose computation through CUDA and
