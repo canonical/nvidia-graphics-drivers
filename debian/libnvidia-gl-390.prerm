@@ -1,0 +1,21 @@
+#!/bin/sh
+# prerm script for libnvidia-gl-390
+#
+# Copyright (C) 2018 Canonical Ltd
+# Authors: Alberto Milone
+
+
+case "$1" in
+    upgrade)
+    ;;
+
+    remove)
+        update-alternatives --remove x86_64-linux-gnu_glx_conf /usr/lib/x86_64-linux-gnu/nvidia/glx/ld.so.conf
+        update-alternatives --remove x86_64-linux-gnu_glx_conf /usr/lib/x86_64-linux-gnu/nvidia/glx/pm-ld.so.conf
+
+        # explicit ldconfig due to alternatives
+        ldconfig
+	;;
+esac
+
+#DEBHELPER#
