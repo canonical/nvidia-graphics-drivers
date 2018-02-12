@@ -106,6 +106,8 @@ endif
 
 generate-ld-so-conf:
 	echo /$(libdir)/nvidia/glx > "$(CURDIR)/debian/ld.so.conf"
+	# Empty file for Mesa
+	$(shell touch "$(CURDIR)/debian/pm-ld.so.conf")
 
 # Reformat the LICENSE to the format needed for debian/copyright.
 LICENSE.txt: unpack-stamp
