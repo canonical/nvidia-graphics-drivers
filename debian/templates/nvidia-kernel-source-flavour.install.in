@@ -306,9 +306,9 @@ NVIDIA-Linux/kernel/nvidia/nvlink_proto.h                            usr/src/nvi
 NVIDIA-Linux/kernel/nvidia/nvlink_errors.h                           usr/src/nvidia-#VERSION#/nvidia
 NVIDIA-Linux/kernel/nvidia/nvlink_pci.h                              usr/src/nvidia-#VERSION#/nvidia
 NVIDIA-Linux/kernel/nvidia/nvlink_export.h                           usr/src/nvidia-#VERSION#/nvidia
-debian/71-nvidia.rules                                               lib/udev/rules.d
-debian/copy-nvidia-options                                           usr/share/initramfs-tools/hooks
-debian/dkms_nvidia/patches/*                                         usr/src/nvidia-#VERSION#/patches
-debian/create-uvm-dev-node                                           sbin
 debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
+debian/create-uvm-dev-node                                           sbin
+debian/dkms_nvidia/patches/*                                         usr/src/nvidia-#VERSION#/patches
 debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d
+debian/copy-nvidia-options                                           usr/share/initramfs-tools/hooks
+debian/71-nvidia.rules                                               lib/udev/rules.d
