@@ -46,6 +46,14 @@ case "$1" in
             done
         fi
 
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GLX.conf #DEB_HOST_MULTIARCH#_glx_conf \
+            /#LIBDIR#/nvidia/glx/ld.so.conf #ALTPRIORITY#
+
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GLX.conf #DEB_HOST_MULTIARCH#_glx_conf \
+            /#LIBDIR#/nvidia/glx/pm-ld.so.conf #PMALTPRIORITY#
+
         # explicit ldconfig due to alternatives
 		ldconfig
         ;;

@@ -10,6 +10,9 @@ case "$1" in
     ;;
 
     remove)
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_glx_conf /#LIBDIR#/nvidia/glx/ld.so.conf
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_glx_conf /#LIBDIR#/nvidia/glx/pm-ld.so.conf
+
         # explicit ldconfig due to alternatives
         ldconfig
 	;;

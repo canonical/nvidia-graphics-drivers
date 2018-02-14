@@ -1,4 +1,4 @@
-NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                              #LIBDIR_COMPAT#
+NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                              #LIBDIR_COMPAT#/nvidia/glx
 NVIDIA-Linux/libnvidia-glcore.so.#VERSION#                           #LIBDIR_COMPAT#
 #ARM_EXCLUDED#NVIDIA-Linux/libnvidia-tls.so.#VERSION#                #LIBDIR_COMPAT#/
 #ARM_EXCLUDED#NVIDIA-Linux/tls/libnvidia-tls.so.#VERSION#            #LIBDIR_COMPAT#/tls
