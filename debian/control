@@ -395,3 +395,38 @@ Description: NVENC Video Encoding 32-bit runtime library
  .
  This package contains the nvidia-encode 32-bit runtime library.
 
+Package: nvidia-384
+Architecture: i386 amd64 armhf
+Depends: nvidia-driver-390
+Description: Transitional package for nvidia-driver-390
+ This is a transitional package for nvidia-driver-390, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-384-dev
+Architecture: i386 amd64 armhf
+Depends: nvidia-driver-390
+Description: Transitional package for nvidia-driver-390
+ This is a transitional package for nvidia-driver-390, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-libopencl1-384
+Architecture: i386 amd64
+Depends: nvidia-compute-390
+Description: Transitional package for nvidia-compute-390
+ This is a transitional package for nvidia-compute-390, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-opencl-icd-384
+Architecture: i386 amd64
+Depends: nvidia-compute-390
+Description: Transitional package for nvidia-compute-390
+ This is a transitional package for nvidia-compute-390, and can be
+ safely removed after the installation is complete.
+
+Package: libcuda1-384
+Architecture: i386 amd64 armhf
+Depends: nvidia-compute-390
+Description: Transitional package for nvidia-compute-390
+ This is a transitional package for nvidia-compute-390, and can be
+ safely removed after the installation is complete.
+

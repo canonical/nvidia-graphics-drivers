@@ -5,7 +5,7 @@ NVIDIA-Linux/tls/libnvidia-tls.so.390.25            usr/lib/x86_64-linux-gnu/tls
 NVIDIA-Linux/nvidia_icd.json                                         etc/vulkan/icd.d
 NVIDIA-Linux/nvidia-application-profiles-390.25-rc                usr/share/nvidia/
 NVIDIA-Linux/nvidia-application-profiles-390.25-key-documentation usr/share/nvidia/
-NVIDIA-Linux/libGLX_nvidia.so.390.25                              usr/lib/x86_64-linux-gnu/nvidia/glx
+NVIDIA-Linux/libGLX_nvidia.so.390.25                              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/10_nvidia.json                                          usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux/libnvidia-eglcore.so.390.25                          usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-glsi.so.390.25                             usr/lib/x86_64-linux-gnu
@@ -14,5 +14,5 @@ NVIDIA-Linux/libGLESv2_nvidia.so.390.25                           usr/lib/x86_64
 NVIDIA-Linux/libGLESv1_CM_nvidia.so.390.25                        usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-egl-wayland.so.1.0.2                          usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/10_nvidia_wayland.json                                  usr/share/egl/egl_external_platform.d
-debian/pm-ld.so.conf                                                 usr/lib/x86_64-linux-gnu/nvidia/glx
 debian/ld.so.conf                                                    usr/lib/x86_64-linux-gnu/nvidia/glx
+debian/pm-ld.so.conf                                                 usr/lib/x86_64-linux-gnu/nvidia/glx
