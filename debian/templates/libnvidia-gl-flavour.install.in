@@ -14,5 +14,5 @@ NVIDIA-Linux/libGLESv2_nvidia.so.#VERSION#                           #LIBDIR#
 NVIDIA-Linux/libGLESv1_CM_nvidia.so.#VERSION#                        #LIBDIR#
 NVIDIA-Linux/libnvidia-egl-wayland.so.1.0.2                          #LIBDIR#
 NVIDIA-Linux/10_nvidia_wayland.json                                  usr/share/egl/egl_external_platform.d
-debian/ld.so.conf                                                    #LIBDIR#/nvidia/glx
 debian/pm-ld.so.conf                                                 #LIBDIR#/nvidia/glx
+debian/ld.so.conf                                                    #LIBDIR#/nvidia/glx

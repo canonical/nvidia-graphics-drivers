@@ -14,5 +14,5 @@ NVIDIA-Linux/libGLESv2_nvidia.so.390.25                           usr/lib/x86_64
 NVIDIA-Linux/libGLESv1_CM_nvidia.so.390.25                        usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-egl-wayland.so.1.0.2                          usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/10_nvidia_wayland.json                                  usr/share/egl/egl_external_platform.d
-debian/ld.so.conf                                                    usr/lib/x86_64-linux-gnu/nvidia/glx
 debian/pm-ld.so.conf                                                 usr/lib/x86_64-linux-gnu/nvidia/glx
+debian/ld.so.conf                                                    usr/lib/x86_64-linux-gnu/nvidia/glx

@@ -152,7 +152,9 @@ Description: NVIDIA compute utilities
 
 Package: nvidia-compute-no-dkms-390
 Architecture: i386 amd64 armhf
+Conflicts: nvidia-384
 Provides: nvidia-384
+Replaces: nvidia-384
 Depends:
  nvidia-kernel-source-390 (= ${binary:Version}),
  libnvidia-compute-390 (= ${binary:Version}),
