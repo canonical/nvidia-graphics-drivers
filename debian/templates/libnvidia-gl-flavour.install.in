@@ -5,7 +5,7 @@ NVIDIA-Linux/libglx.so.#VERSION#                                     #LIBDIR#/nv
 NVIDIA-Linux/nvidia_icd.json                                         etc/vulkan/icd.d
 NVIDIA-Linux/nvidia-application-profiles-#VERSION#-rc                usr/share/nvidia/
 NVIDIA-Linux/nvidia-application-profiles-#VERSION#-key-documentation usr/share/nvidia/
-NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                              #LIBDIR#/nvidia/glx
+NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                              #LIBDIR#
 NVIDIA-Linux/10_nvidia.json                                          usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux/libnvidia-eglcore.so.#VERSION#                          #LIBDIR#
 NVIDIA-Linux/libnvidia-glsi.so.#VERSION#                             #LIBDIR#
@@ -14,5 +14,5 @@ NVIDIA-Linux/libGLESv2_nvidia.so.#VERSION#                           #LIBDIR#
 NVIDIA-Linux/libGLESv1_CM_nvidia.so.#VERSION#                        #LIBDIR#
 NVIDIA-Linux/libnvidia-egl-wayland.so.1.0.2                          #LIBDIR#
 NVIDIA-Linux/10_nvidia_wayland.json                                  usr/share/egl/egl_external_platform.d
-debian/pm-ld.so.conf                                                 #LIBDIR#/nvidia/glx
 debian/ld.so.conf                                                    #LIBDIR#/nvidia/glx
+debian/pm-ld.so.conf                                                 #LIBDIR#/nvidia/glx

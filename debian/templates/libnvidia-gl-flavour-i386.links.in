@@ -1,5 +1,4 @@
-#LIBDIR_COMPAT#/nvidia/glx/libGLX_nvidia.so.#VERSION#                           #LIBDIR_COMPAT#/nvidia/glx/libGLX_nvidia.so.0
-#LIBDIR_COMPAT#/nvidia/glx/libGLX_nvidia.so.#VERSION#                           #LIBDIR_COMPAT#/nvidia/glx/libGLX_indirect.so.0
+#LIBDIR_COMPAT#/libGLX_nvidia.so.#VERSION#                                      #LIBDIR_COMPAT#/libGLX_nvidia.so.0
 #LIBDIR_COMPAT#/libEGL_nvidia.so.#VERSION#                                      #LIBDIR_COMPAT#/libEGL_nvidia.so.0
 #LIBDIR_COMPAT#/libGLESv2_nvidia.so.#VERSION#                                   #LIBDIR_COMPAT#/libGLESv2_nvidia.so.2
 #LIBDIR_COMPAT#/libGLESv1_CM_nvidia.so.#VERSION#                                #LIBDIR_COMPAT#/libGLESv1_CM_nvidia.so.1
