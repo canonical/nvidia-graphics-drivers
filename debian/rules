@@ -47,26 +47,6 @@ OTHER_ARCH :=
 amd64_only := \#
 endif
 
-#### FIXME: ######
-
-
-DEFAULT_OPENGL_PREFIX =            "usr"
-DEFAULT_X_PREFIX =                 "usr/X11R6"
-DEFAULT_UTILITY_PREFIX =           "usr"
-DEFAULT_DOCUMENTATION_PREFIX =     "usr"
-DEFAULT_APPLICATION_PROFILE_PATH = "usr/share/nvidia"
-
-DEFAULT_LIBDIR =                   "lib"
-DEFAULT_32BIT_LIBDIR =             "lib32"
-DEFAULT_64BIT_LIBDIR =             "lib64"
-DEFAULT_IA32_TRIPLET_LIBDIR =      "lib/i386-linux-gnu"
-DEFAULT_AMD64_TRIPLET_LIBDIR =     "lib/x86_64-linux-gnu"
-DEFAULT_ARMV7_TRIPLET_LIBDIR =     "lib/arm-linux-gnueabi"
-DEFAULT_ARMV7HF_TRIPLET_LIBDIR =   "lib/arm-linux-gnueabihf"
-DEFAULT_AARCH64_TRIPLET_LIBDIR =   "lib/aarch64-linux-gnu"
-DEFAULT_PPC64LE_TRIPLET_LIBDIR =   "lib/powerpc64le-linux-gnu"
-
-dkms_source	 = debian/nvidia-kernel-$(version_major)/usr/src/$(module)-$(version)
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
