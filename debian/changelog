@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu1~ppa1.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu1~ppa1.4) bionic; urgency=medium
 
-  * 
+  * debian/templates/control.in,
+    debian/libnvidia-gl-390-i386.postrm,
+    debian/libnvidia-gl-390.install,
+    debian/libnvidia-gl-390.postinst,
+    debian/libnvidia-gl-390.postrm,
+    debian/libnvidia-gl-390.prerm,
+    libnvidia-gl-flavour.install.in:
+    - Get rid of the last bits of the alternatives.
+    - Make sure the packages don't clash with nvidia-384 (<<390.25).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 14 Feb 2018 11:08:18 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 Feb 2018 11:35:23 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu1~ppa1.3) bionic; urgency=medium
 
