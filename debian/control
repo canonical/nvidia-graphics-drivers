@@ -57,7 +57,7 @@ Multi-Arch: foreign
 Conflicts:
  nvidia-kernel-source
 Replaces:
- nvidia-kernel-source
+ nvidia-kernel-source, nvidia-384 (<<390.25)
 Provides:
  nvidia-kernel-source
 Depends:
@@ -152,9 +152,9 @@ Description: NVIDIA compute utilities
 
 Package: nvidia-compute-no-dkms-390
 Architecture: i386 amd64 armhf
-Conflicts: nvidia-384
+Conflicts: nvidia-384 (<<390.25)
 Provides: nvidia-384
-Replaces: nvidia-384
+Replaces: nvidia-384 (<<390.25)
 Depends:
  nvidia-kernel-source-390 (= ${binary:Version}),
  libnvidia-compute-390 (= ${binary:Version}),
@@ -187,7 +187,7 @@ Package: libnvidia-gl-390
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts: libnvidia-gl
-Replaces: libnvidia-gl
+Replaces: libnvidia-gl, nvidia-384 (<<390.25)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
