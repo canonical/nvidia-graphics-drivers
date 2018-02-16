@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu1~ppa1.5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu1~ppa1.5) bionic; urgency=medium
 
-  * 
+  * debian/templates/libnvidia-gl-flavour-i386.preinst.in:
+    - No need to remove alternatives in the -i386 package.
+  * debian/templates/libnvidia-gl-flavour.preinst.in:
+    - Make sure to clean up any previous alternative installed by nvidia.
+  * debian/rules:
+    - Clean up unused variables.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 Feb 2018 16:59:48 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 16 Feb 2018 16:01:35 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu1~ppa1.4) bionic; urgency=medium
 
