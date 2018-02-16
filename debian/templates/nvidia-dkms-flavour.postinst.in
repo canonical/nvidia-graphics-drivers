@@ -24,9 +24,6 @@ case $ARCH in
     amd64)
         ARCH="x86_64"
         ;;
-    lpia)
-        ARCH="i686"
-        ;;
     i386)
         ARCH="i686"
         ;;
