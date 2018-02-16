@@ -80,15 +80,12 @@ _clean_up () {
 
 
 case "$1" in
-    install)
+    install|upgrade)
         old_version="$2"
         if dpkg --compare-versions "$old_version" lt "$no_alternatives_version"; then
             # Clean up debris from previous nvidia packages
             _clean_up
         fi
-    ;;
-
-    upgrade)
     ;;
 
     abort-upgrade)
