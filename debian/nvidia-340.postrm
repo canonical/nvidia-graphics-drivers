@@ -21,15 +21,24 @@ set -e
 
 NVPD_USER="nvidia-persistenced"
 
+
+_remove_diversions() {
+    set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so" "libGLESv2.so" "libGLESv2.so.2"
+    while [ $# -ge 1 ]; do
+        libname=$1
+        if dpkg-divert --list | grep -F "/usr/lib/x86_64-linux-gnu/$libname.distrib"
+        then
+            dpkg-divert --remove --rename /usr/lib/x86_64-linux-gnu/$libname
+        fi
+        shift
+    done
+}
+
+
 case "$1" in
     remove|purge)
-        # This should make sure that /usr/lib/nvidia-340 and
-        # /usr/lib32/nvidia-340 are removed even if some
-        # links are left. See LP: #540143
-        rm -Rf /usr/lib/nvidia-340 /usr/lib32/nvidia-340
-
-        # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-340_hybrid.conf
+		# Make sure that no diversion is still there
+		_remove_diversions
 
         # Remove the nvidia-persistenced user
         if id "$NVPD_USER" > /dev/null 2>&1; then
