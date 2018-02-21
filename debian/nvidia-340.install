@@ -31,3 +31,5 @@ NVIDIA-Linux-x86_64-340.106-no-compat32/nvidia-persistenced /usr/bin
 
 NVIDIA-Linux-x86_64-340.106-no-compat32/nvidia-application-profiles-340.106-rc /usr/share
 NVIDIA-Linux-x86_64-340.106-no-compat32/nvidia-application-profiles-340.106-key-documentation /usr/share
+
+debian/nvidia-drm-outputclass-ubuntu.conf       usr/share/X11/xorg.conf.d
