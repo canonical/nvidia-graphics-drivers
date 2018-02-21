@@ -32,7 +32,7 @@ Description: NVIDIA binary driver - version 340.106
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-ia32-340.106-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-340.106-driver.html
  .
 
 Package: nvidia-340-dev
