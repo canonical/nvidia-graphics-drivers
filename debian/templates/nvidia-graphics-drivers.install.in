@@ -2,8 +2,6 @@ debian/#DRIVERNAME#.override                 usr/share/lintian/overrides
 #Blacklist some card ids from GRUB gfxpayload=keep
 debian/#DRIVERNAME#.grub-gfxpayload          #PKGDATADIR#
 
-debian/glamor.conf                           #PKGDATADIR#
-
 debian/71-nvidia.rules                       lib/udev/rules.d
 debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
