@@ -72,15 +72,15 @@ release_notes        := http://www.nvidia.com/object/linux-display-$(web_arch)-$
 bindir               := /usr/bin
 datadir              := /usr/share
 nvidia_share         := /usr/share/nvidia
-PKG_datadir          := $(datadir)/$(PKG_driver)
+PKG_datadir          := $(datadir)
 libdir               := /usr/lib
 libdir32             := /usr/lib32
 libdir_multiarch     := $(libdir)/$(DEB_HOST_MULTIARCH)
 libdir_multiarch_other := $(libdir)/$(OTHER_ARCH)
 includedir           := /usr/include
 sysconfdir           := /etc
-PKG_libdir           := $(libdir)/$(PKG_driver)
-PKG_libdir32         := $(libdir32)/$(PKG_driver)
+PKG_libdir           := $(libdir_multiarch)
+PKG_libdir32         := $(libdir_multiarch_other)
 mesa_libdir          := $(libdir)/$(DEB_HOST_MULTIARCH)/mesa
 mesa_libdir_other    := $(libdir)/$(OTHER_ARCH)/mesa
 xorg_libdir          := $(libdir)/xorg
@@ -89,7 +89,7 @@ xorg_extra_modules   := $(xorg_extra_path)/extra-modules
 xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
 PKG_driversdir       := $(libdir)/$(PKG_driver)/xorg
 PKG_extensionsdir    := $(PKG_driversdir)
-PKG_bindir           := $(PKG_libdir)/bin
+PKG_bindir           := $(bindir)
 PKG_configdir        := $(PKG_libdir)
 ld_so_conf_dir       := $(PKG_configdir)
 ld_so_conf_file      := ld.so.conf
@@ -120,7 +120,7 @@ grub_blacklistdir    := /usr/share/grub-gfxpayload-lists/blacklist
 # early in the boot process when
 # /usr is on a separate partition.
 # See LP: #538071.
-PKG_libconfdir := /lib/$(PKG_driver)
+PKG_libconfdir := $(sysconfdir)
 
 # blacklist either the -updates or the non updates flavour
 opposite_flavour := $(shell (echo "$(PKG_driver)" | grep updates >/dev/null) && \
@@ -399,36 +399,14 @@ endif
 
 	# Configuration stuff
 
-	# ld.so.conf
-	dh_installdirs -p$(PKG_driver) "$(ld_so_conf_dir)"
-	echo "$(PKG_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
-	echo "$(mesa_libdir)" >	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-ifeq ($(DEB_BUILD_ARCH),amd64)
-	echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
-	echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-endif
-	# empty ld.so.conf for the fake multi-arch alternative
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
-
 	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
 	# and create an alias for the module so that it can be used as nvidia
-	printf '$(subst $(newline),\n,${blacklist_file})' > $(CURDIR)/debian/$(PKG_driver)$(PKG_libconfdir)/modprobe.conf
-
-	# Permanently blacklist nouveau so that hybrid graphics can work without having to rebuild
-	# the initramfs when nvidia is installed but disabled
-	printf '$(subst $(newline),\n,${blacklist_hybrid})' > \
-               $(CURDIR)/debian/$(PKG_driver)$(sysconfdir)/modprobe.d/$(PKG_driver)_hybrid.conf
+	printf '$(subst $(newline),\n,${blacklist_file})' > $(CURDIR)/debian/$(PKG_driver)$(PKG_libconfdir)/modprobe.d/$(PKG_driver).conf
 
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-xconfig.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-smi.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-cuda-mps-control.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-persistenced.1.gz "$(mandir)";
-
-	# Rename the man pages in order to use alternatives
-	for file in $(CURDIR)/debian/$(PKG_driver)$(mandir)/*.gz; do \
-		mv $$file $(CURDIR)/debian/$(PKG_driver)$(mandir)/`basename $$file | sed 's/nvidia/alt-$(PKG_driver)/'`; \
-	done
 
 	rm -rf debian/temp/modules/nvidia-kernel
 

@@ -10,9 +10,6 @@ CVERSION=${CVERSION#*really.}
 
 NVPD_USER="nvidia-persistenced"
 
-INIT_SCRIPT="/etc/init/build-$PACKAGE_NAME.conf"
-TMP_FILE="/tmp/do_not_build_dkms_module"
-
 ARCH=`dpkg --print-architecture`
 case $ARCH in
     amd64)
@@ -37,7 +34,7 @@ esac
 _is_kernel_name_correct() {
     CORRECT="no"
     KERNEL_NAME=$1
-    
+
     for kernel in /boot/config-*; do
         KERNEL=${kernel#*-}
         if [ "${KERNEL}" = "${KERNEL_NAME}" ]; then
@@ -56,7 +53,7 @@ _get_newest_kernel_debian() {
     NEWEST_KERNEL=
     NEWEST_VERSION=
     NEWEST_ABI=
-    
+
     for kernel in /boot/config-*; do
         KERNEL=${kernel#*-}
         KERNEL_VERSION=${KERNEL%%-*}
@@ -70,7 +67,7 @@ _get_newest_kernel_debian() {
             # Get the biggest version
             COMPARE_TO="$NEWEST_VERSION-$NEWEST_ABI"
         fi
-            
+
         # if $kernel is greater than $COMPARE_TO
         if [ `dpkg --compare-versions "$KERNEL_VERSION-$ABI" gt "$COMPARE_TO" && echo "yes" || \
               echo "no"` = "yes" ]; then
@@ -112,103 +109,6 @@ get_newest_kernel() {
 
 case "$1" in
     configure)
-        # Deal with alternatives
-
-        # Clean up any previous non-multi-arch alternatives
-        if [ -n "$(update-alternatives --list gl_conf 2>/dev/null)" ]; then
-            set -a $(update-alternatives --list gl_conf 2>/dev/null)
-            while [ $# -ge 1 ] && [ "$#" != "configure" ]; do
-                ALTERNATIVE=${1}
-                update-alternatives --remove gl_conf $ALTERNATIVE
-                shift
-            done
-        fi
-
-        # Deal with multi-arch ugliness until dpkg supports multi-arch:
-        # - On amd64 we need to install an additional slave link for 32bit vdpau
-        #   which - obviously - doesn't exist on i386
-        # - It is fine if we get the following:
-        #   +  warning: skip creation of /usr/lib32/vdpau/libvdpau_nvidia.so.1 because associated
-        #   +  file #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 (of link group gl_conf) doesn't exist.
-        #
-        update-alternatives --force \
-            --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf #LDSOCONF# #ALTPRIORITY# \
-            --slave #MANDIR#/nvidia-xconfig.1.gz #DEB_HOST_MULTIARCH#_man_nvidiaxconfig.gz #MANDIR#/alt-#DRIVERNAME#-xconfig.1.gz \
-            --slave #MANDIR#/nvidia-smi.1.gz #DEB_HOST_MULTIARCH#_nvidia-smi.1.gz #MANDIR#/alt-#DRIVERNAME#-smi.1.gz \
-            --slave #MANDIR#/nvidia-cuda-mps-control.1.gz #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control.1.gz #MANDIR#/alt-#DRIVERNAME#-cuda-mps-control.1.gz \
-            --slave #MANDIR#/nvidia-persistenced.1.gz #DEB_HOST_MULTIARCH#_man_persistenced.gz #MANDIR#/alt-#DRIVERNAME#-persistenced.1.gz \
-            --slave #BINDIR#/nvidia-smi #DEB_HOST_MULTIARCH#_nvidia_smi #PKGBINDIR#/nvidia-smi \
-            --slave #BINDIR#/nvidia-xconfig #DEB_HOST_MULTIARCH#_nvidia_xconfig #PKGBINDIR#/nvidia-xconfig \
-            --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
-            --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
-            --slave #BINDIR#/nvidia-cuda-mps-control #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-control #PKGBINDIR#/nvidia-cuda-mps-control \
-            --slave #BINDIR#/nvidia-cuda-mps-server #DEB_HOST_MULTIARCH#_nvidia-cuda-mps-server #PKGBINDIR#/nvidia-cuda-mps-server \
-            --slave #BINDIR#/nvidia-persistenced #DEB_HOST_MULTIARCH#_nvidia_persistenced #PKGBINDIR#/nvidia-persistenced \
-            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
-            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
-            --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
-            --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
-            --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION# \
-            --slave #VDPAUDIR#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 \
-            --slave #LIBDIR#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so #PKGVDPAUDIR#/libvdpau_nvidia.so \
-            --slave #VDPAUDIR32#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so.1 \
-            --slave #LIBDIR32#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so_lib32 #PKGVDPAUDIR32#/libvdpau_nvidia.so \
-            --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
-
-        # Alternative for PRIME power saving mode
-        # In this case only intel is enabled and we only need to make
-        # sure that nvidia-settings can be launched and that nouveau
-        # is still blacklisted
-        update-alternatives --force \
-            --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf #PMLDSOCONF# #PMALTPRIORITY# \
-            --slave #MANDIR#/nvidia-xconfig.1.gz #DEB_HOST_MULTIARCH#_man_nvidiaxconfig.gz #MANDIR#/alt-#DRIVERNAME#-xconfig.1.gz \
-            --slave #MANDIR#/nvidia-smi.1.gz #DEB_HOST_MULTIARCH#_nvidia-smi.1.gz #MANDIR#/alt-#DRIVERNAME#-smi.1.gz \
-            --slave #BINDIR#/nvidia-smi #DEB_HOST_MULTIARCH#_nvidia_smi #PKGBINDIR#/nvidia-smi \
-            --slave #BINDIR#/nvidia-xconfig #DEB_HOST_MULTIARCH#_nvidia_xconfig #PKGBINDIR#/nvidia-xconfig \
-            --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
-            --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
-            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
-            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
-            --slave #SYSCONFDIR#/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
-            --slave #GRUBBLKLISTDIR#/10_proprietary-graphics-drivers #DEB_HOST_MULTIARCH#_grub_fb_blacklist #PKGDATADIR#/#DRIVERNAME#.grub-gfxpayload
-
-        if [ "$ARCH" != "armhf" ]; then
-            # Install just the ld.so.conf.d alternative for the secondary architecture.
-            # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
-            update-alternatives --force \
-                --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #ALTLDSOCONF# #ALTPRIORITY#
-
-            # Install just the ld.so.conf.d alternative for PRIME for the
-            # secondary architecture.
-            # We need to ensure that the NVIDIA libraries for the other
-            # architecture are not used.
-            update-alternatives --force \
-                --install #SYSCONFDIR#/ld.so.conf.d/#OTHER_ARCH#_GL.conf #OTHER_ARCH#_gl_conf #PMALTLDSOCONF# #PMALTPRIORITY#
-        fi
-
-        # Make sure glamoregl is disabled
-        update-alternatives --force \
-            --install /usr/share/X11/xorg.conf.d/glamoregl.conf glamor_conf \
-            #PKGDATADIR#/glamor.conf 600
-
-        # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
-        # alternatives.
-        LDCONFIG_NOTRIGGER=y ldconfig
-
-        CURRENT_KERNEL=$(uname -r)
-        NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
-
-        ALTERNATIVE=$(readlink /etc/alternatives/#DEB_HOST_MULTIARCH#_gl_conf)
-        if [ "$ALTERNATIVE" = "#LDSOCONF#" ]; then
-            # Update initramfs so that the blacklist ends up in the initramfs
-            update-initramfs -u || true
-
-            if [ -n "$NEWEST_KERNEL" ] && [ ${CURRENT_KERNEL} != ${NEWEST_KERNEL} ]; then
-                # This can fail when dealing with a chroot see LP: #556653
-                update-initramfs -u -k $CURRENT_KERNEL || true
-            fi
-        fi
-
         # Update the grub gfxpayload blacklist
         if which update-grub-gfxpayload >/dev/null 2>&1; then
             update-grub-gfxpayload
@@ -227,34 +127,9 @@ case "$1" in
             --group "$NVPD_USER"
         fi
 
-        # If the delayed module build feature is enabled
-        # i.e. if $DONT_BUILD_MODULE is set to 1
-        # or if $TMP_FILE exists
-        if [ "${DONT_BUILD_MODULE}1" -eq "11" ] || [ -e $TMP_FILE ]; then
-            # Do not build the module and create
-            # the Upstart script which will
-            # build the module on next boot
-            cat > $INIT_SCRIPT <<EOF
-# Warning: This file is autogenerated by $PACKAGE_NAME. All changes to this file will be lost.
-start on (starting oem-config
-          or starting gdm
-          or starting kdm
-          or starting xdm
-          or starting uxlaunch)
-task
-
-script
-     dkms add -m $PACKAGE_NAME -v $CVERSION
-     /usr/lib/dkms/dkms_autoinstaller start || ( rm -f $INIT_SCRIPT && exit 1 )
-     modprobe $PACKAGE_NAME || true
-     rm -f $INIT_SCRIPT
-end script
-EOF
-        else
-            # Build the kernel module
-            /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
-            exit $?
-        fi
+        # Build the kernel module
+        /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
+        exit $?
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
