@@ -31,11 +31,6 @@ PKG_libcuda1         := libcuda1-$(PKG_flavour)
 PKG_libopencl1       := nvidia-libopencl1-$(PKG_flavour)
 PKG_opencl_icd       := nvidia-opencl-icd-$(PKG_flavour)
 
-
-# Priority of the alternative
-alt_priority         := 8604
-pm_alt_priority      := 8603
-
 # Installer details
 dirname_x86          ?= NVIDIA-Linux-x86-$(PKG_version)
 dirname_x86_64       ?= NVIDIA-Linux-x86_64-$(PKG_version)-no-compat32
@@ -91,17 +86,7 @@ PKG_driversdir       := $(libdir)/$(PKG_driver)/xorg
 PKG_extensionsdir    := $(PKG_driversdir)
 PKG_bindir           := $(bindir)
 PKG_configdir        := $(PKG_libdir)
-ld_so_conf_dir       := $(PKG_configdir)
-ld_so_conf_file      := ld.so.conf
-alt_ld_so_conf_file  := alt_ld.so.conf
-ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
-alt_ld_so_conf_path  := $(ld_so_conf_dir)/$(alt_ld_so_conf_file)
 
-#Prime
-PKG_prime            := $(PKG_driver)-prime
-PKG_prime_libdir     := $(libdir)/$(PKG_prime)
-pm_ld_so_conf_path      := $(PKG_prime_libdir)/$(ld_so_conf_file)
-pm_alt_ld_so_conf_path  := $(PKG_prime_libdir)/$(alt_ld_so_conf_file)
 
 mandir               := /usr/share/man/man1
 PKG_bugdir           := /usr/share/bug/$(PKG_driver)
@@ -204,12 +189,6 @@ regen-from-templates:
 			-e "s|#VERSION#|$(PKG_version)|g"   \
 			-e "s|#SYSCONFDIR#|$(sysconfdir)|g" \
 			-e "s|#MANDIR#|$(mandir)|g" \
-			-e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
-			-e "s|#ALTLDSOCONF#|$(alt_ld_so_conf_path)|g" \
-			-e "s|#PMLDSOCONF#|$(pm_ld_so_conf_path)|g" \
-			-e "s|#PMALTLDSOCONF#|$(pm_alt_ld_so_conf_path)|g" \
-			-e "s|#ALTPRIORITY#|$(alt_priority)|g" \
-			-e "s|#PMALTPRIORITY#|$(pm_alt_priority)|g" \
 			-e "s|#DATADIR#|$(datadir)|g" \
 			-e "s|#PKGDATADIR#|$(PKG_datadir)|g" \
 			-e "s|#PKGCONFIGDIR#|$(PKG_configdir)|g" \
