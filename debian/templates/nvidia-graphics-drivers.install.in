@@ -31,3 +31,5 @@ debian/dkms_nvidia/dkms.conf                  usr/src/#DRIVERNAME#-#VERSION#
 
 #DIRNAME#/nvidia-application-profiles-#VERSION#-rc #PKGDATADIR#
 #DIRNAME#/nvidia-application-profiles-#VERSION#-key-documentation #PKGDATADIR#
+
+debian/nvidia-drm-outputclass-ubuntu.conf       usr/share/X11/xorg.conf.d
