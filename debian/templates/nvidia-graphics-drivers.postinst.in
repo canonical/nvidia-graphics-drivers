@@ -109,6 +109,17 @@ get_newest_kernel() {
 
 case "$1" in
     configure)
+        CURRENT_KERNEL=$(uname -r)
+        NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
+
+        # Update initramfs so that the blacklist ends up in the initramfs
+        update-initramfs -u || true
+
+        if [ -n "$NEWEST_KERNEL" ] && [ ${CURRENT_KERNEL} != ${NEWEST_KERNEL} ]; then
+            # This can fail when dealing with a chroot see LP: #556653
+            update-initramfs -u -k $CURRENT_KERNEL || true
+        fi
+
         # Update the grub gfxpayload blacklist
         if which update-grub-gfxpayload >/dev/null 2>&1; then
             update-grub-gfxpayload
