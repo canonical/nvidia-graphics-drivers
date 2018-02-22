@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-340 (340.106-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.106-0ubuntu2~ppa1) bionic; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/71-nvidia.rules,
+    debian/dkms_nvidia.conf,
+    debian/templates/nvidia-graphics-drivers.install.in,
+    debian/glamor.conf,
+    debian/templates/nvidia-graphics-drivers.postinst.in,
+    debian/templates/nvidia-graphics-drivers.postrm.in,
+    debian/templates/nvidia-graphics-drivers.preinst.in,
+    debian/templates/nvidia-graphics-drivers.prerm.in,
+    debian/templates/nvidia-drm-outputclass-ubuntu.conf.in:
+    - Drop the alternatives in favour of diversions, so that the
+      driver can work with GLVND enabled mesa.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 21 Feb 2018 11:08:04 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 22 Feb 2018 14:49:43 +0100
 
 nvidia-graphics-drivers-340 (340.106-0ubuntu1) bionic; urgency=medium
 
