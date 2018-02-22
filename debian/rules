@@ -26,7 +26,7 @@ PKG_driver_uvm       := $(PKG_driver)-uvm
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_version          := $(shell echo $(PKG_version) | sed s/.*\.really\.//g)
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
-PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
+PKG_module           := nvidia
 PKG_libcuda1         := libcuda1-$(PKG_flavour)
 PKG_libopencl1       := nvidia-libopencl1-$(PKG_flavour)
 PKG_opencl_icd       := nvidia-opencl-icd-$(PKG_flavour)
@@ -130,9 +130,6 @@ blacklist nvidia-96
 blacklist nvidia-current-updates
 blacklist nvidia-173-updates
 blacklist nvidia-96-updates
-blacklist $(opposite_flavour)
-alias nvidia $(PKG_module)
-alias nvidia-uvm $(PKG_module)-uvm
 alias nouveau off
 alias lbm-nouveau off
 endef
