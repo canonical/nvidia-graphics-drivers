@@ -16,24 +16,17 @@ Files: *
 Copyright: 1993-2015 NVIDIA Corporation.  All rights reserved.
 License: NVIDIA-graphics-drivers
 
-Files: debian/*
+Files: debian/rules
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
            2009-2017 Andreas Beckmann <anbe@debian.org>
            2010 Russ Allbery <rra@debian.org>
-           2017 Canonical Ltd
+           2018 Canonical Ltd
            Based on packages by Christopher Cheney.
 License: GPL-2.0+
 
-Files: debian/module/debian/patches/* debian/patches/*
-Copyright: no copyright notice, see License field
-License: anbe-public-domain
- The authors hereby relinquish any claim to any copyright that they may
- have in this work, whether granted under contract or by operation of law
- or international treaty, and hereby commit to the public, at large, that
- they shall not, at any time in the future, seek to enforce any copyright
- in this work against any person or entity, or prevent any person or
- entity from copying, publishing, distributing or creating derivative
- works of this work.
+Files: debian/*
+Copyright: 2018 Canonical Ltd
+License: GPL-2.0+
 
 License: GPL-2.0+
  This package is free software; you can redistribute it and/or modify
