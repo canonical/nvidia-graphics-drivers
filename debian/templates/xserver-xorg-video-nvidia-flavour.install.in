@@ -1,3 +1,2 @@
 NVIDIA-Linux/nvidia_drv.so                                           #LIBDIR#/nvidia/xorg
-NVIDIA-Linux/libnvidia-wfb.so.#VERSION#                              #LIBDIR#/nvidia/xorg
 debian/nvidia-drm-outputclass-ubuntu.conf                             usr/share/X11/xorg.conf.d
