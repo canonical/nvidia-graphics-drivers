@@ -106,7 +106,7 @@ Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
 Recommends:
- libnvidia-compute-#FLAVOUR#-i386 [amd64],
+ libnvidia-compute-#FLAVOUR#:i386 [amd64],
 Provides: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
  libcuda-9.0-1, libcuda-9.1-1
@@ -120,16 +120,6 @@ Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
  to use GPUs for parallel general purpose computation through CUDA and
  OpenCL.
-
-Package: libnvidia-compute-#FLAVOUR#-i386
-Architecture: i386
-Multi-Arch: foreign
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA libcompute package
- This package provides a set of 32 bit libraries which enable the NVIDIA
- driver to use GPUs for parallel general purpose computation through CUDA
- and OpenCL.
 
 Package: nvidia-compute-utils-#FLAVOUR#
 Architecture: i386 amd64 armhf
@@ -192,21 +182,10 @@ Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
 Recommends:
- libnvidia-gl-#FLAVOUR#-i386 [amd64]
+ libnvidia-gl-#FLAVOUR#:i386 [amd64]
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
-
-Package: libnvidia-gl-#FLAVOUR#-i386
-Architecture: i386
-Multi-Arch: foreign
-Conflicts: libnvidia-gl-i386
-Replaces: libnvidia-gl-i386
-Provides: libnvidia-gl-i386
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND 32-bit libraries)
- This package provides the NVIDIA OpenGL/GLX/EGL/GLES 32-bit libraries.
 
 Package: xserver-xorg-video-nvidia-#FLAVOUR#
 Section: non-free/x11
@@ -255,7 +234,7 @@ Depends:
  libnvidia-gl-#FLAVOUR#, libx11-6,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- libnvidia-ifr1-#FLAVOUR#-i386 [amd64]
+ libnvidia-ifr1-#FLAVOUR#:i386 [amd64]
 Provides:
  libnvidia-ifr1,
 Conflicts:
@@ -270,22 +249,6 @@ Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
  .
  This package contains the NvIFROpenGL runtime library.
 
-Package: libnvidia-ifr1-#FLAVOUR#-i386
-Architecture: i386
-Multi-Arch: foreign
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- libnvidia-gl-#FLAVOUR#-i386,
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA OpenGL-based Inband Frame Readback 32-bit runtime library
- The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvIFROpenGL 32-bit runtime library.
-
 Package: libnvidia-fbc1-#FLAVOUR#
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -295,7 +258,7 @@ Depends:
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- libnvidia-fbc1-#FLAVOUR#-i386 [amd64],
+ libnvidia-fbc1-#FLAVOUR#:i386 [amd64],
 Provides:
  libnvidia-fbc1,
 Conflicts:
@@ -310,21 +273,6 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  .
  This package contains the NvFBCOpenGL runtime library.
 
-Package: libnvidia-fbc1-#FLAVOUR#-i386
-Architecture: i386
-Multi-Arch: foreign
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA OpenGL-based Framebuffer Capture 32-bit runtime library
- The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvFBCOpenGL 32-bit runtime library.
-
 Package: libnvidia-decode-#FLAVOUR#
 Architecture: i386 amd64
 Multi-Arch: same
@@ -334,7 +282,7 @@ Depends:
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- libnvidia-decode-#FLAVOUR#-i386,
+ libnvidia-decode-#FLAVOUR#:i386,
 Conflicts:
  libnvidia-decode,
 Replaces:
@@ -348,21 +296,6 @@ Description: NVIDIA Video Decoding runtime libraries
  The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
  systems) library for the NVIDIA vendor implementation.
 
-Package: libnvidia-decode-#FLAVOUR#-i386
-Architecture: i386
-Multi-Arch: foreign
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- libnvidia-compute-#FLAVOUR#-i386,
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA Video Decoding 32-bit runtime libraries
- This package includes the NVIDIA CUDA Video Decoder (NVCUVID) 32-bit library which
- provides an interface to hardware video decoding capabilities on NVIDIA GPUs with CUDA.
- .
- The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
- systems) 32-bit library for the NVIDIA vendor implementation.
-
 Package: libnvidia-encode-#FLAVOUR#
 Architecture: i386 amd64
 Multi-Arch: same
@@ -371,7 +304,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- libnvidia-encode-#FLAVOUR#-i386 [amd64],
+ libnvidia-encode-#FLAVOUR#:i386 [amd64],
 Conflicts:
  libnvidia-encode,
 Provides:
@@ -383,19 +316,6 @@ Description: NVENC Video Encoding runtime library
  hardware on supported NVIDIA GPUs.
  .
  This package contains the nvidia-encode runtime library.
-
-Package: libnvidia-encode-#FLAVOUR#-i386
-Architecture: i386
-Multi-Arch: foreign
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVENC Video Encoding 32-bit runtime library
- The NVENC Video Encoding library provides an interface to video encoder
- hardware on supported NVIDIA GPUs.
- .
- This package contains the nvidia-encode 32-bit runtime library.
 
 Package: nvidia-384
 Architecture: i386 amd64 armhf
