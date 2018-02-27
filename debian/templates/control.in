@@ -125,7 +125,7 @@ Description: NVIDIA libcompute package
 Package: nvidia-compute-utils-#FLAVOUR#
 Architecture: i386 amd64 armhf
 Depends:
- libnvidia-compute-#FLAVOUR#,
+ libnvidia-compute-#FLAVOUR#, adduser,
  ${misc:Depends}, ${shlibs:Depends}
 Provides: nvidia-persistenced
 Conflicts: nvidia-persistenced
