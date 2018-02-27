@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa1) bionic; urgency=medium
 
   * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 26 Feb 2018 21:04:19 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 27 Feb 2018 20:49:10 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu1) bionic; urgency=medium
 
