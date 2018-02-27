@@ -16,16 +16,16 @@ Files: *
 Copyright: 1993-2015 NVIDIA Corporation.  All rights reserved.
 License: NVIDIA-graphics-drivers
 
+Files: debian/*
+Copyright: 2018 Canonical Ltd
+License: GPL-2.0+
+
 Files: debian/rules
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
            2009-2017 Andreas Beckmann <anbe@debian.org>
            2010 Russ Allbery <rra@debian.org>
            2018 Canonical Ltd
            Based on packages by Christopher Cheney.
-License: GPL-2.0+
-
-Files: debian/*
-Copyright: 2018 Canonical Ltd
 License: GPL-2.0+
 
 License: GPL-2.0+
