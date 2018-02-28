@@ -74,6 +74,8 @@ ifneq ($(DEB_HOST_ARCH),armhf)
 	mkdir NVIDIA-Linux/nonglvnd || true
 	sed 's/__NV_VK_ICD__/libGL.so.1/g'  NVIDIA-Linux/nvidia_icd.json.template > \
         NVIDIA-Linux/nonglvnd/nvidia_icd.json
+else
+	echo "$@ not required on $(DEB_HOST_ARCH)"
 endif
 
 generate-ld-so-conf:
