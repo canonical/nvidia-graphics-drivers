@@ -96,8 +96,7 @@ compare-copyright-license: LICENSE.txt
 	diff -w copyright.tmp LICENSE.tmp
 	rm -f copyright.tmp LICENSE.tmp
 
-.PHONY: binary binary-arch binary-indep build clean install
-binary binary-arch binary-indep build clean install:
+%:
 	dh $@
 
 override_dh_auto_clean:
