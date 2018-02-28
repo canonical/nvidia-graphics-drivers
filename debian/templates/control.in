@@ -57,7 +57,7 @@ Multi-Arch: foreign
 Conflicts:
  nvidia-kernel-source
 Replaces:
- nvidia-kernel-source, nvidia-384 (<<390.25)
+ nvidia-kernel-source, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides:
  nvidia-kernel-source
 Depends:
@@ -143,9 +143,9 @@ Description: NVIDIA compute utilities
 
 Package: nvidia-compute-no-dkms-#FLAVOUR#
 Architecture: i386 amd64 armhf
-Conflicts: nvidia-384 (<<390.25)
+Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
-Replaces: nvidia-384 (<<390.25)
+Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
@@ -178,7 +178,7 @@ Package: libnvidia-gl-#FLAVOUR#
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts: libnvidia-gl
-Replaces: libnvidia-gl, nvidia-384 (<<390.25)
+Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
  libnvidia-common-#FLAVOUR#, ${misc:Depends}, ${shlibs:Depends}
