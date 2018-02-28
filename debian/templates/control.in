@@ -190,6 +190,7 @@ Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
 
 Package: libnvidia-common-#FLAVOUR#
 Architecture: all
+Multi-Arch: foreign
 Breaks: libnvidia-gl-#FLAVOUR# (<< 390.25-0ubuntu2~)
 Replaces: libnvidia-common, libnvidia-gl-#FLAVOUR# (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
