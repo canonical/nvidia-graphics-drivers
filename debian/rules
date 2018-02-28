@@ -32,14 +32,10 @@ arm_excluded         :=
 endif
 
 ifeq ($(DEB_HOST_ARCH),amd64)
-OTHER_ARCH := i386-linux-gnu
-libdir_compat := usr/lib/$(OTHER_ARCH)
 DKMS_disabled_modules :=
 amd64_only :=
 else
 DKMS_disabled_modules := nvidia-uvm
-libdir_compat := \#
-OTHER_ARCH :=
 amd64_only := \#
 endif
 
@@ -142,7 +138,7 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -X$(libdir_compat)
+	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
@@ -175,7 +171,6 @@ regen-from-templates:
 				 sed -e "s|\.in\$$||g" | \
 				 sed -e "s|flavour|$(flavour)|g"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
-			-e "s|#LIBDIR_COMPAT#|$(libdir_compat)|g"     \
 			-e "s|#ARM_EXCLUDED#|$(arm_excluded)|g" \
 			-e "s|#AMD64_ONLY#|$(amd64_only)|g" \
 			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
