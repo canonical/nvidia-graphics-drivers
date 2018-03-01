@@ -1,5 +1,5 @@
 XORG_ABI_LIST		 = 23 20 19 18 15 14 13 12 11 10 8 6.0
-XORG_BOUND		 = (<< 2:1.19.99)
+XORG_BOUND		 = (>= 2:1.19.6-1ubuntu2)
 
 ARCH_LIST		 = i386 amd64
 ARCH_LIST		+= armhf
