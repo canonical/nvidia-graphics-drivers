@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa3) bionic; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Fix conflict in libnvidia-compute.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Mar 2018 17:40:13 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Mar 2018 17:46:18 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa2) bionic; urgency=medium
 
