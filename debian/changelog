@@ -1,8 +1,42 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu2) bionic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/rules.defs:
+    - Depend on xserver-xorg-core (>= 2:1.19.6-1ubuntu2~).
+  * debian/templates/nvidia-dkms-flavour.postinst.in:
+    - Remove legacy delayed build code.
+  *  debian/templates/control.in:
+    - libnvidia-compute should have Conflicts, not Breaks.
+  * debian/copyright:
+    - Use https in the url.
+    - Move stanza about debian rules after debian/*.
+  * debian/templates/nvidia-dkms-flavour.install.in
+    - Remove debian/copy-nvidia-options and install kernel
+      scripts in the DKMS package.
+  * debian/templates/control.in:
+    - Fix file clash in libnvidia-compute.
+    - Use debhelper 9.
+    - Add libnvidia-common-$flavour package. This includes
+      the GL profiles (which are not arch specific).
+  * debian/templates/xserver-xorg-video-nvidia-flavour.install.in:
+    - Do not install libnvidia-wfb.so.$version.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 26 Feb 2018 21:04:19 +0100
+  [ Rico Tzschichholz ]
+  * debian/rules:
+    - Drop superfluous build target references, and unused variables.
+    - Avoid empty target, which is fatal.
+  * debian/templates/libnvidia-decode-flavour.{install|links}.in:
+    - Change vdpau destination.
+  * debian/templates/control.in:
+    - Relax versioned Conficts.
+    - Remove -i386 packages.
+    - Add Conflicts/Replaces nvidia-390 to nvidia-kernel-source.
+  * debian/templates/libnvidia-gl-flavour.install.in:
+    - Fix installation of nvidia_icd.json.
+    - Install libnvidia-tls.so on armhf.
+
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Mar 2018 18:34:26 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu1) bionic; urgency=medium
 
