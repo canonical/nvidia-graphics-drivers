@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa4) bionic; urgency=medium
 
-  * 
+  * debian/rules.defs:
+    - Depend on xserver-xorg-core (>= 2:1.19.6-1ubuntu2).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Mar 2018 18:51:15 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Mar 2018 18:51:35 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu2~ppa3) bionic; urgency=medium
 
