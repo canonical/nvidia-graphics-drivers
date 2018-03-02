@@ -295,7 +295,7 @@ Depends:
  libnvidia-compute-390 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- libnvidia-decode-390:i386,
+ libnvidia-decode-390:i386 [amd64],
 Conflicts:
  libnvidia-decode,
 Replaces:
