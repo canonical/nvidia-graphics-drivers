@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-390 (390.25-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.25-0ubuntu3) bionic; urgency=medium
 
   * Don't depend on libnvidia-{en,de}code-390 on armhf, as these packages
     are not available.
