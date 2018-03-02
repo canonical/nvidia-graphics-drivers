@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-390 (390.25-0ubuntu3) UNRELEASED; urgency=medium
+
+  * Don't depend on libnvidia-{en,de}code-390 on armhf, as these packages
+    are not available.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 02 Mar 2018 12:12:25 -0800
+
 nvidia-graphics-drivers-390 (390.25-0ubuntu2) bionic; urgency=medium
 
   [ Alberto Milone ]
