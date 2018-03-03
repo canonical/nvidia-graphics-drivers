@@ -30,8 +30,8 @@ Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
  nvidia-dkms-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-#FLAVOUR# (= ${binary:Version}),
- libnvidia-decode-#FLAVOUR# (= ${binary:Version}),
- libnvidia-encode-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-decode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
+ libnvidia-encode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
  nvidia-utils-#FLAVOUR# (= ${binary:Version}),
  xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
@@ -295,7 +295,7 @@ Depends:
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- libnvidia-decode-#FLAVOUR#:i386,
+ libnvidia-decode-#FLAVOUR#:i386 [amd64],
 Conflicts:
  libnvidia-decode,
 Replaces:

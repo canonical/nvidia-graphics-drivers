@@ -1,3 +1,18 @@
+nvidia-graphics-drivers-390 (390.25-0ubuntu4) bionic; urgency=medium
+
+  * Commit changes to debian/templates/control.in, not just to
+    debian/control.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 02 Mar 2018 14:26:58 -0800
+
+nvidia-graphics-drivers-390 (390.25-0ubuntu3) bionic; urgency=medium
+
+  * Don't depend on libnvidia-{en,de}code-390 on armhf, as these packages
+    are not available.
+  * Don't generate a self-recommends for libnvidia-decode-390 on i386.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 02 Mar 2018 12:12:25 -0800
+
 nvidia-graphics-drivers-390 (390.25-0ubuntu2) bionic; urgency=medium
 
   [ Alberto Milone ]
