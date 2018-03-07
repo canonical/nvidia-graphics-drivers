@@ -28,11 +28,13 @@ _remove_diversions() {
         libname=$1
         if dpkg-divert --list | grep -F "#PKGLIBDIR#/$libname.distrib"
         then
+            rm -f #PKGLIBDIR#/$libname
             dpkg-divert --remove --rename #PKGLIBDIR#/$libname
         fi
         if [ "$arch" = "amd64" ]; then
             if dpkg-divert --list | grep -F "#PKGLIBDIR32#/$libname.distrib"
             then
+                rm -f #PKGLIBDIR32#/$libname
                 dpkg-divert --remove --rename #PKGLIBDIR32#/$libname
             fi
         fi
