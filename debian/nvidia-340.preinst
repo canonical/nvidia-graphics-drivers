@@ -19,7 +19,7 @@ set -e
 no_alternatives_version=340.106-0ubuntu2
 package_name=nvidia-340
 this_version=`dpkg-query -W -f='${Version}' $package_name | cut -d\: -f2`
-
+arch=`dpkg --print-architecture`
 
 _remove_diversions() {
     set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so" "libGLESv2.so" "libGLESv2.so.2"
@@ -27,7 +27,15 @@ _remove_diversions() {
         libname=$1
         if dpkg-divert --list | grep -F "/usr/lib/x86_64-linux-gnu/$libname.distrib"
         then
+            rm -f /usr/lib/x86_64-linux-gnu/$libname
             dpkg-divert --remove --rename /usr/lib/x86_64-linux-gnu/$libname
+        fi
+        if [ "$arch" = "amd64" ]; then
+            if dpkg-divert --list | grep -F "/usr/lib/i386-linux-gnu/$libname.distrib"
+            then
+                rm -f /usr/lib/i386-linux-gnu/$libname
+                dpkg-divert --remove --rename /usr/lib/i386-linux-gnu/$libname
+            fi
         fi
         shift
     done
@@ -55,7 +63,7 @@ _remove_alternatives () {
     _remove_alternative x86_64-linux-gnu_egl_conf
 
     # Clean up the compatibility alternatives
-    if [ "`dpkg --print-architecture`" = "amd64" ]; then
+    if [ "$arch" = "amd64" ]; then
         _remove_alternative i386-linux-gnu_gl_conf
         _remove_alternative i386-linux-gnu_egl_conf
     fi
@@ -111,6 +119,11 @@ case "$1" in
 		if ! dpkg-divert --list | grep -F "/usr/lib/x86_64-linux-gnu/$libname.distrib"; then
 			dpkg-divert --add --rename /usr/lib/x86_64-linux-gnu/$libname
 		fi
+        if [ "$arch" = amd64 ]; then
+            if ! dpkg-divert --list | grep -F "/usr/lib/i386-linux-gnu/$libname.distrib"; then
+                dpkg-divert --add --rename /usr/lib/i386-linux-gnu/$libname
+            fi
+        fi
 		shift
 	done
 

@@ -21,5 +21,3 @@
 /etc
 /usr/share/nvidia
 /lib/udev/rules.d
-/usr/lib/i386-linux-gnu
-/usr/lib32/vdpau

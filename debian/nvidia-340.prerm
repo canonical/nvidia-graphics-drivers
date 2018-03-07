@@ -9,6 +9,7 @@
 PACKAGE_NAME=nvidia-340
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
+arch=`dpkg --print-architecture`
 
 remove_dkms_module() {
 	echo "Stopping nvidia-persistenced"
@@ -25,7 +26,15 @@ _remove_diversions() {
         libname=$1
         if dpkg-divert --list | grep -F "/usr/lib/x86_64-linux-gnu/$libname.distrib"
         then
+			rm -f /usr/lib/x86_64-linux-gnu/$libname
             dpkg-divert --remove --rename /usr/lib/x86_64-linux-gnu/$libname
+        fi
+        if [ "$arch" = "amd64" ]; then
+            if dpkg-divert --list | grep -F "/usr/lib/i386-linux-gnu/$libname.distrib"
+            then
+				rm -f /usr/lib/i386-linux-gnu/$libname
+                dpkg-divert --remove --rename /usr/lib/i386-linux-gnu/$libname
+            fi
         fi
         shift
     done
@@ -36,11 +45,11 @@ _remove_diversions() {
 
 case "$1" in
 	upgrade)
-		remove_dkms_module 
+		remove_dkms_module
 	;;
 	remove)
-		remove_dkms_module 
-	
+		remove_dkms_module
+
 		# Make sure that no diversion is still there
 		_remove_diversions
 

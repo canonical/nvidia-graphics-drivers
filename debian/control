@@ -14,12 +14,15 @@ Architecture: i386 amd64 armhf
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  xserver-xorg-legacy, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
-Recommends: nvidia-settings (>= 331.20), nvidia-prime (>= 0.5) [!armhf] | bumblebee [!armhf],
+Recommends: nvidia-settings (>= 331.20),
  libcuda1-340, nvidia-opencl-icd-340 [!armhf]
-Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced,
- ${xviddriver:Provides}
-Conflicts: xorg-driver-binary, nvidia-persistenced
-Replaces: xorg-driver-binary, nvidia-persistenced
+Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced, libnvidia-decode,
+ nvidia-dkms-kernel, libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode,
+ libnvidia-gl, ${xviddriver:Provides}
+Conflicts: xorg-driver-binary, nvidia-persistenced, libnvidia-decode, nvidia-dkms-kernel,
+ libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl
+Replaces: xorg-driver-binary, nvidia-persistenced, libnvidia-decode, nvidia-dkms-kernel,
+ libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary driver - version 340.106
  The binary driver provide optimized hardware acceleration of OpenGL
@@ -32,7 +35,7 @@ Description: NVIDIA binary driver - version 340.106
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-340.106-driver.html
+ http://www.nvidia.com/object/linux-display-ia32-340.106-driver.html
  .
 
 Package: nvidia-340-dev
