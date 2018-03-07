@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-340 (340.106-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.106-0ubuntu3) bionic; urgency=medium
 
-  * 
+  * debian/templates/nvidia-graphics-drivers.postrm.in,
+    debian/templates/nvidia-graphics-drivers.preinst.in,
+    debian/templates/nvidia-graphics-drivers.prerm.in:
+    - Deal with 32 bit compatibility diversions (LP: #1753061).
+  * debian/templates/control.in:
+    - Conflict/replace/provide the virtual packages from the 390
+      series.
+    - Drop dependency on nvidia-prime and on bumblebee.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Mar 2018 12:28:51 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Mar 2018 17:25:19 +0100
 
 nvidia-graphics-drivers-340 (340.106-0ubuntu2) bionic; urgency=medium
 
