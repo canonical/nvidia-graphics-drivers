@@ -20,7 +20,7 @@ set -e
 # for details, see /usr/share/doc/packaging-manual/
 
 NVPD_USER="nvidia-persistenced"
-
+arch=`dpkg --print-architecture`
 
 _remove_diversions() {
     set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so" "libGLESv2.so" "libGLESv2.so.2"
@@ -29,6 +29,12 @@ _remove_diversions() {
         if dpkg-divert --list | grep -F "#PKGLIBDIR#/$libname.distrib"
         then
             dpkg-divert --remove --rename #PKGLIBDIR#/$libname
+        fi
+        if [ "$arch" = "amd64" ]; then
+            if dpkg-divert --list | grep -F "#PKGLIBDIR32#/$libname.distrib"
+            then
+                dpkg-divert --remove --rename #PKGLIBDIR32#/$libname
+            fi
         fi
         shift
     done
@@ -48,7 +54,7 @@ case "$1" in
         # Update initramfs, in case we were loaded into it
         /usr/sbin/update-initramfs -u
     ;;
-    
+
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 
 

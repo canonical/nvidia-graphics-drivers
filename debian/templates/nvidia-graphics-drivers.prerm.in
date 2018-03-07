@@ -9,6 +9,7 @@
 PACKAGE_NAME=#DRIVERNAME#
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
+arch=`dpkg --print-architecture`
 
 remove_dkms_module() {
 	echo "Stopping nvidia-persistenced"
@@ -26,6 +27,12 @@ _remove_diversions() {
         if dpkg-divert --list | grep -F "#PKGLIBDIR#/$libname.distrib"
         then
             dpkg-divert --remove --rename #PKGLIBDIR#/$libname
+        fi
+        if [ "$arch" = "amd64" ]; then
+            if dpkg-divert --list | grep -F "#PKGLIBDIR32#/$libname.distrib"
+            then
+                dpkg-divert --remove --rename #PKGLIBDIR32#/$libname
+            fi
         fi
         shift
     done
