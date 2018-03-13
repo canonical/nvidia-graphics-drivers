@@ -4,3 +4,4 @@ debian/dkms.conf                                                     usr/src/nvi
 debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
 debian/71-nvidia.rules                                               lib/udev/rules.d
 debian/dkms_nvidia/patches/*                                         usr/src/nvidia-#VERSION#/patches
+debian/nvidia-fallback.service                                       lib/systemd/system
