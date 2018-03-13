@@ -119,7 +119,6 @@ NVIDIA-Linux/kernel/nvidia/nv-instance.h                             usr/src/nvi
 #AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/nvidia-uvm.Kbuild         usr/src/nvidia-#VERSION#/nvidia-uvm
 #AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/nvidia-uvm-sources.Kbuild usr/src/nvidia-#VERSION#/nvidia-uvm
 #AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/clb069.h                  usr/src/nvidia-#VERSION#/nvidia-uvm
-#AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/clb069sw.h                usr/src/nvidia-#VERSION#/nvidia-uvm
 #AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/clc076.h                  usr/src/nvidia-#VERSION#/nvidia-uvm
 #AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/uvm8_init.h               usr/src/nvidia-#VERSION#/nvidia-uvm
 #AMD64_ONLY#NVIDIA-Linux/kernel/nvidia-uvm/uvm8.c                    usr/src/nvidia-#VERSION#/nvidia-uvm
