@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-390 (390.42-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Tue, 13 Mar 2018 10:25:22 +0100
+
 nvidia-graphics-drivers-390 (390.25-0ubuntu4) bionic; urgency=medium
 
   * Commit changes to debian/templates/control.in, not just to
