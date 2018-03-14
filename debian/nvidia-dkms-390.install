@@ -1,6 +1,6 @@
-debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d
-debian/create-uvm-dev-node                                           sbin
-debian/dkms.conf                                                     usr/src/nvidia-390.25
-debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
 debian/71-nvidia.rules                                               lib/udev/rules.d
-debian/dkms_nvidia/patches/*                                         usr/src/nvidia-390.25/patches
+debian/create-uvm-dev-node                                           sbin
+debian/dkms.conf                                                     usr/src/nvidia-390.42
+debian/dkms_nvidia/patches/*                                         usr/src/nvidia-390.42/patches
+debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
+debian/nvidia-graphics-drivers.conf                                  etc/modprobe.d

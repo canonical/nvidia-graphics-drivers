@@ -1,0 +1,12 @@
+[Unit]
+Description=Fall back on nouveau if nvidia is not loaded
+Before=display-manager.service
+ConditionPathExists=!/sys/module/nvidia
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=-/sbin/modprobe nouveau --config /
+
+[Install]
+WantedBy=multi-user.target
