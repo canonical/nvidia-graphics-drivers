@@ -125,7 +125,17 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
+	dh_install -p nvidia-compute-utils-$(version_major)
+	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
+	dh_systemd_enable --name=nvidia-persistenced
+	dh_install -p nvidia-dkms-$(version_major)
+	mkdir -p $(CURDIR)/debian/nvidia-dkms-$(version_major)/lib/systemd
+	dh_systemd_enable --name=nvidia-fallback
+
 	dh_install
+
+override_dh_installinit:
+	dh_installinit --noscripts
 
 remove-stack-markings:
 	# Disable the stack markings of binaries for security reasons.
