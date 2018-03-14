@@ -1,8 +1,36 @@
-nvidia-graphics-drivers-390 (390.42-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.42-0ubuntu1) bionic; urgency=medium
 
-  * New upstream release
+  * New upstream release:
+    - Fixed a regression, introduced in 390.12, that caused occasional
+      flicker when using the X driver's composition pipeline, for
+      example when using screen transformations like rotation, or the
+      "ForceCompositionPipeline" or "ForceFullCompositionPipeline"
+      options."
 
- -- Rico Tzschichholz <ricotz@ubuntu.com>  Tue, 13 Mar 2018 10:25:22 +0100
+  [ Alberto Milone ]
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.15.patch,
+    debian/templates/nvidia-dkms-flavour.install.in:
+    - Fix support for Linux 4.15 (LP: #1752739).
+  * debian/templates/nvidia-kernel-source-flavour.install.in:
+    - Slim down the file, avoiding to list every single file.
+  * debian/templates/control.in:
+    - Allow nvidia-dkms-390 to replace nvidia-384 (LP: #1753073).
+  * debian/rules,
+    debian/templates/nvidia-compute-utils-flavour.install.in,
+    debian/templates/nvidia-compute-utils-flavour.nvidia-persistenced.service.in,
+    debian/templates/nvidia-dkms-flavour.install.in,
+    debian/templates/nvidia-dkms-flavour.nvidia-fallback.service.in:
+    - Make sure to enable both systemd services, and let dh_systemd
+      do all the work.
+    - Install nvidia-fallback.service. This loads nouveau if nvidia
+      fails to load.
+    - Remove any references to ld.so.conf.
+
+  [ Rico Tzschichholz ]
+  * debian/rules.defs:
+    - Use the no-compat32 binary for amd64.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 14 Mar 2018 17:10:44 +0100
 
 nvidia-graphics-drivers-390 (390.25-0ubuntu4) bionic; urgency=medium
 
