@@ -78,11 +78,6 @@ else
 	echo "$@ not required on $(DEB_HOST_ARCH)"
 endif
 
-generate-ld-so-conf:
-	echo /$(libdir)/nvidia/glx > "$(CURDIR)/debian/ld.so.conf"
-	# Empty file for Mesa
-	$(shell touch "$(CURDIR)/debian/pm-ld.so.conf")
-
 # Reformat the LICENSE to the format needed for debian/copyright.
 LICENSE.txt: unpack-stamp
 	sed -e 's/^ *//; s/ *$$//; s/^$$/./; s/^/ /;' NVIDIA-Linux/LICENSE > $@
@@ -107,14 +102,13 @@ override_dh_auto_clean:
 	test ! -d debian/po || debconf-updatepo
 	rm -f debian/$(pkg_driver).substvars
 	rm -f debian/dkms.conf
-	rm -f debian/ld.so.conf
 
 override_dh_clean: regen-from-templates
 	dh_clean
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
-override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-json generate-ld-so-conf remove-stack-markings
+override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-json remove-stack-markings
 
 override_dh_install: generate-modaliases
 	# Use our custom dkms.conf file
