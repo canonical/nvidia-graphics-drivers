@@ -9,7 +9,7 @@
 set -e
 
 PACKAGE_NAME=nvidia
-CVERSION=390.42
+CVERSION=390.48
 CVERSION=${CVERSION#*really.}
 
 #NVPD_USER="nvidia-persistenced"
