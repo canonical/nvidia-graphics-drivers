@@ -12,6 +12,8 @@ PACKAGE_NAME=nvidia
 CVERSION=390.48
 CVERSION=${CVERSION#*really.}
 
+KERNELS=$(ls /lib/modules/ 2>/dev/null || true)
+
 #NVPD_USER="nvidia-persistenced"
 
 ARCH=`dpkg --print-architecture`
