@@ -1,8 +1,33 @@
-nvidia-graphics-drivers-390 (390.48-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.48-0ubuntu1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Updated the driver to prevent G-SYNC from being enabled when a
+      Quadro Sync board is installed. G-SYNC and Quadro Sync were
+      always mutually incompatible features, and this change makes it
+      easier to use G-SYNC capable monitors on Quadro Sync
+      configurations, as it is now no longer necessary to manually
+      disable G-SYNC.
+    - Further improved the fix for occasional flicker when using the
+      X driver's composition pipeline.  This was mostly fixed in
+      390.42, but now the fix should be more complete.
+    - Improved compatibility with recent Linux kernels.
+    - Fixed a string concatenation bug that caused libGL to
+      accidentally try to create the directory "$HOME.nv" rather than
+      "$HOME/.nv" in some cases where /tmp isn't accessible.
+    - Increased the version numbers of the GLVND libGL, libGLESv1_CM,
+      libGLESv2, and libEGL libraries, to prevent concurrently
+      installed non-GLVND libraries from taking precedence in the
+      dynamic linker cache.
+    - Fixed a bug which could cause X servers that export a Video
+      Driver ABI earlier than 0.8 to crash when running X11
+      applications which call XRenderAddTraps().
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_4.15.patch.
+  * debian/templates/nvidia-dkms-flavour.postinst.in:
+    - Add missing KERNELS variable. This fixes the following error:
+      "dpkg: error: version '-' has bad syntax: revision number is empty".
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Apr 2018 15:26:16 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Apr 2018 15:05:09 +0200
 
 nvidia-graphics-drivers-390 (390.42-0ubuntu1) bionic; urgency=medium
 
