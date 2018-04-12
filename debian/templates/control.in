@@ -39,9 +39,7 @@ Depends:
  libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
- nvidia-settings,
-#nvidia-prime (>= 0.5) | bumblebee
-# nvidia-persistenced,
+ nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
