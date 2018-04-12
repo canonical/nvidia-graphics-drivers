@@ -1,8 +1,20 @@
-nvidia-graphics-drivers-390 (390.48-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.48-0ubuntu2) bionic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/templates/10-nvidia.conf.in,
+    debian/templates/xserver-xorg-video-nvidia-flavour.install.in:
+    - Rename xorg.conf.d file.
+    - Drop the PrimaryGpu option from the xorg.conf.d file, as it
+      has a bad interaction with systems with multiple NVIDIA GPUs
+      (LP: #1756226).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 09 Apr 2018 17:10:00 +0200
+  [ Graham Inggs ]
+  * debian/templates/control.in:
+    - Make sure that libnvidia-compute does not conflict with or
+      replace opencl-icd, so that other OpenCL ICDs can be installed
+      at the same time.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Apr 2018 16:45:37 +0200
 
 nvidia-graphics-drivers-390 (390.48-0ubuntu1) bionic; urgency=medium
 
