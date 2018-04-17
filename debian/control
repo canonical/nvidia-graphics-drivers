@@ -29,7 +29,9 @@ Architecture: i386 amd64 armhf
 Depends:
  libnvidia-gl-390 (= ${binary:Version}),
  nvidia-dkms-390 (= ${binary:Version}),
- nvidia-compute-390 (= ${binary:Version}),
+ nvidia-kernel-source-390 (= ${binary:Version}),
+ libnvidia-compute-390 (= ${binary:Version}),
+ nvidia-compute-utils-390 (= ${binary:Version}),
  libnvidia-decode-390 (= ${binary:Version}) [i386 amd64],
  libnvidia-encode-390 (= ${binary:Version}) [i386 amd64],
  nvidia-utils-390 (= ${binary:Version}),
@@ -39,9 +41,13 @@ Depends:
  libnvidia-fbc1-390 (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
- nvidia-settings,
-#nvidia-prime (>= 0.5) | bumblebee
-# nvidia-persistenced,
+ nvidia-settings, nvidia-prime (>= 0.8),
+ libnvidia-compute-390:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-390:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-390:i386 (= ${binary:Version}) [amd64],
+ libnvidia-ifr1-390:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-390:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-390:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
@@ -77,7 +83,7 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-390,
+ dkms, nvidia-kernel-source-390, nvidia-kernel-common-390,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -106,8 +112,6 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Recommends:
- libnvidia-compute-390:i386 [amd64],
 Provides: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
  libcuda-9.0-1, libcuda-9.1-1
@@ -174,6 +178,22 @@ Description: NVIDIA computing metapackage
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-390 metapackage.
 
+Package: nvidia-kernel-common-390
+Architecture: i386 amd64 armhf
+Conflicts: nvidia-kernel-common
+Provides: nvidia-kernel-common
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Replaces:
+ nvidia-dkms-390 (<< 390.48-0ubuntu3~), nvidia-kernel-common
+Description: Shared files used with the kernel module
+ This package installs all the optional accessory files for the NVIDIA
+ kernel module.
+ .
+ Install this package if you want to blacklist any conflicting kernel
+ modules, and if you want udev to load the the NVIDIA kernel modules,
+ and to create the uvm devices automatically.
+
 Package: libnvidia-gl-390
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -182,8 +202,6 @@ Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
  libnvidia-common-390, ${misc:Depends}, ${shlibs:Depends}
-Recommends:
- libnvidia-gl-390:i386 [amd64]
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
@@ -246,8 +264,6 @@ Pre-Depends:
 Depends:
  libnvidia-gl-390, libx11-6,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-ifr1-390:i386 [amd64]
 Provides:
  libnvidia-ifr1,
 Conflicts:
@@ -270,8 +286,6 @@ Pre-Depends:
 Depends:
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-fbc1-390:i386 [amd64],
 Provides:
  libnvidia-fbc1,
 Conflicts:
@@ -294,8 +308,6 @@ Pre-Depends:
 Depends:
  libnvidia-compute-390 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-decode-390:i386 [amd64],
 Conflicts:
  libnvidia-decode,
 Replaces:
@@ -316,8 +328,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-encode-390:i386 [amd64],
 Conflicts:
  libnvidia-encode,
 Provides:
