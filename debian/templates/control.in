@@ -41,7 +41,13 @@ Depends:
  libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
- nvidia-settings, nvidia-prime (>= 0.8)
+ nvidia-settings, nvidia-prime (>= 0.8),
+ libnvidia-compute-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-ifr1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
@@ -106,8 +112,6 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Recommends:
- libnvidia-compute-#FLAVOUR#:i386 [amd64],
 Provides: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
  libcuda-9.0-1, libcuda-9.1-1
@@ -198,8 +202,6 @@ Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
  libnvidia-common-#FLAVOUR#, ${misc:Depends}, ${shlibs:Depends}
-Recommends:
- libnvidia-gl-#FLAVOUR#:i386 [amd64]
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
@@ -262,8 +264,6 @@ Pre-Depends:
 Depends:
  libnvidia-gl-#FLAVOUR#, libx11-6,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-ifr1-#FLAVOUR#:i386 [amd64]
 Provides:
  libnvidia-ifr1,
 Conflicts:
@@ -286,8 +286,6 @@ Pre-Depends:
 Depends:
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-fbc1-#FLAVOUR#:i386 [amd64],
 Provides:
  libnvidia-fbc1,
 Conflicts:
@@ -310,8 +308,6 @@ Pre-Depends:
 Depends:
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-decode-#FLAVOUR#:i386 [amd64],
 Conflicts:
  libnvidia-decode,
 Replaces:
@@ -332,8 +328,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-encode-#FLAVOUR#:i386 [amd64],
 Conflicts:
  libnvidia-encode,
 Provides:
