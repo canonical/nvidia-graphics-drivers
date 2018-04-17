@@ -29,7 +29,9 @@ Architecture: i386 amd64 armhf
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
  nvidia-dkms-#FLAVOUR# (= ${binary:Version}),
- nvidia-compute-#FLAVOUR# (= ${binary:Version}),
+ nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
+ nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
  libnvidia-decode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
  libnvidia-encode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
  nvidia-utils-#FLAVOUR# (= ${binary:Version}),
@@ -75,7 +77,7 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-#FLAVOUR#,
+ dkms, nvidia-kernel-source-#FLAVOUR#, nvidia-kernel-common-#FLAVOUR#,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -171,6 +173,22 @@ Description: NVIDIA computing metapackage
  .
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-#FLAVOUR# metapackage.
+
+Package: nvidia-kernel-common-#FLAVOUR#
+Architecture: i386 amd64 armhf
+Conflicts: nvidia-kernel-common
+Provides: nvidia-kernel-common
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Replaces:
+ nvidia-dkms-#FLAVOUR# (<< 390.48-0ubuntu3~), nvidia-kernel-common
+Description: Shared files used with the kernel module
+ This package installs all the optional accessory files for the NVIDIA
+ kernel module.
+ .
+ Install this package if you want to blacklist any conflicting kernel
+ modules, and if you want udev to load the the NVIDIA kernel modules,
+ and to create the uvm devices automatically.
 
 Package: libnvidia-gl-#FLAVOUR#
 Architecture: i386 amd64 armhf
