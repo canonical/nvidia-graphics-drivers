@@ -8,8 +8,6 @@
 # Authors: Alberto Milone
 set -e
 
-KERNELS=$(ls /lib/modules/ 2>/dev/null || true)
-
 
 # Check the existence of a kernel named as $1
 _is_kernel_name_correct() {
@@ -74,10 +72,6 @@ get_newest_kernel() {
         CURRENT_FLAVOUR=${CURRENT_ABI#*-}
         CURRENT_ABI=${CURRENT_ABI%-*}
         NEWEST_KERNEL=$(_get_newest_kernel_debian "$CURRENT_VERSION-$CURRENT_ABI")
-
-    elif [ `which rpm &>/dev/null` ]; then
-        # If RPM based
-        NEWEST_KERNEL=$(_get_newest_kernel_rhel)
     fi
 
     # Make sure that kernel name that we extracted corresponds to an installed
@@ -92,7 +86,7 @@ get_newest_kernel() {
 case "$1" in
     configure)
         CURRENT_KERNEL=$(uname -r)
-        NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
+        NEWEST_KERNEL=$(get_newest_kernel "$CURRENT_KERNEL")
 
         # Update initramfs so that the blacklist ends up in the initramfs
         if [ -x /usr/sbin/update-initramfs ]; then
