@@ -145,7 +145,7 @@ Description: NVIDIA compute utilities
  has compute capability SM 3.5 or higher.
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
-Package: nvidia-compute-no-dkms-390
+Package: nvidia-headless-no-dkms-390
 Architecture: i386 amd64 armhf
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
@@ -155,7 +155,7 @@ Depends:
  libnvidia-compute-390 (= ${binary:Version}),
  nvidia-compute-utils-390 (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA computing metapackage - no DKMS
+Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA driver and the libraries that enable
  parallel general purpose computation through CUDA and
  OpenCL. DKMS will not be installed, and, therefore, the kernel module
@@ -164,13 +164,13 @@ Description: NVIDIA computing metapackage - no DKMS
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-390 metapackage.
 
-Package: nvidia-compute-390
+Package: nvidia-headless-390
 Architecture: i386 amd64 armhf
 Depends:
- nvidia-compute-no-dkms-390,
+ nvidia-headless-no-dkms-390,
  nvidia-dkms-390,
  ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA computing metapackage
+Description: NVIDIA headless metapackage
  This metapackage installs the NVIDIA driver and the libraries that enable
  parallel general purpose computation through CUDA and
  OpenCL.
@@ -356,22 +356,22 @@ Description: Transitional package for nvidia-driver-390
 
 Package: nvidia-libopencl1-384
 Architecture: i386 amd64
-Depends: nvidia-compute-390
-Description: Transitional package for nvidia-compute-390
- This is a transitional package for nvidia-compute-390, and can be
+Depends: nvidia-headless-390
+Description: Transitional package for nvidia-headless-390
+ This is a transitional package for nvidia-headless-390, and can be
  safely removed after the installation is complete.
 
 Package: nvidia-opencl-icd-384
 Architecture: i386 amd64
-Depends: nvidia-compute-390
-Description: Transitional package for nvidia-compute-390
- This is a transitional package for nvidia-compute-390, and can be
+Depends: nvidia-headless-390
+Description: Transitional package for nvidia-headless-390
+ This is a transitional package for nvidia-headless-390, and can be
  safely removed after the installation is complete.
 
 Package: libcuda1-384
 Architecture: i386 amd64 armhf
-Depends: nvidia-compute-390
-Description: Transitional package for nvidia-compute-390
- This is a transitional package for nvidia-compute-390, and can be
+Depends: nvidia-headless-390
+Description: Transitional package for nvidia-headless-390
+ This is a transitional package for nvidia-headless-390, and can be
  safely removed after the installation is complete.
 
