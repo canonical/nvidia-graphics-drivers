@@ -1,8 +1,27 @@
-nvidia-graphics-drivers-390 (390.48-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.48-0ubuntu3) bionic; urgency=medium
 
-  * 
+  * debian/rules, debian/templates/control.in,
+    debian/templates/nvidia-dkms-flavour.install.in,
+    debian/templates/nvidia-dkms-flavour.postinst.in,
+    debian/templates/nvidia-dkms-flavour.postrm.in,
+    debian/templates/nvidia-dkms-flavour.prerm.in,
+    debian/templates/nvidia-dkms-flavour.install.in,
+    debian/templates/nvidia-kernel-common-flavour.install.in,
+    debian/templates/nvidia-kernel-common-flavour.nvidia-fallback.service.in,
+    debian/templates/nvidia-kernel-common-flavour.postinst.in,
+    debian/templates/nvidia-kernel-common-flavour.postrm.in:
+    - Fix kernel detection. We were passing an entire list of kernels
+      but we really needed only the current kernel.
+    - Split the scripts, udev rules, and blacklist file into the
+      nvidia-kernel-common package. The nvidia-dkms package only
+      includes DKMS related files now.
+    - Rename nvidia-compute and nvidia-compute-no-dkms to
+      nvidia-headless and nvidia-headless-no-dkms.
+    - Drop the i386 dependencies from the main libraries on amd64, and
+      add them to the main metapackage instead.
+    - Recommend nvidia-prime (>=0.8).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Apr 2018 17:08:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 18 Apr 2018 19:01:46 +0200
 
 nvidia-graphics-drivers-390 (390.48-0ubuntu2) bionic; urgency=medium
 
