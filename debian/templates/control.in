@@ -145,7 +145,7 @@ Description: NVIDIA compute utilities
  has compute capability SM 3.5 or higher.
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
-Package: nvidia-compute-no-dkms-#FLAVOUR#
+Package: nvidia-headless-no-dkms-#FLAVOUR#
 Architecture: i386 amd64 armhf
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
@@ -155,7 +155,7 @@ Depends:
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA computing metapackage - no DKMS
+Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA driver and the libraries that enable
  parallel general purpose computation through CUDA and
  OpenCL. DKMS will not be installed, and, therefore, the kernel module
@@ -164,13 +164,13 @@ Description: NVIDIA computing metapackage - no DKMS
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-#FLAVOUR# metapackage.
 
-Package: nvidia-compute-#FLAVOUR#
+Package: nvidia-headless-#FLAVOUR#
 Architecture: i386 amd64 armhf
 Depends:
- nvidia-compute-no-dkms-#FLAVOUR#,
+ nvidia-headless-no-dkms-#FLAVOUR#,
  nvidia-dkms-#FLAVOUR#,
  ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA computing metapackage
+Description: NVIDIA headless metapackage
  This metapackage installs the NVIDIA driver and the libraries that enable
  parallel general purpose computation through CUDA and
  OpenCL.
@@ -356,22 +356,22 @@ Description: Transitional package for nvidia-driver-#FLAVOUR#
 
 Package: nvidia-libopencl1-384
 Architecture: i386 amd64
-Depends: nvidia-compute-#FLAVOUR#
-Description: Transitional package for nvidia-compute-#FLAVOUR#
- This is a transitional package for nvidia-compute-#FLAVOUR#, and can be
+Depends: nvidia-headless-#FLAVOUR#
+Description: Transitional package for nvidia-headless-#FLAVOUR#
+ This is a transitional package for nvidia-headless-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: nvidia-opencl-icd-384
 Architecture: i386 amd64
-Depends: nvidia-compute-#FLAVOUR#
-Description: Transitional package for nvidia-compute-#FLAVOUR#
- This is a transitional package for nvidia-compute-#FLAVOUR#, and can be
+Depends: nvidia-headless-#FLAVOUR#
+Description: Transitional package for nvidia-headless-#FLAVOUR#
+ This is a transitional package for nvidia-headless-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: libcuda1-384
 Architecture: i386 amd64 armhf
-Depends: nvidia-compute-#FLAVOUR#
-Description: Transitional package for nvidia-compute-#FLAVOUR#
- This is a transitional package for nvidia-compute-#FLAVOUR#, and can be
+Depends: nvidia-headless-#FLAVOUR#
+Description: Transitional package for nvidia-headless-#FLAVOUR#
+ This is a transitional package for nvidia-headless-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
