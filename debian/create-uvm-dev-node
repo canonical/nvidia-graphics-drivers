@@ -4,4 +4,5 @@
 major=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
 if [ -n "$major" ]; then
     mknod -m 666 /dev/nvidia-uvm c $major 0
+    mknod -m 666 /dev/nvidia-uvm-tools c $major 1
 fi
