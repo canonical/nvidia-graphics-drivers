@@ -1,4 +1,4 @@
-/etc/modprobe.d
+/lib/modprobe.d
 /etc/init
 /usr/lib/x86_64-linux-gnu
 /usr/bin
@@ -21,3 +21,5 @@
 /etc
 /usr/share/nvidia
 /lib/udev/rules.d
+/usr/lib/i386-linux-gnu
+/usr/lib32/vdpau
