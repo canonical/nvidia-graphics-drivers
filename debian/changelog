@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-340 (340.106-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.106-0ubuntu4) cosmic; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/templates/nvidia-graphics-drivers.dirs.in,
+    debian/templates/nvidia-graphics-drivers.maintscript.in:
+    - Install the modprobe file in /lib (LP: #1761593).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 May 2018 12:53:29 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 May 2018 13:04:52 +0200
 
 nvidia-graphics-drivers-340 (340.106-0ubuntu3) bionic; urgency=medium
 
