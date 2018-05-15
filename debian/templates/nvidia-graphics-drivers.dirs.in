@@ -1,4 +1,4 @@
-#SYSCONFDIR#/modprobe.d
+/lib/modprobe.d
 #SYSCONFDIR#/init
 #LIBDIRMULTIARCH#
 #BINDIR#

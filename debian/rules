@@ -362,7 +362,7 @@ endif
 
 	# Blacklist any other driver that udev may want to load instead of $(PKG_module)
 	# and create an alias for the module so that it can be used as nvidia
-	printf '$(subst $(newline),\n,${blacklist_file})' > $(CURDIR)/debian/$(PKG_driver)$(PKG_libconfdir)/modprobe.d/$(PKG_driver).conf
+	printf '$(subst $(newline),\n,${blacklist_file})' > $(CURDIR)/debian/$(PKG_driver)/lib/modprobe.d/$(PKG_driver).conf
 
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-xconfig.1.gz "$(mandir)";
 	dh_install -p$(PKG_driver) $(dirname)/nvidia-smi.1.gz "$(mandir)";
