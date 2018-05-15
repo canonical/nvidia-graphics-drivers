@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-390 (390.48-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.48-0ubuntu4) cosmic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/templates/nvidia-kernel-common-flavour.{install|maintscript}.in:
+    - Install the modprobe file in /lib (LP: #1761593).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 May 2018 17:04:10 +0200
+  [ Graham Inggs ]
+  * debian/create-uvm-dev-node:
+    - Create the /dev/nvidia-uvm-tools device node (LP: #1767777).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 May 2018 12:42:43 +0200
 
 nvidia-graphics-drivers-390 (390.48-0ubuntu3) bionic; urgency=medium
 
