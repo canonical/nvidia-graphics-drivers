@@ -109,6 +109,11 @@ get_newest_kernel() {
 
 case "$1" in
     configure)
+        # Added manually, since we mangled the arguments, and dpkg-maintscript-helper
+        # won't work
+        if [ -n "$2" ] && `dpkg --compare-versions "$2" lt "340.106-0ubuntu5"`; then
+            rm -f /etc/modprobe.d/nvidia-340.conf
+        fi
         CURRENT_KERNEL=$(uname -r)
         NEWEST_KERNEL=$(get_newest_kernel "$KERNELS")
 
