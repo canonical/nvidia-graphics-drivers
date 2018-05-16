@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-340 (340.106-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.106-0ubuntu5) cosmic; urgency=medium
 
-  * 
+  * debian/nvidia-340.maintscript,
+    debian/templates/nvidia-graphics-drivers.maintscript.in,
+    debian/templates/nvidia-graphics-drivers.postinst.in:
+    - Remove the blacklist file manually, since dpkg-maintscript-helper
+      won't work in this case. Fixes FTBFS.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 May 2018 17:19:08 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 May 2018 19:30:39 +0200
 
 nvidia-graphics-drivers-340 (340.106-0ubuntu4) cosmic; urgency=medium
 
