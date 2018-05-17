@@ -1,8 +1,20 @@
-nvidia-graphics-drivers-384 (384.130-0ubuntu0.14.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-384 (384.130-0ubuntu0.14.04.1) trusty; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE-2018-6249, 2018-6253 (LP: #1771814).
+  * New upstream release:
+   - Improved compatibility with recent Linux kernels.
+   - Fixed a string concatenation bug that caused libGL to accidentally try
+     to create the directory "$HOME.nv" rather than "$HOME/.nv" in some cases
+     where /tmp isn't accessible.
+   - Increased the version numbers of the GLVND libGL, libGLESv1_CM,
+     libGLESv2, and libEGL libraries, to prevent concurrently installed
+     non-GLVND libraries from taking precedence in the dynamic linker cache.
+   - Fixed a bug which could cause X servers that export a Video Driver ABI
+     earlier than 0.8 to crash when running X11 applications which call
+     XRenderAddTraps().
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 May 2018 10:49:05 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 May 2018 15:09:12 +0200
 
 nvidia-graphics-drivers-384 (384.111-0ubuntu0.14.04.1) trusty; urgency=medium
 
