@@ -2,7 +2,7 @@ This package was debianized by Randall Donald <rdonald@debian.org> on
 Mon, 31 Mar 2003 23:40:05 -0800.
 
 It was downloaded from
-http://us.download.nvidia.com/XFree86/Linux-x86/384.111/NVIDIA-Linux-x86-384.111.run
+http://us.download.nvidia.com/XFree86/Linux-x86_64/384.130/NVIDIA-Linux-x86_64-384.130-no-compat32.run
 
 Upstream Author: NVIDIA <linux-bugs@nvidia.com>
 
