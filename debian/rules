@@ -179,7 +179,7 @@ endef
 	dh $@
 
 override_dh_shlibdeps:
-	dh_shlibdeps -Xtls -Xconf -X$(PKG_libdir32) -X$(libdir_multiarch_other) \
+	dh_shlibdeps -Xtls -Xconf -X$(PKG_libdir32) -X$(libdir_multiarch_other) -Xlibnvidia-fbc -Xlibnvidia-ifr \
 	-l$(CURDIR)/debian/$(PKG_driver)$(PKG_libdir)/:$(CURDIR)/debian/$(PKG_driver_dev)$(PKG_libdir)/:$(libdir)/
 
 .PHONY: get-orig-source
