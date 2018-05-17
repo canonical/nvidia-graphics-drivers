@@ -1,49 +1,49 @@
-nvidia-384: library-not-linked-against-libc ./usr/lib/libGL.so.384.111
+nvidia-384: library-not-linked-against-libc ./usr/lib/libGL.so.384.130
 
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.384.111
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.384.130
 
-nvidia-384: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.384.111
+nvidia-384: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.384.130
 
-nvidia-384: shlib-with-non-pic-code usr/lib/libGL.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/libGLcore.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.384.111
+nvidia-384: shlib-with-non-pic-code usr/lib/libGL.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/libGLcore.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.384.130
 
-nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.384.111 usr/lib/libGL.so
-nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.384.111 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.384.130 usr/lib/libGL.so
+nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.384.130 usr/lib/xorg/modules/extensions/libglx.so
 
 
-nvidia-384: script-not-executable usr/src/nvidia-384-384.111/conftest.sh
+nvidia-384: script-not-executable usr/src/nvidia-384-384.130/conftest.sh
 nvidia-384: maintainer-script-ignores-errors prerm
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGL.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGL.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGLcore.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGLcore.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libcuda.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libcuda.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libnvidia-cfg.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libnvidia-cfg.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libnvidia-tls.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libnvidia-tls.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libvdpau.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/tls/libnvidia-tls.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/tls/libnvidia-tls.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/vdpau/libvdpau_nvidia.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/vdpau/libvdpau_nvidia.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/vdpau/libvdpau_trace.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/xorg/libglx.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/xorg/libglx.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.384.111
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGL.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGL.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGLcore.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGLcore.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libcuda.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libcuda.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libnvidia-cfg.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libnvidia-cfg.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libnvidia-tls.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libnvidia-tls.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libvdpau.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/tls/libnvidia-tls.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/tls/libnvidia-tls.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/vdpau/libvdpau_nvidia.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/vdpau/libvdpau_nvidia.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/vdpau/libvdpau_trace.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/xorg/libglx.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/xorg/libglx.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/tls/libnvidia-tls.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/tls/libnvidia-tls.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/vdpau/libvdpau_nvidia.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_nvidia.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/vdpau/libvdpau_trace.so.384.130
 nvidia-384: unused-shlib-entry-in-control-file libnvidia-tls 190
 nvidia-384: shlibs-declares-dependency-on-other-package libgl1-mesa | libgl1
 nvidia-384: prerm-calls-ldconfig
 nvidia-384: copyright-without-copyright-notice
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/libnvidia-tls.so.384.111
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/tls/libnvidia-tls.so.384.111
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.384.111
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/libnvidia-tls.so.384.130
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/tls/libnvidia-tls.so.384.130
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.384.130
 nvidia-384: unknown-section restricted/misc
 nvidia-185-modaliases: copyright-without-copyright-notice
 nvidia-185-modaliases: extended-description-line-too-long
@@ -60,21 +60,21 @@ nvidia-glx-185: copyright-without-copyright-notice
 nvidia-glx-185: unknown-section restricted/misc
 nvidia-384-modaliases: copyright-without-copyright-notice
 
-nvidia-384: script-not-executable ./usr/src/nvidia-384-384.111/conftest.sh
+nvidia-384: script-not-executable ./usr/src/nvidia-384-384.130/conftest.sh
 nvidia-384: maintainer-script-ignores-errors prerm
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGL.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGLcore.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libcuda.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libnvidia-cfg.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libnvidia-tls.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libvdpau_nvidia.so.384.111
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/tls/libnvidia-tls.so.384.111
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-384/tls/libnvidia-tls.so.384.111
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGL.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGLcore.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libcuda.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libnvidia-cfg.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libnvidia-tls.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libvdpau_nvidia.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/tls/libnvidia-tls.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib32/nvidia-384/tls/libnvidia-tls.so.384.130
 
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/libnvidia-tls.so.384.111
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/tls/libnvidia-tls.so.384.111
-nvidia-384: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.384.111
-nvidia-384: shared-lib-without-dependency-information ./usr/lib32/nvidia-384/libnvidia-tls.so.384.111
-nvidia-384: shared-lib-without-dependency-information ./usr/lib32/nvidia-384/tls/libnvidia-tls.so.384.111
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/libnvidia-tls.so.384.130
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/nvidia-384/tls/libnvidia-tls.so.384.130
+nvidia-384: shared-lib-without-dependency-information ./usr/lib/tls/libnvidia-tls.so.384.130
+nvidia-384: shared-lib-without-dependency-information ./usr/lib32/nvidia-384/libnvidia-tls.so.384.130
+nvidia-384: shared-lib-without-dependency-information ./usr/lib32/nvidia-384/tls/libnvidia-tls.so.384.130
 
 

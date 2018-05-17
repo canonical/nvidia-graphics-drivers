@@ -7,33 +7,33 @@ debian/create-uvm-dev-node                   sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 debian/copy-nvidia-options                   usr/share/initramfs-tools/hooks
 
-NVIDIA-Linux-x86-384.111/nvidia_drv.so /usr/lib/nvidia-384/xorg
-NVIDIA-Linux-x86-384.111/libglx.so.384.111 /usr/lib/nvidia-384/xorg
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia_drv.so /usr/lib/nvidia-384/xorg
+NVIDIA-Linux-x86_64-384.130-no-compat32/libglx.so.384.130 /usr/lib/nvidia-384/xorg
 
-NVIDIA-Linux-x86-384.111/libGL*.so*                  /usr/lib/nvidia-384
-NVIDIA-Linux-x86-384.111/libOpenGL*.so*              /usr/lib/nvidia-384
-NVIDIA-Linux-x86-384.111/libEGL*.so*                 /usr/lib/nvidia-384
-NVIDIA-Linux-x86-384.111/libnv*.so*                  /usr/lib/nvidia-384
+NVIDIA-Linux-x86_64-384.130-no-compat32/libGL*.so*                  /usr/lib/nvidia-384
+NVIDIA-Linux-x86_64-384.130-no-compat32/libOpenGL*.so*              /usr/lib/nvidia-384
+NVIDIA-Linux-x86_64-384.130-no-compat32/libEGL*.so*                 /usr/lib/nvidia-384
+NVIDIA-Linux-x86_64-384.130-no-compat32/libnv*.so*                  /usr/lib/nvidia-384
 
-NVIDIA-Linux-x86-384.111/libvdpau_nvidia.so*   /usr/lib/nvidia-384/vdpau
-NVIDIA-Linux-x86-384.111/tls/*.so*                   /usr/lib/nvidia-384/tls
+NVIDIA-Linux-x86_64-384.130-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-384/vdpau
+NVIDIA-Linux-x86_64-384.130-no-compat32/tls/*.so*                   /usr/lib/nvidia-384/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-384-384.111
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-384-384.111/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-384-384.111
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-384-384.130
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-384-384.130/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-384-384.130
 
-NVIDIA-Linux-x86-384.111/nvidia-bug-report.sh /usr/lib/nvidia-384/bin
-NVIDIA-Linux-x86-384.111/nvidia-xconfig /usr/lib/nvidia-384/bin
-NVIDIA-Linux-x86-384.111/nvidia-smi /usr/lib/nvidia-384/bin
-NVIDIA-Linux-x86-384.111/nvidia-debugdump /usr/lib/nvidia-384/bin
-NVIDIA-Linux-x86-384.111/nvidia-cuda-mps-control /usr/lib/nvidia-384/bin
-NVIDIA-Linux-x86-384.111/nvidia-cuda-mps-server /usr/lib/nvidia-384/bin
-NVIDIA-Linux-x86-384.111/nvidia-persistenced /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-xconfig /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-smi /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-debugdump /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-cuda-mps-control /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-cuda-mps-server /usr/lib/nvidia-384/bin
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-persistenced /usr/lib/nvidia-384/bin
 
-NVIDIA-Linux-x86-384.111/nvidia-application-profiles-384.111-rc /usr/share/nvidia-384
-NVIDIA-Linux-x86-384.111/nvidia-application-profiles-384.111-key-documentation /usr/share/nvidia-384
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-application-profiles-384.130-rc /usr/share/nvidia-384
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-application-profiles-384.130-key-documentation /usr/share/nvidia-384
 
-NVIDIA-Linux-x86-384.111/10_nvidia.json usr/share/glvnd/egl_vendor.d
-NVIDIA-Linux-x86-384.111/10_nvidia_wayland.json usr/share/glvnd/egl_vendor.d
-NVIDIA-Linux-x86-384.111/nvidia_icd.json usr/share/vulkan/icd.d
-NVIDIA-Linux-x86-384.111/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf
+NVIDIA-Linux-x86_64-384.130-no-compat32/10_nvidia.json usr/share/glvnd/egl_vendor.d
+NVIDIA-Linux-x86_64-384.130-no-compat32/10_nvidia_wayland.json usr/share/glvnd/egl_vendor.d
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia_icd.json usr/share/vulkan/icd.d
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia-drm-outputclass.conf  usr/share/X11/xorg.conf.d/50-nvidia-drm-outputclass.conf

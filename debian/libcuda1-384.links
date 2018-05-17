@@ -1,2 +1,4 @@
-/usr/lib/x86_64-linux-gnu/libcuda.so.384.111	/usr/lib/x86_64-linux-gnu/libcuda.so.1
+/usr/lib/x86_64-linux-gnu/libcuda.so.384.130	/usr/lib/x86_64-linux-gnu/libcuda.so.1
 /usr/lib/x86_64-linux-gnu/libcuda.so.1		/usr/lib/x86_64-linux-gnu/libcuda.so
+/usr/lib/i386-linux-gnu/libcuda.so.384.130	/usr/lib/i386-linux-gnu/libcuda.so.1
+/usr/lib/i386-linux-gnu/libcuda.so.1		/usr/lib/i386-linux-gnu/libcuda.so
