@@ -14,11 +14,13 @@
 /usr/share/lintian/overrides
 /usr/lib/nvidia-384/xorg
 /usr/lib/nvidia-384/xorg
-/usr/src/nvidia-384-384.111
-/usr/src/nvidia-384-384.111/patches
+/usr/src/nvidia-384-384.130
+/usr/src/nvidia-384-384.130/patches
 /usr/lib/vdpau
 /lib/nvidia-384
 /usr/share/nvidia
 /lib/udev/rules.d
 /usr/share/vulkan/icd.d
 /usr/share/X11/xorg.conf.d
+/usr/lib32/nvidia-384
+/usr/lib32/vdpau

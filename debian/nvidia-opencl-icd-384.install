@@ -1,2 +1,2 @@
-NVIDIA-Linux-x86-384.111/nvidia.icd  etc/OpenCL/vendors/
-NVIDIA-Linux-x86-384.111/libnvidia-opencl.so.384.111   /usr/lib/x86_64-linux-gnu/
+NVIDIA-Linux-x86_64-384.130-no-compat32/nvidia.icd  etc/OpenCL/vendors/
+NVIDIA-Linux-x86_64-384.130-no-compat32/libnvidia-opencl.so.384.130   /usr/lib/x86_64-linux-gnu/
