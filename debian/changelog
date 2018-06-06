@@ -1,8 +1,18 @@
-nvidia-graphics-drivers-390 (390.67-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.67-0ubuntu1) cosmic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a bug that could cause kernel panics when using Quadro
+      SDI Capture hardware.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
+    - Fixed an intermittent crash when launching Vulkan applications.
+    - Fixed an intermittent crash when launching applications through
+      Wine.
+    - Fixed a bug that caused the driver, in some low bandwidth
+      DisplayPort configurations, to not implicitly enable display
+      dithering.  This resulted in visible banding.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Jun 2018 15:40:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Jun 2018 15:43:51 +0200
 
 nvidia-graphics-drivers-390 (390.59-0ubuntu1) cosmic; urgency=medium
 
