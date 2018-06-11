@@ -1,8 +1,37 @@
-nvidia-graphics-drivers-390 (390.67-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.67-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        GeForce GTX 1050 with Max-Q Design
+        Quadro P3200
+        Quadro P4200
+    - Fixed a bug that could cause kernel panics when using Quadro
+      SDI Capture hardware.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
+    - Fixed an intermittent crash when launching Vulkan applications.
+    - Fixed an intermittent crash when launching applications through
+      Wine.
+    - Fixed a bug that caused the driver, in some low bandwidth
+      DisplayPort configurations, to not implicitly enable display
+      dithering.  This resulted in visible banding.
+    - Added support for X.Org xserver ABI 24 (xorg-server 1.20).
+    - Improved nvidia-bug-report.sh to check for kern.log which is
+      the default kernel log-file location for many Debian-based
+      Linux distributions.
+    - Fixed a bug which could cause X servers that export a Video
+      Driver ABI earlier than 0.8 to crash when running X11
+      applications which call XRenderAddTraps().
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 May 2018 17:04:10 +0200
+  [ Alberto Milone ]
+  * debian/templates/nvidia-kernel-common-flavour.{install|maintscript}.in:
+    - Install the modprobe file in /lib (LP: #1761593).
+
+  [ Graham Inggs ]
+  * debian/create-uvm-dev-node:
+    - Create the /dev/nvidia-uvm-tools device node (LP: #1767777).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Jun 2018 13:28:21 +0200
 
 nvidia-graphics-drivers-390 (390.48-0ubuntu3) bionic; urgency=medium
 
