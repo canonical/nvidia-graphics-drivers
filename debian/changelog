@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.107-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Jun 2018 16:06:05 +0200
+
 nvidia-graphics-drivers-340 (340.106-0ubuntu5) cosmic; urgency=medium
 
   * debian/nvidia-340.maintscript,
