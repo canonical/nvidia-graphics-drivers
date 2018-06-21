@@ -24,7 +24,7 @@ Conflicts: xorg-driver-binary, nvidia-persistenced, libnvidia-decode, nvidia-dkm
 Replaces: xorg-driver-binary, nvidia-persistenced, libnvidia-decode, nvidia-dkms-kernel,
  libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 340.106
+Description: NVIDIA binary driver - version 340.107
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -35,12 +35,12 @@ Description: NVIDIA binary driver - version 340.106
  for GeForce 8 and later series cards for h264 video.
  .
  Release Notes and supported GPUs:
- http://www.nvidia.com/object/linux-display-amd64-340.106-driver.html
+ http://www.nvidia.com/object/linux-display-amd64-340.107-driver.html
  .
 
 Package: nvidia-340-dev
 Architecture: i386 amd64 armhf
-Depends: ${misc:Depends}, nvidia-340 (>= 340.106)
+Depends: ${misc:Depends}, nvidia-340 (>= 340.107)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
