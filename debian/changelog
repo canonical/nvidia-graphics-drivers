@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu1) cosmic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for X.Org xserver ABI 24 (xorg-server 1.20).
+    - Improved nvidia-bug-report.sh to check for kern.log which is
+      the default kernel log-file location for many Debian-based
+      Linux distributions.
+    - Fixed a bug which could cause X servers that export a Video
+      Driver ABI earlier than 0.8 to crash when running X11
+      applications which call XRenderAddTraps().
+  * debian/substvars:
+    - Add support for ABI 24.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Jun 2018 16:06:05 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Jun 2018 18:06:37 +0200
 
 nvidia-graphics-drivers-340 (340.106-0ubuntu5) cosmic; urgency=medium
 
