@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-390 (390.77-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.77-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Improved compatibility with recent Linux kernels.
+    - Fixed an intermittent hang of Vulkan applications running
+      fullscreen when flipping is allowed.
+    - Removed informational messages that were printed by nvidia-
+      modeset.ko whenever a GPU device was allocated or freed.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
+  * debian/nvidia-kernel-common-390.nvidia-fallback.service,
+    debian/templates/nvidia-kernel-common-flavour.nvidia-fallback.service.in,
+    debian/rules,
+    debian/rules.defs:
+    - Remove nvidia-fallback.service, as loading nouveau can cause problems
+      on hybrid systems (LP: #1778011).
+    - Use https instead of http for the sources.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2018 12:30:04 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2018 15:55:41 +0200
 
 nvidia-graphics-drivers-390 (390.67-0ubuntu0.18.04.1) bionic; urgency=medium
 
