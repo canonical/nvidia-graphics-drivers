@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-compute-utils-390
+# preinst script for nvidia-compute-utils-396
 #
 # see: dh_installdeb(1)
 #

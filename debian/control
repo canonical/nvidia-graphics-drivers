@@ -340,38 +340,3 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-384
-Architecture: amd64
-Depends: nvidia-driver-396
-Description: Transitional package for nvidia-driver-396
- This is a transitional package for nvidia-driver-396, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-384-dev
-Architecture: amd64
-Depends: nvidia-driver-396
-Description: Transitional package for nvidia-driver-396
- This is a transitional package for nvidia-driver-396, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-libopencl1-384
-Architecture: amd64
-Depends: nvidia-headless-396
-Description: Transitional package for nvidia-headless-396
- This is a transitional package for nvidia-headless-396, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-opencl-icd-384
-Architecture: amd64
-Depends: nvidia-headless-396
-Description: Transitional package for nvidia-headless-396
- This is a transitional package for nvidia-headless-396, and can be
- safely removed after the installation is complete.
-
-Package: libcuda1-384
-Architecture: amd64
-Depends: nvidia-headless-396
-Description: Transitional package for nvidia-headless-396
- This is a transitional package for nvidia-headless-396, and can be
- safely removed after the installation is complete.
-
