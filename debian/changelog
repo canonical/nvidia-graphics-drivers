@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-396 (396.26-0ubuntu1~ppa1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-396 (396.26-0ubuntu1~ppa1) bionic; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 Aug 2018 07:58:47 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 Aug 2018 14:20:33 +0200
