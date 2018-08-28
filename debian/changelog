@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu1) cosmic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a resource leak introduced in the 390 series of drivers
+      that could lead to reduced performance after starting and
+      stopping several OpenGL and/or Vulkan applications.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Aug 2018 08:42:44 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Aug 2018 08:49:24 +0200
 
 nvidia-graphics-drivers-390 (390.77-0ubuntu1) cosmic; urgency=medium
 
