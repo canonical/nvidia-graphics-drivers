@@ -23,7 +23,9 @@ NVPD_USER="nvidia-persistenced"
 arch=`dpkg --print-architecture`
 
 _remove_diversions() {
-    set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so" "libGLESv2.so" "libGLESv2.so.2"
+    set -a "libGL.so.1" "libGL.so" "libEGL.so.1" "libEGL.so" "libGLESv2.so" \
+           "libGLESv2.so.2"  "libGLESv1_CM.so" "libGLESv1_CM.so.1"
+
     while [ $# -ge 1 ]; do
         libname=$1
         if dpkg-divert --list | grep -F "/usr/lib/x86_64-linux-gnu/$libname.distrib"
