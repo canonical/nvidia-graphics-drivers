@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * New upstream release:
     - Added support for X.Org xserver ABI 24 (xorg-server 1.20).
@@ -20,7 +20,7 @@ nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.1) UNRELEASED; urgency=mediu
     - Install the modprobe file in /lib, and remove the blacklist
       file manually (LP: #1761593).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Sep 2018 14:33:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Sep 2018 15:04:03 +0200
 
 nvidia-graphics-drivers-340 (340.106-0ubuntu3) bionic; urgency=medium
 
