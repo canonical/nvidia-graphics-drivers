@@ -6,3 +6,4 @@ Wants=syslog.target
 Type=forking
 ExecStart=/usr/bin/nvidia-persistenced --user nvidia-persistenced --no-persistence-mode --verbose
 ExecStopPost=/bin/rm -rf /var/run/nvidia-persistenced
+
