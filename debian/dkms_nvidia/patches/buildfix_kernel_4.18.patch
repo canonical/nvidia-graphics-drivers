@@ -1,0 +1,47 @@
+--- a/nvidia-drm/nvidia-drm-connector.c.orig	2018-10-23 14:41:38.080297631 +0000
++++ b/nvidia-drm/nvidia-drm-connector.c	2018-10-23 14:45:55.132590394 +0000
+@@ -35,6 +35,8 @@
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ 
++#include <linux/version.h>
++
+ static void nv_drm_connector_destroy(struct drm_connector *connector)
+ {
+     struct nv_drm_connector *nv_connector = to_nv_connector(connector);
+@@ -226,7 +228,11 @@
+ 
+ 
+     if (nv_connector->edid != NULL) {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 18, 0)
+         drm_mode_connector_update_edid_property(
++#else
++        drm_connector_update_edid_property(
++#endif
+             connector, nv_connector->edid);
+     }
+ 
+--- a/nvidia-drm/nvidia-drm-encoder.c.orig	2018-10-23 15:22:22.999577050 +0000
++++ b/nvidia-drm/nvidia-drm-encoder.c	2018-10-23 15:23:08.265050691 +0000
+@@ -35,6 +35,8 @@
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ 
++#include <linux/version.h>
++
+ static void nv_drm_encoder_destroy(struct drm_encoder *encoder)
+ {
+     struct nv_drm_encoder *nv_encoder = to_nv_encoder(encoder);
+@@ -215,8 +217,11 @@
+     }
+ 
+     /* Attach encoder and connector */
+-
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 18, 0)
+     ret = drm_mode_connector_attach_encoder(connector, encoder);
++#else
++    ret = drm_connector_attach_encoder(connector, encoder);
++#endif
+ 
+     if (ret != 0) {
+         NV_DRM_DEV_LOG_ERR(
