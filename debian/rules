@@ -25,20 +25,19 @@ xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
 pkg_module       := nvidia
 pkg_kernel       := nvidia-kernel-$(flavour)
 
-ifeq ($(DEB_HOST_ARCH),armhf)
-arm_excluded         := \#
-else
-arm_excluded         :=
-endif
-
 ifeq ($(DEB_HOST_ARCH),amd64)
 DKMS_disabled_modules :=
 amd64_only :=
+i386_only := \#
 else
 DKMS_disabled_modules := nvidia-uvm
 amd64_only := \#
 endif
 
+ifeq ($(DEB_HOST_ARCH),i386)
+amd64_only := \#
+i386_only :=
+endif
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
@@ -175,7 +174,7 @@ regen-from-templates:
 				 sed -e "s|\.in\$$||g" | \
 				 sed -e "s|flavour|$(flavour)|g"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
-			-e "s|#ARM_EXCLUDED#|$(arm_excluded)|g" \
+			-e "s|#I386_ONLY#|$(i386_only)|g" \
 			-e "s|#AMD64_ONLY#|$(amd64_only)|g" \
 			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
 			-e "s|#FLAVOUR#|$(flavour)|g" \
