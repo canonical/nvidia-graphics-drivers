@@ -57,9 +57,9 @@ NVIDIA-Linux-%:
 	#gunzip $@/*.1.gz
 
 # Unpack all architectures, we may need files from all of them.
-unpack-stamp: NVIDIA-Linux-$(DEB_HOST_ARCH)
+unpack-stamp: NVIDIA-Linux-amd64
 	dh_testdir
-	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
+	ln -s NVIDIA-Linux-amd64 NVIDIA-Linux
 	#QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
