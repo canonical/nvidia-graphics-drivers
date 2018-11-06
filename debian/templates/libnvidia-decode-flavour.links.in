@@ -2,3 +2,7 @@
 #LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#                                     #LIBDIR#/vdpau/libvdpau_nvidia.so
 #LIBDIR#/libnvcuvid.so.#VERSION#                                                #LIBDIR#/libnvcuvid.so.1
 #LIBDIR#/libnvcuvid.so.1                                                        #LIBDIR#/libnvcuvid.so
+#LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#                                     #LIBDIR#/vdpau/libvdpau_nvidia.so.1
+#LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#                                     #LIBDIR#/vdpau/libvdpau_nvidia.so
+#LIBDIR#/libnvcuvid.so.#VERSION#                                                #LIBDIR#/libnvcuvid.so.1
+#LIBDIR#/libnvcuvid.so.1                                                        #LIBDIR#/libnvcuvid.so

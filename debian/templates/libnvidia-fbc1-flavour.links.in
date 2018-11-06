@@ -1,2 +1,4 @@
 #LIBDIR#/libnvidia-fbc.so.#VERSION#                                             #LIBDIR#/libnvidia-fbc.so.1
 #LIBDIR#/libnvidia-fbc.so.1                                                     #LIBDIR#/libnvidia-fbc.so
+#LIBDIR#/libnvidia-fbc.so.#VERSION#                                             #LIBDIR#/libnvidia-fbc.so.1
+#LIBDIR#/libnvidia-fbc.so.1                                                     #LIBDIR#/libnvidia-fbc.so
