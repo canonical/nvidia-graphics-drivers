@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-410 (410.78-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-410 (410.78-0ubuntu1) disco; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Oct 2018 10:25:45 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 Nov 2018 18:16:22 +0100
