@@ -1,47 +1,127 @@
---- a/nvidia-drm/nvidia-drm-connector.c.orig	2018-10-23 14:41:38.080297631 +0000
-+++ b/nvidia-drm/nvidia-drm-connector.c	2018-10-23 14:45:55.132590394 +0000
-@@ -35,6 +35,8 @@
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
+From 2a55fab0f660ec4f6ba599713bddd661c075d447 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Fri, 16 Nov 2018 11:29:04 +0100
+Subject: [PATCH 1/1] Add support for Linux 4.18
+
+Test the availability of drm_mode_connector_attach_encoder and of
+drm_mode_connector_update_edid_property, and use the correct call
+without relying on the kernel version.
+---
+ conftest.sh                       | 18 ++++++++++++++++++
+ nvidia-drm/nvidia-drm-connector.c |  2 +-
+ nvidia-drm/nvidia-drm-encoder.c   |  3 ++-
+ nvidia-drm/nvidia-drm-helper.h    | 22 ++++++++++++++++++++++
+ nvidia-drm/nvidia-drm.Kbuild      |  1 +
+ 5 files changed, 44 insertions(+), 2 deletions(-)
+
+diff --git a/conftest.sh b/conftest.sh
+index 60177db..33a11b3 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -3350,6 +3350,24 @@ compile_test() {
  
-+#include <linux/version.h>
+             compile_check_conftest "$CODE" "NV_DRM_MODE_OBJECT_FIND_HAS_FILE_PRIV_ARG" | append_conftest "types"
+         ;;
 +
- static void nv_drm_connector_destroy(struct drm_connector *connector)
- {
-     struct nv_drm_connector *nv_connector = to_nv_connector(connector);
-@@ -226,7 +228,11 @@
++        drm_connector_funcs_have_mode_in_name)
++            #
++            # Determine if _mode_ is present in connector function names.
++            #
++            # _mode_ has been dropped from connector function names by commits:
++            #   2018-07-09  c555f02371c338b06752577aebf738dbdb6907bd
++            #   2018-07-09  cde4c44d8769c1be16074c097592c46c7d64092b
++            #   2018-07-09  97e14fbeb53fe060c5f6a7a07e37fd24c087ed0c
++            #
++            CODE="
++            #include <drm/drm_connector.h>
++            void conftest_drm_connector_funcs_have_mode_in_name(void) {
++                drm_mode_connector_attach_encoder();
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_CONNECTOR_FUNCS_HAVE_MODE_IN_NAME" "" "functions"
++        ;;
+     esac
+ }
+ 
+diff --git a/nvidia-drm/nvidia-drm-connector.c b/nvidia-drm/nvidia-drm-connector.c
+index dbda66d..7e48465 100644
+--- a/nvidia-drm/nvidia-drm-connector.c
++++ b/nvidia-drm/nvidia-drm-connector.c
+@@ -226,7 +226,7 @@ static int nv_drm_connector_get_modes(struct drm_connector *connector)
  
  
      if (nv_connector->edid != NULL) {
-+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 18, 0)
-         drm_mode_connector_update_edid_property(
-+#else
-+        drm_connector_update_edid_property(
-+#endif
+-        drm_mode_connector_update_edid_property(
++        nv_drm_connector_update_edid_property(
              connector, nv_connector->edid);
      }
  
---- a/nvidia-drm/nvidia-drm-encoder.c.orig	2018-10-23 15:22:22.999577050 +0000
-+++ b/nvidia-drm/nvidia-drm-encoder.c	2018-10-23 15:23:08.265050691 +0000
-@@ -35,6 +35,8 @@
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
+diff --git a/nvidia-drm/nvidia-drm-encoder.c b/nvidia-drm/nvidia-drm-encoder.c
+index 3dc2400..468926d 100644
+--- a/nvidia-drm/nvidia-drm-encoder.c
++++ b/nvidia-drm/nvidia-drm-encoder.c
+@@ -29,6 +29,7 @@
+ #include "nvidia-drm-utils.h"
+ #include "nvidia-drm-connector.h"
+ #include "nvidia-drm-crtc.h"
++#include "nvidia-drm-helper.h"
  
-+#include <linux/version.h>
-+
- static void nv_drm_encoder_destroy(struct drm_encoder *encoder)
- {
-     struct nv_drm_encoder *nv_encoder = to_nv_encoder(encoder);
-@@ -215,8 +217,11 @@
-     }
+ #include <drm/drm_crtc_helper.h>
+ 
+@@ -216,7 +217,7 @@ nv_drm_add_encoder(struct drm_device *dev, NvKmsKapiDisplay hDisplay)
  
      /* Attach encoder and connector */
--
-+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 18, 0)
-     ret = drm_mode_connector_attach_encoder(connector, encoder);
-+#else
-+    ret = drm_connector_attach_encoder(connector, encoder);
-+#endif
+ 
+-    ret = drm_mode_connector_attach_encoder(connector, encoder);
++    ret = nv_drm_connector_attach_encoder(connector, encoder);
  
      if (ret != 0) {
          NV_DRM_DEV_LOG_ERR(
+diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
+index ab61c7e..efecc4a 100644
+--- a/nvidia-drm/nvidia-drm-helper.h
++++ b/nvidia-drm/nvidia-drm-helper.h
+@@ -211,6 +211,28 @@ static inline struct drm_encoder *nv_drm_encoder_find(struct drm_device *dev,
+ #endif
+ }
+ 
++static inline int
++nv_drm_connector_attach_encoder(struct drm_connector *connector,
++                                struct drm_encoder *encoder)
++{
++#if defined(NV_DRM_CONNECTOR_FUNCS_HAVE_MODE_IN_NAME)
++    return drm_mode_connector_attach_encoder(connector, encoder);
++#else
++    return drm_connector_attach_encoder(connector, encoder);
++#endif
++}
++
++static inline int
++nv_drm_connector_update_edid_property(struct drm_connector *connector,
++                                      const struct edid *edid)
++{
++#if defined(NV_DRM_CONNECTOR_FUNCS_HAVE_MODE_IN_NAME)
++    return drm_mode_connector_update_edid_property(connector, edid);
++#else
++    return drm_connector_update_edid_property(connector, edid);
++#endif
++}
++
+ #endif /* defined(NV_DRM_ATOMIC_MODESET_AVAILABLE) */
+ 
+ #endif /* defined(NV_DRM_AVAILABLE) */
+diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
+index b4a45a7..d106fff 100644
+--- a/nvidia-drm/nvidia-drm.Kbuild
++++ b/nvidia-drm/nvidia-drm.Kbuild
+@@ -65,6 +65,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_driver_has_gem_prime_res_obj
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_atomic_helper_disable_all
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_atomic_helper_set_config
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_atomic_helper_connector_dpms
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_funcs_have_mode_in_name
+ 
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_present
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_bus_type
+-- 
+2.17.1
+
