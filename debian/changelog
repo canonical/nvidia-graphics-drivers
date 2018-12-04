@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-410 (410.78-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-410 (410.78-0ubuntu2) disco; urgency=medium
 
-  * 
+  * debian/rules:
+    - Prevent pkgbinarymangler from symlinking docs (LP: #1804738).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Dec 2018 15:44:46 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Dec 2018 15:48:16 +0100
 
 nvidia-graphics-drivers-410 (410.78-0ubuntu1) disco; urgency=medium
 
