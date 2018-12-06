@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu4) disco; urgency=medium
 
-  * 
+  * debian/rules:
+    - Prevent pkgbinarymangler from symlinking docs (LP: #1804738).
+  * debian/templates/control.in:
+    - Drop the build dependencies on the wayland libraries.
+  * debian/templates/libnvidia-gl-flavour.install.in:
+    - Drop 10_nvidia_wayland.json and libnvidia-egl-wayland.so.
+      The new egl-wayland packages will provide the library and the
+      headers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2018 12:12:37 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2018 12:14:30 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu3) disco; urgency=medium
 
