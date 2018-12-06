@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-410 (410.78-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-410 (410.78-0ubuntu3) disco; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Drop the build dependencies on the wayland libraries.
+  * debian/templates/libnvidia-gl-flavour.install.in:
+    - Drop 10_nvidia_wayland.json and libnvidia-egl-wayland.so.
+      The new egl-wayland packages will provide the library and the
+      headers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2018 10:44:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2018 12:02:15 +0100
 
 nvidia-graphics-drivers-410 (410.78-0ubuntu2) disco; urgency=medium
 
