@@ -11,8 +11,6 @@ NVIDIA-Linux/libnvidia-glsi.so.410.78                 usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libEGL_nvidia.so.410.78                  usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libGLESv2_nvidia.so.410.78               usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libGLESv1_CM_nvidia.so.410.78            usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-egl-wayland.so.1.1.0              usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/10_nvidia_wayland.json                      usr/share/egl/egl_external_platform.d
 NVIDIA-Linux/libnvidia-rtcore.so.410.78               usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-cbl.so.410.78                  usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvoptix.so.410.78                     usr/lib/x86_64-linux-gnu
