@@ -11,8 +11,6 @@ Build-Depends:
  dpkg-dev (>= 1.17),
  xz-utils,
  dkms,
- libwayland-client0,
- libwayland-server0,
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
