@@ -11,8 +11,6 @@
 #AMD64_ONLY#NVIDIA-Linux/libEGL_nvidia.so.#VERSION#                  #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libGLESv2_nvidia.so.#VERSION#               #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libGLESv1_CM_nvidia.so.#VERSION#            #LIBDIR#
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-egl-wayland.so.1.1.0              #LIBDIR#
-#AMD64_ONLY#NVIDIA-Linux/10_nvidia_wayland.json                      usr/share/egl/egl_external_platform.d
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-rtcore.so.#VERSION#               #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-cbl.so.#VERSION#                  #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libnvoptix.so.#VERSION#                     #LIBDIR#
