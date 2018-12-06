@@ -1,11 +1,20 @@
+nvidia-graphics-drivers-390 (390.87-0ubuntu3) disco; urgency=medium
+
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.18.patch:
+    - Check the availability of drm_mode_connector_attach_encoder
+      and of drm_mode_connector_update_edid_property, and use the
+      correct calls, rather than relying on the kernel version.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 16 Nov 2018 12:23:42 +0100
+
 nvidia-graphics-drivers-390 (390.87-0ubuntu2) disco; urgency=medium
 
-  [ Andy Whitcroft ]
+  [ Andy Whitcroft]
   * debian/templates/dkms_nvidia.conf.in,
     debian/dkms_nvidia/patches/buildfix_kernel_4.18.patch:
-    - Add support for Linux 4.18.
+    - Follow upstream function name changes in v4.18.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Nov 2018 14:46:35 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Nov 2018 14:57:39 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu1) cosmic; urgency=medium
 
