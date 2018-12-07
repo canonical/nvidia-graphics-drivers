@@ -1,0 +1,7 @@
+#LIBDIR#/libnvidia-ml.so.#VERSION#                                              #LIBDIR#/libnvidia-ml.so.1
+#LIBDIR#/libnvidia-ml.so.1                                                      #LIBDIR#/libnvidia-ml.so
+#LIBDIR#/libcuda.so.#VERSION#                                                   #LIBDIR#/libcuda.so.1
+#LIBDIR#/libcuda.so.1                                                           #LIBDIR#/libcuda.so
+#ARM_EXCLUDED##LIBDIR#/libnvidia-opencl.so.#VERSION#                            #LIBDIR#/libnvidia-opencl.so.1
+#LIBDIR#/libnvidia-ptxjitcompiler.so.#VERSION#                                  #LIBDIR#/libnvidia-ptxjitcompiler.so.1
+#LIBDIR#/libnvidia-ptxjitcompiler.so.1                                          #LIBDIR#/libnvidia-ptxjitcompiler.so

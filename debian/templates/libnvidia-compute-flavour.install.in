@@ -1,0 +1,7 @@
+NVIDIA-Linux/libnvidia-ml.so.#VERSION#                               #LIBDIR#
+NVIDIA-Linux/libcuda.so.#VERSION#                                    #LIBDIR#
+#ARM_EXCLUDED#NVIDIA-Linux/libnvidia-opencl.so.#VERSION#             #LIBDIR#
+#ARM_EXCLUDED#NVIDIA-Linux/nvidia.icd                                etc/OpenCL/vendors
+NVIDIA-Linux/libnvidia-fatbinaryloader.so.#VERSION#                  #LIBDIR#
+NVIDIA-Linux/libnvidia-ptxjitcompiler.so.#VERSION#                   #LIBDIR#
+#ARM_EXCLUDED#NVIDIA-Linux/libnvidia-compiler.so.#VERSION#           #LIBDIR#

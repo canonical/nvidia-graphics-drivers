@@ -1,0 +1,53 @@
+#!/bin/sh
+# postinst script for libnvidia-gl-390
+#
+# see: dh_installdeb(1)
+#
+# Copyright (C) 2018 Canonical Ltd
+# Authors: Alberto Milone
+set -e
+
+
+case "$1" in
+    configure)
+        # Deal with alternatives
+
+        # Clean up any previous non-multi-arch alternatives
+        if [ -n "$(update-alternatives --list gl_conf 2>/dev/null)" ]; then
+            set -a $(update-alternatives --list gl_conf 2>/dev/null)
+            while [ $# -ge 1 ] && [ "$#" != "configure" ]; do
+                ALTERNATIVE=${1}
+                update-alternatives --remove gl_conf $ALTERNATIVE
+                shift
+            done
+        fi
+
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf #LDSOCONF# #ALTPRIORITY#
+
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_EGL.conf #DEB_HOST_MULTIARCH#_egl_conf #LDSOCONF# #ALTPRIORITY#
+
+        # Alternative for PRIME power saving mode
+        # In this case only intel is enabled, and we only need to make
+        # sure that the nvidia GL libs are not seen first
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf #PMLDSOCONF# #PMALTPRIORITY#
+
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_EGL.conf #DEB_HOST_MULTIARCH#_egl_conf #PMLDSOCONF# #PMALTPRIORITY#
+
+        # explicit ldconfig due to alternatives
+        ldconfig
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#

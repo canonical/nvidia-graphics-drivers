@@ -1,0 +1,2 @@
+NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#                            #LIBDIR#/vdpau
+NVIDIA-Linux/libnvcuvid.so.#VERSION#                                 #LIBDIR#

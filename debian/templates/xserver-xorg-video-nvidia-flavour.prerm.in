@@ -1,0 +1,27 @@
+#! /bin/sh
+# prerm script for xserver-xorg-video-nvidia-390
+#
+# see: dh_installdeb(1)
+#
+# Copyright (C) 2018 Canonical Ltd
+# Authors: Alberto Milone
+
+set -e
+
+
+case "$1" in
+    upgrade)
+    ;;
+    remove)
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_xlib_conf /#XLDSOCONF#
+
+        # Remove the alternative for PRIME
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_xlib_conf /#PMXLDSOCONF#
+
+        # explicit ldconfig due to alternatives
+        ldconfig
+    ;;
+esac
+
+#DEBHELPER#
+

@@ -1,0 +1,49 @@
+#!/bin/sh
+# postinst script for xserver-xorg-video-nvidia-390
+#
+# see: dh_installdeb(1)
+#
+# Copyright (C) 2018 Canonical Ltd
+# Authors: Alberto Milone
+set -e
+
+
+case "$1" in
+    configure)
+        # Deal with alternatives
+
+        # Clean up any previous non-multi-arch alternatives
+        if [ -n "$(update-alternatives --list gl_conf 2>/dev/null)" ]; then
+            set -a $(update-alternatives --list gl_conf 2>/dev/null)
+            while [ $# -ge 1 ] && [ "$#" != "configure" ]; do
+                ALTERNATIVE=${1}
+                update-alternatives --remove gl_conf $ALTERNATIVE
+                shift
+            done
+        fi
+
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_XLIB.conf #DEB_HOST_MULTIARCH#_xlib_conf /#XLDSOCONF# #ALTPRIORITY# \
+            --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv /#PKGDRIVERSDIR#/nvidia_drv.so \
+            --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION#
+
+        # Alternative for PRIME power saving mode
+        # In this case only intel is enabled, and we only need to make
+        # sure that the nvidia GL libs are not seen first
+        update-alternatives --force \
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_XLIB.conf #DEB_HOST_MULTIARCH#_xlib_conf /#PMXLDSOCONF# #PMALTPRIORITY#
+
+        # explicit ldconfig due to alternatives
+        ldconfig
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
