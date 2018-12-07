@@ -3,8 +3,6 @@ NVIDIA-Linux/libglx.so.#VERSION#                                     #LIBDIR#/nv
 NVIDIA-Linux/libnvidia-tls.so.#VERSION#                              #LIBDIR#/
 #ARM_EXCLUDED#NVIDIA-Linux/tls/libnvidia-tls.so.#VERSION#            #LIBDIR#/tls
 #ARM_EXCLUDED#NVIDIA-Linux/nonglvnd/nvidia_icd.json                  usr/share/vulkan/icd.d
-NVIDIA-Linux/nvidia-application-profiles-#VERSION#-rc                usr/share/nvidia/
-NVIDIA-Linux/nvidia-application-profiles-#VERSION#-key-documentation usr/share/nvidia/
 NVIDIA-Linux/libGL.so.#VERSION#                                      #LIBDIR#/nvidia/libs
 NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                              #LIBDIR#/nvidia/libs
 NVIDIA-Linux/libEGL.so.#VERSION#                                     #LIBDIR#/nvidia/libs
