@@ -1,0 +1,10 @@
+usr/lib/x86_64-linux-gnu/nvidia/xorg/libglx.so.390.87                                        usr/lib/x86_64-linux-gnu/nvidia/xorg/libglx.so
+usr/lib/x86_64-linux-gnu/nvidia/libs/libGL.so.390.87                                         usr/lib/x86_64-linux-gnu/nvidia/libs/libGL.so.1
+usr/lib/x86_64-linux-gnu/nvidia/libs/libGL.so.1                                                 usr/lib/x86_64-linux-gnu/nvidia/libs/libGL.so
+usr/lib/x86_64-linux-gnu/nvidia/libs/libGLX_nvidia.so.390.87                                 usr/lib/x86_64-linux-gnu/nvidia/libs/libGLX_nvidia.so.0
+usr/lib/x86_64-linux-gnu/nvidia/libs/libGLX_nvidia.so.390.87                                 usr/lib/x86_64-linux-gnu/nvidia/libs/libGLX_indirect.so.0
+usr/lib/x86_64-linux-gnu/nvidia/libs/libEGL.so.390.87                                        usr/lib/x86_64-linux-gnu/nvidia/libs/libEGL.so
+usr/lib/x86_64-linux-gnu/nvidia/libs/libEGL.so.390.87                                        usr/lib/x86_64-linux-gnu/nvidia/libs/libEGL.so.1
+usr/lib/x86_64-linux-gnu/nvidia/libs/libEGL_nvidia.so.390.87                                 usr/lib/x86_64-linux-gnu/nvidia/libs/libEGL_nvidia.so.0
+usr/lib/x86_64-linux-gnu/nvidia/libs/libGLESv2_nvidia.so.390.87                              usr/lib/x86_64-linux-gnu/nvidia/libs/libGLESv2_nvidia.so.2
+usr/lib/x86_64-linux-gnu/nvidia/libs/libGLESv1_CM_nvidia.so.390.87                           usr/lib/x86_64-linux-gnu/nvidia/libs/libGLESv1_CM_nvidia.so.1
