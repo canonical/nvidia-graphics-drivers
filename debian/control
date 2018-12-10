@@ -16,6 +16,7 @@ Build-Depends:
  po-debconf,
  execstack,
  dh-modaliases,
+ dh-systemd,
  xserver-xorg-dev (>= 2:1.4),
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
