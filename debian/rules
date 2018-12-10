@@ -91,7 +91,7 @@ compare-copyright-license: LICENSE.txt
 	rm -f copyright.tmp LICENSE.tmp
 
 %:
-	dh $@
+	dh $@ --with systemd
 
 override_dh_auto_clean:
 	rm -fr .pc
