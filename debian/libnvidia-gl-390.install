@@ -3,8 +3,6 @@ NVIDIA-Linux/libglx.so.390.87                                     usr/lib/x86_64
 NVIDIA-Linux/libnvidia-tls.so.390.87                              usr/lib/x86_64-linux-gnu/
 NVIDIA-Linux/tls/libnvidia-tls.so.390.87            usr/lib/x86_64-linux-gnu/tls
 NVIDIA-Linux/nonglvnd/nvidia_icd.json                  usr/share/vulkan/icd.d
-NVIDIA-Linux/nvidia-application-profiles-390.87-rc                usr/share/nvidia/
-NVIDIA-Linux/nvidia-application-profiles-390.87-key-documentation usr/share/nvidia/
 NVIDIA-Linux/libGL.so.390.87                                      usr/lib/x86_64-linux-gnu/nvidia/libs
 NVIDIA-Linux/libGLX_nvidia.so.390.87                              usr/lib/x86_64-linux-gnu/nvidia/libs
 NVIDIA-Linux/libEGL.so.390.87                                     usr/lib/x86_64-linux-gnu/nvidia/libs
