@@ -1,0 +1,62 @@
+From 212fa0f61725de0d4b1bfe83f86bb80643b38bc2 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 4 Aug 2016 16:01:14 +0200
+Subject: [PATCH 1/2] Add support for Linux 4.7
+
+---
+ nvidia-drm/nvidia-drm-fb.c  | 5 +++++
+ nvidia-drm/nvidia-drm-gem.c | 6 ++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/nvidia-drm/nvidia-drm-fb.c b/nvidia-drm/nvidia-drm-fb.c
+index dccad84..b3b3a14 100644
+--- a/nvidia-drm/nvidia-drm-fb.c
++++ b/nvidia-drm/nvidia-drm-fb.c
+@@ -31,6 +31,7 @@
+ #include "nvidia-drm-gem.h"
+ 
+ #include <drm/drm_crtc_helper.h>
++#include <linux/version.h>
+ 
+ static void nvidia_framebuffer_destroy(struct drm_framebuffer *fb)
+ {
+@@ -114,7 +115,11 @@ static struct drm_framebuffer *internal_framebuffer_create
+      * We don't support any planar format, pick up first buffer only.
+      */
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 7, 0)
++    gem = drm_gem_object_lookup(file, cmd->handles[0]);
++#else
+     gem = drm_gem_object_lookup(dev, file, cmd->handles[0]);
++#endif
+ 
+     if (gem == NULL)
+     {
+diff --git a/nvidia-drm/nvidia-drm-gem.c b/nvidia-drm/nvidia-drm-gem.c
+index 6e265ce..cf9830c 100644
+--- a/nvidia-drm/nvidia-drm-gem.c
++++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -28,6 +28,8 @@
+ #include "nvidia-drm-ioctl.h"
+ #include "nvidia-drm-gem.h"
+ 
++#include <linux/version.h>
++
+ static struct nvidia_drm_gem_object *nvidia_drm_gem_new
+ (
+     struct drm_file *file_priv,
+@@ -408,7 +410,11 @@ int nvidia_drm_dumb_map_offset
+ 
+     mutex_lock(&dev->struct_mutex);
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 7, 0)
++    gem = drm_gem_object_lookup(file, handle);
++#else
+     gem = drm_gem_object_lookup(dev, file, handle);
++#endif
+ 
+     if (gem == NULL)
+     {
+-- 
+2.7.4
+

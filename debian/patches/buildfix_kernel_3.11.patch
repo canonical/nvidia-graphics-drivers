@@ -1,0 +1,97 @@
+From bc0e98fa2956e429179ee1901ed037ede321bc96 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Wed, 6 Nov 2013 15:47:41 +0100
+Subject: [PATCH 1/1] Add support for Linux 3.11
+
+Original patch by NVIDIA.
+---
+ Makefile    |    1 +
+ conftest.sh |   24 ++++++++++++++++++++++++
+ nv-linux.h  |    4 ++++
+ nv-vm.c     |    5 +++++
+ 4 files changed, 34 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index d4045f8..8b9e5c9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -125,6 +125,7 @@ COMPILE_TESTS = \
+ 	file_operations \
+ 	sg_init_table \
+ 	pci_get_domain_bus_and_slot \
++	get_num_physpages \
+ 	efi_enabled \
+ 	dom0_kernel_present \
+ 	drm_available \
+diff --git a/conftest.sh b/conftest.sh
+index db0fb3a..08fae3c 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -1676,6 +1676,30 @@ compile_test() {
+             fi
+         ;;
+ 
++        get_num_physpages)
++            #
++            # Determine if the get_num_physpages() function is
++            # present.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            void conftest_get_num_physpages(void) {
++                get_num_physpages(NULL);
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                echo "#undef NV_GET_NUM_PHYSPAGES_PRESENT" | append_conftest "functions"
++                rm -f conftest$$.o
++                return
++            else
++                echo "#define NV_GET_NUM_PHYSPAGES_PRESENT" | append_conftest "functions"
++                return
++            fi
++        ;;
++
+         proc_remove)
+             #
+             # Determine if the proc_remove() function is present.
+diff --git a/nv-linux.h b/nv-linux.h
+index ecdce1a..9c524e3 100644
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -956,7 +956,11 @@ static inline int nv_execute_on_all_cpus(void (*func)(void *info), void *info)
+ #endif
+ 
+ #if !defined(NV_VMWARE)
++#if defined(NV_GET_NUM_PHYSPAGES_PRESENT)
++#define NV_NUM_PHYSPAGES                get_num_physpages()
++#else
+ #define NV_NUM_PHYSPAGES                num_physpages
++#endif
+ #define NV_GET_CURRENT_PROCESS()        current->tgid
+ #define NV_IN_ATOMIC()                  in_atomic()
+ #define NV_LOCAL_BH_DISABLE()           local_bh_disable()
+diff --git a/nv-vm.c b/nv-vm.c
+index 42e3dbb..5c1a236 100644
+--- a/nv-vm.c
++++ b/nv-vm.c
+@@ -434,8 +434,13 @@ static unsigned int nv_compute_gfp_mask(
+     system_memory_size = (os_get_system_memory_size() * RM_PAGE_SIZE);
+     if (system_memory_size != 0)
+     {
++#if !defined(NV_GET_NUM_PHYSPAGES_PRESENT)
+         if (dev->dma_mask < (system_memory_size - 1))
+             gfp_mask = NV_GFP_DMA32;
++#else
++        if (dev->dma_mask <= (system_memory_size - 1))
++            gfp_mask = NV_GFP_DMA32;
++#endif
+     }
+     else if (dev->dma_mask < 0xffffffffffULL)
+     {
+-- 
+1.7.9.5
+
