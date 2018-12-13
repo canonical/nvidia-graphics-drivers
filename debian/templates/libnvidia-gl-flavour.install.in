@@ -5,6 +5,7 @@ NVIDIA-Linux/libnvidia-tls.so.#VERSION#                              #LIBDIR#/
 #ARM_EXCLUDED#NVIDIA-Linux/nonglvnd/nvidia_icd.json                  usr/share/vulkan/icd.d
 NVIDIA-Linux/libGL.so.#VERSION#                                      #LIBDIR#/nvidia
 NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                              #LIBDIR#/nvidia
+NVIDIA-Linux/libGLdispatch.so.0                                      #LIBDIR#/nvidia
 NVIDIA-Linux/libEGL.so.#VERSION#                                     #LIBDIR#/nvidia
 NVIDIA-Linux/libnvidia-eglcore.so.#VERSION#                          #LIBDIR#/nvidia
 NVIDIA-Linux/libnvidia-glsi.so.#VERSION#                             #LIBDIR#/nvidia
