@@ -43,7 +43,7 @@ endif
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
-xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
+xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND) | xserver-xorg-core-hwe-16.04
 xorg_provides	 = xorg-driver-video
 
 
