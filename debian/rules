@@ -136,6 +136,23 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
+	# ld.so.conf
+	gl_package=libnvidia-gl-$(version_major)
+
+	dh_installdirs -p$(gl_package) "$(ld_so_conf_dir)"
+	echo "$(PKG_libdir)" >  "$(CURDIR)/debian/$(gl_package)$(ld_so_conf_path)"
+	echo "$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
+	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
+ifeq ($(DEB_HOST_ARCH),amd64)
+	echo "$(PKG_libdir32)" >>   "$(CURDIR)/debian/$(gl_package)$(ld_so_conf_path)"
+	echo "$(mesa_libdir_other)" >>  "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
+	echo "$(mesa_egl_libdir_other)" >>  "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
+endif
+	# empty ld.so.conf for the fake multi-arch alternative
+	$(shell touch "$(CURDIR)/debian/$(gl_package)$(alt_ld_so_conf_path)")
+	$(shell touch "$(CURDIR)/debian/$(gl_package)$(pm_alt_ld_so_conf_path)")
+
+	# systemd service
 	dh_install -p nvidia-compute-utils-$(version_major)
 	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
