@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-410 (410.93-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 07 Jan 2019 10:54:46 +0100
+
 nvidia-graphics-drivers-410 (410.78-0ubuntu3) disco; urgency=medium
 
   * debian/templates/control.in:
