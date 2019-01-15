@@ -21,6 +21,8 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 flavour := $(version_major)
 pkg_meta         := nvidia-driver-$(flavour)
 pkg_driver       := nvidia-$(flavour)
+gl_package       := libnvidia-gl-$(flavour)
+
 xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
 #pkg_module       := $(shell echo "$(pkg_driver)" | sed s/\-/_/g)
 pkg_module       := nvidia
@@ -28,19 +30,15 @@ pkg_kernel       := nvidia-kernel-$(flavour)
 
 # Priority of the alternative
 alt_priority         := 8604
-pm_alt_priority      := 8603
 
-ld_so_conf_dir       := $(libdir)
+ld_so_conf_dir       := $(libdir)/$(gl_package)
 ld_so_conf_file      := ld.so.conf
-alt_ld_so_conf_file  := alt_ld.so.conf
 ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
-alt_ld_so_conf_path  := $(ld_so_conf_dir)/$(alt_ld_so_conf_file)
 
 #Prime
 pkg_prime            := $(pkg_driver)-prime
 pkg_prime_libdir     := $(libdir)/$(pkg_prime)
 pm_ld_so_conf_path      := $(pkg_prime_libdir)/$(ld_so_conf_file)
-pm_alt_ld_so_conf_path  := $(pkg_prime_libdir)/$(alt_ld_so_conf_file)
 
 ifeq ($(DEB_HOST_ARCH),armhf)
 arm_excluded         := \#
@@ -137,26 +135,16 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 endif
 
 	# ld.so.conf
-	gl_package=libnvidia-gl-$(version_major)
-
 	dh_installdirs -p$(gl_package) "$(ld_so_conf_dir)"
-	echo "$(PKG_libdir)" >  "$(CURDIR)/debian/$(gl_package)$(ld_so_conf_path)"
-	echo "$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
-	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
-ifeq ($(DEB_HOST_ARCH),amd64)
-	echo "$(PKG_libdir32)" >>   "$(CURDIR)/debian/$(gl_package)$(ld_so_conf_path)"
-	echo "$(mesa_libdir_other)" >>  "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
-	echo "$(mesa_egl_libdir_other)" >>  "$(CURDIR)/debian/$(gl_package)$(pm_ld_so_conf_path)"
-endif
-	# empty ld.so.conf for the fake multi-arch alternative
-	$(shell touch "$(CURDIR)/debian/$(gl_package)$(alt_ld_so_conf_path)")
-	$(shell touch "$(CURDIR)/debian/$(gl_package)$(pm_alt_ld_so_conf_path)")
+	echo "$(PKG_libdir)" >  "$(CURDIR)/debian/$(gl_package)/$(ld_so_conf_path)"
+	echo "$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
+	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
 
 	# systemd service
-	dh_install -p nvidia-compute-utils-$(version_major)
-	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
+	dh_install -p nvidia-compute-utils-$(flavour)
+	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(flavour)/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
-	dh_install -p nvidia-kernel-common-$(version_major)
+	dh_install -p nvidia-kernel-common-$(flavour)
 
 	dh_install
 
@@ -217,11 +205,7 @@ regen-from-templates:
 			-e "s|#VERSION#|$(version)|g" \
 			-e "s|#MODULENAME#|$(version)|g" \
             -e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
-            -e "s|#ALTLDSOCONF#|$(alt_ld_so_conf_path)|g" \
             -e "s|#PMLDSOCONF#|$(pm_ld_so_conf_path)|g" \
-            -e "s|#PMALTLDSOCONF#|$(pm_alt_ld_so_conf_path)|g" \
-            -e "s|#ALTPRIORITY#|$(alt_priority)|g" \
-            -e "s|#PMALTPRIORITY#|$(pm_alt_priority)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			$$i > $$dest;      \
 	done
