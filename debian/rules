@@ -17,6 +17,8 @@ version_major		 = $(firstword $(subst ., ,$(version)))
 
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
+mesa_libdir     := $(libdir)/mesa
+mesa_egl_libdir := $(libdir)/mesa-egl
 
 flavour := $(version_major)
 pkg_meta         := nvidia-driver-$(flavour)
@@ -136,6 +138,7 @@ endif
 
 	# ld.so.conf
 	dh_installdirs -p$(gl_package) "$(ld_so_conf_dir)"
+	mkdir -p $(CURDIR)/debian/$(gl_package)/$(pkg_prime_libdir)
 	echo "$(PKG_libdir)" >  "$(CURDIR)/debian/$(gl_package)/$(ld_so_conf_path)"
 	echo "$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
 	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
