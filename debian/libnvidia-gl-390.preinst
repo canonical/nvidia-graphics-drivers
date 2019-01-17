@@ -13,8 +13,8 @@ case "$1" in
     upgrade)
     ;;
     remove)
-        update-alternatives --remove x86_64-linux-gnu_gl_conf usr/lib/x86_64-linux-gnu/ld.so.conf
-        update-alternatives --remove x86_64-linux-gnu_egl_conf usr/lib/x86_64-linux-gnu/ld.so.conf
+        update-alternatives --remove x86_64-linux-gnu_gl_conf usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf
+        update-alternatives --remove x86_64-linux-gnu_egl_conf usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf
 
         # Remove the alternatives for PRIME
         update-alternatives --remove x86_64-linux-gnu_gl_conf usr/lib/x86_64-linux-gnu/nvidia-390-prime/ld.so.conf
