@@ -32,6 +32,7 @@ pkg_kernel       := nvidia-kernel-$(flavour)
 
 # Priority of the alternative
 alt_priority         := 8604
+pm_alt_priority      := 8603
 
 ld_so_conf_dir       := $(libdir)/$(gl_package)
 ld_so_conf_file      := ld.so.conf
@@ -144,10 +145,10 @@ endif
 	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
 
 	# systemd service
-	dh_install -p nvidia-compute-utils-$(flavour)
-	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(flavour)/lib/systemd
+	dh_install -p nvidia-compute-utils-$(version_major)
+	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
-	dh_install -p nvidia-kernel-common-$(flavour)
+	dh_install -p nvidia-kernel-common-$(version_major)
 
 	dh_install
 
@@ -209,6 +210,8 @@ regen-from-templates:
 			-e "s|#MODULENAME#|$(version)|g" \
             -e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
             -e "s|#PMLDSOCONF#|$(pm_ld_so_conf_path)|g" \
+            -e "s|#ALTPRIORITY#|$(alt_priority)|g" \
+            -e "s|#PMALTPRIORITY#|$(pm_alt_priority)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			$$i > $$dest;      \
 	done
