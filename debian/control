@@ -18,7 +18,7 @@ Build-Depends:
  dh-modaliases,
  dh-systemd,
  xserver-xorg-dev (>= 2:1.4),
-Standards-Version: 4.1.1
+Standards-Version: 3.9.7
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
