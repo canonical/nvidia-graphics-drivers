@@ -30,6 +30,11 @@ xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
 pkg_module       := nvidia
 pkg_kernel       := nvidia-kernel-$(flavour)
 
+xorg_driver_dir      := $(libdir)/$(xorg_driver)
+xorg_extra_path      := $(libdir)/xorg
+xorg_extra_modules   := $(xorg_extra_path)/extra-modules
+xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
+
 # Priority of the alternative
 alt_priority         := 8604
 pm_alt_priority      := 8603
@@ -37,6 +42,11 @@ pm_alt_priority      := 8603
 ld_so_conf_dir       := $(libdir)/$(gl_package)
 ld_so_conf_file      := ld.so.conf
 ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
+
+x_ld_so_conf_dir       := $(libdir)/$(xorg_driver)
+x_ld_so_conf_path      := $(x_ld_so_conf_dir)/$(ld_so_conf_file)
+pm_x_ld_so_conf_dir    := $(libdir)/$(xorg_driver)/pm
+pm_x_ld_so_conf_path   := $(pm_x_ld_so_conf_dir)/$(ld_so_conf_file)
 
 #Prime
 pkg_prime            := $(pkg_driver)-prime
@@ -212,6 +222,10 @@ regen-from-templates:
             -e "s|#PMLDSOCONF#|$(pm_ld_so_conf_path)|g" \
             -e "s|#ALTPRIORITY#|$(alt_priority)|g" \
             -e "s|#PMALTPRIORITY#|$(pm_alt_priority)|g" \
+            -e "s|#XLDSOCONF#|$(x_ld_so_conf_path)|g" \
+            -e "s|#PMXLDSOCONF#|$(pm_x_ld_so_conf_path)|g" \
+            -e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
+            -e "s|#PKGXDRIVERDIR#|$(xorg_driver_dir)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			$$i > $$dest;      \
 	done
