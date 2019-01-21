@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa6) xenial; urgency=medium
 
-  * 
+  * First upload.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 18 Dec 2018 18:31:09 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 21 Jan 2019 14:14:11 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa5) xenial; urgency=medium
 
