@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa7) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa7) xenial; urgency=medium
 
-  * 
+  * Fix paths to ld.so.conf.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 21 Jan 2019 14:45:09 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 21 Jan 2019 15:06:53 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa6) xenial; urgency=medium
 
