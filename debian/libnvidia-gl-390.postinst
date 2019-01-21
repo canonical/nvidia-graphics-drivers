@@ -23,19 +23,19 @@ case "$1" in
         fi
 
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf 8604
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf 8604
 
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf 8604
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf 8604
 
         # Alternative for PRIME power saving mode
         # In this case only intel is enabled, and we only need to make
         # sure that the nvidia GL libs are not seen first
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf usr/lib/x86_64-linux-gnu/nvidia-390-prime/ld.so.conf 8603
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/x86_64-linux-gnu/nvidia-390-prime/ld.so.conf 8603
 
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf usr/lib/x86_64-linux-gnu/nvidia-390-prime/ld.so.conf 8603
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/x86_64-linux-gnu/nvidia-390-prime/ld.so.conf 8603
 
         # explicit ldconfig due to alternatives
         ldconfig
