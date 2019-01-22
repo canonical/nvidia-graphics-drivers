@@ -30,7 +30,7 @@ xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
 pkg_module       := nvidia
 pkg_kernel       := nvidia-kernel-$(flavour)
 
-xorg_driver_dir      := $(libdir)/$(xorg_driver)
+xorg_driver_dir      := $(libdir)/nvidia-$(flavour)
 xorg_extra_path      := $(libdir)/xorg
 xorg_extra_modules   := $(xorg_extra_path)/extra-modules
 xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
