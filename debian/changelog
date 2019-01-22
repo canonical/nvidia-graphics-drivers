@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa8) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa8) xenial; urgency=medium
 
-  * 
+  * Use the ...nvidia-flavour/xorg directory for X libraries.
+  * debian/rules: x libs belong in the nvidia-flavour directory
+  * Add X alternatives.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 21 Jan 2019 15:47:15 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Jan 2019 16:53:57 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa7) xenial; urgency=medium
 
