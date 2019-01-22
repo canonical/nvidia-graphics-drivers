@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa9) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa9) xenial; urgency=medium
 
-  * 
+  * debian/rules: update LD_LIBRARY_PATH. 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Jan 2019 17:06:38 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Jan 2019 17:08:55 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa8) xenial; urgency=medium
 
