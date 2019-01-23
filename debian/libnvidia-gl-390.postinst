@@ -24,7 +24,7 @@ case "$1" in
 
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf 8604 \
-            --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/x86_64-linux-gnu/nvidia-390
+            --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/x86_64-linux-gnu/nvidia-390/xorg
 
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/x86_64-linux-gnu/libnvidia-gl-390/ld.so.conf 8604
