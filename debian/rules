@@ -30,7 +30,8 @@ xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
 pkg_module       := nvidia
 pkg_kernel       := nvidia-kernel-$(flavour)
 
-xorg_driver_dir      := $(libdir)/nvidia-$(flavour)
+driver_libdir        := $(libdir)/nvidia-$(flavour)
+xorg_driver_dir      := $(driver_libdir)/xorg
 xorg_extra_path      := $(libdir)/xorg
 xorg_extra_modules   := $(xorg_extra_path)/extra-modules
 xorg_extensionsdir   := $(xorg_libdir)/modules/extensions
@@ -184,7 +185,7 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(xorg_driver_dir):$(LD_LIBRARY_PATH) dh_shlibdeps
+	LD_LIBRARY_PATH=/$(driver_libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
