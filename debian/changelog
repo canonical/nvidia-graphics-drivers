@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa12) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Jan 2019 16:29:11 +0100
+
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa11) xenial; urgency=medium
 
   * Move around _xorg_extra_modules slave.
