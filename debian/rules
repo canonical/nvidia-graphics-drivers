@@ -154,6 +154,12 @@ endif
 	echo "$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
 	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
 
+	# for the X alternative
+	mkdir -p $(CURDIR)/debian/$(xorg_driver)/$(x_ld_so_conf_dir)
+	mkdir -p $(CURDIR)/debian/$(xorg_driver)/$(pm_x_ld_so_conf_dir)
+	echo "" > "$(CURDIR)/debian/$(xorg_driver)/$(x_ld_so_conf_path)"
+	echo "" > "$(CURDIR)/debian/$(xorg_driver)/$(pm_x_ld_so_conf_path)"
+
 	# systemd service
 	dh_install -p nvidia-compute-utils-$(version_major)
 	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
