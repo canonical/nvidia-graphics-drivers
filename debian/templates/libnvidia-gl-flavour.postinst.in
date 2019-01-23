@@ -23,7 +23,8 @@ case "$1" in
         fi
 
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf /#LDSOCONF# #ALTPRIORITY#
+            --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_GL.conf #DEB_HOST_MULTIARCH#_gl_conf /#LDSOCONF# #ALTPRIORITY# \
+            --slave /#XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules /#PKGXDRIVERDIR#
 
         update-alternatives --force \
             --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_EGL.conf #DEB_HOST_MULTIARCH#_egl_conf /#LDSOCONF# #ALTPRIORITY#
