@@ -25,7 +25,7 @@ case "$1" in
         update-alternatives --force \
             --install /etc/ld.so.conf.d/#DEB_HOST_MULTIARCH#_XLIB.conf #DEB_HOST_MULTIARCH#_xlib_conf /#XLDSOCONF# #ALTPRIORITY# \
             --slave /#LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv /#PKGXDRIVERDIR#/nvidia_drv.so
- 
+
         # Alternative for PRIME power saving mode
         # In this case only intel is enabled, and we only need to make
         # sure that the nvidia GL libs are not seen first
