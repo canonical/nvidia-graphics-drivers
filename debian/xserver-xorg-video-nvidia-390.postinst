@@ -25,7 +25,7 @@ case "$1" in
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_XLIB.conf x86_64-linux-gnu_xlib_conf /usr/lib/x86_64-linux-gnu/xserver-xorg-video-nvidia-390/ld.so.conf 8604 \
             --slave /usr/lib/x86_64-linux-gnu/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/x86_64-linux-gnu/nvidia-390/xorg/nvidia_drv.so
- 
+
         # Alternative for PRIME power saving mode
         # In this case only intel is enabled, and we only need to make
         # sure that the nvidia GL libs are not seen first
