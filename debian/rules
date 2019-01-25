@@ -151,9 +151,9 @@ endif
 	# ld.so.conf
 	dh_installdirs -p$(gl_package) "$(ld_so_conf_dir)"
 	mkdir -p $(CURDIR)/debian/$(gl_package)/$(pkg_prime_libdir)
-	echo "$(PKG_libdir)" >  "$(CURDIR)/debian/$(gl_package)/$(ld_so_conf_path)"
-	echo "$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
-	echo "$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
+	echo "/$(driver_libdir)" >  "$(CURDIR)/debian/$(gl_package)/$(ld_so_conf_path)"
+	echo "/$(mesa_libdir)" > "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
+	echo "/$(mesa_egl_libdir)" >>    "$(CURDIR)/debian/$(gl_package)/$(pm_ld_so_conf_path)"
 
 	# for the X alternative
 	mkdir -p $(CURDIR)/debian/$(xorg_driver)/$(x_ld_so_conf_dir)
