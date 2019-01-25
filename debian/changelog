@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa15) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa15) xenial; urgency=medium
 
-  * 
+  * debian/templates/xserver-xorg-video-nvidia-flavour.postinst.in:
+    - Fix nvidia_drv slave, which belongs in /usr/lib/xorg.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Jan 2019 12:49:28 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Jan 2019 12:53:33 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa14) xenial; urgency=medium
 
