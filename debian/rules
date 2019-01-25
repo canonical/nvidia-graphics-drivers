@@ -232,6 +232,7 @@ regen-from-templates:
             -e "s|#XLDSOCONF#|$(x_ld_so_conf_path)|g" \
             -e "s|#PMXLDSOCONF#|$(pm_x_ld_so_conf_path)|g" \
             -e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
+            -e "s|#XORGEXTRAPATH#|$(xorg_extra_path)|g" \
             -e "s|#PKGXDRIVERDIR#|$(xorg_driver_dir)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			$$i > $$dest;      \
