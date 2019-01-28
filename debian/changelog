@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa18) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa18) xenial; urgency=medium
 
-  * 
+  * debian/rules:
+    - Make prime path more consistent.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 28 Jan 2019 14:26:27 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 28 Jan 2019 14:29:59 +0100
 
 nvidia-graphics-drivers-390 (390.87-0ubuntu0.16.04.1~ppa17) xenial; urgency=medium
 
