@@ -46,7 +46,7 @@ ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
 
 x_ld_so_conf_dir       := $(libdir)/$(xorg_driver)
 x_ld_so_conf_path      := $(x_ld_so_conf_dir)/$(ld_so_conf_file)
-pm_x_ld_so_conf_dir    := $(libdir)/$(xorg_driver)/pm
+pm_x_ld_so_conf_dir    := $(libdir)/$(xorg_driver)-prime
 pm_x_ld_so_conf_path   := $(pm_x_ld_so_conf_dir)/$(ld_so_conf_file)
 
 #Prime
