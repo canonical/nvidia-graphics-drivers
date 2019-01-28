@@ -16,7 +16,7 @@ case "$1" in
         update-alternatives --remove x86_64-linux-gnu_xlib_conf /usr/lib/x86_64-linux-gnu/xserver-xorg-video-nvidia-390/ld.so.conf
 
         # Remove the alternative for PRIME
-        update-alternatives --remove x86_64-linux-gnu_xlib_conf /usr/lib/x86_64-linux-gnu/xserver-xorg-video-nvidia-390/pm/ld.so.conf
+        update-alternatives --remove x86_64-linux-gnu_xlib_conf /usr/lib/x86_64-linux-gnu/xserver-xorg-video-nvidia-390-prime/ld.so.conf
 
         # explicit ldconfig due to alternatives
         ldconfig
