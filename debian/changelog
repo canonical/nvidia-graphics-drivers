@@ -1,47 +1,5 @@
-nvidia-graphics-drivers-410 (410.93-0ubuntu1) disco; urgency=medium
-
-  * New upstream release:
-    - Added support for the following GPUs:
-        Quadro RTX 8000
-    - Fixed a bug that could prevent display detection from working
-      on displays connected to some notebook docking stations.
-    - Fixed a bug which could cause VK_KHR_external_semaphore_fd
-      operations to fail.
-    - Fixed a build failure, "implicit declaration of function
-      'vm_insert_pfn'", when building the NVIDIA DRM kernel module
-      for Linux
-      kernel 4.20 release candidates.
-    - Fixed a build failure, "unknown type name 'ipmi_user_t'",
-      when building the NVIDIA kernel module for Linux kernel 4.20
-      release candidates.
-    - Fixed a bug that caused kwin OpenGL compositing to crash when
-      launching certain OpenGL applications.
-    - Added a new kernel module parameter,
-      NVreg_RestrictProfilingToAdminUsers, to allow restricting the
-      use of GPU performance counters to system administrators only.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 07 Jan 2019 11:21:40 +0100
-
-nvidia-graphics-drivers-410 (410.78-0ubuntu3) disco; urgency=medium
-
-  * debian/templates/control.in:
-    - Drop the build dependencies on the wayland libraries.
-  * debian/templates/libnvidia-gl-flavour.install.in:
-    - Drop 10_nvidia_wayland.json and libnvidia-egl-wayland.so.
-      The new egl-wayland packages will provide the library and the
-      headers.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Dec 2018 12:02:15 +0100
-
-nvidia-graphics-drivers-410 (410.78-0ubuntu2) disco; urgency=medium
-
-  * debian/rules:
-    - Prevent pkgbinarymangler from symlinking docs (LP: #1804738).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Dec 2018 15:48:16 +0100
-
-nvidia-graphics-drivers-410 (410.78-0ubuntu1) disco; urgency=medium
+nvidia-graphics-drivers-418 (418.30-0ubuntu1) UNRELEASED; urgency=medium
 
   * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 Nov 2018 18:16:22 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 01 Feb 2019 12:06:01 +0100
