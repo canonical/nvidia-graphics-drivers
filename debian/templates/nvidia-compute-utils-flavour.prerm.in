@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for nvidia-compute-utils-410
+# prerm script for nvidia-compute-utils-418
 #
 # Copyright (C) 2018 Canonical Ltd
 # Authors: Alberto Milone

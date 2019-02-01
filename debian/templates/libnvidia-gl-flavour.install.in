@@ -1,7 +1,6 @@
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-glcore.so.#VERSION#               #LIBDIR#
-#AMD64_ONLY#NVIDIA-Linux/libglxserver_nvidia.so.#VERSION#            #LIBDIR#/xorg
+#AMD64_ONLY#NVIDIA-Linux/libglxserver_nvidia.so.#VERSION#            #LIBDIR#/nvidia/xorg
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-tls.so.#VERSION#                  #LIBDIR#/
-#AMD64_ONLY#NVIDIA-Linux/tls/libnvidia-tls.so.#VERSION#              #LIBDIR#/tls
 #AMD64_ONLY#NVIDIA-Linux/nvidia_icd.json                             usr/share/vulkan/icd.d
 #AMD64_ONLY#NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                  #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-glvkspirv.so.#VERSION#            #LIBDIR#
@@ -17,7 +16,6 @@
 #I386_ONLY#NVIDIA-Linux/32/libGLX_nvidia.so.#VERSION#                #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-glcore.so.#VERSION#             #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-tls.so.#VERSION#                #LIBDIR#/
-#I386_ONLY#NVIDIA-Linux/32/tls/libnvidia-tls.so.#VERSION#            #LIBDIR#/tls
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-glvkspirv.so.#VERSION#          #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-eglcore.so.#VERSION#            #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-glsi.so.#VERSION#               #LIBDIR#
