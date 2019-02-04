@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.3) bionic; urgency=medium
 
-  * 
+  * Rely on FLAVOUR instead of VERSION for paths.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Feb 2019 12:41:51 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Feb 2019 12:43:45 +0100
 
 nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.2) bionic; urgency=medium
 
