@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.2) bionic; urgency=medium
 
-  * 
+  * Fix cleaning path, and xlibs paths.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Feb 2019 10:58:00 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Feb 2019 11:03:45 +0100
 
 nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.1) bionic; urgency=medium
 
