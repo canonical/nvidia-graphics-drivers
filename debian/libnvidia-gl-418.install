@@ -1,5 +1,5 @@
 NVIDIA-Linux/libnvidia-glcore.so.418.30               usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libglxserver_nvidia.so.418.30            usr/lib/x86_64-linux-gnu/nvidia-418.30/xorg
+NVIDIA-Linux/libglxserver_nvidia.so.418.30            usr/lib/x86_64-linux-gnu/nvidia-418/xorg
 NVIDIA-Linux/libnvidia-tls.so.418.30                  usr/lib/x86_64-linux-gnu/
 NVIDIA-Linux/nvidia_icd.json                             usr/share/vulkan/icd.d
 NVIDIA-Linux/libGLX_nvidia.so.418.30                  usr/lib/x86_64-linux-gnu
