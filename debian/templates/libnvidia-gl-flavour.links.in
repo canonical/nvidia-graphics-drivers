@@ -1,4 +1,4 @@
-#AMD64_ONLY##LIBDIR#/nvidia-#VERSION#/xorg/libglxserver_nvidia.so.#VERSION#     #LIBDIR#/nvidia-#VERSION#/xorg/libglxserver_nvidia.so
+#AMD64_ONLY##LIBDIR#/nvidia-#FLAVOUR#/xorg/libglxserver_nvidia.so.#VERSION#     #LIBDIR#/nvidia-#FLAVOUR#/xorg/libglxserver_nvidia.so
 #LIBDIR#/libGLX_nvidia.so.#VERSION#                                             #LIBDIR#/libGLX_nvidia.so.0
 #LIBDIR#/libEGL_nvidia.so.#VERSION#                                             #LIBDIR#/libEGL_nvidia.so.0
 #LIBDIR#/libGLESv2_nvidia.so.#VERSION#                                          #LIBDIR#/libGLESv2_nvidia.so.2
