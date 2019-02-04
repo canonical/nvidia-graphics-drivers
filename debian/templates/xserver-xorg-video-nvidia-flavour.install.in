@@ -1,2 +1,2 @@
-#AMD64_ONLY#NVIDIA-Linux/nvidia_drv.so                               #LIBDIR#/nvidia/xorg
+#AMD64_ONLY#NVIDIA-Linux/nvidia_drv.so                               #LIBDIR#/nvidia-#VERSION#/xorg
 debian/10-nvidia.conf                                                usr/share/X11/xorg.conf.d
