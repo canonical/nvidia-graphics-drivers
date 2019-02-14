@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.77-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.77-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  * debian/rules.defs:
+    - Add support for xserver-xorg-core-hwe-18.04 (LP: #1815579).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 14 Feb 2019 16:10:31 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 14 Feb 2019 16:14:57 +0100
 
 nvidia-graphics-drivers-390 (390.77-0ubuntu0.18.04.1) bionic; urgency=medium
 
