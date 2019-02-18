@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.107-0ubuntu3) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 Feb 2019 11:58:26 +0100
+
 nvidia-graphics-drivers-340 (340.107-0ubuntu2) cosmic; urgency=medium
 
   * debian/templates/nvidia-graphics-drivers.postrm.in,
