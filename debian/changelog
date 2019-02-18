@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu3) disco; urgency=medium
 
-  * 
+    * debian/dkms_nvidia/patches/buildfix_kernel_5.0.patch,
+      debian/templates/dkms_nvidia.conf.in:
+      - Add support for Linux 5.0. (LP: #1813064).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 Feb 2019 11:58:26 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 Feb 2019 11:59:57 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu2) cosmic; urgency=medium
 
