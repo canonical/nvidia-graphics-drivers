@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-410 (410.104-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-410 (410.104-0ubuntu1) disco; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+      o Tesla V100-SXM3-32GB-H
+    - Fixed a bug where destroying a direct-to-display swapchain could
+      crash Vulkan applications.
+    - Fixed a bug that prevented Vulkan applications from using the
+      VK_EXT_display_control extension on a display that is driven by X.
+    - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
+      command when it is available.
+    - Fixed a bug that could prevent nvidia-xconfig from disabling the X
+      Composite extension on version 1.20 of the X.org X server.
+    - Fixed a build failure, "too many arguments to function 'get_user_pages'",
+      when building the NVIDIA kernel module for Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function do_gettimeofday",
+      when building the NVIDIA kernel module for Linux kernel 5.0 release
+      candidates (LP: #1813066).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Feb 2019 16:41:35 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 22 Feb 2019 19:48:01 +0100
 
 nvidia-graphics-drivers-410 (410.93-0ubuntu1) disco; urgency=medium
 
