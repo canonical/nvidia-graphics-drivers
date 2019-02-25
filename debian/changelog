@@ -1,8 +1,43 @@
-nvidia-graphics-drivers-390 (390.116-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.116-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * SECURITY UPDATE:
+    - CVE‑2018‑6260 (LP: #1814548).
+  * New upstream release:
+    - Fixed build failures which resulted in errors like "implicit
+      declaration of function drm_...", when building the NVIDIA
+      DRM kernel module for Linux kernel 5.0 release candidates.
+    - Fixed a bug which could cause VK_KHR_external_semaphore_fd
+      operations to fail.
+    - Fixed a build failure, "implicit declaration of function
+      'vm_insert_pfn'", when building the NVIDIA DRM kernel module
+      for Linux kernel 4.20 release candidates.
+    - Fixed a build failure, "unknown type name 'ipmi_user_t'",
+      when building the NVIDIA kernel module for Linux kernel 4.20
+      release candidates.
+    - Fixed a bug that caused mode switches to fail when an SDI
+      output board was connected.
+    - Fixed a bug that could cause rendering corruption in Vulkan
+      programs.
+    - Fixed a bug that caused
+      vkGetPhysicalDeviceDisplayPropertiesKHR() to occasionally
+      return incorrect values for physicalResolution.
+    - Added the synchronization state for PRIME Displays to nvidia-
+      settings.
+    - Fixed a bug that could prevent nvidia-xconfig from disabling
+      the X Composite extension on version 1.20 of the X.org X
+      server.
+    - Fixed a build failure, "too many arguments to function
+      'get_user_pages'", when building the NVIDIA kernel module for
+      Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function
+      do_gettimeofday", when building the NVIDIA kernel module for
+      Linux kernel 5.0 release candidates.
+    - Added a new kernel module parameter,
+      NVreg_RestrictProfilingToAdminUsers, to allow restricting the
+      use of GPU performance counters to system administrators
+      only.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Feb 2019 16:30:57 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Feb 2019 12:10:20 +0100
 
 nvidia-graphics-drivers-390 (390.77-0ubuntu0.18.04.2) bionic; urgency=medium
 
