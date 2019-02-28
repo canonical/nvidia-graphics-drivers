@@ -1,0 +1,123 @@
+From e70b436be26f1255be5e6b9c743e38a18202faa2 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 28 Feb 2019 15:38:17 +0100
+Subject: [PATCH 1/1] Add support for new 7 argument get_user_pages()
+
+---
+ common/inc/nv-mm.h | 31 +++++++++++++++++++++++++++++--
+ conftest.sh        | 39 ++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 65 insertions(+), 5 deletions(-)
+
+diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
+index 8697212..ba39b05 100644
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -37,11 +37,38 @@
+  * write and force parameters were replaced with gup_flags by - 
+  * 2016 Oct 12: 768ae309a96103ed02eb1e111e838c87854d8b51
+  *
++ * A 7-argument version of get_user_pages was introduced into linux-4.4.y by
++ * commit 8e50b8b07f462ab4b91bc1491b1c91bd75e4ad40 which cherry-picked the
++ * replacement of the write and force parameters with gup_flags
++ *
+  */
+ 
+ #if defined(NV_GET_USER_PAGES_HAS_TASK_STRUCT)
+-    #define NV_GET_USER_PAGES(start, nr_pages, write, force, pages, vmas) \
+-        get_user_pages(current, current->mm, start, nr_pages, write, force, pages, vmas)
++    #if defined(NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS)
++        #define NV_GET_USER_PAGES(start, nr_pages, write, force, pages, vmas) \
++            get_user_pages(current, current->mm, start, nr_pages, write, force, pages, vmas)
++    #else
++        #include <linux/mm.h>
++        #include <linux/sched.h>
++
++        static inline long NV_GET_USER_PAGES(unsigned long start,
++                                             unsigned long nr_pages,
++                                             int write,
++                                             int force,
++                                             struct page **pages,
++                                             struct vm_area_struct **vmas)
++        {
++            unsigned int flags = 0;
++
++            if (write)
++                flags |= FOLL_WRITE;
++            if (force)
++                flags |= FOLL_FORCE;
++
++            return get_user_pages(current, current->mm, start, nr_pages, flags,
++                                  pages, vmas);
++        }
++    #endif
+ #else
+     #if defined(NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS)
+         #define NV_GET_USER_PAGES get_user_pages
+diff --git a/conftest.sh b/conftest.sh
+index c63ece4..6b5f208 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2623,6 +2623,9 @@ compile_test() {
+             # Replaced write and force parameters with gup_flags.
+             # 2016 Oct 12: 768ae309a96103ed02eb1e111e838c87854d8b51
+             #
++            # linux-4.4.168 cherry-picked commit 768ae309a961 without
++            # c12d2da56d0e which is covered in Conftest #3.
++            #
+             # Conftest #1: Check if get_user_pages accepts 6 arguments.
+             # Return if true.
+             # Fall through to conftest #2 on failure.
+@@ -2647,9 +2650,11 @@ compile_test() {
+                 return
+             fi
+             
+-            # Conftest #2: Check if get_user_pages has gup_flags instead of write and force parameters.
++            # Conftest #2: Check if get_user_pages has gup_flags instead of
++            # write and force parameters. And that gup doesn't accept a
++            # task_struct and mm_struct as its first arguments.
+             # Return if available.
+-            # Fall through to default case if absent.
++            # Fall through to conftest #3 on failure.
+ 
+             echo "$CONFTEST_PREAMBLE
+             #include <linux/mm.h>
+@@ -2670,7 +2675,35 @@ compile_test() {
+                 rm -f conftest$$.o
+                 return
+             fi
+-            
++
++            # Conftest #3: Check if get_user_pages has gup_flags instead of
++            # write and force parameters AND that gup has task_struct and
++            # mm_struct as its first arguments.
++            # Return if available.
++            # Fall through to default case if absent.
++
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long get_user_pages(struct task_struct *tsk,
++                                struct mm_struct *mm,
++                                unsigned long start,
++                                unsigned long nr_pages,
++                                unsigned int gup_flags,
++                                struct page **pages,
++                                struct vm_area_struct **vmas) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                echo "#undef NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS" | append_conftest "functions"
++                echo "#define NV_GET_USER_PAGES_HAS_TASK_STRUCT" | append_conftest "functions"
++                rm -f conftest$$.o
++                return
++            fi
++
+             echo "#define NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS" | append_conftest "functions"
+             echo "#define NV_GET_USER_PAGES_HAS_TASK_STRUCT" | append_conftest "functions"
+ 
+-- 
+2.19.1
+
