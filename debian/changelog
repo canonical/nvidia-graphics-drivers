@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.3) xenial; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.10.patch:
+    - Remove part that affected get_user_pages.
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.4_get_user_pages.patch:
+   - Add support for backported 7 argument linux get_user_pages call (LP: #1573508).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2019 12:11:25 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Mar 2019 12:55:36 +0100
 
 nvidia-graphics-drivers-304 (304.135-0ubuntu0.16.04.2) xenial; urgency=medium
 
