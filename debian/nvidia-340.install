@@ -9,27 +9,27 @@ debian/start-nvidia-persistenced             usr/bin
 debian/stop-nvidia-persistenced              usr/bin
 debian/create-uvm-dev-node                   sbin
 
-NVIDIA-Linux-x86-340.104/nvidia_drv.so /usr/lib/nvidia-340/xorg
-NVIDIA-Linux-x86-340.104/libglx.so.340.104 /usr/lib/nvidia-340/xorg
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia_drv.so /usr/lib/nvidia-340/xorg
+NVIDIA-Linux-x86_64-340.107-no-compat32/libglx.so.340.107 /usr/lib/nvidia-340/xorg
 
-NVIDIA-Linux-x86-340.104/libGL*.so*                  /usr/lib/nvidia-340
-NVIDIA-Linux-x86-340.104/libEGL*.so*                 /usr/lib/nvidia-340
-NVIDIA-Linux-x86-340.104/libnv*.so*                  /usr/lib/nvidia-340
+NVIDIA-Linux-x86_64-340.107-no-compat32/libGL*.so*                  /usr/lib/nvidia-340
+NVIDIA-Linux-x86_64-340.107-no-compat32/libEGL*.so*                 /usr/lib/nvidia-340
+NVIDIA-Linux-x86_64-340.107-no-compat32/libnv*.so*                  /usr/lib/nvidia-340
 
-NVIDIA-Linux-x86-340.104/libvdpau_nvidia.so*   /usr/lib/nvidia-340/vdpau
-NVIDIA-Linux-x86-340.104/tls/*.so*                   /usr/lib/nvidia-340/tls
+NVIDIA-Linux-x86_64-340.107-no-compat32/libvdpau_nvidia.so*   /usr/lib/nvidia-340/vdpau
+NVIDIA-Linux-x86_64-340.107-no-compat32/tls/*.so*                   /usr/lib/nvidia-340/tls
 
-debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-340-340.104
-debian/dkms_nvidia/patches/*                  usr/src/nvidia-340-340.104/patches
-debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-340-340.104
+debian/temp/modules/nvidia-kernel/kernel/*    usr/src/nvidia-340-340.107
+debian/dkms_nvidia/patches/*                  usr/src/nvidia-340-340.107/patches
+debian/dkms_nvidia/dkms.conf                  usr/src/nvidia-340-340.107
 
-NVIDIA-Linux-x86-340.104/nvidia-bug-report.sh /usr/lib/nvidia-340/bin
-NVIDIA-Linux-x86-340.104/nvidia-xconfig /usr/lib/nvidia-340/bin
-NVIDIA-Linux-x86-340.104/nvidia-smi /usr/lib/nvidia-340/bin
-NVIDIA-Linux-x86-340.104/nvidia-debugdump /usr/lib/nvidia-340/bin
-NVIDIA-Linux-x86-340.104/nvidia-cuda-mps-control /usr/lib/nvidia-340/bin
-NVIDIA-Linux-x86-340.104/nvidia-cuda-mps-server /usr/lib/nvidia-340/bin
-NVIDIA-Linux-x86-340.104/nvidia-persistenced /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-bug-report.sh /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-xconfig /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-smi /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-debugdump /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-cuda-mps-control /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-cuda-mps-server /usr/lib/nvidia-340/bin
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-persistenced /usr/lib/nvidia-340/bin
 
-NVIDIA-Linux-x86-340.104/nvidia-application-profiles-340.104-rc /usr/share/nvidia-340
-NVIDIA-Linux-x86-340.104/nvidia-application-profiles-340.104-key-documentation /usr/share/nvidia-340
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-application-profiles-340.107-rc /usr/share/nvidia-340
+NVIDIA-Linux-x86_64-340.107-no-compat32/nvidia-application-profiles-340.107-key-documentation /usr/share/nvidia-340
