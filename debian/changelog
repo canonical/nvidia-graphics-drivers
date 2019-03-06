@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.1) bionic; urgency=medium
 
   * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2019 15:59:52 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2019 16:01:55 +0100
