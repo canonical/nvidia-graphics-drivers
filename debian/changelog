@@ -1,17 +1,5 @@
-nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.3) bionic; urgency=medium
-
-  * Rely on FLAVOUR instead of VERSION for paths.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Feb 2019 12:43:45 +0100
-
-nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.2) bionic; urgency=medium
-
-  * Fix cleaning path, and xlibs paths.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Feb 2019 11:03:45 +0100
-
-nvidia-graphics-drivers-418 (418.30-0ubuntu0~18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.1) UNRELEASED; urgency=medium
 
   * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 01 Feb 2019 12:25:27 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2019 15:59:52 +0100
