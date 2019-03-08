@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu0.16.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu0.16.04.2) xenial; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Re-enable buildfix_kernel_4.11.patch (LP: #1819077).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 08 Mar 2019 09:19:15 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 08 Mar 2019 12:04:12 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu0.16.04.1) xenial; urgency=medium
 
