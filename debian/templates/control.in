@@ -112,15 +112,15 @@ Depends:
   ${misc:Depends}, ${shlibs:Depends}
 Provides: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1,
+ libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda1 (= ${source:Version}),
  libnvidia-ml1 (= ${source:Version})
 Conflicts: nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1
+ libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
 Replaces: nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
  libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1,
+ libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libnvidia-compute-#FLAVOUR# (<< 390.25-0ubuntu2~)
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
