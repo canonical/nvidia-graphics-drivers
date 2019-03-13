@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-418 (418.43-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.43-0ubuntu1) disco; urgency=medium
 
-  * Initial release.
+  * Initial release (replaces the 410 series).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 01 Feb 2019 12:25:27 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Mar 2019 12:19:04 +0100
