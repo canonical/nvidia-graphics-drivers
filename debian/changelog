@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.3) bionic; urgency=medium
 
-  * 
+  * debian/rules.defs:
+    - Add optional dependency on xserver-xorg-core-hwe-18.04.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Mar 2019 20:51:59 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Mar 2019 20:55:04 +0100
 
 nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.2) bionic; urgency=medium
 
