@@ -370,7 +370,7 @@ Description: Transitional package for nvidia-utils-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-compute-410
-Architecture: amd64
+Architecture: i386 amd64
 Depends: libnvidia-compute-#FLAVOUR#
 Description: Transitional package for libnvidia-compute-#FLAVOUR#
  This is a transitional package for libnvidia-compute-#FLAVOUR#, and can be
@@ -405,14 +405,14 @@ Description: Transitional package for nvidia-kernel-common-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-gl-410
-Architecture: amd64
+Architecture: i386 amd64
 Depends: libnvidia-gl-#FLAVOUR#
 Description: Transitional package for libnvidia-gl-#FLAVOUR#
  This is a transitional package for libnvidia-gl-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: libnvidia-common-410
-Architecture: amd64
+Architecture: all
 Depends: libnvidia-common-#FLAVOUR#
 Description: Transitional package for libnvidia-common-#FLAVOUR#
  This is a transitional package for libnvidia-common-#FLAVOUR#, and can be
@@ -433,28 +433,28 @@ Description: Transitional package for libnvidia-cfg1-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-ifr1-410
-Architecture: amd64
+Architecture: i386 amd64
 Depends: libnvidia-ifr1-#FLAVOUR#
 Description: Transitional package for libnvidia-ifr1-#FLAVOUR#
  This is a transitional package for libnvidia-ifr1-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: libnvidia-fbc1-410
-Architecture: amd64
+Architecture: i386 amd64
 Depends: libnvidia-fbc1-#FLAVOUR#
 Description: Transitional package for libnvidia-fbc1-#FLAVOUR#
  This is a transitional package for libnvidia-fbc1-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: libnvidia-decode-410
-Architecture: amd64
+Architecture: i386 amd64
 Depends: libnvidia-decode-#FLAVOUR#
 Description: Transitional package for libnvidia-decode-#FLAVOUR#
  This is a transitional package for libnvidia-decode-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: libnvidia-encode-410
-Architecture: amd64
+Architecture: i386 amd64
 Depends: libnvidia-encode-#FLAVOUR#
 Description: Transitional package for libnvidia-encode-#FLAVOUR#
  This is a transitional package for libnvidia-encode-#FLAVOUR#, and can be
