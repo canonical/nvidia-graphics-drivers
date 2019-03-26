@@ -1,8 +1,21 @@
-nvidia-graphics-drivers-418 (418.56-0ubuntu0~18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.56-0ubuntu0~18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+      o GeForce MX230
+      o GeForce MX250
+    - Fixed a bug which could sometimes cause Vulkan applications
+      to lock up the     GPU when freeing large chunks of memory on
+      systems with PRIME enabled.
+    - Updated the driver to restrict use of the GPU performance
+      counters to system administrators by default. The previous
+      more permissive behavior can be restored by setting
+      NVreg_RestrictProfilingToAdminUsers=0 when loading nvidia.ko.
+  * debian/templates/control.in:
+    - Make transitional packages available on i386 too.
+      Also, make libnvidia-common-410 arch all.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Mar 2019 12:58:55 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Mar 2019 13:00:35 +0100
 
 nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.3) bionic; urgency=medium
 
