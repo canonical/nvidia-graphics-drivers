@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.74-0ubuntu1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added a new kernel module parameter,
+      NVreg_RestrictProfilingToAdminUsers, to allow restricting the
+      use of GPU performance counters to system administrators
+      only.
+  * debian/templates/nvidia-driver-flavour.docs.in:
+    - Install retpoline.html.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 10 May 2019 13:18:49 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 10 May 2019 13:26:51 +0200
 
 nvidia-graphics-drivers-418 (418.56-0ubuntu1) disco; urgency=medium
 
