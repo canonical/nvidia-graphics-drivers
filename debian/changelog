@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-418 (418.74-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 10 May 2019 13:18:49 +0200
+
 nvidia-graphics-drivers-418 (418.56-0ubuntu1) disco; urgency=medium
 
     * New upstream release:
