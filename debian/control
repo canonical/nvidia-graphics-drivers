@@ -341,121 +341,47 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-driver-410
-Architecture: amd64
-Depends: nvidia-driver-418
-Description: Transitional package for nvidia-driver-418
- This is a transitional package for nvidia-driver-418, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-kernel-source-410
-Architecture: amd64
-Depends: nvidia-kernel-source-418
-Description: Transitional package for nvidia-kernel-source-418
- This is a transitional package for nvidia-kernel-source-418, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-dkms-410
-Architecture: amd64
-Depends: nvidia-dkms-418
-Description: Transitional package for nvidia-dkms-418
- This is a transitional package for nvidia-dkms-418, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-utils-410
-Architecture: amd64
-Depends: nvidia-utils-418
-Description: Transitional package for nvidia-utils-418
- This is a transitional package for nvidia-utils-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-compute-410
+Package: nvidia-vulkan-bundle-418
 Architecture: i386 amd64
-Depends: libnvidia-compute-418
-Description: Transitional package for libnvidia-compute-418
- This is a transitional package for libnvidia-compute-418, and can be
- safely removed after the installation is complete.
+Multi-Arch: same
+Conflicts: nvidia-compute-utils-418, libnvidia-gl, libnvidia-common-418, nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
+ libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
+ libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1, libnvidia-compute-418,
+ nvidia-utils-418, nvidia-kernel-common-418
+Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1), libnvidia-common,
+ nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1,
+ libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1,
+ libcuda-10.1-1, libnvidia-compute-418
+Provides: libnvidia-gl, libglx-vendor, libegl-vendor, libnvidia-common, nvidia-opencl-icd,
+ opencl-icd, libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1,
+ libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1,
+ libcuda-10.1-1, libcuda1 (= ${source:Version}), libnvidia-ml1 (= ${source:Version}), libnvidia-compute-418
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA OpenGL/GLX/EGL/GLES driver and GLVND libraries and Vulkan ICD
+ This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
+ Vulkan ICD.
 
-Package: nvidia-compute-utils-410
-Architecture: amd64
-Depends: nvidia-compute-utils-418
-Description: Transitional package for nvidia-compute-utils-418
- This is a transitional package for nvidia-compute-utils-418, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-headless-no-dkms-410
-Architecture: amd64
-Depends: nvidia-headless-no-dkms-418
-Description: Transitional package for nvidia-headless-no-dkms-418
- This is a transitional package for nvidia-headless-no-dkms-418, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-headless-410
-Architecture: amd64
-Depends: nvidia-headless-418
-Description: Transitional package for nvidia-headless-418
- This is a transitional package for nvidia-headless-418, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-kernel-common-410
-Architecture: amd64
-Depends: nvidia-kernel-common-418
-Description: Transitional package for nvidia-kernel-common-418
- This is a transitional package for nvidia-kernel-common-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-gl-410
+Package: nvidia-vulkan-x11-bundle-418
 Architecture: i386 amd64
-Depends: libnvidia-gl-418
-Description: Transitional package for libnvidia-gl-418
- This is a transitional package for libnvidia-gl-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-common-410
-Architecture: all
-Depends: libnvidia-common-418
-Description: Transitional package for libnvidia-common-418
- This is a transitional package for libnvidia-common-418, and can be
- safely removed after the installation is complete.
-
-Package: xserver-xorg-video-nvidia-410
-Architecture: amd64
-Depends: xserver-xorg-video-nvidia-418
-Description: Transitional package for xserver-xorg-video-nvidia-418
- This is a transitional package for xserver-xorg-video-nvidia-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-cfg1-410
-Architecture: amd64
-Depends: libnvidia-cfg1-418
-Description: Transitional package for libnvidia-cfg1-418
- This is a transitional package for libnvidia-cfg1-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-ifr1-410
-Architecture: i386 amd64
-Depends: libnvidia-ifr1-418
-Description: Transitional package for libnvidia-ifr1-418
- This is a transitional package for libnvidia-ifr1-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-fbc1-410
-Architecture: i386 amd64
-Depends: libnvidia-fbc1-418
-Description: Transitional package for libnvidia-fbc1-418
- This is a transitional package for libnvidia-fbc1-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-decode-410
-Architecture: i386 amd64
-Depends: libnvidia-decode-418
-Description: Transitional package for libnvidia-decode-418
- This is a transitional package for libnvidia-decode-418, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-encode-410
-Architecture: i386 amd64
-Depends: libnvidia-encode-418
-Description: Transitional package for libnvidia-encode-418
- This is a transitional package for libnvidia-encode-418, and can be
- safely removed after the installation is complete.
+Multi-Arch: same
+Conflicts: nvidia-compute-utils-418, xserver-xorg-video-nvidia-418, libnvidia-cfg1-418, libnvidia-gl,
+ libnvidia-common-418, nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1,
+ libcuda-10.0-1, libcuda-10.1-1, libnvidia-compute-418, nvidia-utils-418, nvidia-kernel-common-418
+Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1),
+ nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1,
+ libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1,
+ libcuda-10.1-1, libnvidia-compute-418
+Provides: libnvidia-gl, libglx-vendor, libegl-vendor, nvidia-opencl-icd,
+ opencl-icd, libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1,
+ libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1,
+ libcuda-10.1-1, libcuda1 (= ${source:Version}), libnvidia-ml1 (= ${source:Version}), libnvidia-compute-418,
+ xorg-driver-binary, nvidia-driver-binary,
+ ${nvidia:xorgProvides}
+Depends:
+ ${nvidia:xorgDepends},
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA OpenGL/GLX/EGL/GLES driver and GLVND libraries and Vulkan ICD
+ This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
+ Vulkan ICD, and X11 support.
