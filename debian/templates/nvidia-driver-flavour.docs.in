@@ -37,6 +37,7 @@
 #AMD64_ONLY#NVIDIA-Linux/html/nvidia-persistenced.html
 #AMD64_ONLY#NVIDIA-Linux/html/nvidia-smi.html
 #AMD64_ONLY#NVIDIA-Linux/html/nvidiasettings.html
+#AMD64_ONLY#NVIDIA-Linux/html/retpoline.html
 #AMD64_ONLY#NVIDIA-Linux/html/openglenvvariables.html
 #AMD64_ONLY#NVIDIA-Linux/html/optimus.html
 #AMD64_ONLY#NVIDIA-Linux/html/powermanagement.html
