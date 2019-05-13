@@ -1,3 +1,13 @@
+usr/lib/x86_64-linux-gnu/nvidia-418/xorg/libglxserver_nvidia.so.418.74     usr/lib/x86_64-linux-gnu/nvidia-418/xorg/libglxserver_nvidia.so
+usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.418.74                                             usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.0
+usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.418.74                                             usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
+usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.418.74                                          usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.2
+usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.418.74                                       usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.1
+usr/lib/x86_64-linux-gnu/libnvoptix.so.418.74                                    usr/lib/x86_64-linux-gnu/libnvoptix.so.1
+usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.418.74                                             usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.0
+usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.418.74                                             usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
+usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.418.74                                          usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.2
+usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.418.74                                       usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.1
 usr/lib/x86_64-linux-gnu/libnvidia-ml.so.418.74                                              usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
 usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1                                                      usr/lib/x86_64-linux-gnu/libnvidia-ml.so
 usr/lib/x86_64-linux-gnu/libcuda.so.418.74                                                   usr/lib/x86_64-linux-gnu/libcuda.so.1
@@ -12,3 +22,5 @@ usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1                          
 usr/lib/x86_64-linux-gnu/libnvidia-ml.so.418.74                                              usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
 usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1                                                      usr/lib/x86_64-linux-gnu/libnvidia-ml.so
 usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.418.74                                          usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.418.74                                 usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.1                                         usr/lib/x86_64-linux-gnu/libnvidia-cfg.so
