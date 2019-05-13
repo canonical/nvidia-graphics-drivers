@@ -3,6 +3,12 @@
 # Get the major device number for nvidia-uvm and create the node
 major=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
 if [ -n "$major" ]; then
+    if [ -e /dev/nvidia-uvm ]; then
+        unlink /dev/nvidia-uvm
+    fi
+    if [ -e /dev/nvidia-uvm-tools ]; then
+        unlink /dev/nvidia-uvm-tools
+    fi
     mknod -m 666 /dev/nvidia-uvm c $major 0
     mknod -m 666 /dev/nvidia-uvm-tools c $major 1
 fi
