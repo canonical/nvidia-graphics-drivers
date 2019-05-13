@@ -1,46 +1,5 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.1) bionic; urgency=medium
 
-  * 
+  * Initial release (vulkan bundle enabled).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 26 Apr 2019 13:13:16 +0200
-
-nvidia-graphics-drivers-418 (418.56-0ubuntu0~18.04.1) bionic; urgency=medium
-
-  * New upstream release:
-    - Added support for the following GPU:
-      o GeForce MX230
-      o GeForce MX250
-    - Fixed a bug which could sometimes cause Vulkan applications
-      to lock up the     GPU when freeing large chunks of memory on
-      systems with PRIME enabled.
-    - Updated the driver to restrict use of the GPU performance
-      counters to system administrators by default. The previous
-      more permissive behavior can be restored by setting
-      NVreg_RestrictProfilingToAdminUsers=0 when loading nvidia.ko.
-  * debian/templates/control.in:
-    - Make transitional packages available on i386 too.
-      Also, make libnvidia-common-410 arch all.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Mar 2019 13:00:35 +0100
-
-nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.3) bionic; urgency=medium
-
-  * debian/rules.defs:
-    - Add optional dependency on xserver-xorg-core-hwe-18.04.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Mar 2019 20:55:04 +0100
-
-nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.2) bionic; urgency=medium
-
-  * debian/templates/control:
-    - Add transitional packages for the 410 series.
-    - Provide libcuda1 and libnvidia-ml1.
-    - Add support for libcuda-10.1-1.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Mar 2019 16:30:54 +0100
-
-nvidia-graphics-drivers-418 (418.43-0ubuntu0~18.04.1) bionic; urgency=medium
-
-  * Initial release.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Mar 2019 16:01:55 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 May 2019 17:45:28 +0200
