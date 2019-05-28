@@ -1,41 +1,5 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu1) eoan; urgency=medium
+nvidia-graphics-drivers-430 (430.14-0ubuntu1) UNRELEASED; urgency=medium
 
-  * New upstream release:
-    - Added a new kernel module parameter,
-      NVreg_RestrictProfilingToAdminUsers, to allow restricting the
-      use of GPU performance counters to system administrators
-      only.
-  * debian/templates/nvidia-driver-flavour.docs.in:
-    - Install retpoline.html.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 10 May 2019 13:26:51 +0200
-
-nvidia-graphics-drivers-418 (418.56-0ubuntu1) disco; urgency=medium
-
-    * New upstream release:
-      - Added support for the following GPU:
-          GeForce MX230
-          GeForce MX250
-      - Fixed a bug which could sometimes cause Vulkan applications
-        to lock up the     GPU when freeing large chunks of memory on
-        systems with PRIME enabled.
-      - Updated the driver to restrict use of the GPU performance
-        counters to system administrators by default. The previous
-        more permissive behavior can be restored by setting
-        NVreg_RestrictProfilingToAdminUsers=0 when loading nvidia.ko.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Mar 2019 17:01:55 +0100
-
-nvidia-graphics-drivers-418 (418.43-0ubuntu2) disco; urgency=medium
-
-  * debian/templates/control.in:
-    - Make transitional packages available on i386 too.
-    - Make libnvidia-common-410 arch "all".
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Mar 2019 15:18:04 +0100
-
-nvidia-graphics-drivers-418 (418.43-0ubuntu1) disco; urgency=medium
-
-  * Initial release (replaces the 410 series).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Mar 2019 12:19:04 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 May 2019 13:14:41 +0200
