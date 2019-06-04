@@ -1,0 +1,72 @@
+From e2ce21afc40c2251ed0485618866cb8ac5f43e4a Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 4 Jun 2019 18:02:44 +0200
+Subject: [PATCH 1/1] Add support for Linux 5.2
+
+Use put_user_page introduced by fc1d8e7cca2daa18d2fe56b94874848adf89d7f5
+---
+ conftest.sh                  | 15 +++++++++++++++
+ nvidia-uvm/nvidia-uvm.Kbuild |  1 +
+ nvidia-uvm/uvm8_tools.c      |  2 ++
+ 3 files changed, 18 insertions(+)
+
+diff --git a/conftest.sh b/conftest.sh
+index 1da5a9b..2cb02a9 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -479,6 +479,21 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_SET_PAGES_UC_PRESENT" "" "functions"
+         ;;
+ 
++        put_user_pages)
++            #
++            # Determine if the put_user_pages() function is present.
++            # It does not exist on all architectures.
++            #
++            CODE="
++            #include <linux/mm.h>
++            void conftest_put_user_pages(void) {
++                put_user_pages();
++            }"
++
++            compile_check_conftest "$CODE" "NV_PUT_USER_PAGES_PRESENT" "" "functions"
++        ;;
++
++
+         outer_flush_all)
+             #
+             # Determine if the outer_cache_fns struct has flush_all member.
+diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
+index ec295f5..2bb20b9 100644
+--- a/nvidia-uvm/nvidia-uvm.Kbuild
++++ b/nvidia-uvm/nvidia-uvm.Kbuild
+@@ -94,6 +94,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += radix_tree_empty
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += radix_tree_replace_slot
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pnv_npu2_init_context
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += do_gettimeofday
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += put_user_pages
+ 
+ NV_CONFTEST_TYPE_COMPILE_TESTS += proc_dir_entry
+ NV_CONFTEST_TYPE_COMPILE_TESTS += irq_handler_t
+diff --git a/nvidia-uvm/uvm8_tools.c b/nvidia-uvm/uvm8_tools.c
+index 82c8905..9a9249f 100644
+--- a/nvidia-uvm/uvm8_tools.c
++++ b/nvidia-uvm/uvm8_tools.c
+@@ -206,12 +206,14 @@ static bool tracker_is_counter(uvm_tools_event_tracker_t *event_tracker)
+     return event_tracker != NULL && !event_tracker->is_queue;
+ }
+ 
++#ifndef NV_PUT_USER_PAGES_PRESENT
+ static void put_user_pages(struct page **pages, NvU64 page_count)
+ {
+     NvU64 i;
+     for (i = 0; i < page_count; i++)
+         put_page(pages[i]);
+ }
++#endif
+ 
+ static void unmap_user_pages(struct page **pages, void *addr, NvU64 size)
+ {
+-- 
+2.20.1
+
