@@ -310,10 +310,8 @@ override_dh_auto_configure:
 	# Extract the installers
 	sh $(filename) --extract-only --target $(dirname)
 
-ifneq ($(DEB_HOST_ARCH),armhf)
 	# Remove the non-libglvnd files
 	rm $(dirname)/libGL.so.$(PKG_version) $(dirname)/libEGL.so.$(PKG_version)
-endif
 
 ifeq ($(DEB_HOST_ARCH),amd64)
 	sh $(filename_x86) --extract-only --target $(dirname_x86)
