@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.74-0ubuntu2) eoan; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch:
+    - Add support for Linux 5.2 (LP: #1830053).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jun 2019 18:38:42 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 Jun 2019 18:41:48 +0200
 
 nvidia-graphics-drivers-418 (418.74-0ubuntu1) eoan; urgency=medium
 
