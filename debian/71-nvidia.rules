@@ -27,5 +27,5 @@ ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modpr
 # This will create the device nvidia device nodes
 ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/usr/bin/nvidia-smi"
 
-# Create the device node for the nvidia-uvm module
-ACTION=="add" DEVPATH=="/module/nvidia_uvm" SUBSYSTEM=="module" RUN+="/sbin/create-uvm-dev-node"
+# Call create-uvm-dev-node when an NVIDIA GPU is added
+ACTION=="add", SUBSYSTEMS=="pci", DRIVERS=="nvidia*", RUN+="/opt/nvidia/sbin/create-uvm-dev-node"
