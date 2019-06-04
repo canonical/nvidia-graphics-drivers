@@ -1,21 +1,21 @@
-nvidia-384: library-not-linked-against-libc ./usr/lib/libGL.so.384.130
+nvidia-384: library-not-linked-against-libc ./usr/lib/libGLX_nvidia.so.384.130
 
 nvidia-384: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.384.130
 
 nvidia-384: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.384.130
 
-nvidia-384: shlib-with-non-pic-code usr/lib/libGL.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/libGLX_nvidia.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib/libGLcore.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.384.130
 
-nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.384.130 usr/lib/libGL.so
+nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/libGLX_nvidia.so.384.130 usr/lib/libGL.so
 nvidia-384: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.384.130 usr/lib/xorg/modules/extensions/libglx.so
 
 
 nvidia-384: script-not-executable usr/src/nvidia-384-384.130/conftest.sh
 nvidia-384: maintainer-script-ignores-errors prerm
-nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGL.so.384.130
-nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGL.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGLX_nvidia.so.384.130
+nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGLX_nvidia.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libGLcore.so.384.130
 nvidia-384: shlib-without-PT_GNU_STACK-section usr/lib/nvidia-384/libGLcore.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib/nvidia-384/libcuda.so.384.130
@@ -62,7 +62,7 @@ nvidia-384-modaliases: copyright-without-copyright-notice
 
 nvidia-384: script-not-executable ./usr/src/nvidia-384-384.130/conftest.sh
 nvidia-384: maintainer-script-ignores-errors prerm
-nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGL.so.384.130
+nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGLX_nvidia.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libGLcore.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libcuda.so.384.130
 nvidia-384: shlib-with-non-pic-code usr/lib32/nvidia-384/libnvidia-cfg.so.384.130

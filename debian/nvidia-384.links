@@ -1,6 +1,6 @@
 # GLVND GLX client libraries
 
-/usr/lib/nvidia-384/libGL.so.384.130 /usr/lib/nvidia-384/libGL.so.1
+/usr/lib/nvidia-384/libGL.so.1.7.0 /usr/lib/nvidia-384/libGL.so.1
 /usr/lib/nvidia-384/libGL.so.1 /usr/lib/nvidia-384/libGL.so
 
 /usr/lib/nvidia-384/libOpenGL.so.0 /usr/lib/nvidia-384/libOpenGL.so
@@ -14,8 +14,8 @@
 
 # EGL client libraries
 
-/usr/lib/nvidia-384/libEGL.so.384.130 /usr/lib/nvidia-384/libEGL.so
-/usr/lib/nvidia-384/libEGL.so.384.130 /usr/lib/nvidia-384/libEGL.so.1
+/usr/lib/nvidia-384/libEGL.so.1.1.0 /usr/lib/nvidia-384/libEGL.so
+/usr/lib/nvidia-384/libEGL.so.1.1.0 /usr/lib/nvidia-384/libEGL.so.1
 
 /usr/lib/nvidia-384/libGLESv1_CM.so.1 /usr/lib/nvidia-384/libGLESv1_CM.so
 /usr/lib/nvidia-384/libGLESv2.so.2 /usr/lib/nvidia-384/libGLESv2.so
@@ -56,7 +56,7 @@
 /usr/lib/nvidia-384/libnvidia-egl-wayland.so.1.0.1 /usr/lib/nvidia-384/libnvidia-egl-wayland.so.1
 # GLVND GLX client libraries
 
-/usr/lib32/nvidia-384/libGL.so.384.130 /usr/lib32/nvidia-384/libGL.so.1
+/usr/lib32/nvidia-384/libGL.so.1.7.0 /usr/lib32/nvidia-384/libGL.so.1
 /usr/lib32/nvidia-384/libGL.so.1 /usr/lib32/nvidia-384/libGL.so
 
 /usr/lib32/nvidia-384/libOpenGL.so.0 /usr/lib32/nvidia-384/libOpenGL.so
@@ -70,8 +70,8 @@
 
 # EGL client libraries
 
-/usr/lib32/nvidia-384/libEGL.so.384.130 /usr/lib32/nvidia-384/libEGL.so
-/usr/lib32/nvidia-384/libEGL.so.384.130 /usr/lib32/nvidia-384/libEGL.so.1
+/usr/lib32/nvidia-384/libEGL.so.1.1.0 /usr/lib32/nvidia-384/libEGL.so
+/usr/lib32/nvidia-384/libEGL.so.1.1.0 /usr/lib32/nvidia-384/libEGL.so.1
 
 /usr/lib32/nvidia-384/libGLESv1_CM.so.1 /usr/lib32/nvidia-384/libGLESv1_CM.so
 /usr/lib32/nvidia-384/libGLESv2.so.2 /usr/lib32/nvidia-384/libGLESv2.so
