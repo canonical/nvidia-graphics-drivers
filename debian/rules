@@ -310,8 +310,15 @@ override_dh_auto_configure:
 	# Extract the installers
 	sh $(filename) --extract-only --target $(dirname)
 
+ifneq ($(DEB_HOST_ARCH),armhf)
+	# Remove the non-libglvnd files
+	rm $(dirname)/libGL.so.$(PKG_version) $(dirname)/libEGL.so.$(PKG_version)
+endif
+
 ifeq ($(DEB_HOST_ARCH),amd64)
 	sh $(filename_x86) --extract-only --target $(dirname_x86)
+	# Remove the non-libglvnd files
+	rm $(dirname_x86)/libGL.so.$(PKG_version) $(dirname_x86)/libEGL.so.$(PKG_version)
 endif
 
 ifneq ($(DEB_HOST_ARCH),armhf)
@@ -328,9 +335,7 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 endif
 
 ifneq ($(DEB_HOST_ARCH),armhf)
-	# This is for non-GLVND LibGL libraries
-	# Replace with libGLX_nvidia.so.0 when the transition to GLVND is complete
-	sed 's/__NV_VK_ICD__/libGL.so.1/g'  $(dirname)/nvidia_icd.json.template > \
+	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/g'  $(dirname)/nvidia_icd.json.template > \
 		$(dirname)/nvidia_icd.json
 endif
 
@@ -472,11 +477,6 @@ endif
 
 	# Remove libnvidia-opencl
 	find $(CURDIR)/debian/$(PKG_driver) -name 'libnvidia-opencl*.so*' | xargs /bin/rm -f
-
-ifneq ($(DEB_HOST_ARCH),armhf)
-	# Remove the non-GLVND libGL and libEGL libraries
-	find $(CURDIR)/debian/$(PKG_driver) -name "libGL.so.1.0.0" -o -name "libEGL.so.1" | xargs /bin/rm -f
-endif
 
 	# Part about $(PKG_libcuda1):
 	dh_install -p$(PKG_libcuda1)

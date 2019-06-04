@@ -1,21 +1,21 @@
-#DRIVERNAME#: library-not-linked-against-libc ./usr/lib/libGL.so.#VERSION#
+#DRIVERNAME#: library-not-linked-against-libc ./usr/lib/libGLX_nvidia.so.#VERSION#
 
 #DRIVERNAME#: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.#VERSION#
 
 #DRIVERNAME#: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.#VERSION#
 
-#DRIVERNAME#: shlib-with-non-pic-code usr/lib/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/libGLX_nvidia.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib/libGLcore.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.#VERSION#
 
-#DRIVERNAME#: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.#VERSION# usr/lib/libGL.so
+#DRIVERNAME#: non-dev-pkg-with-shlib-symlink usr/lib/libGLX_nvidia.so.#VERSION# usr/lib/libGL.so
 #DRIVERNAME#: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.#VERSION# usr/lib/xorg/modules/extensions/libglx.so
 
 
 #DRIVERNAME#: script-not-executable usr/src/#DRIVERNAME#-#VERSION#/conftest.sh
 #DRIVERNAME#: maintainer-script-ignores-errors prerm
-#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libGL.so.#VERSION#
-#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libGLX_nvidia.so.#VERSION#
+#DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libGLX_nvidia.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libGLcore.so.#VERSION#
 #DRIVERNAME#: shlib-without-PT_GNU_STACK-section usr/lib/#DRIVERNAME#/libGLcore.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib/#DRIVERNAME#/libcuda.so.#VERSION#
@@ -62,7 +62,7 @@ nvidia-glx-185: unknown-section restricted/misc
 
 #DRIVERNAME#: script-not-executable ./usr/src/#DRIVERNAME#-#VERSION#/conftest.sh
 #DRIVERNAME#: maintainer-script-ignores-errors prerm
-#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libGL.so.#VERSION#
+#DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libGLX_nvidia.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libGLcore.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libcuda.so.#VERSION#
 #DRIVERNAME#: shlib-with-non-pic-code usr/lib32/#DRIVERNAME#/libnvidia-cfg.so.#VERSION#
