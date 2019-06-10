@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-390 (390.116-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.116-0ubuntu2) eoan; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 5.2 (LP: #1830050).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Jun 2019 12:21:21 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Jun 2019 12:25:00 +0200
 
 nvidia-graphics-drivers-390 (390.116-0ubuntu1) disco; urgency=medium
 
