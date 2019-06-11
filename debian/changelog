@@ -1,8 +1,18 @@
-nvidia-graphics-drivers-430 (430.26-0ubuntu1~19.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.26-0ubuntu1~19.10.1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        Quadro P520
+        Quadro RTX 3000
+        Quadro T1000
+        Quadro T2000
+    - Fixed a bug, introduced in 415.13, that caused audio over
+      DisplayPort to not work in some configurations.
+  * debian/templates/control.in:
+    - Add transitional packages for the 418 series.
+    - Make nvidia-headless-no-dkms depend on libnvidia-cfg1.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Jun 2019 17:26:59 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Jun 2019 17:54:40 +0200
 
 nvidia-graphics-drivers-430 (430.14-0ubuntu1~19.10.1) eoan; urgency=medium
 
