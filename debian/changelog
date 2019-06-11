@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.3) bionic; urgency=medium
 
-  * 
+  * debian/71-nvidia.rules:
+    - Revert wrong hard-coded path to /opt/nvidia, which is not where this
+      command lives in the nvidia-kernel-common package and in fact breaks
+      the downstream GKE packaging.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 Jun 2019 22:02:02 +0200
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 10 Jun 2019 12:04:34 -0700
 
 nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.2) bionic; urgency=medium
 
