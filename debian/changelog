@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-430 (430.14-0ubuntu1~19.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.14-0ubuntu1~19.04.3) disco; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add transitional packages for 418.
+    - Add dependency on libnvidia-cfg1-#FLAVOUR# to nvidia-headless-no-dkms-#FLAVOUR#
+      nvidia-persistenced depends on it.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Jun 2019 16:01:00 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Jun 2019 16:02:23 +0200
 
 nvidia-graphics-drivers-430 (430.14-0ubuntu1~19.04.2) disco; urgency=medium
 
