@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-430 (430.14-0ubuntu1~19.04.2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Jun 2019 13:34:41 +0200
+
 nvidia-graphics-drivers-430 (430.14-0ubuntu1~19.04.1) disco; urgency=medium
 
   * New upstream release:
