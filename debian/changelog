@@ -1,8 +1,26 @@
-nvidia-graphics-drivers-430 (430.26-0ubuntu0~18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.26-0ubuntu0~18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        Quadro P520
+        Quadro RTX 3000
+        Quadro T1000
+        Quadro T2000
+    - Fixed a bug, introduced in 415.13, that caused audio over
+      DisplayPort to not work in some configurations.
+  * debian/templates/control.in:
+    - Specify multiarch for transitional packages.
+    - Add transitional packages for 418.
+    - Add dependency on libnvidia-cfg1-#FLAVOUR# to nvidia-headless-no-dkms-#FLAVOUR#
+      nvidia-persistenced depends on it.
+  * debian/71-nvidia.rules:
+    - Remove nvidia-smi from run list.
+      nvidia-smi was previously used for creating device nodes when nvidia
+      kernel module is being loaded. This is no longer mandatory as the device
+      nodes (nvidia0 & nvidiactl) will be created by any other process linking
+      to libnvidia-ml.so, e.g. nvidia-settings, when necessary.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 Jun 2019 14:37:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 Jun 2019 14:40:09 +0200
 
 nvidia-graphics-drivers-430 (430.14-0ubuntu1~18.04.1) bionic; urgency=medium
 
