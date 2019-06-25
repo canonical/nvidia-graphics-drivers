@@ -155,6 +155,7 @@ Depends:
  nvidia-kernel-source-418 (= ${binary:Version}),
  libnvidia-compute-418 (= ${binary:Version}),
  nvidia-compute-utils-418 (= ${binary:Version}),
+ libnvidia-cfg1-418 (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA driver and the libraries that enable
