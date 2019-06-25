@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.4) bionic; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add dependency on libnvidia-cfg1-#FLAVOUR# to
+      nvidia-headless-no-dkms-#FLAVOUR#, and to the vulkan bundles, as
+      nvidia-persistenced depends on it.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 25 Jun 2019 23:15:35 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 25 Jun 2019 23:17:13 +0200
 
 nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.3) bionic; urgency=medium
 
