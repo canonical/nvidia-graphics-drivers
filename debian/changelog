@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.4) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 25 Jun 2019 23:15:35 +0200
+
 nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.3) bionic; urgency=medium
 
   * debian/71-nvidia.rules:
