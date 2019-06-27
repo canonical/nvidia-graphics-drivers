@@ -1,14 +1,26 @@
 #!/bin/sh
 
+is_module_loaded() {
+    `/bin/grep -q "$1" /proc/modules`
+    return $?
+}
+
+# Try to load uvm, if possible
+# Failure should not be fatal, since uvm
+# is not available on all architectures.
+if ! is_module_loaded nvidia_uvm; then
+    /sbin/modprobe nvidia-uvm || true
+fi
+
 # Get the major device number for nvidia-uvm and create the node
-major=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
+major=`/bin/grep nvidia-uvm /proc/devices | awk '{print $1}'`
 if [ -n "$major" ]; then
     if [ -e /dev/nvidia-uvm ]; then
-        unlink /dev/nvidia-uvm
+       /usr/bin/unlink /dev/nvidia-uvm
     fi
     if [ -e /dev/nvidia-uvm-tools ]; then
-        unlink /dev/nvidia-uvm-tools
+        /usr/bin/unlink /dev/nvidia-uvm-tools
     fi
-    mknod -m 666 /dev/nvidia-uvm c $major 0
-    mknod -m 666 /dev/nvidia-uvm-tools c $major 1
+    /bin/mknod -m 666 /dev/nvidia-uvm c $major 0
+    /bin/mknod -m 666 /dev/nvidia-uvm-tools c $major 1
 fi
