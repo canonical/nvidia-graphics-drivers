@@ -1,0 +1,4 @@
+#LIBDIR#/nvidia/libs-i386/libGLX_nvidia.so.#VERSION#                            #LIBDIR#/nvidia/libs-i386/libGLX_nvidia.so.0
+#LIBDIR#/nvidia/libs-i386/libEGL_nvidia.so.#VERSION#                            #LIBDIR#/nvidia/libs-i386/libEGL_nvidia.so.0
+#LIBDIR#/nvidia/libs-i386/libGLESv2_nvidia.so.#VERSION#                         #LIBDIR#/nvidia/libs-i386/libGLESv2_nvidia.so.2
+#LIBDIR#/nvidia/libs-i386/libGLESv1_CM_nvidia.so.#VERSION#                      #LIBDIR#/nvidia/libs-i386/libGLESv1_CM_nvidia.so.1

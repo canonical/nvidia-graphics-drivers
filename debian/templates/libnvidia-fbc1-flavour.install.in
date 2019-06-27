@@ -1,2 +1,1 @@
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-fbc.so.#VERSION#                  #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-fbc.so.#VERSION#                #LIBDIR#
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-fbc.so.#VERSION#                  #LIBDIR#/nvidia/libs

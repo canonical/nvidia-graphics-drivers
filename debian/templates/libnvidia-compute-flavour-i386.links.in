@@ -1,0 +1,7 @@
+#LIBDIR#/nvidia/libs-i386/libcuda.so.#VERSION#                                  #LIBDIR#/nvidia/libs-i386/libcuda.so.1
+#LIBDIR#/nvidia/libs-i386/libcuda.so.1                                          #LIBDIR#/nvidia/libs-i386/libcuda.so
+#LIBDIR#/nvidia/libs-i386/libnvidia-ptxjitcompiler.so.#VERSION#                 #LIBDIR#/nvidia/libs-i386/libnvidia-ptxjitcompiler.so.1
+#LIBDIR#/nvidia/libs-i386/libnvidia-ptxjitcompiler.so.1                         #LIBDIR#/nvidia/libs-i386/libnvidia-ptxjitcompiler.so
+#LIBDIR#/nvidia/libs-i386/libnvidia-ml.so.#VERSION#                             #LIBDIR#/nvidia/libs-i386/libnvidia-ml.so.1
+#LIBDIR#/nvidia/libs-i386/libnvidia-ml.so.1                                     #LIBDIR#/nvidia/libs-i386/libnvidia-ml.so
+#LIBDIR#/nvidia/libs-i386/libnvidia-opencl.so.#VERSION#                         #LIBDIR#/nvidia/libs-i386/libnvidia-opencl.so.1

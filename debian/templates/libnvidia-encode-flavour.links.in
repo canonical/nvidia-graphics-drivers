@@ -1,4 +1,2 @@
-#LIBDIR#/libnvidia-encode.so.#VERSION#                                          #LIBDIR#/libnvidia-encode.so.1
-#LIBDIR#/libnvidia-encode.so.1                                                  #LIBDIR#/libnvidia-encode.so
-#LIBDIR#/libnvidia-encode.so.#VERSION#                                          #LIBDIR#/libnvidia-encode.so.1
-#LIBDIR#/libnvidia-encode.so.1                                                  #LIBDIR#/libnvidia-encode.so
+#LIBDIR#/nvidia/libs/libnvidia-encode.so.#VERSION#                              #LIBDIR#/nvidia/libs/libnvidia-encode.so.1
+#LIBDIR#/nvidia/libs/libnvidia-encode.so.1                                      #LIBDIR#/nvidia/libs/libnvidia-encode.so

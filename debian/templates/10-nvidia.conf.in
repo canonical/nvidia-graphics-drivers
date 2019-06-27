@@ -3,6 +3,6 @@ Section "OutputClass"
     MatchDriver "nvidia-drm"
     Driver "nvidia"
     Option "AllowEmptyInitialConfiguration"
-    ModulePath "/#LIBDIR#/nvidia-#FLAVOUR#/xorg"
+    ModulePath "/#LIBDIR#/nvidia/xorg"
 EndSection
 

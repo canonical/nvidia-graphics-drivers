@@ -1,2 +1,1 @@
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-encode.so.#VERSION#               #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-encode.so.#VERSION#             #LIBDIR#
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-encode.so.#VERSION#               #LIBDIR#/nvidia/libs
