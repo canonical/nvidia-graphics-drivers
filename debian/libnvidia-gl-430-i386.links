@@ -1,0 +1,4 @@
+usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libGLX_nvidia.so.430.26                            usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libGLX_nvidia.so.0
+usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libEGL_nvidia.so.430.26                            usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libEGL_nvidia.so.0
+usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libGLESv2_nvidia.so.430.26                         usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libGLESv2_nvidia.so.2
+usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libGLESv1_CM_nvidia.so.430.26                      usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libGLESv1_CM_nvidia.so.1

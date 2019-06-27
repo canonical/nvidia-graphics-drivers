@@ -1,0 +1,9 @@
+NVIDIA-Linux/32/libGLX_nvidia.so.430.26                           usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libnvidia-glcore.so.430.26                        usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libnvidia-tls.so.430.26                           usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libnvidia-glvkspirv.so.430.26                     usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libnvidia-eglcore.so.430.26                       usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libnvidia-glsi.so.430.26                          usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libEGL_nvidia.so.430.26                           usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libGLESv2_nvidia.so.430.26                        usr/lib/x86_64-linux-gnu/nvidia/libs-i386
+NVIDIA-Linux/32/libGLESv1_CM_nvidia.so.430.26                     usr/lib/x86_64-linux-gnu/nvidia/libs-i386
