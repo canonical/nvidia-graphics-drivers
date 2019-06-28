@@ -1,6 +1,6 @@
-#LIBDIR#/nvidia/libs/vdpau/libvdpau_nvidia.so.#VERSION#                         #LIBDIR#/nvidia/libs/vdpau/libvdpau_nvidia.so.1
-#LIBDIR#/nvidia/libs/vdpau/libvdpau_nvidia.so.#VERSION#                         #LIBDIR#/nvidia/libs/vdpau/libvdpau_nvidia.so
-#LIBDIR#/nvidia/libs/libnvcuvid.so.#VERSION#                                    #LIBDIR#/nvidia/libs/libnvcuvid.so.1
-#LIBDIR#/nvidia/libs/libnvcuvid.so.1                                            #LIBDIR#/nvidia/libs/libnvcuvid.so
-#LIBDIR#/nvidia/libs/libnvidia-opticalflow.so.#VERSION#                         #LIBDIR#/nvidia/libs/libnvidia-opticalflow.so.1
-#LIBDIR#/nvidia/libs/libnvidia-opticalflow.so.1                                 #LIBDIR#/nvidia/libs/libnvidia-opticalflow.so
+#LIBDIR#/nvidia/amd64-libs/vdpau/libvdpau_nvidia.so.#VERSION#                   #LIBDIR#/nvidia/amd64-libs/vdpau/libvdpau_nvidia.so.1
+#LIBDIR#/nvidia/amd64-libs/vdpau/libvdpau_nvidia.so.#VERSION#                   #LIBDIR#/nvidia/amd64-libs/vdpau/libvdpau_nvidia.so
+#LIBDIR#/nvidia/amd64-libs/libnvcuvid.so.#VERSION#                              #LIBDIR#/nvidia/amd64-libs/libnvcuvid.so.1
+#LIBDIR#/nvidia/amd64-libs/libnvcuvid.so.1                                      #LIBDIR#/nvidia/amd64-libs/libnvcuvid.so
+#LIBDIR#/nvidia/amd64-libs/libnvidia-opticalflow.so.#VERSION#                   #LIBDIR#/nvidia/amd64-libs/libnvidia-opticalflow.so.1
+#LIBDIR#/nvidia/amd64-libs/libnvidia-opticalflow.so.1                           #LIBDIR#/nvidia/amd64-libs/libnvidia-opticalflow.so

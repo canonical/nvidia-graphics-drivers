@@ -1,3 +1,3 @@
-#AMD64_ONLY#NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#                #LIBDIR#/nvidia/libs/vdpau
-#AMD64_ONLY#NVIDIA-Linux/libnvcuvid.so.#VERSION#                     #LIBDIR#/nvidia/libs
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-opticalflow.so.#VERSION#          #LIBDIR#/nvidia/libs
+#AMD64_ONLY#NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#                #LIBDIR#/nvidia/amd64-libs/vdpau
+#AMD64_ONLY#NVIDIA-Linux/libnvcuvid.so.#VERSION#                     #LIBDIR#/nvidia/amd64-libs
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-opticalflow.so.#VERSION#          #LIBDIR#/nvidia/amd64-libs

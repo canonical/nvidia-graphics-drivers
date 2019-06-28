@@ -1,2 +1,2 @@
-#LIBDIR#/nvidia/libs-i386/libnvidia-encode.so.#VERSION#                         #LIBDIR#/nvidia/libs-i386/libnvidia-encode.so.1
-#LIBDIR#/nvidia/libs-i386/libnvidia-encode.so.1                                 #LIBDIR#/nvidia/libs-i386/libnvidia-encode.so
+#LIBDIR#/nvidia/i386-libs/libnvidia-encode.so.#VERSION#                         #LIBDIR#/nvidia/i386-libs/libnvidia-encode.so.1
+#LIBDIR#/nvidia/i386-libs/libnvidia-encode.so.1                                 #LIBDIR#/nvidia/i386-libs/libnvidia-encode.so

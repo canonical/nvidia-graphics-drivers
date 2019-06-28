@@ -1,2 +1,2 @@
-#AMD64_ONLY##LIBDIR#/nvidia/libs/libnvidia-cfg.so.#VERSION#                     #LIBDIR#/nvidia/libs/libnvidia-cfg.so.1
-#AMD64_ONLY##LIBDIR#/nvidia/libs/libnvidia-cfg.so.1                             #LIBDIR#/nvidia/libs/libnvidia-cfg.so
+#AMD64_ONLY##LIBDIR#/nvidia/amd64-libs/libnvidia-cfg.so.#VERSION#               #LIBDIR#/nvidia/amd64-libs/libnvidia-cfg.so.1
+#AMD64_ONLY##LIBDIR#/nvidia/amd64-libs/libnvidia-cfg.so.1                       #LIBDIR#/nvidia/amd64-libs/libnvidia-cfg.so

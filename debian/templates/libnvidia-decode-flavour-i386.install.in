@@ -1,3 +1,3 @@
-NVIDIA-Linux/32/libvdpau_nvidia.so.#VERSION#                         #LIBDIR#/nvidia/libs-i386/vdpau
-NVIDIA-Linux/32/libnvcuvid.so.#VERSION#                              #LIBDIR#/nvidia/libs-i386
-NVIDIA-Linux/32/libnvidia-opticalflow.so.#VERSION#                   #LIBDIR#/nvidia/libs-i386
+NVIDIA-Linux/32/libvdpau_nvidia.so.#VERSION#                         #LIBDIR#/nvidia/i386-libs/vdpau
+NVIDIA-Linux/32/libnvcuvid.so.#VERSION#                              #LIBDIR#/nvidia/i386-libs
+NVIDIA-Linux/32/libnvidia-opticalflow.so.#VERSION#                   #LIBDIR#/nvidia/i386-libs

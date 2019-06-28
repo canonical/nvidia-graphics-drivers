@@ -1,6 +1,6 @@
-#LIBDIR#/nvidia/libs-i386/vdpau/libvdpau_nvidia.so.#VERSION#                    #LIBDIR#/nvidia/libs-i386/vdpau/libvdpau_nvidia.so.1
-#LIBDIR#/nvidia/libs-i386/vdpau/libvdpau_nvidia.so.#VERSION#                    #LIBDIR#/nvidia/libs-i386/vdpau/libvdpau_nvidia.so
-#LIBDIR#/nvidia/libs-i386/libnvcuvid.so.#VERSION#                               #LIBDIR#/nvidia/libs-i386/libnvcuvid.so.1
-#LIBDIR#/nvidia/libs-i386/libnvcuvid.so.1                                       #LIBDIR#/nvidia/libs-i386/libnvcuvid.so
-#LIBDIR#/nvidia/libs-i386/libnvidia-opticalflow.so.#VERSION#                    #LIBDIR#/nvidia/libs-i386/libnvidia-opticalflow.so.1
-#LIBDIR#/nvidia/libs-i386/libnvidia-opticalflow.so.1                            #LIBDIR#/nvidia/libs-i386/libnvidia-opticalflow.so
+#LIBDIR#/nvidia/i386-libs/vdpau/libvdpau_nvidia.so.#VERSION#                    #LIBDIR#/nvidia/i386-libs/vdpau/libvdpau_nvidia.so.1
+#LIBDIR#/nvidia/i386-libs/vdpau/libvdpau_nvidia.so.#VERSION#                    #LIBDIR#/nvidia/i386-libs/vdpau/libvdpau_nvidia.so
+#LIBDIR#/nvidia/i386-libs/libnvcuvid.so.#VERSION#                               #LIBDIR#/nvidia/i386-libs/libnvcuvid.so.1
+#LIBDIR#/nvidia/i386-libs/libnvcuvid.so.1                                       #LIBDIR#/nvidia/i386-libs/libnvcuvid.so
+#LIBDIR#/nvidia/i386-libs/libnvidia-opticalflow.so.#VERSION#                    #LIBDIR#/nvidia/i386-libs/libnvidia-opticalflow.so.1
+#LIBDIR#/nvidia/i386-libs/libnvidia-opticalflow.so.1                            #LIBDIR#/nvidia/i386-libs/libnvidia-opticalflow.so

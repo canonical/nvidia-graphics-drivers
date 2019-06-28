@@ -1,7 +1,7 @@
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-ml.so.#VERSION#                   #LIBDIR#/nvidia/libs
-#AMD64_ONLY#NVIDIA-Linux/libcuda.so.#VERSION#                        #LIBDIR#/nvidia/libs
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-opencl.so.#VERSION#               #LIBDIR#/nvidia/libs
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-ml.so.#VERSION#                   #LIBDIR#/nvidia/amd64-libs
+#AMD64_ONLY#NVIDIA-Linux/libcuda.so.#VERSION#                        #LIBDIR#/nvidia/amd64-libs
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-opencl.so.#VERSION#               #LIBDIR#/nvidia/amd64-libs
 #AMD64_ONLY#NVIDIA-Linux/nvidia.icd                                  etc/OpenCL/vendors
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-fatbinaryloader.so.#VERSION#      #LIBDIR#/nvidia/libs
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-ptxjitcompiler.so.#VERSION#       #LIBDIR#/nvidia/libs
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-compiler.so.#VERSION#             #LIBDIR#/nvidia/libs
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-fatbinaryloader.so.#VERSION#      #LIBDIR#/nvidia/amd64-libs
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-ptxjitcompiler.so.#VERSION#       #LIBDIR#/nvidia/amd64-libs
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-compiler.so.#VERSION#             #LIBDIR#/nvidia/amd64-libs

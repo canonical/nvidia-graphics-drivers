@@ -1,6 +1,6 @@
 #AMD64_ONLY##LIBDIR#/nvidia/xorg/libglxserver_nvidia.so.#VERSION#               #LIBDIR#/nvidia/xorg/libglxserver_nvidia.so
-#LIBDIR#/nvidia/libs/libGLX_nvidia.so.#VERSION#                                 #LIBDIR#/nvidia/libs/libGLX_nvidia.so.0
-#LIBDIR#/nvidia/libs/libEGL_nvidia.so.#VERSION#                                 #LIBDIR#/nvidia/libs/libEGL_nvidia.so.0
-#LIBDIR#/nvidia/libs/libGLESv2_nvidia.so.#VERSION#                              #LIBDIR#/nvidia/libs/libGLESv2_nvidia.so.2
-#LIBDIR#/nvidia/libs/libGLESv1_CM_nvidia.so.#VERSION#                           #LIBDIR#/nvidia/libs/libGLESv1_CM_nvidia.so.1
-#AMD64_ONLY##LIBDIR#/nvidia/libs/libnvoptix.so.#VERSION#                        #LIBDIR#/nvidia/libs/libnvoptix.so.1
+#LIBDIR#/nvidia/amd64-libs/libGLX_nvidia.so.#VERSION#                           #LIBDIR#/nvidia/amd64-libs/libGLX_nvidia.so.0
+#LIBDIR#/nvidia/amd64-libs/libEGL_nvidia.so.#VERSION#                           #LIBDIR#/nvidia/amd64-libs/libEGL_nvidia.so.0
+#LIBDIR#/nvidia/amd64-libs/libGLESv2_nvidia.so.#VERSION#                        #LIBDIR#/nvidia/amd64-libs/libGLESv2_nvidia.so.2
+#LIBDIR#/nvidia/amd64-libs/libGLESv1_CM_nvidia.so.#VERSION#                     #LIBDIR#/nvidia/amd64-libs/libGLESv1_CM_nvidia.so.1
+#AMD64_ONLY##LIBDIR#/nvidia/amd64-libs/libnvoptix.so.#VERSION#                  #LIBDIR#/nvidia/amd64-libs/libnvoptix.so.1

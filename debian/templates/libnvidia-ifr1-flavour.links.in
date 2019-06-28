@@ -1,2 +1,2 @@
-#LIBDIR#/nvidia/libs/libnvidia-ifr.so.#VERSION#                                 #LIBDIR#/nvidia/libs/libnvidia-ifr.so.1
-#LIBDIR#/nvidia/libs/libnvidia-ifr.so.1                                         #LIBDIR#/nvidia/libs/libnvidia-ifr.so
+#LIBDIR#/nvidia/amd64-libs/libnvidia-ifr.so.#VERSION#                           #LIBDIR#/nvidia/amd64-libs/libnvidia-ifr.so.1
+#LIBDIR#/nvidia/amd64-libs/libnvidia-ifr.so.1                                   #LIBDIR#/nvidia/amd64-libs/libnvidia-ifr.so
