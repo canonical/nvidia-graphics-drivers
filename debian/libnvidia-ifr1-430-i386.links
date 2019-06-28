@@ -1,2 +1,2 @@
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-ifr.so.430.26                            usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-ifr.so.1
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-ifr.so.1                                    usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-ifr.so
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-ifr.so.430.26                            usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-ifr.so.1
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-ifr.so.1                                    usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-ifr.so

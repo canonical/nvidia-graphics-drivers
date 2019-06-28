@@ -1,7 +1,7 @@
-NVIDIA-Linux/libnvidia-ml.so.430.26                   usr/lib/x86_64-linux-gnu/nvidia/libs
-NVIDIA-Linux/libcuda.so.430.26                        usr/lib/x86_64-linux-gnu/nvidia/libs
-NVIDIA-Linux/libnvidia-opencl.so.430.26               usr/lib/x86_64-linux-gnu/nvidia/libs
+NVIDIA-Linux/libnvidia-ml.so.430.26                   usr/lib/x86_64-linux-gnu/nvidia/amd64-libs
+NVIDIA-Linux/libcuda.so.430.26                        usr/lib/x86_64-linux-gnu/nvidia/amd64-libs
+NVIDIA-Linux/libnvidia-opencl.so.430.26               usr/lib/x86_64-linux-gnu/nvidia/amd64-libs
 NVIDIA-Linux/nvidia.icd                                  etc/OpenCL/vendors
-NVIDIA-Linux/libnvidia-fatbinaryloader.so.430.26      usr/lib/x86_64-linux-gnu/nvidia/libs
-NVIDIA-Linux/libnvidia-ptxjitcompiler.so.430.26       usr/lib/x86_64-linux-gnu/nvidia/libs
-NVIDIA-Linux/libnvidia-compiler.so.430.26             usr/lib/x86_64-linux-gnu/nvidia/libs
+NVIDIA-Linux/libnvidia-fatbinaryloader.so.430.26      usr/lib/x86_64-linux-gnu/nvidia/amd64-libs
+NVIDIA-Linux/libnvidia-ptxjitcompiler.so.430.26       usr/lib/x86_64-linux-gnu/nvidia/amd64-libs
+NVIDIA-Linux/libnvidia-compiler.so.430.26             usr/lib/x86_64-linux-gnu/nvidia/amd64-libs

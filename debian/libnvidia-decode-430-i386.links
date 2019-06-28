@@ -1,6 +1,6 @@
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/vdpau/libvdpau_nvidia.so.430.26                    usr/lib/x86_64-linux-gnu/nvidia/libs-i386/vdpau/libvdpau_nvidia.so.1
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/vdpau/libvdpau_nvidia.so.430.26                    usr/lib/x86_64-linux-gnu/nvidia/libs-i386/vdpau/libvdpau_nvidia.so
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvcuvid.so.430.26                               usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvcuvid.so.1
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvcuvid.so.1                                       usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvcuvid.so
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-opticalflow.so.430.26                    usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-opticalflow.so.1
-usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-opticalflow.so.1                            usr/lib/x86_64-linux-gnu/nvidia/libs-i386/libnvidia-opticalflow.so
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/vdpau/libvdpau_nvidia.so.430.26                    usr/lib/x86_64-linux-gnu/nvidia/i386-libs/vdpau/libvdpau_nvidia.so.1
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/vdpau/libvdpau_nvidia.so.430.26                    usr/lib/x86_64-linux-gnu/nvidia/i386-libs/vdpau/libvdpau_nvidia.so
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvcuvid.so.430.26                               usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvcuvid.so.1
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvcuvid.so.1                                       usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvcuvid.so
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-opticalflow.so.430.26                    usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-opticalflow.so.1
+usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-opticalflow.so.1                            usr/lib/x86_64-linux-gnu/nvidia/i386-libs/libnvidia-opticalflow.so
