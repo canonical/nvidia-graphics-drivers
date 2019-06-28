@@ -138,7 +138,10 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
+	LD_LIBRARY_PATH=/$(libdir):/$(libdir)/nvidia/amd64-libs:$(LD_LIBRARY_PATH) dh_shlibdeps -Xi386 \
+		-l$(CURDIR)/debian/libnvidia-decode-$(flavour)/usr/lib/x86_64-linux-gnu/nvidia/amd64-libs:\
+$(CURDIR)/debian/libnvidia-compute-$(flavour)/usr/lib/x86_64-linux-gnu/nvidia/amd64-libs:\
+$(CURDIR)/debian/libnvidia-gl-$(flavour)/usr/lib/x86_64-linux-gnu/nvidia/amd64-libs
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
