@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-430 (430.26-0ubuntu2~ppa3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.26-0ubuntu2~ppa3) eoan; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Drop i386 references.
+    - Add transitional packages for 418.
+  * debian/templates/libnvidia-gl-flavour{-i386}.prerm.in,
+    debian/templates/libnvidia-gl-flavour{-i386}.links.in:
+    - Install links to ld.so.conf and remove them in the
+      prerm scripts when removing the packages.
+  * debian/templates/ld.so.{amd64|i386}.conf.in:
+    - Fix path to libraries.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 01 Jul 2019 15:15:32 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 01 Jul 2019 17:29:36 +0200
 
 nvidia-graphics-drivers-430 (430.26-0ubuntu2~ppa2) disco; urgency=medium
 
