@@ -1,0 +1,20 @@
+#!/bin/sh
+# prerm script for libnvidia-gl-430-i386
+#
+# Copyright (C) 2019 Canonical Ltd
+# Authors: Alberto Milone
+
+
+case "$1" in
+    upgrade)
+    ;;
+
+    remove)
+        rm -f /etc/ld.so.conf.d/i386-nvidia.conf
+
+        # explicit ldconfig due to alternatives
+        ldconfig
+    ;;
+esac
+
+#DEBHELPER#
