@@ -26,26 +26,26 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: amd64
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
- nvidia-dkms-#FLAVOUR# (= ${binary:Version}) [amd64],
- nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [amd64],
+ nvidia-dkms-#FLAVOUR# (= ${binary:Version}),
+ nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
- nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}) [amd64],
- libnvidia-decode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
- libnvidia-encode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
- nvidia-utils-#FLAVOUR# (= ${binary:Version}) [amd64],
- xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}) [amd64],
- libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}) [amd64],
+ nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-decode-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-encode-#FLAVOUR# (= ${binary:Version}),
+ nvidia-utils-#FLAVOUR# (= ${binary:Version}),
+ xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
  libnvidia-ifr1-#FLAVOUR# (= ${binary:Version}),
  libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-#FLAVOUR#-i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-#FLAVOUR#-i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-#FLAVOUR#-i386 (= ${binary:Version}) [amd64],
- libnvidia-ifr1-#FLAVOUR#-i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-#FLAVOUR#-i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-#FLAVOUR#-i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-#FLAVOUR#-i386 (= ${binary:Version}),
+ libnvidia-decode-#FLAVOUR#-i386 (= ${binary:Version}),
+ libnvidia-encode-#FLAVOUR#-i386 (= ${binary:Version}),
+ libnvidia-ifr1-#FLAVOUR#-i386 (= ${binary:Version}),
+ libnvidia-fbc1-#FLAVOUR#-i386 (= ${binary:Version}),
+ libnvidia-gl-#FLAVOUR#-i386 (= ${binary:Version})
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
