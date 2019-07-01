@@ -26,26 +26,26 @@ Package: nvidia-driver-430
 Architecture: amd64
 Depends:
  libnvidia-gl-430 (= ${binary:Version}),
- nvidia-dkms-430 (= ${binary:Version}) [amd64],
- nvidia-kernel-source-430 (= ${binary:Version}) [amd64],
+ nvidia-dkms-430 (= ${binary:Version}),
+ nvidia-kernel-source-430 (= ${binary:Version}),
  libnvidia-compute-430 (= ${binary:Version}),
- nvidia-compute-utils-430 (= ${binary:Version}) [amd64],
- libnvidia-decode-430 (= ${binary:Version}) [i386 amd64],
- libnvidia-encode-430 (= ${binary:Version}) [i386 amd64],
- nvidia-utils-430 (= ${binary:Version}) [amd64],
- xserver-xorg-video-nvidia-430 (= ${binary:Version}) [amd64],
- libnvidia-cfg1-430 (= ${binary:Version}) [amd64],
+ nvidia-compute-utils-430 (= ${binary:Version}),
+ libnvidia-decode-430 (= ${binary:Version}),
+ libnvidia-encode-430 (= ${binary:Version}),
+ nvidia-utils-430 (= ${binary:Version}),
+ xserver-xorg-video-nvidia-430 (= ${binary:Version}),
+ libnvidia-cfg1-430 (= ${binary:Version}),
  libnvidia-ifr1-430 (= ${binary:Version}),
  libnvidia-fbc1-430 (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-430-i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-430-i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-430-i386 (= ${binary:Version}) [amd64],
- libnvidia-ifr1-430-i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-430-i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-430-i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-430-i386 (= ${binary:Version}),
+ libnvidia-decode-430-i386 (= ${binary:Version}),
+ libnvidia-encode-430-i386 (= ${binary:Version}),
+ libnvidia-ifr1-430-i386 (= ${binary:Version}),
+ libnvidia-fbc1-430-i386 (= ${binary:Version}),
+ libnvidia-gl-430-i386 (= ${binary:Version})
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
