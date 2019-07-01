@@ -131,18 +131,8 @@ Package: libnvidia-compute-430-i386
 Architecture: amd64
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-opencl-icd, opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
- libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda1 (= ${source:Version}),
- libnvidia-ml1 (= ${source:Version})
-Conflicts: nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
- libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
-Replaces: nvidia-opencl-icd, libcuda-5.0-1, libcuda-5.5-1,
- libcuda-6.0-1, libcuda-6.5-1, libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1,
- libcuda-9.0-1, libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libnvidia-compute-430 (<< 390.25-0ubuntu2~)
+Provides: libnvidia-compute-i386
+Conflicts: libnvidia-compute-i386
 Description: NVIDIA libcompute - i386 compatibility package
  This package provides a set of i386 compatibility libraries which enable the
  NVIDIA driver to use GPUs for parallel general purpose computation through
@@ -232,9 +222,9 @@ Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
 Package: libnvidia-gl-430-i386
 Architecture: amd64
 Multi-Arch: same
-Conflicts: libnvidia-gl
-Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
-Provides: libnvidia-gl, libglx-vendor, libegl-vendor
+Conflicts: libnvidia-gl-i386
+Replaces: libnvidia-gl-i386
+Provides: libnvidia-gl-i386
 Depends:
  libnvidia-common-430, ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
@@ -292,7 +282,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  This package contains the libnvidia-cfg.so.1 runtime library.
 
 Package: libnvidia-ifr1-430
-Architecture: i386 amd64
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -321,11 +311,11 @@ Depends:
  libnvidia-gl-430, libx11-6,
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libnvidia-ifr1,
+ libnvidia-ifr1-i386,
 Conflicts:
- libnvidia-ifr1,
+ libnvidia-ifr1-i386,
 Replaces:
- libnvidia-ifr1,
+ libnvidia-ifr1-i386,
 Description: NVIDIA OpenGL-based Inband Frame Readback runtime library - i386 compatibility package
  The i386 compatibility NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL)
  library provides a high performance, low latency interface to capture and
@@ -364,11 +354,11 @@ Depends:
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libnvidia-fbc1,
+ libnvidia-fbc1-i386,
 Conflicts:
- libnvidia-fbc1,
+ libnvidia-fbc1-i386,
 Replaces:
- libnvidia-fbc1,
+ libnvidia-fbc1-i386,
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library - i386 compatibility package
  The i386 compatibility NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL)
  library provides a high performance, low latency interface to capture and
@@ -402,14 +392,14 @@ Architecture: amd64
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-compute-430 (= ${binary:Version}),
+ libnvidia-compute-430-i386 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
- libnvidia-decode,
+ libnvidia-decode-i386,
 Replaces:
- libnvidia-decode,
+ libnvidia-decode-i386,
 Provides:
- libnvidia-decode,
+ libnvidia-decode-i386,
 Description: NVIDIA Video Decoding runtime libraries - i386 compatibility package
  This package includes the i386 compatibility NVIDIA CUDA Video Decoder (NVCUVID) library
  which provides an interface to hardware video decoding capabilities on NVIDIA GPUs with
@@ -446,11 +436,11 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
- libnvidia-encode,
+ libnvidia-encode-i386,
 Provides:
- libnvidia-encode
+ libnvidia-encode-i386
 Replaces:
- libnvidia-encode
+ libnvidia-encode-i386
 Description: NVENC Video Encoding runtime library - i386 compatibility package
  The i386 compatibility NVENC Video Encoding library provides an interface to video
  encoder hardware on supported NVIDIA GPUs.
