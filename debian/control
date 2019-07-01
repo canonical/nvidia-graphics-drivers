@@ -447,3 +447,138 @@ Description: NVENC Video Encoding runtime library - i386 compatibility package
  .
  This package contains the nvidia-encode runtime library.
 
+Package: nvidia-driver-418
+Architecture: amd64
+Depends: nvidia-driver-430
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-430
+ This is a transitional package for nvidia-driver-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-418
+Architecture: amd64
+Depends: nvidia-kernel-source-430
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-430
+ This is a transitional package for nvidia-kernel-source-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-418
+Architecture: amd64
+Depends: nvidia-dkms-430
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-430
+ This is a transitional package for nvidia-dkms-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-utils-418
+Architecture: amd64
+Depends: nvidia-utils-430
+Multi-Arch: same
+Description: Transitional package for nvidia-utils-430
+ This is a transitional package for nvidia-utils-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-compute-418
+Architecture: amd64
+Depends: libnvidia-compute-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-compute-430
+ This is a transitional package for libnvidia-compute-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-compute-utils-418
+Architecture: amd64
+Depends: nvidia-compute-utils-430
+Multi-Arch: same
+Description: Transitional package for nvidia-compute-utils-430
+ This is a transitional package for nvidia-compute-utils-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-418
+Architecture: amd64
+Depends: nvidia-headless-no-dkms-430
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-no-dkms-430
+ This is a transitional package for nvidia-headless-no-dkms-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-418
+Architecture: amd64
+Depends: nvidia-headless-430
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-430
+ This is a transitional package for nvidia-headless-430, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-common-418
+Architecture: amd64
+Depends: nvidia-kernel-common-430
+Multi-Arch: same
+Description: Transitional package for nvidia-kernel-common-430
+ This is a transitional package for nvidia-kernel-common-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-gl-418
+Architecture: amd64
+Depends: libnvidia-gl-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-gl-430
+ This is a transitional package for libnvidia-gl-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-common-418
+Architecture: all
+Depends: libnvidia-common-430
+Multi-Arch: foreign
+Description: Transitional package for libnvidia-common-430
+ This is a transitional package for libnvidia-common-430, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-418
+Architecture: amd64
+Depends: xserver-xorg-video-nvidia-430
+Multi-Arch: same
+Description: Transitional package for xserver-xorg-video-nvidia-430
+ This is a transitional package for xserver-xorg-video-nvidia-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-cfg1-418
+Architecture: amd64
+Depends: libnvidia-cfg1-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-cfg1-430
+ This is a transitional package for libnvidia-cfg1-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-ifr1-418
+Architecture: amd64
+Depends: libnvidia-ifr1-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-ifr1-430
+ This is a transitional package for libnvidia-ifr1-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-fbc1-418
+Architecture: amd64
+Depends: libnvidia-fbc1-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-fbc1-430
+ This is a transitional package for libnvidia-fbc1-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-decode-418
+Architecture: amd64
+Depends: libnvidia-decode-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-decode-430
+ This is a transitional package for libnvidia-decode-430, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-encode-418
+Architecture: amd64
+Depends: libnvidia-encode-430
+Multi-Arch: same
+Description: Transitional package for libnvidia-encode-430
+ This is a transitional package for libnvidia-encode-430, and can be
+ safely removed after the installation is complete.
