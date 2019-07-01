@@ -4,3 +4,4 @@
 #LIBDIR#/nvidia/amd64-libs/libGLESv2_nvidia.so.#VERSION#                        #LIBDIR#/nvidia/amd64-libs/libGLESv2_nvidia.so.2
 #LIBDIR#/nvidia/amd64-libs/libGLESv1_CM_nvidia.so.#VERSION#                     #LIBDIR#/nvidia/amd64-libs/libGLESv1_CM_nvidia.so.1
 #AMD64_ONLY##LIBDIR#/nvidia/amd64-libs/libnvoptix.so.#VERSION#                  #LIBDIR#/nvidia/amd64-libs/libnvoptix.so.1
+#LIBDIR#/nvidia/ld.so.conf.d/ld.so.amd64.conf                                   /etc/ld.so.conf.d/amd64-nvidia.conf

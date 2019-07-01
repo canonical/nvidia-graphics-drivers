@@ -2,3 +2,4 @@
 #LIBDIR#/nvidia/i386-libs/libEGL_nvidia.so.#VERSION#                            #LIBDIR#/nvidia/i386-libs/libEGL_nvidia.so.0
 #LIBDIR#/nvidia/i386-libs/libGLESv2_nvidia.so.#VERSION#                         #LIBDIR#/nvidia/i386-libs/libGLESv2_nvidia.so.2
 #LIBDIR#/nvidia/i386-libs/libGLESv1_CM_nvidia.so.#VERSION#                      #LIBDIR#/nvidia/i386-libs/libGLESv1_CM_nvidia.so.1
+#LIBDIR#/nvidia/ld.so.conf.d/ld.so.i386.conf                                    /etc/ld.so.conf.d/i386-nvidia.conf
