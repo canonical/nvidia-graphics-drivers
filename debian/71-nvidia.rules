@@ -4,25 +4,22 @@ SUBSYSTEM=="pci", ATTRS{vendor}=="0x10de", DRIVERS=="nvidia", TAG+="seat", TAG+=
 
 # Start and stop nvidia-persistenced on power on and power off
 # respectively
-ACTION=="add" DEVPATH=="/bus/acpi/drivers/NVIDIA ACPI Video Driver" SUBSYSTEM=="drivers" RUN+="/bin/systemctl start --no-block nvidia-persistenced.service"
-ACTION=="remove" DEVPATH=="/bus/acpi/drivers/NVIDIA ACPI Video Driver" SUBSYSTEM=="drivers" RUN+="/bin/systemctl stop --no-block nvidia-persistenced"
-
-# Start and stop nvidia-persistenced when loading and unloading
-# the driver
-ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/bin/systemctl start --no-block nvidia-persistenced.service"
-ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/bin/systemctl stop --no-block nvidia-persistenced"
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", TAG+="systemd", ENV{SYSTEMD_WANTS}="nvidia-persistenced.service"
 
 # Load and unload nvidia-modeset module
-ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-modeset"
-ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-modeset"
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe nvidia-modeset"
+ACTION=="remove", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe -r nvidia-modeset"
 
 # Load and unload nvidia-drm module
-ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-drm"
-ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-drm"
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe nvidia-drm"
+ACTION=="remove", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe -r nvidia-drm"
 
 # Load and unload nvidia-uvm module
-ACTION=="add" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe nvidia-uvm"
-ACTION=="remove" DEVPATH=="/module/nvidia" SUBSYSTEM=="module" RUN+="/sbin/modprobe -r nvidia-uvm"
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe nvidia-uvm"
+ACTION=="remove", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe -r nvidia-uvm"
+
+# This will create the device nvidia device nodes
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-smi"
 
 # Create the device node for the nvidia-uvm module
-ACTION=="add" DEVPATH=="/module/nvidia_uvm" SUBSYSTEM=="module" RUN+="/sbin/create-uvm-dev-node"
+ACTION=="add", DEVPATH=="/module/nvidia_uvm", SUBSYSTEM=="module", RUN+="/sbin/create-uvm-dev-node"
