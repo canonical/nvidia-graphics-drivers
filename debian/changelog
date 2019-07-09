@@ -1,8 +1,25 @@
-nvidia-graphics-drivers-430 (430.26-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.26-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * debian/rules.defs:
+    - Add alternate dependency on xserver-xorg-core-hwe-18.04.
+      This fixes a compatibility issue with the hwe stack (LP: #1834603).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Jul 2019 16:08:03 +0200
+  [ Kai-Heng Feng ]
+  * debian/71-nvidia.rules:
+    - Make sure each rule is comma seperated.
+    - Use DEVPATH=="/bus/pci/drivers/nvidia", which is added after nvidia
+      driver probes and binds to the device, to prevent any race condition.
+      (LP: #1834603).
+    - Use TAG+="systemd" and ENV{SYSTEMD_WANTS} to let systemd manage the
+      service.
+  * debian/templates/nvidia-compute-utils-flavour.nvidia-persistenced.service.in:
+    - Now systemd knows the persistenced service depends on
+      sys-bus-pci-drivers-nvidia.device, we can use StopWhenUnneeded=true to
+      let systemd stop the service once sys-bus-pci-drivers-nvidia.device
+      disappears.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Jul 2019 16:11:02 +0200
 
 nvidia-graphics-drivers-430 (430.26-0ubuntu0.18.04.1) bionic; urgency=medium
 
