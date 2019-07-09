@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-430 (430.26-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.26-0ubuntu3) eoan; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch:
+    - Add -fno-stack-clash-protection -fcf-protection=none EXTRA_CFLAGS
+      for now, to fix build failures with the new gcc defaults in Ubuntu
+      19.10 (LP: #1830961).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Jul 2019 16:06:02 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Jul 2019 19:41:12 +0200
 
 nvidia-graphics-drivers-430 (430.26-0ubuntu2) eoan; urgency=medium
 
