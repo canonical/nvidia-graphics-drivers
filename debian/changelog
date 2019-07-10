@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-430 (430.34-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.34-0ubuntu1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce RTX 2060 SUPER
+      o GeForce RTX 2070 SUPER
+      o Quadro RTX 4000 with Max-Q Design
+      o Quadro RTX 5000 with Max-Q Design
+  * debian/templates/10-nvidia.conf.in,
+    debian/templates/libnvidia-common-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour.links.in,
+    debian/templates/nvidia-compute-utils-flavour.install.in,
+    debian/templates/nvidia-utils-flavour.install.in,
+    debian/templates/xserver-xorg-video-nvidia-flavour.install.in:
+    - Remove flavour name from the path to the xorg libraries.
+    - Remove "/" at the end of installation paths.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Jul 2019 10:12:26 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Jul 2019 11:48:29 +0200
 
 nvidia-graphics-drivers-430 (430.26-0ubuntu3) eoan; urgency=medium
 
