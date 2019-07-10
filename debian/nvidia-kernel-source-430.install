@@ -1,8 +1,8 @@
-NVIDIA-Linux/kernel/Kbuild                               usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/Makefile                             usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/common                               usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/conftest.sh                          usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/nvidia                               usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/nvidia-drm                           usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/nvidia-modeset                       usr/src/nvidia-430.26
-NVIDIA-Linux/kernel/nvidia-uvm                           usr/src/nvidia-430.26
+NVIDIA-Linux/kernel/Kbuild                               usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/Makefile                             usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/common                               usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/conftest.sh                          usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/nvidia                               usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/nvidia-drm                           usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/nvidia-modeset                       usr/src/nvidia-430.34
+NVIDIA-Linux/kernel/nvidia-uvm                           usr/src/nvidia-430.34

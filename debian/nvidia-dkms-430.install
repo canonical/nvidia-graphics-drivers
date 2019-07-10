@@ -1,2 +1,2 @@
-debian/dkms.conf                                                     usr/src/nvidia-430.26
-debian/dkms_nvidia/patches/*                                         usr/src/nvidia-430.26/patches
+debian/dkms.conf                                                     usr/src/nvidia-430.34
+debian/dkms_nvidia/patches/*                                         usr/src/nvidia-430.34/patches
