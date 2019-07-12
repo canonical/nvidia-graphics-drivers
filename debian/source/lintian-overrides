@@ -1,0 +1,8 @@
+# quilt is used to patch the module source for the dkms package
+unneeded-build-dep-on-quilt
+
+# upstream provides no signatures
+debian-watch-may-check-gpg-signature
+
+# false positive, see #726589
+version-substvar-for-external-package
