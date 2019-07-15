@@ -26,37 +26,37 @@ remove_dkms_module() {
 }
 
 case "$1" in
-	upgrade)
-		remove_dkms_module 
-	;;
-	remove)
-		remove_dkms_module 
-	
-		update-alternatives --remove #DEB_HOST_MULTIARCH#_gl_conf #LDSOCONF#
-		update-alternatives --remove #DEB_HOST_MULTIARCH#_egl_conf #LDSOCONF#
-		update-alternatives --remove #OTHER_ARCH#_gl_conf #ALTLDSOCONF#
-		update-alternatives --remove #OTHER_ARCH#_egl_conf #ALTLDSOCONF#
-		# Remove the alternatives for PRIME
-		update-alternatives --remove #DEB_HOST_MULTIARCH#_gl_conf #PMLDSOCONF#
-		update-alternatives --remove #DEB_HOST_MULTIARCH#_egl_conf #PMLDSOCONF#
-		update-alternatives --remove #OTHER_ARCH#_gl_conf #PMALTLDSOCONF#
-		update-alternatives --remove #OTHER_ARCH#_egl_conf #PMALTLDSOCONF#
-		# Remove the alternative for glamor-egl
-		update-alternatives --remove glamor_conf #PKGDATADIR#/glamor.conf
+    upgrade)
+        remove_dkms_module
+    ;;
+    remove)
+        remove_dkms_module
 
-		# explicit ldconfig due to alternatives
-		ldconfig
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_gl_conf #LDSOCONF#
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_egl_conf #LDSOCONF#
+        update-alternatives --remove #OTHER_ARCH#_gl_conf #ALTLDSOCONF#
+        update-alternatives --remove #OTHER_ARCH#_egl_conf #ALTLDSOCONF#
+        # Remove the alternatives for PRIME
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_gl_conf #PMLDSOCONF#
+        update-alternatives --remove #DEB_HOST_MULTIARCH#_egl_conf #PMLDSOCONF#
+        update-alternatives --remove #OTHER_ARCH#_gl_conf #PMALTLDSOCONF#
+        update-alternatives --remove #OTHER_ARCH#_egl_conf #PMALTLDSOCONF#
+        # Remove the alternative for glamor-egl
+        update-alternatives --remove glamor_conf #PKGDATADIR#/glamor.conf
 
-		# Update the grub gfxpayload blacklist
-		if which update-grub-gfxpayload >/dev/null 2>&1; then
-		    update-grub-gfxpayload
-		fi
+        # explicit ldconfig due to alternatives
+        ldconfig
+
+        # Update the grub gfxpayload blacklist
+        if which update-grub-gfxpayload >/dev/null 2>&1; then
+            update-grub-gfxpayload
+        fi
 
                 # Remove any quirks for the driver
                 if [ `which quirks-handler` ]; then
                     quirks-handler -d $PACKAGE_NAME -v
                 fi
-	;;
+    ;;
 esac
 
 #DEBHELPER#

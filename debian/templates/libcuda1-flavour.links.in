@@ -1,2 +1,4 @@
-#LIBDIRMULTIARCH#/libcuda.so.#VERSION#	#LIBDIRMULTIARCH#/libcuda.so.1
-#LIBDIRMULTIARCH#/libcuda.so.1		#LIBDIRMULTIARCH#/libcuda.so
+#LIBDIRMULTIARCH#/libcuda.so.#VERSION#                                          #LIBDIRMULTIARCH#/libcuda.so.1
+#LIBDIRMULTIARCH#/libcuda.so.1                                                  #LIBDIRMULTIARCH#/libcuda.so
+#LIBDIRMULTIARCHOTHER#/libcuda.so.#VERSION#                                     #LIBDIRMULTIARCHOTHER#/libcuda.so.1
+#LIBDIRMULTIARCHOTHER#/libcuda.so.1                                             #LIBDIRMULTIARCHOTHER#/libcuda.so

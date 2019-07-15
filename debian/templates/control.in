@@ -10,7 +10,7 @@ Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 
 Package: #DRIVERNAME#
-Architecture: i386 amd64 armhf
+Architecture: amd64
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
  patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
  xserver-xorg-legacy, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
@@ -36,7 +36,7 @@ Description: NVIDIA binary driver - version #VERSION#
  .
 
 Package: #DRIVERDEVNAME#
-Architecture: i386 amd64 armhf
+Architecture: amd64
 Depends: ${misc:Depends}, #DRIVERNAME# (>= #VERSION#)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
@@ -46,7 +46,7 @@ Description: NVIDIA binary Xorg driver development files
  at http://www.nvidia.com/ .
 
 Package: #LIBCUDA1#
-Architecture: i386 amd64 armhf
+Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
@@ -65,7 +65,7 @@ Description: NVIDIA CUDA runtime library
  series, as well as the Tesla computing processors.
 
 Package: #LIBOPENCL1#
-Architecture: i386 amd64
+Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libopencl1
 Replaces: libopencl1
@@ -80,7 +80,7 @@ Description: NVIDIA OpenCL Driver and ICD Loader library
  library. This library supports only OpenCL 1.1.
 
 Package: #OPENCLICD#
-Architecture: i386 amd64
+Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}, ocl-icd-libopencl1 | #LIBOPENCL1#
 Enhances: libopencl1
 Conflicts: nvidia-opencl-icd
@@ -94,37 +94,3 @@ Description: NVIDIA OpenCL ICD
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
 
-Package: nvidia-375
-Architecture: i386 amd64 armhf
-Depends: #DRIVERNAME#
-Description: Transitional package for #DRIVERNAME#
- This is a transitional package for #DRIVERNAME#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-375-dev
-Architecture: i386 amd64 armhf
-Depends: #DRIVERDEVNAME#
-Description: Transitional package for #DRIVERDEVNAME#
- This is a transitional package for #DRIVERDEVNAME#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-libopencl1-375
-Architecture: i386 amd64
-Depends: #LIBOPENCL1#
-Description: Transitional package for #LIBOPENCL1#
- This is a transitional package for #LIBOPENCL1#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-opencl-icd-375
-Architecture: i386 amd64
-Depends: #OPENCLICD#
-Description: Transitional package for #OPENCLICD#
- This is a transitional package for #OPENCLICD#, and can be
- safely removed after the installation is complete.
-
-Package: libcuda1-375
-Architecture: i386 amd64 armhf
-Depends: #LIBCUDA1#
-Description: Transitional package for #LIBCUDA1#
- This is a transitional package for #LIBCUDA1#, and can be
- safely removed after the installation is complete.

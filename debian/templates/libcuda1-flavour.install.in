@@ -1,1 +1,2 @@
-#DIRNAME#/libcuda.so.#VERSION#    #LIBDIRMULTIARCH#/
+#DIRNAME#/libcuda.so.#VERSION#                                       #LIBDIRMULTIARCH#
+#DIRNAME#/32/libcuda.so.#VERSION#                                    #LIBDIRMULTIARCHOTHER#

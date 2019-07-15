@@ -18,7 +18,7 @@ version_major		 = $(firstword $(subst ., ,$(version)))
 # system libdir
 #libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 
-pkg_module       := nvidia
+#pkg_module       := nvidia
 
 ## <-- OLD
 
@@ -42,7 +42,7 @@ PKG_driver_uvm       := $(PKG_driver)-uvm
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_version          := $(shell echo $(PKG_version) | sed s/.*\.really\.//g)
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
-PKG_module           := $(shell echo "$(PKG_driver)" | sed s/\-/_/g)
+PKG_module           := nvidia
 PKG_libcuda1         := libcuda1-$(PKG_flavour)
 PKG_libopencl1       := nvidia-libopencl1-$(PKG_flavour)
 PKG_opencl_icd       := nvidia-opencl-icd-$(PKG_flavour)
@@ -208,10 +208,15 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
-	dh_install -p nvidia-compute-utils-$(version_major)
-	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
-	dh_systemd_enable --name=nvidia-persistenced
-	dh_install -p nvidia-kernel-common-$(version_major)
+	dh_install -p $(PKG_driver)
+	ifeq ($(DEB_HOST_ARCH),amd64)
+		echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
+		echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
+		echo "$(mesa_egl_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
+	endif
+		# empty ld.so.conf for the fake multi-arch alternative
+		$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
+		$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
 
 	dh_install
 
@@ -246,6 +251,13 @@ override_dh_shlibdeps:
 # in a way other than unzipping of compressed files.
 override_dh_strip:
 override_dh_strip_nondeterminism:
+
+
+# Make the initramfs scripts executable
+override_dh_fixperms:
+	dh_fixperms
+	chmod 755 $(CURDIR)/debian/$(PKG_driver)/usr/share/initramfs-tools/hooks/framebuffer-nvidia
+	chmod 755 $(CURDIR)/debian/$(PKG_driver)/usr/share/initramfs-tools/hooks/copy-nvidia-options
 
 ############################################################################
 
@@ -297,6 +309,8 @@ regen-from-templates:
 			-e "s|#PKGPRIMELIBDIR#|$(PKG_prime_libdir)|g" \
 			-e "s|#MESALIBDIR#|$(mesa_libdir)|g" \
 			-e "s|#MESALIBDIROTHER#|$(mesa_libdir_other)|g" \
+			-e "s|#MESAEGLLIBDIR#|$(mesa_egl_libdir)|g" \
+			-e "s|#MESAEGLLIBDIROTHER#|$(mesa_egl_libdir_other)|g" \
 			-e "s|#PKGDRIVERSDIR#|$(PKG_driversdir)|g" \
 			-e "s|#XORGEXTRA#|$(xorg_extra_modules)|g" \
 			-e "s|#XORGEXTRAPATH#|$(xorg_extra_path)|g" \

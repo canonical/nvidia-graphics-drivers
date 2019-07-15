@@ -1,3 +1,10 @@
 #DIRNAME#/NVIDIA_Changelog
+#DIRNAME#/LICENSE
 #DIRNAME#/README.txt
+#DIRNAME#/nvidia-suspend.service
+#DIRNAME#/nvidia-hibernate.service
+#DIRNAME#/nvidia-resume.service
+#DIRNAME#/nvidia
+#DIRNAME#/nvidia-sleep.sh
+#DIRNAME#/nvidia-persistenced-init.tar.bz2
 #DIRNAME#/html

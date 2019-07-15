@@ -1,1 +1,2 @@
-#LIBDIRMULTIARCH#/libnvidia-opencl.so.#VERSION# #LIBDIRMULTIARCH#/libnvidia-opencl.so.1
+#LIBDIRMULTIARCH#/libnvidia-opencl.so.#VERSION#                                 #LIBDIRMULTIARCH#/libnvidia-opencl.so.1
+#LIBDIRMULTIARCHOTHER#/libnvidia-opencl.so.#VERSION#                            #LIBDIRMULTIARCHOTHER#/libnvidia-opencl.so.1

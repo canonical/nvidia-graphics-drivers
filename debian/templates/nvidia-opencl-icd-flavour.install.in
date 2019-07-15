@@ -1,2 +1,3 @@
-#ARM_EXCLUDED##DIRNAME#/nvidia.icd  etc/OpenCL/vendors/
-#ARM_EXCLUDED##DIRNAME#/libnvidia-opencl.so.#VERSION#   #LIBDIRMULTIARCH#/
+#DIRNAME#/libnvidia-opencl.so.#VERSION#                              #LIBDIRMULTIARCH#
+#DIRNAME#/nvidia.icd                                                 etc/OpenCL/vendors
+#DIRNAME#/32/libnvidia-opencl.so.#VERSION#                           #LIBDIRMULTIARCHOTHER#

@@ -1,56 +1,65 @@
-# GLVND GLX client libraries
-
-#PKGLIBDIR#/libGL.so.#VERSION# #PKGLIBDIR#/libGL.so.1
-#PKGLIBDIR#/libGL.so.1 #PKGLIBDIR#/libGL.so
-
-#PKGLIBDIR#/libOpenGL.so.0 #PKGLIBDIR#/libOpenGL.so
-
-#PKGLIBDIR#/libGLX.so.0 #PKGLIBDIR#/libGLX.so
-
-# For an easy transition from a non-GLVND installation
-
-#PKGLIBDIR#/libGLX_nvidia.so.#VERSION# #PKGLIBDIR#/libGLX_nvidia.so.0
-#PKGLIBDIR#/libGLX_nvidia.so.#VERSION# #PKGLIBDIR#/libGLX_indirect.so.0
-
-# EGL client libraries
-
-#PKGLIBDIR#/libEGL.so.#VERSION# #PKGLIBDIR#/libEGL.so
-#PKGLIBDIR#/libEGL.so.#VERSION# #PKGLIBDIR#/libEGL.so.1
-
-#PKGLIBDIR#/libGLESv1_CM.so.1 #PKGLIBDIR#/libGLESv1_CM.so
-#PKGLIBDIR#/libGLESv2.so.2 #PKGLIBDIR#/libGLESv2.so
-
-#PKGLIBDIR#/libEGL_nvidia.so.#VERSION# #PKGLIBDIR#/libEGL_nvidia.so.0
-
-#PKGLIBDIR#/libGLESv1_CM_nvidia.so.#VERSION# #PKGLIBDIR#/libGLESv1_CM_nvidia.so.1
-#PKGLIBDIR#/libGLESv2_nvidia.so.#VERSION# #PKGLIBDIR#/libGLESv2_nvidia.so.2
-
-# Misc
-
-#PKGLIBDIR#/libnvidia-cfg.so.#VERSION# #PKGLIBDIR#/libnvidia-cfg.so.1
-#PKGLIBDIR#/libnvidia-cfg.so.1 #PKGLIBDIR#/libnvidia-cfg.so
-
-#NVIDIAEXTENSION#/libglx.so.#VERSION# #NVIDIAEXTENSION#/libglx.so
-
-#PKGVDPAUDIR#/libvdpau_nvidia.so.#VERSION# #PKGVDPAUDIR#/libvdpau_nvidia.so.1
-#PKGVDPAUDIR#/libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so
-
-#PKGLIBDIR#/libnvidia-compiler.so.#VERSION# #PKGLIBDIR#/libnvidia-compiler.so.1
-#PKGLIBDIR#/libnvidia-compiler.so.1 #PKGLIBDIR#/libnvidia-compiler.so
-
-#PKGLIBDIR#/libnvidia-ml.so.#VERSION# #PKGLIBDIR#/libnvidia-ml.so.1
-#PKGLIBDIR#/libnvidia-ml.so.1 #PKGLIBDIR#/libnvidia-ml.so
-
-#PKGLIBDIR#/libnvcuvid.so.#VERSION# #PKGLIBDIR#/libnvcuvid.so.1
-#PKGLIBDIR#/libnvcuvid.so.1 #PKGLIBDIR#/libnvcuvid.so
-
-#PKGLIBDIR#/libnvidia-encode.so.#VERSION# #PKGLIBDIR#/libnvidia-encode.so.1
-#PKGLIBDIR#/libnvidia-encode.so.1 #PKGLIBDIR#/libnvidia-encode.so
-
-#PKGLIBDIR#/libnvidia-ifr.so.#VERSION# #PKGLIBDIR#/libnvidia-ifr.so.1
-#PKGLIBDIR#/libnvidia-ifr.so.1 #PKGLIBDIR#/libnvidia-ifr.so
-
-#PKGLIBDIR#/libnvidia-fbc.so.#VERSION# #PKGLIBDIR#/libnvidia-fbc.so.1
-#PKGLIBDIR#/libnvidia-fbc.so.1 #PKGLIBDIR#/libnvidia-fbc.so
-
-#PKGLIBDIR#/libnvidia-egl-wayland.so.1.0.1 #PKGLIBDIR#/libnvidia-egl-wayland.so.1
+#PKGDRIVERSDIR#/libglxserver_nvidia.so.#VERSION#                                #PKGDRIVERSDIR#/libglxserver_nvidia.so
+#PKGLIBDIR#/libGLX_nvidia.so.#VERSION#                                          #PKGLIBDIR#/libGLX_nvidia.so.0
+#PKGLIBDIR#/libGLX_nvidia.so.#VERSION#                                          #PKGLIBDIR#/libGLX_indirect.so.0
+#PKGLIBDIR#/libOpenGL.so.0                                                      #PKGLIBDIR#/libOpenGL.so
+#PKGLIBDIR#/libGLESv1_CM.so.1.2.0                                               #PKGLIBDIR#/libGLESv1_CM.so.1
+#PKGLIBDIR#/libGLESv1_CM.so.1                                                   #PKGLIBDIR#/libGLESv1_CM.so
+#PKGLIBDIR#/libGLESv2.so.2.1.0                                                  #PKGLIBDIR#/libGLESv2.so.2
+#PKGLIBDIR#/libGLESv2.so.2                                                      #PKGLIBDIR#/libGLESv2.so
+#PKGLIBDIR#/libGLX.so.0                                                         #PKGLIBDIR#/libGLX.so
+#PKGLIBDIR#/libGL.so.1.7.0                                                      #PKGLIBDIR#/libGL.so.1
+#PKGLIBDIR#/libGL.so.1                                                          #PKGLIBDIR#/libGL.so
+#PKGLIBDIR#/libEGL.so.1.1.0                                                     #PKGLIBDIR#/libEGL.so.1
+#PKGLIBDIR#/libEGL.so.1                                                         #PKGLIBDIR#/libEGL.so
+#PKGBINDIR#/nvidia-installer                                                    #PKGBINDIR#/nvidia-uninstall
+#PKGLIBDIR#/libnvidia-ml.so.#VERSION#                                           #PKGLIBDIR#/libnvidia-ml.so.1
+#PKGLIBDIR#/libnvidia-ml.so.1                                                   #PKGLIBDIR#/libnvidia-ml.so
+#PKGLIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#                                  #PKGLIBDIR#/vdpau/libvdpau_nvidia.so.1
+#PKGLIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#                                  #PKGLIBDIR#/vdpau/libvdpau_nvidia.so
+#PKGLIBDIR#/libnvidia-ptxjitcompiler.so.#VERSION#                               #PKGLIBDIR#/libnvidia-ptxjitcompiler.so.1
+#PKGLIBDIR#/libnvidia-ptxjitcompiler.so.1                                       #PKGLIBDIR#/libnvidia-ptxjitcompiler.so
+#PKGLIBDIR#/libnvcuvid.so.#VERSION#                                             #PKGLIBDIR#/libnvcuvid.so.1
+#PKGLIBDIR#/libnvcuvid.so.1                                                     #PKGLIBDIR#/libnvcuvid.so
+#PKGLIBDIR#/libnvidia-encode.so.#VERSION#                                       #PKGLIBDIR#/libnvidia-encode.so.1
+#PKGLIBDIR#/libnvidia-encode.so.1                                               #PKGLIBDIR#/libnvidia-encode.so
+#PKGLIBDIR#/libnvidia-ifr.so.#VERSION#                                          #PKGLIBDIR#/libnvidia-ifr.so.1
+#PKGLIBDIR#/libnvidia-ifr.so.1                                                  #PKGLIBDIR#/libnvidia-ifr.so
+#PKGLIBDIR#/libnvidia-fbc.so.#VERSION#                                          #PKGLIBDIR#/libnvidia-fbc.so.1
+#PKGLIBDIR#/libnvidia-fbc.so.1                                                  #PKGLIBDIR#/libnvidia-fbc.so
+#PKGLIBDIR#/libEGL_nvidia.so.#VERSION#                                          #PKGLIBDIR#/libEGL_nvidia.so.0
+#PKGLIBDIR#/libGLESv2_nvidia.so.#VERSION#                                       #PKGLIBDIR#/libGLESv2_nvidia.so.2
+#PKGLIBDIR#/libGLESv1_CM_nvidia.so.#VERSION#                                    #PKGLIBDIR#/libGLESv1_CM_nvidia.so.1
+#PKGLIBDIR#/libnvoptix.so.#VERSION#                                             #PKGLIBDIR#/libnvoptix.so.1
+#PKGLIBDIR#/libnvidia-opticalflow.so.#VERSION#                                  #PKGLIBDIR#/libnvidia-opticalflow.so.1
+#PKGLIBDIR#/libnvidia-opticalflow.so.1                                          #PKGLIBDIR#/libnvidia-opticalflow.so
+#PKGLIBDIR32#/libnvidia-ptxjitcompiler.so.#VERSION#                             #PKGLIBDIR32#/libnvidia-ptxjitcompiler.so.1
+#PKGLIBDIR32#/libnvidia-ptxjitcompiler.so.1                                     #PKGLIBDIR32#/libnvidia-ptxjitcompiler.so
+#PKGLIBDIR32#/libnvidia-ml.so.#VERSION#                                         #PKGLIBDIR32#/libnvidia-ml.so.1
+#PKGLIBDIR32#/libnvidia-ml.so.1                                                 #PKGLIBDIR32#/libnvidia-ml.so
+#PKGLIBDIR32#/libOpenGL.so.0                                                    #PKGLIBDIR32#/libOpenGL.so
+#PKGLIBDIR32#/libGLESv2.so.2.1.0                                                #PKGLIBDIR32#/libGLESv2.so.2
+#PKGLIBDIR32#/libGLESv2.so.2                                                    #PKGLIBDIR32#/libGLESv2.so
+#PKGLIBDIR32#/libGLESv1_CM.so.1.2.0                                             #PKGLIBDIR32#/libGLESv1_CM.so.1
+#PKGLIBDIR32#/libGLESv1_CM.so.1                                                 #PKGLIBDIR32#/libGLESv1_CM.so
+#PKGLIBDIR32#/libGL.so.1.7.0                                                    #PKGLIBDIR32#/libGL.so.1
+#PKGLIBDIR32#/libGL.so.1                                                        #PKGLIBDIR32#/libGL.so
+#PKGLIBDIR32#/libGLX_nvidia.so.#VERSION#                                        #PKGLIBDIR32#/libGLX_nvidia.so.0
+#PKGLIBDIR32#/libGLX.so.0                                                       #PKGLIBDIR32#/libGLX.so
+#PKGLIBDIR32#/libGLX_nvidia.so.#VERSION#                                        #PKGLIBDIR32#/libGLX_indirect.so.0
+#PKGLIBDIR32#/vdpau/libvdpau_nvidia.so.#VERSION#                                #PKGLIBDIR32#/vdpau/libvdpau_nvidia.so.1
+#PKGLIBDIR32#/vdpau/libvdpau_nvidia.so.#VERSION#                                #PKGLIBDIR32#/vdpau/libvdpau_nvidia.so
+#PKGLIBDIR32#/libnvcuvid.so.#VERSION#                                           #PKGLIBDIR32#/libnvcuvid.so.1
+#PKGLIBDIR32#/libnvcuvid.so.1                                                   #PKGLIBDIR32#/libnvcuvid.so
+#PKGLIBDIR32#/libnvidia-encode.so.#VERSION#                                     #PKGLIBDIR32#/libnvidia-encode.so.1
+#PKGLIBDIR32#/libnvidia-encode.so.1                                             #PKGLIBDIR32#/libnvidia-encode.so
+#PKGLIBDIR32#/libEGL.so.1.1.0                                                   #PKGLIBDIR32#/libEGL.so.1
+#PKGLIBDIR32#/libEGL.so.1                                                       #PKGLIBDIR32#/libEGL.so
+#PKGLIBDIR32#/libEGL_nvidia.so.#VERSION#                                        #PKGLIBDIR32#/libEGL_nvidia.so.0
+#PKGLIBDIR32#/libGLESv2_nvidia.so.#VERSION#                                     #PKGLIBDIR32#/libGLESv2_nvidia.so.2
+#PKGLIBDIR32#/libGLESv1_CM_nvidia.so.#VERSION#                                  #PKGLIBDIR32#/libGLESv1_CM_nvidia.so.1
+#PKGLIBDIR32#/libnvidia-ifr.so.#VERSION#                                        #PKGLIBDIR32#/libnvidia-ifr.so.1
+#PKGLIBDIR32#/libnvidia-ifr.so.1                                                #PKGLIBDIR32#/libnvidia-ifr.so
+#PKGLIBDIR32#/libnvidia-fbc.so.#VERSION#                                        #PKGLIBDIR32#/libnvidia-fbc.so.1
+#PKGLIBDIR32#/libnvidia-fbc.so.1                                                #PKGLIBDIR32#/libnvidia-fbc.so
+#PKGLIBDIR32#/libnvidia-opticalflow.so.#VERSION#                                #PKGLIBDIR32#/libnvidia-opticalflow.so.1
+#PKGLIBDIR32#/libnvidia-opticalflow.so.1                                        #PKGLIBDIR32#/libnvidia-opticalflow.so
