@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu5) eoan; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/use-kmem_cache_create_usercopy-on-4.16.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Make sure to use kmem_cache_create_usercopy().
+    - Make sure to force DRIVER_LEGACY for Linux >= 5.1.
+      Thanks Satadru Pramanik for pointing to the missing fixes.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Jul 2019 18:09:36 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Jul 2019 16:51:31 +0200
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu4) eoan; urgency=medium
 
