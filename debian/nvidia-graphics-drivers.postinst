@@ -4,7 +4,7 @@
 # Authors: Alberto Milone
 set -e
 
-PACKAGE_NAME=nvidia-384
+PACKAGE_NAME=nvidia-430
 CVERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
 CVERSION=${CVERSION#*really.}
 
@@ -133,32 +133,28 @@ case "$1" in
         #   which - obviously - doesn't exist on i386
         # - It is fine if we get the following:
         #   +  warning: skip creation of /usr/lib32/vdpau/libvdpau_nvidia.so.1 because associated
-        #   +  file /usr/lib32/nvidia-384/vdpau/libvdpau_nvidia.so.1 (of link group gl_conf) doesn't exist.
+        #   +  file /usr/lib32/nvidia-430/vdpau/libvdpau_nvidia.so.1 (of link group gl_conf) doesn't exist.
         #
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-384/ld.so.conf 8604 \
-            --slave /usr/share/man/man1/nvidia-xconfig.1.gz x86_64-linux-gnu_man_nvidiaxconfig.gz /usr/share/man/man1/alt-nvidia-384-xconfig.1.gz \
-            --slave /usr/share/man/man1/nvidia-smi.1.gz x86_64-linux-gnu_nvidia-smi.1.gz /usr/share/man/man1/alt-nvidia-384-smi.1.gz \
-            --slave /usr/share/man/man1/nvidia-cuda-mps-control.1.gz x86_64-linux-gnu_nvidia-cuda-mps-control.1.gz /usr/share/man/man1/alt-nvidia-384-cuda-mps-control.1.gz \
-            --slave /usr/share/man/man1/nvidia-persistenced.1.gz x86_64-linux-gnu_man_persistenced.gz /usr/share/man/man1/alt-nvidia-384-persistenced.1.gz \
-            --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-384/bin/nvidia-smi \
-            --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-384/bin/nvidia-xconfig \
-            --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-384/bin/nvidia-bug-report.sh \
-            --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-384/bin/nvidia-debugdump \
-            --slave /usr/bin/nvidia-cuda-mps-control x86_64-linux-gnu_nvidia-cuda-mps-control /usr/lib/nvidia-384/bin/nvidia-cuda-mps-control \
-            --slave /usr/bin/nvidia-cuda-mps-server x86_64-linux-gnu_nvidia-cuda-mps-server /usr/lib/nvidia-384/bin/nvidia-cuda-mps-server \
-            --slave /usr/bin/nvidia-persistenced x86_64-linux-gnu_nvidia_persistenced /usr/lib/nvidia-384/bin/nvidia-persistenced \
-            --slave /usr/share/nvidia/nvidia-application-profiles-384.130-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-384/nvidia-application-profiles-384.130-rc \
-            --slave /usr/share/nvidia/nvidia-application-profiles-384.130-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-384/nvidia-application-profiles-384.130-key-documentation \
-            --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-384/xorg/nvidia_drv.so \
-            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-384/modprobe.conf \
-            --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-384/xorg \
-            --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-384/vdpau/libvdpau_nvidia.so.1 \
-            --slave /usr/lib/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-384/vdpau/libvdpau_nvidia.so \
-            --slave /usr/lib32/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1_lib32 /usr/lib32/nvidia-384/vdpau/libvdpau_nvidia.so.1 \
-            --slave /usr/lib32/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so_lib32 /usr/lib32/nvidia-384/vdpau/libvdpau_nvidia.so
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430/ld.so.conf 8604 \
+            --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-430/bin/nvidia-smi \
+            --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-430/bin/nvidia-xconfig \
+            --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-430/bin/nvidia-bug-report.sh \
+            --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-430/bin/nvidia-debugdump \
+            --slave /usr/bin/nvidia-cuda-mps-control x86_64-linux-gnu_nvidia-cuda-mps-control /usr/lib/nvidia-430/bin/nvidia-cuda-mps-control \
+            --slave /usr/bin/nvidia-cuda-mps-server x86_64-linux-gnu_nvidia-cuda-mps-server /usr/lib/nvidia-430/bin/nvidia-cuda-mps-server \
+            --slave /usr/bin/nvidia-persistenced x86_64-linux-gnu_nvidia_persistenced /usr/lib/nvidia-430/bin/nvidia-persistenced \
+            --slave /usr/share/nvidia/nvidia-application-profiles-430.34-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-430/nvidia-application-profiles-430.34-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-430.34-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-430/nvidia-application-profiles-430.34-key-documentation \
+            --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-430/xorg/nvidia_drv.so \
+            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-430/modprobe.conf \
+            --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-430/xorg \
+            --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-430/vdpau/libvdpau_nvidia.so.1 \
+            --slave /usr/lib/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-430/vdpau/libvdpau_nvidia.so \
+            --slave /usr/lib32/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1_lib32 /usr/lib32/nvidia-430/vdpau/libvdpau_nvidia.so.1 \
+            --slave /usr/lib32/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so_lib32 /usr/lib32/nvidia-430/vdpau/libvdpau_nvidia.so
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-384/ld.so.conf 8604
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430/ld.so.conf 8604
 
 
         # Alternative for PRIME power saving mode
@@ -166,41 +162,39 @@ case "$1" in
         # sure that nvidia-settings can be launched and that nouveau
         # is still blacklisted
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-384-prime/ld.so.conf 8603 \
-            --slave /usr/share/man/man1/nvidia-xconfig.1.gz x86_64-linux-gnu_man_nvidiaxconfig.gz /usr/share/man/man1/alt-nvidia-384-xconfig.1.gz \
-            --slave /usr/share/man/man1/nvidia-smi.1.gz x86_64-linux-gnu_nvidia-smi.1.gz /usr/share/man/man1/alt-nvidia-384-smi.1.gz \
-            --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-384/bin/nvidia-smi \
-            --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-384/bin/nvidia-xconfig \
-            --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-384/bin/nvidia-bug-report.sh \
-            --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-384/bin/nvidia-debugdump \
-            --slave /usr/share/nvidia/nvidia-application-profiles-384.130-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-384/nvidia-application-profiles-384.130-rc \
-            --slave /usr/share/nvidia/nvidia-application-profiles-384.130-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-384/nvidia-application-profiles-384.130-key-documentation \
-            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-384/modprobe.conf
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/ld.so.conf 8603 \
+            --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-430/bin/nvidia-smi \
+            --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-430/bin/nvidia-xconfig \
+            --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-430/bin/nvidia-bug-report.sh \
+            --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-430/bin/nvidia-debugdump \
+            --slave /usr/share/nvidia/nvidia-application-profiles-430.34-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-430/nvidia-application-profiles-430.34-rc \
+            --slave /usr/share/nvidia/nvidia-application-profiles-430.34-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-430/nvidia-application-profiles-430.34-key-documentation \
+            --slave /etc/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-430/modprobe.conf
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-384-prime/ld.so.conf 8603
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/ld.so.conf 8603
 
         if [ "$ARCH" != "armhf" ]; then
             # Install just the ld.so.conf.d alternative for the secondary architecture.
             # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-384/alt_ld.so.conf 8604
+                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-430/alt_ld.so.conf 8604
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-384/alt_ld.so.conf 8604
+                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-430/alt_ld.so.conf 8604
 
             # Install just the ld.so.conf.d alternative for PRIME for the
             # secondary architecture.
             # We need to ensure that the NVIDIA libraries for the other
             # architecture are not used.
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-384-prime/alt_ld.so.conf 8603
+                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/alt_ld.so.conf 8603
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-384-prime/alt_ld.so.conf 8603
+                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/alt_ld.so.conf 8603
         fi
 
         # Make sure glamoregl is disabled
         update-alternatives --force \
             --install /usr/share/X11/xorg.conf.d/glamoregl.conf glamor_conf \
-            /usr/share/nvidia-384/glamor.conf 600
+            /usr/share/nvidia-430/glamor.conf 600
 
         # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
         # alternatives.

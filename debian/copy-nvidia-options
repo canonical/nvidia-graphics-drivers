@@ -17,5 +17,4 @@ esac
 
 . /usr/share/initramfs-tools/hook-functions
 
-cp -pL --remove-destination "/lib/nvidia-384/modprobe.conf" "${DESTDIR}/etc/modprobe.d/nvidia-graphics-drivers.conf"
-
+cp -pL --remove-destination "/lib/nvidia-430/modprobe.conf" "${DESTDIR}/etc/modprobe.d/nvidia-graphics-drivers.conf"
