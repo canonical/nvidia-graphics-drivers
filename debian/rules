@@ -209,14 +209,14 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 endif
 
 	dh_install -p $(PKG_driver)
-	ifeq ($(DEB_HOST_ARCH),amd64)
-		echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
-		echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-		echo "$(mesa_egl_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-	endif
-		# empty ld.so.conf for the fake multi-arch alternative
-		$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
-		$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
+ifeq ($(DEB_HOST_ARCH),amd64)
+	echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
+	echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
+	echo "$(mesa_egl_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
+endif
+	# empty ld.so.conf for the fake multi-arch alternative
+	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
+	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
 
 	mkdir -p $(CURDIR)/$(PKG_driver)/debian/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
