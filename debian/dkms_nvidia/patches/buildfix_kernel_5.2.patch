@@ -1,12 +1,27 @@
-From d2d7c9684d0a92a3b23b450b72670ebe46db0ba0 Mon Sep 17 00:00:00 2001
+From d48c28c8f690cd1b7f1a252f3a33c9b536096054 Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
 Date: Mon, 10 Jun 2019 13:08:10 +0200
 Subject: [PATCH 1/1] Add support for Linux 5.2
 
+V2: make sure to force DRIVER_LEGACY for Linux >= 5.1
 ---
+ nv-drm.c              |  2 +-
  uvm/nvidia_uvm_lite.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ 2 files changed, 21 insertions(+), 1 deletion(-)
 
+diff --git a/nv-drm.c b/nv-drm.c
+index 1c968de..76719bb 100644
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -156,7 +156,7 @@ static const struct file_operations nv_drm_fops = {
+ };
+ 
+ static struct drm_driver nv_drm_driver = {
+-#if defined(DRIVER_LEGACY)
++#if defined(DRIVER_LEGACY) || LINUX_VERSION_CODE >= KERNEL_VERSION(5, 1, 0)
+     .driver_features = DRIVER_GEM | DRIVER_PRIME | DRIVER_LEGACY,
+ #else
+     .driver_features = DRIVER_GEM | DRIVER_PRIME,
 diff --git a/uvm/nvidia_uvm_lite.c b/uvm/nvidia_uvm_lite.c
 index 33b8d4b..8dbe050 100644
 --- a/uvm/nvidia_uvm_lite.c
