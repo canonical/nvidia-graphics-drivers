@@ -218,6 +218,9 @@ endif
 		$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
 		$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
 
+	mkdir -p $(CURDIR)/$(PKG_driver)/debian/lib/systemd
+	dh_systemd_enable --name=nvidia-persistenced
+
 	dh_install
 
 override_dh_installinit:
