@@ -83,4 +83,8 @@ debian/create-uvm-dev-node                                           sbin
 debian/dkms.conf                                                     usr/src/nvidia-#VERSION#
 debian/dkms_nvidia/patches/*                                         usr/src/nvidia-#VERSION#/patches
 debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
-debian/nvidia-graphics-drivers.conf                                  lib/modprobe.d
+debian/nvidia-430.conf                                               #PKGLIBCONFDIR#/modprobe.conf
+debian/ld.so.conf                                                    #LDSOCONF#
+debian/ld.so.conf-pm                                                 #PMLDSOCONF#
+debian/alt-ld.so.conf                                                #ALTLDSOCONF#
+debian/alt-ld.so.conf-pm                                             #PMLDSOCONF#

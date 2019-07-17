@@ -209,16 +209,8 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 endif
 
 	dh_install -p $(PKG_driver)
-ifeq ($(DEB_HOST_ARCH),amd64)
-	echo "$(PKG_libdir32)" >>	"$(CURDIR)/debian/$(PKG_driver)$(ld_so_conf_path)"
-	echo "$(mesa_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-	echo "$(mesa_egl_libdir_other)" >>	"$(CURDIR)/debian/$(PKG_driver)$(pm_ld_so_conf_path)"
-endif
-	# empty ld.so.conf for the fake multi-arch alternative
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(alt_ld_so_conf_path)")
-	$(shell touch "$(CURDIR)/debian/$(PKG_driver)$(pm_alt_ld_so_conf_path)")
 
-	mkdir -p $(CURDIR)/$(PKG_driver)/debian/lib/systemd
+	mkdir -p $(CURDIR)/debian/$(PKG_driver)/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
 
 	dh_install
@@ -239,7 +231,7 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
+	LD_LIBRARY_PATH=/$(libdir):$(CURDIR)/debian/$(PKG_driver)$(PKG_libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -Xlib32
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
@@ -259,8 +251,8 @@ override_dh_strip_nondeterminism:
 # Make the initramfs scripts executable
 override_dh_fixperms:
 	dh_fixperms
-	chmod 755 $(CURDIR)/debian/$(PKG_driver)/usr/share/initramfs-tools/hooks/framebuffer-nvidia
-	chmod 755 $(CURDIR)/debian/$(PKG_driver)/usr/share/initramfs-tools/hooks/copy-nvidia-options
+	chmod 755 $(CURDIR)/debian/framebuffer-nvidia
+	chmod 755 $(CURDIR)/debian/copy-nvidia-options
 
 ############################################################################
 
@@ -277,6 +269,7 @@ regen-from-templates:
 	for i in debian/templates/*.in; do \
 		dest=`echo $$i | sed -e "s|templates\/||g" | \
 				 sed -e "s|\.in\$$||g" | \
+				 sed -e "s|nvidia-graphics-drivers|$(PKG_driver)|g" | \
 				 sed -e "s|flavour|$(PKG_flavour)|g"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#I386_ONLY#|$(i386_only)|g" \
@@ -298,6 +291,7 @@ regen-from-templates:
 			-e "s|#SYSCONFDIR#|$(sysconfdir)|g" \
 			-e "s|#MANDIR#|$(mandir)|g" \
 			-e "s|#LDSOCONF#|$(ld_so_conf_path)|g" \
+			-e "s|#LDSOCONFDIR#|$(ld_so_conf_dir)|g" \
 			-e "s|#ALTLDSOCONF#|$(alt_ld_so_conf_path)|g" \
 			-e "s|#PMLDSOCONF#|$(pm_ld_so_conf_path)|g" \
 			-e "s|#PMALTLDSOCONF#|$(pm_alt_ld_so_conf_path)|g" \
