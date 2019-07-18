@@ -233,7 +233,7 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(CURDIR)/debian/$(PKG_driver)$(PKG_libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -Xlib32
+	LD_LIBRARY_PATH=/$(libdir):$(CURDIR)/debian/$(PKG_driver)$(PKG_libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -Xlib32 -Xi386
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
