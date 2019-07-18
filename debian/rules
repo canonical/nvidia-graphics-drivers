@@ -208,15 +208,17 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
-	dh_install -p $(PKG_driver)
+#	dh_install -p $(PKG_driver)
 
-	mkdir -p $(CURDIR)/debian/$(PKG_driver)/lib/systemd
-	dh_systemd_enable --name=nvidia-persistenced
+#	mkdir -p $(CURDIR)/debian/$(PKG_driver)/lib/systemd
+#	dh_systemd_enable --name=nvidia-persistenced
 
 	dh_install
 
 override_dh_installinit:
-	dh_installinit --noscripts
+	#dh_installinit --noscripts
+	dh_installinit -p $(PKG_driver) --name nvidia-persistenced
+	dh_installinit --remaining
 
 remove-stack-markings:
 	# Disable the stack markings of binaries for security reasons.
