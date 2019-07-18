@@ -15,13 +15,6 @@ version			 = $(DEB_VERSION_UPSTREAM)
 NVIDIA_RELEASE   = $(version)
 version_major		 = $(firstword $(subst ., ,$(version)))
 
-# system libdir
-#libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
-
-#pkg_module       := nvidia
-
-## <-- OLD
-
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 ifeq ($(DEB_HOST_ARCH),amd64)
@@ -115,10 +108,6 @@ PKG_libconfdir := /lib/$(PKG_driver)
 
 dirname              := NVIDIA-Linux
 
-
-## --> OLD
-
-
 ifeq ($(DEB_HOST_ARCH),amd64)
 DKMS_disabled_modules :=
 amd64_only :=
@@ -208,15 +197,9 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
-#	dh_install -p $(PKG_driver)
-
-#	mkdir -p $(CURDIR)/debian/$(PKG_driver)/lib/systemd
-#	dh_systemd_enable --name=nvidia-persistenced
-
 	dh_install
 
 override_dh_installinit:
-	#dh_installinit --noscripts
 	dh_installinit -p $(PKG_driver) --name nvidia-persistenced
 	dh_installinit --remaining
 
