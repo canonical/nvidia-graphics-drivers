@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 Jul 2019 06:49:47 +0200
+
 nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.2) bionic; urgency=medium
 
   * Add support for xserver-xorg-core-hwe-18.04 (LP: #1815579).
