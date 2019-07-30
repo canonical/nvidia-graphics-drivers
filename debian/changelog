@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-430 (430.40-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 30 Jul 2019 18:09:32 +0200
+
 nvidia-graphics-drivers-430 (430.34-0ubuntu2) eoan; urgency=medium
 
   * debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch:
