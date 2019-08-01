@@ -1,8 +1,29 @@
-nvidia-graphics-drivers-390 (390.129-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.129-0ubuntu1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Improved nvidia-bug-report.sh to grab the output of the
+      `vulkaninfo` command when it is available.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Remove final # from nvidia module.
+  * debian/templates/libnvidia-common-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour-dev.install.in,
+    debian/templates/libnvidia-gl-flavour.install.in,
+    debian/templates/nvidia-compute-utils-flavour.install.in,
+    debian/templates/nvidia-driver-flavour.docs.in,
+    debian/templates/nvidia-utils-flavour.install.in:
+    - Remove final / from installation paths.
+  * debian/templates/nvidia-compute-utils-flavour.nvidia-persistenced.service.in:
+    - Add the StopWhenUnneeded=true field to nvidia-persistenced.
+  * debian/templates/control:
+    - Update build dependency on dpkg-dev to >= 1.17.11~.
+    - Also rearrange cuda dependencies.
+    - Add missing dependency on libnvidia-cfg1.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.2.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 31 Jul 2019 13:06:20 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 06 Aug 2019 09:57:11 +0200
 
 nvidia-graphics-drivers-390 (390.116-0ubuntu2) eoan; urgency=medium
 
