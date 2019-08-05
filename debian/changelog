@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-430 (430.40-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.40-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        GeForce RTX 2080 SUPER
+        Quadro RTX 3000 with Max-Q Design
+    - Fixed a driver installation failure in Linux kernel
+      configurations with CONFIG_HOTPLUG_CPU.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+  * debian/templates/control:
+    - Rearrange the CUDA dependencies.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Remove leftover #.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Aug 2019 11:47:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Aug 2019 12:02:10 +0200
 
 nvidia-graphics-drivers-430 (430.26-0ubuntu0.18.04.2) bionic; urgency=medium
 
