@@ -1,4 +1,5 @@
 debian/71-nvidia.rules                                               lib/udev/rules.d
 debian/create-uvm-dev-node                                           sbin
+debian/prepare-nvidia-device-nodes                                   sbin
 debian/framebuffer-nvidia                                            usr/share/initramfs-tools/hooks
 debian/nvidia-graphics-drivers.conf                                  lib/modprobe.d

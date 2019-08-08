@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mknod /dev/nvidia0 c 195 0
+mknod /dev/nvidiactl c 195 255
+chmod 666 /dev/nvidia0
+chmod 666 /dev/nvidiactl

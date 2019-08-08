@@ -19,7 +19,7 @@ ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe nvidia-u
 ACTION=="remove", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/modprobe -r nvidia-uvm"
 
 # This will create the device nvidia device nodes
-ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-smi"
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/prepare-nvidia-device-nodes"
 
 # Create the device node for the nvidia-uvm module
 ACTION=="add", DEVPATH=="/module/nvidia_uvm", SUBSYSTEM=="module", RUN+="/sbin/create-uvm-dev-node"
