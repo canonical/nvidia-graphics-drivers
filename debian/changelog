@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.107-0ubuntu6) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Aug 2019 11:53:46 +0200
+
 nvidia-graphics-drivers-340 (340.107-0ubuntu5) eoan; urgency=medium
 
   * debian/dkms_nvidia/patches/use-kmem_cache_create_usercopy-on-4.16.patch,
