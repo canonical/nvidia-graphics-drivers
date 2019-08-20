@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-430 (430.40-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.40-0ubuntu2) eoan; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Disable disable_fstack-clash-protection_fcf-protection.patch
+      now that the flags are passed directly in the kernel builds.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 20 Aug 2019 15:18:49 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 20 Aug 2019 15:23:03 +0200
 
 nvidia-graphics-drivers-430 (430.40-0ubuntu1) eoan; urgency=medium
 
