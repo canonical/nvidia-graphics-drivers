@@ -2,6 +2,7 @@
 #AMD64_ONLY#NVIDIA-Linux/libglxserver_nvidia.so.#VERSION#            #LIBDIR#/nvidia/xorg
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-tls.so.#VERSION#                  #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/nvidia_icd.json                             usr/share/vulkan/icd.d
+#AMD64_ONLY#NVIDIA-Linux/nvidia_layers.json                          usr/share/vulkan/icd.d
 #AMD64_ONLY#NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                  #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-glvkspirv.so.#VERSION#            #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/10_nvidia.json                              usr/share/glvnd/egl_vendor.d
