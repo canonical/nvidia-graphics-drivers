@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for nvidia-dkms-430
+# prerm script for nvidia-dkms-435
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
