@@ -65,15 +65,6 @@ unpack-stamp: NVIDIA-Linux-amd64
 	ls -al
 	touch $@
 
-generate-nvidia-icd-json:
-	# This is for GLVND LibGL libraries
-	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/g'  NVIDIA-Linux/nvidia_icd.json.template > \
-		NVIDIA-Linux/nvidia_icd.json
-	# non-GLVND only
-	mkdir NVIDIA-Linux/nonglvnd || true
-	sed 's/__NV_VK_ICD__/libGL.so.1/g'  NVIDIA-Linux/nvidia_icd.json.template > \
-        NVIDIA-Linux/nonglvnd/nvidia_icd.json
-
 # Reformat the LICENSE to the format needed for debian/copyright.
 LICENSE.txt: unpack-stamp
 	sed -e 's/^ *//; s/ *$$//; s/^$$/./; s/^/ /;' NVIDIA-Linux/LICENSE > $@
@@ -104,7 +95,7 @@ override_dh_clean: regen-from-templates
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
-override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-json remove-stack-markings
+override_dh_auto_configure: prepare regen-from-templates remove-stack-markings
 
 override_dh_install: generate-modaliases
 	# Use our custom dkms.conf file
