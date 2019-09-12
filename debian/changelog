@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-430 (430.50-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.50-0ubuntu1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed display color range handling on pre-Turing GPUs, such
+      that when limited color range is selected through the display
+      controls page in nvidia-settings, output pixel values will be
+      correctly clamped to Consumer Technology Association (CTA)
+      range.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Sep 2019 15:33:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Sep 2019 16:47:23 +0200
 
 nvidia-graphics-drivers-430 (430.40-0ubuntu2) eoan; urgency=medium
 
