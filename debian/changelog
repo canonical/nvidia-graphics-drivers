@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-430 (430.50-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Sep 2019 15:33:50 +0200
+
 nvidia-graphics-drivers-430 (430.40-0ubuntu2) eoan; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in:
