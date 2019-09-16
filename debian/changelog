@@ -13,7 +13,7 @@ nvidia-graphics-drivers-430 (430.40-0ubuntu0.18.04.1) bionic; urgency=medium
   * debian/templates/dkms_nvidia.conf.in:
     - Remove leftover #.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Aug 2019 12:02:10 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Sep 2019 10:04:44 +0200
 
 nvidia-graphics-drivers-430 (430.26-0ubuntu0.18.04.2) bionic; urgency=medium
 
