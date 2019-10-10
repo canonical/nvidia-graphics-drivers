@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.107-0ubuntu7) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Oct 2019 16:14:19 +0200
+
 nvidia-graphics-drivers-340 (340.107-0ubuntu6) eoan; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_5.3.patch,
