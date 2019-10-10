@@ -1,0 +1,31 @@
+From b7e23f5a0b53200f6a593be85d287140ea1d7161 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 10 Oct 2019 16:18:57 +0200
+Subject: [PATCH 1/1] nvidia-modules-common.mk: disable stack-clash-protection
+ fcf-protection
+
+This adds the extra flags only if gcc supports them.
+
+Fixes LP: #1830961
+---
+ nvidia-modules-common.mk | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/nvidia-modules-common.mk b/nvidia-modules-common.mk
+index 918e8a9..8ac7058 100644
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -125,6 +125,10 @@ ifneq ($(wildcard /proc/sgi_uv),)
+  EXTRA_CFLAGS += -DNV_CONFIG_X86_UV
+ endif
+ 
++ifeq ($(shell cc -dumpspecs | grep -q no-stack-clash-protection; echo $$?),0)
++ EXTRA_CFLAGS += -fno-stack-clash-protection -fcf-protection=none
++endif
++
+ #
+ # Command for signing kernel modules
+ #
+-- 
+2.20.1
+
