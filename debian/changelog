@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-430 (430.50-0ubuntu0~0.16.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.50-0ubuntu0~0.16.04.1) xenial; urgency=medium
 
-  * 
+  * New upstream release. Initial backport for Xenial.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Oct 2019 16:24:19 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Oct 2019 16:25:58 +0200
