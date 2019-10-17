@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-430 (430.50-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.50-0ubuntu3) focal; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add Conflicts and Replaces to xserver-xorg-video-nvidia-#FLAVOUR#.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Oct 2019 10:18:02 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 17 Oct 2019 10:29:40 +0200
 
 nvidia-graphics-drivers-430 (430.50-0ubuntu2) eoan; urgency=medium
 
