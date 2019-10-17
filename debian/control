@@ -21,7 +21,7 @@ Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced, nvidia-
 Conflicts: xorg-driver-binary, nvidia-persistenced, nvidia-smi
 Replaces: xorg-driver-binary, nvidia-persistenced, nvidia-smi
 XB-Modaliases: ${modaliases}
-Description: NVIDIA binary driver - version 430.34
+Description: NVIDIA binary driver - version 430.50
  The binary driver provide optimized hardware acceleration of OpenGL
  applications via a direct-rendering X Server. AGP, PCIe, SLI, TV-out
  and flat panel displays are also supported.
@@ -37,7 +37,7 @@ Description: NVIDIA binary driver - version 430.34
 
 Package: nvidia-430-dev
 Architecture: amd64
-Depends: ${misc:Depends}, nvidia-430 (>= 430.34)
+Depends: ${misc:Depends}, nvidia-430 (>= 430.50)
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
  development files.
