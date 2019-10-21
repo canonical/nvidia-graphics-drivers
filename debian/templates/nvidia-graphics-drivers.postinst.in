@@ -147,7 +147,6 @@ case "$1" in
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
             --slave #LIBDIR#/xorg/modules/drivers/nvidia_drv.so #DEB_HOST_MULTIARCH#_nvidia_drv #PKGDRIVERSDIR#/nvidia_drv.so \
-            --slave /lib/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf \
             --slave #XORGEXTRA# #DEB_HOST_MULTIARCH#_xorg_extra_modules #NVIDIAEXTENSION# \
             --slave #VDPAUDIR#/libvdpau_nvidia.so.1 #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so.1 #PKGVDPAUDIR#/libvdpau_nvidia.so.1 \
             --slave #LIBDIR#/libvdpau_nvidia.so #DEB_HOST_MULTIARCH#_libvdpau_nvidia.so #PKGVDPAUDIR#/libvdpau_nvidia.so \
@@ -168,8 +167,7 @@ case "$1" in
             --slave #BINDIR#/nvidia-bug-report.sh #DEB_HOST_MULTIARCH#_nvidia_bug_report #PKGBINDIR#/nvidia-bug-report.sh \
             --slave #BINDIR#/nvidia-debugdump #DEB_HOST_MULTIARCH#_nvidia-debugdump #PKGBINDIR#/nvidia-debugdump \
             --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-rc #DEB_HOST_MULTIARCH#_nvidia_app_profile #PKGDATADIR#/nvidia-application-profiles-#VERSION#-rc \
-            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation \
-            --slave /lib/modprobe.d/nvidia-graphics-drivers.conf #DEB_HOST_MULTIARCH#_nvidia_modconf #PKGLIBCONFDIR#/modprobe.conf
+            --slave #NVIDIASHARE#/nvidia-application-profiles-#VERSION#-key-documentation #DEB_HOST_MULTIARCH#_nvidia_app_profile_keys #PKGDATADIR#/nvidia-application-profiles-#VERSION#-key-documentation
         update-alternatives --force \
             --install #SYSCONFDIR#/ld.so.conf.d/#DEB_HOST_MULTIARCH#_EGL.conf #DEB_HOST_MULTIARCH#_egl_conf #PMLDSOCONF# #PMALTPRIORITY#
 
@@ -255,7 +253,7 @@ EOF
             /bin/systemctl enable $INIT_SCRIPT_NAME
         else
             # Build the kernel module
-            /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
+            /usr/lib/dkms/common.postinst nvidia $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
             exit $?
         fi
         ;;

@@ -11,6 +11,7 @@
 #PKGLIBDIR#
 #PKGPRIMELIBDIR#
 #VDPAUDIR#
+#VDPAUDIR32#
 #XORGEXTRAPATH#
 lib/modprobe.d
 lib/udev/rules.d
@@ -18,5 +19,5 @@ usr/lib/xorg/modules/drivers
 usr/lib/xorg/modules/extensions
 usr/share/X11/xorg.conf.d
 usr/share/vulkan/icd.d
-usr/src/#DRIVERNAME#-#VERSION#
-usr/src/#DRIVERNAME#-#VERSION#/patches
+usr/src/nvidia-#VERSION#
+usr/src/nvidia-#VERSION#/patches
