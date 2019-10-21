@@ -28,9 +28,6 @@ case "$1" in
         # links are left. See LP: #540143
         rm -Rf /usr/lib/nvidia-430 /usr/lib32/nvidia-430
 
-        # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-430_hybrid.conf
-
         # Remove the nvidia-persistenced user
         if id "$NVPD_USER" > /dev/null 2>&1; then
             userdel "$NVPD_USER" || true

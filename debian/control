@@ -2,7 +2,7 @@ Source: nvidia-graphics-drivers-430
 Section: restricted/misc
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Build-Depends: debhelper (>= 8.0.0), sed (>> 3.0), libxext6, bzip2,
+Build-Depends: debhelper (>= 9), sed (>> 3.0), libxext6, bzip2,
  xserver-xorg-dev (>= 2:1.4), execstack, libc6, libxvmc1,
  dh-modaliases, libxv1, libwayland-dev
 Standards-Version: 3.8.0
@@ -49,11 +49,15 @@ Package: libcuda1-430
 Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
+ libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
+ libcuda1 (= ${source:Version})
 Breaks: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
+ libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
 Replaces: libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1
+ libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
+ libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel

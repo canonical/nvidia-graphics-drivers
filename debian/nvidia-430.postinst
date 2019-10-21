@@ -147,7 +147,6 @@ case "$1" in
             --slave /usr/share/nvidia/nvidia-application-profiles-430.50-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-430/nvidia-application-profiles-430.50-rc \
             --slave /usr/share/nvidia/nvidia-application-profiles-430.50-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-430/nvidia-application-profiles-430.50-key-documentation \
             --slave /usr/lib/xorg/modules/drivers/nvidia_drv.so x86_64-linux-gnu_nvidia_drv /usr/lib/nvidia-430/xorg/nvidia_drv.so \
-            --slave /lib/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-430/modprobe.conf \
             --slave /usr/lib/x86_64-linux-gnu/xorg/extra-modules x86_64-linux-gnu_xorg_extra_modules /usr/lib/nvidia-430/xorg \
             --slave /usr/lib/vdpau/libvdpau_nvidia.so.1 x86_64-linux-gnu_libvdpau_nvidia.so.1 /usr/lib/nvidia-430/vdpau/libvdpau_nvidia.so.1 \
             --slave /usr/lib/libvdpau_nvidia.so x86_64-linux-gnu_libvdpau_nvidia.so /usr/lib/nvidia-430/vdpau/libvdpau_nvidia.so \
@@ -168,8 +167,7 @@ case "$1" in
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-430/bin/nvidia-bug-report.sh \
             --slave /usr/bin/nvidia-debugdump x86_64-linux-gnu_nvidia-debugdump /usr/lib/nvidia-430/bin/nvidia-debugdump \
             --slave /usr/share/nvidia/nvidia-application-profiles-430.50-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-430/nvidia-application-profiles-430.50-rc \
-            --slave /usr/share/nvidia/nvidia-application-profiles-430.50-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-430/nvidia-application-profiles-430.50-key-documentation \
-            --slave /lib/modprobe.d/nvidia-graphics-drivers.conf x86_64-linux-gnu_nvidia_modconf /lib/nvidia-430/modprobe.conf
+            --slave /usr/share/nvidia/nvidia-application-profiles-430.50-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-430/nvidia-application-profiles-430.50-key-documentation
         update-alternatives --force \
             --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/ld.so.conf 8603
 
@@ -255,7 +253,7 @@ EOF
             /bin/systemctl enable $INIT_SCRIPT_NAME
         else
             # Build the kernel module
-            /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
+            /usr/lib/dkms/common.postinst nvidia $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2
             exit $?
         fi
         ;;
