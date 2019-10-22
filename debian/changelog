@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-430 (430.50-0ubuntu0~0.16.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-430 (430.50-0ubuntu0~0.16.04.2) xenial; urgency=medium
 
-  * 
+  * Fix ld.so.conf file names and paths.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 21 Oct 2019 16:24:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Oct 2019 15:32:14 +0200
 
 nvidia-graphics-drivers-430 (430.50-0ubuntu0~0.16.04.1) xenial; urgency=medium
 
