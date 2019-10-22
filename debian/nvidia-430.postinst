@@ -161,7 +161,7 @@ case "$1" in
         # sure that nvidia-settings can be launched and that nouveau
         # is still blacklisted
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/ld.so.conf 8603 \
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/ld.so.conf-pm 8603 \
             --slave /usr/bin/nvidia-smi x86_64-linux-gnu_nvidia_smi /usr/lib/nvidia-430/bin/nvidia-smi \
             --slave /usr/bin/nvidia-xconfig x86_64-linux-gnu_nvidia_xconfig /usr/lib/nvidia-430/bin/nvidia-xconfig \
             --slave /usr/bin/nvidia-bug-report.sh x86_64-linux-gnu_nvidia_bug_report /usr/lib/nvidia-430/bin/nvidia-bug-report.sh \
@@ -169,24 +169,24 @@ case "$1" in
             --slave /usr/share/nvidia/nvidia-application-profiles-430.50-rc x86_64-linux-gnu_nvidia_app_profile /usr/share/nvidia-430/nvidia-application-profiles-430.50-rc \
             --slave /usr/share/nvidia/nvidia-application-profiles-430.50-key-documentation x86_64-linux-gnu_nvidia_app_profile_keys /usr/share/nvidia-430/nvidia-application-profiles-430.50-key-documentation
         update-alternatives --force \
-            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/ld.so.conf 8603
+            --install /etc/ld.so.conf.d/x86_64-linux-gnu_EGL.conf x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/ld.so.conf-pm 8603
 
         if [ "$ARCH" != "armhf" ]; then
             # Install just the ld.so.conf.d alternative for the secondary architecture.
             # We need only to ensure that any mesa ld.so.conf.d alternative isn't active.
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-430/alt_ld.so.conf 8604
+                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-430/alt-ld.so.conf 8604
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-430/alt_ld.so.conf 8604
+                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-430/alt-ld.so.conf 8604
 
             # Install just the ld.so.conf.d alternative for PRIME for the
             # secondary architecture.
             # We need to ensure that the NVIDIA libraries for the other
             # architecture are not used.
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/alt_ld.so.conf 8603
+                --install /etc/ld.so.conf.d/i386-linux-gnu_GL.conf i386-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/alt-ld.so.conf-pm 8603
             update-alternatives --force \
-                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/alt_ld.so.conf 8603
+                --install /etc/ld.so.conf.d/i386-linux-gnu_EGL.conf i386-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/alt-ld.so.conf-pm 8603
         fi
 
         # Make sure glamoregl is disabled

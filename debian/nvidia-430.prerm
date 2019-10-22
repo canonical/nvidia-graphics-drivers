@@ -34,13 +34,13 @@ case "$1" in
 
         update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430/ld.so.conf
         update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430/ld.so.conf
-        update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-430/alt_ld.so.conf
-        update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-430/alt_ld.so.conf
+        update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-430/alt-ld.so.conf
+        update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-430/alt-ld.so.conf
         # Remove the alternatives for PRIME
-        update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/ld.so.conf
-        update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/ld.so.conf
-        update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/alt_ld.so.conf
-        update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/alt_ld.so.conf
+        update-alternatives --remove x86_64-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/ld.so.conf-pm
+        update-alternatives --remove x86_64-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/ld.so.conf-pm
+        update-alternatives --remove i386-linux-gnu_gl_conf /usr/lib/nvidia-430-prime/alt-ld.so.conf-pm
+        update-alternatives --remove i386-linux-gnu_egl_conf /usr/lib/nvidia-430-prime/alt-ld.so.conf-pm
         # Remove the alternative for glamor-egl
         update-alternatives --remove glamor_conf /usr/share/nvidia-430/glamor.conf
 

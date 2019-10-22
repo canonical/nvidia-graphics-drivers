@@ -1,4 +1,4 @@
-//usr/lib/x86_64-linux-gnu/mesa
-//usr/lib/x86_64-linux-gnu/mesa-egl
-//usr/lib/i386-linux-gnu/mesa
-//usr/lib/i386-linux-gnu/mesa-egl
+/usr/lib/x86_64-linux-gnu/mesa
+/usr/lib/x86_64-linux-gnu/mesa-egl
+/usr/lib/i386-linux-gnu/mesa
+/usr/lib/i386-linux-gnu/mesa-egl
