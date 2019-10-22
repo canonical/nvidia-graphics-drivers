@@ -71,15 +71,15 @@ PKG_bindir           := $(PKG_libdir)/bin
 PKG_configdir        := $(PKG_libdir)
 ld_so_conf_dir       := $(PKG_configdir)
 ld_so_conf_file      := ld.so.conf
-alt_ld_so_conf_file  := alt_ld.so.conf
+alt_ld_so_conf_file  := alt-ld.so.conf
 ld_so_conf_path      := $(ld_so_conf_dir)/$(ld_so_conf_file)
 alt_ld_so_conf_path  := $(ld_so_conf_dir)/$(alt_ld_so_conf_file)
 
 #Prime
 PKG_prime            := $(PKG_driver)-prime
 PKG_prime_libdir     := $(libdir)/$(PKG_prime)
-pm_ld_so_conf_path      := $(PKG_prime_libdir)/$(ld_so_conf_file)
-pm_alt_ld_so_conf_path  := $(PKG_prime_libdir)/$(alt_ld_so_conf_file)
+pm_ld_so_conf_path      := $(PKG_prime_libdir)/ld.so.conf-pm
+pm_alt_ld_so_conf_path  := $(PKG_prime_libdir)/alt-ld.so.conf-pm
 
 mandir               := /usr/share/man/man1
 PKG_bugdir           := /usr/share/bug/$(PKG_driver)
