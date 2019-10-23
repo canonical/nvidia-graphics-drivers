@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-435 (435.21-0ubuntu3) focal; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add Conflicts and Replaces to xserver-xorg-video-nvidia-#FLAVOUR#.
+      This makes sure that upgrading from older driver series does not
+      fail (LP: #1847979).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Oct 2019 15:06:36 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Oct 2019 15:07:10 +0200
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu2) eoan; urgency=medium
 
