@@ -228,6 +228,8 @@ Depends:
  libnvidia-cfg1-430 (= ${binary:Version}),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts: xorg-driver-binary, nvidia-driver-binary
+Replaces: xorg-driver-binary, nvidia-driver-binary
 Provides:
  xorg-driver-binary, nvidia-driver-binary,
  ${nvidia:xorgProvides}
