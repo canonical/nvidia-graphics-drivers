@@ -1,14 +1,5 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu0.18.04.2) bionic; urgency=medium
+nvidia-graphics-drivers-440 (440.26-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  * debian/templates/control.in:
-    - Add Conflicts and Replaces to xserver-xorg-video-nvidia-#FLAVOUR#.
-      This makes sure that upgrading from older driver series does not
-      fail (LP: #1847979).
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Oct 2019 15:08:53 +0200
-
-nvidia-graphics-drivers-435 (435.21-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * Initial release (LP: #1844126).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 02 Sep 2019 15:24:10 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Oct 2019 15:40:27 +0200
