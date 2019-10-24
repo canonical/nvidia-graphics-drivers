@@ -1,2 +1,0 @@
-debian/dkms.conf                                                     usr/src/nvidia-435.21
-debian/dkms_nvidia/patches/*                                         usr/src/nvidia-435.21/patches

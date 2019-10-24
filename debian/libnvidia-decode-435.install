@@ -1,6 +1,0 @@
-NVIDIA-Linux/libvdpau_nvidia.so.435.21                usr/lib/x86_64-linux-gnu/vdpau
-NVIDIA-Linux/libnvcuvid.so.435.21                     usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-opticalflow.so.435.21          usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libvdpau_nvidia.so.435.21              usr/lib/x86_64-linux-gnu/vdpau
-#NVIDIA-Linux/32/libnvcuvid.so.435.21                   usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libnvidia-opticalflow.so.435.21        usr/lib/x86_64-linux-gnu
