@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-440 (440.26-0ubuntu0~0.20.04.1) focal; urgency=medium
+nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.1) UNRELEASED; urgency=medium
 
   * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Oct 2019 15:27:18 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 29 Oct 2019 15:23:47 +0100
