@@ -14,6 +14,7 @@ XORG_BOUND		?=
 version			 = $(DEB_VERSION_UPSTREAM)
 NVIDIA_RELEASE   = $(version)
 version_major		 = $(firstword $(subst ., ,$(version)))
+version_minor		 = $(word 2, $(subst ., ,$(version)))
 
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
@@ -190,7 +191,8 @@ ORIGDIR.empty		?= $(ORIGDIR)
 TARBALL.empty		?= $(TARBALL)
 
 # $1 = arch
-get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+get_download_url        = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+get_download_url_tesla	 = $(or $(HTTPURL_PREFIX_tesla_$(strip $1)),$(HTTPURL_PREFIX_tesla))/$(version_major).$(version_minor)/$(NVIDIA_FILENAME_$(strip $1))
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
@@ -229,7 +231,7 @@ get-orig-source-prepare/%: get-orig-source-prepare
 
 get-orig-source-download/%: get-orig-source-prepare
 	ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
-		wget $(call get_download_url,$*) -P get-orig-source/
+		wget $(call get_download_url_tesla,$*) -P get-orig-source/
 	if [ -d $(CACHE) ] && [ ! -f $(CACHE)/$(NVIDIA_FILENAME_$*) ]; then \
 		ln -v get-orig-source/$(NVIDIA_FILENAME_$*) $(CACHE) ; fi
 
