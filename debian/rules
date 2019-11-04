@@ -44,7 +44,7 @@ endif
 ifeq ($(DEB_HOST_ARCH),ppc64el)
 DKMS_disabled_modules :=
 amd64_only :=
-i386_only :=
+i386_only := \#
 endif
 
 comma		 = ,
