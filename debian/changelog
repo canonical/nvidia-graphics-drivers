@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.3) focal; urgency=medium
 
-  * 
+  * Build ppc64el packages.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Nov 2019 16:41:34 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Nov 2019 16:42:31 +0100
 
 nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.2) focal; urgency=medium
 
