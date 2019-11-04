@@ -1,11 +1,6 @@
 NVIDIA-Linux/NVIDIA_Changelog
 NVIDIA-Linux/LICENSE
 NVIDIA-Linux/README.txt
-NVIDIA-Linux/nvidia-suspend.service
-NVIDIA-Linux/nvidia-hibernate.service
-NVIDIA-Linux/nvidia-resume.service
-NVIDIA-Linux/nvidia
-NVIDIA-Linux/nvidia-sleep.sh
 NVIDIA-Linux/nvidia-persistenced-init.tar.bz2
 NVIDIA-Linux/html/acknowledgements.html
 NVIDIA-Linux/html/addressingcapabilities.html
@@ -46,12 +41,11 @@ NVIDIA-Linux/html/retpoline.html
 NVIDIA-Linux/html/openglenvvariables.html
 NVIDIA-Linux/html/optimus.html
 NVIDIA-Linux/html/powermanagement.html
-NVIDIA-Linux/html/dynamicpowermanagement.html
 NVIDIA-Linux/html/procinterface.html
 NVIDIA-Linux/html/profiles.html
 NVIDIA-Linux/html/programmingmodes.html
 NVIDIA-Linux/html/randr14.html
-NVIDIA-Linux/html/primerenderoffload.html
+NVIDIA-Linux/html/sdi.html
 NVIDIA-Linux/html/selectdriver.html
 NVIDIA-Linux/html/sli.html
 NVIDIA-Linux/html/supportedchips.html
