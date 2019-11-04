@@ -1,11 +1,6 @@
 #AMD64_ONLY#NVIDIA-Linux/NVIDIA_Changelog
 #AMD64_ONLY#NVIDIA-Linux/LICENSE
 #AMD64_ONLY#NVIDIA-Linux/README.txt
-#AMD64_ONLY#NVIDIA-Linux/nvidia-suspend.service
-#AMD64_ONLY#NVIDIA-Linux/nvidia-hibernate.service
-#AMD64_ONLY#NVIDIA-Linux/nvidia-resume.service
-#AMD64_ONLY#NVIDIA-Linux/nvidia
-#AMD64_ONLY#NVIDIA-Linux/nvidia-sleep.sh
 #AMD64_ONLY#NVIDIA-Linux/nvidia-persistenced-init.tar.bz2
 #AMD64_ONLY#NVIDIA-Linux/html/acknowledgements.html
 #AMD64_ONLY#NVIDIA-Linux/html/addressingcapabilities.html
@@ -46,12 +41,11 @@
 #AMD64_ONLY#NVIDIA-Linux/html/openglenvvariables.html
 #AMD64_ONLY#NVIDIA-Linux/html/optimus.html
 #AMD64_ONLY#NVIDIA-Linux/html/powermanagement.html
-#AMD64_ONLY#NVIDIA-Linux/html/dynamicpowermanagement.html
 #AMD64_ONLY#NVIDIA-Linux/html/procinterface.html
 #AMD64_ONLY#NVIDIA-Linux/html/profiles.html
 #AMD64_ONLY#NVIDIA-Linux/html/programmingmodes.html
 #AMD64_ONLY#NVIDIA-Linux/html/randr14.html
-#AMD64_ONLY#NVIDIA-Linux/html/primerenderoffload.html
+#AMD64_ONLY#NVIDIA-Linux/html/sdi.html
 #AMD64_ONLY#NVIDIA-Linux/html/selectdriver.html
 #AMD64_ONLY#NVIDIA-Linux/html/sli.html
 #AMD64_ONLY#NVIDIA-Linux/html/supportedchips.html
