@@ -40,11 +40,11 @@ Depends:
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-#FLAVOUR#:i386 (= ${binary:Version}) [amd64 ppc64el],
- libnvidia-decode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64 ppc64el],
- libnvidia-encode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64 ppc64el],
- libnvidia-ifr1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64 ppc64el],
- libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64 ppc64el],
+ libnvidia-compute-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-ifr1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 Description: NVIDIA driver metapackage
@@ -262,7 +262,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  This package contains the libnvidia-cfg.so.1 runtime library.
 
 Package: libnvidia-ifr1-#FLAVOUR#
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -284,7 +284,7 @@ Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
  This package contains the NvIFROpenGL runtime library.
 
 Package: libnvidia-fbc1-#FLAVOUR#
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
