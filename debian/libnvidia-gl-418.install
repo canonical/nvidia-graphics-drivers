@@ -10,9 +10,9 @@ NVIDIA-Linux/libnvidia-glsi.so.418.87.01                 usr/lib/x86_64-linux-gn
 NVIDIA-Linux/libEGL_nvidia.so.418.87.01                  usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libGLESv2_nvidia.so.418.87.01               usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libGLESv1_CM_nvidia.so.418.87.01            usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-rtcore.so.418.87.01               usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-cbl.so.418.87.01                  usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvoptix.so.418.87.01                     usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-rtcore.so.418.87.01    usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-cbl.so.418.87.01    usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvoptix.so.418.87.01   usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libGLX_nvidia.so.418.87.01                usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-glcore.so.418.87.01             usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-tls.so.418.87.01                usr/lib/x86_64-linux-gnu
