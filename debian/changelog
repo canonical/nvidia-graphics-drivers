@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.4) focal; urgency=medium
 
-  * 
+  * Remove libraries that are not in ppc64el. 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Nov 2019 16:53:37 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Nov 2019 15:25:02 +0100
 
 nvidia-graphics-drivers-418 (418.87.01-0ubuntu0~0.20.04.3) focal; urgency=medium
 
