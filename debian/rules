@@ -43,8 +43,11 @@ endif
 
 ifeq ($(DEB_HOST_ARCH),ppc64el)
 DKMS_disabled_modules :=
+ppc64el_excluded := \#
 amd64_only :=
 i386_only := \#
+else
+ppc64el_excluded :=
 endif
 
 comma		 = ,
@@ -184,6 +187,7 @@ regen-from-templates:
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#I386_ONLY#|$(i386_only)|g" \
 			-e "s|#AMD64_ONLY#|$(amd64_only)|g" \
+			-e "s|#PPC64EL_EXCLUDED#|$(ppc64el_excluded)|g" \
 			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
 			-e "s|#FLAVOUR#|$(flavour)|g" \
 			-e "s|#DRIVERNAME#|$(pkg_driver)|g" \
