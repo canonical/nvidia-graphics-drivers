@@ -3,7 +3,7 @@
 #LIBDIR#/libEGL_nvidia.so.#VERSION#                                             #LIBDIR#/libEGL_nvidia.so.0
 #LIBDIR#/libGLESv2_nvidia.so.#VERSION#                                          #LIBDIR#/libGLESv2_nvidia.so.2
 #LIBDIR#/libGLESv1_CM_nvidia.so.#VERSION#                                       #LIBDIR#/libGLESv1_CM_nvidia.so.1
-#AMD64_ONLY##LIBDIR#/libnvoptix.so.#VERSION#                                    #LIBDIR#/libnvoptix.so.1
+#PPC64EL_EXCLUDED##AMD64_ONLY##LIBDIR#/libnvoptix.so.#VERSION#                  #LIBDIR#/libnvoptix.so.1
 #LIBDIR#/libGLX_nvidia.so.#VERSION#                                             #LIBDIR#/libGLX_nvidia.so.0
 #LIBDIR#/libEGL_nvidia.so.#VERSION#                                             #LIBDIR#/libEGL_nvidia.so.0
 #LIBDIR#/libGLESv2_nvidia.so.#VERSION#                                          #LIBDIR#/libGLESv2_nvidia.so.2
