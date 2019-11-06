@@ -1,8 +1,94 @@
-nvidia-graphics-drivers-440 (440.31-0ubuntu0~0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.31-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      GeForce GTX 1660 SUPER
+    - Fixed a regression in the 440.26 driver that could prevent the
+      NVIDIA kernel modules from building correctly on systems
+      localized to a language other than English.
+    - Fixed a bug that could cause the X server to crash when running
+      applications using GLX indirect rendering.
+    - Updated the Module.symvers sanity check, which is part of the
+      NVIDIA kernel module build process, to accommodate the recent
+      addition of a new field in the Module.symvers file format. This
+      fixes the error "The Module.symvers file is missing [...]" seen
+      during driver installation or DKMS rebuilds with Linux 5.4 RC
+      kernels.
+    - Fixed kernel module build problems with Linux kernel 5.4.0
+      release candidates.
+    - Updated nvidia-bug-report.sh to collect information about X
+      server crashes from coredumpctl, when available.
+    - Updated the nvidia-drm kernel module for compatibility with the
+      removal of the DRIVER_PRIME flag in recent Linux kernel
+      versions.
+    - Enabled parallel GLSL shader linking by default; i.e., allow
+      GL_ARB_parallel_shader_compile to work without first calling
+      glMaxShaderCompilerThreadsARB().
+    - Added support for HDMI 2.1 variable refresh rate (VRR) G-SYNC
+      Compatible monitors on supported GPUs.For more details, see
+      "Configuring Multiple Display Devices on One X Screen" in the
+      README.
+    - Added support for the GLX_NV_multigpu_context and
+      GL_NV_gpu_multicast extensions.For more details, see the
+      "Configuring SLI and Multi-GPU FrameRendering" chapter of the
+      README, and the extension specifications:
+      https://www.khronos.org/registry/OpenGL/extensions/NV/GLX_NV_mu
+      ltigpu_context.txt
+      https://www.khronos.org/registry/OpenGL/extensions/NV/NV_gpu_mu
+      lticast.txt
+    - Fixed a bug that prevented Vulkan applications running on
+      systems configured for SLI. Vulkan applications can now run
+      while SLI is enabled; however, they will only be able to use a
+      single GPU.
+    - Simplified the nvidia-sleep.sh sample script to no longer
+      depend on unreliable detection of the current VT through X
+      server logs.
+    - Added EGL support for PRIME render offload. Please see the
+      PRIME Render Offload chapter in the README for configuration
+      details.
+    - Fixed a regression introduced in 435.19.02 that would cause
+      some applications which use the VK_KHR_DISPLAY extension to
+      result in a segmentation fault.
+    - Enabled HardDPMS by default. See the README entry on the X
+      configuration option "HardDPMS" for more information.
+    - Fixed a bug which caused corruption in the following DXVK
+      titles:
+        o Saints Row IV
+        o Saints Row: The Third
+    - Added VP9 decode support to the NVIDIA VDPAU driver. See the
+      VDPAU Support appendix in the README for supported VP9 decoder
+      profiles.
+    - Fixed a bug that could cause heapUsage values reported by
+      VK_EXT_memory_budget to not immediately update after
+      vkFreeMemory was called.
+    - Changed GPU clock management strategy to more quickly ramp down
+      clocks after a drop in GPU utilization.
+    - Added X configuration option, "SidebandSocketPath", which
+      controls the directory in which the X driver will create a
+      pathname UNIX domain socket used to communicate with the NVIDIA
+      OpenGL, Vulkan and VDPAU driver components.
+    - The X driver will now create a fallback pathname UNIX domain
+      socket in the directory specified by the "SidebandSocketPath"
+      option, or /var/run by default, which will be used by other
+      NVIDIA driver components if they are unable to connect to the
+      default abstract socket.This fixes a bug where graphics
+      applications run within a network namespace (which prevents the
+      use of abstract sockets) were unable to take advantage of some
+      driver features, such as G-Sync.
+    - Fall back to system memory when video memory is full for some
+      driver-internal allocations. This can help fix Xid 13 and Xid
+      31 cases in Vulkan applications when video memory is full.
+    - Fixed a bug that could cause a blank screen on some DisplayPort
+      monitors when logging in to GNOME, if the nvidia-drm kernel
+      module parameter modeset=1 is specified.
+    - Fixed a bug that prevented NVIDIA GPUs from entering the low-
+      power D3 state when entering suspend-to-idle (s2idle). Note
+      that on some systems this may expose an existing timing issue
+      in the Linux kernel; see the "Known Issues and Workarounds"
+      section of the "Configuring Power Management Support" chapter
+      of the README for more details.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Nov 2019 11:55:14 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 Nov 2019 11:56:42 +0100
 
 nvidia-graphics-drivers-440 (440.26-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
