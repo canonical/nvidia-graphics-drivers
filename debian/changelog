@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-390 (390.132-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Nov 2019 11:21:45 +0100
+
 nvidia-graphics-drivers-390 (390.129-0ubuntu2) eoan; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in,
