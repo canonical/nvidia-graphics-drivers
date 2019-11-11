@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-390 (390.132-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.132-0ubuntu1) focal; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed kernel module build problems with Linux kernel 5.4.0
+      release candidates (LP: #1850826).
+    - Updated nvidia-bug-report.sh to collect information about X
+      server crashes from coredumpctl, when available.
+    - Updated the nvidia-drm kernel module for compatibility with the
+      removal of the DRIVER_PRIME flag in recent Linux kernel
+      versions.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Nov 2019 11:21:45 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 11 Nov 2019 12:37:44 +0100
 
 nvidia-graphics-drivers-390 (390.129-0ubuntu2) eoan; urgency=medium
 
