@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.4) bionic; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    debian/patches/buildfix_kernel_5.3.patch:
+    - Backport kernel compatibility fixes (LP: #1853015).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 Nov 2019 16:05:23 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 18 Nov 2019 16:11:16 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3) bionic; urgency=medium
 
