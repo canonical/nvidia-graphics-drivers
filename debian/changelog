@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.19.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.19.10.1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce GTX 1650 SUPER.
+    - Fixed graphical corruption that can occur when using glslang
+      SPIR-V Generator Version <= 2.
+    - Updated nvidia-settings to allow continued interaction with
+      other pages and help content while editing application
+      profiles.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Nov 2019 17:20:09 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Nov 2019 17:20:39 +0100
 
 nvidia-graphics-drivers-440 (440.31-0ubuntu0~0.19.10.1) eoan; urgency=medium
 
