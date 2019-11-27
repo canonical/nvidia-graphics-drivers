@@ -1,8 +1,18 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3.3) bionic; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/do-not-call-pci_save_state.patch,
+    debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch
+    debian/dkms_nvidia/patches/buildfix_kernel_5.4.patch::
+    - Do not call pci_save_state() when suspending on Linux >=  4.15.0-54
+      (LP: #1836630).
+    - Add do-not-call-pci_save_state.patch
+    - Detect the availability of the stack-clash-protection and fcf-protection
+      flags in the compiler, and make sure to disable them. This fixes an
+      issue when dist-upgrading from Ubuntu 19.04 (LP: #1830961).
+    - Add support for Linux 5.4 (LP: #1850824).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 27 Nov 2019 14:54:22 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 27 Nov 2019 14:57:35 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3.1) bionic; urgency=medium
 
