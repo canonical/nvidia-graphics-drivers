@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3.3) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 27 Nov 2019 14:54:22 +0100
+
 nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.3.1) bionic; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in:
