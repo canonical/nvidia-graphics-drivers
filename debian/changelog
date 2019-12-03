@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.18.04.2) bionic; urgency=medium
 
-  * 
+  * debian/additional_card_ids:
+    - Add the 1D16 ID to the list.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Dec 2019 15:43:18 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 03 Dec 2019 16:15:26 +0100
 
 nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
