@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.19.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.19.10.1) eoan; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPU:
+        Quadro T2000 with Max-Q Design
+    - Added support for the __GL_SYNC_DISPLAY_DEVICE environment
+      variable for Vulkan applications.
+    - Fixed a bug that caused applications running directly on a
+      display (such as VR HMDs) to tear when a G-SYNC or G-SYNC
+      Compatible monitor is plugged in the system.
+    - Fixed a bug in an error handling path that could cause a kernel
+      crash while loading nvidia.ko.
+    - Fixed driver installation failure on Oracle Linux 7.7 systems,
+      where the NVIDIA kernel module failed to build with error
+      "unknown type name 'vm_fault_t'".
+  * debian/templates/dkms_nvidia.conf.in:
+    - Fall back on gcc when cc is not available.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Dec 2019 11:47:26 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Dec 2019 11:48:18 +0100
 
 nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.19.10.2) eoan; urgency=medium
 
