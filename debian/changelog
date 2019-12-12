@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.18.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Dec 2019 11:49:53 +0100
+
 nvidia-graphics-drivers-440 (440.36-0ubuntu0~0.18.04.2) bionic; urgency=medium
 
   * debian/additional_card_ids:
