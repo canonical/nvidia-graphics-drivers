@@ -1,8 +1,8 @@
-NVIDIA-Linux/kernel/Kbuild                               usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/Makefile                             usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/common                               usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/conftest.sh                          usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/nvidia                               usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/nvidia-drm                           usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/nvidia-modeset                       usr/src/nvidia-440.36
-NVIDIA-Linux/kernel/nvidia-uvm                           usr/src/nvidia-440.36
+NVIDIA-Linux/kernel/Kbuild                               usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/Makefile                             usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/common                               usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/conftest.sh                          usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/nvidia                               usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/nvidia-drm                           usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/nvidia-modeset                       usr/src/nvidia-440.44
+NVIDIA-Linux/kernel/nvidia-uvm                           usr/src/nvidia-440.44
