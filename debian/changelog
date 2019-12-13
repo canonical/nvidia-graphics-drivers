@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.132-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.132-0ubuntu2) focal; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Fall back on gcc when cc is not available.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Dec 2019 10:56:36 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Dec 2019 10:57:22 +0100
 
 nvidia-graphics-drivers-390 (390.132-0ubuntu1) focal; urgency=medium
 
