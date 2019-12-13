@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-340 (340.107-0ubuntu9) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.107-0ubuntu9) focal; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Fall back on /usr/bin/gcc when cc is not available.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Dec 2019 10:58:34 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Dec 2019 11:02:19 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu8) focal; urgency=medium
 
