@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-435 (435.21-0ubuntu6~0.20.04.1) focal; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/additional_card_ids,
+    debian/nvidia_supported:
+    - Fix code to add device IDs, and make it more obvious when we are
+      adding them, so that we can see it in the build log.
+    - Fix device ID extraction from the README file.
+    - Remove the leftover ID (LP: #1856166).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Dec 2019 15:42:19 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:01:13 +0100
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu5) focal; urgency=medium
 
