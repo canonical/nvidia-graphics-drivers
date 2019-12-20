@@ -1,26 +1,15 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu5) focal; urgency=medium
-
-  * debian/templates/dkms_nvidia.conf.in:
-    - Fall back on gcc when cc is not available.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Dec 2019 10:53:41 +0100
-
-nvidia-graphics-drivers-435 (435.21-0ubuntu4) focal; urgency=medium
+nvidia-graphics-drivers-435 (435.21-0ubuntu6~0.19.10.1) UNRELEASED; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in,
     debian/dkms_nvidia/patches/buildfix_kernel_5.4.patch:
     - Add support Linux 5.4 (LP: #1850828).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 15 Nov 2019 11:31:21 +0100
-
-nvidia-graphics-drivers-435 (435.21-0ubuntu3) focal; urgency=medium
-
+    - Fall back on gcc when cc is not available.
   * debian/templates/control.in:
     - Add Conflicts and Replaces to xserver-xorg-video-nvidia-#FLAVOUR#.
       This makes sure that upgrading from older driver series does not
       fail (LP: #1847979).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Oct 2019 15:07:10 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:30:16 +0100
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu2) eoan; urgency=medium
 
