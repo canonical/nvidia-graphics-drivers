@@ -1,5 +1,22 @@
 nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.3) bionic; urgency=medium
 
+
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/do-not-call-pci_save_state.patch,
+    debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.4.patch:
+    - Do not call pci_save_state() when suspending on Linux >=  4.15.0-54
+      (LP: #1836630).
+    - Add do-not-call-pci_save_state.patch
+    - Detect the availability of the stack-clash-protection and fcf-protection
+      flags in the compiler, and make sure to disable them. This fixes an
+      issue when dist-upgrading from Ubuntu 19.04 (LP: #1830961).
+    - Add support Linux 5.4 (LP: #1850828).
+    - Fall back on gcc when cc is not available.
+  * debian/templates/control.in:
+    - Add Conflicts and Replaces to xserver-xorg-video-nvidia-#FLAVOUR#.
+      This makes sure that upgrading from older driver series does not
+      fail (LP: #1847979).
   * debian/rules,
     debian/additional_card_ids,
     debian/nvidia_supported:
@@ -8,7 +25,7 @@ nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.3) bionic; urgency=medium
     - Fix device ID extraction from the README file.
     - Remove the leftover ID (LP: #1856166).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:46:31 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:47:52 +0100
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.2) bionic; urgency=medium
 
