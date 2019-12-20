@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu1~18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-435 (435.21-0ubuntu1~18.04.1) bionic; urgency=medium
 
-  * 
+  * No change revision bump.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:55:37 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:55:56 +0100
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.3) bionic; urgency=medium
 
