@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.3) bionic; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/additional_card_ids,
+    debian/nvidia_supported:
+    - Fix code to add device IDs, and make it more obvious when we are
+      adding them, so that we can see it in the build log.
+    - Fix device ID extraction from the README file.
+    - Remove the leftover ID (LP: #1856166).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:37:07 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:46:31 +0100
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu0~18.04.2) bionic; urgency=medium
 
