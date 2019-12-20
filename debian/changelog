@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.18.04.2) bionic; urgency=medium
 
-  * 
+  * debian/rules,
+    debian/nvidia_supported:
+    - Fix code to add device IDs, and make it more obvious when we are
+      adding them, so that we can see it in the build log.
+    - Fix device ID extraction from the README file.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:26:25 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 20 Dec 2019 13:27:10 +0100
 
 nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
