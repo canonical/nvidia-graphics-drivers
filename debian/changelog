@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-340 (340.108-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Jan 2020 13:05:25 +0100
+
 nvidia-graphics-drivers-340 (340.107-0ubuntu9) focal; urgency=medium
 
   * debian/templates/dkms_nvidia.conf.in:
