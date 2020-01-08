@@ -1,7 +1,7 @@
-From 53d65b3781b7b2cf25368efd5382ed5bbda19bd9 Mon Sep 17 00:00:00 2001
+From 5843a3b3411fe4443a08c2dd9f2ebc41ca702926 Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
 Date: Thu, 21 Sep 2017 15:16:41 +0200
-Subject: [PATCH 1/1] Add support for Linux 4.11
+Subject: [PATCH 1/4] Add support for Linux 4.11
 
 This only contains the last few bits that didn't make it into
 the 340 driver.
@@ -12,10 +12,10 @@ Credit goes to Michael Marley for spotting the problem.
  1 file changed, 11 insertions(+)
 
 diff --git a/uvm/nvidia_uvm_lite.c b/uvm/nvidia_uvm_lite.c
-index 246ed04..119c93a 100644
+index 6943e7c..87eefac 100644
 --- a/uvm/nvidia_uvm_lite.c
 +++ b/uvm/nvidia_uvm_lite.c
-@@ -818,8 +818,15 @@ done:
+@@ -820,8 +820,15 @@ done:
  }
  
  #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
@@ -31,7 +31,7 @@ index 246ed04..119c93a 100644
  #if defined(NV_VM_FAULT_HAS_ADDRESS)
      unsigned long vaddr = vmf->address;
  #else
-@@ -866,7 +873,11 @@ static struct vm_operations_struct uvmlite_vma_ops =
+@@ -868,7 +875,11 @@ static struct vm_operations_struct uvmlite_vma_ops =
  // it's dealing with anonymous mapping (see handle_pte_fault).
  //
  #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
@@ -44,5 +44,5 @@ index 246ed04..119c93a 100644
      vmf->page = NULL;
      return VM_FAULT_SIGBUS;
 -- 
-2.7.4
+2.20.1
 
