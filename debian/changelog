@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.6) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jan 2020 15:53:57 +0100
+
 nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.5) bionic; urgency=medium
 
   * debian/create-uvm-dev-node:
