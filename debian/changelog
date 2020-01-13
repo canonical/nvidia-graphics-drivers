@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.6) bionic; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.3.patch:
+    - Add support for Linux 5.2 and 5.3.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jan 2020 15:53:57 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jan 2020 16:44:08 +0100
 
 nvidia-graphics-drivers-418 (418.74-0ubuntu0~18.04.5) bionic; urgency=medium
 
