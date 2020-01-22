@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-390 (390.116-0ubuntu0.18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.116-0ubuntu0.18.04.3) bionic; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.3.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Fix build failure with Linux 5.3 (LP: #1851162).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 22 Jan 2020 11:16:34 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 22 Jan 2020 11:24:10 +0100
 
 nvidia-graphics-drivers-390 (390.116-0ubuntu0.18.04.2) bionic; urgency=medium
 
