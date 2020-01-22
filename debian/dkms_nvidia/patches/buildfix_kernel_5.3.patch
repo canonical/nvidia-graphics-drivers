@@ -1,0 +1,87 @@
+From 8cabeb2eb5df8c033a600626fcdbfb0b076253f6 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Wed, 22 Jan 2020 11:20:05 +0100
+Subject: [PATCH 1/1] Add support for Linux 5.3
+
+Do not check the return type of on_each_cpu
+---
+ common/inc/nv-linux.h | 38 ++++++++++++++++----------------------
+ 1 file changed, 16 insertions(+), 22 deletions(-)
+
+diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
+index a16dd7e..73c9352 100644
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -656,16 +656,14 @@ static inline void nv_vunmap(NvUPtr vaddr, NvU32 page_count)
+ #if defined(NV_SMP_CALL_FUNCTION_PRESENT)
+ #if (NV_SMP_CALL_FUNCTION_ARGUMENT_COUNT == 4)
+ #define NV_SMP_CALL_FUNCTION(func, info)                     \
+-    ({                                                       \
+-        int __ret = smp_call_function(func, info, 1, 1);     \
+-        __ret;                                               \
+-     })
++    do {                                                     \
++        smp_call_function(func, info, 1, 1);                 \
++    } while(0)
+ #elif (NV_SMP_CALL_FUNCTION_ARGUMENT_COUNT == 3)
+ #define NV_SMP_CALL_FUNCTION(func, info)                     \
+-    ({                                                       \
+-        int __ret = smp_call_function(func, info, 1);        \
+-        __ret;                                               \
+-     })
++    do {                                                     \
++        smp_call_function(func, info, 1);                    \
++    } while(0)
+ #else
+ #error "NV_SMP_CALL_FUNCTION_ARGUMENT_COUNT value unrecognized!"
+ #endif
+@@ -674,25 +672,22 @@ static inline void nv_vunmap(NvUPtr vaddr, NvU32 page_count)
+ #else
+ // Non-SMP case:
+ #define NV_SMP_CALL_FUNCTION(func, info)                     \
+-    ({                                                       \
++    do {                                                     \
+         func(info);                                          \
+-        0;                                                   \
+-     })
++    } while(0)
+ #endif
+ 
+ #if defined(NV_ON_EACH_CPU_PRESENT)
+ #if (NV_ON_EACH_CPU_ARGUMENT_COUNT == 4)
+ #define NV_ON_EACH_CPU(func, info)                     \
+-    ({                                                 \
+-        int __ret = on_each_cpu(func, info, 1, 1);     \
+-        __ret;                                         \
+-     })
++    do {                                               \
++        on_each_cpu(func, info, 1, 1);                 \
++     } while (0)
+ #elif (NV_ON_EACH_CPU_ARGUMENT_COUNT == 3)
+ #define NV_ON_EACH_CPU(func, info)                     \
+-    ({                                                 \
+-        int __ret = on_each_cpu(func, info, 1);        \
+-        __ret;                                         \
+-     })
++    do {                                               \
++        on_each_cpu(func, info, 1);                    \
++     } while(0)
+ #else
+ #error "NV_ON_EACH_CPU_ARGUMENT_COUNT value unrecognized!"
+ #endif
+@@ -701,10 +696,9 @@ static inline void nv_vunmap(NvUPtr vaddr, NvU32 page_count)
+ #else
+ // Non-SMP case:
+ #define NV_ON_EACH_CPU(func, info)                     \
+-    ({                                                 \
++    do {                                               \
+         func(info);                                    \
+-        0;                                             \
+-     })
++     } while(0)
+ #endif
+ 
+ #if defined(NV_GET_NUM_PHYSPAGES_PRESENT)
+-- 
+2.20.1
+
