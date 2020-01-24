@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-440 (440.44-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.44-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * Initial release (LP: #1854485).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Jan 2020 16:37:13 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Jan 2020 16:44:18 +0100
