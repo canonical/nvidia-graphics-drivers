@@ -1,8 +1,35 @@
-nvidia-graphics-drivers-340 (340.108-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.108-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1854485):
+    - Updated the nvidia-drm kernel module for compatibility with the
+      removal of the DRIVER_PRIME flag in recent Linux kernel
+      versions.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+    - Fixed a bug that could prevent nvidia-xconfig from disabling
+      the X Composite extension on version 1.20 of the X.org X
+      server.
+    - Fixed a build failure, "too many arguments to function
+      'get_user_pages'", when building the NVIDIA kernel module for
+      Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function
+      do_gettimeofday", when building the NVIDIA kernel module for
+      Linux kernel 5.0 release candidates.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop the following patches (no longer needed in 340.108):
+      buildfix_kernel_5.0.patch, buildfix_kernel_5.3.patch.
+    - Fall back on /usr/bin/gcc when cc is not available.
+  * debian/dkms_nvidia/patches/buildfix_kernel_4.11.patch,
+    debian/dkms_nvidia/patches/do-not-call-pci_save_state.patch,
+    debian/dkms_nvidia/patches/use-kmem_cache_create_usercopy-on-4.16.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch:
+    - Refresh patches.
+  * debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch,
+    debian/dkms_nvidia/patches/do-not-call-pci_save_state.patch:
+    - Do not call pci_save_state (as the more recent driver series do).
+    - Detect and disable the fstack-clash-protection fcf-protection flags.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jan 2020 16:23:03 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jan 2020 16:53:38 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu0.18.04.4) bionic; urgency=medium
 
