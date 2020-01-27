@@ -1,6 +1,6 @@
-nvidia-graphics-drivers-340 (340.108-0ubuntu0.19.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.108-0ubuntu0.19.10.1) eoan; urgency=medium
 
-  * New upstream release:
+  * New upstream release (LP: #1854485):
     - Updated the nvidia-drm kernel module for compatibility with the
       removal of the DRIVER_PRIME flag in recent Linux kernel
       versions.
@@ -24,8 +24,12 @@ nvidia-graphics-drivers-340 (340.108-0ubuntu0.19.10.1) UNRELEASED; urgency=mediu
     debian/dkms_nvidia/patches/use-kmem_cache_create_usercopy-on-4.16.patch,
     debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch:
     - Refresh patches.
+  * debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch,
+    debian/dkms_nvidia/patches/do-not-call-pci_save_state.patch:
+    - Do not call pci_save_state (as the more recent driver series do).
+    - Detect and disable the fstack-clash-protection fcf-protection flags.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jan 2020 16:58:49 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jan 2020 17:08:28 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu7) eoan; urgency=medium
 
