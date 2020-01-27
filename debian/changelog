@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-340 (340.108-0ubuntu1) focal; urgency=medium
+nvidia-graphics-drivers-340 (340.108-0ubuntu0.19.10.1) UNRELEASED; urgency=medium
 
   * New upstream release:
     - Updated the nvidia-drm kernel module for compatibility with the
@@ -17,30 +17,15 @@ nvidia-graphics-drivers-340 (340.108-0ubuntu1) focal; urgency=medium
       Linux kernel 5.0 release candidates.
   * debian/templates/dkms_nvidia.conf.in:
     - Drop the following patches (no longer needed in 340.108):
-      buildfix_kernel_5.0.patch, buildfix_kernel_5.3.patch,
-      buildfix_kernel_5.4.patch.
+      buildfix_kernel_5.0.patch, buildfix_kernel_5.3.patch.
+    - Fall back on /usr/bin/gcc when cc is not available.
   * debian/dkms_nvidia/patches/buildfix_kernel_4.11.patch,
     debian/dkms_nvidia/patches/do-not-call-pci_save_state.patch,
     debian/dkms_nvidia/patches/use-kmem_cache_create_usercopy-on-4.16.patch,
     debian/dkms_nvidia/patches/buildfix_kernel_5.2.patch:
     - Refresh patches.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Jan 2020 15:58:34 +0100
-
-nvidia-graphics-drivers-340 (340.107-0ubuntu9) focal; urgency=medium
-
-  * debian/templates/dkms_nvidia.conf.in:
-    - Fall back on /usr/bin/gcc when cc is not available.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 Dec 2019 11:02:19 +0100
-
-nvidia-graphics-drivers-340 (340.107-0ubuntu8) focal; urgency=medium
-
-  * debian/templates/dkms_nvidia.conf.in,
-    debian/dkms_nvidia/patches/buildfix_kernel_5.4.patch:
-    - Add support for Linux 5.4 (LP: #1850824).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 27 Nov 2019 14:43:05 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jan 2020 16:58:49 +0100
 
 nvidia-graphics-drivers-340 (340.107-0ubuntu7) eoan; urgency=medium
 
