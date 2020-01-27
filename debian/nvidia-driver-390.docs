@@ -36,6 +36,7 @@ NVIDIA-Linux/html/nvidia-ml.html
 NVIDIA-Linux/html/nvidia-persistenced.html
 NVIDIA-Linux/html/nvidia-smi.html
 NVIDIA-Linux/html/nvidiasettings.html
+NVIDIA-Linux/html/retpoline.html
 NVIDIA-Linux/html/openglenvvariables.html
 NVIDIA-Linux/html/optimus.html
 NVIDIA-Linux/html/powermanagement.html
