@@ -1,8 +1,24 @@
-nvidia-graphics-drivers-440 (440.59-0ubuntu0~0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.59-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Disabled frame rate limiting for configurations without active
+      displays when HardDPMS is enabled.
+    - Restricted the maximum number of GPU Screens to one GPU Screen
+      per GPU device, to prevent X from crashing when more than one
+      GPU Screen is configured for a single GPU device.
+    - Fixed a bug that could cause the X server to crash while
+      exiting DPMS with HardDPMS enabled.
+    - Added support for audio over DisplayPort Multi-Stream. This
+      support requires Linux kernel version 5.5 or newer.
+    - Updated the NVIDIA driver to allow NVIDIA High Definition Audio
+      (HDA) controllers to respond to display hotplug events while
+      the HDA is runtime-suspended.
+    - Fixed a bug that caused DXVK titles to endlessly loop during
+      shader compilation if no OpSource instruction was present.
+    - Add PRIME Synchronization support for Linux kernel 5.4 and
+      newer.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Feb 2020 16:32:29 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 06 Feb 2020 16:33:21 +0100
 
 nvidia-graphics-drivers-440 (440.44-0ubuntu0~0.18.04.2) bionic; urgency=medium
 
