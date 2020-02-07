@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-440 (440.59-0ubuntu0.19.10.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 07 Feb 2020 16:42:00 +0100
+
 nvidia-graphics-drivers-440 (440.44-0ubuntu0.19.10.1) eoan; urgency=medium
 
   * Initial release (LP: #1854485).
