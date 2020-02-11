@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-440 (440.59-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.59-0ubuntu2) focal; urgency=medium
 
-  * 
+  * debian/templates/nvidia-compute-utils-flavour.postinst.in:
+    - Remove the --shell parameter, since nologin is the default
+      shell (LP: #1862499).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Feb 2020 14:12:33 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Feb 2020 14:13:33 +0100
 
 nvidia-graphics-drivers-440 (440.59-0ubuntu1) focal; urgency=medium
 
