@@ -1,8 +1,21 @@
-nvidia-graphics-drivers-440 (440.64-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.64-0ubuntu1) focal; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      GeForce MX330
+      GeForce MX350
+    - Fixed a regression that allowed displays to enter DPMS mode
+      even when DPMS is disabled in the X server settings.
+    - Fixed driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'ioremap_nocache'".
+  * debian/templates/libnvidia-common-flavour.install.in,
+    debian/templates/libnvidia-common-flavour.links.in:
+    - Add the new libnvidia-allocator library (LP: #1858709).
+  * debian/templates/nvidia-compute-utils-flavour.postinst.in:
+    - Remove the --shell argument. This is already the default in adduser.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Mar 2020 17:28:51 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Mar 2020 17:42:22 +0100
 
 nvidia-graphics-drivers-440 (440.59-0ubuntu2) focal; urgency=medium
 
