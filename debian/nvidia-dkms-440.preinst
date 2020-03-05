@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-dkms-435
+# preinst script for nvidia-dkms-440
 #
 # see: dh_installdeb(1)
 #
