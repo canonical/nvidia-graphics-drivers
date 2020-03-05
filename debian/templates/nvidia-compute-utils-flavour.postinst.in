@@ -15,7 +15,6 @@ case "$1" in
         if ! id "$NVPD_USER" > /dev/null 2>&1; then
             # Create the user and group for nvidia-persistenced
             adduser --system --no-create-home --home /nonexistent \
-            --shell '/sbin/nologin' \
             --gecos 'NVIDIA Persistence Daemon' \
             --group "$NVPD_USER"
         fi
