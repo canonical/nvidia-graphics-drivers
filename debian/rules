@@ -18,7 +18,12 @@ version_major		 = $(firstword $(subst ., ,$(version)))
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 
+last_suffix		:= $(lastword $(subst -, ,$(DEB_SOURCE)))
+ifeq ($(last_suffix),trd)
+flavour := $(version_major)-trd
+else
 flavour := $(version_major)
+endif
 pkg_meta         := nvidia-driver-$(flavour)
 pkg_driver       := nvidia-$(flavour)
 xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
@@ -176,15 +181,21 @@ regen-from-templates:
 ############################################################################
 
 CACHE			?= ../.cache
-ORIGDIR			?= nvidia-graphics-drivers-$(version_major).orig
-TARBALL_BASE		?= nvidia-graphics-drivers-$(version_major)_$(NVIDIA_RELEASE).orig
+ORIGDIR			?= nvidia-graphics-drivers-$(flavour).orig
+TARBALL_BASE		?= nvidia-graphics-drivers-$(flavour)_$(NVIDIA_RELEASE).orig
 TARBALL_SUFFIX		?= .tar.gz
 TARBALL			?= $(TARBALL_BASE)$(TARBALL_SUFFIX)
 ORIGDIR.empty		?= $(ORIGDIR)
 TARBALL.empty		?= $(TARBALL)
 
 # $1 = arch
+ifneq (,$(findstring -trd,$(flavour)))
+    # Found
+get_download_url	 = $(HTTPURL_PREFIX_tesla)/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+else
 get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+endif
+
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
