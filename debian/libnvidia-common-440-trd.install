@@ -1,0 +1,4 @@
+NVIDIA-Linux/nvidia-application-profiles-440.64.00-rc    usr/share/nvidia
+NVIDIA-Linux/nvidia-application-profiles-440.64.00-key-documentation    usr/share/nvidia
+NVIDIA-Linux/libnvidia-allocator.so.440.64.00            usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-allocator.so.440.64.00          usr/lib/x86_64-linux-gnu
