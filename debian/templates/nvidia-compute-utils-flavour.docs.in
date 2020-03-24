@@ -1,2 +1,2 @@
-#AMD64_ONLY#NVIDIA-Linux/nvidia-persistenced-init.tar.bz2
-#AMD64_ONLY#NVIDIA-Linux/html/nvidia-persistenced.html
+#I386_EXCLUDED#NVIDIA-Linux/html/nvidia-persistenced.html
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-persistenced-init.tar.bz2

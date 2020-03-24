@@ -1,5 +1,5 @@
-#AMD64_ONLY#NVIDIA-Linux/nvidia-cuda-mps-control                     usr/bin
-#AMD64_ONLY#NVIDIA-Linux/nvidia-cuda-mps-server                      usr/bin
-#AMD64_ONLY#NVIDIA-Linux/nvidia-cuda-mps-control.1.gz                usr/share/man/man1
-#AMD64_ONLY#NVIDIA-Linux/nvidia-persistenced.1.gz                    usr/share/man/man1
-#AMD64_ONLY#NVIDIA-Linux/nvidia-persistenced                         usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-cuda-mps-control.1.gz                            usr/share/man/man1
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-cuda-mps-control                                 usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-cuda-mps-server                                  usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-persistenced.1.gz                                usr/share/man/man1
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-persistenced                                     usr/bin
