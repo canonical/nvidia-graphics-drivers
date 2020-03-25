@@ -124,7 +124,7 @@ override_dh_install: generate-modaliases
 	# Use our custom dkms.conf file
 	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
 
-ifeq ($(DEB_HOST_ARCH),amd64)
+ifneq ($(DKMS_disabled_modules), nvidia-uvm)
 	# Make sure the UVM module is built
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
