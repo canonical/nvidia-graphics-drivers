@@ -53,7 +53,7 @@ armhf_only := \#
 armhf_excluded :=
 endif
 
-ifeq $(DEB_HOST_ARCH),ppc64el)
+ifeq ($(DEB_HOST_ARCH),ppc64el)
 DKMS_disabled_modules :=
 ppc64el_only :=
 ppc64el_excluded := \#
@@ -99,6 +99,11 @@ compare-copyright-license: LICENSE.txt
 	diff -w copyright.tmp LICENSE.tmp
 	rm -f copyright.tmp LICENSE.tmp
 
+build-device-create:
+	rm -f $(CURDIR)/debian/device-create/ub-device-create
+	cd $(CURDIR)/debian/device-create/ && $(MAKE) all || exit 1
+	@echo "ub-device-create built"
+
 %:
 	dh $@
 
@@ -120,11 +125,11 @@ override_dh_clean: regen-from-templates
 
 override_dh_auto_configure: prepare regen-from-templates remove-stack-markings
 
-override_dh_install: generate-modaliases
+override_dh_install: generate-modaliases build-device-create
 	# Use our custom dkms.conf file
 	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
 
-ifneq ($(DKMS_disabled_modules), nvidia-uvm)
+ifneq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
 	# Make sure the UVM module is built
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
