@@ -18,6 +18,9 @@ Build-Depends:
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
  libglvnd-dev,
+ libkmod-dev,
+ libpciaccess-dev,
+ pkg-config,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
