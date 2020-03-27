@@ -1,6 +1,15 @@
-nvidia-graphics-drivers-440 (440.64-0ubuntu0~0.18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.64-0ubuntu0~0.18.04.3) bionic; urgency=medium
 
-  * 
+  * debian/rules:
+    - Add more $arch_only and $arch_excluded.
+    - Add the new exclusion naming.
+    - Build uvm unless the arch does not support it.
+    - Add the device-create tool.
+  * debian/templates:
+    - Tidy up the html docs, and sort the lines in the files.
+    - Even out spacing in files
+  * debian/templates/control.in:
+    - Add build-dep on libkmod-dev, libpciaccess-dev, pkg-config.
 
  -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Mar 2020 15:25:09 +0200
 
