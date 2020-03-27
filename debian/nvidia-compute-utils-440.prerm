@@ -18,9 +18,9 @@ stop_nvidia_peristenced() {
 }
 
 case "$1" in
-	upgrade|remove)
-		stop_nvidia_peristenced
-	;;
+    upgrade|remove)
+        stop_nvidia_peristenced
+    ;;
 esac
 
 #DEBHELPER#
