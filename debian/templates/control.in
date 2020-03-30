@@ -231,8 +231,8 @@ Description: Shared files used by the NVIDIA libraries
 Package: libnvidia-extra-#FLAVOUR#
 Architecture: i386 amd64
 Multi-Arch: same
-Breaks: libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
-Replaces: libnvidia-extra, libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
+Breaks: libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu0~0.19.10.3~)
+Replaces: libnvidia-extra, libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu0~0.19.10.3~)
 Provides: libnvidia-extra
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
