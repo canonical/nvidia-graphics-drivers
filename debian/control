@@ -231,8 +231,8 @@ Description: Shared files used by the NVIDIA libraries
 Package: libnvidia-extra-440
 Architecture: i386 amd64
 Multi-Arch: same
-Breaks: libnvidia-common-440 (<< 440.64-0ubuntu0~)
-Replaces: libnvidia-extra, libnvidia-common-440 (<< 440.64-0ubuntu0~)
+Breaks: libnvidia-common-440 (<< 440.64-0ubuntu3~)
+Replaces: libnvidia-extra, libnvidia-common-440 (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
