@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-440 (440.64-0ubuntu0~0.19.10.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.64-0ubuntu0~0.19.10.4) eoan; urgency=medium
 
-  * 
+  * debian/rules:
+    - Merge the fragment file if uvm is not disabled.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Mar 2020 15:49:43 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Mar 2020 15:50:31 +0200
 
 nvidia-graphics-drivers-440 (440.64-0ubuntu0~0.19.10.3) eoan; urgency=medium
 
