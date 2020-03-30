@@ -130,7 +130,7 @@ override_dh_install: generate-modaliases build-device-create
 	# Use our custom dkms.conf file
 	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
 
-ifneq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
+ifeq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
 	# Make sure the UVM module is built
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
