@@ -89,6 +89,7 @@ override_dh_auto_clean:
 	test ! -d debian/po || debconf-updatepo
 	rm -f debian/$(pkg_driver).substvars
 	rm -f debian/dkms.conf
+	rm -f debian/device-create/ub-device-create
 
 override_dh_clean: regen-from-templates
 	dh_clean
