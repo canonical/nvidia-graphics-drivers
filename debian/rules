@@ -169,7 +169,9 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
+ifneq ($(DEB_HOST_ARCH),ppc64el)
 	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
+endif
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
