@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.4) focal; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add build-deps on libxext6, libc6, libx11-6 on ppc64el.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Mar 2020 16:25:52 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Mar 2020 17:11:12 +0200
 
 nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.3) focal; urgency=medium
 
