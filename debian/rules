@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 # Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+export DH_VERBOSE=1
 export NO_DOC_PKG_MANGLE=1
 
 include /usr/share/dpkg/architecture.mk
