@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-compute-utils-440
+# preinst script for nvidia-compute-utils-418-tesla
 #
 # see: dh_installdeb(1)
 #
