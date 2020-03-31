@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.3) focal; urgency=medium
 
-  * 
+  * debian/rules:
+    - Generate nvidia-icd-json if a template for it is found.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Mar 2020 13:57:31 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Mar 2020 14:23:05 +0200
 
 nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.2) focal; urgency=medium
 
