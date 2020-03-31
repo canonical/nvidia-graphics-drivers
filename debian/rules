@@ -140,10 +140,10 @@ ifeq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
-	dh_install -p nvidia-compute-utils-$(version_major)
-	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
+	dh_install -p nvidia-compute-utils-$(flavour)
+	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(flavour)/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
-	dh_install -p nvidia-kernel-common-$(version_major)
+	dh_install -p nvidia-kernel-common-$(flavour)
 
 	dh_install
 
