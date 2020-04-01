@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.3) bionic; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - disable 5.6 support for now.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 23:57:10 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 23:58:21 +0200
 
 nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.2) bionic; urgency=medium
 
