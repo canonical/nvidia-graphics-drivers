@@ -32,7 +32,6 @@ Depends:
  nvidia-dkms-#FLAVOUR# (= ${binary:Version}) [!i386],
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [!i386],
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
- libnvidia-extra-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}) [!i386],
  libnvidia-decode-#FLAVOUR# (= ${binary:Version}),
  libnvidia-encode-#FLAVOUR# (= ${binary:Version}),
