@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-dkms-440
+# preinst script for nvidia-dkms-418-tesla
 #
 # see: dh_installdeb(1)
 #
