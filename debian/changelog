@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
-  * 
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 17:51:40 +0200
+  * Initial release.
+ 
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 18:11:15 +0200
