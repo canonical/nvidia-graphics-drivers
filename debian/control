@@ -21,9 +21,8 @@ Build-Depends:
  libkmod-dev,
  libpciaccess-dev,
  pkg-config,
- libxext-dev [ppc64el],
- libc6-dev [ppc64el],
- libx11-dev [ppc64el],
+ libc6,
+ libx11-6,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
@@ -35,7 +34,6 @@ Depends:
  nvidia-dkms-418-tesla (= ${binary:Version}) [!i386],
  nvidia-kernel-source-418-tesla (= ${binary:Version}) [!i386],
  libnvidia-compute-418-tesla (= ${binary:Version}),
- libnvidia-extra-418-tesla (= ${binary:Version}),
  nvidia-compute-utils-418-tesla (= ${binary:Version}) [!i386],
  libnvidia-decode-418-tesla (= ${binary:Version}),
  libnvidia-encode-418-tesla (= ${binary:Version}),
