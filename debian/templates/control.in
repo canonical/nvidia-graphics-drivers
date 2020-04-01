@@ -21,9 +21,8 @@ Build-Depends:
  libkmod-dev,
  libpciaccess-dev,
  pkg-config,
- libxext-dev [ppc64el],
- libc6-dev [ppc64el],
- libx11-dev [ppc64el],
+ libc6,
+ libx11-6,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
