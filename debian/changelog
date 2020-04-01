@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.20.04.1) focal; urgency=medium
 
-  * 
+  * debian/rules: fix unpack architecture.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 17:41:23 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 17:48:04 +0200
 
 nvidia-graphics-drivers-418-tesla (418.116.00-0ubuntu0~0.20.04.8) focal; urgency=medium
 
