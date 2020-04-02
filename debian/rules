@@ -126,6 +126,12 @@ ifeq ($(DEB_HOST_ARCH),amd64)
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
 
+ifeq ($(DEB_HOST_ARCH),ppc64el)
+	# POWER 9 seems to need this
+	sed -i 's/--user nvidia-persistenced --no-persistence-mode/--user root --persistence-mode/' \
+		 $(CURDIR)/debian/nvidia-compute-utils-$(flavour).nvidia-persistenced.service
+endif
+
 	dh_install -p nvidia-compute-utils-$(flavour)
 	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(flavour)/lib/systemd
 	dh_systemd_enable --name=nvidia-persistenced
