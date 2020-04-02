@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.4) bionic; urgency=medium
 
-  * 
+  * debian/40-vm-hotadd.rules,
+    debian/rules,
+    debian/templates/nvidia-kernel-common-flavour.install.in:
+    - Override 40-vm-hotadd.rules on ppc64el.
+    - Start nvidia-persistenced as root on ppc64el.
+  * Refresh files from templates.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 02 Apr 2020 15:47:54 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 02 Apr 2020 16:26:07 +0200
 
 nvidia-graphics-drivers-418-tesla (418.126.02-0ubuntu0~0.18.04.3) bionic; urgency=medium
 
