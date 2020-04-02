@@ -2,3 +2,4 @@ debian/71-nvidia.rules                       lib/udev/rules.d
 debian/device-create/ub-device-create        sbin
 debian/framebuffer-nvidia                    usr/share/initramfs-tools/hooks
 debian/nvidia-graphics-drivers.conf          lib/modprobe.d
+#PPC64EL_ONLY#debian/40-vm-hotadd.rules      etc/udev/rules.d
