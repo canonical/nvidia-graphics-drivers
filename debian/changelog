@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-440 (440.82-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Apr 2020 12:30:33 +0200
+
 nvidia-graphics-drivers-440 (440.64-0ubuntu3) focal; urgency=medium
 
   * debian/rules:
