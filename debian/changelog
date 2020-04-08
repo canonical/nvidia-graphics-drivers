@@ -1,8 +1,44 @@
-nvidia-graphics-drivers-440 (440.82-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.82-0ubuntu1) focal; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Disable buildfix_kernel_5.6.patch.
+  * New upstream release:
+    - Added a workaround for Steam Play title DOOM Eternal, which
+      overrides application requested memory locations, to ensure
+      performance-critical resources be placed in video memory.
+    - Allow presenting from queue families which only expose
+      VK_QUEUE_COMPUTE_BIT when using XCB in addition to Xlib
+      surfaces.
+    - Fixed a bug that caused render-offloaded applications to crash
+      on exit.
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'timespec_to_ns'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'getrawmonotonic'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'timespec_to_ns'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'getrawmonotonic'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'getnstimeofday'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "dereferencing pointer to incomplete type 'struct
+      timeval'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'jiffies_to_timespec'".
+    - Fixed driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "passing argument 4 of 'proc_create_data' from
+      incompatible pointer type".
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Apr 2020 12:30:33 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Apr 2020 13:16:19 +0200
 
 nvidia-graphics-drivers-440 (440.64-0ubuntu3) focal; urgency=medium
 
