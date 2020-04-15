@@ -29,7 +29,8 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: amd64
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
- nvidia-dkms-#FLAVOUR# (= ${binary:Version}) [!i386] | nvidia-dkms-#FLAVOUR# (= 440.82+really.440.64-0ubuntu4) [!i386],
+ nvidia-dkms-#FLAVOUR# (<= #VERSION#-1) [!i386],
+ nvidia-dkms-#FLAVOUR# (>= #VERSION#) [!i386],
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [!i386],
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  libnvidia-extra-#FLAVOUR# (= ${binary:Version}),
