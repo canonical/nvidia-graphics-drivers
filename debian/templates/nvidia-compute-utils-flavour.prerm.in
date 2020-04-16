@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for nvidia-compute-utils-440
+# prerm script for nvidia-compute-utils-440-erd
 #
 # Copyright (C) 2018 Canonical Ltd
 # Authors: Alberto Milone
@@ -18,9 +18,9 @@ stop_nvidia_peristenced() {
 }
 
 case "$1" in
-	upgrade|remove)
-		stop_nvidia_peristenced
-	;;
+    upgrade|remove)
+        stop_nvidia_peristenced
+    ;;
 esac
 
 #DEBHELPER#

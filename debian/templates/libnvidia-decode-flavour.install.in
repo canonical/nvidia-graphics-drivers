@@ -1,6 +1,6 @@
-#AMD64_ONLY#NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#                #LIBDIR#/vdpau
-#AMD64_ONLY#NVIDIA-Linux/libnvcuvid.so.#VERSION#                     #LIBDIR#
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-opticalflow.so.#VERSION#          #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libvdpau_nvidia.so.#VERSION#              #LIBDIR#/vdpau
-#I386_ONLY#NVIDIA-Linux/32/libnvcuvid.so.#VERSION#                   #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-opticalflow.so.#VERSION#        #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvcuvid.so.#VERSION#                   #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-opticalflow.so.#VERSION#        #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#              #LIBDIR#/vdpau
+#I386_ONLY#NVIDIA-Linux/32/libnvcuvid.so.#VERSION#                    #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-opticalflow.so.#VERSION#         #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libvdpau_nvidia.so.#VERSION#               #LIBDIR#/vdpau

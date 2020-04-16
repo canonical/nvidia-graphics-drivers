@@ -1,2 +1,2 @@
-#PPC64EL_EXCLUDED##AMD64_ONLY#NVIDIA-Linux/libnvidia-fbc.so.#VERSION#    #LIBDIR#
-#PPC64EL_EXCLUDED##I386_ONLY#NVIDIA-Linux/32/libnvidia-fbc.so.#VERSION#    #LIBDIR#
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-fbc.so.#VERSION#          #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-fbc.so.#VERSION#        #LIBDIR#

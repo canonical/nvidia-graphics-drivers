@@ -1,4 +1,2 @@
-#PPC64EL_EXCLUDED##LIBDIR#/libnvidia-fbc.so.#VERSION#                           #LIBDIR#/libnvidia-fbc.so.1
-#PPC64EL_EXCLUDED##LIBDIR#/libnvidia-fbc.so.1                                   #LIBDIR#/libnvidia-fbc.so
-#PPC64EL_EXCLUDED##LIBDIR#/libnvidia-fbc.so.#VERSION#                           #LIBDIR#/libnvidia-fbc.so.1
-#PPC64EL_EXCLUDED##LIBDIR#/libnvidia-fbc.so.1                                   #LIBDIR#/libnvidia-fbc.so
+#PPC64EL_EXCLUDED##LIBDIR#/libnvidia-fbc.so.#VERSION#        #LIBDIR#/libnvidia-fbc.so.1
+#PPC64EL_EXCLUDED##LIBDIR#/libnvidia-fbc.so.1                #LIBDIR#/libnvidia-fbc.so

@@ -1,4 +1,2 @@
-#AMD64_ONLY#NVIDIA-Linux/nvidia-application-profiles-#VERSION#-rc    usr/share/nvidia
-#AMD64_ONLY#NVIDIA-Linux/nvidia-application-profiles-#VERSION#-key-documentation    usr/share/nvidia
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-allocator.so.#VERSION#            #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-allocator.so.#VERSION#          #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-application-profiles-#VERSION#-key-documentation        usr/share/nvidia
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-application-profiles-#VERSION#-rc                       usr/share/nvidia

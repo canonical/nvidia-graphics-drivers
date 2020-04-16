@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for nvidia-dkms-440
+# prerm script for nvidia-dkms-440-erd
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
@@ -17,17 +17,17 @@ remove_dkms_module() {
 }
 
 case "$1" in
-	upgrade)
-		remove_dkms_module
-	;;
-	remove)
-		remove_dkms_module
+    upgrade)
+        remove_dkms_module
+    ;;
+    remove)
+        remove_dkms_module
 
         # Remove any quirks for the driver
         if [ `which quirks-handler` ]; then
             quirks-handler -d $PACKAGE_NAME -v
         fi
-	;;
+    ;;
 esac
 
 #DEBHELPER#

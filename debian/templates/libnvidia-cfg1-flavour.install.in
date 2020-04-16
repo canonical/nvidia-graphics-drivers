@@ -1,1 +1,1 @@
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-cfg.so.#VERSION#                  #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-cfg.so.#VERSION#        #LIBDIR#
