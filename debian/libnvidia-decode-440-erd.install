@@ -1,0 +1,6 @@
+#I386_EXCLUDED#NVIDIA-Linux/libnvcuvid.so.440.64.00                   usr/lib/x86_64-linux-gnu
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-opticalflow.so.440.64.00        usr/lib/x86_64-linux-gnu
+#I386_EXCLUDED#NVIDIA-Linux/libvdpau_nvidia.so.440.64.00              usr/lib/x86_64-linux-gnu/vdpau
+#NVIDIA-Linux/32/libnvcuvid.so.440.64.00                    usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-opticalflow.so.440.64.00         usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libvdpau_nvidia.so.440.64.00               usr/lib/x86_64-linux-gnu/vdpau

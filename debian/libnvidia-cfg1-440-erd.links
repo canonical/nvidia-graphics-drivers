@@ -1,0 +1,2 @@
+#I386_EXCLUDED#usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.440.64.00        usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.1
+#I386_EXCLUDED#usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.1                usr/lib/x86_64-linux-gnu/libnvidia-cfg.so
