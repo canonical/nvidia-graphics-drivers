@@ -31,7 +31,8 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: amd64 ppc64el
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
- nvidia-dkms-#FLAVOUR# (= ${binary:Version}) [!i386],
+ nvidia-dkms-#FLAVOUR# (<= #VERSION#-1) [!i386],
+ nvidia-dkms-#FLAVOUR# (>= #VERSION#) [!i386],
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [!i386],
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}) [!i386],
@@ -52,7 +53,7 @@ Recommends:
  libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
-Description: NVIDIA driver metapackage
+Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
@@ -107,8 +108,8 @@ Conflicts:
  nvidia-utils, nvidia-smi
 Replaces:
  nvidia-utils, nvidia-smi
-Description: NVIDIA driver support binaries
- This package contains supporting binaries for the NVIDIA driver.
+Description: NVIDIA Server Driver support binaries
+ This package contains supporting binaries for the NVIDIA Server Driver.
 
 Package: libnvidia-compute-#FLAVOUR#
 Architecture: i386 amd64 ppc64el
@@ -129,7 +130,7 @@ Replaces: nvidia-opencl-icd, libnvidia-compute-#FLAVOUR# (<< 390.25-0ubuntu2~),
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
 Description: NVIDIA libcompute package
- This package provides a set of libraries which enable the NVIDIA driver
+ This package provides a set of libraries which enable the NVIDIA Server Driver
  to use GPUs for parallel general purpose computation through CUDA and
  OpenCL.
 
@@ -143,7 +144,7 @@ Conflicts: nvidia-persistenced
 Replaces: nvidia-persistenced
 Description: NVIDIA compute utilities
  This package provides utility binaries for paraller general purpose
- computing use cases with the NVIDIA driver.
+ computing use cases with the NVIDIA Server Driver.
  .
  CUDA MPS is a feature that allows multiple CUDA processes to share a single
  GPU context. CUDA MPS should be transparent to CUDA programs.
@@ -164,7 +165,7 @@ Depends:
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
- This metapackage installs the NVIDIA driver and the libraries that enable
+ This metapackage installs the NVIDIA Server Driver and the libraries that enable
  parallel general purpose computation through CUDA and
  OpenCL. DKMS will not be installed, and, therefore, the kernel module
  will not be built.
@@ -179,7 +180,7 @@ Depends:
  nvidia-dkms-#FLAVOUR#,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage
- This metapackage installs the NVIDIA driver and the libraries that enable
+ This metapackage installs the NVIDIA Server Driver and the libraries that enable
  parallel general purpose computation through CUDA and
  OpenCL.
  .

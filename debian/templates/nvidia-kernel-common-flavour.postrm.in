@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-kernel-common-418-tesla
+# postrm script for nvidia-kernel-common-418-server
 #
 # see: dh_installdeb(1)
 #
