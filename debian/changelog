@@ -1,50 +1,27 @@
-nvidia-graphics-drivers-440 (440.82-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.82+really.440.64-0ubuntu6) focal; urgency=medium
 
-  * 
+  * Bump the hard-coded dependency version for lrm to match what's currently
+    in the archive.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Apr 2020 18:33:24 +0200
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 21 Apr 2020 20:18:26 -0700
 
-nvidia-graphics-drivers-440 (440.82-0ubuntu1) focal; urgency=medium
+nvidia-graphics-drivers-440 (440.82+really.440.64-0ubuntu5) focal; urgency=medium
 
-  * debian/templates/dkms_nvidia.conf.in:
-    - Disable buildfix_kernel_5.6.patch.
-  * New upstream release:
-    - Added a workaround for Steam Play title DOOM Eternal, which
-      overrides application requested memory locations, to ensure
-      performance-critical resources be placed in video memory.
-    - Allow presenting from queue families which only expose
-      VK_QUEUE_COMPUTE_BIT when using XCB in addition to Xlib
-      surfaces.
-    - Fixed a bug that caused render-offloaded applications to crash
-      on exit.
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "implicit declaration of function 'timespec_to_ns'".
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "implicit declaration of function 'getrawmonotonic'".
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "implicit declaration of function 'timespec_to_ns'".
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "implicit declaration of function 'getrawmonotonic'".
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "implicit declaration of function 'getnstimeofday'".
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "dereferencing pointer to incomplete type 'struct
-      timeval'".
-    - Fixed a driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "implicit declaration of function 'jiffies_to_timespec'".
-    - Fixed driver installation failure on Linux kernel 5.6 release
-      candidates, where the NVIDIA kernel module failed to build with
-      error "passing argument 4 of 'proc_create_data' from
-      incompatible pointer type".
+  * Reverse the order of the versions of nvidia-dkms-440 in the dependency
+    list, so that apt will default to the real package instead of picking an
+    lrm package at "random" which won't necessarily match the target kernel.
+    LP: #1873867.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Apr 2020 13:16:19 +0200
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 21 Apr 2020 08:17:20 -0700
+
+nvidia-graphics-drivers-440 (440.82+really.440.64-0ubuntu4) focal; urgency=medium
+
+  * roll back to 440.64 to match the linux-restricted-modules in the release
+    pocket.
+  * manually change the dependency to nvidia-dkms-440 (= 440.64-0ubuntu3)
+    | nvidia-dkms-440 (= 440.82+really.440.64-0ubuntu4) for compatibility.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Thu, 16 Apr 2020 14:38:55 -0700
 
 nvidia-graphics-drivers-440 (440.64-0ubuntu3) focal; urgency=medium
 
