@@ -29,7 +29,7 @@ Package: nvidia-driver-440
 Architecture: amd64
 Depends:
  libnvidia-gl-440 (= ${binary:Version}),
- nvidia-dkms-440 (= ${binary:Version}) [!i386],
+ nvidia-dkms-440 (= ${binary:Version}) [!i386] | nvidia-dkms-440 (= 440.82+really.440.64-0ubuntu4) [!i386],
  nvidia-kernel-source-440 (= ${binary:Version}) [!i386],
  libnvidia-compute-440 (= ${binary:Version}),
  libnvidia-extra-440 (= ${binary:Version}),
