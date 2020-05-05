@@ -56,6 +56,7 @@ Recommends:
  libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
+XB-Support: NFB
 Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
