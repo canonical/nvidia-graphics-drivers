@@ -34,6 +34,8 @@ Depends:
  nvidia-dkms-440-server (<= 440.64.00-1) [!i386],
  nvidia-dkms-440-server (>= 440.64.00) [!i386],
  nvidia-kernel-source-440-server (= ${binary:Version}) [!i386],
+ nvidia-kernel-common-440-server (<= 440.64.00-1) [!i386],
+ nvidia-kernel-common-440-server (>= 440.64.00) [!i386],
  libnvidia-compute-440-server (= ${binary:Version}),
  libnvidia-extra-440-server (= ${binary:Version}),
  nvidia-compute-utils-440-server (= ${binary:Version}) [!i386],
@@ -54,6 +56,7 @@ Recommends:
  libnvidia-fbc1-440-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-440-server:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
+XB-Support: NFB
 Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -88,7 +91,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-440-server, nvidia-kernel-common-440-server,
+ dkms, nvidia-kernel-source-440-server,
+ nvidia-kernel-common-440-server (<= 440.64.00-1) [!i386],
+ nvidia-kernel-common-440-server (>= 440.64.00) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -167,6 +172,8 @@ Depends:
  libnvidia-compute-440-server (= ${binary:Version}),
  nvidia-compute-utils-440-server (= ${binary:Version}),
  libnvidia-cfg1-440-server (= ${binary:Version}),
+ nvidia-kernel-common-440-server (<= 440.64.00-1) [!i386],
+ nvidia-kernel-common-440-server (>= 440.64.00) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
