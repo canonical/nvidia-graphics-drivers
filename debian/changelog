@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-440-server (440.64.00-0ubuntu0~0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440-server (440.64.00-0ubuntu0~0.20.04.1) focal; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 17 Apr 2020 11:23:25 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 May 2020 13:04:13 +0200
