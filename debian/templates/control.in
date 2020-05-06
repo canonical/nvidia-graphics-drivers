@@ -34,6 +34,8 @@ Depends:
  nvidia-dkms-#FLAVOUR# (<= #VERSION#-1) [!i386],
  nvidia-dkms-#FLAVOUR# (>= #VERSION#) [!i386],
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [!i386],
+ nvidia-kernel-common-#FLAVOUR# (<= #VERSION#-1) [!i386],
+ nvidia-kernel-common-#FLAVOUR# (>= #VERSION#) [!i386],
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  libnvidia-extra-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}) [!i386],
@@ -88,7 +90,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-#FLAVOUR#, nvidia-kernel-common-#FLAVOUR#,
+ dkms, nvidia-kernel-source-#FLAVOUR#,
+ nvidia-kernel-common-#FLAVOUR# (<= #VERSION#-1) [!i386],
+ nvidia-kernel-common-#FLAVOUR# (>= #VERSION#) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -167,6 +171,8 @@ Depends:
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
+ nvidia-kernel-common-#FLAVOUR# (<= #VERSION#-1) [!i386],
+ nvidia-kernel-common-#FLAVOUR# (>= #VERSION#) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
