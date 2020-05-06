@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-418-server (418.126.02-0ubuntu0~0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.126.02-0ubuntu0~0.20.04.1) focal; urgency=medium
 
-  * 
+  * Initial release. 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Apr 2020 17:51:40 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 06 May 2020 11:34:20 +0200
