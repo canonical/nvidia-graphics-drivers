@@ -34,6 +34,8 @@ Depends:
  nvidia-dkms-418-server (<= 418.126.02-1) [!i386],
  nvidia-dkms-418-server (>= 418.126.02) [!i386],
  nvidia-kernel-source-418-server (= ${binary:Version}) [!i386],
+ nvidia-kernel-common-418-server (<= 418.126.02-1) [!i386],
+ nvidia-kernel-common-418-server (>= 418.126.02) [!i386],
  libnvidia-compute-418-server (= ${binary:Version}),
  nvidia-compute-utils-418-server (= ${binary:Version}) [!i386],
  libnvidia-decode-418-server (= ${binary:Version}),
@@ -53,6 +55,7 @@ Recommends:
  libnvidia-fbc1-418-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-418-server:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
+XB-Support: LTSB
 Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -87,7 +90,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-418-server, nvidia-kernel-common-418-server,
+ dkms, nvidia-kernel-source-418-server,
+ nvidia-kernel-common-418-server (<= 418.126.02-1) [!i386],
+ nvidia-kernel-common-418-server (>= 418.126.02) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -163,6 +168,8 @@ Depends:
  libnvidia-compute-418-server (= ${binary:Version}),
  nvidia-compute-utils-418-server (= ${binary:Version}),
  libnvidia-cfg1-418-server (= ${binary:Version}),
+ nvidia-kernel-common-418-server (<= 418.126.02-1) [!i386],
+ nvidia-kernel-common-418-server (>= 418.126.02) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
@@ -226,8 +233,6 @@ Depends:
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
  libraries.
-
-
 
 Package: xserver-xorg-video-nvidia-418-server
 Section: non-free/x11
