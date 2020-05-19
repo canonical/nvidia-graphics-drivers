@@ -242,6 +242,7 @@ Package: libnvidia-extra-#FLAVOUR#
 Architecture: i386 amd64 ppc64el
 Multi-Arch: same
 Breaks: libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
+Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
