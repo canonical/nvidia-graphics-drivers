@@ -31,17 +31,19 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: amd64
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
- nvidia-dkms-#FLAVOUR# (<= #DEBIAN_VERSION#-1) [!i386],
- nvidia-dkms-#FLAVOUR# (>= #DEBIAN_VERSION#) [!i386],
- nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [!i386],
+ nvidia-dkms-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-dkms-#FLAVOUR# (>= #DEBIAN_VERSION#),
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
+ nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  libnvidia-extra-#FLAVOUR# (= ${binary:Version}),
- nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}) [!i386],
+ nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
  libnvidia-decode-#FLAVOUR# (= ${binary:Version}),
  libnvidia-encode-#FLAVOUR# (= ${binary:Version}),
- nvidia-utils-#FLAVOUR# (= ${binary:Version}) [!i386],
- xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}) [!i386],
- libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}) [!i386],
+ nvidia-utils-#FLAVOUR# (= ${binary:Version}),
+ xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
  libnvidia-ifr1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
  libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
@@ -88,7 +90,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-#FLAVOUR#, nvidia-kernel-common-#FLAVOUR#,
+ dkms, nvidia-kernel-source-#FLAVOUR#,
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -163,6 +167,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
