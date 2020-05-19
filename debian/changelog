@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-440 (440.82.0-0ubuntu2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 May 2020 12:13:11 +0200
+
 nvidia-graphics-drivers-440 (440.82.0-0ubuntu1) groovy; urgency=medium
 
   * debian/templates/control.in,
