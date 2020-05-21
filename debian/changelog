@@ -1,6 +1,14 @@
-nvidia-graphics-drivers-418-server (418.126.02-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.126.02-0ubuntu2) groovy; urgency=medium
 
-  * 
+  * debian/40-vm-hotadd.rules,
+    debian/rules,
+    debian/templates/nvidia-kernel-common-flavour.install.in,
+  * debian/templates/control.in:
+    - Expose the debian version.
+    - Add nvidia-kernel-common dependency.
+  * Override 40-vm-hotadd.rules on ppc64el, and start nvidia-persistenced as root
+  * debian/templates/nvidia-kernel-common-flavour.install.in:
+    - Reorder lines.
 
  -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 May 2020 09:11:13 +0200
 
