@@ -31,19 +31,19 @@ Package: nvidia-driver-440-server
 Architecture: amd64 ppc64el
 Depends:
  libnvidia-gl-440-server (= ${binary:Version}),
- nvidia-dkms-440-server (<= 440.64.00-1) [!i386],
- nvidia-dkms-440-server (>= 440.64.00) [!i386],
- nvidia-kernel-source-440-server (= ${binary:Version}) [!i386],
- nvidia-kernel-common-440-server (<= 440.64.00-1) [!i386],
- nvidia-kernel-common-440-server (>= 440.64.00) [!i386],
+ nvidia-dkms-440-server (<= 440.64.00-1),
+ nvidia-dkms-440-server (>= 440.64.00),
+ nvidia-kernel-common-440-server (<= 440.64.00-1),
+ nvidia-kernel-common-440-server (>= 440.64.00),
+ nvidia-kernel-source-440-server (= ${binary:Version}),
  libnvidia-compute-440-server (= ${binary:Version}),
  libnvidia-extra-440-server (= ${binary:Version}),
- nvidia-compute-utils-440-server (= ${binary:Version}) [!i386],
+ nvidia-compute-utils-440-server (= ${binary:Version}),
  libnvidia-decode-440-server (= ${binary:Version}),
  libnvidia-encode-440-server (= ${binary:Version}),
- nvidia-utils-440-server (= ${binary:Version}) [!i386],
- xserver-xorg-video-nvidia-440-server (= ${binary:Version}) [!i386],
- libnvidia-cfg1-440-server (= ${binary:Version}) [!i386],
+ nvidia-utils-440-server (= ${binary:Version}),
+ xserver-xorg-video-nvidia-440-server (= ${binary:Version}),
+ libnvidia-cfg1-440-server (= ${binary:Version}),
  libnvidia-ifr1-440-server (= ${binary:Version}) [!ppc64el],
  libnvidia-fbc1-440-server (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
@@ -92,8 +92,8 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms, nvidia-kernel-source-440-server,
- nvidia-kernel-common-440-server (<= 440.64.00-1) [!i386],
- nvidia-kernel-common-440-server (>= 440.64.00) [!i386],
+ nvidia-kernel-common-440-server (<= 440.64.00-1),
+ nvidia-kernel-common-440-server (>= 440.64.00),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -168,12 +168,12 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
+ nvidia-kernel-common-440-server (<= 440.64.00-1),
+ nvidia-kernel-common-440-server (>= 440.64.00),
  nvidia-kernel-source-440-server (= ${binary:Version}),
  libnvidia-compute-440-server (= ${binary:Version}),
  nvidia-compute-utils-440-server (= ${binary:Version}),
  libnvidia-cfg1-440-server (= ${binary:Version}),
- nvidia-kernel-common-440-server (<= 440.64.00-1) [!i386],
- nvidia-kernel-common-440-server (>= 440.64.00) [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
@@ -242,6 +242,7 @@ Package: libnvidia-extra-440-server
 Architecture: i386 amd64 ppc64el
 Multi-Arch: same
 Breaks: libnvidia-common-440-server (<< 440.64-0ubuntu3~)
+Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-440-server (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
