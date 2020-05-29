@@ -26,17 +26,20 @@ Package: nvidia-driver-435
 Architecture: amd64
 Depends:
  libnvidia-gl-435 (= ${binary:Version}),
- nvidia-dkms-435 (= ${binary:Version}) [amd64],
- nvidia-kernel-source-435 (= ${binary:Version}) [amd64],
+ nvidia-dkms-435 (<= 435.21-1),
+ nvidia-dkms-435 (>= 435.21),
+ nvidia-kernel-common-435 (<= 435.21-1),
+ nvidia-kernel-common-435 (>= 435.21),
+ nvidia-kernel-source-435 (= ${binary:Version}),
  libnvidia-compute-435 (= ${binary:Version}),
- nvidia-compute-utils-435 (= ${binary:Version}) [amd64],
- libnvidia-decode-435 (= ${binary:Version}) [i386 amd64],
- libnvidia-encode-435 (= ${binary:Version}) [i386 amd64],
- nvidia-utils-435 (= ${binary:Version}) [amd64],
- xserver-xorg-video-nvidia-435 (= ${binary:Version}) [amd64],
- libnvidia-cfg1-435 (= ${binary:Version}) [amd64],
- libnvidia-ifr1-435 (= ${binary:Version}),
- libnvidia-fbc1-435 (= ${binary:Version}),
+ nvidia-compute-utils-435 (= ${binary:Version}),
+ libnvidia-decode-435 (= ${binary:Version}),
+ libnvidia-encode-435 (= ${binary:Version}),
+ nvidia-utils-435 (= ${binary:Version}),
+ xserver-xorg-video-nvidia-435 (= ${binary:Version}),
+ libnvidia-cfg1-435 (= ${binary:Version}),
+ libnvidia-ifr1-435 (= ${binary:Version}) [!ppc64el],
+ libnvidia-fbc1-435 (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
@@ -81,7 +84,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-435, nvidia-kernel-common-435,
+ dkms, nvidia-kernel-source-435,
+ nvidia-kernel-common-435 (<= 435.21-1),
+ nvidia-kernel-common-435 (>= 435.21),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -153,6 +158,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
+ nvidia-kernel-common-435 (<= 435.21-1),
+ nvidia-kernel-common-435 (>= 435.21),
  nvidia-kernel-source-435 (= ${binary:Version}),
  libnvidia-compute-435 (= ${binary:Version}),
  nvidia-compute-utils-435 (= ${binary:Version}),
