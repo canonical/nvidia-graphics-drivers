@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-440 (440.82.0-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.82.0-0ubuntu3) groovy; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add dependency on nvidia-kernel-common.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 May 2020 15:49:36 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 May 2020 11:47:58 +0200
 
 nvidia-graphics-drivers-440 (440.82.0-0ubuntu2) groovy; urgency=medium
 
