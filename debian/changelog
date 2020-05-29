@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-435 (435.21-0ubuntu7) groovy; urgency=medium
+
+  * debian/rules:
+    - Expose the debian version.
+  * debian/templates/control.in:
+    - Add nvidia-kernel-common dependency.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 May 2020 11:58:54 +0200
+
 nvidia-graphics-drivers-435 (435.21-0ubuntu6) focal; urgency=medium
 
   * debian/rules,
