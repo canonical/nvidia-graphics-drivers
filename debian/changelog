@@ -1,8 +1,33 @@
-nvidia-graphics-drivers-440 (440.82-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440 (440.100-0ubuntu0.18.04.1) bionic-security; urgency=medium
 
-  * 
+  * New upstream release (LP: #1882093):
+    - CVE-2020-5963, CVE-2020-5967.
+  * debian/templates/nvidia-compute-utils-flavour.postinst.in:
+    - Remove the --shell argument.
+  * debian/templates/libnvidia-common-flavour.install.in:
+    - Add the new libnvidia-allocator library.
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/disable_fstack-clash-protection_fcf-protection.patch:
+    - Update patch.
+  * debian/templates/dkms_nvidia.conf.in:
+  * Fix the installation path of nvidia_layers.json.
+  * debian/rules:
+    - Add more $arch_only and $arch_excluded.
+    - Fix arch eq condition.
+    - Merge the fragment file if uvm is not disabled.
+    - Expose the debian version.
+    - Build uvm unless the arch does not support it.
+  * debian/templates:
+    - Tidy up the html docs, and sort the lines in the files.
+    - Even out spacing in files.
+  * Add device-create, and use it in the udev rule, to replace
+    nvidia-smi.
+  * debian/templates/control.in:
+    - Add build-dep on libkmod-dev, libpciaccess-dev, pkg-config.
+    - Add Conflicts, Breaks and Replaces for libnvidia-extra.
+    - Add nvidia-kernel-common dependency
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 May 2020 12:17:21 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 May 2020 12:36:41 +0200
 
 nvidia-graphics-drivers-440 (440.59-0ubuntu0.18.04.1) bionic; urgency=medium
 
