@@ -3,7 +3,7 @@ XORG_BOUND		 = (>= 2:1.19.6-1ubuntu2~) | xserver-xorg-core-hwe-18.04
 
 ARCH_LIST		 = amd64
 #ARCH_LIST		+= armhf
-ARCH_LIST		+= ppc64el
+#ARCH_LIST		+= ppc64el
 ARCH_DEPS_i386		 =
 UVM_ARCH_LIST		 = amd64 ppc64el
 
