@@ -26,7 +26,10 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: i386 amd64 armhf
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
- nvidia-dkms-#FLAVOUR# (= ${binary:Version}),
+ nvidia-dkms-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-dkms-#FLAVOUR# (>= #DEBIAN_VERSION#),
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
@@ -81,7 +84,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-#FLAVOUR#, nvidia-kernel-common-#FLAVOUR#,
+ dkms, nvidia-kernel-source-#FLAVOUR#,
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -153,6 +158,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
@@ -228,6 +235,8 @@ Depends:
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts: xorg-driver-binary, nvidia-driver-binary
+Replaces: xorg-driver-binary, nvidia-driver-binary
 Provides:
  xorg-driver-binary, nvidia-driver-binary,
  ${nvidia:xorgProvides}
