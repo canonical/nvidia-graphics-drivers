@@ -1,4 +1,2 @@
-usr/lib/x86_64-linux-gnu/libnvidia-encode.so.440.59                                          usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1
-usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1                                                  usr/lib/x86_64-linux-gnu/libnvidia-encode.so
-usr/lib/x86_64-linux-gnu/libnvidia-encode.so.440.59                                          usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1
-usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1                                                  usr/lib/x86_64-linux-gnu/libnvidia-encode.so
+usr/lib/x86_64-linux-gnu/libnvidia-encode.so.440.100        usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1                usr/lib/x86_64-linux-gnu/libnvidia-encode.so
