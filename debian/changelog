@@ -1,8 +1,44 @@
-nvidia-graphics-drivers-390 (390.138-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.138-0ubuntu1) groovy; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'timespec_to_ns'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'getrawmonotonic'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'getnstimeofday'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "dereferencing pointer to incomplete type 'struct
+      timeval'".
+    - Fixed a driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'jiffies_to_timespec'".
+    - Fixed driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "passing argument 4 of 'proc_create_data' from
+      incompatible pointer type".
+    - Fixed driver installation failure on Linux kernel 5.6 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "implicit declaration of function 'ioremap_nocache'".
+    - Fixed driver installation failure on Oracle Linux 7.7 systems,
+      where the NVIDIA kernel module failed to build with error
+      "unknown type name 'vm_fault_t'".
+    - Add PRIME Synchronization support for Linux kernel 5.4 and
+      newer.
+  * debian/templates/control.in:
+    - make the DKMS dependency less strict.
+    - Use versioned dependencies on nvidia-kernel-common and
+      nvidia-dkms, to keep user space in sync with the kernel modules.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop do-not-call-pci_save_state.patch.
+  * debian/rules:
+    - expose DEBIAN_VERSION.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jun 2020 10:53:43 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 Jun 2020 15:25:37 +0200
 
 nvidia-graphics-drivers-390 (390.132-0ubuntu2) focal; urgency=medium
 
