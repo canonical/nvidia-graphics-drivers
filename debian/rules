@@ -11,6 +11,7 @@ XORG_ABI_LIST		?=
 XORG_BOUND		?=
 
 version			 = $(DEB_VERSION_UPSTREAM)
+debian_version = $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
 NVIDIA_RELEASE   = $(version)
 version_major		 = $(firstword $(subst ., ,$(version)))
 
@@ -181,6 +182,7 @@ regen-from-templates:
 			-e "s|#FLAVOUR#|$(flavour)|g" \
 			-e "s|#DRIVERNAME#|$(pkg_driver)|g" \
 			-e "s|#VERSION#|$(version)|g" \
+			-e "s|#DEBIAN_VERSION#|$(debian_version)|g" \
 			-e "s|#MODULENAME#|$(version)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			$$i > $$dest;      \
