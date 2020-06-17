@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-390 (390.138-0ubuntu0.19.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.138-0ubuntu0.19.10.1) eoan-security; urgency=medium
 
-  * 
+  * New upstream release (LP: #1882093):
+    - CVE-2020-5963, CVE-2020-5967.
+  * debian/templates/control.in:
+    - make the DKMS dependency less strict.
+    - Use versioned dependencies on nvidia-kernel-common and
+      nvidia-dkms, to keep user space in sync with the kernel modules.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop do-not-call-pci_save_state.patch.
+  * debian/rules:
+    - expose DEBIAN_VERSION.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jun 2020 11:45:14 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jun 2020 11:49:19 +0200
 
 nvidia-graphics-drivers-390 (390.132-0ubuntu0.19.10.1) eoan; urgency=medium
 
