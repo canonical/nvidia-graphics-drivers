@@ -11,7 +11,8 @@ include debian/rules.defs
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
 
-version			 = $(DEB_VERSION_UPSTREAM)
+version			 = $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
+debian_version	= $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
 NVIDIA_RELEASE   = $(version)
 version_major		 = $(firstword $(subst ., ,$(version)))
 
@@ -29,16 +30,39 @@ pkg_kernel       := nvidia-kernel-$(flavour)
 ifeq ($(DEB_HOST_ARCH),amd64)
 DKMS_disabled_modules :=
 amd64_only :=
-i386_only := \#
+amd64_excluded := \#
 else
-DKMS_disabled_modules := nvidia-uvm
 amd64_only := \#
+amd64_excluded :=
 endif
 
 ifeq ($(DEB_HOST_ARCH),i386)
-amd64_only := \#
+DKMS_disabled_modules := nvidia-uvm
 i386_only :=
+i386_excluded := \#
+else
+i386_only := \#
+i386_excluded :=
 endif
+
+ifeq ($(DEB_HOST_ARCH),armhf)
+DKMS_disabled_modules := nvidia-uvm
+armhf_only :=
+armhf_excluded := \#
+else
+armhf_only := \#
+armhf_excluded :=
+endif
+
+ifeq ($(DEB_HOST_ARCH),ppc64el)
+DKMS_disabled_modules :=
+ppc64el_only :=
+ppc64el_excluded := \#
+else
+ppc64el_only := \#
+ppc64el_excluded :=
+endif
+
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
@@ -76,6 +100,11 @@ compare-copyright-license: LICENSE.txt
 	diff -w copyright.tmp LICENSE.tmp
 	rm -f copyright.tmp LICENSE.tmp
 
+build-device-create:
+	rm -f $(CURDIR)/debian/device-create/ub-device-create
+	cd $(CURDIR)/debian/device-create/ && $(MAKE) all || exit 1
+	@echo "ub-device-create built"
+
 %:
 	dh $@
 
@@ -89,6 +118,7 @@ override_dh_auto_clean:
 	test ! -d debian/po || debconf-updatepo
 	rm -f debian/$(pkg_driver).substvars
 	rm -f debian/dkms.conf
+	rm -f debian/device-create/ub-device-create
 
 override_dh_clean: regen-from-templates
 	dh_clean
@@ -97,11 +127,11 @@ override_dh_clean: regen-from-templates
 
 override_dh_auto_configure: prepare regen-from-templates remove-stack-markings
 
-override_dh_install: generate-modaliases
+override_dh_install: generate-modaliases build-device-create
 	# Use our custom dkms.conf file
 	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
 
-ifeq ($(DEB_HOST_ARCH),amd64)
+ifeq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
 	# Make sure the UVM module is built
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 endif
@@ -162,12 +192,19 @@ regen-from-templates:
 				 sed -e "s|\.in\$$||g" | \
 				 sed -e "s|flavour|$(flavour)|g"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
-			-e "s|#I386_ONLY#|$(i386_only)|g" \
+			-e "s|#ARMHF_ONLY#|$(armhf_only)|g" \
 			-e "s|#AMD64_ONLY#|$(amd64_only)|g" \
+			-e "s|#I386_ONLY#|$(i386_only)|g" \
+			-e "s|#PPC64EL_ONLY#|$(ppc64el_only)|g" \
+			-e "s|#ARMHF_EXCLUDED#|$(armhf_excluded)|g" \
+			-e "s|#AMD64_EXCLUDED#|$(amd64_excluded)|g" \
+			-e "s|#I386_EXCLUDED#|$(i386_excluded)|g" \
+			-e "s|#PPC64EL_EXCLUDED#|$(ppc64el_excluded)|g" \
 			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
 			-e "s|#FLAVOUR#|$(flavour)|g" \
 			-e "s|#DRIVERNAME#|$(pkg_driver)|g" \
 			-e "s|#VERSION#|$(version)|g" \
+			-e "s|#DEBIAN_VERSION#|$(debian_version)|g" \
 			-e "s|#MODULENAME#|$(version)|g" \
 			-e "s|#DEB_HOST_MULTIARCH#|$(DEB_HOST_MULTIARCH)|g" \
 			$$i > $$dest;      \
