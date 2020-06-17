@@ -1,2 +1,2 @@
-#AMD64_ONLY#NVIDIA-Linux/html/nvidia-debugdump.html
-#AMD64_ONLY#NVIDIA-Linux/html/nvidia-smi.html
+#I386_EXCLUDED#NVIDIA-Linux/html/nvidia-debugdump.html
+#I386_EXCLUDED#NVIDIA-Linux/html/nvidia-smi.html

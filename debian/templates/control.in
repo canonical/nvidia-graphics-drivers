@@ -11,13 +11,18 @@ Build-Depends:
  dpkg-dev (>= 1.17.11~),
  xz-utils,
  dkms,
- libxext6 [!ppc64el],
+ libxext6,
  quilt,
  po-debconf,
  execstack,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
  libglvnd-dev,
+ libkmod-dev,
+ libpciaccess-dev,
+ pkg-config,
+ libc6,
+ libx11-6,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
@@ -26,17 +31,21 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: amd64
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
- nvidia-dkms-#FLAVOUR# (= ${binary:Version}) [amd64],
- nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}) [amd64],
+ nvidia-dkms-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-dkms-#FLAVOUR# (>= #DEBIAN_VERSION#),
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
+ nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
- nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}) [amd64],
- libnvidia-decode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
- libnvidia-encode-#FLAVOUR# (= ${binary:Version}) [i386 amd64],
- nvidia-utils-#FLAVOUR# (= ${binary:Version}) [amd64],
- xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}) [amd64],
- libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}) [amd64],
- libnvidia-ifr1-#FLAVOUR# (= ${binary:Version}),
- libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-extra-#FLAVOUR# (= ${binary:Version}),
+ nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-decode-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-encode-#FLAVOUR# (= ${binary:Version}),
+ nvidia-utils-#FLAVOUR# (= ${binary:Version}),
+ xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-ifr1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
+ libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
@@ -81,7 +90,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-#FLAVOUR#, nvidia-kernel-common-#FLAVOUR#,
+ dkms, nvidia-kernel-source-#FLAVOUR#,
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -114,15 +125,18 @@ Provides: nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
+ libcuda-10.2-1,
  libcuda1 (= ${source:Version})
 Conflicts: nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
+ libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
+ libcuda-10.2-1
 Replaces: nvidia-opencl-icd, libnvidia-compute-#FLAVOUR# (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1
+ libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
+ libcuda-10.2-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
  to use GPUs for parallel general purpose computation through CUDA and
@@ -153,6 +167,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  nvidia-kernel-source-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  nvidia-compute-utils-#FLAVOUR# (= ${binary:Version}),
@@ -220,6 +236,19 @@ Depends:
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
  libraries.
+
+Package: libnvidia-extra-#FLAVOUR#
+Architecture: i386 amd64
+Multi-Arch: same
+Breaks: libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
+Conflicts: libnvidia-extra
+Replaces: libnvidia-extra, libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
+Provides: libnvidia-extra
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Description: Extra libraries for the NVIDIA driver
+ This package provides an additional set of libraries to be used with
+ the NVIDIA driver.
 
 Package: xserver-xorg-video-nvidia-#FLAVOUR#
 Section: non-free/x11
