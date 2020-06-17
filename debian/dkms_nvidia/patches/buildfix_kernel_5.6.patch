@@ -1,202 +1,91 @@
-From 2a292037e97991dbfc2c291d87119c7bf0cd50be Mon Sep 17 00:00:00 2001
+From c66456230a533e10c24b77ccbe4b8235ed0719c8 Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
-Date: Thu, 12 Mar 2020 16:03:30 +0100
+Date: Wed, 17 Jun 2020 18:47:59 +0200
 Subject: [PATCH 1/1] Add support for Linux 5.6
 
 ---
- common/inc/nv-procfs.h               | 54 ++++++++++++++++++-
- common/inc/nv-time.h                 | 80 ++++++++++++++++++++++++++++
- conftest.sh                          | 50 +++++++++++++++++
- nvidia-modeset/nvidia-modeset.Kbuild |  4 +-
- nvidia-uvm/nvidia-uvm.Kbuild         |  2 +
- nvidia/linux_nvswitch.c              |  1 +
- nvidia/nv-procfs.c                   | 65 ++++++++++++++++++++++
- nvidia/nvidia.Kbuild                 |  2 +
- nvidia/nvlink_linux.c                |  1 -
- 9 files changed, 256 insertions(+), 3 deletions(-)
+ conftest.sh                              | 204 ++++++++++++++++++++++-
+ nvidia-drm/nvidia-drm-connector.c        | 170 +++++++++----------
+ nvidia-drm/nvidia-drm-connector.h        |   2 +
+ nvidia-drm/nvidia-drm-crtc.h             |   3 +
+ nvidia-drm/nvidia-drm-drv.c              |  20 +++
+ nvidia-drm/nvidia-drm-fb.h               |   7 +
+ nvidia-drm/nvidia-drm-gem-nvkms-memory.c |   4 +
+ nvidia-drm/nvidia-drm-gem-user-memory.c  |   4 +
+ nvidia-drm/nvidia-drm-gem.c              |   9 +
+ nvidia-drm/nvidia-drm-gem.h              |   7 +
+ nvidia-drm/nvidia-drm-helper.c           |   3 +
+ nvidia-drm/nvidia-drm-helper.h           |  96 +++++++++++
+ nvidia-drm/nvidia-drm-linux.c            |   4 +
+ nvidia-drm/nvidia-drm-modeset.c          |   8 +
+ nvidia-drm/nvidia-drm-modeset.h          |   5 +-
+ nvidia-drm/nvidia-drm-os-interface.h     |   2 +-
+ nvidia-drm/nvidia-drm-prime-fence.c      |   4 +
+ nvidia-drm/nvidia-drm-prime-fence.h      |   3 +-
+ nvidia-drm/nvidia-drm-priv.h             |   8 +
+ nvidia-drm/nvidia-drm-utils.c            |  11 ++
+ nvidia-drm/nvidia-drm-utils.h            |   4 +-
+ nvidia-drm/nvidia-drm.Kbuild             |   1 +
+ 22 files changed, 484 insertions(+), 95 deletions(-)
 
-diff --git a/common/inc/nv-procfs.h b/common/inc/nv-procfs.h
-index 8b53f86..7e1bfed 100644
---- a/common/inc/nv-procfs.h
-+++ b/common/inc/nv-procfs.h
-@@ -28,6 +28,18 @@
- 
- #define IS_EXERCISE_ERROR_FORWARDING_ENABLED() (EXERCISE_ERROR_FORWARDING)
- 
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+#define NV_CREATE_PROC_FILE(filename,parent,__name,__data)               \
-+   ({                                                                    \
-+        struct proc_dir_entry *__entry;                                  \
-+        int mode = (S_IFREG | S_IRUGO);                                  \
-+        const struct proc_ops *fops = &nv_procfs_##__name##_fops;		 \
-+        if (fops->proc_write != 0)                                            \
-+            mode |= S_IWUSR;                                             \
-+        __entry = proc_create_data(filename, mode, parent, fops, __data);\
-+        __entry;                                                         \
-+    })
-+#else
- #define NV_CREATE_PROC_FILE(filename,parent,__name,__data)               \
-    ({                                                                    \
-         struct proc_dir_entry *__entry;                                  \
-@@ -38,6 +50,7 @@
-         __entry = proc_create_data(filename, mode, parent, fops, __data);\
-         __entry;                                                         \
-     })
-+#endif
- 
- /*
-  * proc_mkdir_mode exists in Linux 2.6.9, but isn't exported until Linux 3.0.
-@@ -77,6 +90,45 @@
-     remove_proc_entry(entry->name, entry->parent);
- #endif
- 
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+#define NV_DEFINE_SINGLE_PROCFS_FILE(name, open_callback, close_callback)     \
-+    static int nv_procfs_open_##name(                                         \
-+        struct inode *inode,                                                  \
-+        struct file *filep                                                    \
-+    )                                                                         \
-+    {                                                                         \
-+        int ret;                                                              \
-+        ret = single_open(filep, nv_procfs_read_##name,                       \
-+                          NV_PDE_DATA(inode));                                \
-+        if (ret < 0)                                                          \
-+        {                                                                     \
-+            return ret;                                                       \
-+        }                                                                     \
-+        ret = open_callback();                                                \
-+        if (ret < 0)                                                          \
-+        {                                                                     \
-+            single_release(inode, filep);                                     \
-+        }                                                                     \
-+        return ret;                                                           \
-+    }                                                                         \
-+                                                                              \
-+    static int nv_procfs_release_##name(                                      \
-+        struct inode *inode,                                                  \
-+        struct file *filep                                                    \
-+    )                                                                         \
-+    {                                                                         \
-+        close_callback();                                                     \
-+        return single_release(inode, filep);                                  \
-+    }                                                                         \
-+                                                                              \
-+    static const struct proc_ops nv_procfs_##name##_fops = {           \
-+        .proc_open       = nv_procfs_open_##name,                                  \
-+        .proc_read       = seq_read,                                               \
-+        .proc_lseek     = seq_lseek,                                              \
-+        .proc_release    = nv_procfs_release_##name,                               \
-+    };
-+
-+#else
- #define NV_DEFINE_SINGLE_PROCFS_FILE(name, open_callback, close_callback)     \
-     static int nv_procfs_open_##name(                                         \
-         struct inode *inode,                                                  \
-@@ -114,7 +166,7 @@
-         .llseek     = seq_lseek,                                              \
-         .release    = nv_procfs_release_##name,                               \
-     };
--
-+#endif
- #endif  /* CONFIG_PROC_FS */
- 
- #endif /* _NV_PROCFS_H */
-diff --git a/common/inc/nv-time.h b/common/inc/nv-time.h
-index 968b873..5714e41 100644
---- a/common/inc/nv-time.h
-+++ b/common/inc/nv-time.h
-@@ -27,6 +27,86 @@
- 
- #include <linux/ktime.h>
- 
-+#ifndef NV_TIME_STRUCTS_PRESENT
-+struct timespec {
-+    __kernel_old_time_t tv_sec;     /* seconds */
-+    long            tv_nsec;    /* nanoseconds */
-+};
-+
-+struct timeval {
-+    __kernel_old_time_t tv_sec;     /* seconds */
-+    __kernel_suseconds_t    tv_usec;    /* microseconds */
-+};
-+
-+struct itimerspec {
-+    struct timespec it_interval;/* timer period */
-+    struct timespec it_value;   /* timer expiration */
-+};
-+
-+struct itimerval {
-+    struct timeval it_interval;/* timer interval */
-+    struct timeval it_value;    /* current value */
-+};
-+
-+
-+/* timespec64 is defined as timespec here */
-+static inline struct timespec timespec64_to_timespec(const struct timespec64 ts64)
-+{
-+       return *(const struct timespec *)&ts64;
-+}
-+
-+static inline struct timespec64 timespec_to_timespec64(const struct timespec ts)
-+{
-+       return *(const struct timespec64 *)&ts;
-+}
-+
-+static inline s64 timespec_to_ns(const struct timespec *ts)
-+{
-+       return ((s64) ts->tv_sec * NSEC_PER_SEC) + ts->tv_nsec;
-+}
-+
-+static inline unsigned long timespec_to_jiffies(const struct timespec *value)
-+{
-+       struct timespec64 ts = timespec_to_timespec64(*value);
-+
-+       return timespec64_to_jiffies(&ts);
-+}
-+
-+static inline void jiffies_to_timespec(const unsigned long jiffies,
-+                                      struct timespec *value)
-+{
-+       struct timespec64 ts;
-+
-+       jiffies_to_timespec64(jiffies, &ts);
-+       *value = timespec64_to_timespec(ts);
-+}
-+
-+static inline void getnstimeofday(struct timespec *ts)
-+{
-+       struct timespec64 ts64;
-+
-+       ktime_get_real_ts64(&ts64);
-+       *ts = timespec64_to_timespec(ts64);
-+}
-+
-+static inline void getrawmonotonic(struct timespec *ts)
-+{
-+       struct timespec64 ts64;
-+
-+       ktime_get_raw_ts64(&ts64);
-+       *ts = timespec64_to_timespec(ts64);
-+}
-+
-+extern struct timespec timespec64_to_timespec(const struct timespec64 ts64);
-+extern struct timespec64 timespec_to_timespec64(const struct timespec ts);
-+extern unsigned long timespec_to_jiffies(const struct timespec *value);
-+extern void jiffies_to_timespec(const unsigned long jiffies,
-+                                struct timespec *value);
-+extern void getnstimeofday(struct timespec *ts);
-+extern s64 timespec_to_ns(const struct timespec *ts);
-+extern void getrawmonotonic(struct timespec *ts);
-+#endif
-+
- static inline void nv_gettimeofday(struct timeval *tv)
- {
- #ifdef NV_DO_GETTIMEOFDAY_PRESENT
 diff --git a/conftest.sh b/conftest.sh
-index e44e5c3..7bb1811 100755
+index 869bd39..301463a 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -1270,6 +1270,40 @@ compile_test() {
+@@ -95,7 +95,6 @@ test_headers() {
+     # Determine which header files (of a set that may or may not be
+     # present) are provided by the target kernel.
+     #
+-    FILES="asm/system.h"
+     FILES="$FILES drm/drmP.h"
+     FILES="$FILES drm/drm_auth.h"
+     FILES="$FILES drm/drm_gem.h"
+@@ -108,6 +107,13 @@ test_headers() {
+     FILES="$FILES drm/drm_framebuffer.h"
+     FILES="$FILES drm/drm_connector.h"
+     FILES="$FILES drm/drm_probe_helper.h"
++    FILES="$FILES drm/drm_blend.h"
++    FILES="$FILES drm/drm_prime.h"
++    FILES="$FILES drm/drm_plane.h"
++    FILES="$FILES drm/drm_vblank.h"
++    FILES="$FILES drm/drm_file.h"
++    FILES="$FILES drm/drm_ioctl.h"
++    FILES="$FILES drm/drm_device.h"
+     FILES="$FILES generated/autoconf.h"
+     FILES="$FILES generated/compile.h"
+     FILES="$FILES generated/utsrelease.h"
+@@ -127,7 +133,10 @@ test_headers() {
+     FILES="$FILES xen/ioemu.h"
+     FILES="$FILES linux/fence.h"
+     FILES="$FILES linux/dma-resv.h"
++    FILES="$FILES soc/tegra/chip-id.h"
++    FILES="$FILES video/nv_internal.h"
+     FILES="$FILES linux/atomic.h"
++    FILES="$FILES sound/hdaudio.h"
+ 
+     # Arch specific headers which need testing
+     FILES_ARCH="asm/book3s/64/hash-64k.h"
+@@ -1266,9 +1275,19 @@ compile_test() {
+             #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
+             #endif
++
++            #if defined(NV_DRM_DRM_DRV_H_PRESENT)
++            #include <drm/drm_drv.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_PRIME_H_PRESENT)
++            #include <drm/drm_prime.h>
++            #endif
++
+             #if !defined(CONFIG_DRM) && !defined(CONFIG_DRM_MODULE)
+             #error DRM not enabled
+             #endif
++
+             void conftest_drm_available(void) {
+                 struct drm_driver drv;
+ 
+@@ -1370,6 +1389,40 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_PROC_REMOVE_PRESENT" "" "functions"
          ;;
  
@@ -234,249 +123,993 @@ index e44e5c3..7bb1811 100755
 +            compile_check_conftest "$CODE" "NV_PROCFS_PROC_OPS_PRESENT" "" "types"
 +        ;;
 +
-         backing_dev_info)
+         vm_operations_struct)
              #
-             # Determine if the 'address_space' structure has
-@@ -2905,6 +2939,22 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_TIMER_SETUP_PRESENT" "" "functions"
+             # 'fault' added in 2.6.23
+@@ -1903,7 +1956,10 @@ compile_test() {
+             # in v3.18 (2014-08-29)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             void conftest_drm_bus_present(void) {
+                 struct drm_bus bus;
+             }"
+@@ -1922,7 +1978,10 @@ compile_test() {
+             # in v3.16 (2013-11-03)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             int conftest_drm_bus_has_bus_type(void) {
+                 return offsetof(struct drm_bus, bus_type);
+             }"
+@@ -1941,7 +2000,10 @@ compile_test() {
+             # implementations") in v3.16 (2013-11-03)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             int conftest_drm_bus_has_get_irq(void) {
+                 return offsetof(struct drm_bus, get_irq);
+             }"
+@@ -1960,7 +2022,10 @@ compile_test() {
+             # in v3.16 (2013-11-03)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             int conftest_drm_bus_has_get_name(void) {
+                 return offsetof(struct drm_bus, get_name);
+             }"
+@@ -1977,7 +2042,14 @@ compile_test() {
+             # attached drivers") in v3.14 (2013-12-11)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_DRV_H_PRESENT)
++            #include <drm/drm_drv.h>
++            #endif
++
+             int conftest_drm_driver_has_legacy_dev_list(void) {
+                 return offsetof(struct drm_driver, legacy_dev_list);
+             }"
+@@ -2016,7 +2088,13 @@ compile_test() {
+             #   2017-07-23  e6fc3b68558e4c6d8d160b5daf2511b99afa8814
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_CRTC_H_PRESENT)
++            #include <drm/drm_crtc.h>
++            #endif
+ 
+             int conftest_drm_crtc_init_with_planes_has_name_arg(void) {
+                 return
+@@ -2032,7 +2110,13 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_CRTC_INIT_WITH_PLANES_HAS_NAME_ARG" "" "types"
+ 
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_ENCODER_H_PRESENT)
++            #include <drm/drm_encoder.h>
++            #endif
+ 
+             int conftest_drm_encoder_init_has_name_arg(void) {
+                 return
+@@ -2047,7 +2131,13 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_ENCODER_INIT_HAS_NAME_ARG" "" "types"
+ 
+             echo "$CONFTEST_PREAMBLE
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_PLANE_H_PRESENT)
++            #include <drm/drm_plane.h>
++            #endif
+ 
+             int conftest_drm_universal_plane_init_has_format_modifiers_arg(void) {
+                 return
+@@ -2074,7 +2164,13 @@ compile_test() {
+                 echo "#undef NV_DRM_UNIVERSAL_PLANE_INIT_HAS_FORMAT_MODIFIERS_ARG" | append_conftest "types"
+ 
+                 echo "$CONFTEST_PREAMBLE
++                #if defined(NV_DRM_DRMP_H_PRESENT)
+                 #include <drm/drmP.h>
++                #endif
++
++                #if defined(NV_DRM_DRM_PLANE_H_PRESENT)
++                #include <drm/drm_plane.h>
++                #endif
+ 
+                 int conftest_drm_universal_plane_init_has_name_arg(void) {
+                     return
+@@ -2112,7 +2208,9 @@ compile_test() {
+             # in v4.5 (2015-12-03)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
+             void conftest_drm_mode_connector_list_update_has_merge_type_bits_arg(void) {
+                 drm_mode_connector_list_update(
+                     NULL,  /* struct drm_connector *connector */
+@@ -2147,7 +2245,10 @@ compile_test() {
+             # callback") in v3.18 (2014-08-29)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             int conftest_drm_driver_has_set_busid(void) {
+                 return offsetof(struct drm_driver, set_busid);
+             }"
+@@ -2167,7 +2268,10 @@ compile_test() {
+             # gem_prime_res_obj hook) in v5.4.
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             int conftest_drm_driver_has_gem_prime_res_obj(void) {
+                 return offsetof(struct drm_driver, gem_prime_res_obj);
+             }"
+@@ -2663,7 +2767,10 @@ compile_test() {
+             # in v4.8 (2016-06-21)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             void conftest_drm_master_drop_has_from_release_arg(struct drm_driver *drv) {
+                 drv->master_drop(NULL, NULL, false);
+             }"
+@@ -2671,6 +2778,25 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_MASTER_DROP_HAS_FROM_RELEASE_ARG" "" "types"
          ;;
  
-+        timeval_structs)
++        drm_atomic_state_ref_counting)
 +            #
-+            # Determine if timespec and timeval structs are present.
++            # Determine if functions drm_atomic_state_get/put() are
++            # present.
 +            #
-+            # Hidden by commit c766d1472c70 ("y2038: hide timeval/timespec/itimerval/
-+            # itimerspec types") (2020-02-20)
++            # Added by commit 0853695c3ba4 ("drm: Add reference counting to
++            # drm_atomic_state") in v4.10 (2016-10-14)
 +            #
 +            CODE="
-+            #include <linux/time.h>
-+            void conftest_timeval_structs(void) {
-+                struct timeval tmp;
++            #if defined(NV_DRM_DRM_ATOMIC_H_PRESENT)
++            #include <drm/drm_atomic.h>
++            #endif
++            void conftest_drm_atomic_state_get(void) {
++                drm_atomic_state_get();
 +            }"
-+            compile_check_conftest "$CODE" "NV_TIME_STRUCTS_PRESENT" "" "types"
++
++            compile_check_conftest "$CODE" "NV_DRM_ATOMIC_STATE_REF_COUNTING_PRESENT" "" "functions"
 +        ;;
 +
-+
-         radix_tree_replace_slot)
+         drm_mode_config_funcs_has_atomic_state_alloc)
              #
-             # Determine if the radix_tree_replace_slot() function is
-diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
-index 349b337..bb45fa5 100644
---- a/nvidia-modeset/nvidia-modeset.Kbuild
-+++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -83,9 +83,11 @@ NV_OBJECTS_DEPEND_ON_CONFTEST += $(NVIDIA_MODESET_OBJECTS)
- NV_CONFTEST_TYPE_COMPILE_TESTS += file_inode
- NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations
- NV_CONFTEST_TYPE_COMPILE_TESTS += node_states_n_memory
-+NV_CONFTEST_TYPE_COMPILE_TESTS += timeval_structs
-+NV_CONFTEST_TYPE_COMPILE_TESTS += proc_create
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_remove
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += timer_setup
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += do_gettimeofday
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += kthread_create_on_node
--NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_kthread_create_on_node
-\ No newline at end of file
-+NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_kthread_create_on_node
-diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
-index 64cdc26..11f4963 100644
---- a/nvidia-uvm/nvidia-uvm.Kbuild
-+++ b/nvidia-uvm/nvidia-uvm.Kbuild
-@@ -113,3 +113,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += node_states_n_memory
- NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
- NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
- NV_CONFTEST_TYPE_COMPILE_TESTS += vm_fault_t
-+NV_CONFTEST_TYPE_COMPILE_TESTS += timeval_structs
-+NV_CONFTEST_TYPE_COMPILE_TESTS += proc_create
-diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
-index 1d2c1bc..e3560c9 100644
---- a/nvidia/linux_nvswitch.c
-+++ b/nvidia/linux_nvswitch.c
-@@ -26,6 +26,7 @@
- #include "conftest.h"
- #include "nvmisc.h"
- #include "nv-linux.h"
-+#include "nv-time.h"
- #include "nv-procfs.h"
- #include "nvlink_common.h"
- #include "nvlink_errors.h"
-diff --git a/nvidia/nv-procfs.c b/nvidia/nv-procfs.c
-index 064d727..fc4eefe 100644
---- a/nvidia/nv-procfs.c
-+++ b/nvidia/nv-procfs.c
-@@ -452,6 +452,15 @@ done:
-     return ((status < 0) ? status : (int)count);
+             # Determine if the 'drm_mode_config_funcs' structure has
+@@ -2680,6 +2806,9 @@ compile_test() {
+             # to subclass drm_atomic_state, v3") in v4.2 (2015-05-18)
+             #
+             CODE="
++            #if defined(NV_DRM_DRM_ATOMIC_H_PRESENT)
++            #include <drm/drm_atomic.h>
++            #endif
+             #include <drm/drm_crtc.h>
+             int conftest_drm_mode_config_funcs_has_atomic_state_alloc(void) {
+                 return offsetof(struct drm_mode_config_funcs, atomic_state_alloc);
+@@ -2697,6 +2826,9 @@ compile_test() {
+             # commit support") in v4.8 (2016-06-08)
+             #
+             CODE="
++            #if defined(NV_DRM_DRM_ATOMIC_H_PRESENT)
++            #include <drm/drm_atomic.h>
++            #endif
+             #include <drm/drm_crtc.h>
+             int conftest_drm_atomic_modeset_nonblocking_commit_available(void) {
+                 return offsetof(struct drm_mode_config, helper_private);
+@@ -2830,7 +2962,9 @@ compile_test() {
+             # type of the unload hook to void") in v4.11 (2017-01-06)
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
+ 
+             int conftest_drm_driver_unload_has_int_return_type(struct drm_driver *drv) {
+                 return drv->unload(NULL /* dev */);
+@@ -3232,14 +3366,18 @@ compile_test() {
+             #
+             # Determine if the function drm_framebuffer_get() is present.
+             #
+-            # Added by commit a4a69da06bc11a937a6e417938b1bb698ee1fa46 (drm:
+-            # Introduce drm_framebuffer_{get,put}()) on 2017-02-28.
++            # Added by commit a4a69da06bc1 ("drm: Introduce
++            # drm_framebuffer_{get,put}()") in v4.12 (2017-02-28).
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             #if defined(NV_DRM_DRM_FRAMEBUFFER_H_PRESENT)
+             #include <drm/drm_framebuffer.h>
+             #endif
++
+             void conftest_drm_framebuffer_get(void) {
+                 drm_framebuffer_get();
+             }"
+@@ -3251,11 +3389,14 @@ compile_test() {
+             #
+             # Determine if the function drm_gem_object_get() is present.
+             #
+-            # Added by commit e6b62714e87c8811d5564b6a0738dcde63a51774 (drm:
+-            # Introduce drm_gem_object_{get,put}()) on 2017-02-28.
++            # Added by commit e6b62714e87c ("drm: Introduce
++            # drm_gem_object_{get,put}()") in v4.12 (2017-02-28).
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             #if defined(NV_DRM_DRM_GEM_H_PRESENT)
+             #include <drm/drm_gem.h>
+             #endif
+@@ -3270,11 +3411,14 @@ compile_test() {
+             #
+             # Determine if the function drm_dev_put() is present.
+             #
+-            # Added by commit 9a96f55034e41b4e002b767e9218d55f03bdff7d (drm:
+-            # introduce drm_dev_{get/put} functions) on 2017-09-26.
++            # Added by commit 9a96f55034e4 ("drm: introduce drm_dev_{get/put}
++            # functions") in v4.15 (2017-09-26).
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             #if defined(NV_DRM_DRM_DRV_H_PRESENT)
+             #include <drm/drm_drv.h>
+             #endif
+@@ -3399,10 +3543,14 @@ compile_test() {
+             # (2019-01-29).
+             #
+             CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
+             #include <drm/drmP.h>
++            #endif
++
+             #if defined(NV_DRM_DRM_DRV_H_PRESENT)
+             #include <drm/drm_drv.h>
+             #endif
++
+             unsigned int drm_driver_prime_flag_present_conftest(void) {
+                 return DRIVER_PRIME;
+             }"
+@@ -3410,6 +3558,48 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_DRIVER_PRIME_FLAG_PRESENT" "" "types"
+         ;;
+ 
++        drm_connector_for_each_possible_encoder)
++            #
++            # Determine the number of arguments of the
++            # drm_connector_for_each_possible_encoder() macro.
++            #
++            # drm_connector_for_each_possible_encoder() is added by commit
++            # 83aefbb887b5 (drm: Add drm_connector_for_each_possible_encoder())
++            # in v4.19. The definition and prorotype is changed to take only
++            # two arguments connector and encoder, by commit 62afb4ad425a
++            # (drm/connector: Allow max possible encoders to attach to a
++            # connector) in v5.5rc1.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #if defined(NV_DRM_DRMP_H_PRESENT)
++            #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_CONNECTOR_H_PRESENT)
++            #include <drm/drm_connector.h>
++            #endif
++
++            void conftest_drm_connector_for_each_possible_encoder(
++                struct drm_connector *connector,
++                struct drm_encoder *encoder,
++                int i) {
++
++                drm_connector_for_each_possible_encoder(connector, encoder, i) {
++                }
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                echo "#define NV_DRM_CONNECTOR_FOR_EACH_POSSIBLE_ENCODER_ARGUMENT_COUNT 3" | append_conftest "functions"
++                rm -f conftest$$.o
++                return
++            else
++                echo "#define NV_DRM_CONNECTOR_FOR_EACH_POSSIBLE_ENCODER_ARGUMENT_COUNT 2" | append_conftest "functions"
++            fi
++        ;;
++
+         drm_gem_object_has_resv)
+             #
+             # Determine if the 'drm_gem_object' structure has a 'resv' field.
+diff --git a/nvidia-drm/nvidia-drm-connector.c b/nvidia-drm/nvidia-drm-connector.c
+index 857bb2c..54167a7 100644
+--- a/nvidia-drm/nvidia-drm-connector.c
++++ b/nvidia-drm/nvidia-drm-connector.c
+@@ -58,20 +58,100 @@ static void nv_drm_connector_destroy(struct drm_connector *connector)
+     nv_drm_free(nv_connector);
  }
  
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+static struct proc_ops nv_procfs_registry_fops = {
-+    .proc_open    = nv_procfs_open_registry,
-+    .proc_read    = seq_read,
-+    .proc_write   = nv_procfs_write_file,
-+    .proc_lseek  = seq_lseek,
-+    .proc_release = nv_procfs_close_registry,
-+};
-+#else
- static struct file_operations nv_procfs_registry_fops = {
-     .owner   = THIS_MODULE,
-     .open    = nv_procfs_open_registry,
-@@ -460,6 +469,7 @@ static struct file_operations nv_procfs_registry_fops = {
-     .llseek  = seq_lseek,
-     .release = nv_procfs_close_registry,
- };
++static bool
++__nv_drm_detect_encoder(struct NvKmsKapiDynamicDisplayParams *pDetectParams,
++                        struct drm_connector *connector,
++                        struct drm_encoder *encoder)
++{
++    struct nv_drm_connector *nv_connector = to_nv_connector(connector);
++    struct drm_device *dev = connector->dev;
++    struct nv_drm_device *nv_dev = to_nv_device(dev);
++    struct nv_drm_encoder *nv_encoder;
++
++    /*
++     * DVI-I connectors can drive both digital and analog
++     * encoders.  If a digital connection has been forced then
++     * skip analog encoders.
++     */
++
++    if (connector->connector_type == DRM_MODE_CONNECTOR_DVII &&
++        connector->force == DRM_FORCE_ON_DIGITAL &&
++        encoder->encoder_type == DRM_MODE_ENCODER_DAC) {
++        return false;
++    }
++
++    nv_encoder = to_nv_encoder(encoder);
++
++    memset(pDetectParams, 0, sizeof(*pDetectParams));
++
++    pDetectParams->handle = nv_encoder->hDisplay;
++
++    switch (connector->force) {
++        case DRM_FORCE_ON:
++        case DRM_FORCE_ON_DIGITAL:
++            pDetectParams->forceConnected = NV_TRUE;
++            break;
++        case DRM_FORCE_OFF:
++            pDetectParams->forceDisconnected = NV_TRUE;
++            break;
++        case DRM_FORCE_UNSPECIFIED:
++            break;
++    }
++
++    if (connector->override_edid) {
++        const struct drm_property_blob *edid = connector->edid_blob_ptr;
++
++        if (edid->length <= sizeof(pDetectParams->edid.buffer)) {
++            memcpy(pDetectParams->edid.buffer, edid->data, edid->length);
++            pDetectParams->edid.bufferSize = edid->length;
++            pDetectParams->overrideEdid = NV_TRUE;
++        } else {
++            WARN_ON(edid->length >
++                    sizeof(pDetectParams->edid.buffer));
++        }
++    }
++
++    if (!nvKms->getDynamicDisplayInfo(nv_dev->pDevice, pDetectParams)) {
++        NV_DRM_DEV_LOG_ERR(
++            nv_dev,
++            "Failed to detect display state");
++        return false;
++    }
++
++    if (pDetectParams->connected) {
++        if (!pDetectParams->overrideEdid && pDetectParams->edid.bufferSize) {
++
++            if ((nv_connector->edid = nv_drm_calloc(
++                        1,
++                        pDetectParams->edid.bufferSize)) != NULL) {
++
++                memcpy(nv_connector->edid,
++                       pDetectParams->edid.buffer,
++                       pDetectParams->edid.bufferSize);
++            } else {
++                NV_DRM_LOG_ERR("Out of Memory");
++            }
++        }
++
++        return true;
++    }
++
++    return false;
++}
++
+ static enum drm_connector_status __nv_drm_connector_detect_internal(
+     struct drm_connector *connector)
+ {
+     struct drm_device *dev = connector->dev;
+-    struct nv_drm_device *nv_dev = to_nv_device(dev);
+     struct nv_drm_connector *nv_connector = to_nv_connector(connector);
+ 
+     enum drm_connector_status status = connector_status_disconnected;
+ 
+     struct drm_encoder *detected_encoder = NULL;
+     struct nv_drm_encoder *nv_detected_encoder = NULL;
++    struct drm_encoder *encoder;
+ 
+     struct NvKmsKapiDynamicDisplayParams *pDetectParams = NULL;
+-    unsigned int i;
+ 
+     BUG_ON(!mutex_is_locked(&dev->mode_config.mutex));
+ 
+@@ -87,90 +167,12 @@ static enum drm_connector_status __nv_drm_connector_detect_internal(
+         goto done;
+     }
+ 
+-    for (i = 0;
+-         i < DRM_CONNECTOR_MAX_ENCODER && detected_encoder == NULL; i++) {
+-        struct drm_encoder *encoder;
+-        struct nv_drm_encoder *nv_encoder;
+-
+-        if (connector->encoder_ids[i] == 0) {
+-            break;
+-        }
+-
+-        encoder = nv_drm_encoder_find(dev, connector->encoder_ids[i]);
+-
+-        if (encoder == NULL) {
+-            BUG_ON(encoder != NULL);
+-            continue;
+-        }
+-
+-        /*
+-         * DVI-I connectors can drive both digital and analog
+-         * encoders.  If a digital connection has been forced then
+-         * skip analog encoders.
+-         */
+-
+-        if (connector->connector_type == DRM_MODE_CONNECTOR_DVII &&
+-            connector->force == DRM_FORCE_ON_DIGITAL &&
+-            encoder->encoder_type == DRM_MODE_ENCODER_DAC) {
+-            continue;
+-        }
+-
+-        nv_encoder = to_nv_encoder(encoder);
+-
+-        memset(pDetectParams, 0, sizeof(*pDetectParams));
+-
+-        pDetectParams->handle = nv_encoder->hDisplay;
+-
+-        switch (connector->force) {
+-            case DRM_FORCE_ON:
+-            case DRM_FORCE_ON_DIGITAL:
+-                pDetectParams->forceConnected = NV_TRUE;
+-                break;
+-            case DRM_FORCE_OFF:
+-                pDetectParams->forceDisconnected = NV_TRUE;
+-                break;
+-            case DRM_FORCE_UNSPECIFIED:
+-                break;
+-        }
+-
+-        if (connector->override_edid) {
+-            const struct drm_property_blob *edid = connector->edid_blob_ptr;
+-
+-            if (edid->length <= sizeof(pDetectParams->edid.buffer)) {
+-                memcpy(pDetectParams->edid.buffer, edid->data, edid->length);
+-                pDetectParams->edid.bufferSize = edid->length;
+-                pDetectParams->overrideEdid = NV_TRUE;
+-            } else {
+-                WARN_ON(edid->length >
+-                        sizeof(pDetectParams->edid.buffer));
+-            }
+-        }
+-
+-        if (!nvKms->getDynamicDisplayInfo(nv_dev->pDevice, pDetectParams)) {
+-            NV_DRM_DEV_LOG_ERR(
+-                nv_dev,
+-                "Failed to detect display state");
+-            continue;
+-        }
+-
+-        if (pDetectParams->connected) {
+-            if (!pDetectParams->overrideEdid && pDetectParams->edid.bufferSize) {
+-
+-                if ((nv_connector->edid = nv_drm_calloc(
+-                            1,
+-                            pDetectParams->edid.bufferSize)) != NULL) {
+-
+-                    memcpy(nv_connector->edid,
+-                           pDetectParams->edid.buffer,
+-                           pDetectParams->edid.bufferSize);
+-                } else {
+-                    NV_DRM_LOG_ERR("Out of Memory");
+-                }
+-            }
+-
++    nv_drm_connector_for_each_possible_encoder(connector, encoder) {
++        if (__nv_drm_detect_encoder(pDetectParams, connector, encoder)) {
+             detected_encoder = encoder;
++            break;
+         }
+-    }
++    } nv_drm_connector_for_each_possible_encoder_end;
+ 
+     if (detected_encoder == NULL) {
+         goto done;
+diff --git a/nvidia-drm/nvidia-drm-connector.h b/nvidia-drm/nvidia-drm-connector.h
+index f74e22c..330a670 100644
+--- a/nvidia-drm/nvidia-drm-connector.h
++++ b/nvidia-drm/nvidia-drm-connector.h
+@@ -27,7 +27,9 @@
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
 +#endif
  
- #if defined(CONFIG_PM)
- static int
-@@ -531,6 +541,15 @@ nv_procfs_open_suspend_depth(
-     return single_open(file, nv_procfs_show_suspend_depth, NULL);
- }
+ #include "nvtypes.h"
+ #include "nvkms-api-types.h"
+diff --git a/nvidia-drm/nvidia-drm-crtc.h b/nvidia-drm/nvidia-drm-crtc.h
+index 0a70f2f..6de904f 100644
+--- a/nvidia-drm/nvidia-drm-crtc.h
++++ b/nvidia-drm/nvidia-drm-crtc.h
+@@ -29,7 +29,10 @@
  
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+static struct proc_ops nv_procfs_suspend_depth_fops = {
-+    .proc_open    = nv_procfs_open_suspend_depth,
-+    .proc_read    = seq_read,
-+    .proc_write   = nv_procfs_write_suspend_depth,
-+    .proc_lseek  = seq_lseek,
-+    .proc_release = single_release
-+};
-+#else
- static struct file_operations nv_procfs_suspend_depth_fops = {
-     .owner   = THIS_MODULE,
-     .open    = nv_procfs_open_suspend_depth,
-@@ -539,6 +558,7 @@ static struct file_operations nv_procfs_suspend_depth_fops = {
-     .llseek  = seq_lseek,
-     .release = single_release
- };
+ #include "nvidia-drm-helper.h"
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
 +#endif
++
+ #include "nvtypes.h"
+ #include "nvkms-kapi.h"
  
- static int
- nv_procfs_show_suspend(
-@@ -613,6 +633,15 @@ nv_procfs_open_suspend(
-     return single_open(file, nv_procfs_show_suspend, NULL);
- }
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index be52bd6..cb9e3f2 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -39,7 +39,27 @@
  
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+static struct proc_ops nv_procfs_suspend_fops = {
-+    .proc_open    = nv_procfs_open_suspend,
-+    .proc_read    = seq_read,
-+    .proc_write   = nv_procfs_write_suspend,
-+    .proc_lseek  = seq_lseek,
-+    .proc_release = single_release
-+};
-+#else
- static struct file_operations nv_procfs_suspend_fops = {
-     .owner   = THIS_MODULE,
-     .open    = nv_procfs_open_suspend,
-@@ -622,6 +651,7 @@ static struct file_operations nv_procfs_suspend_fops = {
-     .release = single_release
- };
+ #include "nvidia-drm-ioctl.h"
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_VBLANK_H_PRESENT)
++#include <drm/drm_vblank.h>
++#endif
++
++#if defined(NV_DRM_DRM_FILE_H_PRESENT)
++#include <drm/drm_file.h>
++#endif
++
++#if defined(NV_DRM_DRM_PRIME_H_PRESENT)
++#include <drm/drm_prime.h>
++#endif
++
++#if defined(NV_DRM_DRM_IOCTL_H_PRESENT)
++#include <drm/drm_ioctl.h>
++#endif
++
++#include <linux/pci.h>
+ 
+ /*
+  * Commit fcd70cd36b9b ("drm: Split out drm_probe_helper.h")
+diff --git a/nvidia-drm/nvidia-drm-fb.h b/nvidia-drm/nvidia-drm-fb.h
+index 7f292ce..bfa93fd 100644
+--- a/nvidia-drm/nvidia-drm-fb.h
++++ b/nvidia-drm/nvidia-drm-fb.h
+@@ -27,7 +27,14 @@
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_FRAMEBUFFER_H_PRESENT)
++#include <drm/drm_framebuffer.h>
++#endif
++
+ #include "nvidia-drm-gem-nvkms-memory.h"
+ #include "nvkms-kapi.h"
+ 
+diff --git a/nvidia-drm/nvidia-drm-gem-nvkms-memory.c b/nvidia-drm/nvidia-drm-gem-nvkms-memory.c
+index 0f175ac..a349313 100644
+--- a/nvidia-drm/nvidia-drm-gem-nvkms-memory.c
++++ b/nvidia-drm/nvidia-drm-gem-nvkms-memory.c
+@@ -27,6 +27,10 @@
+ #include "nvidia-drm-gem-nvkms-memory.h"
+ #include "nvidia-drm-ioctl.h"
+ 
++#if defined(NV_DRM_DRM_DRV_H_PRESENT)
++#include <drm/drm_drv.h>
++#endif
++
+ #include <linux/io.h>
+ 
+ #include "nv-mm.h"
+diff --git a/nvidia-drm/nvidia-drm-gem-user-memory.c b/nvidia-drm/nvidia-drm-gem-user-memory.c
+index 5923173..5109767 100644
+--- a/nvidia-drm/nvidia-drm-gem-user-memory.c
++++ b/nvidia-drm/nvidia-drm-gem-user-memory.c
+@@ -24,6 +24,10 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
++#if defined(NV_DRM_DRM_PRIME_H_PRESENT)
++#include <drm/drm_prime.h>
++#endif
++
+ #include "nvidia-drm-gem-user-memory.h"
+ #include "nvidia-drm-ioctl.h"
+ 
+diff --git a/nvidia-drm/nvidia-drm-gem.c b/nvidia-drm/nvidia-drm-gem.c
+index 68515d6..0483929 100644
+--- a/nvidia-drm/nvidia-drm-gem.c
++++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -31,6 +31,15 @@
+ #include "nvidia-drm-gem-nvkms-memory.h"
+ #include "nvidia-dma-resv-helper.h"
+ 
++#if defined(NV_DRM_DRM_DRV_H_PRESENT)
++#include <drm/drm_drv.h>
++#endif
++
++#if defined(NV_DRM_DRM_PRIME_H_PRESENT)
++#include <drm/drm_prime.h>
++#endif
++
++
+ #if defined(NV_DMA_BUF_OWNER_PRESENT)
+ #include "linux/dma-buf.h" /* To inspect dma_buf->owner during prime import */
  #endif
+diff --git a/nvidia-drm/nvidia-drm-gem.h b/nvidia-drm/nvidia-drm-gem.h
+index 9787518..a981440 100644
+--- a/nvidia-drm/nvidia-drm-gem.h
++++ b/nvidia-drm/nvidia-drm-gem.h
+@@ -29,7 +29,14 @@
+ 
+ #include "nvidia-drm-priv.h"
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_GEM_H_PRESENT)
++#include <drm/drm_gem.h>
++#endif
++
+ #include "nvkms-kapi.h"
+ 
+ #if defined(NV_DRM_FENCE_AVAILABLE)
+diff --git a/nvidia-drm/nvidia-drm-helper.c b/nvidia-drm/nvidia-drm-helper.c
+index da602ac..601a9c3 100644
+--- a/nvidia-drm/nvidia-drm-helper.c
++++ b/nvidia-drm/nvidia-drm-helper.c
+@@ -31,7 +31,10 @@
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
++#endif
++
+ #if defined(NV_DRM_DRM_ATOMIC_UAPI_H_PRESENT)
+ #include <drm/drm_atomic_uapi.h>
+ #endif
+diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
+index 8f050d8..2489924 100644
+--- a/nvidia-drm/nvidia-drm-helper.h
++++ b/nvidia-drm/nvidia-drm-helper.h
+@@ -27,7 +27,13 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_DRV_H_PRESENT)
++#include <drm/drm_drv.h>
 +#endif
  
  /*
-  * Forwards error to nv_log_error which exposes data to vendor callback
-@@ -724,12 +754,20 @@ done:
-     return status;
+  * drm_dev_put() is added by commit 9a96f55034e41b4e002b767e9218d55f03bdff7d
+@@ -276,6 +282,96 @@ static inline struct drm_encoder *nv_drm_encoder_find(struct drm_device *dev,
+ #endif
  }
  
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+static struct proc_ops nv_procfs_exercise_error_forwarding_fops = {
-+    .proc_open    = nv_procfs_open_exercise_error_forwarding,
-+    .proc_write   = nv_procfs_write_file,
-+    .proc_release = nv_procfs_close_exercise_error_forwarding,
-+};
-+#else
- static struct file_operations nv_procfs_exercise_error_forwarding_fops = {
-     .owner   = THIS_MODULE,
-     .open    = nv_procfs_open_exercise_error_forwarding,
-     .write   = nv_procfs_write_file,
-     .release = nv_procfs_close_exercise_error_forwarding,
- };
-+#endif
- 
- static int
- nv_procfs_read_unbind_lock(
-@@ -851,6 +889,15 @@ done:
-     return rc;
- }
- 
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+static struct proc_ops nv_procfs_unbind_lock_fops = {
-+    .proc_open    = nv_procfs_open_unbind_lock,
-+    .proc_read    = seq_read,
-+    .proc_write   = nv_procfs_write_file,
-+    .proc_lseek  = seq_lseek,
-+    .proc_release = nv_procfs_close_unbind_lock,
-+};
-+#else
- static struct file_operations nv_procfs_unbind_lock_fops = {
-     .owner   = THIS_MODULE,
-     .open    = nv_procfs_open_unbind_lock,
-@@ -859,6 +906,7 @@ static struct file_operations nv_procfs_unbind_lock_fops = {
-     .llseek  = seq_lseek,
-     .release = nv_procfs_close_unbind_lock,
- };
-+#endif
- 
- static const char*
- numa_status_describe(nv_numa_status_t state)
-@@ -1187,6 +1235,22 @@ done:
-     return retval;
- }
- 
-+#if defined(NV_PROCFS_PROC_OPS_PRESENT)
-+static const struct proc_ops nv_procfs_numa_status_fops = {
-+    .proc_open    = nv_procfs_open_numa_status,
-+    .proc_read    = seq_read,
-+    .proc_write   = nv_procfs_write_file,
-+    .proc_lseek  = seq_lseek,
-+    .proc_release = nv_procfs_close_numa_status,
-+};
++/*
++ * drm_connector_for_each_possible_encoder() is added by commit
++ * 83aefbb887b59df0b3520965c3701e01deacfc52 which was Signed-off-by:
++ *     Ville Syrjälä <ville.syrjala@linux.intel.com>
++ *
++ * drm_connector_for_each_possible_encoder() is copied from
++ * include/drm/drm_connector.h and modified to use nv_drm_encoder_find()
++ * instead of drm_encoder_find().
++ *
++ * drm_connector_for_each_possible_encoder() is copied from
++ *      include/drm/drm_connector.h @
++ *      83aefbb887b59df0b3520965c3701e01deacfc52
++ * which has the following copyright and license information:
++ *
++ * Copyright (c) 2016 Intel Corporation
++ *
++ * Permission to use, copy, modify, distribute, and sell this software and its
++ * documentation for any purpose is hereby granted without fee, provided that
++ * the above copyright notice appear in all copies and that both that copyright
++ * notice and this permission notice appear in supporting documentation, and
++ * that the name of the copyright holders not be used in advertising or
++ * publicity pertaining to distribution of the software without specific,
++ * written prior permission.  The copyright holders make no representations
++ * about the suitability of this software for any purpose.  It is provided "as
++ * is" without express or implied warranty.
++ *
++ * THE COPYRIGHT HOLDERS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
++ * INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
++ * EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY SPECIAL, INDIRECT OR
++ * CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
++ * DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
++ * TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
++ * OF THIS SOFTWARE.
++ */
 +
-+static const struct proc_ops nv_procfs_offline_pages_fops = {
-+    .proc_open    = nv_procfs_open_offline_pages,
-+    .proc_read    = seq_read,
-+    .proc_lseek  = seq_lseek,
-+    .proc_release = nv_procfs_close_offline_pages,
-+};
++#if defined(NV_DRM_DRM_CONNECTOR_H_PRESENT)
++#include <drm/drm_connector.h>
++#endif
++
++/**
++ * nv_drm_connector_for_each_possible_encoder - iterate connector's possible
++ * encoders
++ * @connector: &struct drm_connector pointer
++ * @encoder: &struct drm_encoder pointer used as cursor
++ * @__i: int iteration cursor, for macro-internal use
++ */
++#if !defined(drm_connector_for_each_possible_encoder)
++
++#if !defined(for_each_if)
++#define for_each_if(condition) if (!(condition)) {} else
++#endif
++
++#define __nv_drm_connector_for_each_possible_encoder(connector, encoder, __i) \
++       for ((__i) = 0; (__i) < ARRAY_SIZE((connector)->encoder_ids) &&        \
++                    (connector)->encoder_ids[(__i)] != 0; (__i)++)            \
++               for_each_if((encoder) =                                        \
++                           nv_drm_encoder_find((connector)->dev,              \
++                                               (connector)->encoder_ids[(__i)]))
++
++#define nv_drm_connector_for_each_possible_encoder(connector, encoder) \
++    {                                                                  \
++        unsigned int __i;                                              \
++        __nv_drm_connector_for_each_possible_encoder(connector, encoder, __i)
++
++#define nv_drm_connector_for_each_possible_encoder_end \
++    }
++
 +#else
- static const struct file_operations nv_procfs_numa_status_fops = {
-     .owner   = THIS_MODULE,
-     .open    = nv_procfs_open_numa_status,
-@@ -1203,6 +1267,7 @@ static const struct file_operations nv_procfs_offline_pages_fops = {
-     .llseek  = seq_lseek,
-     .release = nv_procfs_close_offline_pages,
- };
++
++#if NV_DRM_CONNECTOR_FOR_EACH_POSSIBLE_ENCODER_ARGUMENT_COUNT == 3
++
++#define nv_drm_connector_for_each_possible_encoder(connector, encoder) \
++    {                                                                  \
++        unsigned int __i;                                              \
++        drm_connector_for_each_possible_encoder(connector, encoder, __i)
++
++#define nv_drm_connector_for_each_possible_encoder_end \
++    }
++
++#else
++
++#define nv_drm_connector_for_each_possible_encoder(connector, encoder) \
++    drm_connector_for_each_possible_encoder(connector, encoder)
++
++#define nv_drm_connector_for_each_possible_encoder_end
++
++#endif
++
++#endif
++
+ static inline int
+ nv_drm_connector_attach_encoder(struct drm_connector *connector,
+                                 struct drm_encoder *encoder)
+diff --git a/nvidia-drm/nvidia-drm-linux.c b/nvidia-drm/nvidia-drm-linux.c
+index b760c91..1d3e658 100644
+--- a/nvidia-drm/nvidia-drm-linux.c
++++ b/nvidia-drm/nvidia-drm-linux.c
+@@ -31,6 +31,10 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
++#include <drm/drmP.h>
++#endif
++
+ #include <linux/vmalloc.h>
+ 
+ #include "nv-mm.h"
+diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
+index 0d80def..4a1d672 100644
+--- a/nvidia-drm/nvidia-drm-modeset.c
++++ b/nvidia-drm/nvidia-drm-modeset.c
+@@ -30,6 +30,14 @@
+ #include "nvidia-drm-os-interface.h"
+ #include "nvidia-drm-helper.h"
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
++#include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_VBLANK_H_PRESENT)
++#include <drm/drm_vblank.h>
++#endif
++
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_crtc.h>
+diff --git a/nvidia-drm/nvidia-drm-modeset.h b/nvidia-drm/nvidia-drm-modeset.h
+index e2cb5c3..effb990 100644
+--- a/nvidia-drm/nvidia-drm-modeset.h
++++ b/nvidia-drm/nvidia-drm-modeset.h
+@@ -27,7 +27,10 @@
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
+-#include <drm/drmP.h>
++#include "nvkms-kapi.h"
++
++struct drm_device;
++struct drm_atomic_state;
+ 
+ struct drm_atomic_state *nv_drm_atomic_state_alloc(struct drm_device *dev);
+ void nv_drm_atomic_state_clear(struct drm_atomic_state *state);
+diff --git a/nvidia-drm/nvidia-drm-os-interface.h b/nvidia-drm/nvidia-drm-os-interface.h
+index f43f851..ac52752 100644
+--- a/nvidia-drm/nvidia-drm-os-interface.h
++++ b/nvidia-drm/nvidia-drm-os-interface.h
+@@ -29,7 +29,7 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
+-#include <drm/drmP.h>
++struct page;
+ 
+ /* Set to true when the atomic modeset feature is enabled. */
+ extern bool nv_drm_modeset_module_param;
+diff --git a/nvidia-drm/nvidia-drm-prime-fence.c b/nvidia-drm/nvidia-drm-prime-fence.c
+index c23153a..ee53060 100644
+--- a/nvidia-drm/nvidia-drm-prime-fence.c
++++ b/nvidia-drm/nvidia-drm-prime-fence.c
+@@ -24,6 +24,10 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
++#include <drm/drmP.h>
++#endif
++
+ #include "nvidia-drm-priv.h"
+ #include "nvidia-drm-ioctl.h"
+ #include "nvidia-drm-gem.h"
+diff --git a/nvidia-drm/nvidia-drm-prime-fence.h b/nvidia-drm/nvidia-drm-prime-fence.h
+index 48068a8..5afa2ae 100644
+--- a/nvidia-drm/nvidia-drm-prime-fence.h
++++ b/nvidia-drm/nvidia-drm-prime-fence.h
+@@ -27,7 +27,8 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
+-#include <drm/drmP.h>
++struct drm_file;
++struct drm_device;
+ 
+ #if defined(NV_DRM_FENCE_AVAILABLE)
+ 
+diff --git a/nvidia-drm/nvidia-drm-priv.h b/nvidia-drm/nvidia-drm-priv.h
+index f16bea9..4a0b961 100644
+--- a/nvidia-drm/nvidia-drm-priv.h
++++ b/nvidia-drm/nvidia-drm-priv.h
+@@ -27,7 +27,13 @@
+ 
+ #if defined(NV_DRM_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
+ #include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_DEVICE_H_PRESENT)
++#include <drm/drm_device.h>
 +#endif
  
- static int
- nv_procfs_read_text_file(
-diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 5ec3e65..e1db498 100644
---- a/nvidia/nvidia.Kbuild
-+++ b/nvidia/nvidia.Kbuild
-@@ -167,6 +167,8 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += device_of_node
- NV_CONFTEST_TYPE_COMPILE_TESTS += node_states_n_memory
- NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
- NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
-+NV_CONFTEST_TYPE_COMPILE_TESTS += timeval_structs
-+NV_CONFTEST_TYPE_COMPILE_TESTS += proc_create
+ #if defined(NV_DRM_DRM_GEM_H_PRESENT)
+ #include <drm/drm_gem.h>
+@@ -97,6 +103,8 @@ struct nv_drm_device {
  
- NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present
- NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_hyperv_available
-diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
-index c84b36a..284b30d 100644
---- a/nvidia/nvlink_linux.c
-+++ b/nvidia/nvlink_linux.c
-@@ -276,7 +276,6 @@ static long nvlink_fops_unlocked_ioctl(struct file *file,
-     return nvlink_fops_ioctl(NV_FILE_INODE(file), file, cmd, arg);
- }
+ #endif
  
--
- static const struct file_operations nvlink_fops = {
-     .owner           = THIS_MODULE,
-     .open            = nvlink_fops_open,
++    NvBool hasVideoMemory;
++
+     struct nv_drm_device *next;
+ };
+ 
+diff --git a/nvidia-drm/nvidia-drm-utils.c b/nvidia-drm/nvidia-drm-utils.c
+index ac1097e..8cb2d5e 100644
+--- a/nvidia-drm/nvidia-drm-utils.c
++++ b/nvidia-drm/nvidia-drm-utils.c
+@@ -24,6 +24,17 @@
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
++#if defined(NV_DRM_DRMP_H_PRESENT)
++#include <drm/drmP.h>
++#endif
++
++#if defined(NV_DRM_DRM_PLANE_H_PRESENT)
++#include <drm/drm_plane.h>
++#endif
++
++#include <drm/drm_modes.h>
++#include <uapi/drm/drm_fourcc.h>
++
+ #include "nvidia-drm-priv.h"
+ #include "nvidia-drm-utils.h"
+ 
+diff --git a/nvidia-drm/nvidia-drm-utils.h b/nvidia-drm/nvidia-drm-utils.h
+index 33bf60c..4801b5e 100644
+--- a/nvidia-drm/nvidia-drm-utils.h
++++ b/nvidia-drm/nvidia-drm-utils.h
+@@ -27,9 +27,11 @@
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
+-#include <drm/drmP.h>
+ #include "nvkms-kapi.h"
+ 
++enum drm_plane_type;
++struct drm_display_mode;
++
+ struct NvKmsKapiConnectorInfo*
+ nvkms_get_connector_info(struct NvKmsKapiDevice *pDevice,
+                          NvKmsKapiConnector hConnector);
+diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
+index d1035fc..c47ab77 100644
+--- a/nvidia-drm/nvidia-drm.Kbuild
++++ b/nvidia-drm/nvidia-drm.Kbuild
+@@ -65,6 +65,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vmf_insert_pfn
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_framebuffer_get
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_get
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_put
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_for_each_possible_encoder
+ 
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_present
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_bus_type
 -- 
-2.20.1
+2.25.1
 
