@@ -31,10 +31,10 @@ Package: nvidia-driver-440
 Architecture: amd64
 Depends:
  libnvidia-gl-440 (= ${binary:Version}),
- nvidia-dkms-440 (<= 440.82.0-1),
- nvidia-dkms-440 (>= 440.82.0),
- nvidia-kernel-common-440 (<= 440.82.0-1),
- nvidia-kernel-common-440 (>= 440.82.0),
+ nvidia-dkms-440 (<= 440.100-1),
+ nvidia-dkms-440 (>= 440.100),
+ nvidia-kernel-common-440 (<= 440.100-1),
+ nvidia-kernel-common-440 (>= 440.100),
  nvidia-kernel-source-440 (= ${binary:Version}),
  libnvidia-compute-440 (= ${binary:Version}),
  libnvidia-extra-440 (= ${binary:Version}),
@@ -91,8 +91,8 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms, nvidia-kernel-source-440,
- nvidia-kernel-common-440 (<= 440.82.0-1),
- nvidia-kernel-common-440 (>= 440.82.0),
+ nvidia-kernel-common-440 (<= 440.100-1),
+ nvidia-kernel-common-440 (>= 440.100),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -167,8 +167,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-440 (<= 440.82.0-1),
- nvidia-kernel-common-440 (>= 440.82.0),
+ nvidia-kernel-common-440 (<= 440.100-1),
+ nvidia-kernel-common-440 (>= 440.100),
  nvidia-kernel-source-440 (= ${binary:Version}),
  libnvidia-compute-440 (= ${binary:Version}),
  nvidia-compute-utils-440 (= ${binary:Version}),
