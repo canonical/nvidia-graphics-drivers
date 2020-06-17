@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-390 (390.138-0ubuntu0.19.10.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jun 2020 11:45:14 +0200
+
 nvidia-graphics-drivers-390 (390.132-0ubuntu0.19.10.1) eoan; urgency=medium
 
   * New upstream release (LP: #1854485):
