@@ -1,11 +1,5 @@
-nvidia-graphics-drivers-418-server (418.152.00-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
-
-  * 
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 10 Jun 2020 11:26:46 +0200
-
-nvidia-graphics-drivers-418-server (418.126.02-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-418-server (418.152.00-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * Initial release (LP: #1881137).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 May 2020 15:44:08 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 Jun 2020 10:57:57 +0200
