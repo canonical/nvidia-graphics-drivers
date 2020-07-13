@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-435 (435.21-0ubuntu8) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-435 (435.21-0ubuntu8) groovy; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.8.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 5.8.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jul 2020 17:53:22 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jul 2020 17:58:47 +0200
 
 nvidia-graphics-drivers-435 (435.21-0ubuntu7) groovy; urgency=medium
 
