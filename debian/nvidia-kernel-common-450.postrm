@@ -23,7 +23,7 @@ set -e
 case "$1" in
     remove|purge)
         # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-440_hybrid.conf
+        rm -f /etc/modprobe.d/nvidia-450_hybrid.conf
 
         # Update initramfs, in case we were loaded into it
         if [ -x /usr/sbin/update-initramfs ]; then
