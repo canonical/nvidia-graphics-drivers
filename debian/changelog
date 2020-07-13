@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-440-server (440.95.01-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-440-server (440.95.01-0ubuntu2) groovy; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.8.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 5.8.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jul 2020 18:09:34 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jul 2020 18:11:45 +0200
 
 nvidia-graphics-drivers-440-server (440.95.01-0ubuntu1) groovy; urgency=medium
 
