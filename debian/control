@@ -374,7 +374,7 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-driver-430
+Package: nvidia-driver-440
 Architecture: amd64
 Depends: nvidia-driver-450
 Multi-Arch: foreign
@@ -382,7 +382,7 @@ Description: Transitional package for nvidia-driver-450
  This is a transitional package for nvidia-driver-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-kernel-source-430
+Package: nvidia-kernel-source-440
 Architecture: amd64
 Depends: nvidia-kernel-source-450
 Multi-Arch: foreign
@@ -390,7 +390,7 @@ Description: Transitional package for nvidia-kernel-source-450
  This is a transitional package for nvidia-kernel-source-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-dkms-430
+Package: nvidia-dkms-440
 Architecture: amd64
 Depends: nvidia-dkms-450
 Multi-Arch: foreign
@@ -398,7 +398,7 @@ Description: Transitional package for nvidia-dkms-450
  This is a transitional package for nvidia-dkms-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-utils-430
+Package: nvidia-utils-440
 Architecture: amd64
 Depends: nvidia-utils-450
 Multi-Arch: same
@@ -406,7 +406,7 @@ Description: Transitional package for nvidia-utils-450
  This is a transitional package for nvidia-utils-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-compute-430
+Package: libnvidia-compute-440
 Architecture: i386 amd64
 Depends: libnvidia-compute-450
 Multi-Arch: same
@@ -414,7 +414,7 @@ Description: Transitional package for libnvidia-compute-450
  This is a transitional package for libnvidia-compute-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-compute-utils-430
+Package: nvidia-compute-utils-440
 Architecture: amd64
 Depends: nvidia-compute-utils-450
 Multi-Arch: same
@@ -422,7 +422,7 @@ Description: Transitional package for nvidia-compute-utils-450
  This is a transitional package for nvidia-compute-utils-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-headless-no-dkms-430
+Package: nvidia-headless-no-dkms-440
 Architecture: amd64
 Depends: nvidia-headless-no-dkms-450
 Multi-Arch: same
@@ -430,7 +430,7 @@ Description: Transitional package for nvidia-headless-no-dkms-450
  This is a transitional package for nvidia-headless-no-dkms-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-headless-430
+Package: nvidia-headless-440
 Architecture: amd64
 Depends: nvidia-headless-450
 Multi-Arch: same
@@ -438,7 +438,7 @@ Description: Transitional package for nvidia-headless-450
  This is a transitional package for nvidia-headless-450, and can be
  safely removed after the installation is complete.
 
-Package: nvidia-kernel-common-430
+Package: nvidia-kernel-common-440
 Architecture: amd64
 Depends: nvidia-kernel-common-450
 Multi-Arch: same
@@ -446,7 +446,7 @@ Description: Transitional package for nvidia-kernel-common-450
  This is a transitional package for nvidia-kernel-common-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-gl-430
+Package: libnvidia-gl-440
 Architecture: i386 amd64
 Depends: libnvidia-gl-450
 Multi-Arch: same
@@ -454,7 +454,7 @@ Description: Transitional package for libnvidia-gl-450
  This is a transitional package for libnvidia-gl-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-common-430
+Package: libnvidia-common-440
 Architecture: all
 Depends: libnvidia-common-450
 Multi-Arch: foreign
@@ -462,7 +462,15 @@ Description: Transitional package for libnvidia-common-450
  This is a transitional package for libnvidia-common-450, and can be
  safely removed after the installation is complete.
 
-Package: xserver-xorg-video-nvidia-430
+Package: libnvidia-extra-440
+Architecture: i386 amd64
+Depends: libnvidia-extra-450
+Multi-Arch: same
+Description: Transitional package for libnvidia-extra-450
+ This is a transitional package for libnvidia-extra-450, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-440
 Architecture: amd64
 Depends: xserver-xorg-video-nvidia-450
 Multi-Arch: same
@@ -470,7 +478,7 @@ Description: Transitional package for xserver-xorg-video-nvidia-450
  This is a transitional package for xserver-xorg-video-nvidia-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-cfg1-430
+Package: libnvidia-cfg1-440
 Architecture: amd64
 Depends: libnvidia-cfg1-450
 Multi-Arch: same
@@ -478,7 +486,7 @@ Description: Transitional package for libnvidia-cfg1-450
  This is a transitional package for libnvidia-cfg1-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-ifr1-430
+Package: libnvidia-ifr1-440
 Architecture: i386 amd64
 Depends: libnvidia-ifr1-450
 Multi-Arch: same
@@ -486,7 +494,7 @@ Description: Transitional package for libnvidia-ifr1-450
  This is a transitional package for libnvidia-ifr1-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-fbc1-430
+Package: libnvidia-fbc1-440
 Architecture: i386 amd64
 Depends: libnvidia-fbc1-450
 Multi-Arch: same
@@ -494,7 +502,7 @@ Description: Transitional package for libnvidia-fbc1-450
  This is a transitional package for libnvidia-fbc1-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-decode-430
+Package: libnvidia-decode-440
 Architecture: i386 amd64
 Depends: libnvidia-decode-450
 Multi-Arch: same
@@ -502,7 +510,7 @@ Description: Transitional package for libnvidia-decode-450
  This is a transitional package for libnvidia-decode-450, and can be
  safely removed after the installation is complete.
 
-Package: libnvidia-encode-430
+Package: libnvidia-encode-440
 Architecture: i386 amd64
 Depends: libnvidia-encode-450
 Multi-Arch: same

@@ -8,3 +8,4 @@ NVIDIA-Linux/nvidia-persistenced-init.tar.bz2
 NVIDIA-Linux/nvidia-resume.service
 NVIDIA-Linux/nvidia-sleep.sh
 NVIDIA-Linux/nvidia-suspend.service
+NVIDIA-Linux/supported-gpus.json
