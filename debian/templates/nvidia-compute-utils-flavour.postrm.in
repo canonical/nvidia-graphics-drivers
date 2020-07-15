@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-compute-utils-440-server
+# postrm script for nvidia-compute-utils-450-server
 #
 # see: dh_installdeb(1)
 #
