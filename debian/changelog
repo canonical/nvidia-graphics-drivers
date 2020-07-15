@@ -1,5 +1,5 @@
 nvidia-graphics-drivers-450-server (450.51.05-0ubuntu1) groovy; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jul 2020 18:11:45 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jul 2020 11:51:57 +0200
