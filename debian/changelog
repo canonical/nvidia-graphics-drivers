@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-450 (450.57-0ubuntu1) groovy; urgency=medium
 
-  *
+  * Initial release:
+    - Replace the 440 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 17 Jun 2020 12:10:36 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jul 2020 11:19:30 +0200
