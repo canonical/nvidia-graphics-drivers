@@ -9,6 +9,7 @@ NVIDIA-Linux/libnvidia-eglcore.so.450.51.05          usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-glcore.so.450.51.05           usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-glsi.so.450.51.05             usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-glvkspirv.so.450.51.05        usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-ngx.so.450.51.05              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-rtcore.so.450.51.05           usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-tls.so.450.51.05              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvoptix.so.450.51.05                 usr/lib/x86_64-linux-gnu
