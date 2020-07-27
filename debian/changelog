@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-450-server (450.51.05-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.51.05-0ubuntu3) groovy; urgency=medium
+ 
+  * Refresh debian/dkms_nvidia/patches/buildfix_kernel_5.8.patch.
 
-  * 
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jul 2020 12:31:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jul 2020 12:44:57 +0200
 
 nvidia-graphics-drivers-450-server (450.51.05-0ubuntu2) groovy; urgency=medium
 
