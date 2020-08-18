@@ -1,2 +1,2 @@
-debian/dkms.conf                    usr/src/nvidia-450.51.05
-debian/dkms_nvidia/patches/*        usr/src/nvidia-450.51.05/patches
+debian/dkms.conf                    usr/src/nvidia-450.51.06
+debian/dkms_nvidia/patches/*        usr/src/nvidia-450.51.06/patches
