@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-450 (450.66-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450 (450.66-0ubuntu1) groovy; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        EIZO Quadro MED-XN31LP
+        EIZO Quadro MED-XN50LP
+        EIZO Quadro MED-XN51LP
+        EIZO Quadro MED-XN70
+        EIZO Quadro MED-XN71
+        EIZO Quadro MED-XN72
+        EIZO Quadro MED-XN90
+        EIZO Quadro MED-XN91
+        EIZO Quadro MED-XN92
+        Matrox D-Series D1450
+        Matrox D-Series D1480
+    - Fixed triple buffering support of Vulkan X11 swapchains when
+      applications are syncing to vblank.
+  * debian/rules: do not compress supported-gpus.json
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 Jul 2020 12:03:29 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 Aug 2020 14:49:11 +0200
 
 nvidia-graphics-drivers-450 (450.57-0ubuntu2) groovy; urgency=medium
 
