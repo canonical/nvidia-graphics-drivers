@@ -1,24 +1,5 @@
-nvidia-graphics-drivers-450-server (450.51.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.51.06-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * Initial release (LP: #1887674).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 18 Aug 2020 11:40:16 +0200
-
-nvidia-graphics-drivers-450-server (450.51.05-0ubuntu3) groovy; urgency=medium
- 
-  * Refresh debian/dkms_nvidia/patches/buildfix_kernel_5.8.patch.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Jul 2020 12:44:57 +0200
-
-nvidia-graphics-drivers-450-server (450.51.05-0ubuntu2) groovy; urgency=medium
-
-  * debian/templates/libnvidia-gl-flavour.install.in:
-    - Install libnvidia-ngx.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Jul 2020 11:00:32 +0200
-
-nvidia-graphics-drivers-450-server (450.51.05-0ubuntu1) groovy; urgency=medium
-
-  * Initial release.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jul 2020 11:51:57 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 Aug 2020 15:29:01 +0200
