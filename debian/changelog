@@ -1,8 +1,20 @@
-nvidia-graphics-drivers-450-server (450.51.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.51.06-0ubuntu1) groovy; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed an issue where using CUDA_VISIBLE_DEVICES environment
+      variable to restrict devices seen by CUDA on a multi-GPU A100
+      system (such as DGX A100 or HGX A100) may cause an out-of-memory
+      error for some workloads, for example when running with CUDA
+      IPC.
+    - Fixed an issue with ECC DBE handling on A100 resulting in an
+      incorrect part of GPU memory being retired. The faulty memory
+      would continue to be available even after resetting the
+      GPU/rebooting the system and hitting the same DBE every time
+      could make the GPU unusable.
+  * debian/rules:
+    - do not compress supported-gpus.json.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 18 Aug 2020 11:40:16 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 Aug 2020 15:29:01 +0200
 
 nvidia-graphics-drivers-450-server (450.51.05-0ubuntu3) groovy; urgency=medium
  
