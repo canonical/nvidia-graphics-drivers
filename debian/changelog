@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-340 (340.108-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.108-0ubuntu5) groovy; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Conflict/replace/provide nvidia-kernel-common (LP: #1768499).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2020 17:03:33 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Aug 2020 17:04:24 +0200
 
 nvidia-graphics-drivers-340 (340.108-0ubuntu4) groovy; urgency=medium
 
