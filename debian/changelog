@@ -1,3 +1,15 @@
+nvidia-graphics-drivers-340 (340.108-0ubuntu4) groovy; urgency=medium
+
+  * Hard-code dependency on lib32gcc-s1.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 15 May 2020 15:03:51 +0200
+
+nvidia-graphics-drivers-340 (340.108-0ubuntu2) focal; urgency=medium
+
+  * No-change rebuild with fixed binutils on arm64.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 08 Feb 2020 11:14:08 +0000
+
 nvidia-graphics-drivers-340 (340.108-0ubuntu1) focal; urgency=medium
 
   * New upstream release:

@@ -12,7 +12,7 @@ Vcs-Browser: http://github.com/tseliot/nvidia-graphics-drivers
 Package: #DRIVERNAME#
 Architecture: i386 amd64 armhf
 Depends: x11-common (>= 1:7.0.0), make, sed (>> 3.0), dkms, linux-libc-dev, libc6-dev,
- patch, acpid, lib32gcc1 [amd64], libc6-i386 [amd64], passwd, adduser,
+ patch, acpid, lib32gcc-s1 [amd64], libc6-i386 [amd64], passwd, adduser,
  xserver-xorg-legacy, ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Recommends: nvidia-settings (>= 331.20),
  #LIBCUDA1#, #OPENCLICD# [!armhf]
