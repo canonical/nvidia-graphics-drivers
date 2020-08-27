@@ -18,11 +18,13 @@ Recommends: nvidia-settings (>= 331.20),
  #LIBCUDA1#, #OPENCLICD# [!armhf]
 Provides: xorg-driver-binary, nvidia-driver-binary, nvidia-persistenced, libnvidia-decode,
  nvidia-dkms-kernel, libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode,
- libnvidia-gl, ${xviddriver:Provides}
+ libnvidia-gl, nvidia-kernel-common, ${xviddriver:Provides}
 Conflicts: xorg-driver-binary, nvidia-persistenced, libnvidia-decode, nvidia-dkms-kernel,
- libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl
+ libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl,
+ nvidia-kernel-common
 Replaces: xorg-driver-binary, nvidia-persistenced, libnvidia-decode, nvidia-dkms-kernel,
- libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl
+ libnvidia-ifr1, libnvidia-cfg1-any, libnvidia-fbc1, libnvidia-encode, libnvidia-gl,
+ nvidia-kernel-common
 XB-Modaliases: ${modaliases}
 Description: NVIDIA binary driver - version #VERSION#
  The binary driver provide optimized hardware acceleration of OpenGL
