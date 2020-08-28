@@ -1,8 +1,11 @@
-From c103e84e3fe74387c49c095608ae085f9a119c26 Mon Sep 17 00:00:00 2001
+From 84f61c0f7fc705794201d0094cc6306735e13afc Mon Sep 17 00:00:00 2001
 From: Alberto Milone <alberto.milone@canonical.com>
 Date: Mon, 27 Jul 2020 12:29:48 +0200
 Subject: [PATCH 1/1] Add support for Linux 5.8
 
+V2
+
+Signed-off-by: Alberto Milone <alberto.milone@canonical.com>
 ---
  common/inc/nv-linux.h                       |   4 +
  common/inc/nv-mm.h                          |  54 ++++++++
@@ -12,14 +15,17 @@ Subject: [PATCH 1/1] Add support for Linux 5.8
  nvidia-drm/nvidia-drm.Kbuild                |   1 +
  nvidia-uvm/uvm8.c                           |  35 ++---
  nvidia-uvm/uvm8_ats_faults.h                |   2 +-
+ nvidia-uvm/uvm8_ats_ibm.c                   |   4 +-
  nvidia-uvm/uvm8_gpu_access_counters.c       |   4 +-
  nvidia-uvm/uvm8_gpu_non_replayable_faults.c |   4 +-
  nvidia-uvm/uvm8_gpu_replayable_faults.c     |   6 +-
+ nvidia-uvm/uvm8_hmm.c                       |   2 +-
  nvidia-uvm/uvm8_lock.c                      |   6 +-
  nvidia-uvm/uvm8_lock.h                      | 134 +++++++++++---------
  nvidia-uvm/uvm8_lock_test.c                 |   4 +-
  nvidia-uvm/uvm8_mem.c                       |   4 +-
  nvidia-uvm/uvm8_migrate.c                   |  10 +-
+ nvidia-uvm/uvm8_migrate_pageable.c          |   8 +-
  nvidia-uvm/uvm8_policy.c                    |  19 +--
  nvidia-uvm/uvm8_populate_pageable.c         |  12 +-
  nvidia-uvm/uvm8_tools.c                     |   4 +-
@@ -31,7 +37,7 @@ Subject: [PATCH 1/1] Add support for Linux 5.8
  nvidia/nvidia.Kbuild                        |   2 +
  nvidia/nvlink_linux.c                       |   1 -
  nvidia/os-mlock.c                           |   8 +-
- 27 files changed, 367 insertions(+), 147 deletions(-)
+ 30 files changed, 374 insertions(+), 154 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
 index 2dc8e26..fb6597a 100644
@@ -489,6 +495,28 @@ index e001b60..1d10534 100644
      if (gpu_va_space->ats.enabled)
          UVM_ASSERT(g_uvm_global.ats.enabled);
  
+diff --git a/nvidia-uvm/uvm8_ats_ibm.c b/nvidia-uvm/uvm8_ats_ibm.c
+index 93ede03..f94e934 100644
+--- a/nvidia-uvm/uvm8_ats_ibm.c
++++ b/nvidia-uvm/uvm8_ats_ibm.c
+@@ -275,7 +275,7 @@ static NV_STATUS uvm_ats_ibm_register_gpu_va_space_kernel(uvm_gpu_va_space_t *gp
+     if (current->mm != va_space->va_space_mm.mm)
+         return NV_ERR_NOT_SUPPORTED;
+ 
+-    uvm_assert_mmap_sem_locked_write(&current->mm->mmap_sem);
++    uvm_assert_mmap_lock_locked_write(current->mm);
+ 
+     // pnv_npu2_init_context() doesn't handle being called multiple times for
+     // the same GPU under the same mm, which could happen if multiple VA spaces
+@@ -468,7 +468,7 @@ NV_STATUS uvm_ats_ibm_service_fault(uvm_gpu_va_space_t *gpu_va_space,
+     UVM_ASSERT(g_uvm_global.ats.enabled);
+     UVM_ASSERT(gpu_va_space->ats.enabled);
+     UVM_ASSERT(mm);
+-    uvm_assert_mmap_sem_locked(&mm->mmap_sem);
++    uvm_assert_mmap_lock_locked(mm);
+ 
+     // TODO: Bug 2103669: Service more than a single fault at a time
+     ret = NV_GET_USER_PAGES_REMOTE(NULL, mm, (unsigned long)fault_addr, 1, write, force, &page, NULL);
 diff --git a/nvidia-uvm/uvm8_gpu_access_counters.c b/nvidia-uvm/uvm8_gpu_access_counters.c
 index 8a57c23..9655b23 100644
 --- a/nvidia-uvm/uvm8_gpu_access_counters.c
@@ -564,6 +592,19 @@ index d92e693..3fa4c88 100644
              uvm_va_space_mm_release(va_space);
          }
      }
+diff --git a/nvidia-uvm/uvm8_hmm.c b/nvidia-uvm/uvm8_hmm.c
+index 67e81b6..da2cea8 100644
+--- a/nvidia-uvm/uvm8_hmm.c
++++ b/nvidia-uvm/uvm8_hmm.c
+@@ -126,7 +126,7 @@ NV_STATUS uvm_hmm_mirror_register(uvm_va_space_t *va_space)
+     if (!uvm_hmm_is_enabled(va_space))
+         return NV_OK;
+ 
+-    uvm_assert_mmap_sem_locked_write(&current->mm->mmap_sem);
++    uvm_assert_mmap_lock_locked_write(current->mm);
+     uvm_assert_rwsem_locked_write(&va_space->lock);
+ 
+     va_space->hmm_va_space.mirror.ops = &mirror_ops;
 diff --git a/nvidia-uvm/uvm8_lock.c b/nvidia-uvm/uvm8_lock.c
 index bf53eda..c10cd27 100644
 --- a/nvidia-uvm/uvm8_lock.c
@@ -901,6 +942,46 @@ index 90a0fc8..da199e8 100644
  
      tracker_status = uvm_tracker_wait_deinit(&local_tracker);
      uvm_va_space_up_read(va_space);
+diff --git a/nvidia-uvm/uvm8_migrate_pageable.c b/nvidia-uvm/uvm8_migrate_pageable.c
+index dbb7b03..82c8e07 100644
+--- a/nvidia-uvm/uvm8_migrate_pageable.c
++++ b/nvidia-uvm/uvm8_migrate_pageable.c
+@@ -756,7 +756,7 @@ static NV_STATUS migrate_pageable_vma_region(struct vm_area_struct *vma,
+     UVM_ASSERT(start >= vma->vm_start);
+     UVM_ASSERT(outer <= vma->vm_end);
+     UVM_ASSERT(outer - start <= UVM_MIGRATE_VMA_MAX_SIZE);
+-    uvm_assert_mmap_sem_locked(&mm->mmap_sem);
++    uvm_assert_mmap_lock_locked(mm);
+     uvm_assert_rwsem_locked(&migrate_vma_state->va_space->lock);
+ 
+     ret = migrate_vma(&g_migrate_vma_ops,
+@@ -830,7 +830,7 @@ static NV_STATUS migrate_pageable_vma(struct vm_area_struct *vma,
+     UVM_ASSERT(PAGE_ALIGNED(outer));
+     UVM_ASSERT(vma->vm_end > start);
+     UVM_ASSERT(vma->vm_start < outer);
+-    uvm_assert_mmap_sem_locked(&mm->mmap_sem);
++    uvm_assert_mmap_lock_locked(mm);
+     uvm_assert_rwsem_locked(&va_space->lock);
+ 
+     // Adjust to input range boundaries
+@@ -882,7 +882,7 @@ static NV_STATUS migrate_pageable(struct mm_struct *mm,
+ 
+     UVM_ASSERT(PAGE_ALIGNED(start));
+     UVM_ASSERT(PAGE_ALIGNED(length));
+-    uvm_assert_mmap_sem_locked(&mm->mmap_sem);
++    uvm_assert_mmap_lock_locked(mm);
+ 
+     vma = find_vma_intersection(mm, start, outer);
+ 
+@@ -944,7 +944,7 @@ NV_STATUS uvm_migrate_pageable(uvm_va_space_t *va_space,
+ 
+     UVM_ASSERT(PAGE_ALIGNED(start));
+     UVM_ASSERT(PAGE_ALIGNED(length));
+-    uvm_assert_mmap_sem_locked(&mm->mmap_sem);
++    uvm_assert_mmap_lock_locked(mm);
+ 
+     // We only check that dst_cpu_node_id is a valid node in the system and it
+     // doesn't correspond to a GPU node. This is fine because alloc_pages_node
 diff --git a/nvidia-uvm/uvm8_policy.c b/nvidia-uvm/uvm8_policy.c
 index a912963..1bf6de2 100644
 --- a/nvidia-uvm/uvm8_policy.c
