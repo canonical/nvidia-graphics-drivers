@@ -23,6 +23,7 @@ Build-Depends:
  pkg-config,
  libc6,
  libx11-6,
+ python3,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
