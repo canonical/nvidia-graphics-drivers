@@ -23,6 +23,7 @@ Build-Depends:
  pkg-config,
  libc6,
  libx11-6,
+ python3,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
@@ -56,6 +57,7 @@ Recommends:
  libnvidia-fbc1-450:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-450:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
+XB-PmAliases: ${nvidia:pm-modaliases}
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
