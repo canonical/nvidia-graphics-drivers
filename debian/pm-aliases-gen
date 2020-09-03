@@ -1,0 +1,105 @@
+#!/usr/bin/python3
+#
+#   Copyright 2020 Canonical Ltd.
+#   Author: Alberto Milone <alberto.milone@canonical.com>
+#
+
+import json
+import re
+import logging
+import sys
+import argparse
+
+
+class DeviceInfo(object):
+
+    def __init__(self, device):
+        self._vendor = '10DE'
+        self._device = device
+        self._devid = (device.get('devid').replace('0x', '')
+                       if device.get('devid') else '*')
+        self._subvendorid = (device.get('subvendorid').replace('0x', '')
+                             if device.get('subvendorid') else '*')
+        self._subdevid = (device.get('subdevid').replace('0x', '')
+                          if device.get('subdevid') else '*')
+
+    def get_vendor(self):
+        return self._vendor
+
+    def get_devid(self):
+        return self._devid
+
+    def get_subvendorid(self):
+        return self._subvendorid
+
+    def get_subdevid(self):
+        return self._subdevid
+
+    def get_features(self):
+        return self._device.get('features')
+
+    def get_legacy_series(self):
+        return self._device.get('legacybranch')
+
+    def get_device_name(self):
+        return self._device.get('name')
+
+    def supports_runtimepm(self):
+        return ('runtimepm' in self.get_features())
+
+    def is_tesla(self):
+        return ('tesla' in self.get_features())
+
+
+def _get_devices_from_data(data):
+    devices = {}
+    match = None
+    for chip in data["chips"]:
+        devices[chip.get('devid')] = chip
+
+    return devices
+
+def _supports_runtimepm(device):
+    features = device.get('features')
+    if features:
+        return ('runtimepm' in features)
+    return None
+
+def _get_runtimepm_devices(data):
+    supported_devices = []
+    devices = _get_devices_from_data(data)
+    for device in devices:
+        if _supports_runtimepm(devices.get(device)):
+            supported_devices.append(DeviceInfo(devices.get(device)))
+    return supported_devices
+
+def print_runtimepm_aliases(data):
+    devices = _get_runtimepm_devices(data)
+    template = '%spci:v0000%sd0000%ssv%ssd%sbc03sc*i*%s'
+    line = ''
+
+    it = 0
+    for device in devices:
+        line += template % ('nvidia(' if it == 0 else '',
+                            device.get_vendor(), device.get_devid(),
+                            device.get_subvendorid(),
+                            device.get_subdevid(),
+                            ', ' if it < (len(devices) - 1) else ')')
+        it +=1
+    print(line)
+
+def main(file_stream):
+    logger = logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
+    data = json.load(file_stream)
+
+    print_runtimepm_aliases(data)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('source', help='The .json source file to parse')
+    args = parser.parse_args()
+
+    with open(args.source) as f:
+        main(f)
+        f.close()
