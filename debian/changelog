@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-450 (450.66-0ubuntu3) focal; urgency=medium
+
+  * XB-Support: LTSB
+  * Refresh files from templates
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Sep 2020 16:39:08 +0200
+
 nvidia-graphics-drivers-450 (450.66-0ubuntu2) groovy; urgency=medium
 
   * debian/templates/control.in:
