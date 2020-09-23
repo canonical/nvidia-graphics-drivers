@@ -1,55 +1,5 @@
-nvidia-graphics-drivers-450 (450.66-0ubuntu3) focal; urgency=medium
+nvidia-graphics-drivers-455 (455.23.04-0ubuntu1) UNRELEASED; urgency=medium
 
-  * XB-Support: LTSB
-  * Refresh files from templates
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Sep 2020 16:39:08 +0200
-
-nvidia-graphics-drivers-450 (450.66-0ubuntu2) groovy; urgency=medium
-
-  * debian/templates/control.in:
-    - Add the XB-PmAliases field, so that ubuntu-drivers can
-      check RTD3 support from the apt cache, and enable it
-      on installation.
-    - Add build-dependency on python3 (for pm-aliases-gen).
-  * debian/pm-aliases-gen,
-    debian/rules:
-    - Include and use the pm-aliases-gen tool to extract the IDs
-      from the json database.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 03 Sep 2020 15:56:57 +0200
-
-nvidia-graphics-drivers-450 (450.66-0ubuntu1) groovy; urgency=medium
-
-  * New upstream release:
-    - Added support for the following GPUs:
-        EIZO Quadro MED-XN31LP
-        EIZO Quadro MED-XN50LP
-        EIZO Quadro MED-XN51LP
-        EIZO Quadro MED-XN70
-        EIZO Quadro MED-XN71
-        EIZO Quadro MED-XN72
-        EIZO Quadro MED-XN90
-        EIZO Quadro MED-XN91
-        EIZO Quadro MED-XN92
-        Matrox D-Series D1450
-        Matrox D-Series D1480
-    - Fixed triple buffering support of Vulkan X11 swapchains when
-      applications are syncing to vblank.
-  * debian/rules: do not compress supported-gpus.json
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 Aug 2020 14:49:11 +0200
-
-nvidia-graphics-drivers-450 (450.57-0ubuntu2) groovy; urgency=medium
-
-  * debian/templates/libnvidia-gl-flavour.install.in:
-    - Install libnvidia-ngx.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Jul 2020 11:07:58 +0200
-
-nvidia-graphics-drivers-450 (450.57-0ubuntu1) groovy; urgency=medium
-
-  * Initial release:
-    - Replace the 440 series.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jul 2020 11:19:30 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Sep 2020 11:37:24 +0200
