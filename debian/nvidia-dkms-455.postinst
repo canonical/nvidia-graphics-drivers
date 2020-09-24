@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for nvidia-dkms-450
+# postinst script for nvidia-dkms-455
 #
 # see: dh_installdeb(1)
 #

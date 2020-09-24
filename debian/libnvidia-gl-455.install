@@ -13,6 +13,7 @@ NVIDIA-Linux/libnvidia-ngx.so.455.234              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-rtcore.so.455.234           usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-tls.so.455.234              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvoptix.so.455.234                 usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/nvidia-ngx-updater                      usr/bin
 NVIDIA-Linux/nvidia_icd.json                         usr/share/vulkan/icd.d
 NVIDIA-Linux/nvidia_layers.json                      usr/share/vulkan/implicit_layer.d
 #NVIDIA-Linux/32/libEGL_nvidia.so.455.234               usr/lib/x86_64-linux-gnu
