@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-455 (455.23.04-0ubuntu0~0.20.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-455 (455.23.04-0ubuntu1) groovy; urgency=medium
 
-  * 
+  * Initial release (LP: #1897751).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Sep 2020 11:37:24 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Sep 2020 17:51:34 +0200
