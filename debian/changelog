@@ -1,8 +1,30 @@
-nvidia-graphics-drivers-450 (450.66-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450 (450.80.02-0ubuntu1) groovy; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+      o GeForce MX450
+      o DGX Display
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 03 Sep 2020 11:31:10 +0200
+  [ Alberto Milone ]
+  * debian/templates/control.in:
+    - Add the XB-PmAliases field, so that ubuntu-drivers can
+      check RTD3 support from the apt cache, and enable it
+      on installation.
+    - Add build-dependency on python3 (for pm-aliases-gen).
+  * debian/pm-aliases-gen,
+    debian/rules:
+    - Include and use the pm-aliases-gen tool to extract the IDs
+      from the json database.
+  * debian/additional_card_ids:
+    - Add 1F97 1FBB IDs.
+  * debian/control:
+    - Set XB-Support: LTSB
+
+  [ Kai-Heng Feng ]
+  * debian/71-nvidia.rules:
+    - Add rules to enable runtime PM by default.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 30 Sep 2020 11:48:06 +0200
 
 nvidia-graphics-drivers-450 (450.66-0ubuntu1) groovy; urgency=medium
 
