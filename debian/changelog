@@ -1,8 +1,40 @@
-nvidia-graphics-drivers-450-server (450.80.02-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.80.02-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1897910):
+    - Improvements:
+      o Added a new system-level interface using nvidia-capabilities
+        via /dev for Multi-Instance GPU (MIG) on NVIDIA A100.
+        For more information on these new device node capabilities,
+        refer to the MIG user guide.
+     o Added support for CUDA compatibility for CUDA 11.1, where CUDA
+       11.1 applications will work on supported GPUs when used with
+       drivers >= 450.80.00 on Linux. Refer to CUDA Compatibility for
+       more information.
+    - Fixed Issues:
+      o Various security issues were addressed. For additional details
+        on the med-high severity issues, review the NVIDIA Security
+        Bulletin 5075.
+      o Fixed an issue where, when NVLink training encounters a fatal
+        error, link training is still considered successful resulting
+        in broken nodes assigned to clients. An escape case in the
+        NVLink link state reporting caused the driver to report the
+        links as "Active" and functional even though the link had
+        received a fatal error. This fatal error does not allow
+        traffic to be sent over the link, and thus would cause P2P
+        apps to fail. This is a reporting issue, but not a
+        functionality issue. The lacking reporting case was
+        addressed, so the failing link state is properly reported.
+      o Fixed a software race condition that caused link training
+        failure (CUDA_ERROR_LAUNCH_FAILED). A race condition within
+        the driver polling code caused a false failure in some of
+        the link training steps. This causes the driver to not
+        continue link training even though training actually was
+        successful up to that point. The fix corrects these
+        sequences so that these false failures no longer happen.
+  * debian/templates/control:
+    - Provide cuda 11.0-1 and 11.0-1.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Oct 2020 12:05:23 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Oct 2020 12:10:12 +0200
 
 nvidia-graphics-drivers-450-server (450.51.06-0ubuntu0.18.04.2) bionic; urgency=medium
 
