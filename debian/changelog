@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-450-server (450.80.02-0ubuntu0.20.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.80.02-0ubuntu0.20.04.3) focal; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.8.patch
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/templates/nvidia-dkms-flavour.install.in,
+    debian/templates/nvidia-dkms-flavour.postinst.in,
+    debian/templates/nvidia-dkms-flavour.prerm.in,
+    debian/templates/nvidia-kernel-source-flavour.install.in:
+    - Change DKMS directory and name adding "-srv". This should fix
+      kernel builds now that the 450 and the 450-server drivers share
+      the same version.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 02 Oct 2020 18:50:45 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 02 Oct 2020 18:53:01 +0200
 
 nvidia-graphics-drivers-450-server (450.80.02-0ubuntu0.20.04.2) focal; urgency=medium
 
