@@ -8,7 +8,7 @@
 # Authors: Alberto Milone
 set -e
 
-PACKAGE_NAME=nvidia
+PACKAGE_NAME=nvidia-srv
 CVERSION=450.80.02
 CVERSION=${CVERSION#*really.}
 
