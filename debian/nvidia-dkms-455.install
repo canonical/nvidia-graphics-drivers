@@ -1,2 +1,2 @@
-debian/dkms.conf                    usr/src/nvidia-455.23.04
-debian/dkms_nvidia/patches/*        usr/src/nvidia-455.23.04/patches
+debian/dkms.conf                    usr/src/nvidia-455.28
+debian/dkms_nvidia/patches/*        usr/src/nvidia-455.28/patches
