@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-340 (340.108-0ubuntu6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.108-0ubuntu5.20.10.1) groovy; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.7.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.8.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_5.9.patch:
+    - Fix build failure with Linux 5.7, 5.8, and 5.9 (LP: #1872950).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Oct 2020 12:22:10 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Oct 2020 12:41:02 +0100
 
 nvidia-graphics-drivers-340 (340.108-0ubuntu5) groovy; urgency=medium
 
