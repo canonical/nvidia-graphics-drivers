@@ -32,10 +32,10 @@ Package: nvidia-driver-455
 Architecture: amd64
 Depends:
  libnvidia-gl-455 (= ${binary:Version}),
- nvidia-dkms-455 (<= 455.23.04-1),
- nvidia-dkms-455 (>= 455.23.04),
- nvidia-kernel-common-455 (<= 455.23.04-1),
- nvidia-kernel-common-455 (>= 455.23.04),
+ nvidia-dkms-455 (<= 455.38-1),
+ nvidia-dkms-455 (>= 455.38),
+ nvidia-kernel-common-455 (<= 455.38-1),
+ nvidia-kernel-common-455 (>= 455.38),
  nvidia-kernel-source-455 (= ${binary:Version}),
  libnvidia-compute-455 (= ${binary:Version}),
  libnvidia-extra-455 (= ${binary:Version}),
@@ -58,7 +58,7 @@ Recommends:
  libnvidia-gl-455:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Support: Beta
+XB-Support: NFB
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -94,8 +94,8 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms, nvidia-kernel-source-455,
- nvidia-kernel-common-455 (<= 455.23.04-1),
- nvidia-kernel-common-455 (>= 455.23.04),
+ nvidia-kernel-common-455 (<= 455.38-1),
+ nvidia-kernel-common-455 (>= 455.38),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -128,18 +128,18 @@ Provides: nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1,
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1,
  libcuda1 (= ${source:Version})
 Conflicts: nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
 Replaces: nvidia-opencl-icd, libnvidia-compute-455 (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
  to use GPUs for parallel general purpose computation through CUDA and
@@ -170,8 +170,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-455 (<= 455.23.04-1),
- nvidia-kernel-common-455 (>= 455.23.04),
+ nvidia-kernel-common-455 (<= 455.38-1),
+ nvidia-kernel-common-455 (>= 455.38),
  nvidia-kernel-source-455 (= ${binary:Version}),
  libnvidia-compute-455 (= ${binary:Version}),
  nvidia-compute-utils-455 (= ${binary:Version}),
