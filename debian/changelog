@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-455 (455.23.04-0ubuntu0~0.20.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-455 (455.38-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * Initial release (LP: #1902093). Replaces the 435 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Sep 2020 11:37:24 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Oct 2020 17:01:27 +0100
