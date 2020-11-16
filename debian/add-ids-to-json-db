@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+#
+#   Copyright 2020 Canonical Ltd.
+#   Author: Alberto Milone <alberto.milone@canonical.com>
+#
+
+import json
+import re
+import logging
+import sys
+import argparse
+import datetime
+
+
+def main(source, id_source, target):
+    logger = logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
+    data = json.load(source)
+
+    ids = [x.strip() for x in id_source.readline().split(' ') if x.strip()]
+
+    # Don't add IDs that are already available
+    for chip in data['chips']:
+        if chip.get('devid') in ids:
+            ids.remove(chip.get('devid'))
+
+    for id in ids:
+        data['chips'].append({'devid': '0x%s' % id, 'name': 'N/A', 'features': ['runtimepm']})
+
+    data['_comments'] = {'The following IDs were added by Canonical on %s' %
+                         (datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) : ids}
+
+    json.dump(data, target)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('source', help='The .json source file to parse')
+    parser.add_argument('ids_file', help='The plaintext file with the IDs to add')
+    parser.add_argument('target', help='The resulting .json file')
+    args = parser.parse_args()
+
+    with open(args.source) as s, open(args.ids_file) as i, open(args.target, 'w') as t:
+        main(s, i, t)
+        s.close()
+        i.close()
+        t.close()
