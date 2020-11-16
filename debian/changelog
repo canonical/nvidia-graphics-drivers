@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-340 (340.108-0ubuntu7) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-340 (340.108-0ubuntu7) hirsute; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in:
+    - Fix typo where a curly bracket was used instead of a square one.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Nov 2020 11:19:17 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 Nov 2020 11:22:08 +0100
 
 nvidia-graphics-drivers-340 (340.108-0ubuntu6) hirsute; urgency=medium
 
