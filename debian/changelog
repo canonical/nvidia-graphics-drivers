@@ -1,31 +1,5 @@
-nvidia-graphics-drivers-455 (455.45.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.21.04.0.1) UNRELEASED; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Nov 2020 12:19:27 +0100
-
-nvidia-graphics-drivers-455 (455.38-0ubuntu1) hirsute; urgency=medium
-
-  * New upstream release (LP: #1902093):
-    - Added support for the following GPUs:
-        GeForce RTX 3070
-    - Added support for using an NVIDIA-driven display as a PRIME
-      Display Offload sink with a PRIME Display Offload source driven
-      by the xf86-video-intel driver.
-    - Fixed a bug in a Vulkan barrier optimization that allowed some
-      back-to-back copies to run unordered.
-    - Fixed a performance regression in the NVIDIA X driver which
-      affected some X11 RENDER extension use cases.
-    - Added AMD Secure Memory Encryption compatibility.
-  * debian/templates/control.in:
-    - Set support level to NFB instead of Beta.
-    - Add support for CUDA 11.
-    - Add transitional packages for the 435 series.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Oct 2020 16:31:36 +0100
-
-nvidia-graphics-drivers-455 (455.23.04-0ubuntu1) groovy; urgency=medium
-
-  * Initial release (LP: #1897751).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Sep 2020 17:51:34 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Nov 2020 14:23:18 +0100
