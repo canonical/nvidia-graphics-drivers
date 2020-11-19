@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-455 (455.45.01-0ubuntu0.20.10.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Nov 2020 15:13:40 +0100
+
 nvidia-graphics-drivers-455 (455.38-0ubuntu0.20.10.1) groovy; urgency=medium
 
   * New upstream release (LP: #1902093):
