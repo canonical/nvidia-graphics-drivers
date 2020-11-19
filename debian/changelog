@@ -1,8 +1,26 @@
-nvidia-graphics-drivers-455 (455.45.01-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-455 (455.45.01-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1904863):
+    - Fixed a bug in a Vulkan blending optimization that could
+      produce incorrect results. Some of the Vulkan titles affected
+      by this bug were:
+        Life is Strange 2
+        Shadow of the Tomb Raider
+    - Fixed an issue that caused Vulkan swapchain creation to fail
+      for full-screen windows when a G-SYNC monitor is connected.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Nov 2020 15:27:35 +0100
+  [ Kai-Heng Feng ]
+  * debian/71-nvidia.rules:
+    - Add rules to enable runtimepm by default.
+
+  [ Alberto Milone ]
+  * debian/add-ids-to-json-db,
+    debian/additional_runtimepm_ids,
+    debian/rules:
+    - Make it possible to add new IDs to mark support
+      for runtimepm.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Nov 2020 15:31:58 +0100
 
 nvidia-graphics-drivers-455 (455.38-0ubuntu0.18.04.1) bionic; urgency=medium
 
