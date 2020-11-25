@@ -2,6 +2,7 @@
 Description=NVIDIA Persistence Daemon
 Wants=syslog.target
 StopWhenUnneeded=true
+Before=systemd-backlight@backlight:nvidia_0.service
 
 [Service]
 Type=forking
