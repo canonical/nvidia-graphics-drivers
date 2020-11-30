@@ -1,5 +1,7 @@
-nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.21.04.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.20.04.0.1) focal; urgency=medium
 
   * Initial release.
+  * debian/templates/control.in: set to LTSB
+  * debian/templates/control.in: remove transitional packages
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 19 Nov 2020 14:23:18 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Nov 2020 15:46:26 +0100
