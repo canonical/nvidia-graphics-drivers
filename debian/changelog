@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.18.04.1) bionic; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Dec 2020 16:36:05 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Dec 2020 16:51:51 +0100
