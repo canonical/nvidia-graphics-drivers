@@ -231,14 +231,14 @@ get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL
 
 update-runtimepm-ids:
 	python3 $(CURDIR)/debian/add-ids-to-json-db \
-		NVIDIA-Linux/supported-gpus.json \
+		NVIDIA-Linux/supported-gpus/supported-gpus.json \
 		$(CURDIR)/debian/additional_runtimepm_ids \
-		NVIDIA-Linux/supported-gpus-mod.json
+		NVIDIA-Linux/supported-gpus/supported-gpus-mod.json
 
 generate-runtimepm-aliases: update-runtimepm-ids
 	python3 $(CURDIR)/debian/pm-aliases-gen \
-		NVIDIA-Linux/supported-gpus-mod.json > $(CURDIR)/debian/runtimepm_ids
-	rm -f NVIDIA-Linux/supported-gpus-mod.json
+		NVIDIA-Linux/supported-gpus/supported-gpus-mod.json > $(CURDIR)/debian/runtimepm_ids
+	rm -f NVIDIA-Linux/supported-gpus/supported-gpus-mod.json
 
 override_dh_gencontrol: generate-runtimepm-aliases
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
