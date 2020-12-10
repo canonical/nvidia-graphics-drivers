@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-dkms-455
+# postrm script for nvidia-dkms-460
 #
 # see: dh_installdeb(1)
 #
