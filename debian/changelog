@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-460 (460.27.03-0ubuntu0~0.21.04.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.27.03-0ubuntu0~0.21.04.0.1) hirsute; urgency=medium
 
-  * 
+  * Update to the latest beta.
+  * debian/rules: fix path to supported-gpus.json
+  * debian/copyright: update with the zlib licence for supported-gpus.json
+  * debian/templates/control.in: add transitionals for 450 and 455
+  * debian/templates: update templates for 460
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Dec 2020 17:23:44 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Dec 2020 17:28:47 +0100
 
 nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.21.04.0.1) hirsute; urgency=medium
 
