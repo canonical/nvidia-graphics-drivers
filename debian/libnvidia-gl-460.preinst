@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for libnvidia-gl-455
+# preinst script for libnvidia-gl-460
 #
 # see: dh_installdeb(1)
 #
@@ -18,7 +18,7 @@ set -e
 
 library_dir=usr/lib/x86_64-linux-gnu
 no_alternatives_version=390.25-0ubuntu1
-package_name=libnvidia-gl-455
+package_name=libnvidia-gl-460
 this_version=`dpkg-query -W -f='${Version}' $package_name | cut -d\: -f2`
 
 
