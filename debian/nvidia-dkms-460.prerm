@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for nvidia-dkms-455
+# prerm script for nvidia-dkms-460
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
@@ -7,7 +7,7 @@
 
 
 PACKAGE_NAME=nvidia
-CVERSION=460.18
+CVERSION=460.27.03
 CVERSION=${CVERSION#*really.}
 
 remove_dkms_module() {
