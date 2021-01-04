@@ -32,10 +32,10 @@ Package: nvidia-driver-450
 Architecture: amd64
 Depends:
  libnvidia-gl-450 (= ${binary:Version}),
- nvidia-dkms-450 (<= 450.80.02-1),
- nvidia-dkms-450 (>= 450.80.02),
- nvidia-kernel-common-450 (<= 450.80.02-1),
- nvidia-kernel-common-450 (>= 450.80.02),
+ nvidia-dkms-450 (<= 450.102.04-1),
+ nvidia-dkms-450 (>= 450.102.04),
+ nvidia-kernel-common-450 (<= 450.102.04-1),
+ nvidia-kernel-common-450 (>= 450.102.04),
  nvidia-kernel-source-450 (= ${binary:Version}),
  libnvidia-compute-450 (= ${binary:Version}),
  libnvidia-extra-450 (= ${binary:Version}),
@@ -94,8 +94,8 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms, nvidia-kernel-source-450,
- nvidia-kernel-common-450 (<= 450.80.02-1),
- nvidia-kernel-common-450 (>= 450.80.02),
+ nvidia-kernel-common-450 (<= 450.102.04-1),
+ nvidia-kernel-common-450 (>= 450.102.04),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -128,18 +128,18 @@ Provides: nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1,
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1,
  libcuda1 (= ${source:Version})
 Conflicts: nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
 Replaces: nvidia-opencl-icd, libnvidia-compute-450 (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
  to use GPUs for parallel general purpose computation through CUDA and
@@ -170,8 +170,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-450 (<= 450.80.02-1),
- nvidia-kernel-common-450 (>= 450.80.02),
+ nvidia-kernel-common-450 (<= 450.102.04-1),
+ nvidia-kernel-common-450 (>= 450.102.04),
  nvidia-kernel-source-450 (= ${binary:Version}),
  libnvidia-compute-450 (= ${binary:Version}),
  nvidia-compute-utils-450 (= ${binary:Version}),
