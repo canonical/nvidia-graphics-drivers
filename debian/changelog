@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-418-server (418.181.05-0ubuntu0~0.21.04.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.181.07-0ubuntu1) hirsute; urgency=medium
 
-  * 
+  * New upstream release.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop patches for Linux 5.6 and 5.8.
+  * debian/templates/{dkms_nvidia.conf.in|dkms.conf.fragment.in}:
+    - Disable uvm on Linux >= 5.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 16:48:08 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 16:54:38 +0100
 
 nvidia-graphics-drivers-418-server (418.152.00-0ubuntu2) groovy; urgency=medium
 
