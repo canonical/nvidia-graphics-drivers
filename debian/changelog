@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-460 (460.32.03-0ubuntu0~0.20.10.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.32.03-0ubuntu0.20.10.1) groovy; urgency=medium
 
-  * Initial release (LP: #1906680).
+  * Initial release (LP: #1906680):
+    - CVE-2021-1052, CVE-2021-1053.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 12:08:42 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 12:12:25 +0100
