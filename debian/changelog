@@ -1,17 +1,5 @@
-nvidia-graphics-drivers-460 (460.27.03-0ubuntu0~0.20.04.0.1) focal; urgency=medium
+nvidia-graphics-drivers-460 (460.32.03-0ubuntu0~0.20.04.0.1) UNRELEASED; urgency=medium
 
-  * Update to the latest beta.
-  * debian/rules: fix path to supported-gpus.json
-  * debian/copyright: update with the zlib licence for supported-gpus.json
-  * debian/templates/control.in: add transitionals for 450 and 455
-  * debian/templates: update templates for 460
+  * Initial release (LP: #1906680).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Dec 2020 17:15:38 +0100
-
-nvidia-graphics-drivers-460 (460.18-0ubuntu0~0.20.04.0.1) focal; urgency=medium
-
-  * Initial release.
-  * debian/templates/control.in: set to LTSB
-  * debian/templates/control.in: remove transitional packages
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Nov 2020 15:46:26 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 13:07:56 +0100
