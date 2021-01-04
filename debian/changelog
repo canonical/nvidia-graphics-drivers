@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-450 (450.102.04-0ubuntu0~0.21.04.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450 (450.102.04-0ubuntu1) hirsute; urgency=medium
 
-  * Initial release (LP: #1906680).
+  * New upstream release.
+  * debian/templates/control.in:
+    - Add support for libcuda-11.0-1, libcuda-11.1-1.
+  * debian/templates/nvidia-compute-utils-flavour.nvidia-persistenced.service.in:
+    Run persistenced.service before systemd-backlight@backlight:nvidia_0
+    (LP: #1885087).
+  * debian/templates/{dkms_nvidia.conf.in|dkms.conf.fragment.in}:
+    - Disable uvm on Linux >= 5.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 13:22:27 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 15:18:07 +0100
 
 nvidia-graphics-drivers-450 (450.80.02-0ubuntu1) groovy; urgency=medium
 
