@@ -1,5 +1,103 @@
-nvidia-graphics-drivers-460 (460.32.03-0ubuntu0~0.21.04.0.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.32.03-0ubuntu1) hirsute; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        RTX A6000
+    - Fixed a bug that could cause detailed timing information for
+      displays with a large number of detailed timings to be
+      truncated in the X log.
+    - Fixed a bug that prevented scaled display resolutions
+      configured via the nvidia-settings control panel from being
+      reported by RandR.
+    - Fixed a bug with the SLI Mosaic Mode configuration dialog in
+      nvidia-settings that left displays enabled when they were not
+      needed in the selected configuration.
+    - Added support for RandR rotation and reflection while using an
+      NVIDIA-driven display as a PRIME Display Offload sink.
+    - Added support for "Reverse PRIME Bypass", an optimization that
+      bypasses the bandwidth overhead of PRIME Render Offload and
+      PRIME Display Offload in conditions where a render offload
+      application is fullscreen, unredirected, and visible only on a
+      given NVIDIA-driven PRIME Display Offload output. Use of the
+      optimization is reported in the X log when verbose logging is
+      enabled in the X server.
+    - Add support for the VK_KHR_acceleration_structure extension.
+    - Add support for the VK_KHR_ray_tracing_pipeline extension.
+    - Add support for the VK_KHR_ray_query extension.
+    - Add support for the VK_KHR_pipeline_library extension.
+    - Add support for the VK_KHR_deferred_host_operations extension.
+    - Removed the MetaMode string truncation warning for older X
+      Servers when saving the X Configuration file from nvidia-
+      settings.
+    - Add support for the VK_NV_fragment_shading_rate_enums
+      extension.
+    - Fixed a bug where copying from an X11 pixmap to an RGB overlay
+      window would exhibit corruption.
+    - Fixed an issue with VK_ACCESS_MEMORY_READ_BIT and
+      VK_ACCESS_MEMORY_WRITE_BIT when used as part of a render pass.
+    - Add support for the VK_KHR_fragment_shading_rate extension.
+    - Add support for the VK_KHR_shader_terminate_invocation
+      extension.
+    - Reduce host memory consumption for descriptor memory in cases
+      where the pNext chain contains a structure of type
+      VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLO
+      CATE_INFO.
+    - Increased the default size for new OpenGL/Vulkan Shader Disk
+      Cache location to 1024MB. Note that caches with paths
+      containing "/.nv/ will continue to use the previous default of
+      128MB unless the size is manually overridden. For more
+      information see the "OpenGL Shader Disk Cache" section in the
+      "Specifying OpenGL Environment Variable Settings" chapter of
+      the README.
+    - Changed the default location for new OpenGL/Vulkan Shader Disk
+      Caches. If the location is not manually overridden and a cache
+      is detected in the previous default location, that location
+      will be used instead of the new default location. For more
+      information see the "OpenGL Shader Disk Cache" section in the
+      "Specifying OpenGL Environment Variable Settings" chapter of
+      the README.
+    - Add support for the VK_EXT_shader_image_atomic_int64 extension.
+    - Add support for the VK_KHR_copy_commands2 extension.
+    - Allow importing cached memory via VK_EXT_external_memory_host.
+    - Removed support for the following deprecated frame lock NV-
+      CONTROL attributes:
+        NV_CTRL_FRAMELOCK_MASTER
+        NV_CTRL_FRAMELOCK_SLAVES
+        NV_CTRL_FRAMELOCK_MASTERABLE
+        NV_CTRL_FRAMELOCK_SLAVEABLE
+    - Default AllowEmptyInitialConfiguration to True such that the
+      NVIDIA X driver succeeds when launching the X server even if
+      there are no display devices connected.
+    - RRGetCrtcInfo will now return Rotate_0 instead of 0 as the
+      active rotation for disabled CRTCs.
+    - Improved the NVIDIA VDPAU implementation of
+      VdpVideoSurfaceGetBitsYCbCr and VdpVideoSurfacePutBitsYCbCr
+      when using planar or semi-planar formats.  This helps
+      applications that transfer data between VDPAU video surfaces
+      and system memory.
+    - Added initial experimental support for S0ix-based system
+      suspend (suspend-to-idle). This feature is platform and GPU
+      dependent, so the feature will be disabled by default. To
+      enable this feature, refer to the 'powermanagement' section of
+      the README.
+    - Fixed an issue where Vulkan applications would fail to
+      initialize if the connected X11 Server did not expose support
+      for GLX.
+    - Improved the memory allocation strategy in nvidia-modeset.ko to
+      reduce the likelihood of out-of-memory errors, which typically
+      manifest as "page allocation failure" messages in the kernel
+      log.
+    - Added a new "NoInterlacedModes" token to the NVIDIA X driver's
+      "ModeValidation" option, to allow preventing interlaced modes
+      from being validated. Refer to the "X Config Options" appendix
+      of the driver README for further details.
+    - Fixed a bug that could cause X clients to crash when closing
+      display connections to the X server.
+    - Fixed a bug that could cause the X server to configure
+      DisplayPort Multi-Stream Transport displays in an inconsistent
+      order.
+    - Fixed an interaction problem with 5.4 and newer Linux kernels
+      that caused a performance regression when allocating system
+      memory.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 11:50:03 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jan 2021 12:06:33 +0100
