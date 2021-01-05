@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-390 (390.141-0ubuntu0~0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.141-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1906680):
+    - CVE-2021-1052, CVE-2021-1053.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Jan 2021 13:55:06 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Jan 2021 13:56:31 +0100
 
 nvidia-graphics-drivers-390 (390.138-0ubuntu0.18.04.1) bionic-security; urgency=medium
 
