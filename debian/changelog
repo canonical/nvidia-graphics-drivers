@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-390 (390.141-0ubuntu0~0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.141-0ubuntu0.20.10.1) groovy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1906680):
+    - CVE-2021-1052, CVE-2021-1053.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.8.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Jan 2021 10:20:42 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Jan 2021 13:44:30 +0100
 
 nvidia-graphics-drivers-390 (390.138-0ubuntu2) groovy; urgency=medium
 
