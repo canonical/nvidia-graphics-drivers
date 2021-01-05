@@ -1,3 +1,5 @@
-BUILT_MODULE_NAME[3]="nvidia-uvm"
-DEST_MODULE_LOCATION[3]="/kernel/drivers/char/drm"
+if [ -z "$EXCLUDED" ]; then
+    BUILT_MODULE_NAME[3]="nvidia-uvm"
+    DEST_MODULE_LOCATION[3]="/kernel/drivers/char/drm"
+fi
 #PATCH[2]="buildfix_kernel_4.9_amd64_only.patch"
