@@ -1,8 +1,18 @@
-nvidia-graphics-drivers-390 (390.141-0ubuntu0~0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.141-0ubuntu1) hirsute; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a driver installation failure on Linux kernel 5.8 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "'struct mm_struct' has no member named 'mmap_sem'".
+    - Fixed a driver installation failure on Linux kernel 5.8 release
+      candidates, where the NVIDIA kernel module failed to build with
+      error "too many arguments to function '__vmalloc'".
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/templates/dkms.conf.fragment.in:
+    - Drop buildfix_kernel_5.8.patch.
+    - Disable uvm on Linux >= 5.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Jan 2021 10:20:42 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 07 Jan 2021 17:06:01 +0100
 
 nvidia-graphics-drivers-390 (390.138-0ubuntu2) groovy; urgency=medium
 
