@@ -1,2 +1,2 @@
-debian/dkms.conf                                                     usr/src/nvidia-390.138
-debian/dkms_nvidia/patches/*                                         usr/src/nvidia-390.138/patches
+debian/dkms.conf                                                     usr/src/nvidia-390.141
+debian/dkms_nvidia/patches/*                                         usr/src/nvidia-390.141/patches
