@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-450-server (450.102.04-0ubuntu0~0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.102.04-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1906680):
+    - CVE-2021-1052, CVE-2021-1053, CVE‑2021‑1056.
+  * debian/templates/control.in:
+    - Add transitional packages for the 440-server series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Jan 2021 16:27:48 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Jan 2021 16:30:58 +0100
 
 nvidia-graphics-drivers-450-server (450.80.02-0ubuntu0.20.04.3) focal; urgency=medium
 
