@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-450-server (450.102.04-0ubuntu0~0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.102.04-0ubuntu1) hirsute; urgency=medium
 
-  * 
+  * New upstream release.
+  * debian/templates/control.in:
+    - Add transitional packages for the 440-server series.
+  * debian/templates/{dkms_nvidia.conf.in|dkms.conf.fragment.in}:
+    - Disable uvm on Linux >= 5.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Jan 2021 15:22:37 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Jan 2021 15:52:22 +0100
 
 nvidia-graphics-drivers-450-server (450.80.02-0ubuntu3) groovy; urgency=medium
 
