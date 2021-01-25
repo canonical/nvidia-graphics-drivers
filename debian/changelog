@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-460-server (460.32.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460-server (460.32.03-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * Initial release (LP: #1913200).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Jan 2021 17:51:16 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Jan 2021 18:53:55 +0100
