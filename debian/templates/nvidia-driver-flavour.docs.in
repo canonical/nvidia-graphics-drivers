@@ -8,4 +8,5 @@
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-resume.service
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-sleep.sh
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-suspend.service
-#I386_EXCLUDED#NVIDIA-Linux/supported-gpus.json
+#I386_EXCLUDED#NVIDIA-Linux/supported-gpus/LICENSE
+#I386_EXCLUDED#NVIDIA-Linux/supported-gpus/supported-gpus.json
