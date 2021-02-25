@@ -32,10 +32,10 @@ Package: nvidia-driver-460
 Architecture: amd64
 Depends:
  libnvidia-gl-460 (= ${binary:Version}),
- nvidia-dkms-460 (<= 460.39-1),
- nvidia-dkms-460 (>= 460.39),
- nvidia-kernel-common-460 (<= 460.39-1),
- nvidia-kernel-common-460 (>= 460.39),
+ nvidia-dkms-460 (<= 460.56-1),
+ nvidia-dkms-460 (>= 460.56),
+ nvidia-kernel-common-460 (<= 460.56-1),
+ nvidia-kernel-common-460 (>= 460.56),
  nvidia-kernel-source-460 (= ${binary:Version}),
  libnvidia-compute-460 (= ${binary:Version}),
  libnvidia-extra-460 (= ${binary:Version}),
@@ -94,8 +94,8 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms, nvidia-kernel-source-460,
- nvidia-kernel-common-460 (<= 460.39-1),
- nvidia-kernel-common-460 (>= 460.39),
+ nvidia-kernel-common-460 (<= 460.56-1),
+ nvidia-kernel-common-460 (>= 460.56),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -124,22 +124,22 @@ Architecture: i386 amd64
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
+Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1,
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda1 (= ${source:Version})
-Conflicts: nvidia-opencl-icd,
+Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
-Replaces: nvidia-opencl-icd, libnvidia-compute-460 (<< 390.25-0ubuntu2~),
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1
+Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-460 (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA driver
  to use GPUs for parallel general purpose computation through CUDA and
@@ -150,9 +150,9 @@ Architecture: amd64
 Depends:
  libnvidia-compute-460, adduser,
  ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-persistenced
-Conflicts: nvidia-persistenced
-Replaces: nvidia-persistenced
+Provides: nvidia-compute-utils, nvidia-persistenced
+Conflicts: nvidia-compute-utils, nvidia-persistenced
+Replaces: nvidia-compute-utils, nvidia-persistenced
 Description: NVIDIA compute utilities
  This package provides utility binaries for paraller general purpose
  computing use cases with the NVIDIA driver.
@@ -170,8 +170,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-460 (<= 460.39-1),
- nvidia-kernel-common-460 (>= 460.39),
+ nvidia-kernel-common-460 (<= 460.56-1),
+ nvidia-kernel-common-460 (>= 460.56),
  nvidia-kernel-source-460 (= ${binary:Version}),
  libnvidia-compute-460 (= ${binary:Version}),
  nvidia-compute-utils-460 (= ${binary:Version}),
@@ -188,6 +188,9 @@ Description: NVIDIA headless metapackage - no DKMS
 
 Package: nvidia-headless-460
 Architecture: amd64
+Conflicts: nvidia-headless
+Provides: nvidia-headless
+Replaces: nvidia-headless
 Depends:
  nvidia-headless-no-dkms-460,
  nvidia-dkms-460,
@@ -232,6 +235,7 @@ Package: libnvidia-common-460
 Architecture: all
 Multi-Arch: foreign
 Breaks: libnvidia-gl-460 (<< 390.25-0ubuntu2~)
+Conflicts: libnvidia-common
 Replaces: libnvidia-common, libnvidia-gl-460 (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
 Depends:
