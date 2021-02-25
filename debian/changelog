@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-460 (460.56-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.56-0ubuntu1) hirsute; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        GeForce RTX 3060
+    - Fixed a bug with indexed ray payloads in Vulkan.
+    - Fixed a bug where calls to vkCreateDevice could fail on Ampere
+      GPUs when ray tracing extensions were enabled and the
+      application was running within the Steam Linux Runtime.
+    - Fixed a regression that could cause display corruption when
+      using a scaled resolution after resuming from power management
+      suspend.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 Feb 2021 15:08:26 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 Feb 2021 15:14:21 +0100
 
 nvidia-graphics-drivers-460 (460.39-0ubuntu2) hirsute; urgency=medium
 
