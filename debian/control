@@ -52,6 +52,7 @@ Recommends:
  libnvidia-fbc1-390:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-390:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
+XB-Support: Legacy
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -117,16 +118,16 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
+Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1,
  libcuda1 (= ${source:Version})
-Conflicts: nvidia-opencl-icd,
+Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1
-Replaces: nvidia-opencl-icd, libnvidia-compute-390 (<< 390.25-0ubuntu2~),
+Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-390 (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1
@@ -140,9 +141,9 @@ Architecture: i386 amd64 armhf
 Depends:
  libnvidia-compute-390, adduser,
  ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-persistenced
-Conflicts: nvidia-persistenced
-Replaces: nvidia-persistenced
+Provides: nvidia-compute-utils, nvidia-persistenced
+Conflicts: nvidia-compute-utils, nvidia-persistenced
+Replaces: nvidia-compute-utils, nvidia-persistenced
 Description: NVIDIA compute utilities
  This package provides utility binaries for paraller general purpose
  computing use cases with the NVIDIA driver.
@@ -178,6 +179,9 @@ Description: NVIDIA headless metapackage - no DKMS
 
 Package: nvidia-headless-390
 Architecture: i386 amd64 armhf
+Conflicts: nvidia-headless
+Provides: nvidia-headless
+Replaces: nvidia-headless
 Depends:
  nvidia-headless-no-dkms-390,
  nvidia-dkms-390,
@@ -222,6 +226,7 @@ Package: libnvidia-common-390
 Architecture: all
 Multi-Arch: foreign
 Breaks: libnvidia-gl-390 (<< 390.25-0ubuntu2~)
+Conflicts: libnvidia-common
 Replaces: libnvidia-common, libnvidia-gl-390 (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
 Depends:
