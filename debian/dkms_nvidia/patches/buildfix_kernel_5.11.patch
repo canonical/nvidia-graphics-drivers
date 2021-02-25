@@ -1,0 +1,753 @@
+From 9a5bd5afa2b95d2531f8a71324b20b485561004f Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Wed, 24 Feb 2021 15:47:08 +0100
+Subject: [PATCH 1/1] Add support for Linux 5.11
+
+---
+ common/inc/nv_uvm_types.h     |  15 +++-
+ conftest.sh                   | 135 ++++++++++++++++++++++++++--------
+ nvidia-drm/nvidia-drm-crtc.c  |  45 +++---------
+ nvidia-drm/nvidia-drm-drv.c   |  12 ++-
+ nvidia-drm/nvidia-drm-gem.c   |  36 ++++++++-
+ nvidia-drm/nvidia-drm.Kbuild  |   4 +-
+ nvidia-uvm/clc076.h           |   7 ++
+ nvidia-uvm/uvm.h              |   3 +-
+ nvidia-uvm/uvm_gpu.c          |  21 ++++++
+ nvidia-uvm/uvm_gpu.h          |   3 +
+ nvidia-uvm/uvm_hal.c          |   5 ++
+ nvidia-uvm/uvm_user_channel.c |   1 -
+ nvidia/nv-caps.c              |  16 ++--
+ nvidia/nv-pci.c               |  41 +++++++++++
+ nvidia/nv.c                   |  67 ++++++++++++++++-
+ nvidia/nvidia.Kbuild          |   2 +
+ 16 files changed, 328 insertions(+), 85 deletions(-)
+
+diff --git a/common/inc/nv_uvm_types.h b/common/inc/nv_uvm_types.h
+index db325bb..70c9090 100644
+--- a/common/inc/nv_uvm_types.h
++++ b/common/inc/nv_uvm_types.h
+@@ -215,9 +215,6 @@ typedef struct UvmGpuChannelInstanceInfo_tag
+ 
+ typedef struct UvmGpuChannelResourceBindParams_tag
+ {
+-    // In: Ptr to the RM memDesc of the channel resource.
+-    NvP64 resourceDescriptor;
+-
+     // In: RM ID of the channel resource.
+     NvU32 resourceId;
+ 
+@@ -407,6 +404,15 @@ typedef struct UvmGpuAllocInfo_tag
+     NvHandle hPhysHandle;           // Handle for phys allocation either provided or retrieved
+ } UvmGpuAllocInfo;
+ 
++typedef enum
++{
++    UVM_VIRT_MODE_NONE = 0,             // Baremetal or passthrough virtualization
++    UVM_VIRT_MODE_LEGACY = 1,           // Virtualization without SRIOV support
++    UVM_VIRT_MODE_SRIOV_HEAVY = 2,      // Virtualization with SRIOV Heavy configured
++    UVM_VIRT_MODE_SRIOV_STANDARD = 3,   // Virtualization with SRIOV Standard configured
++    UVM_VIRT_MODE_COUNT = 4,
++} UVM_VIRT_MODE;
++
+ // !!! The following enums (with UvmRm prefix) are defined and documented in
+ // mm/uvm/interface/uvm_types.h and must be mirrored. Please refer to that file
+ // for more details.
+@@ -574,6 +580,9 @@ typedef struct UvmGpuInfo_tag
+     // Number of subdevices in SLI group.
+     NvU32 subdeviceCount;
+ 
++    // Virtualization mode of this gpu.
++    NvU32 virtMode;         // UVM_VIRT_MODE
++
+     // NV_TRUE if this is a simulated/emulated GPU. NV_FALSE, otherwise.
+     NvBool isSimulated;
+ 
+diff --git a/conftest.sh b/conftest.sh
+index 619c2cc..7479cb2 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -1273,10 +1273,6 @@ compile_test() {
+             #include <drm/drm_drv.h>
+             #endif
+ 
+-            #if defined(NV_DRM_DRM_PRIME_H_PRESENT)
+-            #include <drm/drm_prime.h>
+-            #endif
+-
+             #if !defined(CONFIG_DRM) && !defined(CONFIG_DRM_MODULE)
+             #error DRM not enabled
+             #endif
+@@ -1284,14 +1280,6 @@ compile_test() {
+             void conftest_drm_available(void) {
+                 struct drm_driver drv;
+ 
+-                /* 2013-01-15 89177644a7b6306e6084a89eab7e290f4bfef397 */
+-                drv.gem_prime_pin = 0;
+-                drv.gem_prime_get_sg_table = 0;
+-                drv.gem_prime_vmap = 0;
+-                drv.gem_prime_vunmap = 0;
+-                (void)drm_gem_prime_import;
+-                (void)drm_gem_prime_export;
+-
+                 /* 2013-10-02 1bb72532ac260a2d3982b40bdd4c936d779d0d16 */
+                 (void)drm_dev_alloc;
+ 
+@@ -3000,25 +2988,6 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_ATOMIC_HELPER_PLANE_DESTROY_STATE_HAS_PLANE_ARG" "" "types"
+         ;;
+ 
+-        drm_crtc_helper_funcs_has_atomic_enable)
+-            #
+-            # Determine if struct drm_crtc_helper_funcs has an 'atomic_enable'
+-            # member.
+-            #
+-            # The "enable" callback was renamed to "atomic_enable" by commit
+-            # 0b20a0f8c3cb ("drm: Add old state pointer to CRTC .enable()
+-            # helper function") in v4.14 (2017-06-30).
+-            #
+-            CODE="
+-            #include <drm/drm_modeset_helper_vtables.h>
+-            void conftest_drm_crtc_helper_funcs_has_atomic_enable(void) {
+-                struct drm_crtc_helper_funcs funcs;
+-                funcs.atomic_enable = NULL;
+-            }"
+-
+-            compile_check_conftest "$CODE" "NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE" "" "types"
+-        ;;
+-
+         drm_atomic_helper_connector_dpms)
+             #
+             # Determine if the function drm_atomic_helper_connector_dpms() is present.
+@@ -4326,6 +4295,93 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_PRIME_PAGES_TO_SG_HAS_DRM_DEVICE_ARG" "" "types"
+         ;;
+ 
++        drm_driver_has_gem_prime_callbacks)
++            #
++            # Determine if drm_driver structure has the GEM and PRIME callback
++            # function pointers.
++            #
++            # The GEM and PRIME callback are removed from drm_driver
++            # structure, by commit d693def4fd1c ("drm: Remove obsolete GEM and
++            # PRIME callbacks from struct drm_driver").
++            #
++            CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
++            #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_DRV_H_PRESENT)
++            #include <drm/drm_drv.h>
++            #endif
++
++            void conftest_drm_driver_has_gem_and_prime_callbacks(void) {
++                struct drm_driver drv;
++
++                drv.gem_prime_pin = 0;
++                drv.gem_prime_get_sg_table = 0;
++                drv.gem_prime_vmap = 0;
++                drv.gem_prime_vunmap = 0;
++                drv.gem_vm_ops = 0;
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS" "" "types"
++        ;;
++
++        drm_crtc_atomic_check_has_atomic_state_arg)
++            #
++            # Determine if drm_crtc_helper_funcs::atomic_check takes 'state'
++            # argument of 'struct drm_atomic_state' type.
++            #
++            # The commit 29b77ad7b9ca ("drm/atomic: Pass the full state to CRTC
++            # atomic_check") passed the full atomic state to
++            # drm_crtc_helper_funcs::atomic_check()
++            #
++            # Turning incompatible-pointer-types check into error is necessary
++            # to make test fail if drm_crtc_helper_funcs::atomic_check is taking
++            # 'crtc_state' instead of 'state', otherwise test simply pass
++            # because compilation succeeds throwing incompatible-pointer-types
++            # warning. This test is expected to fail on Linux kernels <= v5.10,
++            # the commit ea8daa7b9784 ("kbuild: Add option to turn incompatible
++            # pointer check into error") has turned incompatible-pointer-types
++            # check into error from v4.6.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #include <drm/drm_modeset_helper_vtables.h>
++            int conftest_drm_crtc_atomic_check_has_atomic_state_arg(
++                    struct drm_crtc *crtc, struct drm_atomic_state *state) {
++                const struct drm_crtc_helper_funcs *funcs = crtc->helper_private;
++                return funcs->atomic_check(crtc, state);
++            }" > conftest$$.c
++
++            $CC $CFLAGS -Werror=incompatible-pointer-types -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                rm -f conftest$$.o
++                echo "#define NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG" | append_conftest "types"
++            else
++                echo "#undef NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG" | append_conftest "types"
++            fi
++        ;;
++
++        drm_gem_object_vmap_has_map_arg)
++            #
++            # Determine if drm_gem_object_funcs::vmap takes 'map'
++            # argument of 'struct dma_buf_map' type.
++            #
++            # The commit 49a3f51dfeee ("drm/gem: Use struct dma_buf_map in GEM
++            # vmap ops and convert GEM backends") update
++            # drm_gem_object_funcs::vmap to take 'map' argument.
++            #
++            CODE="
++            #include <drm/drm_gem.h>
++            int conftest_drm_gem_object_vmap_has_map_arg(
++                    struct drm_gem_object *obj, struct dma_buf_map *map) {
++                return obj->funcs->vmap(obj, map);
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG" "" "types"
++        ;;
++
+         iterate_fd)
+             #
+             # iterate_fd() was added by
+@@ -4333,6 +4389,7 @@ compile_test() {
+             # in v3.7-rc1 (2012-09-26)
+             #
+             CODE="
++            #include <linux/types.h>
+             #include <linux/fdtable.h>
+             void conftest_iterate_fd(void) {
+                  iterate_fd();
+@@ -4341,6 +4398,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_ITERATE_FD_PRESENT" "" "functions"
+         ;;
+ 
++        seq_read_iter)
++            #
++            # Determine if seq_read_iter() is present
++            #
++            # seq_read_iter() was added by commit d4d50710a8b4 ("seq_file:
++            # add seq_read_iter") in v5.10-rc1 (2020-11-04).
++            #
++            CODE="
++            #include <linux/seq_file.h>
++            void conftest_seq_read_iter(void) {
++                seq_read_iter();
++            }"
++
++            compile_check_conftest "$CODE" "NV_SEQ_READ_ITER_PRESENT" "" "functions"
++        ;;
++
+         # When adding a new conftest entry, please use the correct format for
+         # specifying the relevant upstream Linux kernel commit.
+         #
+diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
+index b966bb2..3d3d94a 100644
+--- a/nvidia-drm/nvidia-drm-crtc.c
++++ b/nvidia-drm/nvidia-drm-crtc.c
+@@ -459,9 +459,18 @@ static int head_modeset_config_attach_connector(
+  * the 'nv_drm_crtc_state::req_config', that is fine because 'nv_drm_crtc_state'
+  * will be discarded if ->atomic_check() fails.
+  */
++#if defined(NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG)
++static int nv_drm_crtc_atomic_check(struct drm_crtc *crtc,
++                                    struct drm_atomic_state *state)
++#else
+ static int nv_drm_crtc_atomic_check(struct drm_crtc *crtc,
+                                     struct drm_crtc_state *crtc_state)
++#endif
+ {
++#if defined(NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG)
++    struct drm_crtc_state *crtc_state =
++        drm_atomic_get_new_crtc_state(state, crtc);
++#endif
+     struct nv_drm_crtc_state *nv_crtc_state = to_nv_crtc_state(crtc_state);
+     struct NvKmsKapiHeadRequestedConfig *req_config =
+         &nv_crtc_state->req_config;
+@@ -515,44 +524,8 @@ nv_drm_crtc_mode_fixup(struct drm_crtc *crtc,
+     return true;
+ }
+ 
+-static void nv_drm_crtc_prepare(struct drm_crtc *crtc)
+-{
+-
+-}
+-
+-static void nv_drm_crtc_commit(struct drm_crtc *crtc)
+-{
+-
+-}
+-
+-static void nv_drm_crtc_disable(struct drm_crtc *crtc)
+-{
+-
+-}
+-
+-#ifdef NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE
+-static void nv_drm_crtc_atomic_enable(struct drm_crtc *crtc,
+-                                      struct drm_crtc_state *old_crtc_state)
+-{
+-
+-}
+-#else
+-static void nv_drm_crtc_enable(struct drm_crtc *crtc)
+-{
+-
+-}
+-#endif
+-
+ static const struct drm_crtc_helper_funcs nv_crtc_helper_funcs = {
+     .atomic_check = nv_drm_crtc_atomic_check,
+-    .prepare    = nv_drm_crtc_prepare,
+-    .commit     = nv_drm_crtc_commit,
+-#ifdef NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE
+-    .atomic_enable = nv_drm_crtc_atomic_enable,
+-#else
+-    .enable     = nv_drm_crtc_enable,
+-#endif
+-    .disable    = nv_drm_crtc_disable,
+     .mode_fixup = nv_drm_crtc_mode_fixup,
+ };
+ 
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index ebfb5cd..93938bd 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -755,13 +755,18 @@ static struct drm_driver nv_drm_driver = {
+ 
+     .prime_handle_to_fd     = drm_gem_prime_handle_to_fd,
+     .prime_fd_to_handle     = drm_gem_prime_fd_to_handle,
+-    .gem_prime_export       = drm_gem_prime_export,
+     .gem_prime_import       = nv_drm_gem_prime_import,
+-    .gem_prime_get_sg_table = nv_drm_gem_prime_get_sg_table,
+     .gem_prime_import_sg_table = nv_drm_gem_prime_import_sg_table,
++
++#if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
++    .gem_prime_export       = drm_gem_prime_export,
++    .gem_prime_get_sg_table = nv_drm_gem_prime_get_sg_table,
+     .gem_prime_vmap         = nv_drm_gem_prime_vmap,
+     .gem_prime_vunmap       = nv_drm_gem_prime_vunmap,
+ 
++    .gem_vm_ops             = &nv_drm_gem_vma_ops,
++#endif
++
+ #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
+     .gem_prime_res_obj      = nv_drm_gem_prime_res_obj,
+ #endif
+@@ -784,12 +789,13 @@ static struct drm_driver nv_drm_driver = {
+     .desc                   = "NVIDIA DRM driver",
+     .date                   = "20160202",
+ 
++#if defined(CONFIG_DRM_LEGACY)
+ #if defined(NV_DRM_DRIVER_HAS_LEGACY_DEV_LIST)
+     .legacy_dev_list        = LIST_HEAD_INIT(nv_drm_driver.legacy_dev_list),
+ #else
+     .device_list            = LIST_HEAD_INIT(nv_drm_driver.device_list),
+ #endif
+-    .gem_vm_ops             = &nv_drm_gem_vma_ops,
++#endif
+ };
+ 
+ 
+diff --git a/nvidia-drm/nvidia-drm-gem.c b/nvidia-drm/nvidia-drm-gem.c
+index a6b54f0..82de645 100644
+--- a/nvidia-drm/nvidia-drm-gem.c
++++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -63,10 +63,44 @@ void nv_drm_gem_free(struct drm_gem_object *gem)
+     nv_gem->ops->free(nv_gem);
+ }
+ 
+-#if !defined(NV_DRM_DRIVER_HAS_GEM_FREE_OBJECT)
++#if !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS) && \
++    defined(NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG)
++static int nv_drm_gem_vmap(struct drm_gem_object *gem,
++                           struct dma_buf_map *map)
++{
++    map->vaddr = nv_drm_gem_prime_vmap(gem);
++    if (map->vaddr == NULL) {
++        return -ENOMEM;
++    }
++    map->is_iomem = true;
++    return 0;
++}
++
++static void nv_drm_gem_vunmap(struct drm_gem_object *gem,
++                              struct dma_buf_map *map)
++{
++    nv_drm_gem_prime_vunmap(gem, map->vaddr);
++    map->vaddr = NULL;
++}
++#endif
++
++#if !defined(NV_DRM_DRIVER_HAS_GEM_FREE_OBJECT) || \
++    !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
+ static struct drm_gem_object_funcs nv_drm_gem_funcs = {
+     .free = nv_drm_gem_free,
+     .get_sg_table = nv_drm_gem_prime_get_sg_table,
++
++#if !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
++    .export  = drm_gem_prime_export,
++#if defined(NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG)
++    .vmap    = nv_drm_gem_vmap,
++    .vunmap  = nv_drm_gem_vunmap,
++#else
++    .vmap    = nv_drm_gem_prime_vmap,
++    .vunmap  = nv_drm_gem_prime_vunmap,
++#endif
++    .vm_ops  = &nv_drm_gem_vma_ops,
++#endif
+ };
+ #endif
+ 
+diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
+index 23ca4ed..22db71c 100644
+--- a/nvidia-drm/nvidia-drm.Kbuild
++++ b/nvidia-drm/nvidia-drm.Kbuild
+@@ -88,7 +88,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_unload_has_int_return_type
+ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_fault_has_address
+ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_ops_fault_removed_vma_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_atomic_helper_crtc_destroy_state_has_crtc_arg
+-NV_CONFTEST_TYPE_COMPILE_TESTS += drm_crtc_helper_funcs_has_atomic_enable
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_object_find_has_file_priv_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += dma_buf_owner
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_list_iter
+@@ -106,3 +105,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_display_mode_has_vrefresh
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_master_set_has_int_return_type
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_gem_free_object
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_prime_pages_to_sg_has_drm_device_arg
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_gem_prime_callbacks
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_crtc_atomic_check_has_atomic_state_arg
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_gem_object_vmap_has_map_arg
+diff --git a/nvidia-uvm/clc076.h b/nvidia-uvm/clc076.h
+index db191a6..3d1c85e 100644
+--- a/nvidia-uvm/clc076.h
++++ b/nvidia-uvm/clc076.h
+@@ -53,6 +53,13 @@ extern "C" {
+ #define NVC076_FAULT_CANCEL_C_CLIENT_ID                             5:0
+ #define NVC076_FAULT_CANCEL_C_GPC_ID                                10:6
+ 
++#define NVC076_CLEAR_FAULTED                                        (0x00000110)
++#define NVC076_CLEAR_FAULTED_CHID                                   15:0
++#define NVC076_CLEAR_FAULTED_RUNLIST_ID                             22:16
++#define NVC076_CLEAR_FAULTED_TYPE                                   31:31
++#define NVC076_CLEAR_FAULTED_TYPE_PBDMA_FAULTED                     0x00000000
++#define NVC076_CLEAR_FAULTED_TYPE_ENG_FAULTED                       0x00000001
++
+ #ifdef __cplusplus
+ };     /* extern "C" */
+ #endif
+diff --git a/nvidia-uvm/uvm.h b/nvidia-uvm/uvm.h
+index 1428fbc..090ef95 100644
+--- a/nvidia-uvm/uvm.h
++++ b/nvidia-uvm/uvm.h
+@@ -306,7 +306,8 @@ NV_STATUS UvmIsPageableMemoryAccessSupportedOnGpu(const NvProcessorUuid *gpuUuid
+ //         process, or vice-versa.
+ //
+ //     NV_ERR_NOT_SUPPORTED:
+-//         The GPU referred to by pGpuUuid is not supported by UVM.
++//         The GPU referred to by pGpuUuid is not supported by UVM or the GPU
++//         is configured to run in virtualization mode without SRIOV support.
+ //
+ //     NV_ERR_GPU_UUID_NOT_FOUND:
+ //         The GPU referred to by pGpuUuid was not found.
+diff --git a/nvidia-uvm/uvm_gpu.c b/nvidia-uvm/uvm_gpu.c
+index ebbf412..4457ef6 100644
+--- a/nvidia-uvm/uvm_gpu.c
++++ b/nvidia-uvm/uvm_gpu.c
+@@ -247,6 +247,19 @@ static void gpu_info_print_ce_caps(uvm_gpu_t *gpu, struct seq_file *s)
+     }
+ }
+ 
++static const char *uvm_gpu_virt_type_string(UVM_VIRT_MODE virtMode)
++{
++    BUILD_BUG_ON(UVM_VIRT_MODE_COUNT != 4);
++
++    switch (virtMode) {
++        UVM_ENUM_STRING_CASE(UVM_VIRT_MODE_NONE);
++        UVM_ENUM_STRING_CASE(UVM_VIRT_MODE_LEGACY);
++        UVM_ENUM_STRING_CASE(UVM_VIRT_MODE_SRIOV_HEAVY);
++        UVM_ENUM_STRING_CASE(UVM_VIRT_MODE_SRIOV_STANDARD);
++        UVM_ENUM_STRING_DEFAULT();
++    }
++}
++
+ static const char *uvm_gpu_link_type_string(uvm_gpu_link_type_t link_type)
+ {
+     BUILD_BUG_ON(UVM_GPU_LINK_MAX != 5);
+@@ -295,6 +308,8 @@ static void gpu_info_print_common(uvm_gpu_t *gpu, struct seq_file *s)
+     UVM_SEQ_OR_DBG_PRINT(s, "max_tpcs_per_gpc                       %u\n", gpu_info->maxTpcPerGpcCount);
+     UVM_SEQ_OR_DBG_PRINT(s, "host_class                             0x%X\n", gpu_info->hostClass);
+     UVM_SEQ_OR_DBG_PRINT(s, "ce_class                               0x%X\n", gpu_info->ceClass);
++    UVM_SEQ_OR_DBG_PRINT(s, "virtualization_mode                    %s\n",
++                         uvm_gpu_virt_type_string(gpu_info->virtMode));
+     UVM_SEQ_OR_DBG_PRINT(s, "fault_buffer_class                     0x%X\n", gpu_info->faultBufferClass);
+     UVM_SEQ_OR_DBG_PRINT(s, "big_page_size                          %u\n", gpu->big_page.internal_size);
+     UVM_SEQ_OR_DBG_PRINT(s, "big_page_swizzling                     %u\n", gpu->parent->big_page.swizzling ? 1 : 0);
+@@ -973,6 +988,12 @@ static NV_STATUS init_parent_gpu(uvm_parent_gpu_t *parent_gpu,
+ 
+     parent_gpu->sli_enabled = (gpu_info->subdeviceCount > 1);
+ 
++    parent_gpu->virt_mode = gpu_info->virtMode;
++    if (parent_gpu->virt_mode == UVM_VIRT_MODE_LEGACY) {
++        UVM_ERR_PRINT("Failed to init GPU %s. UVM is not supported in legacy virtualization mode\n", parent_gpu->name);
++        return NV_ERR_NOT_SUPPORTED;
++    }
++
+     if (gpu_info->isSimulated)
+         ++g_uvm_global.num_simulated_devices;
+ 
+diff --git a/nvidia-uvm/uvm_gpu.h b/nvidia-uvm/uvm_gpu.h
+index c4c7351..bd91c2d 100644
+--- a/nvidia-uvm/uvm_gpu.h
++++ b/nvidia-uvm/uvm_gpu.h
+@@ -782,6 +782,9 @@ struct uvm_parent_gpu_struct
+ 
+     uvm_gpu_peer_copy_mode_t peer_copy_mode;
+ 
++    // Virtualization mode of the GPU.
++    UVM_VIRT_MODE virt_mode;
++
+     // Whether the GPU can trigger faults on prefetch instructions
+     bool prefetch_fault_supported;
+ 
+diff --git a/nvidia-uvm/uvm_hal.c b/nvidia-uvm/uvm_hal.c
+index 06233ee..7360cd8 100644
+--- a/nvidia-uvm/uvm_hal.c
++++ b/nvidia-uvm/uvm_hal.c
+@@ -545,6 +545,11 @@ NV_STATUS uvm_hal_init_gpu(uvm_parent_gpu_t *parent_gpu)
+ void uvm_hal_init_properties(uvm_parent_gpu_t *parent_gpu)
+ {
+     parent_gpu->arch_hal->init_properties(parent_gpu);
++
++    // Override the HAL when in non-passthrough virtualization
++    // TODO: Bug 200692962: [UVM] Add support for access counters in UVM on SR-IOV configurations
++    if (parent_gpu->virt_mode != UVM_VIRT_MODE_NONE)
++        parent_gpu->access_counters_supported = false;
+ }
+ 
+ void uvm_hal_tlb_invalidate_membar(uvm_push_t *push, uvm_membar_t membar)
+diff --git a/nvidia-uvm/uvm_user_channel.c b/nvidia-uvm/uvm_user_channel.c
+index 7054c83..ed3e214 100644
+--- a/nvidia-uvm/uvm_user_channel.c
++++ b/nvidia-uvm/uvm_user_channel.c
+@@ -446,7 +446,6 @@ static NV_STATUS bind_channel_resources(uvm_user_channel_t *user_channel)
+         UVM_ASSERT(resource_range->channel.tsg.valid == user_channel->tsg.valid);
+         UVM_ASSERT(resource_range->channel.tsg.id == user_channel->tsg.id);
+ 
+-        resource_va_list[i].resourceDescriptor = resource_range->channel.rm_descriptor;
+         resource_va_list[i].resourceId         = resource_range->channel.rm_id;
+         resource_va_list[i].resourceVa         = resource_range->node.start;
+ 
+diff --git a/nvidia/nv-caps.c b/nvidia/nv-caps.c
+index 90e866f..5ba3221 100644
+--- a/nvidia/nv-caps.c
++++ b/nvidia/nv-caps.c
+@@ -1,5 +1,5 @@
+ /*******************************************************************************
+-    Copyright (c) 2019-2020 NVIDIA Corporation
++    Copyright (c) 2019-2021 NVIDIA Corporation
+ 
+     Permission is hereby granted, free of charge, to any person obtaining a copy
+     of this software and associated documentation files (the "Software"), to
+@@ -581,12 +581,18 @@ void NV_API_CALL nv_cap_close_fd(int fd)
+     }
+ 
+ /*
+- * From v4.17-rc1 kernels have stopped exporting sys_close(fd) and started
+- * exporting __close_fd, as of this commit:
++ * From v4.17-rc1 (to v5.10.8) kernels have stopped exporting sys_close(fd)
++ * and started exporting __close_fd, as of this commit:
+  * 2018-04-02 2ca2a09d6215 ("fs: add ksys_close() wrapper; remove in-kernel
+- *  calls to sys_close()")
++ * calls to sys_close()")
++ * Kernels v5.11-rc1 onwards have stopped exporting __close_fd, and started
++ * exporting close_fd, as of this commit:
++ * 2020-12-20 8760c909f54a ("file: Rename __close_fd to close_fd and remove
++ * the files parameter")
+  */
+-#if NV_IS_EXPORT_SYMBOL_PRESENT___close_fd
++#if NV_IS_EXPORT_SYMBOL_PRESENT_close_fd
++    close_fd(fd);
++#elif NV_IS_EXPORT_SYMBOL_PRESENT___close_fd
+     __close_fd(current->files, fd);
+ #else
+     sys_close(fd);
+diff --git a/nvidia/nv-pci.c b/nvidia/nv-pci.c
+index a3ea3c2..414b3fb 100644
+--- a/nvidia/nv-pci.c
++++ b/nvidia/nv-pci.c
+@@ -20,6 +20,11 @@
+ #include "nv-vgpu-vfio-interface.h"
+ #endif
+ 
++#if defined(NV_SEQ_READ_ITER_PRESENT)
++#include <linux/seq_file.h>
++#include <linux/kernfs.h>
++#endif
++
+ static void
+ nv_check_and_exclude_gpu(
+     nvidia_stack_t *sp,
+@@ -86,7 +91,43 @@ static void nv_init_dynamic_power_management
+         struct file *file = filp_open(filename, O_RDONLY, 0);
+         if (!IS_ERR(file))
+         {
++#if defined(NV_SEQ_READ_ITER_PRESENT)
++            /*
++             * Sanity check for confirming if file path is mounted over
++             * sysfs file system.
++             */
++            if ((file->f_inode != NULL) && (file->f_inode->i_sb != NULL) &&
++                (strcmp(file->f_inode->i_sb->s_id, "sysfs") == 0))
++            {
++                struct seq_file *sf = file->private_data;
++
++                /*
++                 * Sanity check for confirming if 'file->private_data'
++                 * actually points to 'struct seq_file'.
++                 */
++                if ((sf != NULL) && (sf->file == file) && (sf->op == NULL))
++                {
++                    struct kernfs_open_file *of = sf->private;
++
++                    /*
++                     * Sanity check for confirming if 'sf->private'
++                     * actually points to 'struct kernfs_open_file'.
++                     */
++                    if ((of != NULL) && (of->file == file) &&
++                        (of->seq_file == sf))
++                    {
++                        nvl->sysfs_config_file = file;
++                    }
++                }
++            }
++
++            if (nvl->sysfs_config_file == NULL)
++            {
++                filp_close(file, NULL);
++            }
++#else
+             nvl->sysfs_config_file = file;
++#endif
+         }
+     }
+ 
+diff --git a/nvidia/nv.c b/nvidia/nv.c
+index 0dfefbb..db539c5 100644
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -44,6 +44,15 @@
+ #include "sound/hdaudio.h"
+ #endif
+ 
++#if defined(NV_SEQ_READ_ITER_PRESENT)
++#include <linux/uio.h>
++#include <linux/seq_file.h>
++#include <linux/kernfs.h>
++#include <sound/core.h>
++#include <sound/hda_codec.h>
++#include <sound/hda_verbs.h>
++#endif
++
+ #include "conftest/patches.h"
+ 
+ #define RM_THRESHOLD_TOTAL_IRQ_COUNT     100000
+@@ -4959,10 +4968,29 @@ NV_STATUS NV_API_CALL nv_indicate_idle(
+ 
+     pm_runtime_put_noidle(dev);
+ 
++#if defined(NV_SEQ_READ_ITER_PRESENT)
++    {
++        struct kernfs_open_file *of = ((struct seq_file *)file->private_data)->private;
++        struct kernfs_node *kn;
++
++        mutex_lock(&of->mutex);
++        kn = of->kn;
++        if (kn != NULL && atomic_inc_unless_negative(&kn->active))
++        {
++            if ((kn->attr.ops != NULL) && (kn->attr.ops->read != NULL))
++            {
++                kn->attr.ops->read(of, &buf, 1, f_pos);
++            }
++            atomic_dec(&kn->active);
++        }
++        mutex_unlock(&of->mutex);
++    }
++#else
+ #if defined(NV_KERNEL_READ_HAS_POINTER_POS_ARG)
+     kernel_read(file, &buf, 1, &f_pos);
+ #else
+     kernel_read(file, f_pos, &buf, 1);
++#endif
+ #endif
+ 
+     return NV_OK;
+@@ -5221,8 +5249,41 @@ NvBool NV_API_CALL nv_s2idle_pm_configured(void)
+ {
+     NvU8 buf[8];
+ 
+-    return (os_open_and_read_file("/sys/power/mem_sleep", buf,
+-            sizeof(buf)) == NV_OK) &&
+-           !memcmp(buf, "[s2idle]", 8);
++#if defined(NV_SEQ_READ_ITER_PRESENT)
++    struct file *file;
++    ssize_t num_read;
++    struct kiocb kiocb;
++    struct iov_iter iter;
++    struct kvec iov = {
++        .iov_base = &buf,
++        .iov_len = sizeof(buf),
++    };
++
++    if (os_open_readonly_file("/sys/power/mem_sleep", (void **)&file) != NV_OK)
++    {
++        return NV_FALSE;
++    }
++
++    init_sync_kiocb(&kiocb, file);
++    kiocb.ki_pos = 0;
++    iov_iter_kvec(&iter, READ, &iov, 1, sizeof(buf));
++
++    num_read = seq_read_iter(&kiocb, &iter);
++
++    os_close_file((void *)file);
++
++    if (num_read != sizeof(buf))
++    {
++        return NV_FALSE;
++    }
++#else
++    if (os_open_and_read_file("/sys/power/mem_sleep", buf,
++                              sizeof(buf)) != NV_OK)
++    {
++        return NV_FALSE;
++    }
++#endif
++
++    return (memcmp(buf, "[s2idle]", 8) == 0);
+ }
+ 
+diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
+index 8fc929e..8aeda70 100644
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -155,12 +155,14 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_enable_atomic_ops_to_root
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vga_tryget
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pgprot_decrypted
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += iterate_fd
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += seq_read_iter
+ 
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_sme_active
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_map_sg_attrs
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_dma_ops
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present___close_fd
++NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_close_fd
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_unused_fd
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_unused_fd_flags
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_screen_info
+-- 
+2.25.1
+
