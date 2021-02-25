@@ -122,18 +122,18 @@ Architecture: i386 amd64
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
+Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1,
  libcuda1 (= ${source:Version})
-Conflicts: nvidia-opencl-icd,
+Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1
-Replaces: nvidia-opencl-icd, libnvidia-compute-450-server (<< 390.25-0ubuntu2~),
+Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-450-server (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
@@ -148,9 +148,9 @@ Architecture: amd64
 Depends:
  libnvidia-compute-450-server, adduser,
  ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-persistenced
-Conflicts: nvidia-persistenced
-Replaces: nvidia-persistenced
+Provides: nvidia-compute-utils, nvidia-persistenced
+Conflicts: nvidia-compute-utils, nvidia-persistenced
+Replaces: nvidia-compute-utils, nvidia-persistenced
 Description: NVIDIA compute utilities
  This package provides utility binaries for paraller general purpose
  computing use cases with the NVIDIA Server Driver.
@@ -186,6 +186,9 @@ Description: NVIDIA headless metapackage - no DKMS
 
 Package: nvidia-headless-450-server
 Architecture: amd64
+Conflicts: nvidia-headless
+Provides: nvidia-headless
+Replaces: nvidia-headless
 Depends:
  nvidia-headless-no-dkms-450-server,
  nvidia-dkms-450-server,
@@ -230,6 +233,7 @@ Package: libnvidia-common-450-server
 Architecture: all
 Multi-Arch: foreign
 Breaks: libnvidia-gl-450-server (<< 390.25-0ubuntu2~)
+Conflicts: libnvidia-common
 Replaces: libnvidia-common, libnvidia-gl-450-server (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
 Depends:
