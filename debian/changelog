@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-460 (460.56-0ubuntu0.20.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.56-0ubuntu0.20.10.1) groovy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1916908):
+    - Added support for the following GPUs:
+        GeForce RTX 3060
+    - Fixed a bug with indexed ray payloads in Vulkan.
+    - Fixed a bug where calls to vkCreateDevice could fail on Ampere
+      GPUs when ray tracing extensions were enabled and the
+      application was running within the Steam Linux Runtime.
+    - Fixed a regression that could cause display corruption when
+      using a scaled resolution after resuming from power management
+      suspend.
+  * debian/templates/control.in:
+    - Add missing conflict/replace/provide for libnvidia-common,
+      nvidia-compute-utils, libnvidia-compute, and nvidia-headless
+      (LP: #1915935).
+    - Advertise support for cuda-11.2-1.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 Feb 2021 16:12:55 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 25 Feb 2021 16:15:13 +0100
 
 nvidia-graphics-drivers-460 (460.39-0ubuntu0.20.10.1) groovy; urgency=medium
 
