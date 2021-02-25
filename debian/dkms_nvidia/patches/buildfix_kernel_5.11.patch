@@ -1,0 +1,453 @@
+From 9326096cd5306be73cb29f80371221b717d66968 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Thu, 25 Feb 2021 12:11:22 +0100
+Subject: [PATCH 1/1] Add support for Linux 5.11
+
+---
+ common/inc/nv-linux.h        |   1 -
+ conftest.sh                  | 149 ++++++++++++++++++++++++++++-------
+ nvidia-drm/nvidia-drm-crtc.c |  45 +++--------
+ nvidia-drm/nvidia-drm-drv.c  |  10 ++-
+ nvidia-drm/nvidia-drm-gem.c  |  41 +++++++++-
+ nvidia-drm/nvidia-drm.Kbuild |   5 +-
+ nvidia/nv.c                  |   9 +++
+ nvidia/nvidia.Kbuild         |   2 +
+ 8 files changed, 190 insertions(+), 72 deletions(-)
+
+diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
+index 72db8a8..9a656bf 100644
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -115,7 +115,6 @@
+ 
+ #include <linux/moduleparam.h>      /* module_param()                   */
+ #include <asm/tlbflush.h>           /* flush_tlb(), flush_tlb_all()     */
+-#include <asm/kmap_types.h>         /* page table entry lookup          */
+ 
+ #include <linux/pci.h>              /* pci_find_class, etc              */
+ #include <linux/interrupt.h>        /* tasklets, interrupt helpers      */
+diff --git a/conftest.sh b/conftest.sh
+index 571f258..4b6a9ed 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -1737,10 +1737,6 @@ compile_test() {
+             #include <drm/drm_drv.h>
+             #endif
+ 
+-            #if defined(NV_DRM_DRM_PRIME_H_PRESENT)
+-            #include <drm/drm_prime.h>
+-            #endif
+-
+             #if !defined(CONFIG_DRM) && !defined(CONFIG_DRM_MODULE)
+             #error DRM not enabled
+             #endif
+@@ -1748,14 +1744,6 @@ compile_test() {
+             void conftest_drm_available(void) {
+                 struct drm_driver drv;
+ 
+-                /* 2013-01-15 89177644a7b6306e6084a89eab7e290f4bfef397 */
+-                drv.gem_prime_pin = 0;
+-                drv.gem_prime_get_sg_table = 0;
+-                drv.gem_prime_vmap = 0;
+-                drv.gem_prime_vunmap = 0;
+-                (void)drm_gem_prime_import;
+-                (void)drm_gem_prime_export;
+-
+                 /* 2013-10-02 1bb72532ac260a2d3982b40bdd4c936d779d0d16 */
+                 (void)drm_dev_alloc;
+ 
+@@ -3495,24 +3483,6 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_ATOMIC_HELPER_CRTC_DESTROY_STATE_HAS_CRTC_ARG" "" "types"
+         ;;
+ 
+-        drm_crtc_helper_funcs_has_atomic_enable)
+-            #
+-            # Determine if struct drm_crtc_helper_funcs has an 'atomic_enable'
+-            # member.
+-            #
+-            # The 'enable' callback was renamed to 'atomic_enable' by:
+-            #   2017-06-30  0b20a0f8c3cb6f74fe326101b62eeb5e2c56a53c
+-            #
+-            CODE="
+-            #include <drm/drm_modeset_helper_vtables.h>
+-            void conftest_drm_crtc_helper_funcs_has_atomic_enable(void) {
+-                struct drm_crtc_helper_funcs funcs;
+-                funcs.atomic_enable = NULL;
+-            }"
+-
+-            compile_check_conftest "$CODE" "NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE" "" "types"
+-        ;;
+-
+         drm_atomic_helper_connector_dpms)
+             #
+             # Determine if the function drm_atomic_helper_connector_dpms() is present.
+@@ -3723,6 +3693,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_KMEM_CACHE_CREATE_USERCOPY_PRESENT" "" "functions"
+         ;;
+ 
++        dma_buf_owner)
++            #
++            # Determine if the dma_buf struct has an owner member.
++            #
++            # Added by commit 9abdffe286c1 ("dma-buf: add ref counting for
++            # module as exporter") in v4.2 (2015-05-05)
++            #
++            CODE="
++            #include <linux/dma-buf.h>
++            int conftest_dma_buf_owner(void) {
++                return offsetof(struct dma_buf, owner);
++             }"
++ 
++            compile_check_conftest "$CODE" "NV_DMA_BUF_OWNER_PRESENT" "" "types"
++         ;;
++
+         drm_connector_funcs_have_mode_in_name)
+             #
+             # Determine if _mode_ is present in connector function names.
+@@ -4354,6 +4340,109 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_PRIME_PAGES_TO_SG_HAS_DRM_DEVICE_ARG" "" "types"
+         ;;
+ 
++        drm_driver_has_gem_prime_callbacks)
++            #
++            # Determine if drm_driver structure has the GEM and PRIME callback
++            # function pointers.
++            #
++            # The GEM and PRIME callback are removed from drm_driver
++            # structure, by commit d693def4fd1c ("drm: Remove obsolete GEM and
++            # PRIME callbacks from struct drm_driver").
++            #
++            CODE="
++            #if defined(NV_DRM_DRMP_H_PRESENT)
++            #include <drm/drmP.h>
++            #endif
++
++            #if defined(NV_DRM_DRM_DRV_H_PRESENT)
++            #include <drm/drm_drv.h>
++            #endif
++
++            void conftest_drm_driver_has_gem_and_prime_callbacks(void) {
++                struct drm_driver drv;
++
++                drv.gem_prime_pin = 0;
++                drv.gem_prime_get_sg_table = 0;
++                drv.gem_prime_vmap = 0;
++                drv.gem_prime_vunmap = 0;
++                drv.gem_vm_ops = 0;
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS" "" "types"
++        ;;
++
++        drm_crtc_atomic_check_has_atomic_state_arg)
++            #
++            # Determine if drm_crtc_helper_funcs::atomic_check takes 'state'
++            # argument of 'struct drm_atomic_state' type.
++            #
++            # The commit 29b77ad7b9ca ("drm/atomic: Pass the full state to CRTC
++            # atomic_check") passed the full atomic state to
++            # drm_crtc_helper_funcs::atomic_check()
++            #
++            # Turning incompatible-pointer-types check into error is necessary
++            # to make test fail if drm_crtc_helper_funcs::atomic_check is taking
++            # 'crtc_state' instead of 'state', otherwise test simply pass
++            # because compilation succeeds throwing incompatible-pointer-types
++            # warning. This test is expected to fail on Linux kernels <= v5.10,
++            # the commit ea8daa7b9784 ("kbuild: Add option to turn incompatible
++            # pointer check into error") has turned incompatible-pointer-types
++            # check into error from v4.6.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #include <drm/drm_modeset_helper_vtables.h>
++            int conftest_drm_crtc_atomic_check_has_atomic_state_arg(
++                    struct drm_crtc *crtc, struct drm_atomic_state *state) {
++                const struct drm_crtc_helper_funcs *funcs = crtc->helper_private;
++                return funcs->atomic_check(crtc, state);
++            }" > conftest$$.c
++
++            $CC $CFLAGS -Werror=incompatible-pointer-types -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                rm -f conftest$$.o
++                echo "#define NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG" | append_conftest "types"
++            else
++                echo "#undef NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG" | append_conftest "types"
++            fi
++        ;;
++
++        drm_gem_object_vmap_has_map_arg)
++            #
++            # Determine if drm_gem_object_funcs::vmap takes 'map'
++            # argument of 'struct dma_buf_map' type.
++            #
++            # The commit 49a3f51dfeee ("drm/gem: Use struct dma_buf_map in GEM
++            # vmap ops and convert GEM backends") update
++            # drm_gem_object_funcs::vmap to take 'map' argument.
++            #
++            CODE="
++            #include <drm/drm_gem.h>
++            int conftest_drm_gem_object_vmap_has_map_arg(
++                    struct drm_gem_object *obj, struct dma_buf_map *map) {
++                return obj->funcs->vmap(obj, map);
++            }"
++
++            compile_check_conftest "$CODE" "NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG" "" "types"
++        ;;
++
++        seq_read_iter)
++            #
++            # Determine if seq_read_iter() is present
++            #
++            # seq_read_iter() was added by commit d4d50710a8b4 ("seq_file:
++            # add seq_read_iter") in v5.10-rc1 (2020-11-04).
++            #
++            CODE="
++            #include <linux/seq_file.h>
++            void conftest_seq_read_iter(void) {
++                seq_read_iter();
++            }"
++
++            compile_check_conftest "$CODE" "NV_SEQ_READ_ITER_PRESENT" "" "functions"
++        ;;
++
+     esac
+ }
+ 
+diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
+index 780df0e..8abd1f3 100644
+--- a/nvidia-drm/nvidia-drm-crtc.c
++++ b/nvidia-drm/nvidia-drm-crtc.c
+@@ -336,9 +336,18 @@ static int head_modeset_config_attach_connector(
+  * the 'nv_drm_crtc_state::req_config', that is fine becase 'nv_drm_crtc_state'
+  * will be discarded if ->atomic_check() fails.
+  */
++#if defined(NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG)
++static int nv_drm_crtc_atomic_check(struct drm_crtc *crtc,
++                                    struct drm_atomic_state *state)
++#else
+ static int nv_drm_crtc_atomic_check(struct drm_crtc *crtc,
+                                     struct drm_crtc_state *crtc_state)
++#endif
+ {
++#if defined(NV_DRM_CRTC_ATOMIC_CHECK_HAS_ATOMIC_STATE_ARG)
++    struct drm_crtc_state *crtc_state =
++        drm_atomic_get_new_crtc_state(state, crtc);
++#endif
+     struct nv_drm_crtc_state *nv_crtc_state = to_nv_crtc_state(crtc_state);
+     struct NvKmsKapiHeadRequestedConfig *req_config =
+         &nv_crtc_state->req_config;
+@@ -392,44 +401,8 @@ nv_drm_crtc_mode_fixup(struct drm_crtc *crtc,
+     return true;
+ }
+ 
+-static void nv_drm_crtc_prepare(struct drm_crtc *crtc)
+-{
+-
+-}
+-
+-static void nv_drm_crtc_commit(struct drm_crtc *crtc)
+-{
+-
+-}
+-
+-static void nv_drm_crtc_disable(struct drm_crtc *crtc)
+-{
+-
+-}
+-
+-#ifdef NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE
+-static void nv_drm_crtc_atomic_enable(struct drm_crtc *crtc,
+-                                      struct drm_crtc_state *old_crtc_state)
+-{
+-
+-}
+-#else
+-static void nv_drm_crtc_enable(struct drm_crtc *crtc)
+-{
+-
+-}
+-#endif
+-
+ static const struct drm_crtc_helper_funcs nv_crtc_helper_funcs = {
+     .atomic_check = nv_drm_crtc_atomic_check,
+-    .prepare    = nv_drm_crtc_prepare,
+-    .commit     = nv_drm_crtc_commit,
+-#ifdef NV_DRM_CRTC_HELPER_FUNCS_HAS_ATOMIC_ENABLE
+-    .atomic_enable = nv_drm_crtc_atomic_enable,
+-#else
+-    .enable     = nv_drm_crtc_enable,
+-#endif
+-    .disable    = nv_drm_crtc_disable,
+     .mode_fixup = nv_drm_crtc_mode_fixup,
+ };
+ 
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 1b4cc6d..900202a 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -700,11 +700,15 @@ static struct drm_driver nv_drm_driver = {
+     .num_ioctls             = ARRAY_SIZE(nv_drm_ioctls),
+ 
+     .prime_handle_to_fd     = drm_gem_prime_handle_to_fd,
+-    .gem_prime_export       = nv_drm_gem_prime_export,
++
++#if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
++    .gem_prime_export       = drm_gem_prime_export,
+     .gem_prime_get_sg_table = nv_drm_gem_prime_get_sg_table,
+     .gem_prime_vmap         = nv_drm_gem_prime_vmap,
+     .gem_prime_vunmap       = nv_drm_gem_prime_vunmap,
+ 
++    .gem_vm_ops             = &nv_drm_gem_vma_ops,
++#endif
+ #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
+     .gem_prime_res_obj      = nv_drm_gem_prime_res_obj,
+ #endif
+@@ -727,11 +731,13 @@ static struct drm_driver nv_drm_driver = {
+     .desc                   = "NVIDIA DRM driver",
+     .date                   = "20160202",
+ 
++#if defined(CONFIG_DRM_LEGACY)
+ #if defined(NV_DRM_DRIVER_HAS_LEGACY_DEV_LIST)
+     .legacy_dev_list        = LIST_HEAD_INIT(nv_drm_driver.legacy_dev_list),
+ #else
+     .device_list            = LIST_HEAD_INIT(nv_drm_driver.device_list),
+ #endif
++#endif
+ };
+ 
+ 
+@@ -758,8 +764,6 @@ static void nv_drm_update_drm_driver_features(void)
+     nv_drm_driver.dumb_create      = nv_drm_dumb_create;
+     nv_drm_driver.dumb_map_offset  = nv_drm_dumb_map_offset;
+     nv_drm_driver.dumb_destroy     = drm_gem_dumb_destroy;
+-
+-    nv_drm_driver.gem_vm_ops       = &nv_drm_gem_vma_ops;
+ #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
+ }
+ 
+diff --git a/nvidia-drm/nvidia-drm-gem.c b/nvidia-drm/nvidia-drm-gem.c
+index 4ab8b36..8cc6cbc 100644
+--- a/nvidia-drm/nvidia-drm-gem.c
++++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -28,8 +28,13 @@
+ #include "nvidia-drm-ioctl.h"
+ #include "nvidia-drm-prime-fence.h"
+ #include "nvidia-drm-gem.h"
++#include "nvidia-drm-gem-nvkms-memory.h"
+ #include "nvidia-dma-resv-helper.h"
+ 
++#if defined(NV_DRM_DRM_DRV_H_PRESENT)
++#include <drm/drm_drv.h>
++#endif
++
+ #if defined(NV_DRM_DRM_PRIME_H_PRESENT)
+ #include <drm/drm_prime.h>
+ #endif
+@@ -52,10 +57,44 @@ void nv_drm_gem_free(struct drm_gem_object *gem)
+     nv_gem->ops->free(nv_gem);
+ }
+ 
+-#if !defined(NV_DRM_DRIVER_HAS_GEM_FREE_OBJECT)
++#if !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS) && \
++    defined(NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG)
++static int nv_drm_gem_vmap(struct drm_gem_object *gem,
++                           struct dma_buf_map *map)
++{
++    map->vaddr = nv_drm_gem_prime_vmap(gem);
++    if (map->vaddr == NULL) {
++        return -ENOMEM;
++    }
++    map->is_iomem = true;
++    return 0;
++}
++
++static void nv_drm_gem_vunmap(struct drm_gem_object *gem,
++                              struct dma_buf_map *map)
++{
++    nv_drm_gem_prime_vunmap(gem, map->vaddr);
++    map->vaddr = NULL;
++}
++#endif
++
++#if !defined(NV_DRM_DRIVER_HAS_GEM_FREE_OBJECT) || \
++    !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
+ static struct drm_gem_object_funcs nv_drm_gem_funcs = {
+     .free = nv_drm_gem_free,
+     .get_sg_table = nv_drm_gem_prime_get_sg_table,
++
++#if !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
++    .export  = drm_gem_prime_export,
++#if defined(NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG)
++    .vmap    = nv_drm_gem_vmap,
++    .vunmap  = nv_drm_gem_vunmap,
++#else
++    .vmap    = nv_drm_gem_prime_vmap,
++    .vunmap  = nv_drm_gem_prime_vunmap,
++#endif
++    .vm_ops  = &nv_drm_gem_vma_ops,
++#endif
+ };
+ #endif
+ 
+diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
+index 0b200e3..885ab49 100644
+--- a/nvidia-drm/nvidia-drm.Kbuild
++++ b/nvidia-drm/nvidia-drm.Kbuild
+@@ -85,8 +85,8 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_fault_present
+ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_ops_fault_removed_vma_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += kref_has_refcount_of_type_refcount_t
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_atomic_helper_crtc_destroy_state_has_crtc_arg
+-NV_CONFTEST_TYPE_COMPILE_TESTS += drm_crtc_helper_funcs_has_atomic_enable
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_object_find_has_file_priv_arg
++NV_CONFTEST_TYPE_COMPILE_TESTS += dma_buf_owner
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_list_iter
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_atomic_helper_swap_state_has_stall_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_prime_flag_present
+@@ -98,3 +98,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_display_mode_has_vrefresh
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_master_set_has_int_return_type
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_gem_free_object
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_prime_pages_to_sg_has_drm_device_arg
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_gem_prime_callbacks
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_crtc_atomic_check_has_atomic_state_arg
++NV_CONFTEST_TYPE_COMPILE_TESTS += drm_gem_object_vmap_has_map_arg
+diff --git a/nvidia/nv.c b/nvidia/nv.c
+index 9b80524..10b98a4 100644
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -56,6 +56,15 @@ MODULE_ALIAS_CHARDEV_MAJOR(NV_MAJOR_DEVICE_NUMBER);
+ #endif
+ #endif
+ 
++#if defined(NV_SEQ_READ_ITER_PRESENT)
++#include <linux/uio.h>
++#include <linux/seq_file.h>
++#include <linux/kernfs.h>
++#include <sound/core.h>
++#include <sound/hda_codec.h>
++#include <sound/hda_verbs.h>
++#endif
++
+ #include "conftest/patches.h"
+ #include "nv-pci-types.h"
+ 
+diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
+index 0c1619b..7ab2559 100644
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -159,10 +159,12 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ioremap_nocache
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vga_tryget
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += seq_read_iter
+ 
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_map_sg_attrs
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_dma_ops
++NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_close_fd
+ 
+ NV_CONFTEST_TYPE_COMPILE_TESTS += i2c_adapter
+ NV_CONFTEST_TYPE_COMPILE_TESTS += pm_message_t
+-- 
+2.25.1
+
