@@ -1,7 +1,7 @@
-usr/lib/x86_64-linux-gnu/libcuda.so.460.56                         usr/lib/x86_64-linux-gnu/libcuda.so.1
+usr/lib/x86_64-linux-gnu/libcuda.so.460.67                         usr/lib/x86_64-linux-gnu/libcuda.so.1
 usr/lib/x86_64-linux-gnu/libcuda.so.1                                 usr/lib/x86_64-linux-gnu/libcuda.so
-usr/lib/x86_64-linux-gnu/libnvidia-ml.so.460.56                    usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-ml.so.460.67                    usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
 usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1                            usr/lib/x86_64-linux-gnu/libnvidia-ml.so
-usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.460.56                usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.1
-usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.460.56        usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.460.67                usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.460.67        usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1
 usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1                usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so
