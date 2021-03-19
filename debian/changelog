@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-460 (460.67-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.67-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a bug where using ray tracing extensions on multi-GPU
+      setups could result in application instability if the GPUs did
+      not match.
+    - Fixed an issue that prevented G-SYNC from working properly
+      after a mode switch on Kepler-based GPUs.
+    - Fixed a driver installation failure on Linux kernel 5.11
+      release candidates, where the NVIDIA kernel module failed to
+      build with error
+      "error: implicit declaration of function 'sys_close'".
+    - Fixed a bug where vkCreateSwapchain could cause the X Server to
+      crash when an invalid imageFormat was provided.
+    - Fixed a driver installation failure on Linux kernel 5.11
+      release candidates, where the NVIDIA kernel module failed to
+      build with error
+      "fatal error: asm/kmap_types.h: No such file or directory".
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 19 Mar 2021 16:13:44 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 19 Mar 2021 16:22:31 +0100
 
 nvidia-graphics-drivers-460 (460.56-0ubuntu0.20.04.1) focal; urgency=medium
 
