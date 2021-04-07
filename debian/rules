@@ -239,7 +239,7 @@ get-orig-source-prepare/%: get-orig-source-prepare
 
 get-orig-source-download/%: get-orig-source-prepare
 	ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
-		wget $(call get_download_url,$*) -P get-orig-source/
+		wget $(call get_download_url,$*) -P get-orig-source/ || cp $*/$(NVIDIA_FILENAME_$*) get-orig-source/
 	if [ -d $(CACHE) ] && [ ! -f $(CACHE)/$(NVIDIA_FILENAME_$*) ]; then \
 		ln -v get-orig-source/$(NVIDIA_FILENAME_$*) $(CACHE) ; fi
 
