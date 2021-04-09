@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-450-server (450.119.03-0ubuntu0~0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.119.03-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release:
+    - CVE-2021-1076, CVE-2021-1077 (LP: #1923062).
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.11.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Apr 2021 16:29:27 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Apr 2021 16:30:15 +0200
 
 nvidia-graphics-drivers-450-server (450.102.04-0ubuntu0.20.04.2) focal; urgency=medium
 
