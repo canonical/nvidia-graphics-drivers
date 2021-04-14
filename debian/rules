@@ -165,6 +165,11 @@ endif
 	dh_systemd_enable --name=nvidia-persistenced
 	dh_install -p nvidia-kernel-common-$(flavour)
 
+	mkdir -p $(CURDIR)/debian/nvidia-kernel-common-$(version_major)/lib/systemd
+	dh_systemd_enable --name=nvidia-hibernate
+	dh_systemd_enable --name=nvidia-resume
+	dh_systemd_enable --name=nvidia-suspend
+
 	dh_install
 
 override_dh_installinit:
