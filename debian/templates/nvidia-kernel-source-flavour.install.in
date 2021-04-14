@@ -5,4 +5,5 @@
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia                usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-drm            usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-modeset        usr/src/nvidia-#VERSION#
+#I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-peermem        usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-uvm            usr/src/nvidia-#VERSION#
