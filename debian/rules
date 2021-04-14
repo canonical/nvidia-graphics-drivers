@@ -171,6 +171,11 @@ endif
 	dh_systemd_enable --name=nvidia-resume
 	dh_systemd_enable --name=nvidia-suspend
 
+	mkdir -p $(CURDIR)/debian/nvidia-kernel-common-$(version_major)/lib/systemd
+	dh_systemd_enable --name=nvidia-hibernate
+	dh_systemd_enable --name=nvidia-resume
+	dh_systemd_enable --name=nvidia-suspend
+
 	dh_install
 
 override_dh_installinit:
