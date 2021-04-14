@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-kernel-common-460
+# postrm script for nvidia-kernel-common-465
 #
 # see: dh_installdeb(1)
 #
