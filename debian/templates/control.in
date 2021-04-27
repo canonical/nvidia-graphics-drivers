@@ -91,7 +91,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-#FLAVOUR#,
+ dkms,
+ nvidia-kernel-source-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
+ nvidia-kernel-source-#FLAVOUR# (>= #DEBIAN_VERSION#),
  nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
  nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
  ${misc:Depends}, ${shlibs:Depends}
