@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-465 (465.27-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-465 (465.27-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * Initial release (LP: #1925522).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 Apr 2021 16:55:39 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2021 14:50:02 +0200
