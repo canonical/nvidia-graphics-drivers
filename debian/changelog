@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-460 (460.73.01-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.73.01-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Make nvidia-dkms depend on its versioned nvidia-kernel-source
+      (LP: #1925386).
+    - Add transitional packages for the 450 series (LP: #1925522).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2021 13:43:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2021 13:44:15 +0200
 
 nvidia-graphics-drivers-460 (460.73.01-0ubuntu0.18.04.1) bionic; urgency=medium
 
