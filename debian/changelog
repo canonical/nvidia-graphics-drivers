@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-450-server (450.119.04-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.119.04-0ubuntu1) impish; urgency=medium
 
-  * 
+  * New upstream release (LP: #1925522).
+    - Fixed an issue with the NSCQ library that caused clients such as
+      DCGM to fail to load the library. Since the NSCQ library version
+      needs to match the driver version, the user would encounter a
+      version mismatch issue when using DCGM.
+    - Fixed an ECC policy that caused a CUDA malloc failure after
+      encountering a single uncorrectable error.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2021 15:32:54 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2021 15:33:38 +0200
 
 nvidia-graphics-drivers-450-server (450.119.03-0ubuntu1) hirsute; urgency=medium
 
