@@ -93,7 +93,9 @@ Replaces:
 Provides:
  nvidia-dkms-kernel
 Depends:
- dkms, nvidia-kernel-source-465,
+ dkms,
+ nvidia-kernel-source-465 (<= 465.27-1),
+ nvidia-kernel-source-465 (>= 465.27),
  nvidia-kernel-common-465 (<= 465.27-1),
  nvidia-kernel-common-465 (>= 465.27),
  ${misc:Depends}, ${shlibs:Depends}
