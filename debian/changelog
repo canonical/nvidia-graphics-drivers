@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-465 (465.27-0ubuntu0.21.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-465 (465.27-0ubuntu0.21.04.2) hirsute; urgency=medium
 
-  * 
+  * debian/templates/dkms.conf.fragment.in:
+    - Install the nvidia-peermem module.
+  * debian/templates/control.in:
+    - Make nvidia-dkms depend on its versioned nvidia-kernel-source
+      (LP: #1925386).
+  * debian/templates/nvidia-kernel-common-flavour.install.in:
+    - Install firmware in lib/firmware/nvidia/$version.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 May 2021 17:33:17 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 May 2021 15:08:49 +0200
 
 nvidia-graphics-drivers-465 (465.27-0ubuntu0.21.04.1) hirsute; urgency=medium
 
