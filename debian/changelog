@@ -1,8 +1,31 @@
-nvidia-graphics-drivers-460 (460.80-0ubuntu0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.80-0ubuntu0.21.04.1) hirsute; urgency=medium
 
-  * 
+  * New upstream release (LP: #1925522):
+    - Added support for the following GPUs:
+        GeForce RTX 3050 Ti Laptop GPU
+        GeForce RTX 3050 Laptop GPU
+        T600 Laptop GPU
+        T1200 Laptop GPU
+        RTX A5000 Laptop GPU
+        RTX A4000 Laptop GPU
+        RTX A3000 Laptop GPU
+        RTX A2000 Laptop GPU
+    - Fixed a bug that could cause AddressSanitizer to report a heap-
+      buffer-overflow during initialization of the OpenGL and Vulkan
+      libraries.
+    - Fixed a bug that could prevent a system from resuming from
+      suspend when DisplayPort activity occurred while the system was
+      suspended.
+    - Fixed a regression that prevented eglQueryDevicesEXT from
+      correctly enumerating GPUs on systems with multiple GPUs where
+      access to the GPU device files was restricted for some GPUs.
+    - Fixed a regression that could cause system hangs when changing
+      display resolution on SLI Mosaic configurations.
+    - Fixed a bug that could result in blank displays when driving
+      multiple displays at the same resolution using active
+      DisplayPort dongles.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 May 2021 17:34:55 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 May 2021 17:35:35 +0200
 
 nvidia-graphics-drivers-460 (460.73.01-0ubuntu1.21.04.1) hirsute; urgency=medium
 
