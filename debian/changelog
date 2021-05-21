@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.21.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.21.04.2) hirsute; urgency=medium
 
-  * 
+  * debian/templates/{dkms_nvidia.conf.in|dkms.conf.fragment.in}:
+    - Remove block on uvm on Linux >= 5.10.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 May 2021 15:43:33 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 May 2021 15:44:11 +0200
 
 nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.21.04.1) hirsute; urgency=medium
 
