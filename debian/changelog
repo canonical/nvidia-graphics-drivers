@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-460 (460.80-0ubuntu0.21.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.80-0ubuntu0.21.04.2) hirsute; urgency=medium
 
-  * 
+  * debian/additional_card_ids:
+    - Add new IDs:
+      1FB1 (Nvidia T600)
+      2231 (Nvidia RTX A5000)
+      24B7 (Nvidia RTX A4000 mobile)
+      24B8 (Nvidia RTX A3000 mobile)
+      25B8 (Nvidia RTX A2000 mobile)
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 May 2021 13:00:18 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 21 May 2021 13:00:41 +0200
 
 nvidia-graphics-drivers-460 (460.80-0ubuntu0.21.04.1) hirsute; urgency=medium
 
