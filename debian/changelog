@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-465 (465.27-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-465 (465.27-0ubuntu3) impish; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.13.patch,
+  * debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 5.13.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 May 2021 17:40:25 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 May 2021 18:13:14 +0200
 
 nvidia-graphics-drivers-465 (465.27-0ubuntu2) impish; urgency=medium
 
