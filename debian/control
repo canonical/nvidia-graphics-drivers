@@ -32,10 +32,10 @@ Package: nvidia-driver-460
 Architecture: amd64
 Depends:
  libnvidia-gl-460 (= ${binary:Version}),
- nvidia-dkms-460 (<= 460.80-1),
- nvidia-dkms-460 (>= 460.80),
- nvidia-kernel-common-460 (<= 460.80-1),
- nvidia-kernel-common-460 (>= 460.80),
+ nvidia-dkms-460 (<= 460.84-1),
+ nvidia-dkms-460 (>= 460.84),
+ nvidia-kernel-common-460 (<= 460.84-1),
+ nvidia-kernel-common-460 (>= 460.84),
  nvidia-kernel-source-460 (= ${binary:Version}),
  libnvidia-compute-460 (= ${binary:Version}),
  libnvidia-extra-460 (= ${binary:Version}),
@@ -94,10 +94,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-460 (<= 460.80-1),
- nvidia-kernel-source-460 (>= 460.80),
- nvidia-kernel-common-460 (<= 460.80-1),
- nvidia-kernel-common-460 (>= 460.80),
+ nvidia-kernel-source-460 (<= 460.84-1),
+ nvidia-kernel-source-460 (>= 460.84),
+ nvidia-kernel-common-460 (<= 460.84-1),
+ nvidia-kernel-common-460 (>= 460.84),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -172,8 +172,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-460 (<= 460.80-1),
- nvidia-kernel-common-460 (>= 460.80),
+ nvidia-kernel-common-460 (<= 460.84-1),
+ nvidia-kernel-common-460 (>= 460.84),
  nvidia-kernel-source-460 (= ${binary:Version}),
  libnvidia-compute-460 (= ${binary:Version}),
  nvidia-compute-utils-460 (= ${binary:Version}),
