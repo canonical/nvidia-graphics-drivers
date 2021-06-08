@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-460 (460.84-0ubuntu0.20.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.84-0ubuntu0.20.10.1) groovy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1931131):
+    - Added support for the following GPUs:
+        GeForce RTX 3080 Ti
+  * debian/additional_card_ids:
+    - Drop the additional IDs.
+  * debian/rules:
+    - Skip lines that start with "#"
+      in debian/additional_card_ids.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 08 Jun 2021 16:33:32 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 08 Jun 2021 16:33:57 +0200
 
 nvidia-graphics-drivers-460 (460.80-0ubuntu0.20.10.2) groovy; urgency=medium
 
