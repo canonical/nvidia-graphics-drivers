@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-465 (465.31-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-465 (465.31-0ubuntu1) impish; urgency=medium
 
-  * 
+  * New upstream release (LP: #1931131):
+    - Added support for the following GPUs:
+        GeForce RTX 3080 Ti
+        GeForce RTX 3050 Ti Laptop GPU
+        GeForce RTX 3050 Laptop
+    - Fixed a bug that could cause AddressSanitizer to report a heap-
+      buffer-overflow during initialization of the OpenGL and Vulkan
+      libraries.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop debian/dkms_nvidia/patches/buildfix_kernel_5.13.patch.
+  * debian/additional_card_ids:
+    - Drop the additional IDs.
+  * debian/rules:
+    - Skip lines that start with "#"
+      in debian/additional_card_ids.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 09 Jun 2021 17:05:13 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Jun 2021 16:58:31 +0200
 
 nvidia-graphics-drivers-465 (465.27-0ubuntu3) impish; urgency=medium
 
