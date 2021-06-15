@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.20.10.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.20.10.3) groovy; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.13.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 5.13 (LP: #1931131).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Jun 2021 13:06:45 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Jun 2021 13:06:59 +0200
 
 nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.20.10.2) groovy; urgency=medium
 
