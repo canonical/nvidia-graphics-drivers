@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-418-server (418.197.02-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.197.02-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.13.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Add support for Linux 5.13 (LP: #1931131).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Jun 2021 12:29:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 15 Jun 2021 12:29:28 +0200
 
 nvidia-graphics-drivers-418-server (418.197.02-0ubuntu0.18.04.1) bionic; urgency=medium
 
