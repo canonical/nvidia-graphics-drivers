@@ -1,45 +1,5 @@
-nvidia-graphics-drivers-465 (465.31-0ubuntu1) impish; urgency=medium
+nvidia-graphics-drivers-470 (470.36-0ubuntu1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #1931131):
-    - Added support for the following GPUs:
-        GeForce RTX 3080 Ti
-        GeForce RTX 3050 Ti Laptop GPU
-        GeForce RTX 3050 Laptop
-    - Fixed a bug that could cause AddressSanitizer to report a heap-
-      buffer-overflow during initialization of the OpenGL and Vulkan
-      libraries.
-  * debian/templates/dkms_nvidia.conf.in:
-    - Drop debian/dkms_nvidia/patches/buildfix_kernel_5.13.patch.
-  * debian/additional_card_ids:
-    - Drop the additional IDs.
-  * debian/rules:
-    - Skip lines that start with "#"
-      in debian/additional_card_ids.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 10 Jun 2021 16:58:31 +0200
-
-nvidia-graphics-drivers-465 (465.27-0ubuntu3) impish; urgency=medium
-
-  * debian/dkms_nvidia/patches/buildfix_kernel_5.13.patch,
-  * debian/templates/dkms_nvidia.conf.in:
-    - Add support for Linux 5.13.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 May 2021 18:13:14 +0200
-
-nvidia-graphics-drivers-465 (465.27-0ubuntu2) impish; urgency=medium
-
-  * debian/templates/dkms.conf.fragment.in:
-    - Install the nvidia-peermem module.
-  * debian/templates/control.in:
-    - Make nvidia-dkms depend on its versioned nvidia-kernel-source
-      (LP: #1925386).
-  * debian/templates/nvidia-kernel-common-flavour.install.in:
-    - Install firmware in lib/firmware/nvidia/$version.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 10 May 2021 12:45:53 +0200
-
-nvidia-graphics-drivers-465 (465.27-0ubuntu1) impish; urgency=medium
-
-  * Initial release (LP: #1925522).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 04 May 2021 14:16:43 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Jun 2021 13:06:16 +0200
