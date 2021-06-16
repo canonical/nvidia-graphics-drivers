@@ -1,7 +1,9 @@
-#LIBDIR#/libcuda.so.#VERSION#                         #LIBDIR#/libcuda.so.1
-#LIBDIR#/libcuda.so.1                                 #LIBDIR#/libcuda.so
-#LIBDIR#/libnvidia-ml.so.#VERSION#                    #LIBDIR#/libnvidia-ml.so.1
-#LIBDIR#/libnvidia-ml.so.1                            #LIBDIR#/libnvidia-ml.so
-#LIBDIR#/libnvidia-opencl.so.#VERSION#                #LIBDIR#/libnvidia-opencl.so.1
-#LIBDIR#/libnvidia-ptxjitcompiler.so.#VERSION#        #LIBDIR#/libnvidia-ptxjitcompiler.so.1
-#LIBDIR#/libnvidia-ptxjitcompiler.so.1                #LIBDIR#/libnvidia-ptxjitcompiler.so
+#I386_EXCLUDED##LIBDIR#/libnvidia-nvvm.so.4            #LIBDIR#/libnvidia-nvvm.so
+#I386_EXCLUDED##LIBDIR#/libnvidia-nvvm.so.4.0.0        #LIBDIR#/libnvidia-nvvm.so.4
+#LIBDIR#/libcuda.so.#VERSION#                          #LIBDIR#/libcuda.so.1
+#LIBDIR#/libcuda.so.1                                  #LIBDIR#/libcuda.so
+#LIBDIR#/libnvidia-ml.so.#VERSION#                     #LIBDIR#/libnvidia-ml.so.1
+#LIBDIR#/libnvidia-ml.so.1                             #LIBDIR#/libnvidia-ml.so
+#LIBDIR#/libnvidia-opencl.so.#VERSION#                 #LIBDIR#/libnvidia-opencl.so.1
+#LIBDIR#/libnvidia-ptxjitcompiler.so.#VERSION#         #LIBDIR#/libnvidia-ptxjitcompiler.so.1
+#LIBDIR#/libnvidia-ptxjitcompiler.so.1                 #LIBDIR#/libnvidia-ptxjitcompiler.so
