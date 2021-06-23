@@ -1,4 +1,5 @@
 #I386_EXCLUDED#NVIDIA-Linux/10_nvidia.json                          usr/share/glvnd/egl_vendor.d
+#I386_EXCLUDED#NVIDIA-Linux/_nvngx.dll                              #LIBDIR#/nvidia/wine
 #I386_EXCLUDED#NVIDIA-Linux/libEGL_nvidia.so.#VERSION#              #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLESv1_CM_nvidia.so.#VERSION#        #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLESv2_nvidia.so.#VERSION#           #LIBDIR#
