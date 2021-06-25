@@ -1,4 +1,5 @@
 #I386_EXCLUDED#NVIDIA-Linux/10_nvidia.json                          usr/share/glvnd/egl_vendor.d
+#I386_EXCLUDED#NVIDIA-Linux/_nvngx.dll                              #LIBDIR#/nvidia/wine
 #I386_EXCLUDED#NVIDIA-Linux/libEGL_nvidia.so.#VERSION#              #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLESv1_CM_nvidia.so.#VERSION#        #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLESv2_nvidia.so.#VERSION#           #LIBDIR#
@@ -16,6 +17,7 @@
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-ngx-updater                      usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/nvidia_icd.json                         usr/share/vulkan/icd.d
 #I386_EXCLUDED#NVIDIA-Linux/nvidia_layers.json                      usr/share/vulkan/implicit_layer.d
+#I386_EXCLUDED#NVIDIA-Linux/nvngx.dll                               #LIBDIR#/nvidia/wine
 #I386_ONLY#NVIDIA-Linux/32/libEGL_nvidia.so.#VERSION#               #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libGLESv1_CM_nvidia.so.#VERSION#         #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libGLESv2_nvidia.so.#VERSION#            #LIBDIR#
