@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-390 (390.144-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.144-0ubuntu1) impish; urgency=medium
 
-  * 
+  * New upstream release (LP: #1933980).
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.13.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 02 Jul 2021 17:15:00 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Jul 2021 10:22:50 +0200
 
 nvidia-graphics-drivers-390 (390.143-0ubuntu2) impish; urgency=medium
 
