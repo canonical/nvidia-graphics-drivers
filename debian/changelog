@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-460-server (460.91.03-0ubuntu0.20.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460-server (460.91.03-0ubuntu0.20.10.1) groovy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1933980).
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.13.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2021 15:06:29 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2021 15:12:32 +0200
 
 nvidia-graphics-drivers-460-server (460.73.01-0ubuntu0.20.10.2) groovy; urgency=medium
 
