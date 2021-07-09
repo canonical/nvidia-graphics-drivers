@@ -1,10 +1,10 @@
-nvidia-graphics-drivers-418-server (418.211.00-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.211.00-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * New upstream release (LP: #1933980).
   * debian/templates/dkms_nvidia.conf.in:
     - Drop buildfix_kernel_5.13.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Jul 2021 18:00:04 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2021 13:23:44 +0200
 
 nvidia-graphics-drivers-418-server (418.197.02-0ubuntu0.18.04.2) bionic; urgency=medium
 
