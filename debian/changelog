@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-450-server (450.142.00-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.142.00-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1933980).
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.13.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2021 14:50:26 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2021 14:51:51 +0200
 
 nvidia-graphics-drivers-450-server (450.119.04-0ubuntu0.20.04.3) focal; urgency=medium
 
