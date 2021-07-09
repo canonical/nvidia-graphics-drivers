@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-460 (460.91.03-0ubuntu0.20.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460 (460.91.03-0ubuntu0.20.10.1) groovy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1933980).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 05 Jul 2021 15:59:05 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 09 Jul 2021 12:48:27 +0200
 
 nvidia-graphics-drivers-460 (460.84-0ubuntu0.20.10.1) groovy; urgency=medium
 
