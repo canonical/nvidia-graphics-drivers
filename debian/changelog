@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-470 (470.42.01-0ubuntu0~0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-470 (470.57.01-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  * Initial release. This is a BETA driver, do not use it on production systems.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Jun 2021 16:15:18 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 12 Jul 2021 12:08:19 +0200
