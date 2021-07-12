@@ -1,11 +1,5 @@
-nvidia-graphics-drivers-470 (470.42.01-0ubuntu0~0.20.10.2) groovy; urgency=medium
+nvidia-graphics-drivers-470 (470.57.01-0ubuntu0.20.10.1) UNRELEASED; urgency=medium
 
-  * No change rebuild.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Jun 2021 11:47:14 +0200
-
-nvidia-graphics-drivers-470 (470.42.01-0ubuntu0~0.20.10.1) groovy; urgency=medium
-
-  * Initial release. This is a BETA driver, do not use it on production systems.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Jun 2021 15:38:09 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 12 Jul 2021 11:23:20 +0200
