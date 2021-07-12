@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-470 (470.57.01-0ubuntu0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.57.02-0ubuntu1) impish; urgency=medium
 
-  * 
+  * Initial release.
+  * Replace the 465 series (LP: #1933980)
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 12 Jul 2021 09:19:57 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 12 Jul 2021 11:09:14 +0200
