@@ -1,6 +1,7 @@
 NVIDIA-Linux/libcuda.so.470.57.02                         usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-compiler.so.470.57.02              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-ml.so.470.57.02                    usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-nvvm.so.4.0.0                      usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-opencl.so.470.57.02                usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-ptxjitcompiler.so.470.57.02        usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/nvidia.icd                                   etc/OpenCL/vendors
