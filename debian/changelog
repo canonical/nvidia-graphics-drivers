@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-470 (470.57.02-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.57.02-0ubuntu2) impish; urgency=medium
 
-  * 
+  * debian/nvidia_supported,
+    debian/rules:
+    - Use the json database file to generate the modaliases.
+    - Fix aliases generation.
+      We were not matching some of the aliases because of some missing
+      zeroes in the subdevice and subvendor ids.
+  * debian/pm-aliases-gen:
+    - Fix aliases generation for runtimepm.
+      We were not matching some of the aliases because of some missing
+      zeroes in the subdevice and subvendor ids.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Aug 2021 15:41:02 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 09 Aug 2021 15:53:27 +0200
 
 nvidia-graphics-drivers-470 (470.57.02-0ubuntu1) impish; urgency=medium
 
