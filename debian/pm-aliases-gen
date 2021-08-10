@@ -80,10 +80,16 @@ def print_runtimepm_aliases(data):
 
     it = 0
     for device in devices:
+        subvendor_id = '0000%s' % (device.get_subvendorid()
+                                   if device.get_subvendorid() != '*'
+                                   else '*')
+        subdev_id = '0000%s' % (device.get_subdevid()
+                                if device.get_subdevid() != '*'
+                                else '*')
         line += template % ('nvidia(' if it == 0 else '',
                             device.get_vendor(), device.get_devid(),
-                            device.get_subvendorid(),
-                            device.get_subdevid(),
+                            subvendor_id,
+                            subdev_id,
                             ', ' if it < (len(devices) - 1) else ')')
         it +=1
     print(line)
