@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu1) impish; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        NVIDIA RTX A2000
+    - Added support for the VK_KHR_wayland_surface extension.
+    - Fixed a Vulkan performance regression that affected rFactor2.
+  * debian/templates/libnvidia-gl-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour.links.in:
+    - Add libnvidia-vulkan-producer.so.$version and reformat the spacing
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Aug 2021 11:14:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Aug 2021 12:27:25 +0200
 
 nvidia-graphics-drivers-470 (470.57.02-0ubuntu2) impish; urgency=medium
 
