@@ -1,8 +1,21 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.21.04.1) hirsute; urgency=medium
 
-  * 
+  * New upstream release (LP: #1939673):
+    - Added support for the following GPUs:
+        NVIDIA RTX A2000
+    - Fixed a Vulkan performance regression that affected rFactor2.
+  * debian/nvidia_supported,
+    debian/rules:
+    - Use the json database file to generate the modaliases.
+    - Fix aliases generation.
+      We were not matching some of the aliases because of some missing
+      zeroes in the subdevice and subvendor ids.
+  * debian/pm-aliases-gen:
+    - Fix aliases generation for runtimepm.
+      We were not matching some of the aliases because of some missing
+      zeroes in the subdevice and subvendor ids.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 11:18:27 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 12:22:24 +0200
 
 nvidia-graphics-drivers-470 (470.57.02-0ubuntu0.21.04.1) hirsute; urgency=medium
 
