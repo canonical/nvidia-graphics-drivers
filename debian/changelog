@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu2) impish; urgency=medium
 
-  * 
+  * Revert "Add libnvidia-vulkan-producer.so.$version and reformat the spacing".
+    Let's wait until egl-wayland is in main (LP: #1935082).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 11:00:28 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 11:03:57 +0200
 
 nvidia-graphics-drivers-470 (470.63.01-0ubuntu1) impish; urgency=medium
 
