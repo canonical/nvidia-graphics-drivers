@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.21.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.21.04.3) hirsute; urgency=medium
 
-  * 
+  * debian/nvidia_supported,
+    debian/rules (LP: #1939673):
+    - Use the json database file to generate the modaliases.
+    - Fix aliases generation.
+      We were not matching some of the aliases because of some missing
+      zeroes in the subdevice and subvendor ids.
+  * debian/pm-aliases-gen:
+    - Fix aliases generation for runtimepm.
+      We were not matching some of the aliases because of some missing
+      zeroes in the subdevice and subvendor ids.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 13:23:32 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 13:31:15 +0200
 
 nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.21.04.2) hirsute; urgency=medium
 
