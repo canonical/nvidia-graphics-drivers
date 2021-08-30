@@ -84,12 +84,18 @@ def print_aliases(data, module, package):
 
     it = 0
     for device in devices:
-        subvendor_id = '0000%s' % (device.get_subvendorid()
-                                   if device.get_subvendorid() != '*'
-                                   else '*')
-        subdev_id = '0000%s' % (device.get_subdevid()
-                                if device.get_subdevid() != '*'
-                                else '*')
+        # Remove sv/sd matching for now, since the subsystem vendor/device
+        # IDs in supported-gpus.json are the Nvidia IDs.
+        # (The finding is based on the contents of nvidia-driver-470)
+        #
+        # subvendor_id = '0000%s' % (device.get_subvendorid()
+        #                            if device.get_subvendorid() != '*'
+        #                            else '*')
+        # subdev_id = '0000%s' % (device.get_subdevid()
+        #                         if device.get_subdevid() != '*'
+        #                         else '*')
+        subvendor_id = '*'
+        subdev_id = '*'
         line += template % (device.get_vendor(), device.get_devid(),
                             subvendor_id,
                             subdev_id,
