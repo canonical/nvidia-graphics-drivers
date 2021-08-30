@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.21.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.21.04.2) hirsute; urgency=medium
 
-  * 
+  * debian/nvidia_supported,
+    debian/rules:
+    debian/pm-aliases-gen
+    - Include the actual changes that were only mentioned in the changelog for
+      the previous release (LP: #1939673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Aug 2021 16:15:54 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Aug 2021 16:17:11 +0200
 
 nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.21.04.1) hirsute; urgency=medium
 
