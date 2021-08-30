@@ -92,7 +92,7 @@ def print_aliases(data, module, package):
 #                                   else '*')
 #        subdev_id = '0000%s' % (device.get_subdevid()
 #                                if device.get_subdevid() != '*'
-#                                else '*')k
+#                                else '*')
         line += template % (device.get_vendor(), device.get_devid(),
                             module,
                             package,
