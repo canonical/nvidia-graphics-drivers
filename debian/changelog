@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.57.02-0ubuntu3) impish; urgency=medium
 
-  * 
+  * debian/nvidia_supported:
+    - Remove sv/sd matching, since the subsystem vendor/device IDs are only
+      available in the supported-gpus.json and they are not mentioned in
+      the README.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 15:42:21 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 15:46:59 +0200
 
 nvidia-graphics-drivers-470-server (470.57.02-0ubuntu2) impish; urgency=medium
 
