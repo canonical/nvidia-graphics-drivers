@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  * debian/nvidia_supported,
+    debian/rules:
+    debian/pm-aliases-gen
+    - Include the actual changes that were only mentioned in the changelog for
+      the previous release (LP: #1939673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 11:34:03 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 11:35:34 +0200
 
 nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.18.04.1) bionic; urgency=medium
 
