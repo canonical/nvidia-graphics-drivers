@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.21.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.21.04.4) hirsute; urgency=medium
 
-  * 
+  * debian/nvidia_supported:
+    - Ignore subsystem vendor and id when generating modaliases, so that we don't
+      exclude devices that are actually supported (LP: #1939673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 15:48:51 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 17:03:11 +0200
 
 nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.21.04.3) hirsute; urgency=medium
 
