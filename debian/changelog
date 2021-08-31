@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu4) impish; urgency=medium
 
-  * 
+  * debian/nvidia_supported:
+    - Ignore subsystem vendor and id when generating modaliases, so that we don't
+      exclude devices that are actually supported (LP: #1939673).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 17:45:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 17:48:34 +0200
 
 nvidia-graphics-drivers-470 (470.63.01-0ubuntu3) impish; urgency=medium
 
