@@ -1,0 +1,84 @@
+From 07f6abf333755e8d209ed12a51548ed297e00d9a Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Mon, 6 Sep 2021 13:52:38 +0200
+Subject: [PATCH 1/1] Add support for Linux 5.14
+
+---
+ nvidia-drm/nvidia-drm-drv.c | 3 +++
+ nvidia/nvlink_linux.c       | 5 +++++
+ nvidia/os-interface.c       | 5 +++++
+ 3 files changed, 13 insertions(+)
+
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 54389be..2088057 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -22,6 +22,7 @@
+ 
+ #include "nvidia-drm-conftest.h" /* NV_DRM_AVAILABLE and NV_DRM_DRM_GEM_H_PRESENT */
+ 
++#include <linux/version.h>
+ #include "nvidia-drm-priv.h"
+ #include "nvidia-drm-drv.h"
+ #include "nvidia-drm-fb.h"
+@@ -811,7 +812,9 @@ static void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+ 
+     dev->dev_private = nv_dev;
+     nv_dev->dev = dev;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+     dev->pdev = pdev;
++#endif
+ 
+     /* Register DRM device to DRM sub-system */
+ 
+diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
+index 872bc90..97b0de0 100644
+--- a/nvidia/nvlink_linux.c
++++ b/nvidia/nvlink_linux.c
+@@ -23,6 +23,7 @@
+ 
+ #include "conftest.h"
+ 
++#include <linux/version.h>
+ #include "nvlink_common.h"
+ #include "nvlink_linux.h"
+ #include "nvlink_errors.h"
+@@ -597,7 +598,11 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+         current->state = TASK_INTERRUPTIBLE;
++#else
++        WRITE_ONCE(current->__state, TASK_INTERRUPTIBLE);
++#endif
+         do
+         {
+             schedule_timeout(jiffies);
+diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
+index 3603a5a..679e997 100644
+--- a/nvidia/os-interface.c
++++ b/nvidia/os-interface.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #define  __NO_VERSION__
++#include <linux/version.h>
+ #include "nv-misc.h"
+ 
+ #include "os-interface.h"
+@@ -580,7 +581,11 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+         current->state = TASK_INTERRUPTIBLE;
++#else
++        WRITE_ONCE(current->__state, TASK_INTERRUPTIBLE);
++#endif
+         do
+         {
+             schedule_timeout(jiffies);
+-- 
+2.30.2
+
