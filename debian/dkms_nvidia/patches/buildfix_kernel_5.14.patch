@@ -1,0 +1,50 @@
+From 365c4bb726580aafa203c82cb8e1e23770de5062 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 7 Sep 2021 12:21:11 +0200
+Subject: [PATCH 1/1] Add support for Linux 5.14
+
+---
+ common/inc/nv-time.h        | 2 +-
+ nvidia-drm/nvidia-drm-drv.c | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/common/inc/nv-time.h b/common/inc/nv-time.h
+index ee14004..0133383 100644
+--- a/common/inc/nv-time.h
++++ b/common/inc/nv-time.h
+@@ -214,7 +214,7 @@ static inline NV_STATUS nv_sleep_ms(unsigned int ms)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
+-        current->state = TASK_INTERRUPTIBLE;
++        set_current_state(TASK_INTERRUPTIBLE);
+         do
+         {
+             schedule_timeout(jiffies);
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index cbbfca6..5403997 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -22,6 +22,7 @@
+ 
+ #include "nvidia-drm-conftest.h" /* NV_DRM_AVAILABLE and NV_DRM_DRM_GEM_H_PRESENT */
+ 
++#include <linux/version.h>
+ #include "nvidia-drm-priv.h"
+ #include "nvidia-drm-drv.h"
+ #include "nvidia-drm-fb.h"
+@@ -921,9 +922,11 @@ static void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+ 
+     dev->dev_private = nv_dev;
+     nv_dev->dev = dev;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+     if (device->bus == &pci_bus_type) {
+         dev->pdev = to_pci_dev(device);
+     }
++#endif
+ 
+     /* Register DRM device to DRM sub-system */
+ 
+-- 
+2.30.2
+
