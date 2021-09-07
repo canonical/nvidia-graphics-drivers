@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.57.02-0ubuntu4) impish; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.14.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Fix build failure with Linux 5.14.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Sep 2021 12:37:53 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Sep 2021 12:54:12 +0200
 
 nvidia-graphics-drivers-470-server (470.57.02-0ubuntu3) impish; urgency=medium
 
