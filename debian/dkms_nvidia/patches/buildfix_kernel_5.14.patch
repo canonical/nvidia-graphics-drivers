@@ -1,0 +1,62 @@
+From d14934c4e0964b02ee70a22fe67faca8e5a7add2 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 7 Sep 2021 13:42:03 +0200
+Subject: [PATCH 1/1] Add support for Linux 5.14
+
+---
+ nvidia-drm/nvidia-drm-drv.c | 3 +++
+ nvidia/nvlink_linux.c       | 2 +-
+ nvidia/os-interface.c       | 2 +-
+ 3 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 9e258e1..0c13e80 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -22,6 +22,7 @@
+ 
+ #include "nvidia-drm-conftest.h" /* NV_DRM_AVAILABLE and NV_DRM_DRM_GEM_H_PRESENT */
+ 
++#include <linux/version.h>
+ #include "nvidia-drm-priv.h"
+ #include "nvidia-drm-drv.h"
+ #include "nvidia-drm-fb.h"
+@@ -816,7 +817,9 @@ static void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+ 
+     dev->dev_private = nv_dev;
+     nv_dev->dev = dev;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+     dev->pdev = pdev;
++#endif
+ 
+     /* Register DRM device to DRM sub-system */
+ 
+diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
+index dbe2091..6e1c799 100644
+--- a/nvidia/nvlink_linux.c
++++ b/nvidia/nvlink_linux.c
+@@ -582,7 +582,7 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
+-        current->state = TASK_INTERRUPTIBLE;
++        set_current_state(TASK_INTERRUPTIBLE);
+         do
+         {
+             schedule_timeout(jiffies);
+diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
+index 3624aa7..67496af 100644
+--- a/nvidia/os-interface.c
++++ b/nvidia/os-interface.c
+@@ -607,7 +607,7 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
+-        current->state = TASK_INTERRUPTIBLE;
++        set_current_state(TASK_INTERRUPTIBLE);
+         do
+         {
+             schedule_timeout(jiffies);
+-- 
+2.30.2
+
