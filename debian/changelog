@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-450-server (450.142.00-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.142.00-0ubuntu2) impish; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.14.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Fix build failure with Linux 5.14.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Sep 2021 13:25:46 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Sep 2021 13:25:53 +0200
 
 nvidia-graphics-drivers-450-server (450.142.00-0ubuntu1) impish; urgency=medium
 
