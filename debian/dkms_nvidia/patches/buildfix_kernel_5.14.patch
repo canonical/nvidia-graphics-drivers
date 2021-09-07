@@ -1,0 +1,103 @@
+From ba19d07d9e4e903c397e00023e83ad527534cd59 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Tue, 7 Sep 2021 13:05:14 +0200
+Subject: [PATCH 1/1] Add support for Linux 5.14
+
+---
+ nvidia-drm/nvidia-drm-drv.c | 3 +++
+ nvidia/linux_nvswitch.c     | 4 ++++
+ nvidia/nvlink_linux.c       | 5 +++++
+ nvidia/os-interface.c       | 5 +++++
+ 4 files changed, 17 insertions(+)
+
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 7dd3291..20c9b9c 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -22,6 +22,7 @@
+ 
+ #include "nvidia-drm-conftest.h" /* NV_DRM_AVAILABLE and NV_DRM_DRM_GEM_H_PRESENT */
+ 
++#include <linux/version.h>
+ #include "nvidia-drm-priv.h"
+ #include "nvidia-drm-drv.h"
+ #include "nvidia-drm-fb.h"
+@@ -853,9 +854,11 @@ static void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+ 
+     dev->dev_private = nv_dev;
+     nv_dev->dev = dev;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+     if (device->bus == &pci_bus_type) {
+         dev->pdev = to_pci_dev(device);
+     }
++#endif
+ 
+     /* Register DRM device to DRM sub-system */
+ 
+diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
+index 614a083..d88fb58 100644
+--- a/nvidia/linux_nvswitch.c
++++ b/nvidia/linux_nvswitch.c
+@@ -2483,7 +2483,11 @@ nvswitch_os_sleep
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+         current->state = TASK_INTERRUPTIBLE;
++#else
++        WRITE_ONCE(current->__state, TASK_INTERRUPTIBLE);
++#endif
+         do
+         {
+             schedule_timeout(jiffies);
+diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
+index 56f629e..225856d 100644
+--- a/nvidia/nvlink_linux.c
++++ b/nvidia/nvlink_linux.c
+@@ -23,6 +23,7 @@
+ 
+ #include "conftest.h"
+ 
++#include <linux/version.h>
+ #include "nvlink_os.h"
+ #include "nvlink_linux.h"
+ #include "nvlink_errors.h"
+@@ -623,7 +624,11 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+         current->state = TASK_INTERRUPTIBLE;
++#else
++        WRITE_ONCE(current->__state, TASK_INTERRUPTIBLE);
++#endif
+         do
+         {
+             schedule_timeout(jiffies);
+diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
+index 058cf9c..b97de4c 100644
+--- a/nvidia/os-interface.c
++++ b/nvidia/os-interface.c
+@@ -11,6 +11,7 @@
+ #define  __NO_VERSION__
+ #include "nv-misc.h"
+ 
++#include <linux/version.h>
+ #include "os-interface.h"
+ #include "nv-linux.h"
+ 
+@@ -699,7 +700,11 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 14, 0))
+         current->state = TASK_INTERRUPTIBLE;
++#else
++        WRITE_ONCE(current->__state, TASK_INTERRUPTIBLE);
++#endif
+         do
+         {
+             schedule_timeout(jiffies);
+-- 
+2.30.2
+
