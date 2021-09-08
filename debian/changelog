@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-470 (470.63.01-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.63.01-0ubuntu5) impish; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add transitional packages for the 460 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Sep 2021 15:40:04 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Sep 2021 15:50:57 +0200
 
 nvidia-graphics-drivers-470 (470.63.01-0ubuntu4) impish; urgency=medium
 
