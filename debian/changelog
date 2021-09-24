@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-470 (470.74-0ubuntu0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.74-0ubuntu0.21.04.1) hirsute; urgency=medium
 
-  * 
+  * New upstream release (LP: #1944955):
+    - Updated the nvidia-drm kernel module for compatibility with the
+      removal of the DRIVER_PRIME flag in recent Linux kernel
+      versions.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+    - Fixed a bug that could prevent nvidia-xconfig from disabling
+      the X Composite extension on version 1.20 of the X.org X
+      server.
+    - Fixed a build failure, "too many arguments to function
+      'get_user_pages'", when building the NVIDIA kernel module for
+      Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function
+      do_gettimeofday", when building the NVIDIA kernel module for
+      Linux kernel 5.0 release candidates.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Sep 2021 12:16:07 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Sep 2021 12:16:38 +0200
 
 nvidia-graphics-drivers-470 (470.63.01-0ubuntu0.21.04.2) hirsute; urgency=medium
 
