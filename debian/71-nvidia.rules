@@ -25,7 +25,7 @@ ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/sbin/ub-device-create"
 ACTION=="add", DEVPATH=="/module/nvidia_uvm", SUBSYSTEM=="module", RUN+="/sbin/ub-device-create"
 
 # Enable runtime PM for NVIDIA VGA/3D controller devices
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="auto"
+ACTION=="bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="auto"
 
 # Enable runtime PM for NVIDIA Audio devices
 ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", TEST=="power/control", ATTR{power/control}="auto"
