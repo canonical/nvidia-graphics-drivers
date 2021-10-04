@@ -48,13 +48,14 @@ Depends:
  libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
  libnvidia-compute-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-decode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-encode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-ifr1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
+Suggests:
+ nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 XB-Support: LTSB
 Description: NVIDIA Server Driver metapackage
