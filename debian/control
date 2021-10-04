@@ -49,13 +49,14 @@ Depends:
  libnvidia-fbc1-470-server (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
  libnvidia-compute-470-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-decode-470-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-encode-470-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-ifr1-470-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-470-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-470-server:i386 (= ${binary:Version}) [amd64]
+Suggests:
+ nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: LTSB
