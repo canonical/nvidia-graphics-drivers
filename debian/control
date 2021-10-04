@@ -48,13 +48,13 @@ Depends:
  libnvidia-fbc1-450-server (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
  libnvidia-compute-450-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-decode-450-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-encode-450-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-ifr1-450-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-450-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-450-server:i386 (= ${binary:Version}) [amd64]
+Suggests:
+ nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 XB-Support: LTSB
 Description: NVIDIA Server Driver metapackage
