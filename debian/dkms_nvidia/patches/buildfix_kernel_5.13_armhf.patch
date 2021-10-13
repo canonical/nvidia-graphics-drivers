@@ -1,0 +1,61 @@
+From d2ca6c9e689816ac82b235777957692692c31822 Mon Sep 17 00:00:00 2001
+From: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+Date: Mon, 11 Oct 2021 12:22:21 +0100
+Subject: [PATCH] Fix ftbfs on armhf
+
+The outer_sync() function became arm_heay_mb().
+Update jiffies conversion function to use 64-bit values consistently.
+
+BugLink: https://bugs.launchpad.net/bugs/1946642
+Signed-off-by: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+---
+ common/inc/nv-linux.h                 | 2 +-
+ nvidia-drm/nvidia-drm-linux.c         | 2 +-
+ nvidia-modeset/nvidia-modeset-linux.c | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
+index 9a656bfbe6..9ad9d0b1d1 100644
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -464,7 +464,7 @@ extern int nv_pat_mode;
+ #if defined(CONFIG_OUTER_CACHE)
+ #define OUTER_FLUSH_RANGE(start, end)   outer_flush_range((start),(end))
+ #endif
+-#define WRITE_COMBINE_FLUSH()    { dsb(); outer_sync(); }
++#define WRITE_COMBINE_FLUSH()    { dsb(); arm_heavy_mb(); }
+ #elif defined(NVCPU_AARCH64)
+     static inline void nv_flush_cache_cpu(void *info)
+     {
+diff --git a/nvidia-drm/nvidia-drm-linux.c b/nvidia-drm/nvidia-drm-linux.c
+index d9e4ecff40..0962e8a62c 100644
+--- a/nvidia-drm/nvidia-drm-linux.c
++++ b/nvidia-drm/nvidia-drm-linux.c
+@@ -75,7 +75,7 @@ char *nv_drm_asprintf(const char *fmt, ...)
+   #define WRITE_COMBINE_FLUSH()    asm volatile("sfence":::"memory")
+ #elif defined(NVCPU_FAMILY_ARM)
+   #if defined(NVCPU_ARM)
+-    #define WRITE_COMBINE_FLUSH()  { dsb(); outer_sync(); }
++    #define WRITE_COMBINE_FLUSH()  { dsb(); arm_heavy_mb(); }
+   #elif defined(NVCPU_AARCH64)
+     #define WRITE_COMBINE_FLUSH()  mb()
+   #endif
+diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
+index f7f1deffbb..dc2dd9afc6 100644
+--- a/nvidia-modeset/nvidia-modeset-linux.c
++++ b/nvidia-modeset/nvidia-modeset-linux.c
+@@ -66,9 +66,9 @@
+  * Use do_div() to avoid gcc-generated references to __udivdi3().
+  * Note that the do_div() macro divides the first argument in place.
+  */
+-static inline unsigned long NVKMS_USECS_TO_JIFFIES(NvU64 usec)
++static inline uint64_t NVKMS_USECS_TO_JIFFIES(NvU64 usec)
+ {
+-    unsigned long result = usec * HZ;
++    uint64_t result = usec * HZ;
+     do_div(result, 1000000);
+     return result;
+ }
+-- 
+2.30.2
+
