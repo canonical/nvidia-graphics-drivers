@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-418-server (418.226.00-0ubuntu01) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.226.00-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1948025).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Oct 2021 17:00:50 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Oct 2021 17:01:33 +0200
 
 nvidia-graphics-drivers-418-server (418.211.00-0ubuntu0.20.04.1) focal; urgency=medium
 
