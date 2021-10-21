@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-450-server (450.156.00-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.156.00-0ubuntu0.21.04.1) hirsute; urgency=medium
 
-  * 
+  * New upstream release (LP: #1948025).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Oct 2021 17:16:20 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Oct 2021 17:17:03 +0200
 
 nvidia-graphics-drivers-450-server (450.142.00-0ubuntu0.21.04.1) hirsute; urgency=medium
 
