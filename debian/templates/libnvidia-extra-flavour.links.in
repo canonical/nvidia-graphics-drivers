@@ -1,2 +1,3 @@
-#LIBDIR#/libnvidia-allocator.so.#VERSION#        #LIBDIR#/libnvidia-allocator.so.1
-#LIBDIR#/libnvidia-allocator.so.1                #LIBDIR#/libnvidia-allocator.so
+#I386_EXCLUDED##LIBDIR#/libnvidia-allocator.so.1        #LIBDIR#/nvidia-drm_gbm.so
+#LIBDIR#/libnvidia-allocator.so.#VERSION#               #LIBDIR#/libnvidia-allocator.so.1
+#LIBDIR#/libnvidia-allocator.so.1                       #LIBDIR#/libnvidia-allocator.so
