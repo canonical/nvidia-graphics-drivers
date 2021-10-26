@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-470 (470.82.00-0ubuntu0.21.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.82.00-0ubuntu0.21.04.1) hirsute; urgency=medium
 
-  * 
+  * New upstream release (LP: #1948025).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Oct 2021 15:41:37 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Oct 2021 15:42:15 +0200
 
 nvidia-graphics-drivers-470 (470.74-0ubuntu0.21.04.1) hirsute; urgency=medium
 
