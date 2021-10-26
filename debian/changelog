@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-470 (470.82.00-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.82.00-0ubuntu0.21.10.1) impish; urgency=medium
 
-  * 
+  * New upstream release (LP: #1948025):
+    - Fixed a bug that can cause a kernel crash in SLI Mosaic
+      configurations.
+    - Added support for the EGL_NV_robustness_video_memory_purge.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Oct 2021 11:54:57 +0200
+  [ Kai-Heng Feng ]
+  * debian/71-nvidia.rules:
+    - Enable runtime PM after driver is bound (LP: #1949026).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Oct 2021 12:39:25 +0200
 
 nvidia-graphics-drivers-470 (470.74-0ubuntu1) impish; urgency=medium
 
