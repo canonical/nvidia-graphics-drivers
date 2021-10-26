@@ -1,0 +1,5 @@
+NVIDIA-Linux/nvidia-cuda-mps-control             usr/bin
+NVIDIA-Linux/nvidia-cuda-mps-control.1.gz        usr/share/man/man1
+NVIDIA-Linux/nvidia-cuda-mps-server              usr/bin
+NVIDIA-Linux/nvidia-persistenced                 usr/bin
+NVIDIA-Linux/nvidia-persistenced.1.gz            usr/share/man/man1
