@@ -45,7 +45,6 @@ Depends:
  nvidia-utils-#FLAVOUR# (= ${binary:Version}),
  xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
- libnvidia-ifr1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
  libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
@@ -53,12 +52,11 @@ Recommends:
  libnvidia-compute-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-decode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-encode-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
- libnvidia-ifr1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-#FLAVOUR#:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Support: LTSB
+XB-Support: NFB
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -299,28 +297,6 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  .
  This package contains the libnvidia-cfg.so.1 runtime library.
 
-Package: libnvidia-ifr1-#FLAVOUR#
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- libnvidia-gl-#FLAVOUR#, libx11-6,
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-ifr1,
-Conflicts:
- libnvidia-ifr1,
-Replaces:
- libnvidia-ifr1,
-Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
- The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvIFROpenGL runtime library.
-
 Package: libnvidia-fbc1-#FLAVOUR#
 Architecture: i386 amd64
 Multi-Arch: same
@@ -382,147 +358,3 @@ Description: NVENC Video Encoding runtime library
  hardware on supported NVIDIA GPUs.
  .
  This package contains the nvidia-encode runtime library.
-
-Package: nvidia-driver-465
-Architecture: amd64
-Depends: nvidia-driver-#FLAVOUR#
-Multi-Arch: foreign
-Description: Transitional package for nvidia-driver-#FLAVOUR#
- This is a transitional package for nvidia-driver-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-kernel-source-465
-Architecture: amd64
-Depends: nvidia-kernel-source-#FLAVOUR#
-Multi-Arch: foreign
-Description: Transitional package for nvidia-kernel-source-#FLAVOUR#
- This is a transitional package for nvidia-kernel-source-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-dkms-465
-Architecture: amd64
-Depends: nvidia-dkms-#FLAVOUR#
-Multi-Arch: foreign
-Description: Transitional package for nvidia-dkms-#FLAVOUR#
- This is a transitional package for nvidia-dkms-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-utils-465
-Architecture: amd64
-Depends: nvidia-utils-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for nvidia-utils-#FLAVOUR#
- This is a transitional package for nvidia-utils-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-compute-465
-Architecture: i386 amd64
-Depends: libnvidia-compute-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-compute-#FLAVOUR#
- This is a transitional package for libnvidia-compute-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-compute-utils-465
-Architecture: amd64
-Depends: nvidia-compute-utils-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for nvidia-compute-utils-#FLAVOUR#
- This is a transitional package for nvidia-compute-utils-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-headless-no-dkms-465
-Architecture: amd64
-Depends: nvidia-headless-no-dkms-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for nvidia-headless-no-dkms-#FLAVOUR#
- This is a transitional package for nvidia-headless-no-dkms-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-headless-465
-Architecture: amd64
-Depends: nvidia-headless-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for nvidia-headless-#FLAVOUR#
- This is a transitional package for nvidia-headless-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-kernel-common-465
-Architecture: amd64
-Depends: nvidia-kernel-common-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for nvidia-kernel-common-#FLAVOUR#
- This is a transitional package for nvidia-kernel-common-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-gl-465
-Architecture: i386 amd64
-Depends: libnvidia-gl-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-gl-#FLAVOUR#
- This is a transitional package for libnvidia-gl-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-common-465
-Architecture: all
-Depends: libnvidia-common-#FLAVOUR#
-Multi-Arch: foreign
-Description: Transitional package for libnvidia-common-#FLAVOUR#
- This is a transitional package for libnvidia-common-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-extra-465
-Architecture: i386 amd64
-Depends: libnvidia-extra-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-extra-#FLAVOUR#
- This is a transitional package for libnvidia-extra-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: xserver-xorg-video-nvidia-465
-Architecture: amd64
-Depends: xserver-xorg-video-nvidia-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for xserver-xorg-video-nvidia-#FLAVOUR#
- This is a transitional package for xserver-xorg-video-nvidia-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-cfg1-465
-Architecture: amd64
-Depends: libnvidia-cfg1-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-cfg1-#FLAVOUR#
- This is a transitional package for libnvidia-cfg1-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-ifr1-465
-Architecture: i386 amd64
-Depends: libnvidia-ifr1-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-ifr1-#FLAVOUR#
- This is a transitional package for libnvidia-ifr1-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-fbc1-465
-Architecture: i386 amd64
-Depends: libnvidia-fbc1-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-fbc1-#FLAVOUR#
- This is a transitional package for libnvidia-fbc1-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-decode-465
-Architecture: i386 amd64
-Depends: libnvidia-decode-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-decode-#FLAVOUR#
- This is a transitional package for libnvidia-decode-#FLAVOUR#, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-encode-465
-Architecture: i386 amd64
-Depends: libnvidia-encode-#FLAVOUR#
-Multi-Arch: same
-Description: Transitional package for libnvidia-encode-#FLAVOUR#
- This is a transitional package for libnvidia-encode-#FLAVOUR#, and can be
- safely removed after the installation is complete.
