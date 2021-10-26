@@ -1,0 +1,6 @@
+NVIDIA-Linux/nvidia-bug-report.sh        usr/bin
+NVIDIA-Linux/nvidia-debugdump            usr/bin
+NVIDIA-Linux/nvidia-smi                  usr/bin
+NVIDIA-Linux/nvidia-smi.1.gz             usr/share/man/man1
+NVIDIA-Linux/nvidia-xconfig              usr/bin
+NVIDIA-Linux/nvidia-xconfig.1.gz         usr/share/man/man1
