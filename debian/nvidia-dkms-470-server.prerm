@@ -7,7 +7,7 @@
 
 
 PACKAGE_NAME=nvidia-srv
-CVERSION=470.82.00
+CVERSION=470.82.01
 CVERSION=${CVERSION#*really.}
 
 remove_dkms_module() {
