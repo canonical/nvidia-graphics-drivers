@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-470 (470.86-0ubuntu0.21.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.86-0ubuntu0.21.10.1) impish; urgency=medium
 
-  * 
+  * New upstream release (LP: #1950665):
+    - Fixed a regression which prevented DisplayPort and HDMI 2.1
+      variable refresh rate (VRR) G-SYNC Compatible monitors from
+      functioning correctly in variable refresh rate mode, resulting
+      in issues such as flickering.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Nov 2021 17:05:47 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Nov 2021 17:06:10 +0100
 
 nvidia-graphics-drivers-470 (470.82.00-0ubuntu0.21.10.1) impish; urgency=medium
 
