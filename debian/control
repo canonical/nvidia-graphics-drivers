@@ -53,6 +53,7 @@ Recommends:
  libnvidia-encode-450-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-ifr1-450-server:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-450-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-450-server:i386 (= ${binary:Version}) [amd64]
 Suggests:
  nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
