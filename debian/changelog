@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-418-server (418.226.00-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-418-server (418.226.00-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  [ Jamie Nguyen ]
+  * debian/templates/control.in:
+    - Move nvidia-prime and nvidia-settings to "Suggests"
+      (LP: #1948960).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 16:06:22 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 16:06:58 +0100
 
 nvidia-graphics-drivers-418-server (418.226.00-0ubuntu0.18.04.1) bionic; urgency=medium
 
