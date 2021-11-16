@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-460-server (460.106.00-0ubuntu0.18.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-460-server (460.106.00-0ubuntu0.18.04.2) bionic; urgency=medium
 
-  * 
+  [ Jamie Nguyen ]
+  * debian/templates/control.in:
+    - Move nvidia-prime and nvidia-settings to "Suggests"
+      (LP: #1948960).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 15:31:03 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 15:31:23 +0100
 
 nvidia-graphics-drivers-460-server (460.106.00-0ubuntu0.18.04.1) bionic; urgency=medium
 
