@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.21.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.21.04.2) hirsute; urgency=medium
 
-  * 
+  [ Jamie Nguyen ]
+  * debian/templates/control.in:
+    - Move nvidia-prime and nvidia-settings to "Suggests"
+      (LP: #1948960).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 12:39:55 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 12:47:12 +0100
 
 nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.21.04.1) hirsute; urgency=medium
 
