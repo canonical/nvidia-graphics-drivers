@@ -11,6 +11,10 @@ import sys
 import argparse
 
 
+ids_to_ignore = ['1fbc', '249c', '249d', '24b6',
+                 '24b7', '24b8', '25a0', '25b8']
+
+
 class DeviceInfo(object):
 
     def __init__(self, device):
@@ -69,12 +73,19 @@ def _is_legacy(device):
     legacy = device.get('legacybranch')
     return legacy != None
 
+def _to_ignore(device):
+    devid = (device.get('devid').replace('0x', '')
+                       if device.get('devid') else '*')
+    return (devid.lower() in ids_to_ignore)
+
 def _get_supported_devices(data):
     supported_devices = []
     devices = _get_devices_from_data(data)
     for device in devices:
-        if not _is_legacy(devices.get(device)):
-            supported_devices.append(DeviceInfo(devices.get(device)))
+        dev = devices.get(device)
+        if (not _is_legacy(dev) and
+            not _to_ignore(dev)):
+            supported_devices.append(DeviceInfo(dev))
     return supported_devices
 
 def print_aliases(data, module, package):

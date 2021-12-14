@@ -11,6 +11,10 @@ import sys
 import argparse
 
 
+ids_to_ignore = ['1fbc', '249c', '249d', '24b6',
+                 '24b7', '24b8', '25a0', '25b8']
+
+
 class DeviceInfo(object):
 
     def __init__(self, device):
@@ -69,9 +73,16 @@ def _get_runtimepm_devices(data):
     supported_devices = []
     devices = _get_devices_from_data(data)
     for device in devices:
-        if _supports_runtimepm(devices.get(device)):
+        dev = devices.get(device)
+        if (_supports_runtimepm(dev) and
+            not _to_ignore(dev)):
             supported_devices.append(DeviceInfo(devices.get(device)))
     return supported_devices
+
+def _to_ignore(device):
+    devid = (device.get('devid').replace('0x', '')
+                       if device.get('devid') else '*')
+    return (devid.lower() in ids_to_ignore)
 
 def print_runtimepm_aliases(data):
     devices = _get_runtimepm_devices(data)
