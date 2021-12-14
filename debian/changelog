@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-470 (470.86-0ubuntu0.20.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.86-0ubuntu0.20.04.2) focal; urgency=medium
 
-  * 
+  * debian/{nvidia_supported|pm-aliases-gen}:
+    - Drop the following IDs in favour of the 495 series (LP: #1954818):
+      1fbc, 249c, 249d, 24b6, 24b7, 24b8,
+      25a0, 25b8.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 14 Dec 2021 12:05:35 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 14 Dec 2021 17:18:52 +0100
 
 nvidia-graphics-drivers-470 (470.86-0ubuntu0.20.04.1) focal; urgency=medium
 
