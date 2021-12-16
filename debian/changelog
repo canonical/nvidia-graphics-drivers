@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-495 (495.46-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Dec 2021 15:05:19 +0100
+
 nvidia-graphics-drivers-495 (495.44-0ubuntu0.20.04.1) focal; urgency=medium
 
   * Initial release (LP: #1948025).
