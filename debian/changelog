@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-495 (495.46-0ubuntu2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Dec 2021 15:37:55 +0100
+
 nvidia-graphics-drivers-495 (495.46-0ubuntu1) jammy; urgency=medium
 
   * debian/additional_card_ids:
