@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-495 (495.46-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-495 (495.46-0ubuntu2) jammy; urgency=medium
 
-  * 
+  * debian/additional_runtimepm_ids:
+    - Add the following IDs:
+      1FBC 249C 249D 24B6 24B7 24B8 25A0 25B8
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Dec 2021 15:37:55 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Dec 2021 15:40:14 +0100
 
 nvidia-graphics-drivers-495 (495.46-0ubuntu1) jammy; urgency=medium
 
