@@ -1,8 +1,63 @@
-nvidia-graphics-drivers-495 (495.46-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-495 (495.46-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  [ Daniel van Vugt ]
+  * debian/templates/libnvidia-extra-flavour.links.in:
+    - Move nvidia-drm_gbm.so into the gbm/ library subdirectory
+      which is where Mesa searches for it.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Dec 2021 15:05:19 +0100
+  [ Alberto Milone ]
+  * debian/additional_card_ids,
+    debian/additional_runtimepm_ids:
+    - Add the following IDs:
+      1FBC 249C 249D 24B6 24B7 24B8 25A0 25B8
+
+  * New upstream release (LP: #1954818):
+    - Added support for the GBM API. This adds the new symlink
+      nvidia-drm_gbm.so pointing to the file libnvidia-
+      allocator.so.VERSION to implement a GBM backend driver usable
+      with the GBM loader from the Mesa project version 21.2 and
+      above, as well as the files libnvidia-egl-gbm.so.1.1.0 and
+      15_nvidia_gbm.json, which implement EGL support for the GBM
+      platform (EGL_KHR_platform_gbm).
+    - Add indicator for Resizable BAR support on compatible systems.
+    - Fixed a bug that could cause the X server to crash when
+      starting a new server generation on PRIME configurations.
+    - Removed support for NvIFROpenGL. This functionality was
+      deprecated in the 470.xx driver release.
+    - Removed libnvidia-cbl.so from the driver package. This
+      functionality is now provided by other driver libraries.
+    - Changed the minimum required Linux kernel version from 2.6.32
+      to 3.10.
+    - Updated nvidia.ko to load even if no supported NVIDIA GPUs are
+      present when an NVIDIA NVSwitch device is detected in the
+      system. Previously, nvidia.ko would fail to load into the
+      kernel if no supported GPUs were present.
+    - Fixed a bug in the Vulkan driver where unused input attributes
+      to a vertex shader would corrupt the interpolation qualifiers
+      for the shader.
+    - Fixed a bug in the Vulkan driver where individual components of
+      barycentric inputs could not be read.
+    - Added support for the VK_KHR_present_id extension.
+    - Added support for the VK_KHR_present_wait extension.
+    - Added support for the
+      VK_KHR_shader_subgroup_uniform_control_flow extension.
+    - Fixed a bug where VK_NVX_binary_import was advertised as
+      supported on unsupported platforms. This caused calls to
+      vkCreateDevice to fail if applications attempted to enable
+      VK_NVX_binary_import on such platforms.
+    - Added a new command line option, "--no-peermem", to nvidia-
+      installer. Selecting this option prevents the installation of
+      the nvidia-peermem kernel module.
+    - Fixed a regression which prevented DisplayPort and HDMI 2.1
+      variable refresh rate (VRR) G-SYNC Compatible monitors from
+      functioning correctly in variable refresh rate mode, resulting
+      in issues such as flickering.
+    - Fixed a bug that can cause a kernel crash in SLI Mosaic
+      configurations.
+    - Added support for the EGL_NV_robustness_video_memory_purge
+      extension.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 Dec 2021 15:05:55 +0100
 
 nvidia-graphics-drivers-495 (495.44-0ubuntu0.20.04.1) focal; urgency=medium
 
