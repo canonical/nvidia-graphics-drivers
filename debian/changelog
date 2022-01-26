@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-470 (470.86-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.86-0ubuntu2) jammy; urgency=medium
 
-  * 
+  * debian/templates/control.in,
+    debian/templates/libnvidia-gl-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour.links.in:
+    - Add libnvidia-vulkan-producer.so and build depend on
+      libnvidia-egl-wayland1 (LP: #1935082).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 Jan 2022 17:11:22 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 Jan 2022 17:20:50 +0100
 
 nvidia-graphics-drivers-470 (470.86-0ubuntu1) jammy; urgency=medium
 
