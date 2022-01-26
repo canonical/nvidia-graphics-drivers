@@ -1,8 +1,12 @@
-nvidia-graphics-drivers-495 (495.46-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-495 (495.46-0ubuntu3) jammy; urgency=medium
 
-  * 
+  * debian/templates/libnvidia-gl-flavour.{install|links}.in:
+    Include libnvidia-vulkan-producer.so now that
+    libnvidia-egl-wayland1 is in main (LP: #1935082).
+  * debian/templates/control.in:
+    - Add build dependency on libnvidia-egl-wayland1.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 Jan 2022 13:26:24 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 26 Jan 2022 16:56:33 +0100
 
 nvidia-graphics-drivers-495 (495.46-0ubuntu2) jammy; urgency=medium
 
