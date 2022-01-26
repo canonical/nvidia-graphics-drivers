@@ -14,6 +14,7 @@
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ngx.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-rtcore.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-tls.so.#VERSION#                    #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-vulkan-producer.so.#VERSION#        #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvoptix.so.#VERSION#                       #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-ngx-updater                            usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/nvidia_icd.json                               usr/share/vulkan/icd.d
