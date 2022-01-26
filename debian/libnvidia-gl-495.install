@@ -14,6 +14,7 @@ NVIDIA-Linux/libnvidia-glvkspirv.so.495.46              usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-ngx.so.495.46                    usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-rtcore.so.495.46                 usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-tls.so.495.46                    usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-vulkan-producer.so.495.46        usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvoptix.so.495.46                       usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/nvidia-ngx-updater                            usr/bin
 NVIDIA-Linux/nvidia_icd.json                               usr/share/vulkan/icd.d
