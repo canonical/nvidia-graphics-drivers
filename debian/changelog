@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-510 (510.47.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510 (510.47.03-0ubuntu0.21.10.1) impish; urgency=medium
 
-  * 
+  * Initial release (LP: #1957790).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Jan 2022 12:33:41 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Jan 2022 16:19:00 +0100
