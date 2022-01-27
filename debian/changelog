@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-510 (510.47.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510 (510.47.03-0ubuntu1) jammy; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Jan 2022 12:33:41 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 27 Jan 2022 16:19:00 +0100
