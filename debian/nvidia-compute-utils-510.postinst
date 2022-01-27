@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for nvidia-compute-utils-495
+# postinst script for nvidia-compute-utils-510
 #
 # see: dh_installdeb(1)
 #
