@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-470 (470.103.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.103.01-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1957790).
+  * debian/templates/control.in,
+    debian/templates/libnvidia-gl-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour.links.in:
+    - Add build-dependency on libnvidia-egl-wayland1, and
+      re-enable libnvidia-vulkan-producer (LP: #1935082).
+    - Add the missing transitional packages for the
+      460 series.
+    - Install the missing _nvngx.dll.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 18:01:52 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 18:08:05 +0100
 
 nvidia-graphics-drivers-470 (470.86-0ubuntu0.20.04.2) focal; urgency=medium
 
