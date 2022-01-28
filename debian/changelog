@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-470 (470.103.01-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.103.01-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1957790).
+  * debian/templates/control.in:
+    - Add the missing transitional packages for the
+      460 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 18:10:20 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 18:14:30 +0100
 
 nvidia-graphics-drivers-470 (470.86-0ubuntu0.18.04.1) bionic; urgency=medium
 
