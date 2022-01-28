@@ -1,6 +1,6 @@
-NVIDIA-Linux/libnvcuvid.so.470.86                   usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-opticalflow.so.470.86        usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libvdpau_nvidia.so.470.86              usr/lib/x86_64-linux-gnu/vdpau
-#NVIDIA-Linux/32/libnvcuvid.so.470.86                    usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libnvidia-opticalflow.so.470.86         usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libvdpau_nvidia.so.470.86               usr/lib/x86_64-linux-gnu/vdpau
+NVIDIA-Linux/libnvcuvid.so.470.103.01                   usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-opticalflow.so.470.103.01        usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libvdpau_nvidia.so.470.103.01              usr/lib/x86_64-linux-gnu/vdpau
+#NVIDIA-Linux/32/libnvcuvid.so.470.103.01                    usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-opticalflow.so.470.103.01         usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libvdpau_nvidia.so.470.103.01               usr/lib/x86_64-linux-gnu/vdpau
