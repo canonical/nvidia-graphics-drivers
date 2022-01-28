@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-470 (470.103.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.103.01-0ubuntu1) jammy; urgency=medium
 
-  * 
+  * New upstream release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 17:36:53 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 17:49:43 +0100
 
 nvidia-graphics-drivers-470 (470.86-0ubuntu2) jammy; urgency=medium
 
