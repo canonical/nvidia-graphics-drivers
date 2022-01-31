@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-450-server (450.172.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.172.01-0ubuntu1) jammy; urgency=medium
 
-  * 
+  * New upstream release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 31 Jan 2022 12:59:45 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 31 Jan 2022 13:20:33 +0100
 
 nvidia-graphics-drivers-450-server (450.156.00-0ubuntu2) jammy; urgency=medium
 
