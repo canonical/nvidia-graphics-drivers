@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-470-server (470.103.01-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.103.01-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1957790).
+  * debian/templates/control.in:
+    - Add transitional packages for the 460-server series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 01 Feb 2022 11:08:17 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 01 Feb 2022 11:09:32 +0100
 
 nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.18.04.2) bionic; urgency=medium
 
