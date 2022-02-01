@@ -3,7 +3,6 @@
 #I386_EXCLUDED#NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
-#I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-powerd.service           lib/systemd/system
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-resume.service           lib/systemd/system
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-suspend.service          lib/systemd/system
 debian/71-nvidia.rules                                                     lib/udev/rules.d
