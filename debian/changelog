@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-470-server (470.103.01-0ubuntu0.21.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.103.01-0ubuntu0.21.10.1) impish; urgency=medium
 
-  * 
+  * New upstream release (LP: #1957790).
+  * debian/templates/control.in,
+    debian/templates/libnvidia-gl-flavour.install.in,
+    debian/templates/libnvidia-gl-flavour.links.in:
+    - Add build-dependency on libnvidia-egl-wayland1, and
+      re-enable libnvidia-vulkan-producer (LP: #1935082).
+    - Add transitional packages for the 460-server series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 01 Feb 2022 11:00:02 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 01 Feb 2022 11:01:46 +0100
 
 nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.21.10.2) impish; urgency=medium
 
