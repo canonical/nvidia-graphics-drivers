@@ -1,3 +1,4 @@
+#I386_EXCLUDED##LIBDIR#/libnvidia-vulkan-producer.so.#VERSION#              #LIBDIR#/libnvidia-vulkan-producer.so
 #I386_EXCLUDED##LIBDIR#/libnvoptix.so.#VERSION#                             #LIBDIR#/libnvoptix.so.1
 #I386_EXCLUDED##LIBDIR#/nvidia/xorg/libglxserver_nvidia.so.#VERSION#        #LIBDIR#/nvidia/xorg/libglxserver_nvidia.so
 #LIBDIR#/libEGL_nvidia.so.#VERSION#                                         #LIBDIR#/libEGL_nvidia.so.0
