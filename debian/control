@@ -21,6 +21,7 @@ Build-Depends:
  libkmod-dev,
  libpciaccess-dev,
  pkg-config,
+ libnvidia-egl-wayland1,
  libc6,
  libx11-6,
  python3,
@@ -32,10 +33,10 @@ Package: nvidia-driver-470-server
 Architecture: amd64
 Depends:
  libnvidia-gl-470-server (= ${binary:Version}),
- nvidia-dkms-470-server (<= 470.82.01-1),
- nvidia-dkms-470-server (>= 470.82.01),
- nvidia-kernel-common-470-server (<= 470.82.01-1),
- nvidia-kernel-common-470-server (>= 470.82.01),
+ nvidia-dkms-470-server (<= 470.103.01-1),
+ nvidia-dkms-470-server (>= 470.103.01),
+ nvidia-kernel-common-470-server (<= 470.103.01-1),
+ nvidia-kernel-common-470-server (>= 470.103.01),
  nvidia-kernel-source-470-server (= ${binary:Version}),
  libnvidia-compute-470-server (= ${binary:Version}),
  libnvidia-extra-470-server (= ${binary:Version}),
@@ -95,10 +96,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-470-server (<= 470.82.01-1),
- nvidia-kernel-source-470-server (>= 470.82.01),
- nvidia-kernel-common-470-server (<= 470.82.01-1),
- nvidia-kernel-common-470-server (>= 470.82.01),
+ nvidia-kernel-source-470-server (<= 470.103.01-1),
+ nvidia-kernel-source-470-server (>= 470.103.01),
+ nvidia-kernel-common-470-server (<= 470.103.01-1),
+ nvidia-kernel-common-470-server (>= 470.103.01),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -173,8 +174,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-470-server (<= 470.82.01-1),
- nvidia-kernel-common-470-server (>= 470.82.01),
+ nvidia-kernel-common-470-server (<= 470.103.01-1),
+ nvidia-kernel-common-470-server (>= 470.103.01),
  nvidia-kernel-source-470-server (= ${binary:Version}),
  libnvidia-compute-470-server (= ${binary:Version}),
  nvidia-compute-utils-470-server (= ${binary:Version}),
@@ -384,3 +385,146 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
+Package: nvidia-driver-460-server
+Architecture: amd64
+Depends: nvidia-driver-470-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-470-server
+ This is a transitional package for nvidia-driver-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-460-server
+Architecture: amd64
+Depends: nvidia-kernel-source-470-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-470-server
+ This is a transitional package for nvidia-kernel-source-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-460-server
+Architecture: amd64
+Depends: nvidia-dkms-470-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-470-server
+ This is a transitional package for nvidia-dkms-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-utils-460-server
+Architecture: amd64
+Depends: nvidia-utils-470-server
+Multi-Arch: same
+Description: Transitional package for nvidia-utils-470-server
+ This is a transitional package for nvidia-utils-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-compute-460-server
+Architecture: i386 amd64
+Depends: libnvidia-compute-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-compute-470-server
+ This is a transitional package for libnvidia-compute-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-compute-utils-460-server
+Architecture: amd64
+Depends: nvidia-compute-utils-470-server
+Multi-Arch: same
+Description: Transitional package for nvidia-compute-utils-470-server
+ This is a transitional package for nvidia-compute-utils-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-460-server
+Architecture: amd64
+Depends: nvidia-headless-no-dkms-470-server
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-no-dkms-470-server
+ This is a transitional package for nvidia-headless-no-dkms-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-460-server
+Architecture: amd64
+Depends: nvidia-headless-470-server
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-470-server
+ This is a transitional package for nvidia-headless-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-common-460-server
+Architecture: amd64
+Depends: nvidia-kernel-common-470-server
+Multi-Arch: same
+Description: Transitional package for nvidia-kernel-common-470-server
+ This is a transitional package for nvidia-kernel-common-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-gl-460-server
+Architecture: i386 amd64
+Depends: libnvidia-gl-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-gl-470-server
+ This is a transitional package for libnvidia-gl-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-common-460-server
+Architecture: all
+Depends: libnvidia-common-470-server
+Multi-Arch: foreign
+Description: Transitional package for libnvidia-common-470-server
+ This is a transitional package for libnvidia-common-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-extra-460-server
+Architecture: i386 amd64
+Depends: libnvidia-extra-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-extra-470-server
+ This is a transitional package for libnvidia-extra-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-460-server
+Architecture: amd64
+Depends: xserver-xorg-video-nvidia-470-server
+Multi-Arch: same
+Description: Transitional package for xserver-xorg-video-nvidia-470-server
+ This is a transitional package for xserver-xorg-video-nvidia-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-cfg1-460-server
+Architecture: amd64
+Depends: libnvidia-cfg1-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-cfg1-470-server
+ This is a transitional package for libnvidia-cfg1-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-ifr1-460-server
+Architecture: i386 amd64
+Depends: libnvidia-ifr1-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-ifr1-470-server
+ This is a transitional package for libnvidia-ifr1-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-fbc1-460-server
+Architecture: i386 amd64
+Depends: libnvidia-fbc1-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-fbc1-470-server
+ This is a transitional package for libnvidia-fbc1-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-decode-460-server
+Architecture: i386 amd64
+Depends: libnvidia-decode-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-decode-470-server
+ This is a transitional package for libnvidia-decode-470-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-encode-460-server
+Architecture: i386 amd64
+Depends: libnvidia-encode-470-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-encode-470-server
+ This is a transitional package for libnvidia-encode-470-server, and can be
+ safely removed after the installation is complete.
