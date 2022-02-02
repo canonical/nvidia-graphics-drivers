@@ -1,8 +1,8 @@
 NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/510.47.03
+NVIDIA-Linux/nvidia-powerd                                  usr/bin
 NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
 NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
-NVIDIA-Linux/systemd/system/nvidia-powerd.service           lib/systemd/system
 NVIDIA-Linux/systemd/system/nvidia-resume.service           lib/systemd/system
 NVIDIA-Linux/systemd/system/nvidia-suspend.service          lib/systemd/system
 debian/71-nvidia.rules                                                     lib/udev/rules.d
