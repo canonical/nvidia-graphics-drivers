@@ -1,5 +1,5 @@
 #I386_EXCLUDED#NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/#VERSION#
-#I386_EXCLUDED#NVIDIA-Linux/nvidia-powerd                                  usr/bin
+#AMD64_ONLY#NVIDIA-Linux/nvidia-powerd                                  usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
