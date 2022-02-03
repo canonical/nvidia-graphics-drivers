@@ -59,6 +59,15 @@ armhf_only := \#
 armhf_excluded :=
 endif
 
+ifeq ($(DEB_HOST_ARCH),arm64)
+DKMS_disabled_modules :=
+arm64_only :=
+arm64_excluded := \#
+else
+arm64_only := \#
+arm64_excluded :=
+endif
+
 ifeq ($(DEB_HOST_ARCH),ppc64el)
 DKMS_disabled_modules :=
 ppc64el_only :=
@@ -219,10 +228,12 @@ regen-from-templates:
 				 sed -e "s|flavour|$(flavour)|g"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#ARMHF_ONLY#|$(armhf_only)|g" \
+			-e "s|#ARM64_ONLY#|$(arm64_only)|g" \
 			-e "s|#AMD64_ONLY#|$(amd64_only)|g" \
 			-e "s|#I386_ONLY#|$(i386_only)|g" \
 			-e "s|#PPC64EL_ONLY#|$(ppc64el_only)|g" \
 			-e "s|#ARMHF_EXCLUDED#|$(armhf_excluded)|g" \
+			-e "s|#ARM64_EXCLUDED#|$(arm64_excluded)|g" \
 			-e "s|#AMD64_EXCLUDED#|$(amd64_excluded)|g" \
 			-e "s|#I386_EXCLUDED#|$(i386_excluded)|g" \
 			-e "s|#PPC64EL_EXCLUDED#|$(ppc64el_excluded)|g" \
