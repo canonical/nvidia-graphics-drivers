@@ -14,7 +14,6 @@ Build-Depends:
  libxext6,
  quilt,
  po-debconf,
- execstack,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
  libglvnd-dev,
