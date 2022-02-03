@@ -130,7 +130,7 @@ override_dh_auto_clean:
 override_dh_clean: regen-from-templates
 	dh_clean
 
-override_dh_auto_configure: prepare regen-from-templates remove-stack-markings
+override_dh_auto_configure: prepare regen-from-templates
 
 override_dh_compress:
 	dh_compress -Xsupported-gpus.json
@@ -160,18 +160,6 @@ endif
 
 override_dh_installinit:
 	dh_installinit --noscripts
-
-remove-stack-markings:
-	# Disable the stack markings of binaries for security reasons.
-	# See (LP: #409456)
-	find NVIDIA-Linux/ -name *.so* | xargs -n1 execstack -c
-
-	# Disable the stack markings of other binaries (only for the current arch)
-	#   Note: don't use for loops or pass more than 1 argument to execstack
-	#         or it will fail.
-	execstack -c NVIDIA-Linux/nvidia-xconfig || true
-	execstack -c NVIDIA-Linux/nvidia-smi || true
-	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
