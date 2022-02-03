@@ -1,2 +1,2 @@
-#I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-powerd.service
+#AMD64_ONLY#NVIDIA-Linux/systemd/system/nvidia-powerd.service
 
