@@ -64,6 +64,13 @@ ppc64el_only := \#
 ppc64el_excluded :=
 endif
 
+# i386 binaries are shipped in amd64
+# Or could use ARCH_LIST to unpack all arches
+ifeq ($(DEB_HOST_ARCH),i386)
+unpack-stamp: NVIDIA-Linux-amd64
+else
+unpack-stamp: NVIDIA-Linux-$(DEB_HOST_ARCH)
+endif
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
@@ -80,12 +87,12 @@ patch: prepare
 NVIDIA-Linux-%:
 	sh $*/${NVIDIA_FILENAME_$*} --extract-only
 	ln -s ${NVIDIA_DIRNAME_$*} $@
+	ln -s $@ NVIDIA-Linux
 	#gunzip $@/*.1.gz
 
 # Unpack all architectures, we may need files from all of them.
-unpack-stamp: NVIDIA-Linux-amd64
+unpack-stamp:
 	dh_testdir
-	ln -s NVIDIA-Linux-amd64 NVIDIA-Linux
 	#QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
