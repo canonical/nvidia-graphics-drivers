@@ -14,7 +14,6 @@ Build-Depends:
  dkms,
  libxext6,
  po-debconf,
- execstack,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
  libglvnd-dev,
