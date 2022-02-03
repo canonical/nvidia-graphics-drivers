@@ -28,7 +28,7 @@ Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
 Package: nvidia-driver-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
  nvidia-dkms-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
@@ -65,7 +65,7 @@ Description: NVIDIA driver metapackage
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-kernel-source-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-kernel-source
@@ -80,7 +80,7 @@ Description: NVIDIA kernel source package
  driver.
 
 Package: nvidia-dkms-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
@@ -104,7 +104,7 @@ Description: NVIDIA DKMS package
  any new kernel headers that are installed.
 
 Package: nvidia-utils-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
@@ -119,7 +119,7 @@ Description: NVIDIA driver support binaries
  This package contains supporting binaries for the NVIDIA driver.
 
 Package: libnvidia-compute-#FLAVOUR#
-Architecture: i386 amd64
+Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
@@ -151,7 +151,7 @@ Description: NVIDIA libcompute package
  OpenCL.
 
 Package: nvidia-compute-utils-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Depends:
  libnvidia-compute-#FLAVOUR#, adduser,
  ${misc:Depends}, ${shlibs:Depends}
@@ -170,7 +170,7 @@ Description: NVIDIA compute utilities
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
 Package: nvidia-headless-no-dkms-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
@@ -192,7 +192,7 @@ Description: NVIDIA headless metapackage - no DKMS
  provided by the nvidia-driver-#FLAVOUR# metapackage.
 
 Package: nvidia-headless-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
@@ -209,7 +209,7 @@ Description: NVIDIA headless metapackage
  provided by the nvidia-driver-#FLAVOUR# metapackage.
 
 Package: nvidia-kernel-common-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
@@ -225,7 +225,7 @@ Description: Shared files used with the kernel module
  and to create the uvm devices automatically.
 
 Package: libnvidia-gl-#FLAVOUR#
-Architecture: i386 amd64
+Architecture: i386 amd64 arm64
 Multi-Arch: same
 Conflicts: libnvidia-gl
 Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
@@ -250,7 +250,7 @@ Description: Shared files used by the NVIDIA libraries
  libraries.
 
 Package: libnvidia-extra-#FLAVOUR#
-Architecture: i386 amd64
+Architecture: i386 amd64 arm64
 Multi-Arch: same
 Breaks: libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
 Conflicts: libnvidia-extra
@@ -264,7 +264,7 @@ Description: Extra libraries for the NVIDIA driver
 
 Package: xserver-xorg-video-nvidia-#FLAVOUR#
 Section: non-free/x11
-Architecture: amd64
+Architecture: amd64 arm64
 Depends:
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
  ${nvidia:xorgDepends},
@@ -283,7 +283,7 @@ Description: NVIDIA binary Xorg driver
  for a complete list of supported GPUs and PCI IDs.
 
 Package: libnvidia-cfg1-#FLAVOUR#
-Architecture: amd64
+Architecture: amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -303,7 +303,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  This package contains the libnvidia-cfg.so.1 runtime library.
 
 Package: libnvidia-fbc1-#FLAVOUR#
-Architecture: i386 amd64
+Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -325,7 +325,7 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  This package contains the NvFBCOpenGL runtime library.
 
 Package: libnvidia-decode-#FLAVOUR#
-Architecture: i386 amd64
+Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -346,7 +346,7 @@ Description: NVIDIA Video Decoding runtime libraries
  systems) library for the NVIDIA vendor implementation.
 
 Package: libnvidia-encode-#FLAVOUR#
-Architecture: i386 amd64
+Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
