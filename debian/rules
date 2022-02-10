@@ -86,10 +86,8 @@ xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
 xorg_provides	 = xorg-driver-video
 
 
-.PHONY: autogen prepare patch
-autogen: $(AUTOGEN)
-prepare: autogen unpack-stamp compare-copyright-license
-#prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
+.PHONY: prepare patch
+prepare: unpack-stamp compare-copyright-license
 patch: prepare
 
 NVIDIA-Linux-%:
