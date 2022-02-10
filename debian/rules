@@ -149,7 +149,6 @@ override_dh_auto_clean:
 
 override_dh_clean: regen-from-templates
 	dh_clean
-	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-json
 
