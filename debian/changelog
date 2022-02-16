@@ -1,51 +1,5 @@
-nvidia-graphics-drivers-470-server (470.103.01-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-510-server (510.47.03-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #1957790).
-  * debian/templates/control.in:
-    - Add transitional packages for the 460-server series.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 01 Feb 2022 11:09:32 +0100
-
-nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.18.04.2) bionic; urgency=medium
-
-  [ Jamie Nguyen ]
-  * debian/templates/control.in:
-    - Move nvidia-prime and nvidia-settings to "Suggests"
-      (LP: #1948960).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 16 Nov 2021 12:55:23 +0100
-
-nvidia-graphics-drivers-470-server (470.82.01-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * New upstream release (LP: #1948025).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Oct 2021 17:35:13 +0200
-
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.18.04.4) bionic; urgency=medium
-
-  * debian/nvidia_supported:
-    - Ignore subsystem vendor and id when generating modaliases, so that we don't
-      exclude devices that are actually supported (LP: #1939673).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 31 Aug 2021 17:18:03 +0200
-
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.18.04.3) bionic; urgency=medium
-
-  * debian/nvidia_supported,
-    debian/rules (LP: #1939673):
-    - Use the json database file to generate the modaliases.
-    - Fix aliases generation.
-      We were not matching some of the aliases because of some missing
-      zeroes in the subdevice and subvendor ids.
-  * debian/pm-aliases-gen:
-    - Fix aliases generation for runtimepm.
-      We were not matching some of the aliases because of some missing
-      zeroes in the subdevice and subvendor ids.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 12 Aug 2021 13:38:20 +0200
-
-nvidia-graphics-drivers-470-server (470.57.02-0ubuntu0.18.04.2) bionic; urgency=medium
-
-  * Initial release (LP: #1936577).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 16 Jul 2021 12:57:27 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 15:50:44 +0100
