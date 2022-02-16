@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-510 (510.54-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510 (510.54-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1961075):
+    - Fixed a bug that could cause GPU exceptions when minimizing a
+      fullscreen Vulkan application on certain desktops, such as
+      Plasma.
+  * debian/templates/control.in:
+    - Set XB-Support to PB (production branch).
+  * debian/rules.defs:
+    - Add support for video ABI 25.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 16:27:40 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 16:32:38 +0100
 
 nvidia-graphics-drivers-510 (510.47.03-0ubuntu0.20.04.1) focal; urgency=medium
 
