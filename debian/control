@@ -33,10 +33,10 @@ Package: nvidia-driver-510
 Architecture: amd64
 Depends:
  libnvidia-gl-510 (= ${binary:Version}),
- nvidia-dkms-510 (<= 510.47.03-1),
- nvidia-dkms-510 (>= 510.47.03),
- nvidia-kernel-common-510 (<= 510.47.03-1),
- nvidia-kernel-common-510 (>= 510.47.03),
+ nvidia-dkms-510 (<= 510.54-1),
+ nvidia-dkms-510 (>= 510.54),
+ nvidia-kernel-common-510 (<= 510.54-1),
+ nvidia-kernel-common-510 (>= 510.54),
  nvidia-kernel-source-510 (= ${binary:Version}),
  libnvidia-compute-510 (= ${binary:Version}),
  libnvidia-extra-510 (= ${binary:Version}),
@@ -57,7 +57,7 @@ Recommends:
  libnvidia-gl-510:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Support: LTSB
+XB-Support: PB
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -93,10 +93,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-510 (<= 510.47.03-1),
- nvidia-kernel-source-510 (>= 510.47.03),
- nvidia-kernel-common-510 (<= 510.47.03-1),
- nvidia-kernel-common-510 (>= 510.47.03),
+ nvidia-kernel-source-510 (<= 510.54-1),
+ nvidia-kernel-source-510 (>= 510.54),
+ nvidia-kernel-common-510 (<= 510.54-1),
+ nvidia-kernel-common-510 (>= 510.54),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -171,8 +171,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-510 (<= 510.47.03-1),
- nvidia-kernel-common-510 (>= 510.47.03),
+ nvidia-kernel-common-510 (<= 510.54-1),
+ nvidia-kernel-common-510 (>= 510.54),
  nvidia-kernel-source-510 (= ${binary:Version}),
  libnvidia-compute-510 (= ${binary:Version}),
  nvidia-compute-utils-510 (= ${binary:Version}),
