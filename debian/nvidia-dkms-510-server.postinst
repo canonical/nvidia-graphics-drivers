@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for nvidia-dkms-470-server
+# postinst script for nvidia-dkms-510-server
 #
 # see: dh_installdeb(1)
 #
@@ -9,7 +9,7 @@
 set -e
 
 PACKAGE_NAME=nvidia-srv
-CVERSION=470.103.01
+CVERSION=510.47.03
 CVERSION=${CVERSION#*really.}
 
 

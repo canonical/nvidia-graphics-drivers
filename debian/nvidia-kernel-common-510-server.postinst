@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for nvidia-kernel-common-470-server
+# postinst script for nvidia-kernel-common-510-server
 #
 # see: dh_installdeb(1)
 #
