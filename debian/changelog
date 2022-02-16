@@ -1,9 +1,11 @@
-nvidia-graphics-drivers-510 (510.54-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510 (510.54-0ubuntu1) jammy; urgency=medium
 
-  * 
-  * 
+  * New upstream release:
+    - Fixed a bug that could cause GPU exceptions when minimizing a
+      fullscreen Vulkan application on certain desktops, such as
+      Plasma.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 10:45:17 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 10:49:20 +0100
 
 nvidia-graphics-drivers-510 (510.47.03-0ubuntu1) jammy; urgency=medium
 
