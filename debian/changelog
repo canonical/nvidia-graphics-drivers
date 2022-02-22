@@ -3,6 +3,9 @@ nvidia-graphics-drivers-390 (390.144-0ubuntu3) UNRELEASED; urgency=medium
   * debian/dkms_nvidia/patches/buildfix_kernel_5.13_armhf.patch,
     debian/templates/dkms_nvidia.conf.in:
     - Fix armhf builds. LP: #1946642
+  * debian/dkms_nvidia/patches/buildfix_kernel_5.16.patch,
+    debian/templates/dkms_nvidia.conf.in:
+    - Fix v5.16 builds. LP: #1961815
 
  -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Mon, 11 Oct 2021 12:27:19 +0100
 
