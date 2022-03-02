@@ -1,0 +1,112 @@
+From ef6b706b376f2e461a02b0ae0f5d4ba6c4d84615 Mon Sep 17 00:00:00 2001
+From: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+Date: Tue, 22 Feb 2022 17:56:21 +0000
+Subject: [PATCH] Add support for Linux 5.17
+
+---
+ common/inc/nv-procfs.h               |  6 ++++--
+ conftest.sh                          | 22 +++++++++++++++++++++-
+ nvidia-modeset/nvidia-modeset.Kbuild |  1 +
+ nvidia-uvm/nvidia-uvm.Kbuild         |  1 +
+ nvidia/nvidia.Kbuild                 |  1 +
+ 5 files changed, 28 insertions(+), 3 deletions(-)
+
+diff --git a/common/inc/nv-procfs.h b/common/inc/nv-procfs.h
+index e76325ce8d..ac5aea876a 100644
+--- a/common/inc/nv-procfs.h
++++ b/common/inc/nv-procfs.h
+@@ -113,9 +113,11 @@ typedef struct file_operations nv_proc_ops_t;
+     })
+ 
+ #if defined(NV_PDE_DATA_PRESENT)
+-# define NV_PDE_DATA(inode) PDE_DATA(inode)
++#define NV_PDE_DATA(inode) pde_data(inode)
++#elif defined(NV_PDE_DATA_UPPER_CASE_PRESENT)
++#define NV_PDE_DATA(inode) PDE_DATA(inode)
+ #else
+-# define NV_PDE_DATA(inode) PDE(inode)->data
++#define NV_PDE_DATA(inode) PDE(inode)->data
+ #endif
+ 
+ #if defined(NV_PROC_REMOVE_PRESENT)
+diff --git a/conftest.sh b/conftest.sh
+index da27234230..566ff3802f 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -1794,16 +1794,36 @@ compile_test() {
+ 
+ 
+         pde_data)
++            #
++            # Determine if the pde_data() function is present.
++            #
++            # The commit c28198889c15 removed the function
++            # 'PDE_DATA()', and replaced it with 'pde_data()'
++            # ("proc: remove PDE_DATA() completely") in v5.17-rc1.
++            #
++            CODE="
++            #include <linux/proc_fs.h>
++            void conftest_pde_data(void) {
++                pde_data();
++            }"
++
++            compile_check_conftest "$CODE" "NV_PDE_DATA_PRESENT" "" "functions"
++        ;;
++
++        PDE_DATA)
+             #
+             # Determine if the PDE_DATA() function is present.
+             #
++            # Added by commit d9dda78bad87
++            # ("procfs: new helper - PDE_DATA(inode)") in v3.10
++            #
+             CODE="
+             #include <linux/proc_fs.h>
+             void conftest_PDE_DATA(void) {
+                 PDE_DATA();
+             }"
+ 
+-            compile_check_conftest "$CODE" "NV_PDE_DATA_PRESENT" "" "functions"
++            compile_check_conftest "$CODE" "NV_PDE_DATA_UPPER_CASE_PRESENT" "" "functions"
+         ;;
+ 
+         get_num_physpages)
+diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
+index 82d17366ba..8a7645d3c8 100644
+--- a/nvidia-modeset/nvidia-modeset.Kbuild
++++ b/nvidia-modeset/nvidia-modeset.Kbuild
+@@ -90,6 +90,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += timeval
+ NV_CONFTEST_TYPE_COMPILE_TESTS += proc_dir_entry
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_create_data
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += PDE_DATA
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_remove
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += timer_setup
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += do_gettimeofday
+diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
+index d447e232cf..2f4e1f3dc9 100644
+--- a/nvidia-uvm/nvidia-uvm.Kbuild
++++ b/nvidia-uvm/nvidia-uvm.Kbuild
+@@ -103,6 +103,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vzalloc
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += wait_on_bit_lock_argument_count
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_create_data
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += PDE_DATA
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_remove
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += bitmap_clear
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += usleep_range
+diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
+index 185d3b5363..502f6f09af 100644
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -133,6 +133,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_num_physpages
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += efi_enabled
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_create_data
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += PDE_DATA
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_remove
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pm_vt_switch_required
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += xen_ioemu_inject_msi
+-- 
+2.32.0
+
