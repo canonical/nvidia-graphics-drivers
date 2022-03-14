@@ -294,7 +294,7 @@ generate-modaliases:
 	# Generate a modalias for each ID
 	@set -e -x ; \
 	while read line; do \
-		[ "$$line"=~"#.*" ] && continue; \
+		echo $$line | grep -Eq '^#.*' && continue; \
 		for id in $$line; do \
 			printf 'alias pci:v%08Xd%08Xsv*sd*bc03sc*i* %s %s\n' \
 				0x10de "0x$$id" "$(pkg_module)" "$(pkg_meta)"; \
