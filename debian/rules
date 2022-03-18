@@ -109,12 +109,6 @@ unpack-stamp:
 	ls -al
 	touch $@
 
-generate-nvidia-icd-json:
-	if [ -f NVIDIA-Linux/nvidia_icd.json.template ]; then \
-		sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/g'  NVIDIA-Linux/nvidia_icd.json.template > \
-			NVIDIA-Linux/nvidia_icd.json; \
-	fi
-
 # Reformat the LICENSE to the format needed for debian/copyright.
 LICENSE.txt: unpack-stamp
 	sed -e 's/^ *//; s/ *$$//; s/^$$/./; s/^/ /;' NVIDIA-Linux/LICENSE > $@
@@ -150,7 +144,7 @@ override_dh_auto_clean:
 override_dh_clean: regen-from-templates
 	dh_clean
 
-override_dh_auto_configure: prepare regen-from-templates generate-nvidia-icd-json
+override_dh_auto_configure: prepare regen-from-templates
 
 override_dh_compress:
 	dh_compress -Xsupported-gpus.json
