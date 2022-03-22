@@ -9,3 +9,4 @@ debian/71-nvidia.rules                                                     lib/u
 debian/device-create/ub-device-create                                      sbin
 debian/framebuffer-nvidia                                                  usr/share/initramfs-tools/hooks
 debian/nvidia-graphics-drivers.conf                                        lib/modprobe.d
+debian/nvidia-graphics-drivers-kms.conf                                    etc/modprobe.d
