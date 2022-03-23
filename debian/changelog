@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-510 (510.60.02-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Mar 2022 16:31:45 +0100
+
 nvidia-graphics-drivers-510 (510.54-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #1961075):
