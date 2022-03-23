@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-510 (510.60.02-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510 (510.60.02-0ubuntu1) jammy; urgency=medium
 
-  * 
+  * New upstream release:
+    - Added support for the following GPUs:
+        NVIDIA RTX A4000H
+        NVIDIA RTX A5500
+    - Fixed a bug that could cause displays with HDMI or DisplayPort
+      audio to be deselected as the default audio output device after
+      resuming from suspend.
+    - Fixed a regression that could cause OpenGL applications to hang
+      or render incorrectly after suspend/resume cycles or VT-
+      switches
+    - Fixed a bug, introduced in 495.29.05, that caused GPU "Model:"
+      in /proc/driver/nvidia/gpus/<Bus:Device.Function>/information
+      to be "Unknown" for some GPUs.
+  * debian/templates/nvidia-graphics-drivers-kms.conf.in,
+    debian/templates/nvidia-kernel-common-flavour.install.in:
+    - Enable KMS by default in /etc/modprobe.d (LP: #1965564).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 18 Mar 2022 17:13:06 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Mar 2022 09:45:07 +0000
 
 nvidia-graphics-drivers-510 (510.54-0ubuntu2) jammy; urgency=medium
 
