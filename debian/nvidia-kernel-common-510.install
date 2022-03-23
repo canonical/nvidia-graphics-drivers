@@ -1,4 +1,4 @@
-NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/510.54
+NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/510.60.02
 #NVIDIA-Linux/nvidia-powerd                                  usr/bin
 NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
@@ -9,3 +9,4 @@ debian/71-nvidia.rules                                                     lib/u
 debian/device-create/ub-device-create                                      sbin
 debian/framebuffer-nvidia                                                  usr/share/initramfs-tools/hooks
 debian/nvidia-graphics-drivers.conf                                        lib/modprobe.d
+debian/nvidia-graphics-drivers-kms.conf                                    etc/modprobe.d
