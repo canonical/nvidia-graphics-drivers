@@ -1,2 +1,2 @@
-debian/dkms.conf                    usr/src/nvidia-510.54
-debian/dkms_nvidia/patches/*        usr/src/nvidia-510.54/patches
+debian/dkms.conf                    usr/src/nvidia-510.60.02
+debian/dkms_nvidia/patches/*        usr/src/nvidia-510.60.02/patches
