@@ -1,7 +1,7 @@
-usr/lib/x86_64-linux-gnu/libnvidia-vulkan-producer.so.510.60.02              usr/lib/x86_64-linux-gnu/libnvidia-vulkan-producer.so
-usr/lib/x86_64-linux-gnu/libnvoptix.so.510.60.02                             usr/lib/x86_64-linux-gnu/libnvoptix.so.1
-usr/lib/x86_64-linux-gnu/nvidia/xorg/libglxserver_nvidia.so.510.60.02        usr/lib/x86_64-linux-gnu/nvidia/xorg/libglxserver_nvidia.so
-usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.510.60.02                                         usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
-usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.510.60.02                                   usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.1
-usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.510.60.02                                      usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.2
-usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.510.60.02                                         usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.0
+usr/lib/x86_64-linux-gnu/libnvidia-vulkan-producer.so.510.68.02              usr/lib/x86_64-linux-gnu/libnvidia-vulkan-producer.so
+usr/lib/x86_64-linux-gnu/libnvoptix.so.510.68.02                             usr/lib/x86_64-linux-gnu/libnvoptix.so.1
+usr/lib/x86_64-linux-gnu/nvidia/xorg/libglxserver_nvidia.so.510.68.02        usr/lib/x86_64-linux-gnu/nvidia/xorg/libglxserver_nvidia.so
+usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.510.68.02                                         usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
+usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.510.68.02                                   usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.1
+usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.510.68.02                                      usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.2
+usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.510.68.02                                         usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.0
