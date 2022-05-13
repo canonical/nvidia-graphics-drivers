@@ -1,15 +1,13 @@
-nvidia-graphics-drivers-510 (510.68.02-0ubuntu1) kinetic; urgency=medium
+nvidia-graphics-drivers-510 (510.73.05-0ubuntu1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #1970451):
-    - Fixed an issue where NvFBC was requesting Vulkan 1.0 while using
-      Vulkan 1.1 core features. This caused NvFBC to fail to initialize
-      with Vulkan loader versions 1.3.204 or newer.
-  * debian/additional_card_ids
-    - Add the following IDs: 25BB 1FB6 25BA
-  * debian/additional_runtimepm_ids
-    - Add the following IDs: 25BB 1FB6 25BA
+  [ Alberto Milone ]
+  * New upstream release (LP: #1973300).
 
- -- Ian May <ian.may@canonical.com>  Thu, 05 May 2022 08:44:49 -0500
+  [ Ian May ]
+  * debian/{additional_card_ids|additional_runtimepm_ids}:
+    - Add the following IDs: 25BB 1FB6 25BA (LP: #1970164).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 10:53:37 +0000
 
 nvidia-graphics-drivers-510 (510.60.02-0ubuntu1) jammy; urgency=medium
 
