@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-390 (390.151-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.151-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1973300).
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.17.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 13:29:15 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 13:31:13 +0000
 
 nvidia-graphics-drivers-390 (390.147-0ubuntu0.20.04.1) focal; urgency=medium
 
