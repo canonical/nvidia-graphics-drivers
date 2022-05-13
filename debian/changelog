@@ -1,7 +1,13 @@
-nvidia-graphics-drivers-510 (510.73.05-0ubuntu0.21.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510 (510.73.05-0ubuntu0.21.10.1) impish; urgency=medium
 
+  [ Alberto Milone ]
+  * New upstream release (LP: #1973300).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 11:14:24 +0000
+  [ Ian May ]
+  * debian/{additional_card_ids|additional_runtimepm_ids}:
+    - Add the following IDs: 25BB 1FB6 25BA (LP: #1970164).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 11:15:13 +0000
 
 nvidia-graphics-drivers-510 (510.60.02-0ubuntu0.21.10.2) impish; urgency=medium
 
