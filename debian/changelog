@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-510-server (510.73.05-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 May 2022 11:42:20 +0000
+
 nvidia-graphics-drivers-510-server (510.47.03-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * Initial release (LP: #1961075).
