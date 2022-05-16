@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-470 (470.129.06-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.129.06-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1973300).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 11:26:22 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 May 2022 10:23:38 +0000
 
 nvidia-graphics-drivers-470 (470.103.01-0ubuntu2) jammy; urgency=medium
 
