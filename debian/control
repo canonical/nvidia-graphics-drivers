@@ -32,10 +32,10 @@ Package: nvidia-driver-510-server
 Architecture: amd64
 Depends:
  libnvidia-gl-510-server (= ${binary:Version}),
- nvidia-dkms-510-server (<= 510.73.05-1),
- nvidia-dkms-510-server (>= 510.73.05),
- nvidia-kernel-common-510-server (<= 510.73.05-1),
- nvidia-kernel-common-510-server (>= 510.73.05),
+ nvidia-dkms-510-server (<= 510.73.08-1),
+ nvidia-dkms-510-server (>= 510.73.08),
+ nvidia-kernel-common-510-server (<= 510.73.08-1),
+ nvidia-kernel-common-510-server (>= 510.73.08),
  nvidia-kernel-source-510-server (= ${binary:Version}),
  libnvidia-compute-510-server (= ${binary:Version}),
  libnvidia-extra-510-server (= ${binary:Version}),
@@ -93,10 +93,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-510-server (<= 510.73.05-1),
- nvidia-kernel-source-510-server (>= 510.73.05),
- nvidia-kernel-common-510-server (<= 510.73.05-1),
- nvidia-kernel-common-510-server (>= 510.73.05),
+ nvidia-kernel-source-510-server (<= 510.73.08-1),
+ nvidia-kernel-source-510-server (>= 510.73.08),
+ nvidia-kernel-common-510-server (<= 510.73.08-1),
+ nvidia-kernel-common-510-server (>= 510.73.08),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -171,8 +171,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-510-server (<= 510.73.05-1),
- nvidia-kernel-common-510-server (>= 510.73.05),
+ nvidia-kernel-common-510-server (<= 510.73.08-1),
+ nvidia-kernel-common-510-server (>= 510.73.08),
  nvidia-kernel-source-510-server (= ${binary:Version}),
  libnvidia-compute-510-server (= ${binary:Version}),
  nvidia-compute-utils-510-server (= ${binary:Version}),
