@@ -1,8 +1,19 @@
-nvidia-graphics-drivers-510-server (510.73.08-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-510-server (510.73.08-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1975509):
+    - When calculating the address of grid barrier allocated for a CUDA stream,
+      there was an off-by-one error. The address calculation is corrected in this
+      release.
+    - An issue that caused an AC cycle test to fail with "AssertionError: NVLink links
+      with inappropriate status found" is resolved.
+    - An issue that caused NX 11 to become nonresponsive during a graphics operation
+      is resolved.
+    - Linking issues were observed when using libnvfm.so. Now and other depend tools
+      use dynamic linking with libstdc++ and libgcc.
+    - An intermittent error CUDA_ERROR_NVLINK_UNCORRECTABLE caused by some
+      non-fatal nvlink interrupts is resolved.
 
- -- Ian May <ian.may@canonical.com>  Mon, 23 May 2022 12:00:14 -0500
+ -- Ian May <ian.may@canonical.com>  Mon, 23 May 2022 12:02:54 -0500
 
 nvidia-graphics-drivers-510-server (510.73.05-0ubuntu0.20.04.1) focal; urgency=medium
 
