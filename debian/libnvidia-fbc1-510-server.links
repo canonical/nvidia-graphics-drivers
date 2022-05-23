@@ -1,2 +1,2 @@
-usr/lib/aarch64-linux-gnu/libnvidia-fbc.so.510.73.05        usr/lib/aarch64-linux-gnu/libnvidia-fbc.so.1
-usr/lib/aarch64-linux-gnu/libnvidia-fbc.so.1                usr/lib/aarch64-linux-gnu/libnvidia-fbc.so
+usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.510.73.08        usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.1
+usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.1                usr/lib/x86_64-linux-gnu/libnvidia-fbc.so
