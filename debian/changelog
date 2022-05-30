@@ -1,49 +1,5 @@
-nvidia-graphics-drivers-510 (510.73.05-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-515 (515.48.07-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  [ Alberto Milone ]
-  * New upstream release (LP: #1973300).
+  * Initial release (LP: #INSERT_BUG_REPORT_NUMBER).
 
-  [ Ian May ]
-  * debian/{additional_card_ids|additional_runtimepm_ids}:
-    - Add the following IDs: 25BB 1FB6 25BA (LP: #1970164).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 13 May 2022 11:23:14 +0000
-
-nvidia-graphics-drivers-510 (510.60.02-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * New upstream release (LP: #1966093):
-    - Added support for the following GPUs:
-        NVIDIA RTX A4000H
-        NVIDIA RTX A5500
-    - Fixed a bug that could cause displays with HDMI or DisplayPort
-      audio to be deselected as the default audio output device after
-      resuming from suspend.
-    - Fixed a regression that could cause OpenGL applications to hang
-      or render incorrectly after suspend/resume cycles or VT-
-      switches
-    - Fixed a bug, introduced in 495.29.05, that caused GPU "Model:"
-      in /proc/driver/nvidia/gpus/<Bus:Device.Function>/information
-      to be "Unknown" for some GPUs.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Mar 2022 16:44:37 +0100
-
-nvidia-graphics-drivers-510 (510.54-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * New upstream release (LP: #1961075):
-    - Fixed a bug that could cause GPU exceptions when minimizing a
-      fullscreen Vulkan application on certain desktops, such as
-      Plasma.
-  * debian/templates/control.in:
-    - Set XB-Support to PB (production branch).
-  * debian/libnvidia-ifr1-470.{install|links}:
-    - Drop leftover files.
-  * debian/rules.defs:
-    - Add support for video ABI 25.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 16:37:21 +0100
-
-nvidia-graphics-drivers-510 (510.47.03-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * Initial release (LP: #1957790).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 28 Jan 2022 17:29:30 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 May 2022 15:37:18 +0000
