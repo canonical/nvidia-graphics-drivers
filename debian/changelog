@@ -1,11 +1,5 @@
-nvidia-graphics-drivers-510-server (510.73.05-0ubuntu0.21.10.1) impish; urgency=medium
+nvidia-graphics-drivers-515-server (515.48.07-0ubuntu0.21.10.1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #1973300).
+  * Initial release (LP: #INSERT_BUG_REPORT_NUMBER).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 16 May 2022 11:41:05 +0000
-
-nvidia-graphics-drivers-510-server (510.47.03-0ubuntu0.21.10.1) impish; urgency=medium
-
-  * Initial release (LP: #1961075).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 16 Feb 2022 15:39:32 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 May 2022 15:41:31 +0000
