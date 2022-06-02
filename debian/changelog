@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-515 (515.48.07-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.48.07-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * Initial release (LP: #INSERT_BUG_REPORT_NUMBER).
+  [ Alberto Milone ]
+  * Initial release (LP: #1976425).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 May 2022 15:33:37 +0000
+ -- Ian May <ian.may@canonical.com>  Thu, 02 Jun 2022 00:51:28 -0500
