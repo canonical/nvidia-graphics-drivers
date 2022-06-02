@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-515 (515.48.07-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.48.07-0ubuntu1) kinetic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * Initial release (LP: #1976425).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 10 May 2022 11:16:19 +0000
+ -- Ian May <ian.may@canonical.com>  Thu, 02 Jun 2022 11:51:17 -0500
