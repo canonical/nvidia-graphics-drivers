@@ -1,11 +1,11 @@
-Source: nvidia-graphics-drivers-510-server
+Source: nvidia-graphics-drivers-515-server
 Section: non-free/libs
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Uploaders:
  Alberto Milone <alberto.milone@canonical.com>,
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
-Vcs-Browser: https://github.com/tseliot/nvidia-graphics-drivers/tree/510-server
+Vcs-Browser: https://github.com/tseliot/nvidia-graphics-drivers/tree/515-server
 Build-Depends:
  debhelper (>= 9),
  dpkg-dev (>= 1.17.11~),
@@ -28,31 +28,31 @@ Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
-Package: nvidia-driver-510-server
+Package: nvidia-driver-515-server
 Architecture: amd64 arm64
 Depends:
- libnvidia-gl-510-server (= ${binary:Version}),
- nvidia-dkms-510-server (<= 510.73.05-1),
- nvidia-dkms-510-server (>= 510.73.05),
- nvidia-kernel-common-510-server (<= 510.73.05-1),
- nvidia-kernel-common-510-server (>= 510.73.05),
- nvidia-kernel-source-510-server (= ${binary:Version}),
- libnvidia-compute-510-server (= ${binary:Version}),
- libnvidia-extra-510-server (= ${binary:Version}),
- nvidia-compute-utils-510-server (= ${binary:Version}),
- libnvidia-decode-510-server (= ${binary:Version}),
- libnvidia-encode-510-server (= ${binary:Version}),
- nvidia-utils-510-server (= ${binary:Version}),
- xserver-xorg-video-nvidia-510-server (= ${binary:Version}),
- libnvidia-cfg1-510-server (= ${binary:Version}),
- libnvidia-fbc1-510-server (= ${binary:Version}) [!ppc64el],
+ libnvidia-gl-515-server (= ${binary:Version}),
+ nvidia-dkms-515-server (<= 515.48.07-1),
+ nvidia-dkms-515-server (>= 515.48.07),
+ nvidia-kernel-common-515-server (<= 515.48.07-1),
+ nvidia-kernel-common-515-server (>= 515.48.07),
+ nvidia-kernel-source-515-server (= ${binary:Version}),
+ libnvidia-compute-515-server (= ${binary:Version}),
+ libnvidia-extra-515-server (= ${binary:Version}),
+ nvidia-compute-utils-515-server (= ${binary:Version}),
+ libnvidia-decode-515-server (= ${binary:Version}),
+ libnvidia-encode-515-server (= ${binary:Version}),
+ nvidia-utils-515-server (= ${binary:Version}),
+ xserver-xorg-video-nvidia-515-server (= ${binary:Version}),
+ libnvidia-cfg1-515-server (= ${binary:Version}),
+ libnvidia-fbc1-515-server (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
- libnvidia-compute-510-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-510-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-510-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-510-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-510-server:i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-515-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-515-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-515-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-515-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-515-server:i386 (= ${binary:Version}) [amd64]
 Suggests:
  nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
@@ -63,10 +63,10 @@ Description: NVIDIA Server Driver metapackage
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
  .
- See /usr/share/doc/nvidia-driver-510-server/README.txt.gz
+ See /usr/share/doc/nvidia-driver-515-server/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-kernel-source-510-server
+Package: nvidia-kernel-source-515-server
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
@@ -81,22 +81,22 @@ Description: NVIDIA kernel source package
  This package provides the NVIDIA kernel source needed by the userspace
  driver.
 
-Package: nvidia-dkms-510-server
+Package: nvidia-dkms-515-server
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
-Breaks: nvidia-kernel-source-510-server (<< 390.25-0ubuntu2~)
+Breaks: nvidia-kernel-source-515-server (<< 390.25-0ubuntu2~)
 Replaces:
- nvidia-dkms-kernel, nvidia-kernel-source-510-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
+ nvidia-dkms-kernel, nvidia-kernel-source-515-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
 Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-510-server (<= 510.73.05-1),
- nvidia-kernel-source-510-server (>= 510.73.05),
- nvidia-kernel-common-510-server (<= 510.73.05-1),
- nvidia-kernel-common-510-server (>= 510.73.05),
+ nvidia-kernel-source-515-server (<= 515.48.07-1),
+ nvidia-kernel-source-515-server (>= 515.48.07),
+ nvidia-kernel-common-515-server (<= 515.48.07-1),
+ nvidia-kernel-common-515-server (>= 515.48.07),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -105,12 +105,12 @@ Description: NVIDIA DKMS package
  module will be built for your running kernel, and automatically rebuilt for
  any new kernel headers that are installed.
 
-Package: nvidia-utils-510-server
+Package: nvidia-utils-515-server
 Architecture: amd64 arm64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
- nvidia-driver-510-server,
+ nvidia-driver-515-server,
 Provides:
  nvidia-utils, nvidia-smi
 Conflicts:
@@ -120,7 +120,7 @@ Replaces:
 Description: NVIDIA Server Driver support binaries
  This package contains supporting binaries for the NVIDIA Server Driver.
 
-Package: libnvidia-compute-510-server
+Package: libnvidia-compute-515-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
@@ -136,7 +136,7 @@ Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1
-Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-510-server (<< 390.25-0ubuntu2~),
+Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-515-server (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
@@ -146,10 +146,10 @@ Description: NVIDIA libcompute package
  to use GPUs for parallel general purpose computation through CUDA and
  OpenCL.
 
-Package: nvidia-compute-utils-510-server
+Package: nvidia-compute-utils-515-server
 Architecture: amd64 arm64
 Depends:
- libnvidia-compute-510-server, adduser,
+ libnvidia-compute-515-server, adduser,
  ${misc:Depends}, ${shlibs:Depends}
 Provides: nvidia-compute-utils, nvidia-persistenced
 Conflicts: nvidia-compute-utils, nvidia-persistenced
@@ -165,18 +165,18 @@ Description: NVIDIA compute utilities
  has compute capability SM 3.5 or higher.
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
-Package: nvidia-headless-no-dkms-510-server
+Package: nvidia-headless-no-dkms-515-server
 Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-510-server (<= 510.73.05-1),
- nvidia-kernel-common-510-server (>= 510.73.05),
- nvidia-kernel-source-510-server (= ${binary:Version}),
- libnvidia-compute-510-server (= ${binary:Version}),
- nvidia-compute-utils-510-server (= ${binary:Version}),
- libnvidia-cfg1-510-server (= ${binary:Version}),
+ nvidia-kernel-common-515-server (<= 515.48.07-1),
+ nvidia-kernel-common-515-server (>= 515.48.07),
+ nvidia-kernel-source-515-server (= ${binary:Version}),
+ libnvidia-compute-515-server (= ${binary:Version}),
+ nvidia-compute-utils-515-server (= ${binary:Version}),
+ libnvidia-cfg1-515-server (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
@@ -185,16 +185,16 @@ Description: NVIDIA headless metapackage - no DKMS
  will not be built.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-510-server metapackage.
+ provided by the nvidia-driver-515-server metapackage.
 
-Package: nvidia-headless-510-server
+Package: nvidia-headless-515-server
 Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
 Depends:
- nvidia-headless-no-dkms-510-server,
- nvidia-dkms-510-server,
+ nvidia-headless-no-dkms-515-server,
+ nvidia-dkms-515-server,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
@@ -202,16 +202,16 @@ Description: NVIDIA headless metapackage
  OpenCL.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-510-server metapackage.
+ provided by the nvidia-driver-515-server metapackage.
 
-Package: nvidia-kernel-common-510-server
+Package: nvidia-kernel-common-515-server
 Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
 Replaces:
- nvidia-dkms-510-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
+ nvidia-dkms-515-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
  This package installs all the optional accessory files for the NVIDIA
  kernel module.
@@ -220,24 +220,24 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: libnvidia-gl-510-server
+Package: libnvidia-gl-515-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Conflicts: libnvidia-gl
 Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- libnvidia-common-510-server, ${misc:Depends}, ${shlibs:Depends}
+ libnvidia-common-515-server, ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
 
-Package: libnvidia-common-510-server
+Package: libnvidia-common-515-server
 Architecture: all
 Multi-Arch: foreign
-Breaks: libnvidia-gl-510-server (<< 390.25-0ubuntu2~)
+Breaks: libnvidia-gl-515-server (<< 390.25-0ubuntu2~)
 Conflicts: libnvidia-common
-Replaces: libnvidia-common, libnvidia-gl-510-server (<< 390.25-0ubuntu2~)
+Replaces: libnvidia-common, libnvidia-gl-515-server (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
@@ -245,12 +245,12 @@ Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
  libraries.
 
-Package: libnvidia-extra-510-server
+Package: libnvidia-extra-515-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Breaks: libnvidia-common-510-server (<< 440.64-0ubuntu3~)
+Breaks: libnvidia-common-515-server (<< 440.64-0ubuntu3~)
 Conflicts: libnvidia-extra
-Replaces: libnvidia-extra, libnvidia-common-510-server (<< 440.64-0ubuntu3~)
+Replaces: libnvidia-extra, libnvidia-common-515-server (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
@@ -258,11 +258,11 @@ Description: Extra libraries for the NVIDIA Server Driver
  This package provides an additional set of libraries to be used with
  the NVIDIA Server Driver.
 
-Package: xserver-xorg-video-nvidia-510-server
+Package: xserver-xorg-video-nvidia-515-server
 Section: non-free/x11
 Architecture: amd64 arm64
 Depends:
- libnvidia-cfg1-510-server (= ${binary:Version}),
+ libnvidia-cfg1-515-server (= ${binary:Version}),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts: xorg-driver-binary, nvidia-driver-binary
@@ -275,10 +275,10 @@ Description: NVIDIA binary Xorg driver
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
  for graphics cards using NVIDIA chip sets.
  .
- See /usr/share/doc/nvidia-driver-510-server/README.txt.gz
+ See /usr/share/doc/nvidia-driver-515-server/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: libnvidia-cfg1-510-server
+Package: libnvidia-cfg1-515-server
 Architecture: amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -298,7 +298,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  .
  This package contains the libnvidia-cfg.so.1 runtime library.
 
-Package: libnvidia-fbc1-510-server
+Package: libnvidia-fbc1-515-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -320,13 +320,13 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  .
  This package contains the NvFBCOpenGL runtime library.
 
-Package: libnvidia-decode-510-server
+Package: libnvidia-decode-515-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-compute-510-server (= ${binary:Version}),
+ libnvidia-compute-515-server (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-decode,
@@ -341,7 +341,7 @@ Description: NVIDIA Video Decoding runtime libraries
  The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
  systems) library for the NVIDIA vendor implementation.
 
-Package: libnvidia-encode-510-server
+Package: libnvidia-encode-515-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
