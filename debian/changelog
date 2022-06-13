@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-515-server (515.48.07-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515-server (515.48.07-0ubuntu1) kinetic; urgency=medium
 
-  * 
+  * Initial release (LP: #1976425).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jun 2022 10:50:28 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jun 2022 12:06:23 +0000
