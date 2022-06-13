@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-kernel-common-510-server
+# postrm script for nvidia-kernel-common-515-server
 #
 # see: dh_installdeb(1)
 #
@@ -23,7 +23,7 @@ set -e
 case "$1" in
     remove|purge)
         # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-510-server_hybrid.conf
+        rm -f /etc/modprobe.d/nvidia-515-server_hybrid.conf
 
         # Update initramfs, in case we were loaded into it
         if [ -x /usr/sbin/update-initramfs ]; then
