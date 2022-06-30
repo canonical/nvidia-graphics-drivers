@@ -1,0 +1,362 @@
+From 1e4d3578ad62e47900b58ff3e10015f47d43c91f Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Wed, 29 Jun 2022 15:14:07 +0000
+Subject: [PATCH 1/1] Add support for Linux 5.19
+
+Based on the patch provided by Andrea Righi in LP: #1978539
+---
+ common/inc/nv-linux.h               |  4 ++
+ nvidia-drm/nvidia-dma-resv-helper.h |  7 ++++
+ nvidia-drm/nvidia-drm-gem.c         | 24 ++++++++++++
+ nvidia-uvm/uvm8_gpu.c               | 60 +++++++++++++++++++++++++++++
+ nvidia/linux_nvswitch.c             | 49 +++++++++++++++++++++++
+ nvidia/nv-acpi.c                    | 17 ++++++++
+ nvidia/nv.c                         | 12 ++++++
+ 7 files changed, 173 insertions(+)
+
+diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
+index c96bca7..0caf3ce 100644
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -969,7 +969,11 @@ static inline pgprot_t nv_adjust_pgprot(pgprot_t vm_prot, NvU32 extra)
+      * When AMD memory encryption is enabled, device memory mappings with the
+      * C-bit set read as 0xFF, so ensure the bit is cleared for user mappings.
+      */
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0)
++    prot =  __pgprot(__sme_clr(pgprot_val(vm_prot)));
++#else
+     prot = pgprot_decrypted(prot);
++#endif
+ #endif
+     return prot;
+ }
+diff --git a/nvidia-drm/nvidia-dma-resv-helper.h b/nvidia-drm/nvidia-dma-resv-helper.h
+index ad8800d..40c1d9b 100644
+--- a/nvidia-drm/nvidia-dma-resv-helper.h
++++ b/nvidia-drm/nvidia-dma-resv-helper.h
+@@ -41,6 +41,9 @@
+ 
+ #include <nvidia-dma-fence-helper.h>
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #if defined(NV_LINUX_DMA_RESV_H_PRESENT)
+ typedef struct dma_resv nv_dma_resv_t;
+ #else
+@@ -69,7 +72,11 @@ static inline void nv_dma_resv_add_excl_fence(nv_dma_resv_t *obj,
+                                               nv_dma_fence_t *fence)
+ {
+ #if defined(NV_LINUX_DMA_RESV_H_PRESENT)
++#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 18, 0)
++    dma_resv_add_fence(obj, fence, DMA_RESV_USAGE_WRITE);
++#else
+     dma_resv_add_excl_fence(obj, fence);
++#endif
+ #else
+     reservation_object_add_excl_fence(obj, fence);
+ #endif
+diff --git a/nvidia-drm/nvidia-drm-gem.c b/nvidia-drm/nvidia-drm-gem.c
+index f3b07f2..86b56d4 100644
+--- a/nvidia-drm/nvidia-drm-gem.c
++++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -32,6 +32,9 @@
+ #include "nvidia-drm-gem-user-memory.h"
+ #include "nvidia-dma-resv-helper.h"
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #if defined(NV_DRM_DRM_DRV_H_PRESENT)
+ #include <drm/drm_drv.h>
+ #endif
+@@ -44,6 +47,16 @@
+ 
+ #include "nv-mm.h"
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0)
++struct dma_buf_map {
++	union {
++		void __iomem *vaddr_iomem;
++		void *vaddr;
++	};
++	bool is_iomem;
++};
++#endif
++
+ void nv_drm_gem_free(struct drm_gem_object *gem)
+ {
+     struct nv_drm_gem_object *nv_gem = to_nv_gem_object(gem);
+@@ -60,8 +73,13 @@ void nv_drm_gem_free(struct drm_gem_object *gem)
+ 
+ #if !defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS) && \
+     defined(NV_DRM_GEM_OBJECT_VMAP_HAS_MAP_ARG)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0)
++static int nv_drm_gem_vmap(struct drm_gem_object *gem,
++                           struct iosys_map *map)
++#else
+ static int nv_drm_gem_vmap(struct drm_gem_object *gem,
+                            struct dma_buf_map *map)
++#endif
+ {
+     map->vaddr = nv_drm_gem_prime_vmap(gem);
+     if (map->vaddr == NULL) {
+@@ -71,8 +89,14 @@ static int nv_drm_gem_vmap(struct drm_gem_object *gem,
+     return 0;
+ }
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0)
++static void nv_drm_gem_vunmap(struct drm_gem_object *gem,
++                              struct iosys_map *map)
++#else
++
+ static void nv_drm_gem_vunmap(struct drm_gem_object *gem,
+                               struct dma_buf_map *map)
++#endif
+ {
+     nv_drm_gem_prime_vunmap(gem, map->vaddr);
+     map->vaddr = NULL;
+diff --git a/nvidia-uvm/uvm8_gpu.c b/nvidia-uvm/uvm8_gpu.c
+index d4867d1..493099b 100644
+--- a/nvidia-uvm/uvm8_gpu.c
++++ b/nvidia-uvm/uvm8_gpu.c
+@@ -42,8 +42,68 @@
+ #include "uvm8_gpu_access_counters.h"
+ #include "uvm8_test.h"
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #define UVM_PROC_GPUS_PEER_DIR_NAME "peers"
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0)
++#define PCI_DMA_TODEVICE DMA_TO_DEVICE
++#define PCI_DMA_FROMDEVICE DMA_FROM_DEVICE
++#define PCI_DMA_BIDIRECTIONAL DMA_BIDIRECTIONAL
++
++static inline dma_addr_t
++pci_map_page(struct pci_dev *hwdev, struct page *page,
++	     unsigned long offset, size_t size, int direction)
++{
++	return dma_map_page(&hwdev->dev, page, offset, size, (enum dma_data_direction)direction);
++}
++
++static inline void
++pci_unmap_page(struct pci_dev *hwdev, dma_addr_t dma_address,
++	       size_t size, int direction)
++{
++	dma_unmap_page(&hwdev->dev, dma_address, size, (enum dma_data_direction)direction);
++}
++
++static inline int pci_set_dma_mask(struct pci_dev *pdev, u64 mask)
++{
++	return dma_set_mask(&pdev->dev, mask);
++}
++
++static inline dma_addr_t
++pci_map_single(struct pci_dev *hwdev, void *ptr, size_t size, int direction)
++{
++	return dma_map_single(&hwdev->dev, ptr, size, (enum dma_data_direction)direction);
++}
++
++static inline void
++pci_unmap_single(struct pci_dev *hwdev, dma_addr_t dma_addr,
++		 size_t size, int direction)
++{
++	dma_unmap_single(&hwdev->dev, dma_addr, size, (enum dma_data_direction)direction);
++}
++
++static inline int
++pci_dma_mapping_error(struct pci_dev *pdev, dma_addr_t dma_addr)
++{
++	return dma_mapping_error(&pdev->dev, dma_addr);
++}
++
++static inline void
++pci_dma_sync_single_for_cpu(struct pci_dev *hwdev, dma_addr_t dma_handle,
++			    size_t size, int direction)
++{
++	dma_sync_single_for_cpu(&hwdev->dev, dma_handle, size, (enum dma_data_direction)direction);
++}
++
++static inline void
++pci_dma_sync_single_for_device(struct pci_dev *hwdev, dma_addr_t dma_handle,
++			       size_t size, int direction)
++{
++	dma_sync_single_for_device(&hwdev->dev, dma_handle, size, (enum dma_data_direction)direction);
++}
++#endif
+ 
+ // The uvm_peer_copy module parameter enables to choose from "phys" or "virt".
+ // It determines the addressing mode for P2P copies.
+diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
+index 93a30f8..cba382e 100644
+--- a/nvidia/linux_nvswitch.c
++++ b/nvidia/linux_nvswitch.c
+@@ -46,8 +46,51 @@
+ #include <linux/wait.h>
+ #include <linux/jiffies.h>
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #include "ioctl_nvswitch.h"
+ 
++#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 18, 0)
++static inline int pci_set_dma_mask(struct pci_dev *pdev, u64 mask)
++{
++	return dma_set_mask(&pdev->dev, mask);
++}
++
++static inline dma_addr_t
++pci_map_single(struct pci_dev *hwdev, void *ptr, size_t size, int direction)
++{
++	return dma_map_single(&hwdev->dev, ptr, size, (enum dma_data_direction)direction);
++}
++
++static inline void
++pci_unmap_single(struct pci_dev *hwdev, dma_addr_t dma_addr,
++		 size_t size, int direction)
++{
++	dma_unmap_single(&hwdev->dev, dma_addr, size, (enum dma_data_direction)direction);
++}
++
++static inline int
++pci_dma_mapping_error(struct pci_dev *pdev, dma_addr_t dma_addr)
++{
++	return dma_mapping_error(&pdev->dev, dma_addr);
++}
++
++static inline void
++pci_dma_sync_single_for_cpu(struct pci_dev *hwdev, dma_addr_t dma_handle,
++			    size_t size, int direction)
++{
++	dma_sync_single_for_cpu(&hwdev->dev, dma_handle, size, (enum dma_data_direction)direction);
++}
++
++static inline void
++pci_dma_sync_single_for_device(struct pci_dev *hwdev, dma_addr_t dma_handle,
++			       size_t size, int direction)
++{
++	dma_sync_single_for_device(&hwdev->dev, dma_handle, size, (enum dma_data_direction)direction);
++}
++#endif
++
+ const static struct
+ {
+     NvlStatus status;
+@@ -2067,6 +2110,12 @@ nvswitch_os_free_contig_memory
+     NV_FREE_PAGES((unsigned long)virt_addr, get_order(size));
+ }
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0)
++#define PCI_DMA_TODEVICE DMA_TO_DEVICE
++#define PCI_DMA_FROMDEVICE DMA_FROM_DEVICE
++#define PCI_DMA_BIDIRECTIONAL DMA_BIDIRECTIONAL
++#endif
++
+ static inline int
+ _nvswitch_to_pci_dma_direction
+ (
+diff --git a/nvidia/nv-acpi.c b/nvidia/nv-acpi.c
+index e67a96c..7386bf1 100644
+--- a/nvidia/nv-acpi.c
++++ b/nvidia/nv-acpi.c
+@@ -17,6 +17,9 @@
+ 
+ #include <linux/acpi.h>
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #if defined(NV_LINUX_ACPI_EVENTS_SUPPORTED)
+ static NV_STATUS   nv_acpi_extract_integer (const union acpi_object *, void *, NvU32, NvU32 *);
+ static NV_STATUS   nv_acpi_extract_buffer  (const union acpi_object *, void *, NvU32, NvU32 *);
+@@ -631,6 +634,7 @@ void NV_API_CALL nv_acpi_methods_init(NvU32 *handlesPresent)
+     NV_ACPI_WALK_NAMESPACE(ACPI_TYPE_DEVICE, ACPI_ROOT_OBJECT,
+                         ACPI_UINT32_MAX, nv_acpi_find_methods, NULL, NULL);
+ 
++#if LINUX_VERSION_CODE <= KERNEL_VERSION(5, 18, 0)
+     if (nvif_handle)
+     {
+         *handlesPresent = NV_ACPI_NVIF_HANDLE_PRESENT;
+@@ -659,6 +663,7 @@ void NV_API_CALL nv_acpi_methods_init(NvU32 *handlesPresent)
+ 
+         } while (0);
+     }
++#endif
+ 
+     if (wmmx_handle)
+         *handlesPresent = *handlesPresent | NV_ACPI_WMMX_HANDLE_PRESENT;
+@@ -673,7 +678,9 @@ void NV_API_CALL nv_acpi_methods_init(NvU32 *handlesPresent)
+         // devices
+         if (psr_nv_acpi_object == NULL)
+         {
++#if LINUX_VERSION_CODE <= KERNEL_VERSION(5, 18, 0)
+             retVal = acpi_bus_get_device(psr_device_handle, &device);
++#endif
+ 
+             if (!(ACPI_FAILURE(retVal) || !device))
+             {
+@@ -745,9 +752,11 @@ void NV_API_CALL nv_acpi_methods_uninit(void)
+     if (nvif_parent_gpu_handle == NULL)
+         return;
+ 
++#if LINUX_VERSION_CODE <= KERNEL_VERSION(5, 18, 0)
+     acpi_bus_get_device(nvif_parent_gpu_handle, &device);
+ 
+     nv_uninstall_notifier(device->driver_data, nv_acpi_event);
++#endif
+ 
+     device->driver_data = NULL;
+     nvif_parent_gpu_handle = NULL;
+@@ -1313,7 +1322,11 @@ NV_STATUS NV_API_CALL nv_acpi_ddc_method(
+     if (!dev_handle)
+         return NV_ERR_INVALID_ARGUMENT;
+ 
++#if LINUX_VERSION_CODE <= KERNEL_VERSION(5, 18, 0)
+     status = acpi_bus_get_device(dev_handle, &device);
++#else
++    return NV_ERR_NOT_SUPPORTED;
++#endif
+ 
+     if (ACPI_FAILURE(status) || !device)
+         return NV_ERR_INVALID_ARGUMENT;
+@@ -1722,7 +1735,11 @@ NV_STATUS NV_API_CALL nv_acpi_mux_method(
+     if (!dev_handle)
+         return NV_ERR_INVALID_ARGUMENT;
+ 
++#if LINUX_VERSION_CODE <= KERNEL_VERSION(5, 18, 0)
+     status = acpi_bus_get_device(dev_handle, &device);
++#else
++    return NV_ERR_NOT_SUPPORTED;
++#endif
+ 
+     if (ACPI_FAILURE(status) || !device)
+         return NV_ERR_INVALID_ARGUMENT;
+diff --git a/nvidia/nv.c b/nvidia/nv.c
+index d100006..29cb14c 100644
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -193,6 +193,18 @@ struct dev_pm_ops nv_pm_ops = {
+  *** STATIC functions
+  ***/
+ 
++#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 18, 0)
++static inline int pci_set_dma_mask(struct pci_dev *pdev, u64 mask)
++{
++      return dma_set_mask(&pdev->dev, mask);
++}
++
++static inline int pci_set_consistent_dma_mask(struct pci_dev *pdev, u64 mask)
++{
++      return dma_set_coherent_mask(&pdev->dev, mask);
++}
++#endif
++
+ static
+ nv_alloc_t *nvos_create_alloc(
+     struct device *dev,
+-- 
+2.34.1
+
