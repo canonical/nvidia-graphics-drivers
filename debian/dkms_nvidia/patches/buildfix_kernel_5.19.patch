@@ -1,0 +1,47 @@
+diff -urpN nvidia-470.129.06.orig/nvidia/nv.c nvidia-470.129.06/nvidia/nv.c
+--- nvidia-470.129.06.orig/nvidia/nv.c	2022-05-12 23:12:20.000000000 +0000
++++ nvidia-470.129.06/nvidia/nv.c	2022-06-14 07:54:40.920412111 +0000
+@@ -208,6 +208,18 @@ struct dev_pm_ops nv_pm_ops = {
+  *** STATIC functions
+  ***/
+ 
++#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 18, 0)
++static inline int pci_set_dma_mask(struct pci_dev *pdev, u64 mask)
++{
++      return dma_set_mask(&pdev->dev, mask);
++}
++
++static inline int pci_set_consistent_dma_mask(struct pci_dev *pdev, u64 mask)
++{
++      return dma_set_coherent_mask(&pdev->dev, mask);
++}
++#endif
++
+ static
+ nv_alloc_t *nvos_create_alloc(
+     struct device *dev,
+diff -urpN nvidia-470.129.06.orig/nvidia-drm/nvidia-dma-resv-helper.h nvidia-470.129.06/nvidia-drm/nvidia-dma-resv-helper.h
+--- nvidia-470.129.06.orig/nvidia-drm/nvidia-dma-resv-helper.h	2022-05-12 22:42:02.000000000 +0000
++++ nvidia-470.129.06/nvidia-drm/nvidia-dma-resv-helper.h	2022-06-14 07:55:06.251330812 +0000
+@@ -41,6 +41,9 @@
+ 
+ #include <nvidia-dma-fence-helper.h>
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #if defined(NV_LINUX_DMA_RESV_H_PRESENT)
+ typedef struct dma_resv nv_dma_resv_t;
+ #else
+@@ -69,7 +72,11 @@ static inline void nv_dma_resv_add_excl_
+                                               nv_dma_fence_t *fence)
+ {
+ #if defined(NV_LINUX_DMA_RESV_H_PRESENT)
++#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 18, 0)
++    dma_resv_add_fence(obj, fence, DMA_RESV_USAGE_WRITE);
++#else
+     dma_resv_add_excl_fence(obj, fence);
++#endif
+ #else
+     reservation_object_add_excl_fence(obj, fence);
+ #endif
