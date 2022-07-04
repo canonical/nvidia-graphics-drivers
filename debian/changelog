@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-390 (390.151-0ubuntu2) kinetic; urgency=medium
+
+  [ Andrea Righi ]
+  * Add support for linux 5.19 (LP: #1978539):
+    - debian/dkms_nvidia/patches/buildfix_kernel_5.19.patch
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 04 Jul 2022 13:39:56 +0000
+
 nvidia-graphics-drivers-390 (390.151-0ubuntu1) kinetic; urgency=medium
 
   * New upstream release (LP: #1973300).
