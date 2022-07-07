@@ -1,0 +1,33 @@
+#!/bin/sh
+# prerm script for nvidia-dkms-#FLAVOUR#-open
+#
+# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2009 Canonical Ltd
+# Authors: Alberto Milone
+
+
+PACKAGE_NAME=nvidia
+CVERSION=#VERSION#
+CVERSION=${CVERSION#*really.}
+
+remove_dkms_module() {
+    echo "Removing all DKMS Modules"
+    dkms remove -m $PACKAGE_NAME -v $CVERSION --all > /dev/null
+    echo "Done."
+}
+
+case "$1" in
+    upgrade)
+        remove_dkms_module
+    ;;
+    remove)
+        remove_dkms_module
+
+        # Remove any quirks for the driver
+        if [ `which quirks-handler` ]; then
+            quirks-handler -d $PACKAGE_NAME -v
+        fi
+    ;;
+esac
+
+#DEBHELPER#
