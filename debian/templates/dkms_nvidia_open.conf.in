@@ -1,0 +1,17 @@
+PACKAGE_NAME="nvidia"
+PACKAGE_VERSION="#VERSION#"
+CLEAN="make clean"
+BUILT_MODULE_NAME[0]="nvidia"
+DEST_MODULE_LOCATION[0]="/kernel/drivers/char/drm"
+PROCS_NUM=`nproc`
+[ $PROCS_NUM -gt 16 ] && PROCS_NUM=16
+MAKE[0]="unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 \
+    'make' -j$PROCS_NUM NV_EXCLUDE_BUILD_MODULES='#NVEXCLUDEMODULES#' KERNEL_UNAME=${kernelver} IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=$kernel_source_dir LD=/usr/bin/ld.bfd modules"
+BUILT_MODULE_NAME[1]="nvidia-modeset"
+DEST_MODULE_LOCATION[1]="/kernel/drivers/char/drm"
+BUILT_MODULE_NAME[2]="nvidia-drm"
+DEST_MODULE_LOCATION[2]="/kernel/drivers/char/drm"
+AUTOINSTALL="yes"
+PATCH[0]="disable_fstack-clash-protection_fcf-protection.patch"
+#PATCH[1]="do-not-call-pci_save_state.patch"
+#PATCH_MATCH[0]="^4.[6-7]"
