@@ -1,0 +1,29 @@
+From 569bfa1d9b52f8c2e828ba186b93930d324a787f Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Mon, 7 Oct 2019 16:29:07 +0200
+Subject: [PATCH 1/1] Kbuild: disable stack-clash-protection fcf-protection
+
+This adds the extra flags only if gcc supports them.
+
+Fixes LP: #1830961
+---
+ Kbuild | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Kbuild b/Kbuild
+index d976f60..2509255 100644
+--- a/Kbuild
++++ b/Kbuild
+@@ -118,6 +118,9 @@ ifneq ($(wildcard /proc/sgi_uv),)
+  EXTRA_CFLAGS += -DNV_CONFIG_X86_UV
+ endif
+ 
++ifeq ($(shell cc -dumpspecs | grep -q no-stack-clash-protection; echo $$?),0)
++ EXTRA_CFLAGS += -fno-stack-clash-protection -fcf-protection=none
++endif
+ 
+ #
+ # The conftest.sh script tests various aspects of the target kernel.
+-- 
+2.34.1
+
