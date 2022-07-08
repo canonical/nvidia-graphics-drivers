@@ -283,7 +283,7 @@ generate-modaliases:
 			printf 'alias pci:v%08Xd%08Xsv*sd*bc03sc*i* %s %s\n' \
 				0x10de "0x$$id" "$(pkg_module)" "$(pkg_meta_open)"; \
 		done; \
-	done < $(CURDIR)/debian/additional_card_ids >>$(CURDIR)/debian/$(pkg_meta_open).modaliases
+	done < $(CURDIR)/debian/additional_card_ids_open >>$(CURDIR)/debian/$(pkg_meta_open).modaliases
 	dh_modaliases
 	rm -f $(CURDIR)/debian/$(pkg_meta).modaliases
 	rm -f $(CURDIR)/debian/$(pkg_meta_open).modaliases
