@@ -8,5 +8,6 @@
 #I386_ONLY#NVIDIA-Linux/32/libcuda.so.#VERSION#                          #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-compiler.so.#VERSION#               #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-ml.so.#VERSION#                     #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-nvvm.so.#VERSION#                   #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-opencl.so.#VERSION#                 #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-ptxjitcompiler.so.#VERSION#         #LIBDIR#
