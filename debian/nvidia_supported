@@ -47,6 +47,9 @@ class DeviceInfo(object):
     def supports_runtimepm(self):
         return ('runtimepm' in self.get_features())
 
+    def supports_kernelopen(self):
+        return ('kernelopen' in self.get_features())
+
     def is_tesla(self):
         return ('tesla' in self.get_features())
 
@@ -69,11 +72,19 @@ def _is_legacy(device):
     legacy = device.get('legacybranch')
     return legacy != None
 
+def _supports_kernelopen(device):
+    features = device.get('features')
+    if features:
+        return ('kernelopen' in features)
+    return None
+
 def _get_supported_devices(data):
     supported_devices = []
     devices = _get_devices_from_data(data)
     for device in devices:
         if not _is_legacy(devices.get(device)):
+            if open_module and not _supports_kernelopen(devices.get(device)):
+                continue
             supported_devices.append(DeviceInfo(devices.get(device)))
     return supported_devices
 
@@ -117,7 +128,11 @@ if __name__ == '__main__':
     parser.add_argument('module_name', help='The module name')
     parser.add_argument('package_name', help='The package name')
     parser.add_argument('source', help='The .json source file to parse')
+    parser.add_argument('-o', '--open', action='store_true',
+                        help="The open kernel module")
     args = parser.parse_args()
+    global open_module
+    open_module = True if args.open else False
 
     with open(args.source) as f:
         main(f, args.module_name, args.package_name)
