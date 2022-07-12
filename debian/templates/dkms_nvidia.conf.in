@@ -14,4 +14,7 @@ DEST_MODULE_LOCATION[2]="/kernel/drivers/char/drm"
 AUTOINSTALL="yes"
 PATCH[0]="disable_fstack-clash-protection_fcf-protection.patch"
 #PATCH[1]="buildfix_kernel_5.19.patch"
-#PATCH_MATCH[0]="^4.[6-7]"
+# Apply from v4 to v5.12 kernels
+# v5.13 kernels already disable both by default
+# v5.19 kernels may need cf-protection=branch
+PATCH_MATCH[0]='^(4\.[0-9]*)|(5\.[0-9]\.0)|(5\.1[0-2]\.0)'
