@@ -1,8 +1,18 @@
-nvidia-graphics-drivers-450-server (450.203.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.203.03-0ubuntu1) kinetic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release.
+  * debian/rules:
+    - Use locally available installers if wget fails.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_5.19.patch
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 20 Jul 2022 15:28:02 +0000
+  [ Dimitri John Ledkov ]
+  * debian/templates/dkms_nvidia.conf.in:
+    - Disable IBT linking by default.
+    - Version restrict disable_fstack-clash-protection_fcf-protection patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 21 Jul 2022 15:29:36 +0000
 
 nvidia-graphics-drivers-450-server (450.191.01-0ubuntu2) kinetic; urgency=medium
 
