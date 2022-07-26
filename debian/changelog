@@ -1,8 +1,16 @@
-nvidia-graphics-drivers-515-server (515.65.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515-server (515.65.01-0ubuntu1) kinetic; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release (LP: #1982501).
+  * debian/additional_card_ids:
+    - Add the missing 1EB8 ID.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Jul 2022 16:20:39 +0000
+  [ Dimitri John Ledkov ]
+  * debian/templates/dkms_nvidia.conf.in:
+    - Disable IBT linking by default.
+    - Version restrict disable_fstack-clash-protection_fcf-protection patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Jul 2022 17:02:16 +0000
 
 nvidia-graphics-drivers-515-server (515.48.07-0ubuntu1) kinetic; urgency=medium
 
