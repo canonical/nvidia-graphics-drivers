@@ -1,5 +1,5 @@
-#I386_EXCLUDED##LIBDIR#/libnvidia-nvvm.so.4            #LIBDIR#/libnvidia-nvvm.so
-#I386_EXCLUDED##LIBDIR#/libnvidia-nvvm.so.4.0.0        #LIBDIR#/libnvidia-nvvm.so.4
+#LIBDIR#/libnvidia-nvvm.so.#VERSION#                   #LIBDIR#/libnvidia-nvvm.so.4
+#LIBDIR#/libnvidia-nvvm.so.4                           #LIBDIR#/libnvidia-nvvm.so
 #LIBDIR#/libcuda.so.#VERSION#                          #LIBDIR#/libcuda.so.1
 #LIBDIR#/libcuda.so.1                                  #LIBDIR#/libcuda.so
 #LIBDIR#/libnvidia-ml.so.#VERSION#                     #LIBDIR#/libnvidia-ml.so.1
