@@ -28,10 +28,10 @@ Package: nvidia-driver-390
 Architecture: i386 amd64 armhf
 Depends:
  libnvidia-gl-390 (= ${binary:Version}),
- nvidia-dkms-390 (<= 390.151-1),
- nvidia-dkms-390 (>= 390.151),
- nvidia-kernel-common-390 (<= 390.151-1),
- nvidia-kernel-common-390 (>= 390.151),
+ nvidia-dkms-390 (<= 390.154-1),
+ nvidia-dkms-390 (>= 390.154),
+ nvidia-kernel-common-390 (<= 390.154-1),
+ nvidia-kernel-common-390 (>= 390.154),
  nvidia-kernel-source-390 (= ${binary:Version}),
  libnvidia-compute-390 (= ${binary:Version}),
  nvidia-compute-utils-390 (= ${binary:Version}),
@@ -88,8 +88,8 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms, nvidia-kernel-source-390,
- nvidia-kernel-common-390 (<= 390.151-1),
- nvidia-kernel-common-390 (>= 390.151),
+ nvidia-kernel-common-390 (<= 390.154-1),
+ nvidia-kernel-common-390 (>= 390.154),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -161,8 +161,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-390 (<= 390.151-1),
- nvidia-kernel-common-390 (>= 390.151),
+ nvidia-kernel-common-390 (<= 390.154-1),
+ nvidia-kernel-common-390 (>= 390.154),
  nvidia-kernel-source-390 (= ${binary:Version}),
  libnvidia-compute-390 (= ${binary:Version}),
  nvidia-compute-utils-390 (= ${binary:Version}),
