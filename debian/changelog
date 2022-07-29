@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-510 (510.85.02-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 Jul 2022 09:49:25 +0000
+
 nvidia-graphics-drivers-510 (510.73.05-0ubuntu0.20.04.1) focal; urgency=medium
 
   [ Alberto Milone ]
