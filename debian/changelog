@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release (LP: #1982501).
+  * debian/copyright:
+    - Add the licence for the open kernel source and binaries. No open module
+      is actually built yet, and this is only for the original tarball.
+  * debian/templates/libnvidia-compute-flavour.{install|links}.in:
+    - Include the correct link to libnvidia-nvvm, which is now also available
+      on i386.
+  * debian/additional_card_ids:
+    - Add the missing 1EB8 ID.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 Jul 2022 10:33:27 +0000
+  [ Dimitri John Ledkov ]
+  * debian/templates/dkms_nvidia.conf.in:
+    - Disable IBT linking by default.
+    - Version restrict disable_fstack-clash-protection_fcf-protection patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 Jul 2022 10:34:50 +0000
 
 nvidia-graphics-drivers-515 (515.48.07-0ubuntu0.22.04.2) jammy; urgency=medium
 
