@@ -1,0 +1,28 @@
+From 97b3d9ef4cfc216c36d09838f0cb9b2c23eb4807 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Wed, 31 Aug 2022 12:31:10 +0200
+Subject: [PATCH 1/1] Add support for Linux 6.0
+
+---
+ nvidia-drm/nvidia-drm-helper.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/nvidia-drm/nvidia-drm-helper.c b/nvidia-drm/nvidia-drm-helper.c
+index 3831180..af84e85 100644
+--- a/nvidia-drm/nvidia-drm-helper.c
++++ b/nvidia-drm/nvidia-drm-helper.c
+@@ -31,6 +31,11 @@
+ 
+ #include "nvmisc.h"
+ 
++#include <linux/version.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 0, 0)
++#include <drm/drm_framebuffer.h>
++#endif
++
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+ 
+ #if defined(NV_DRM_DRMP_H_PRESENT)
+-- 
+2.32.0
+
