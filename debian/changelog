@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-515 (515.65.01-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.65.01-0ubuntu3) kinetic; urgency=medium
 
-  * 
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_6.0.patch:
+    - Add support for Linux 6.0 (LP: #1988429).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Sep 2022 12:41:12 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 01 Sep 2022 12:46:05 +0000
 
 nvidia-graphics-drivers-515 (515.65.01-0ubuntu2) kinetic; urgency=medium
 
