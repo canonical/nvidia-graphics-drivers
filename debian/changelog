@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.22.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.22.04.3) jammy; urgency=medium
 
-  * 
+  * debian/copyright,
+    debian/additional_card_ids_open,
+    debian/rules{.defs},
+    debian/templates/control.in,
+    debian/templates/dkms_nvidia_open.conf.in,
+    debian/templates/nvidia-dkms-flavour-open.*.in,
+    debian/open-kernel/patches/disable_fstack-clash-protection_fcf-protection.patch:
+    - Add support for the open kernel module (LP: #1988836).
+  * debian/nvidia_supported:
+    - Add support for the open kernel driver using the --open argument.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Sep 2022 10:54:21 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Sep 2022 10:56:59 +0000
 
 nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.22.04.2) jammy; urgency=medium
 
