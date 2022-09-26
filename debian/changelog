@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-470-server (470.141.10-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.141.10-0ubuntu1) kinetic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1993665).
+  * debian/rules:
+    - Fix regex in the modalias generation code, which did not work
+      in Dash.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Sep 2022 11:25:58 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 26 Sep 2022 10:42:46 +0000
 
 nvidia-graphics-drivers-470-server (470.141.03-0ubuntu1) kinetic; urgency=medium
 
