@@ -32,10 +32,10 @@ Package: nvidia-driver-470-server
 Architecture: amd64
 Depends:
  libnvidia-gl-470-server (= ${binary:Version}),
- nvidia-dkms-470-server (<= 470.141.03-1),
- nvidia-dkms-470-server (>= 470.141.03),
- nvidia-kernel-common-470-server (<= 470.141.03-1),
- nvidia-kernel-common-470-server (>= 470.141.03),
+ nvidia-dkms-470-server (<= 470.141.10-1),
+ nvidia-dkms-470-server (>= 470.141.10),
+ nvidia-kernel-common-470-server (<= 470.141.10-1),
+ nvidia-kernel-common-470-server (>= 470.141.10),
  nvidia-kernel-source-470-server (= ${binary:Version}),
  libnvidia-compute-470-server (= ${binary:Version}),
  libnvidia-extra-470-server (= ${binary:Version}),
@@ -95,10 +95,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-470-server (<= 470.141.03-1),
- nvidia-kernel-source-470-server (>= 470.141.03),
- nvidia-kernel-common-470-server (<= 470.141.03-1),
- nvidia-kernel-common-470-server (>= 470.141.03),
+ nvidia-kernel-source-470-server (<= 470.141.10-1),
+ nvidia-kernel-source-470-server (>= 470.141.10),
+ nvidia-kernel-common-470-server (<= 470.141.10-1),
+ nvidia-kernel-common-470-server (>= 470.141.10),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -173,8 +173,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-470-server (<= 470.141.03-1),
- nvidia-kernel-common-470-server (>= 470.141.03),
+ nvidia-kernel-common-470-server (<= 470.141.10-1),
+ nvidia-kernel-common-470-server (>= 470.141.10),
  nvidia-kernel-source-470-server (= ${binary:Version}),
  libnvidia-compute-470-server (= ${binary:Version}),
  nvidia-compute-utils-470-server (= ${binary:Version}),
