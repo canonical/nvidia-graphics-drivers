@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.20.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.20.04.3) focal; urgency=medium
 
-  * 
+  * debian/nvidia_supported:
+    - Actually add support for the open kernel driver (fixes FTBFS).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 11:56:05 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 11:56:24 +0000
 
 nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.20.04.2) focal; urgency=medium
 
