@@ -1,15 +1,23 @@
-nvidia-graphics-drivers-515 (515.76-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
-
-  * 
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 12:33:41 +0000
-
-nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.20.04.3) focal; urgency=medium
+nvidia-graphics-drivers-515 (515.76-0ubuntu0.20.04.1) focal; urgency=medium
 
   * debian/nvidia_supported:
-    - Actually add support for the open kernel driver (fixes FTBFS).
+    - Actually add support for the open kernel driver (fixes FTBFS)
+      (LP: #1988836).
+  * debian/templates/control.in,
+    debian/rules.defs:
+    - Keep arm64 off for now.
+  * debian/rules:
+    - Sync up with the jammy and kinetic branches so that the open
+      kernel driver sources are not removed on clean.
+  * debian
+  * New upstream release (LP: #1990835):
+    - Turing and later: fixed possible excessive GPU power draw on an
+      idle X11 or Wayland desktop when driving high resolutions or
+      refresh rates.
+    - Fixed a bug that caused the Xorg server to crash if an NvFBC
+      capture session is started while video memory is full.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 11:56:24 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 12:35:52 +0000
 
 nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.20.04.2) focal; urgency=medium
 
