@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-515 (515.76-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.76-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release (LP: #1990835):
+    - Turing and later: fixed possible excessive GPU power draw on an
+      idle X11 or Wayland desktop when driving high resolutions or
+      refresh rates.
+    - Fixed a bug that caused the Xorg server to crash if an NvFBC
+      capture session is started while video memory is full.
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_6.0.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 12:24:51 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 28 Sep 2022 12:33:06 +0000
 
 nvidia-graphics-drivers-515 (515.65.01-0ubuntu0.22.04.3) jammy; urgency=medium
 
