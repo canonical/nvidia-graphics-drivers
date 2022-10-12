@@ -1,2 +1,0 @@
-debian/open-kernel/dkms.conf                    usr/src/nvidia-515.76
-debian/open-kernel/patches/*                    usr/src/nvidia-515.76/patches
