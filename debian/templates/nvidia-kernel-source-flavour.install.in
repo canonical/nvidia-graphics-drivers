@@ -2,6 +2,7 @@
 #I386_EXCLUDED#NVIDIA-Linux/kernel/Makefile              usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/common                usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/conftest.sh           usr/src/nvidia-#VERSION#
+#I386_EXCLUDED#NVIDIA-Linux/kernel/count-lines.mk        usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia                usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-drm            usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-modeset        usr/src/nvidia-#VERSION#
