@@ -12,7 +12,7 @@ XORG_ABI_LIST		?=
 XORG_BOUND		?=
 
 version			= $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
-debian_version	= $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
+debian_version	= $(shell echo $(DEB_VERSION_UPSTREAM))
 NVIDIA_RELEASE   = $(version)
 version_major		 = $(firstword $(subst ., ,$(version)))
 
@@ -251,7 +251,7 @@ generate-runtimepm-aliases: update-runtimepm-ids
 	rm -f NVIDIA-Linux/supported-gpus/supported-gpus-mod.json
 
 override_dh_gencontrol: generate-runtimepm-aliases
-	dh_gencontrol -- -V'nvidia:Version=$(version)' \
+	dh_gencontrol -- -V'nvidia:Version=$(debian_version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
 		-V'nvidia:pm-modaliases=$(shell cat $(CURDIR)/debian/runtimepm_ids)'
