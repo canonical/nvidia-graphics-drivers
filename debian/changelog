@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-515 (515.76+really.515.65.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.76+really.515.65.01-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * Revert to the 515.65.01 version (LP: #1993041).
+  * debian/rules:
+    Make sure that debian_version variable includes the full version, so that
+    we depend on the correct libraries in case of release rollbacks.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Oct 2022 09:33:37 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 20 Oct 2022 10:00:36 +0000
 
 nvidia-graphics-drivers-515 (515.76-0ubuntu0.20.04.1) focal; urgency=medium
 
