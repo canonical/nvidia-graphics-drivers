@@ -1,9 +1,9 @@
-nvidia-graphics-drivers-515 (515.76+really.515.65.01-0ubuntu0.22.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.76+really.515.65.01-0ubuntu0.22.04.2) jammy; urgency=medium
 
   * Actually revert "debian/templates/dkms_nvidia.conf.in: drop buildfix_kernel_6.0.patch"
     (LP: #1993041).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 25 Oct 2022 08:23:20 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 25 Oct 2022 08:25:20 +0000
 
 nvidia-graphics-drivers-515 (515.76+really.515.65.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
