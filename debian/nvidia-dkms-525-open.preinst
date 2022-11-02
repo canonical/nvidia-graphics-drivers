@@ -1,5 +1,5 @@
 #! /bin/sh
-# preinst script for nvidia-dkms-520-open
+# preinst script for nvidia-dkms-525-open
 #
 # see: dh_installdeb(1)
 #
