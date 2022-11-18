@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-390 (390.157-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.157-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #1997087).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 18 Nov 2022 15:30:50 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 18 Nov 2022 15:31:30 +0000
 
 nvidia-graphics-drivers-390 (390.154-0ubuntu0.18.04.1) bionic; urgency=medium
 
