@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-470 (470.161.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.161.03-0ubuntu1) lunar; urgency=medium
 
-  * 
+  * New upstream release (LP: #1997087).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Nov 2022 16:20:20 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Nov 2022 16:43:40 +0000
 
 nvidia-graphics-drivers-470 (470.141.03-0ubuntu1) kinetic; urgency=medium
 
