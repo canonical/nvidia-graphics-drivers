@@ -1,4 +1,4 @@
-NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/470.141.03
+NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/470.161.03
 NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
 NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
