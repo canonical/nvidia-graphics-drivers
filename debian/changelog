@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-515 (515.86.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.86.01-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * ebian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_6.0.patch.
+  * New upstream release (LP: #1997087).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Nov 2022 16:12:26 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Nov 2022 16:14:30 +0000
 
 nvidia-graphics-drivers-515 (515.76+really.515.65.01-0ubuntu0.20.04.1) focal; urgency=medium
 
