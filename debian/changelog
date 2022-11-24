@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-450-server (450.216.04-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.216.04-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #1997087).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Nov 2022 10:29:28 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 24 Nov 2022 10:33:06 +0000
 
 nvidia-graphics-drivers-450-server (450.203.03-0ubuntu0.20.04.1) focal; urgency=medium
 
