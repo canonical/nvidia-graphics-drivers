@@ -361,7 +361,7 @@ Description: NVENC Video Encoding runtime library
  This package contains the nvidia-encode runtime library.
 
 Package: nvidia-driver-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-driver-#FLAVOUR#
 Multi-Arch: foreign
 Description: Transitional package for nvidia-driver-#FLAVOUR#
@@ -369,7 +369,7 @@ Description: Transitional package for nvidia-driver-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-kernel-source-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-kernel-source-#FLAVOUR#
 Multi-Arch: foreign
 Description: Transitional package for nvidia-kernel-source-#FLAVOUR#
@@ -377,7 +377,7 @@ Description: Transitional package for nvidia-kernel-source-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-dkms-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-dkms-#FLAVOUR#
 Multi-Arch: foreign
 Description: Transitional package for nvidia-dkms-#FLAVOUR#
@@ -385,7 +385,7 @@ Description: Transitional package for nvidia-dkms-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-utils-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-utils-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for nvidia-utils-#FLAVOUR#
@@ -393,7 +393,7 @@ Description: Transitional package for nvidia-utils-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-compute-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-compute-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-compute-#FLAVOUR#
@@ -401,7 +401,7 @@ Description: Transitional package for libnvidia-compute-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-compute-utils-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-compute-utils-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for nvidia-compute-utils-#FLAVOUR#
@@ -409,7 +409,7 @@ Description: Transitional package for nvidia-compute-utils-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-headless-no-dkms-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-headless-no-dkms-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for nvidia-headless-no-dkms-#FLAVOUR#
@@ -417,7 +417,7 @@ Description: Transitional package for nvidia-headless-no-dkms-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-headless-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-headless-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for nvidia-headless-#FLAVOUR#
@@ -425,7 +425,7 @@ Description: Transitional package for nvidia-headless-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-kernel-common-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-kernel-common-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for nvidia-kernel-common-#FLAVOUR#
@@ -433,7 +433,7 @@ Description: Transitional package for nvidia-kernel-common-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-gl-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-gl-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-gl-#FLAVOUR#
@@ -449,7 +449,7 @@ Description: Transitional package for libnvidia-common-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-extra-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-extra-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-extra-#FLAVOUR#
@@ -457,7 +457,7 @@ Description: Transitional package for libnvidia-extra-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: xserver-xorg-video-nvidia-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: xserver-xorg-video-nvidia-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for xserver-xorg-video-nvidia-#FLAVOUR#
@@ -465,7 +465,7 @@ Description: Transitional package for xserver-xorg-video-nvidia-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-cfg1-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: libnvidia-cfg1-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-cfg1-#FLAVOUR#
@@ -473,7 +473,7 @@ Description: Transitional package for libnvidia-cfg1-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-fbc1-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-fbc1-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-fbc1-#FLAVOUR#
@@ -481,7 +481,7 @@ Description: Transitional package for libnvidia-fbc1-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-decode-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-decode-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-decode-#FLAVOUR#
@@ -489,7 +489,7 @@ Description: Transitional package for libnvidia-decode-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: libnvidia-encode-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-encode-#FLAVOUR#
 Multi-Arch: same
 Description: Transitional package for libnvidia-encode-#FLAVOUR#
