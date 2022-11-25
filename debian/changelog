@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-520 (520.56.06-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-525 (525.60.11-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  * Initial release (LP: #1992669).
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 12 Oct 2022 16:20:58 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Nov 2022 17:47:29 +0000
