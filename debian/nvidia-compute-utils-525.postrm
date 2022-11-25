@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-kernel-common-520
+# postrm script for nvidia-compute-utils-525
 #
 # see: dh_installdeb(1)
 #
@@ -19,15 +19,13 @@ set -e
 #        * <disappearer's-postrm> `disappear' <r>overwrit>r> <new-version>
 # for details, see /usr/share/doc/packaging-manual/
 
+NVPD_USER="nvidia-persistenced"
 
 case "$1" in
     remove|purge)
-        # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-520_hybrid.conf
-
-        # Update initramfs, in case we were loaded into it
-        if [ -x /usr/sbin/update-initramfs ]; then
-            /usr/sbin/update-initramfs -u
+        # Remove the nvidia-persistenced user
+        if id "$NVPD_USER" > /dev/null 2>&1; then
+            userdel "$NVPD_USER" || true
         fi
     ;;
 
