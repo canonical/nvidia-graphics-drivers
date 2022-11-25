@@ -361,7 +361,7 @@ Description: NVENC Video Encoding runtime library
  This package contains the nvidia-encode runtime library.
 
 Package: nvidia-driver-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-driver-515-server
 Multi-Arch: foreign
 Description: Transitional package for nvidia-driver-515-server
@@ -369,7 +369,7 @@ Description: Transitional package for nvidia-driver-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-kernel-source-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-kernel-source-515-server
 Multi-Arch: foreign
 Description: Transitional package for nvidia-kernel-source-515-server
@@ -377,7 +377,7 @@ Description: Transitional package for nvidia-kernel-source-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-dkms-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-dkms-515-server
 Multi-Arch: foreign
 Description: Transitional package for nvidia-dkms-515-server
@@ -385,7 +385,7 @@ Description: Transitional package for nvidia-dkms-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-utils-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-utils-515-server
 Multi-Arch: same
 Description: Transitional package for nvidia-utils-515-server
@@ -393,7 +393,7 @@ Description: Transitional package for nvidia-utils-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-compute-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-compute-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-compute-515-server
@@ -401,7 +401,7 @@ Description: Transitional package for libnvidia-compute-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-compute-utils-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-compute-utils-515-server
 Multi-Arch: same
 Description: Transitional package for nvidia-compute-utils-515-server
@@ -409,7 +409,7 @@ Description: Transitional package for nvidia-compute-utils-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-headless-no-dkms-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-headless-no-dkms-515-server
 Multi-Arch: same
 Description: Transitional package for nvidia-headless-no-dkms-515-server
@@ -417,7 +417,7 @@ Description: Transitional package for nvidia-headless-no-dkms-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-headless-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-headless-515-server
 Multi-Arch: same
 Description: Transitional package for nvidia-headless-515-server
@@ -425,7 +425,7 @@ Description: Transitional package for nvidia-headless-515-server
  safely removed after the installation is complete.
 
 Package: nvidia-kernel-common-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-kernel-common-515-server
 Multi-Arch: same
 Description: Transitional package for nvidia-kernel-common-515-server
@@ -433,7 +433,7 @@ Description: Transitional package for nvidia-kernel-common-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-gl-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-gl-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-gl-515-server
@@ -449,7 +449,7 @@ Description: Transitional package for libnvidia-common-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-extra-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-extra-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-extra-515-server
@@ -457,7 +457,7 @@ Description: Transitional package for libnvidia-extra-515-server
  safely removed after the installation is complete.
 
 Package: xserver-xorg-video-nvidia-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: xserver-xorg-video-nvidia-515-server
 Multi-Arch: same
 Description: Transitional package for xserver-xorg-video-nvidia-515-server
@@ -465,7 +465,7 @@ Description: Transitional package for xserver-xorg-video-nvidia-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-cfg1-510-server
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: libnvidia-cfg1-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-cfg1-515-server
@@ -473,7 +473,7 @@ Description: Transitional package for libnvidia-cfg1-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-fbc1-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-fbc1-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-fbc1-515-server
@@ -481,7 +481,7 @@ Description: Transitional package for libnvidia-fbc1-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-decode-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-decode-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-decode-515-server
@@ -489,7 +489,7 @@ Description: Transitional package for libnvidia-decode-515-server
  safely removed after the installation is complete.
 
 Package: libnvidia-encode-510-server
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-encode-515-server
 Multi-Arch: same
 Description: Transitional package for libnvidia-encode-515-server
