@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-525 (525.53-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.60.11-0ubuntu1) UNRELEASED; urgency=medium
 
   * 
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 02 Nov 2022 08:48:58 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Nov 2022 15:36:09 +0000
