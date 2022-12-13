@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for nvidia-dkms-510-server
+# prerm script for nvidia-dkms-525-server
 #
 # Copyright (C) 2007 Mario Limonciello
 # Copyright (C) 2009 Canonical Ltd
