@@ -1,5 +1,6 @@
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-compiler.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libcuda.so.#VERSION#                         #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libcudadebugger.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ml.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-nvvm.so.#VERSION#                  #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-opencl.so.#VERSION#                #LIBDIR#
