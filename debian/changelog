@@ -1,42 +1,5 @@
-nvidia-graphics-drivers-515-server (515.86.01-0ubuntu0.18.04.2) bionic; urgency=medium
+nvidia-graphics-drivers-525-server (525.60.13-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  * debian/templates/control.in:
-    - Revert the arm64 build (LP: #1997087).
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Nov 2022 20:17:21 +0000
-
-nvidia-graphics-drivers-515-server (515.86.01-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  [ Alberto Milone ]
-  * New upstream release (LP: #1997087).
-  * debian/templates/control.in:
-    - Add transitional packages for the 510 series.
-
-  [ Jeremy Szu ]
-  * Fix regex does not work in dash LP: #1964756.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 23 Nov 2022 15:50:35 +0000
-
-nvidia-graphics-drivers-515-server (515.65.01-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  [ Alberto Milone ]
-  * New upstream release (LP: #1982501).
-  * debian/templates/libnvidia-compute-flavour.links.in:
-    - Include the correct link to libnvidia-nvvm, which is now also available
-      on i386.
-  * debian/additional_card_ids:
-    - Add the missing 1EB8 ID.
-
-  [ Dimitri John Ledkov ]
-  * debian/templates/dkms_nvidia.conf.in:
-    - Disable IBT linking by default.
-    - Version restrict disable_fstack-clash-protection_fcf-protection patch.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 27 Jul 2022 15:11:07 +0000
-
-nvidia-graphics-drivers-515-server (515.48.07-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  [ Alberto Milone ]
-  * Initial release (LP: #1976425).
-
- -- Ian May <ian.may@canonical.com>  Mon, 06 Jun 2022 09:56:15 -0500
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Dec 2022 17:11:14 +0000
