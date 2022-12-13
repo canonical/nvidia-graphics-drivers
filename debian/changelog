@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-525-server (525.60.13-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525-server (525.60.13-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * Initial release (LP: #1999530).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Dec 2022 17:11:14 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Dec 2022 17:16:50 +0000
