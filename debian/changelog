@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-525 (525.78.01-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Jan 2023 15:37:17 +0000
+
 nvidia-graphics-drivers-525 (525.60.11-0ubuntu1) lunar; urgency=medium
 
   * Initial release (LP: #1997087).
