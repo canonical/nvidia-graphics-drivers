@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-525 (525.78.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.78.01-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2001703).
+  * debian/additional_card_ids,
+    debian/additional_runtimepm_ids:
+    - Add the missing 2717 ID.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Jan 2023 16:51:52 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Jan 2023 16:52:53 +0000
 
 nvidia-graphics-drivers-525 (525.60.11-0ubuntu0.20.04.2) focal; urgency=medium
 
