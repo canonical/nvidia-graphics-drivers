@@ -32,10 +32,10 @@ Package: nvidia-driver-525-server
 Architecture: amd64
 Depends:
  libnvidia-gl-525-server (= ${binary:Version}),
- nvidia-dkms-525-server (<= 525.60.13-1),
- nvidia-dkms-525-server (>= 525.60.13),
- nvidia-kernel-common-525-server (<= 525.60.13-1),
- nvidia-kernel-common-525-server (>= 525.60.13),
+ nvidia-dkms-525-server (<= 525.85.12-1),
+ nvidia-dkms-525-server (>= 525.85.12),
+ nvidia-kernel-common-525-server (<= 525.85.12-1),
+ nvidia-kernel-common-525-server (>= 525.85.12),
  nvidia-kernel-source-525-server (= ${binary:Version}),
  libnvidia-compute-525-server (= ${binary:Version}),
  libnvidia-extra-525-server (= ${binary:Version}),
@@ -93,10 +93,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-525-server (<= 525.60.13-1),
- nvidia-kernel-source-525-server (>= 525.60.13),
- nvidia-kernel-common-525-server (<= 525.60.13-1),
- nvidia-kernel-common-525-server (>= 525.60.13),
+ nvidia-kernel-source-525-server (<= 525.85.12-1),
+ nvidia-kernel-source-525-server (>= 525.85.12),
+ nvidia-kernel-common-525-server (<= 525.85.12-1),
+ nvidia-kernel-common-525-server (>= 525.85.12),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -130,17 +130,23 @@ Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${s
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
+ libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
+ libcuda-11.7-1,
  libcuda1 (= ${source:Version})
 Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
+ libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
+ libcuda-11.7-1
 Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-525-server (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1
+ libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
+ libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
+ libcuda-11.7-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA Server Driver
  to use GPUs for parallel general purpose computation through CUDA and
@@ -171,8 +177,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-525-server (<= 525.60.13-1),
- nvidia-kernel-common-525-server (>= 525.60.13),
+ nvidia-kernel-common-525-server (<= 525.85.12-1),
+ nvidia-kernel-common-525-server (>= 525.85.12),
  nvidia-kernel-source-525-server (= ${binary:Version}),
  libnvidia-compute-525-server (= ${binary:Version}),
  nvidia-compute-utils-525-server (= ${binary:Version}),
