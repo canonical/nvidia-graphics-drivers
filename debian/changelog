@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-525 (525.85.05-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.85.05-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release (LP: #2003995):
+    - Improved the reliability of suspend and resume on UEFI systems
+      when using certain display panels.
+    - Fixed a bug that could cause VK_ERROR_DEVICE_LOST when using
+      VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT to
+      allocate memory.
+    - Disabled Fixed Rate Link (FRL) when using passive DisplayPort
+      to HDMI dongles, which are incompatible  with FRL.
+  * debian/templates/control.in:
+    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 11:49:11 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 11:50:21 +0000
 
 nvidia-graphics-drivers-525 (525.78.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
