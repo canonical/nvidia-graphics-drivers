@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-515-server (515.86.01-0ubuntu0.20.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515-server (515.86.01-0ubuntu0.20.04.3) focal; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1 (LP: #2003995).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 10:41:09 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 10:41:27 +0000
 
 nvidia-graphics-drivers-515-server (515.86.01-0ubuntu0.20.04.2) focal; urgency=medium
 
