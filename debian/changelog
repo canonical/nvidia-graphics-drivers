@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-390 (390.157-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.157-0ubuntu3) lunar; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Drop armhf and i386, except for the i386 compatibility libraries.
+      The driver is no longer supported by NVIDIA, and this should
+      solve the kernel build failures (LP: #2006695).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 Feb 2023 12:58:37 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 20 Feb 2023 14:45:32 +0000
 
 nvidia-graphics-drivers-390 (390.157-0ubuntu2) lunar; urgency=medium
 
