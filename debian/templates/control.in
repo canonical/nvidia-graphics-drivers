@@ -124,14 +124,14 @@ Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
   ${misc:Depends}, ${shlibs:Depends}
-Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml1 (= ${source:Version}),
+Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
  libcuda-11.7-1,
- libcuda1 (= ${source:Version})
+ libcuda.so.1 (= ${source:Version})
 Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
