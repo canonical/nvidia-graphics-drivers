@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-525 (525.89.02-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.89.02-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2006937):
+    - Fixed a bug that could cause banding or flickering of color
+      gradients on DisplayPort monitors.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Feb 2023 10:50:58 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Feb 2023 10:51:34 +0000
 
 nvidia-graphics-drivers-525 (525.85.05-0ubuntu0.20.04.1) focal; urgency=medium
 
