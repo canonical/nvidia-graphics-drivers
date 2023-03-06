@@ -1,0 +1,126 @@
+--- a/nvidia/nv-acpi.c	2022-10-19 00:34:11.000000000 +0000
++++ b/nvidia/nv-acpi.c	2023-03-03 11:13:27.270598890 +0000
+@@ -16,6 +16,9 @@
+ 
+ #include <linux/acpi.h>
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ #if defined(NV_LINUX_ACPI_EVENTS_SUPPORTED)
+ static NV_STATUS   nv_acpi_extract_integer (const union acpi_object *, void *, NvU32, NvU32 *);
+ static NV_STATUS   nv_acpi_extract_buffer  (const union acpi_object *, void *, NvU32, NvU32 *);
+@@ -24,7 +27,9 @@ static NV_STATUS   nv_acpi_extract_objec
+ 
+ static int         nv_acpi_add             (struct acpi_device *);
+ 
+-#if !defined(NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT) || (NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT == 2)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 2, 0)
++static void        nv_acpi_remove_one_arg(struct acpi_device *device);
++#elif !defined(NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT) || (NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT == 2)
+ static int         nv_acpi_remove_two_args(struct acpi_device *device, int type);
+ #else
+ static int         nv_acpi_remove_one_arg(struct acpi_device *device);
+@@ -80,7 +85,9 @@ static const struct acpi_driver nv_acpi_
+     .ids = nv_video_device_ids,
+     .ops = {
+         .add = nv_acpi_add,
+-#if !defined(NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT) || (NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT == 2)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 2, 0)
++        .remove = nv_acpi_remove_one_arg,
++#elif !defined(NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT) || (NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT == 2)
+         .remove = nv_acpi_remove_two_args,
+ #else
+         .remove = nv_acpi_remove_one_arg,
+@@ -342,7 +349,9 @@ static int nv_acpi_add(struct acpi_devic
+     return 0;
+ }
+ 
+-#if !defined(NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT) || (NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT == 2)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 2, 0)
++static void nv_acpi_remove_one_arg(struct acpi_device *device)
++#elif !defined(NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT) || (NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT == 2)
+ static int nv_acpi_remove_two_args(struct acpi_device *device, int type)
+ #else
+ static int nv_acpi_remove_one_arg(struct acpi_device *device)
+@@ -395,8 +404,9 @@ static int nv_acpi_remove_one_arg(struct
+         module_put(THIS_MODULE);
+         device->driver_data = NULL;
+     }
+-
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 2, 0)
+     return status;
++#endif
+ }
+ 
+ /*
+--- a/nvidia-drm/nvidia-drm-connector.c	2022-10-19 00:03:53.000000000 +0000
++++ b/nvidia-drm/nvidia-drm-connector.c	2023-03-04 07:59:06.712298148 +0000
+@@ -30,6 +30,9 @@
+ #include "nvidia-drm-utils.h"
+ #include "nvidia-drm-encoder.h"
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ /*
+  * Commit fcd70cd36b9b ("drm: Split out drm_probe_helper.h")
+  * moves a number of helper function definitions from
+@@ -58,6 +61,24 @@ static void nv_drm_connector_destroy(str
+     nv_drm_free(nv_connector);
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 2, 0)
++static bool check_edid_override(struct drm_connector *connector)
++{
++	return connector->override_edid != NULL;
++}
++#else
++static bool check_edid_override(struct drm_connector *connector)
++{
++	int ret;
++
++	mutex_lock(&connector->edid_override_mutex);
++	ret = connector->edid_override != NULL;
++	mutex_lock(&connector->edid_override_mutex);
++
++	return ret;
++}
++#endif
++
+ static bool
+ __nv_drm_detect_encoder(struct NvKmsKapiDynamicDisplayParams *pDetectParams,
+                         struct drm_connector *connector,
+@@ -98,7 +119,7 @@ __nv_drm_detect_encoder(struct NvKmsKapi
+             break;
+     }
+ 
+-    if (connector->override_edid) {
++    if (check_edid_override(connector)) {
+         const struct drm_property_blob *edid = connector->edid_blob_ptr;
+ 
+         if (edid->length <= sizeof(pDetectParams->edid.buffer)) {
+--- a/nvidia-drm/nvidia-drm-drv.c	2022-10-19 00:03:52.000000000 +0000
++++ b/nvidia-drm/nvidia-drm-drv.c	2023-03-04 07:57:35.425059914 +0000
+@@ -62,6 +62,9 @@
+ 
+ #include <linux/pci.h>
+ 
++#include <linux/version.h>
++#include <linux/utsname.h>
++
+ /*
+  * Commit fcd70cd36b9b ("drm: Split out drm_probe_helper.h")
+  * moves a number of helper function definitions from
+@@ -240,9 +243,10 @@ nv_drm_init_mode_config(struct nv_drm_de
+     dev->mode_config.preferred_depth = 24;
+     dev->mode_config.prefer_shadow = 1;
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 2, 0)
+     /* Currently unused. Update when needed. */
+-
+     dev->mode_config.fb_base = 0;
++#endif
+ 
+ #if defined(NV_DRM_CRTC_STATE_HAS_ASYNC_FLIP) || \
+     defined(NV_DRM_CRTC_STATE_HAS_PAGEFLIP_FLAGS)
