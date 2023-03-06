@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-390 (390.157-0ubuntu4) lunar; urgency=medium
+
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_6.2.patch:
+    - Support linux 6.2 ABI (LP: #2009142)
+
+ -- Andrea Righi <andrea.righi@canonical.com>  Fri, 03 Mar 2023 10:16:19 +0000
+
 nvidia-graphics-drivers-390 (390.157-0ubuntu3) lunar; urgency=medium
 
   * debian/templates/control.in:
