@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-470 (470.161.03-0ubuntu2) lunar; urgency=medium
+
+  * debian/dkms_nvidia/patches/buildfix_kernel_6.2.patch,
+    debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia.conf:
+    - Add support for Linux 6.2 (LP: #2009246).
+
+ -- Andrea Righi <andrea.righi@canonical.com>  Sat, 04 Mar 2023 08:08:01 +0000
+
 nvidia-graphics-drivers-470 (470.161.03-0ubuntu1) lunar; urgency=medium
 
   * New upstream release (LP: #1997087).
