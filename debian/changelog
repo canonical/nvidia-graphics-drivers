@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-515 (515.86.01-0ubuntu3) lunar; urgency=medium
+
+  * debian/open-kernel/patches/buildfix_kernel_6.2.patch,
+    debian/templates/dkms_nvidia_open.conf.in,
+    debian/dkms_nvidia_open.conf:
+    - Add support for Linux 6.2 also for the 515-open driver (LP: #2009251).
+
+ -- Andrea Righi <andrea.righi@canonical.com>  Mon, 06 Mar 2023 19:44:18 +0000
+
 nvidia-graphics-drivers-515 (515.86.01-0ubuntu2) lunar; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_6.2.patch,
