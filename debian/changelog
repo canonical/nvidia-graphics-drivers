@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-390 (390.157-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.157-0ubuntu5) lunar; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Drop i386 from the nvidia-libopencl1-384 and the
+      nvidia-opencl-icd-384 transitional packages. This should allow
+      correct migration.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Mar 2023 15:21:01 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Mar 2023 15:38:08 +0000
 
 nvidia-graphics-drivers-390 (390.157-0ubuntu4) lunar; urgency=medium
 
