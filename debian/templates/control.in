@@ -369,14 +369,14 @@ Description: Transitional package for nvidia-driver-#FLAVOUR#
  safely removed after the installation is complete.
 
 Package: nvidia-libopencl1-384
-Architecture: i386 amd64
+Architecture: amd64
 Depends: nvidia-headless-#FLAVOUR#
 Description: Transitional package for nvidia-headless-#FLAVOUR#
  This is a transitional package for nvidia-headless-#FLAVOUR#, and can be
  safely removed after the installation is complete.
 
 Package: nvidia-opencl-icd-384
-Architecture: i386 amd64
+Architecture: amd64
 Depends: nvidia-headless-#FLAVOUR#
 Description: Transitional package for nvidia-headless-#FLAVOUR#
  This is a transitional package for nvidia-headless-#FLAVOUR#, and can be
