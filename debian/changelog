@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-470-server (470.182.03-0ubuntu0.22.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470-server (470.182.03-0ubuntu0.22.10.1) kinetic; urgency=medium
 
-  * 
+  * New upstream release (LP: #2012529).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Mar 2023 13:42:17 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 24 Mar 2023 13:43:27 +0000
 
 nvidia-graphics-drivers-470-server (470.161.03-0ubuntu0.22.10.1) kinetic; urgency=medium
 
