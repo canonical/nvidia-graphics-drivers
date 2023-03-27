@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-470 (470.182.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.182.03-0ubuntu1) lunar; urgency=medium
 
-  * 
+  * New upstream release (LP: #2012529).
+  * debian/templates/dkms_nvidia.conf.in:
+    - Drop buildfix_kernel_6.2.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 09:14:48 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 09:30:58 +0000
 
 nvidia-graphics-drivers-470 (470.161.03-0ubuntu2) lunar; urgency=medium
 
