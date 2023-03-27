@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-515 (515.105.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-515 (515.105.01-0ubuntu1) lunar; urgency=medium
 
-  * 
+  * New upstream release (LP: #2012529).
+  * debian/templates/control.in:
+    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1.
+    - Switch to libcuda.so.1 and libnvidia-ml.so.1 provides.
+  * debian/templates/dkms_nvidia{_open}.conf.in:
+    - Drop buildfix_kernel_6.2.patch.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 09:51:15 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 10:02:56 +0000
 
 nvidia-graphics-drivers-515 (515.86.01-0ubuntu3) lunar; urgency=medium
 
