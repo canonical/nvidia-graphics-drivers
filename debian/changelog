@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-525 (525.105.15-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.105.17-0ubuntu1) lunar; urgency=medium
 
-  * 
+  * New upstream release (LP: #2012529).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 11:27:31 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 11:29:08 +0000
 
 nvidia-graphics-drivers-525 (525.89.02-0ubuntu1) lunar; urgency=medium
 
