@@ -32,10 +32,10 @@ Package: nvidia-driver-525-server
 Architecture: amd64
 Depends:
  libnvidia-gl-525-server (= ${binary:Version}),
- nvidia-dkms-525-server (<= 525.105.15-1),
- nvidia-dkms-525-server (>= 525.105.15),
- nvidia-kernel-common-525-server (<= 525.105.15-1),
- nvidia-kernel-common-525-server (>= 525.105.15),
+ nvidia-dkms-525-server (<= 525.105.17-1),
+ nvidia-dkms-525-server (>= 525.105.17),
+ nvidia-kernel-common-525-server (<= 525.105.17-1),
+ nvidia-kernel-common-525-server (>= 525.105.17),
  nvidia-kernel-source-525-server (= ${binary:Version}),
  libnvidia-compute-525-server (= ${binary:Version}),
  libnvidia-extra-525-server (= ${binary:Version}),
@@ -93,10 +93,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-525-server (<= 525.105.15-1),
- nvidia-kernel-source-525-server (>= 525.105.15),
- nvidia-kernel-common-525-server (<= 525.105.15-1),
- nvidia-kernel-common-525-server (>= 525.105.15),
+ nvidia-kernel-source-525-server (<= 525.105.17-1),
+ nvidia-kernel-source-525-server (>= 525.105.17),
+ nvidia-kernel-common-525-server (<= 525.105.17-1),
+ nvidia-kernel-common-525-server (>= 525.105.17),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -177,8 +177,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-525-server (<= 525.105.15-1),
- nvidia-kernel-common-525-server (>= 525.105.15),
+ nvidia-kernel-common-525-server (<= 525.105.17-1),
+ nvidia-kernel-common-525-server (>= 525.105.17),
  nvidia-kernel-source-525-server (= ${binary:Version}),
  libnvidia-compute-525-server (= ${binary:Version}),
  nvidia-compute-utils-525-server (= ${binary:Version}),
