@@ -1,50 +1,5 @@
-nvidia-graphics-drivers-525 (525.105.17-0ubuntu0.20.04.1) focal; urgency=medium
+nvidia-graphics-drivers-530 (530.41.03-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #2012529).
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 11:40:24 +0000
-
-nvidia-graphics-drivers-525 (525.89.02-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2006937):
-    - Fixed a bug that could cause banding or flickering of color
-      gradients on DisplayPort monitors.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Feb 2023 10:51:34 +0000
-
-nvidia-graphics-drivers-525 (525.85.05-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2003995):
-    - Improved the reliability of suspend and resume on UEFI systems
-      when using certain display panels.
-    - Fixed a bug that could cause VK_ERROR_DEVICE_LOST when using
-      VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT to
-      allocate memory.
-    - Disabled Fixed Rate Link (FRL) when using passive DisplayPort
-      to HDMI dongles, which are incompatible  with FRL.
-  * debian/templates/control.in:
-    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 11:51:31 +0000
-
-nvidia-graphics-drivers-525 (525.78.01-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2001703).
-  * debian/additional_card_ids,
-    debian/additional_runtimepm_ids:
-    - Add the missing 2717 ID.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Jan 2023 16:52:53 +0000
-
-nvidia-graphics-drivers-525 (525.60.11-0ubuntu0.20.04.2) focal; urgency=medium
-
-  * debian/templates/control.in:
-    - Revert the arm64 build (LP: #1997087).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Nov 2022 20:21:32 +0000
-
-nvidia-graphics-drivers-525 (525.60.11-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * Initial release (LP: #1997087).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Nov 2022 17:46:07 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Apr 2023 10:19:55 +0000
