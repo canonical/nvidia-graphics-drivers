@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-530 (530.41.03-0ubuntu0.22.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-530 (530.41.03-0ubuntu0.22.10.1) kinetic; urgency=medium
 
-  * 
+  * Initial release (LP: #2015491).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Apr 2023 09:39:16 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Apr 2023 09:51:43 +0000
