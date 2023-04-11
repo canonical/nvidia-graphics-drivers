@@ -1,50 +1,5 @@
-nvidia-graphics-drivers-525 (525.105.17-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-530 (530.41.03-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #2012529).
+  * Initial release (LP: #2015491).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 11:41:32 +0000
-
-nvidia-graphics-drivers-525 (525.89.02-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * New upstream release (LP: #2006937):
-    - Fixed a bug that could cause banding or flickering of color
-      gradients on DisplayPort monitors.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Feb 2023 10:53:40 +0000
-
-nvidia-graphics-drivers-525 (525.85.05-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * New upstream release (LP: #2003995):
-    - Improved the reliability of suspend and resume on UEFI systems
-      when using certain display panels.
-    - Fixed a bug that could cause VK_ERROR_DEVICE_LOST when using
-      VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT to
-      allocate memory.
-    - Disabled Fixed Rate Link (FRL) when using passive DisplayPort
-      to HDMI dongles, which are incompatible  with FRL.
-  * debian/templates/control.in:
-    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 11:52:36 +0000
-
-nvidia-graphics-drivers-525 (525.78.01-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * New upstream release (LP: #2001703).
-  * debian/additional_card_ids,
-    debian/additional_runtimepm_ids:
-    - Add the missing 2717 ID.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Jan 2023 16:55:09 +0000
-
-nvidia-graphics-drivers-525 (525.60.11-0ubuntu0.18.04.2) bionic; urgency=medium
-
-  * debian/templates/control.in:
-    - Add transitional packages for the 520 series (LP: #1997087).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 28 Nov 2022 16:03:51 +0000
-
-nvidia-graphics-drivers-525 (525.60.11-0ubuntu0.18.04.1) bionic; urgency=medium
-
-  * Initial release (LP: #1997087).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Nov 2022 17:53:00 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Apr 2023 14:10:31 +0000
