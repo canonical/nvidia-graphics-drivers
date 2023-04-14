@@ -10,6 +10,7 @@ Build-Depends:
  debhelper (>= 9),
  dpkg-dev (>= 1.17.11~),
  xz-utils,
+ zstd [i386],
  dkms,
  libxext6,
  quilt,
