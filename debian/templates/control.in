@@ -97,6 +97,7 @@ Depends:
  nvidia-kernel-source-#FLAVOUR# (>= #DEBIAN_VERSION#),
  nvidia-kernel-common-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
  nvidia-kernel-common-#FLAVOUR# (>= #DEBIAN_VERSION#),
+ nvidia-firmware-#FLAVOUR#-#VERSION#,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -215,7 +216,7 @@ Architecture: amd64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-#FLAVOUR#-#VERSION#
 Replaces:
  nvidia-dkms-#FLAVOUR# (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -225,6 +226,12 @@ Description: Shared files used with the kernel module
  Install this package if you want to blacklist any conflicting kernel
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
+
+Package: nvidia-firmware-#FLAVOUR#-#VERSION#
+Architecture: amd64 arm64
+Description: Firmware files used by the kernel module
+ This package installs required firmware files for the NVIDIA kernel
+ module.
 
 Package: libnvidia-gl-#FLAVOUR#
 Architecture: i386 amd64
