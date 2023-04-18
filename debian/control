@@ -215,7 +215,7 @@ Architecture: amd64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-535.43.02
 Replaces:
  nvidia-dkms-535 (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
