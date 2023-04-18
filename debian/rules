@@ -207,12 +207,14 @@ regen-from-templates:
 		old=`echo $$i | sed -e "s|templates\/||g" | \
 				sed -e "s|\.in\$$||g" | \
 				sed -e "s|nvidia-graphics-drivers|nvidia-*|g" | \
+				sed -e "s|version|*|g" | \
 				sed -e "s|flavour|*|g"`; \
 		rm -f $$old; done
 	# Create important strings
 	for i in debian/templates/*.in; do \
 		dest=`echo $$i | sed -e "s|templates\/||g" | \
 				 sed -e "s|\.in\$$||g" | \
+				 sed -e "s|version|$(version)|g" | \
 				 sed -e "s|flavour|$(flavour)|g"`; \
 		sed -e "s|#LIBDIR#|$(libdir)|g"         \
 			-e "s|#ARMHF_ONLY#|$(armhf_only)|g" \

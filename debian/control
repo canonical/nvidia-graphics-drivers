@@ -214,7 +214,7 @@ Architecture: amd64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.54.01
 Replaces:
  nvidia-dkms-535-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -224,6 +224,12 @@ Description: Shared files used with the kernel module
  Install this package if you want to blacklist any conflicting kernel
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
+
+Package: nvidia-firmware-535-server-535.54.01
+Architecture: amd64 arm64
+Description: Firmware files used by the kernel module
+ This package installs required firmware files for the NVIDIA kernel
+ module.
 
 Package: libnvidia-gl-535-server
 Architecture: i386 amd64
