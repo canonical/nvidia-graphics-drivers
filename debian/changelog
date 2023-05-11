@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-525 (525.116.04-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.116.04-0ubuntu0.18.04.1) bionic; urgency=medium
 
-  * 
+  * New upstream release (LP: #2018979).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 May 2023 09:20:27 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 May 2023 09:20:57 +0000
 
 nvidia-graphics-drivers-525 (525.105.17-0ubuntu0.18.04.1) bionic; urgency=medium
 
