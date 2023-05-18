@@ -1,8 +1,17 @@
-nvidia-graphics-drivers-390 (390.157-0ubuntu6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-390 (390.157-0ubuntu6) mantic; urgency=medium
 
-  * 
+  [ Andrea Righi ]
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/disable-acpi-support-in-linux-6.0.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_6.2.patch:
+    - Better support for linux 6.2 (LP: #2019869).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 May 2023 10:41:19 +0000
+  [ Paolo Pisati ]
+  * debian/templates/dkms_nvidia.conf.in,
+    debian/dkms_nvidia/patches/buildfix_kernel_6.3.patch:
+    - Support linux 6.3 ABI (LP: #2019979).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 May 2023 10:42:02 +0000
 
 nvidia-graphics-drivers-390 (390.157-0ubuntu5) lunar; urgency=medium
 
