@@ -26,8 +26,7 @@ DEST_MODULE_LOCATION[2]="/kernel/drivers/char/drm"
 AUTOINSTALL="yes"
 PATCH[0]="disable_fstack-clash-protection_fcf-protection.patch"
 PATCH[1]="buildfix_kernel_5.13_armhf.patch"
-PATCH[2]="disable-acpi-support-in-linux-6.0.patch"
-PATCH[3]="buildfix_kernel_6.2.patch"
+PATCH[2]="buildfix_kernel_6.2.patch"
 #PATCH[3]="buildfix_kernel_5.16.patch"
 # Apply from v4 to v5.12 kernels
 # v5.13 kernels already disable both by default
