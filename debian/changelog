@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-510 (510.108.03-0ubuntu3) mantic; urgency=medium
+
+  * debian/dkms_nvidia/patches/buildfix_kernel_6.3.patch:
+    - Support linux 6.3 ABI (LP: #2019979)
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Thu, 18 May 2023 10:52:33 +0000
+
 nvidia-graphics-drivers-510 (510.108.03-0ubuntu2) lunar; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_6.2.patch,
