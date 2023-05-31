@@ -1,11 +1,11 @@
-Source: nvidia-graphics-drivers-530
+Source: nvidia-graphics-drivers-535
 Section: non-free/libs
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Uploaders:
  Alberto Milone <alberto.milone@canonical.com>,
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
-Vcs-Browser: https://github.com/tseliot/nvidia-graphics-drivers/tree/530
+Vcs-Browser: https://github.com/tseliot/nvidia-graphics-drivers/tree/535
 Build-Depends:
  debhelper (>= 9),
  dpkg-dev (>= 1.17.11~),
@@ -29,32 +29,32 @@ Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
-Package: nvidia-driver-530
+Package: nvidia-driver-535
 Architecture: amd64 arm64
 Depends:
- libnvidia-gl-530 (= ${binary:Version}),
- nvidia-dkms-530 (<= 530.41.03-1),
- nvidia-dkms-530 (>= 530.41.03),
- nvidia-kernel-common-530 (<= 530.41.03-1),
- nvidia-kernel-common-530 (>= 530.41.03),
- nvidia-kernel-source-530 (= ${binary:Version}),
- libnvidia-compute-530 (= ${binary:Version}),
- libnvidia-extra-530 (= ${binary:Version}),
- nvidia-compute-utils-530 (= ${binary:Version}),
- libnvidia-decode-530 (= ${binary:Version}),
- libnvidia-encode-530 (= ${binary:Version}),
- nvidia-utils-530 (= ${binary:Version}),
- xserver-xorg-video-nvidia-530 (= ${binary:Version}),
- libnvidia-cfg1-530 (= ${binary:Version}),
- libnvidia-fbc1-530 (= ${binary:Version}) [!ppc64el],
+ libnvidia-gl-535 (= ${binary:Version}),
+ nvidia-dkms-535 (<= 535.43.02-1),
+ nvidia-dkms-535 (>= 535.43.02),
+ nvidia-kernel-common-535 (<= 535.43.02-1),
+ nvidia-kernel-common-535 (>= 535.43.02),
+ nvidia-kernel-source-535 (= ${binary:Version}),
+ libnvidia-compute-535 (= ${binary:Version}),
+ libnvidia-extra-535 (= ${binary:Version}),
+ nvidia-compute-utils-535 (= ${binary:Version}),
+ libnvidia-decode-535 (= ${binary:Version}),
+ libnvidia-encode-535 (= ${binary:Version}),
+ nvidia-utils-535 (= ${binary:Version}),
+ xserver-xorg-video-nvidia-535 (= ${binary:Version}),
+ libnvidia-cfg1-535 (= ${binary:Version}),
+ libnvidia-fbc1-535 (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-530:i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-535:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -63,10 +63,10 @@ Description: NVIDIA driver metapackage
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
  .
- See /usr/share/doc/nvidia-driver-530/README.txt.gz
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-kernel-source-530
+Package: nvidia-kernel-source-535
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
@@ -81,22 +81,22 @@ Description: NVIDIA kernel source package
  This package provides the NVIDIA kernel source needed by the userspace
  driver.
 
-Package: nvidia-dkms-530
+Package: nvidia-dkms-535
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
-Breaks: nvidia-kernel-source-530 (<< 390.25-0ubuntu2~)
+Breaks: nvidia-kernel-source-535 (<< 390.25-0ubuntu2~)
 Replaces:
- nvidia-dkms-kernel, nvidia-kernel-source-530 (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
+ nvidia-dkms-kernel, nvidia-kernel-source-535 (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
 Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-530 (<= 530.41.03-1),
- nvidia-kernel-source-530 (>= 530.41.03),
- nvidia-kernel-common-530 (<= 530.41.03-1),
- nvidia-kernel-common-530 (>= 530.41.03),
+ nvidia-kernel-source-535 (<= 535.43.02-1),
+ nvidia-kernel-source-535 (>= 535.43.02),
+ nvidia-kernel-common-535 (<= 535.43.02-1),
+ nvidia-kernel-common-535 (>= 535.43.02),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -105,12 +105,12 @@ Description: NVIDIA DKMS package
  module will be built for your running kernel, and automatically rebuilt for
  any new kernel headers that are installed.
 
-Package: nvidia-utils-530
+Package: nvidia-utils-535
 Architecture: amd64 arm64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
- nvidia-driver-530,
+ nvidia-driver-535,
 Provides:
  nvidia-utils, nvidia-smi
 Conflicts:
@@ -120,7 +120,7 @@ Replaces:
 Description: NVIDIA driver support binaries
  This package contains supporting binaries for the NVIDIA driver.
 
-Package: libnvidia-compute-530
+Package: libnvidia-compute-535
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
@@ -140,7 +140,7 @@ Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
  libcuda-11.7-1
-Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-530 (<< 390.25-0ubuntu2~),
+Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-535 (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
@@ -152,10 +152,10 @@ Description: NVIDIA libcompute package
  to use GPUs for parallel general purpose computation through CUDA and
  OpenCL.
 
-Package: nvidia-compute-utils-530
+Package: nvidia-compute-utils-535
 Architecture: amd64 arm64
 Depends:
- libnvidia-compute-530, adduser,
+ libnvidia-compute-535, adduser,
  ${misc:Depends}, ${shlibs:Depends}
 Provides: nvidia-compute-utils, nvidia-persistenced
 Conflicts: nvidia-compute-utils, nvidia-persistenced
@@ -171,18 +171,18 @@ Description: NVIDIA compute utilities
  has compute capability SM 3.5 or higher.
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
-Package: nvidia-headless-no-dkms-530
+Package: nvidia-headless-no-dkms-535
 Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-530 (<= 530.41.03-1),
- nvidia-kernel-common-530 (>= 530.41.03),
- nvidia-kernel-source-530 (= ${binary:Version}),
- libnvidia-compute-530 (= ${binary:Version}),
- nvidia-compute-utils-530 (= ${binary:Version}),
- libnvidia-cfg1-530 (= ${binary:Version}),
+ nvidia-kernel-common-535 (<= 535.43.02-1),
+ nvidia-kernel-common-535 (>= 535.43.02),
+ nvidia-kernel-source-535 (= ${binary:Version}),
+ libnvidia-compute-535 (= ${binary:Version}),
+ nvidia-compute-utils-535 (= ${binary:Version}),
+ libnvidia-cfg1-535 (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -191,16 +191,16 @@ Description: NVIDIA headless metapackage - no DKMS
  will not be built.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-530 metapackage.
+ provided by the nvidia-driver-535 metapackage.
 
-Package: nvidia-headless-530
+Package: nvidia-headless-535
 Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
 Depends:
- nvidia-headless-no-dkms-530,
- nvidia-dkms-530,
+ nvidia-headless-no-dkms-535,
+ nvidia-dkms-535,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -208,16 +208,16 @@ Description: NVIDIA headless metapackage
  OpenCL.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-530 metapackage.
+ provided by the nvidia-driver-535 metapackage.
 
-Package: nvidia-kernel-common-530
+Package: nvidia-kernel-common-535
 Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
 Replaces:
- nvidia-dkms-530 (<< 390.48-0ubuntu3~), nvidia-kernel-common
+ nvidia-dkms-535 (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
  This package installs all the optional accessory files for the NVIDIA
  kernel module.
@@ -226,24 +226,24 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: libnvidia-gl-530
+Package: libnvidia-gl-535
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Conflicts: libnvidia-gl
 Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- libnvidia-common-530, ${misc:Depends}, ${shlibs:Depends}
+ libnvidia-common-535, ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
 
-Package: libnvidia-common-530
+Package: libnvidia-common-535
 Architecture: all
 Multi-Arch: foreign
-Breaks: libnvidia-gl-530 (<< 390.25-0ubuntu2~)
+Breaks: libnvidia-gl-535 (<< 390.25-0ubuntu2~)
 Conflicts: libnvidia-common
-Replaces: libnvidia-common, libnvidia-gl-530 (<< 390.25-0ubuntu2~)
+Replaces: libnvidia-common, libnvidia-gl-535 (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
@@ -251,12 +251,12 @@ Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
  libraries.
 
-Package: libnvidia-extra-530
+Package: libnvidia-extra-535
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Breaks: libnvidia-common-530 (<< 440.64-0ubuntu3~)
+Breaks: libnvidia-common-535 (<< 440.64-0ubuntu3~)
 Conflicts: libnvidia-extra
-Replaces: libnvidia-extra, libnvidia-common-530 (<< 440.64-0ubuntu3~)
+Replaces: libnvidia-extra, libnvidia-common-535 (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
@@ -264,11 +264,11 @@ Description: Extra libraries for the NVIDIA driver
  This package provides an additional set of libraries to be used with
  the NVIDIA driver.
 
-Package: xserver-xorg-video-nvidia-530
+Package: xserver-xorg-video-nvidia-535
 Section: non-free/x11
 Architecture: amd64 arm64
 Depends:
- libnvidia-cfg1-530 (= ${binary:Version}),
+ libnvidia-cfg1-535 (= ${binary:Version}),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts: xorg-driver-binary, nvidia-driver-binary
@@ -281,10 +281,10 @@ Description: NVIDIA binary Xorg driver
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
  for graphics cards using NVIDIA chip sets.
  .
- See /usr/share/doc/nvidia-driver-530/README.txt.gz
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: libnvidia-cfg1-530
+Package: libnvidia-cfg1-535
 Architecture: amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -304,7 +304,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  .
  This package contains the libnvidia-cfg.so.1 runtime library.
 
-Package: libnvidia-fbc1-530
+Package: libnvidia-fbc1-535
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -326,13 +326,13 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  .
  This package contains the NvFBCOpenGL runtime library.
 
-Package: libnvidia-decode-530
+Package: libnvidia-decode-535
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-compute-530 (= ${binary:Version}),
+ libnvidia-compute-535 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-decode,
@@ -347,7 +347,7 @@ Description: NVIDIA Video Decoding runtime libraries
  The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
  systems) library for the NVIDIA vendor implementation.
 
-Package: libnvidia-encode-530
+Package: libnvidia-encode-535
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -366,32 +366,32 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-driver-530-open
+Package: nvidia-driver-535-open
 Architecture: amd64 arm64
 Depends:
- libnvidia-gl-530 (= ${binary:Version}),
- nvidia-dkms-530-open (<= 530.41.03-1),
- nvidia-dkms-530-open (>= 530.41.03),
- nvidia-kernel-common-530 (<= 530.41.03-1),
- nvidia-kernel-common-530 (>= 530.41.03),
- nvidia-kernel-source-530-open (= ${binary:Version}),
- libnvidia-compute-530 (= ${binary:Version}),
- libnvidia-extra-530 (= ${binary:Version}),
- nvidia-compute-utils-530 (= ${binary:Version}),
- libnvidia-decode-530 (= ${binary:Version}),
- libnvidia-encode-530 (= ${binary:Version}),
- nvidia-utils-530 (= ${binary:Version}),
- xserver-xorg-video-nvidia-530 (= ${binary:Version}),
- libnvidia-cfg1-530 (= ${binary:Version}),
- libnvidia-fbc1-530 (= ${binary:Version}) [!ppc64el],
+ libnvidia-gl-535 (= ${binary:Version}),
+ nvidia-dkms-535-open (<= 535.43.02-1),
+ nvidia-dkms-535-open (>= 535.43.02),
+ nvidia-kernel-common-535 (<= 535.43.02-1),
+ nvidia-kernel-common-535 (>= 535.43.02),
+ nvidia-kernel-source-535-open (= ${binary:Version}),
+ libnvidia-compute-535 (= ${binary:Version}),
+ libnvidia-extra-535 (= ${binary:Version}),
+ nvidia-compute-utils-535 (= ${binary:Version}),
+ libnvidia-decode-535 (= ${binary:Version}),
+ libnvidia-encode-535 (= ${binary:Version}),
+ nvidia-utils-535 (= ${binary:Version}),
+ xserver-xorg-video-nvidia-535 (= ${binary:Version}),
+ libnvidia-cfg1-535 (= ${binary:Version}),
+ libnvidia-fbc1-535 (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-530:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-530:i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-535:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-535:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -400,10 +400,10 @@ Description: NVIDIA driver (open kernel) metapackage
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
  .
- See /usr/share/doc/nvidia-driver-530/README.txt.gz
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-kernel-source-530-open
+Package: nvidia-kernel-source-535-open
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
@@ -418,22 +418,22 @@ Description: NVIDIA kernel source package
  This package provides the open NVIDIA kernel source needed by the userspace
  driver.
 
-Package: nvidia-dkms-530-open
+Package: nvidia-dkms-535-open
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
-Breaks: nvidia-kernel-source-530 (<< 390.25-0ubuntu2~)
+Breaks: nvidia-kernel-source-535 (<< 390.25-0ubuntu2~)
 Replaces:
- nvidia-dkms-kernel, nvidia-kernel-source-530 (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
+ nvidia-dkms-kernel, nvidia-kernel-source-535 (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
 Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-530-open (<= 530.41.03-1),
- nvidia-kernel-source-530-open (>= 530.41.03),
- nvidia-kernel-common-530 (<= 530.41.03-1),
- nvidia-kernel-common-530 (>= 530.41.03),
+ nvidia-kernel-source-535-open (<= 535.43.02-1),
+ nvidia-kernel-source-535-open (>= 535.43.02),
+ nvidia-kernel-common-535 (<= 535.43.02-1),
+ nvidia-kernel-common-535 (>= 535.43.02),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -442,18 +442,18 @@ Description: NVIDIA DKMS package (open kernel module)
  module will be built for your running kernel, and automatically rebuilt for
  any new kernel headers that are installed.
 
-Package: nvidia-headless-no-dkms-530-open
+Package: nvidia-headless-no-dkms-535-open
 Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-530 (<= 530.41.03-1),
- nvidia-kernel-common-530 (>= 530.41.03),
- nvidia-kernel-source-530-open (= ${binary:Version}),
- libnvidia-compute-530 (= ${binary:Version}),
- nvidia-compute-utils-530 (= ${binary:Version}),
- libnvidia-cfg1-530 (= ${binary:Version}),
+ nvidia-kernel-common-535 (<= 535.43.02-1),
+ nvidia-kernel-common-535 (>= 535.43.02),
+ nvidia-kernel-source-535-open (= ${binary:Version}),
+ libnvidia-compute-535 (= ${binary:Version}),
+ nvidia-compute-utils-535 (= ${binary:Version}),
+ libnvidia-cfg1-535 (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS (open kernel module)
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -462,16 +462,16 @@ Description: NVIDIA headless metapackage - no DKMS (open kernel module)
  will not be built.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-530 metapackage.
+ provided by the nvidia-driver-535 metapackage.
 
-Package: nvidia-headless-530-open
+Package: nvidia-headless-535-open
 Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
 Depends:
- nvidia-headless-no-dkms-530-open,
- nvidia-dkms-530-open,
+ nvidia-headless-no-dkms-535-open,
+ nvidia-dkms-535-open,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage (open kernel module)
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -479,4 +479,4 @@ Description: NVIDIA headless metapackage (open kernel module)
  OpenCL.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-530 metapackage.
+ provided by the nvidia-driver-535 metapackage.
