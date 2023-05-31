@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-compute-utils-525-server
+# postrm script for nvidia-compute-utils-#FLAVOUR#
 #
 # see: dh_installdeb(1)
 #
