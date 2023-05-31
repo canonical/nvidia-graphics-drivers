@@ -173,9 +173,9 @@ Description: NVIDIA compute utilities
 
 Package: nvidia-headless-no-dkms-530
 Architecture: amd64 arm64
-Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
-Provides: nvidia-384
-Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Conflicts: nvidia-headless-no-dkms, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Provides: nvidia-headless-no-dkms, nvidia-384
+Replaces: nvidia-headless-no-dkms, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
  nvidia-kernel-common-530 (<= 530.41.03-1),
  nvidia-kernel-common-530 (>= 530.41.03),
@@ -444,9 +444,9 @@ Description: NVIDIA DKMS package (open kernel module)
 
 Package: nvidia-headless-no-dkms-530-open
 Architecture: amd64 arm64
-Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
-Provides: nvidia-384
-Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Conflicts: nvidia-headless-no-dkms, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Provides: nvidia-headless-no-dkms, nvidia-384
+Replaces: nvidia-headless-no-dkms, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
  nvidia-kernel-common-530 (<= 530.41.03-1),
  nvidia-kernel-common-530 (>= 530.41.03),
