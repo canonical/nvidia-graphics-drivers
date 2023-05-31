@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-kernel-common-525-server
+# postrm script for nvidia-kernel-common-#FLAVOUR#
 #
 # see: dh_installdeb(1)
 #
