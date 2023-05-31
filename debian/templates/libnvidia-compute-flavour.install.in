@@ -1,4 +1,5 @@
-#AMD64_ONLY#NVIDIA-Linux/libnvidia-compiler.so.#VERSION#                 #LIBDIR#
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-pkcs11-openssl3.so.#VERSION#          #LIBDIR#
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-pkcs11.so.#VERSION#                   #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libcuda.so.#VERSION#                         #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libcudadebugger.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ml.so.#VERSION#                    #LIBDIR#
@@ -7,7 +8,6 @@
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ptxjitcompiler.so.#VERSION#        #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/nvidia.icd                                   etc/OpenCL/vendors
 #I386_ONLY#NVIDIA-Linux/32/libcuda.so.#VERSION#                          #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-compiler.so.#VERSION#               #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-ml.so.#VERSION#                     #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-nvvm.so.#VERSION#                   #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-opencl.so.#VERSION#                 #LIBDIR#
