@@ -1,6 +1,7 @@
-nvidia-graphics-drivers-450-server (450.236.01-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-450-server (450.236.01-0ubuntu3) mantic; urgency=medium
 
-  * 
+  * debian/dkms_nvidia/patches/buildfix_kernel_6.3.patch:
+    - Add a missing include.
 
  -- Paolo Pisati <paolo.pisati@canonical.com>  Thu, 01 Jun 2023 11:32:51 +0000
 
