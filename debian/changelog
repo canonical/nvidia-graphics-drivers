@@ -1,21 +1,5 @@
-nvidia-graphics-drivers-525-server (525.105.17-0ubuntu1) lunar; urgency=medium
+nvidia-graphics-drivers-535-server (535.54.03-0ubuntu1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #2012529).
-  * debian/templates/control.in:
-    - Switch to libcuda.so.1 and libnvidia-ml.so.1 provides.
+  * Initial release (LP: #).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 18:07:22 +0000
-
-nvidia-graphics-drivers-525-server (525.85.12-0ubuntu1) lunar; urgency=medium
-
-  * New upstream release (LP: #2003995).
-  * debian/templates/control.in:
-    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 11:00:04 +0000
-
-nvidia-graphics-drivers-525-server (525.60.13-0ubuntu1) lunar; urgency=medium
-
-  * Initial release (LP: #1999530).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Dec 2022 14:54:16 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 07 Jun 2023 12:51:44 +0200
