@@ -13,7 +13,6 @@ Build-Depends:
  zstd,
  dkms,
  libxext6,
- quilt,
  po-debconf,
  execstack,
  dh-modaliases,
