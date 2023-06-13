@@ -1,1 +1,2 @@
-#I386_EXCLUDED#NVIDIA-Linux/firmware/gsp.bin                               lib/firmware/nvidia/#VERSION#
+#I386_EXCLUDED#NVIDIA-Linux/firmware/gsp_ga10x.bin        lib/firmware/nvidia/#VERSION#
+#I386_EXCLUDED#NVIDIA-Linux/firmware/gsp_tu10x.bin        lib/firmware/nvidia/#VERSION#
