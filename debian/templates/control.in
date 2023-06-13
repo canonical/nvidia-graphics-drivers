@@ -13,7 +13,6 @@ Build-Depends:
  zstd,
  dkms,
  libxext6,
- quilt,
  po-debconf,
  dh-modaliases,
  xserver-xorg-dev (>= 2:1.4),
