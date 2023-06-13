@@ -40,7 +40,7 @@ Files: *
 Copyright: 1993-2015 NVIDIA Corporation.  All rights reserved.
 License: NVIDIA-graphics-drivers
 
-Files: NVIDIA-Linux/kernel-open/*, kernelsrc/NVIDIA-kernel-module-source-*.tar.xz
+Files: NVIDIA-Linux/kernel-open/* kernelsrc/NVIDIA-kernel-module-source-*.tar.xz
 Copyright: 2021 NVIDIA CORPORATION & AFFILIATES
 License: MIT
  However, when linked together to form a Linux kernel module, the
