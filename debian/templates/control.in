@@ -7,7 +7,7 @@ Uploaders:
 Vcs-Git: git://github.com/tseliot/nvidia-graphics-drivers.git
 Vcs-Browser: https://github.com/tseliot/nvidia-graphics-drivers/tree/#FLAVOUR#
 Build-Depends:
- debhelper (>= 9),
+ debhelper (>= 12),
  dpkg-dev (>= 1.17.11~),
  xz-utils,
  zstd,
