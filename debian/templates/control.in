@@ -228,6 +228,8 @@ Description: Shared files used with the kernel module
 
 Package: nvidia-firmware-#FLAVOUR#-#VERSION#
 Architecture: amd64 arm64
+Depends:
+ ${misc:Depends}
 Description: Firmware files used by the kernel module
  This package installs required firmware files for the NVIDIA kernel
  module.
