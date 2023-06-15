@@ -4,5 +4,6 @@ debian-watch-may-check-gpg-signature
 # false positive, see #726589
 version-substvar-for-external-package
 
-# Modaliases field
+# Modaliases and Pmaliases fields
 field-too-long Modaliases
+field-too-long Pmaliases
