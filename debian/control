@@ -656,3 +656,314 @@ Description: Transitional package for nvidia-headless-525
  This is a transitional package for nvidia-headless-525, and can be
  safely removed after the installation is complete.
 
+Package: nvidia-driver-515
+Architecture: amd64 arm64
+Depends: nvidia-driver-525
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-525
+ This is a transitional package for nvidia-driver-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-515
+Architecture: amd64 arm64
+Depends: nvidia-kernel-source-525
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-525
+ This is a transitional package for nvidia-kernel-source-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-515
+Architecture: amd64 arm64
+Depends: nvidia-dkms-525
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-525
+ This is a transitional package for nvidia-dkms-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-utils-515
+Architecture: amd64 arm64
+Depends: nvidia-utils-525
+Multi-Arch: same
+Description: Transitional package for nvidia-utils-525
+ This is a transitional package for nvidia-utils-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-compute-515
+Architecture: i386 amd64 arm64
+Depends: libnvidia-compute-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-compute-525
+ This is a transitional package for libnvidia-compute-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-compute-utils-515
+Architecture: amd64 arm64
+Depends: nvidia-compute-utils-525
+Multi-Arch: same
+Description: Transitional package for nvidia-compute-utils-525
+ This is a transitional package for nvidia-compute-utils-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-515
+Architecture: amd64 arm64
+Depends: nvidia-headless-no-dkms-525
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-no-dkms-525
+ This is a transitional package for nvidia-headless-no-dkms-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-515
+Architecture: amd64 arm64
+Depends: nvidia-headless-525
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-525
+ This is a transitional package for nvidia-headless-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-common-515
+Architecture: amd64 arm64
+Depends: nvidia-kernel-common-525
+Multi-Arch: same
+Description: Transitional package for nvidia-kernel-common-525
+ This is a transitional package for nvidia-kernel-common-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-gl-515
+Architecture: i386 amd64 arm64
+Depends: libnvidia-gl-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-gl-525
+ This is a transitional package for libnvidia-gl-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-common-515
+Architecture: all
+Depends: libnvidia-common-525
+Multi-Arch: foreign
+Description: Transitional package for libnvidia-common-525
+ This is a transitional package for libnvidia-common-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-extra-515
+Architecture: i386 amd64 arm64
+Depends: libnvidia-extra-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-extra-525
+ This is a transitional package for libnvidia-extra-525, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-515
+Architecture: amd64 arm64
+Depends: xserver-xorg-video-nvidia-525
+Multi-Arch: same
+Description: Transitional package for xserver-xorg-video-nvidia-525
+ This is a transitional package for xserver-xorg-video-nvidia-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-cfg1-515
+Architecture: amd64 arm64
+Depends: libnvidia-cfg1-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-cfg1-525
+ This is a transitional package for libnvidia-cfg1-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-fbc1-515
+Architecture: i386 amd64 arm64
+Depends: libnvidia-fbc1-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-fbc1-525
+ This is a transitional package for libnvidia-fbc1-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-decode-515
+Architecture: i386 amd64 arm64
+Depends: libnvidia-decode-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-decode-525
+ This is a transitional package for libnvidia-decode-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-encode-515
+Architecture: i386 amd64 arm64
+Depends: libnvidia-encode-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-encode-525
+ This is a transitional package for libnvidia-encode-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-driver-515-open
+Architecture: amd64 arm64
+Depends: nvidia-driver-525-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-525
+ This is a transitional package for nvidia-driver-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-515-open
+Architecture: amd64 arm64
+Depends: nvidia-kernel-source-525-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-525
+ This is a transitional package for nvidia-kernel-source-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-515-open
+Architecture: amd64 arm64
+Depends: nvidia-dkms-525-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-525
+ This is a transitional package for nvidia-dkms-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-515-open
+Architecture: amd64 arm64
+Depends: nvidia-headless-no-dkms-525-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-headless-no-dkms-525
+ This is a transitional package for nvidia-headless-no-dkms-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-515-open
+Architecture: amd64 arm64
+Depends: nvidia-headless-525-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-headless-525
+ This is a transitional package for nvidia-headless-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-driver-510
+Architecture: amd64 arm64
+Depends: nvidia-driver-525
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-525
+ This is a transitional package for nvidia-driver-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-510
+Architecture: amd64 arm64
+Depends: nvidia-kernel-source-525
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-525
+ This is a transitional package for nvidia-kernel-source-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-510
+Architecture: amd64 arm64
+Depends: nvidia-dkms-525
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-525
+ This is a transitional package for nvidia-dkms-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-utils-510
+Architecture: amd64 arm64
+Depends: nvidia-utils-525
+Multi-Arch: same
+Description: Transitional package for nvidia-utils-525
+ This is a transitional package for nvidia-utils-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-compute-510
+Architecture: i386 amd64 arm64
+Depends: libnvidia-compute-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-compute-525
+ This is a transitional package for libnvidia-compute-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-compute-utils-510
+Architecture: amd64 arm64
+Depends: nvidia-compute-utils-525
+Multi-Arch: same
+Description: Transitional package for nvidia-compute-utils-525
+ This is a transitional package for nvidia-compute-utils-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-510
+Architecture: amd64 arm64
+Depends: nvidia-headless-no-dkms-525
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-no-dkms-525
+ This is a transitional package for nvidia-headless-no-dkms-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-510
+Architecture: amd64 arm64
+Depends: nvidia-headless-525
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-525
+ This is a transitional package for nvidia-headless-525, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-common-510
+Architecture: amd64 arm64
+Depends: nvidia-kernel-common-525
+Multi-Arch: same
+Description: Transitional package for nvidia-kernel-common-525
+ This is a transitional package for nvidia-kernel-common-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-gl-510
+Architecture: i386 amd64 arm64
+Depends: libnvidia-gl-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-gl-525
+ This is a transitional package for libnvidia-gl-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-common-510
+Architecture: all
+Depends: libnvidia-common-525
+Multi-Arch: foreign
+Description: Transitional package for libnvidia-common-525
+ This is a transitional package for libnvidia-common-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-extra-510
+Architecture: i386 amd64 arm64
+Depends: libnvidia-extra-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-extra-525
+ This is a transitional package for libnvidia-extra-525, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-510
+Architecture: amd64 arm64
+Depends: xserver-xorg-video-nvidia-525
+Multi-Arch: same
+Description: Transitional package for xserver-xorg-video-nvidia-525
+ This is a transitional package for xserver-xorg-video-nvidia-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-cfg1-510
+Architecture: amd64 arm64
+Depends: libnvidia-cfg1-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-cfg1-525
+ This is a transitional package for libnvidia-cfg1-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-fbc1-510
+Architecture: i386 amd64 arm64
+Depends: libnvidia-fbc1-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-fbc1-525
+ This is a transitional package for libnvidia-fbc1-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-decode-510
+Architecture: i386 amd64 arm64
+Depends: libnvidia-decode-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-decode-525
+ This is a transitional package for libnvidia-decode-525, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-encode-510
+Architecture: i386 amd64 arm64
+Depends: libnvidia-encode-525
+Multi-Arch: same
+Description: Transitional package for libnvidia-encode-525
+ This is a transitional package for libnvidia-encode-525, and can be
+ safely removed after the installation is complete.
