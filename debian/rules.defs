@@ -3,6 +3,7 @@ XORG_BOUND		 = (>= 2:1.19.6-1ubuntu2~) | xserver-xorg-core-hwe-18.04
 
 ARCH_LIST		 = amd64
 #ARCH_LIST		+= armhf
+ARCH_LIST		+= arm64
 #ARCH_LIST		+= ppc64el
 ARCH_DEPS_i386		 =
 UVM_ARCH_LIST		 = amd64 ppc64el
@@ -10,10 +11,12 @@ UVM_ARCH_LIST		 = amd64 ppc64el
 NVIDIA_DIRNAME_i386	 = NVIDIA-Linux-x86_64-${NVIDIA_RELEASE}
 NVIDIA_DIRNAME_amd64	 = NVIDIA-Linux-x86_64-${NVIDIA_RELEASE}
 #NVIDIA_DIRNAME_armhf	 = NVIDIA-Linux-armv7l-gnueabihf-${NVIDIA_RELEASE}
+NVIDIA_DIRNAME_arm64     = NVIDIA-Linux-aarch64-${NVIDIA_RELEASE}
 NVIDIA_DIRNAME_ppc64el	 = NVIDIA-Linux-ppc64le-${NVIDIA_RELEASE}
 NVIDIA_FILENAME_i386	 = ${NVIDIA_DIRNAME_i386}.run
 NVIDIA_FILENAME_amd64	 = ${NVIDIA_DIRNAME_amd64}.run
 #NVIDIA_FILENAME_armhf	 = ${NVIDIA_DIRNAME_armhf}.run
+NVIDIA_FILENAME_arm64    = ${NVIDIA_DIRNAME_arm64}.run
 NVIDIA_FILENAME_ppc64el	 = ${NVIDIA_DIRNAME_ppc64el}.run
 
 HTTPURL_PREFIX		 = https://us.download.nvidia.com/XFree86
