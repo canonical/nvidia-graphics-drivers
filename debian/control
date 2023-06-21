@@ -365,3 +365,138 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
+Package: nvidia-driver-515-server
+Architecture: amd64 arm64
+Depends: nvidia-driver-525-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-525-server
+ This is a transitional package for nvidia-driver-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-515-server
+Architecture: amd64 arm64
+Depends: nvidia-kernel-source-525-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-525-server
+ This is a transitional package for nvidia-kernel-source-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-515-server
+Architecture: amd64 arm64
+Depends: nvidia-dkms-525-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-525-server
+ This is a transitional package for nvidia-dkms-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-utils-515-server
+Architecture: amd64 arm64
+Depends: nvidia-utils-525-server
+Multi-Arch: same
+Description: Transitional package for nvidia-utils-525-server
+ This is a transitional package for nvidia-utils-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-compute-515-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-compute-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-compute-525-server
+ This is a transitional package for libnvidia-compute-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-compute-utils-515-server
+Architecture: amd64 arm64
+Depends: nvidia-compute-utils-525-server
+Multi-Arch: same
+Description: Transitional package for nvidia-compute-utils-525-server
+ This is a transitional package for nvidia-compute-utils-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-515-server
+Architecture: amd64 arm64
+Depends: nvidia-headless-no-dkms-525-server
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-no-dkms-525-server
+ This is a transitional package for nvidia-headless-no-dkms-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-515-server
+Architecture: amd64 arm64
+Depends: nvidia-headless-525-server
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-525-server
+ This is a transitional package for nvidia-headless-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-common-515-server
+Architecture: amd64 arm64
+Depends: nvidia-kernel-common-525-server
+Multi-Arch: same
+Description: Transitional package for nvidia-kernel-common-525-server
+ This is a transitional package for nvidia-kernel-common-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-gl-515-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-gl-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-gl-525-server
+ This is a transitional package for libnvidia-gl-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-common-515-server
+Architecture: all
+Depends: libnvidia-common-525-server
+Multi-Arch: foreign
+Description: Transitional package for libnvidia-common-525-server
+ This is a transitional package for libnvidia-common-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-extra-515-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-extra-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-extra-525-server
+ This is a transitional package for libnvidia-extra-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-515-server
+Architecture: amd64 arm64
+Depends: xserver-xorg-video-nvidia-525-server
+Multi-Arch: same
+Description: Transitional package for xserver-xorg-video-nvidia-525-server
+ This is a transitional package for xserver-xorg-video-nvidia-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-cfg1-515-server
+Architecture: amd64 arm64
+Depends: libnvidia-cfg1-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-cfg1-525-server
+ This is a transitional package for libnvidia-cfg1-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-fbc1-515-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-fbc1-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-fbc1-525-server
+ This is a transitional package for libnvidia-fbc1-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-decode-515-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-decode-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-decode-525-server
+ This is a transitional package for libnvidia-decode-525-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-encode-515-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-encode-525-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-encode-525-server
+ This is a transitional package for libnvidia-encode-525-server, and can be
+ safely removed after the installation is complete.
