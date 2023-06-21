@@ -1,8 +1,11 @@
-nvidia-graphics-drivers-525-server (525.105.17-0ubuntu0.22.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525-server (525.105.17-0ubuntu0.22.04.2) jammy; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Add transitional packages for 515-server (LP: #2024247).
+  * debian/templates/libnvidia-gl-flavour.install.in:
+    - Include the missing libnvidia-api.so.1.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 21 Jun 2023 12:09:40 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 21 Jun 2023 15:06:36 +0000
 
 nvidia-graphics-drivers-525-server (525.105.17-0ubuntu0.22.04.1) jammy; urgency=medium
 
