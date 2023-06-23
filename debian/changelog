@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-525-server (525.125.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525-server (525.125.06-0ubuntu1) mantic; urgency=medium
 
-  * 
+  * New upstream release (LP: #2024675).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Jun 2023 15:49:15 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Jun 2023 15:52:58 +0000
 
 nvidia-graphics-drivers-525-server (525.105.17-0ubuntu2) mantic; urgency=medium
 
