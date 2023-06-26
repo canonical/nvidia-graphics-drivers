@@ -1,0 +1,5 @@
+# nothing to do about the firmware
+binary-from-other-architecture
+
+# We are not allowed to strip the binaries
+unstripped-binary-or-object
