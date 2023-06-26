@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-535 (535.54.03-0ubuntu1) mantic; urgency=medium
+nvidia-graphics-drivers-535 (535.54.03-0ubuntu0.23.04.1) lunar; urgency=medium
 
-  * Initial release.
+  * Initial release (LP: ##2024675):
+    - This replaces the 530 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 15 Jun 2023 11:52:12 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 26 Jun 2023 14:24:45 +0000
