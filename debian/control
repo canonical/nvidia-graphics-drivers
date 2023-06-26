@@ -31,10 +31,10 @@ Package: nvidia-driver-525
 Architecture: amd64
 Depends:
  libnvidia-gl-525 (= ${binary:Version}),
- nvidia-dkms-525 (<= 525.116.04-1),
- nvidia-dkms-525 (>= 525.116.04),
- nvidia-kernel-common-525 (<= 525.116.04-1),
- nvidia-kernel-common-525 (>= 525.116.04),
+ nvidia-dkms-525 (<= 525.125.06-1),
+ nvidia-dkms-525 (>= 525.125.06),
+ nvidia-kernel-common-525 (<= 525.125.06-1),
+ nvidia-kernel-common-525 (>= 525.125.06),
  nvidia-kernel-source-525 (= ${binary:Version}),
  libnvidia-compute-525 (= ${binary:Version}),
  libnvidia-extra-525 (= ${binary:Version}),
@@ -91,10 +91,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-525 (<= 525.116.04-1),
- nvidia-kernel-source-525 (>= 525.116.04),
- nvidia-kernel-common-525 (<= 525.116.04-1),
- nvidia-kernel-common-525 (>= 525.116.04),
+ nvidia-kernel-source-525 (<= 525.125.06-1),
+ nvidia-kernel-source-525 (>= 525.125.06),
+ nvidia-kernel-common-525 (<= 525.125.06-1),
+ nvidia-kernel-common-525 (>= 525.125.06),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -175,8 +175,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-525 (<= 525.116.04-1),
- nvidia-kernel-common-525 (>= 525.116.04),
+ nvidia-kernel-common-525 (<= 525.125.06-1),
+ nvidia-kernel-common-525 (>= 525.125.06),
  nvidia-kernel-source-525 (= ${binary:Version}),
  libnvidia-compute-525 (= ${binary:Version}),
  nvidia-compute-utils-525 (= ${binary:Version}),
@@ -368,10 +368,10 @@ Package: nvidia-driver-525-open
 Architecture: amd64
 Depends:
  libnvidia-gl-525 (= ${binary:Version}),
- nvidia-dkms-525-open (<= 525.116.04-1),
- nvidia-dkms-525-open (>= 525.116.04),
- nvidia-kernel-common-525 (<= 525.116.04-1),
- nvidia-kernel-common-525 (>= 525.116.04),
+ nvidia-dkms-525-open (<= 525.125.06-1),
+ nvidia-dkms-525-open (>= 525.125.06),
+ nvidia-kernel-common-525 (<= 525.125.06-1),
+ nvidia-kernel-common-525 (>= 525.125.06),
  nvidia-kernel-source-525-open (= ${binary:Version}),
  libnvidia-compute-525 (= ${binary:Version}),
  libnvidia-extra-525 (= ${binary:Version}),
@@ -428,10 +428,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-525-open (<= 525.116.04-1),
- nvidia-kernel-source-525-open (>= 525.116.04),
- nvidia-kernel-common-525 (<= 525.116.04-1),
- nvidia-kernel-common-525 (>= 525.116.04),
+ nvidia-kernel-source-525-open (<= 525.125.06-1),
+ nvidia-kernel-source-525-open (>= 525.125.06),
+ nvidia-kernel-common-525 (<= 525.125.06-1),
+ nvidia-kernel-common-525 (>= 525.125.06),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -446,8 +446,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-525 (<= 525.116.04-1),
- nvidia-kernel-common-525 (>= 525.116.04),
+ nvidia-kernel-common-525 (<= 525.125.06-1),
+ nvidia-kernel-common-525 (>= 525.125.06),
  nvidia-kernel-source-525-open (= ${binary:Version}),
  libnvidia-compute-525 (= ${binary:Version}),
  nvidia-compute-utils-525 (= ${binary:Version}),
