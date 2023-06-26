@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-525 (525.125.06-0ubuntu0.22.10.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 26 Jun 2023 09:03:50 +0000
+
 nvidia-graphics-drivers-525 (525.116.04-0ubuntu0.22.10.2) kinetic; urgency=medium
 
   * debian/templates/control.in:
