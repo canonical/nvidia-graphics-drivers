@@ -1,6 +1,6 @@
 #NVIDIA-Linux/nvidia-powerd                                     usr/bin
-NVIDIA-Linux/firmware/gsp_ad10x.bin                         lib/firmware/nvidia/525.116.04
-NVIDIA-Linux/firmware/gsp_tu10x.bin                         lib/firmware/nvidia/525.116.04
+NVIDIA-Linux/firmware/gsp_ad10x.bin                         lib/firmware/nvidia/525.125.06
+NVIDIA-Linux/firmware/gsp_tu10x.bin                         lib/firmware/nvidia/525.125.06
 NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
 NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
