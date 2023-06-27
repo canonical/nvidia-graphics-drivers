@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-535 (535.54.03-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.54.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * Initial release (LP: #2024675):
+    - This replaces the 530 series.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 27 Jun 2023 08:44:42 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 27 Jun 2023 08:45:30 +0000
