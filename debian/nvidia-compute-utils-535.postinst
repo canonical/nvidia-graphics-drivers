@@ -1,0 +1,33 @@
+#!/bin/sh
+# postinst script for nvidia-compute-utils-535
+#
+# see: dh_installdeb(1)
+#
+# Copyright (C) 2018 Canonical Ltd
+# Authors: Alberto Milone
+set -e
+
+NVPD_USER="nvidia-persistenced"
+
+case "$1" in
+    configure)
+
+        if ! id "$NVPD_USER" > /dev/null 2>&1; then
+            # Create the user and group for nvidia-persistenced
+            adduser --system --no-create-home --home /nonexistent \
+            --gecos 'NVIDIA Persistence Daemon' \
+            --group "$NVPD_USER"
+        fi
+
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+            echo "postinst called with unknown argument \`$1'" >&2
+            exit 1
+    ;;
+esac
+
+#DEBHELPER#

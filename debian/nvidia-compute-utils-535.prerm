@@ -1,0 +1,26 @@
+#!/bin/sh
+# prerm script for nvidia-compute-utils-535
+#
+# Copyright (C) 2018 Canonical Ltd
+# Authors: Alberto Milone
+
+
+stop_nvidia_peristenced() {
+    if [ -e /usr/bin/stop-nvidia-persistenced ] && [ -x /usr/bin/stop-nvidia-persistenced ]; then
+        echo "Stopping previous nvidia-persistenced"
+        /usr/bin/stop-nvidia-persistenced || true
+        echo "Done."
+    elif [ -e /lib/systemd/system/nvidia-persistenced.service ]; then
+        if [ -x /bin/systemctl ]; then
+            /bin/systemctl stop --no-block nvidia-persistenced || true
+        fi
+    fi
+}
+
+case "$1" in
+    upgrade|remove)
+        stop_nvidia_peristenced
+    ;;
+esac
+
+#DEBHELPER#
