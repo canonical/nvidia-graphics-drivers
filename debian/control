@@ -10,6 +10,7 @@ Build-Depends:
  debhelper (>= 12),
  dpkg-dev (>= 1.17.11~),
  xz-utils,
+ zstd,
  dkms,
  libxext6,
  po-debconf,
@@ -96,6 +97,7 @@ Depends:
  nvidia-kernel-source-535-server (>= 535.54.03),
  nvidia-kernel-common-535-server (<= 535.54.03-1),
  nvidia-kernel-common-535-server (>= 535.54.03),
+ nvidia-firmware-535-server-535.54.03,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -214,7 +216,7 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.54.01
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.54.03
 Replaces:
  nvidia-dkms-535-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -225,7 +227,7 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-535-server-535.54.01
+Package: nvidia-firmware-535-server-535.54.03
 Architecture: amd64 arm64
 Depends:
  ${misc:Depends}
@@ -373,138 +375,118 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-driver-515-server
+Package: nvidia-driver-535-server-open
 Architecture: amd64 arm64
-Depends: nvidia-driver-535-server
+Depends:
+ libnvidia-gl-535-server (= ${binary:Version}),
+ nvidia-dkms-535-server-open (<= 535.54.03-1),
+ nvidia-dkms-535-server-open (>= 535.54.03),
+ nvidia-kernel-common-535-server (<= 535.54.03-1),
+ nvidia-kernel-common-535-server (>= 535.54.03),
+ nvidia-kernel-source-535-server-open (= ${binary:Version}),
+ libnvidia-compute-535-server (= ${binary:Version}),
+ libnvidia-extra-535-server (= ${binary:Version}),
+ nvidia-compute-utils-535-server (= ${binary:Version}),
+ libnvidia-decode-535-server (= ${binary:Version}),
+ libnvidia-encode-535-server (= ${binary:Version}),
+ nvidia-utils-535-server (= ${binary:Version}),
+ xserver-xorg-video-nvidia-535-server (= ${binary:Version}),
+ libnvidia-cfg1-535-server (= ${binary:Version}),
+ libnvidia-fbc1-535-server (= ${binary:Version}) [!ppc64el],
+ ${misc:Depends}
+Recommends:
+ libnvidia-compute-535-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-535-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-535-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-535-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-535-server:i386 (= ${binary:Version}) [amd64]
+Suggests:
+ nvidia-settings, nvidia-prime (>= 0.8)
+XB-Modaliases: ${modaliases}
+XB-PmAliases: ${nvidia:pm-modaliases}
+XB-Support: PB
+Description: NVIDIA driver (open kernel) metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland.
+ .
+ See /usr/share/doc/nvidia-driver-535-server/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-kernel-source-535-server-open
+Architecture: amd64 arm64
 Multi-Arch: foreign
-Description: Transitional package for nvidia-driver-535-server
- This is a transitional package for nvidia-driver-535-server, and can be
- safely removed after the installation is complete.
+Conflicts:
+ nvidia-kernel-source
+Replaces:
+ nvidia-kernel-source, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Provides:
+ nvidia-kernel-source
+Depends:
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA kernel source package
+ This package provides the open NVIDIA kernel source needed by the userspace
+ driver.
 
-Package: nvidia-kernel-source-515-server
+Package: nvidia-dkms-535-server-open
 Architecture: amd64 arm64
-Depends: nvidia-kernel-source-535-server
 Multi-Arch: foreign
-Description: Transitional package for nvidia-kernel-source-535-server
- This is a transitional package for nvidia-kernel-source-535-server, and can be
- safely removed after the installation is complete.
+Conflicts:
+ nvidia-dkms-kernel
+Breaks: nvidia-kernel-source-535-server (<< 390.25-0ubuntu2~)
+Replaces:
+ nvidia-dkms-kernel, nvidia-kernel-source-535-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
+Provides:
+ nvidia-dkms-kernel
+Depends:
+ dkms,
+ nvidia-kernel-source-535-server-open (<= 535.54.03-1),
+ nvidia-kernel-source-535-server-open (>= 535.54.03),
+ nvidia-kernel-common-535-server (<= 535.54.03-1),
+ nvidia-kernel-common-535-server (>= 535.54.03),
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA DKMS package (open kernel module)
+ This package builds the open NVIDIA kernel module needed by the userspace
+ driver, using DKMS.
+ Provided that you have the kernel header packages installed, the kernel
+ module will be built for your running kernel, and automatically rebuilt for
+ any new kernel headers that are installed.
 
-Package: nvidia-dkms-515-server
+Package: nvidia-headless-no-dkms-535-server-open
 Architecture: amd64 arm64
-Depends: nvidia-dkms-535-server
-Multi-Arch: foreign
-Description: Transitional package for nvidia-dkms-535-server
- This is a transitional package for nvidia-dkms-535-server, and can be
- safely removed after the installation is complete.
+Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Provides: nvidia-384
+Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
+Depends:
+ nvidia-kernel-common-535-server (<= 535.54.03-1),
+ nvidia-kernel-common-535-server (>= 535.54.03),
+ nvidia-kernel-source-535-server-open (= ${binary:Version}),
+ libnvidia-compute-535-server (= ${binary:Version}),
+ nvidia-compute-utils-535-server (= ${binary:Version}),
+ libnvidia-cfg1-535-server (= ${binary:Version}),
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA headless metapackage - no DKMS (open kernel module)
+ This metapackage installs the NVIDIA driver and the libraries that enable
+ parallel general purpose computation through CUDA and
+ OpenCL. DKMS will not be installed, and, therefore, the kernel module
+ will not be built.
+ .
+ Install this package if you do not need X11 or Wayland support, which is
+ provided by the nvidia-driver-535-server metapackage.
 
-Package: nvidia-utils-515-server
+Package: nvidia-headless-535-server-open
 Architecture: amd64 arm64
-Depends: nvidia-utils-535-server
-Multi-Arch: same
-Description: Transitional package for nvidia-utils-535-server
- This is a transitional package for nvidia-utils-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-compute-515-server
-Architecture: i386 amd64 arm64
-Depends: libnvidia-compute-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-compute-535-server
- This is a transitional package for libnvidia-compute-535-server, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-compute-utils-515-server
-Architecture: amd64 arm64
-Depends: nvidia-compute-utils-535-server
-Multi-Arch: same
-Description: Transitional package for nvidia-compute-utils-535-server
- This is a transitional package for nvidia-compute-utils-535-server, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-headless-no-dkms-515-server
-Architecture: amd64 arm64
-Depends: nvidia-headless-no-dkms-535-server
-Multi-Arch: same
-Description: Transitional package for nvidia-headless-no-dkms-535-server
- This is a transitional package for nvidia-headless-no-dkms-535-server, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-headless-515-server
-Architecture: amd64 arm64
-Depends: nvidia-headless-535-server
-Multi-Arch: same
-Description: Transitional package for nvidia-headless-535-server
- This is a transitional package for nvidia-headless-535-server, and can be
- safely removed after the installation is complete.
-
-Package: nvidia-kernel-common-515-server
-Architecture: amd64 arm64
-Depends: nvidia-kernel-common-535-server
-Multi-Arch: same
-Description: Transitional package for nvidia-kernel-common-535-server
- This is a transitional package for nvidia-kernel-common-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-gl-515-server
-Architecture: i386 amd64 arm64
-Depends: libnvidia-gl-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-gl-535-server
- This is a transitional package for libnvidia-gl-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-common-515-server
-Architecture: all
-Depends: libnvidia-common-535-server
-Multi-Arch: foreign
-Description: Transitional package for libnvidia-common-535-server
- This is a transitional package for libnvidia-common-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-extra-515-server
-Architecture: i386 amd64 arm64
-Depends: libnvidia-extra-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-extra-535-server
- This is a transitional package for libnvidia-extra-535-server, and can be
- safely removed after the installation is complete.
-
-Package: xserver-xorg-video-nvidia-515-server
-Architecture: amd64 arm64
-Depends: xserver-xorg-video-nvidia-535-server
-Multi-Arch: same
-Description: Transitional package for xserver-xorg-video-nvidia-535-server
- This is a transitional package for xserver-xorg-video-nvidia-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-cfg1-515-server
-Architecture: amd64 arm64
-Depends: libnvidia-cfg1-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-cfg1-535-server
- This is a transitional package for libnvidia-cfg1-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-fbc1-515-server
-Architecture: i386 amd64 arm64
-Depends: libnvidia-fbc1-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-fbc1-535-server
- This is a transitional package for libnvidia-fbc1-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-decode-515-server
-Architecture: i386 amd64 arm64
-Depends: libnvidia-decode-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-decode-535-server
- This is a transitional package for libnvidia-decode-535-server, and can be
- safely removed after the installation is complete.
-
-Package: libnvidia-encode-515-server
-Architecture: i386 amd64 arm64
-Depends: libnvidia-encode-535-server
-Multi-Arch: same
-Description: Transitional package for libnvidia-encode-535-server
- This is a transitional package for libnvidia-encode-535-server, and can be
- safely removed after the installation is complete.
+Conflicts: nvidia-headless
+Provides: nvidia-headless
+Replaces: nvidia-headless
+Depends:
+ nvidia-headless-no-dkms-535-server-open,
+ nvidia-dkms-535-server-open,
+ ${misc:Depends}, ${shlibs:Depends}
+Description: NVIDIA headless metapackage (open kernel module)
+ This metapackage installs the NVIDIA driver and the libraries that enable
+ parallel general purpose computation through CUDA and
+ OpenCL.
+ .
+ Install this package if you do not need X11 or Wayland support, which is
+ provided by the nvidia-driver-535-server metapackage.
