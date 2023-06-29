@@ -1,44 +1,5 @@
-nvidia-graphics-drivers-525-server (525.125.06-0ubuntu0.20.04.1) focal; urgency=medium
+nvidia-graphics-drivers-535-server (535.54.03-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #2024675).
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Jun 2023 16:01:39 +0000
-
-nvidia-graphics-drivers-525-server (525.105.17-0ubuntu0.20.04.2) focal; urgency=medium
-
-  [ Alberto Milone ]
-  * debian/templates/control.in:
-    - Add transitional packages for 515-server (LP: #2024247).
-  * debian/templates/libnvidia-gl-flavour.install.in:
-    - Include the missing libnvidia-api.so.1.
-  * debian/rules.defs:
-    - Re-enable only partially enabled arm64.
-
-  [ Dimitri John Ledkov ]
-  * debian/templates/control.in, debian/rules:
-    - Drop remove-stack-markings.
-      nvidia-390 and later all ship libraries and binaries with
-      execstack markings cleared. On some architectures clearing
-      execstack markings is not supported. Remove this redundant code.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 21 Jun 2023 14:14:47 +0000
-
-nvidia-graphics-drivers-525-server (525.105.17-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2012529).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Mar 2023 18:35:52 +0000
-
-nvidia-graphics-drivers-525-server (525.85.12-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2003995).
-  * debian/templates/control.in:
-    - Add Conflicts, Replaces, Provides up to libcuda-11.7-1.
-
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 01 Feb 2023 11:07:47 +0000
-
-nvidia-graphics-drivers-525-server (525.60.13-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * Initial release (LP: #1999530).
-
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 13 Dec 2022 17:09:28 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Jun 2023 13:44:39 +0000
