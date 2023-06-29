@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-535-server (535.54.03-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535-server (535.54.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * Initial release (LP: #2025243).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Jun 2023 13:36:37 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 29 Jun 2023 13:41:19 +0000
