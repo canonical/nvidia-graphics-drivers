@@ -1,0 +1,64 @@
+From b5d166a4958e192197ec6534b28fb12ee9a873b3 Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <p.pisati@canonical.com>
+Date: Wed, 28 Jun 2023 14:11:24 +0000
+Subject: [PATCH] Buildfix kernel 6.4
+
+Upstream commit 96a7b60f6ddb2bc966fac800c1dd18876a6e3c3f removed
+.dumb_destroy() hook ("drm_gem_handle_delete(file_priv, handle)" was
+already the default behaviour if the callback was not populated).
+
+Signed-off-by: Paolo Pisati <p.pisati@canonical.com>
+---
+ nvidia-drm/nvidia-drm-drv.c                            | 1 -
+ nvidia-drm/nvidia-drm-gem-nvkms-memory.c               | 7 -------
+ nvidia-drm/nvidia-drm-gem-nvkms-memory.h               | 4 ----
+ 3 files changed, 12 deletions(-)
+
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index e5dee49e..774fc0e3 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -766,7 +766,6 @@ static void nv_drm_update_drm_driver_features(void)
+ 
+     nv_drm_driver.dumb_create      = nv_drm_dumb_create;
+     nv_drm_driver.dumb_map_offset  = nv_drm_dumb_map_offset;
+-    nv_drm_driver.dumb_destroy     = nv_drm_dumb_destroy;
+ 
+ #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_CALLBACKS)
+     nv_drm_driver.gem_vm_ops       = &nv_drm_gem_vma_ops;
+diff --git a/nvidia-drm/nvidia-drm-gem-nvkms-memory.c b/nvidia-drm/nvidia-drm-gem-nvkms-memory.c
+index cd60138f..ae949283 100644
+--- a/nvidia-drm/nvidia-drm-gem-nvkms-memory.c
++++ b/nvidia-drm/nvidia-drm-gem-nvkms-memory.c
+@@ -226,13 +226,6 @@ done:
+     return ret;
+ }
+ 
+-int nv_drm_dumb_destroy(struct drm_file *file,
+-                        struct drm_device *dev,
+-                        uint32_t handle)
+-{
+-    return drm_gem_handle_delete(file, handle);
+-}
+-
+ /* XXX Move these vma operations to os layer */
+ 
+ static vm_fault_t __nv_drm_vma_fault(struct vm_area_struct *vma,
+diff --git a/nvidia-drm/nvidia-drm-gem-nvkms-memory.h b/nvidia-drm/nvidia-drm-gem-nvkms-memory.h
+index 2d9d1a10..e18f1c7d 100644
+--- a/nvidia-drm/nvidia-drm-gem-nvkms-memory.h
++++ b/nvidia-drm/nvidia-drm-gem-nvkms-memory.h
+@@ -79,10 +79,6 @@ int nv_drm_dumb_map_offset(struct drm_file *file,
+                            struct drm_device *dev, uint32_t handle,
+                            uint64_t *offset);
+ 
+-int nv_drm_dumb_destroy(struct drm_file *file,
+-                        struct drm_device *dev,
+-                        uint32_t handle);
+-
+ extern const struct vm_operations_struct nv_drm_gem_vma_ops;
+ 
+ #endif
+-- 
+2.40.1
+
