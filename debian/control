@@ -10,6 +10,7 @@ Build-Depends:
  debhelper (>= 12),
  dpkg-dev (>= 1.17.11~),
  xz-utils,
+ zstd,
  dkms,
  libxext6,
  po-debconf,
@@ -95,6 +96,7 @@ Depends:
  nvidia-kernel-source-535-server (>= 535.54.03),
  nvidia-kernel-common-535-server (<= 535.54.03-1),
  nvidia-kernel-common-535-server (>= 535.54.03),
+ nvidia-firmware-535-server-535.54.03,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -213,7 +215,7 @@ Architecture: amd64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.54.01
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.54.03
 Replaces:
  nvidia-dkms-535-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -224,7 +226,7 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-535-server-535.54.01
+Package: nvidia-firmware-535-server-535.54.03
 Architecture: amd64 arm64
 Depends:
  ${misc:Depends}
