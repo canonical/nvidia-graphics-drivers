@@ -173,20 +173,6 @@ override_dh_installinit:
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
 
-# Do not run dh_strip here.  The NVIDIA license says:
-#
-#     2.1.2 Linux/FreeBSD Exception.  Notwithstanding the foregoing terms of
-#     Section 2.1.1, SOFTWARE designed exclusively for use on the Linux or
-#     FreeBSD operating systems, or other operating systems derived from the
-#     source code to these operating systems, may be copied and
-#     redistributed, provided that the binary files thereof are not modified
-#     in any way (except for unzipping of compressed files).
-#
-# Stripping the binary modules would constitute modifying the binary files
-# in a way other than unzipping of compressed files.
-override_dh_strip:
-override_dh_strip_nondeterminism:
-
 ############################################################################
 
 .PHONY: regen-from-templates
