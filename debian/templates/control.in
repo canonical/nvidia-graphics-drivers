@@ -86,7 +86,7 @@ Depends:
  nvidia-driver-core-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
 Conflicts:
- nvidia-driver-#FLAVOUR#
+ nvidia-driver-#FLAVOUR#, nvidia-dkms-#FLAVOUR#
 Description: NVIDIA Driver LRM metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
