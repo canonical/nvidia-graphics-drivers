@@ -66,6 +66,8 @@ Depends:
  nvidia-dkms-#FLAVOUR# (<= #DEBIAN_VERSION#-1),
  nvidia-dkms-#FLAVOUR# (>= #DEBIAN_VERSION#),
  ${misc:Depends}
+Conflicts:
+ nvidia-driver-lrm-#FLAVOUR#
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -82,6 +84,8 @@ Architecture: amd64 arm64
 Depends:
  nvidia-driver-core-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
+Conflicts:
+ nvidia-driver-#FLAVOUR#
 Description: NVIDIA Driver LRM metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -439,6 +443,8 @@ Depends:
  nvidia-dkms-#FLAVOUR#-open (<= #DEBIAN_VERSION#-1),
  nvidia-dkms-#FLAVOUR#-open (>= #DEBIAN_VERSION#),
  ${misc:Depends}
+Conflicts:
+ nvidia-driver-lrm-#FLAVOUR#-open
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -455,6 +461,8 @@ Architecture: amd64 arm64
 Depends:
  nvidia-driver-core-#FLAVOUR#-open (= ${binary:Version}),
  ${misc:Depends}
+Conflicts:
+ nvidia-driver-#FLAVOUR#-open
 Description: NVIDIA driver (open kernel) LRM metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
