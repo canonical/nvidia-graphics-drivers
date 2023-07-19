@@ -256,6 +256,7 @@ else
 get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
 endif
 
+get_kern_download_url	= $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(NVIDIA_FILENAME_$(strip $1))
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
@@ -305,8 +306,17 @@ get-orig-source-prepare/%: get-orig-source-prepare
 	mkdir get-orig-source/$(call get_origdir,$*)
 
 get-orig-source-download/%: get-orig-source-prepare
-	ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
-		wget $(call get_download_url,$*) -P get-orig-source/ || cp $*/$(NVIDIA_FILENAME_$*) get-orig-source/
+	# Use different a download function for kernelsrc
+	if [ -n "$(findstring NVIDIA,$(NVIDIA_FILENAME_$*))" ]; then \
+		ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
+		    wget $(call get_download_url,$*) -P get-orig-source/ || \
+		    cp $*/$(NVIDIA_FILENAME_$*) get-orig-source/ ; \
+	else \
+		ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
+		    wget $(call get_kern_download_url,$*) -P get-orig-source/ || \
+		    cp $*/$(NVIDIA_FILENAME_$*) get-orig-source/ ; \
+	fi
+
 	if [ -d $(CACHE) ] && [ ! -f $(CACHE)/$(NVIDIA_FILENAME_$*) ]; then \
 		ln -v get-orig-source/$(NVIDIA_FILENAME_$*) $(CACHE) ; fi
 
