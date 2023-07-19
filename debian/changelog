@@ -1,8 +1,26 @@
-nvidia-graphics-drivers-535 (535.86.05-0ubuntu0.22.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.86.05-0ubuntu0.22.10.1) kinetic; urgency=medium
 
-  * 
+  * New upstream release (LP: #2028125):
+    - Fixed a bug that caused excessive memory consumption when
+      OpenGL and Vulkan applications were running while VT-
+      switched away from X.
+    - Fixed a bug that could cause the kernel to panic when video
+      memory is full.
+    - Fixed a bug that prevented displays from refreshing when using
+      an NVIDIA PRIME Display Offload sink.
+    - Fixed a bug that could cause some Variable Refresh Rate (VRR)
+      monitors to flicker by allowing the refresh rate to drop below
+      the monitor's minimum.
+    - Fixed a bug that caused corruption when running Vulkan
+      applications.
+    - Fixed a regression that could cause a system hang when running
+      windowed Vulkan applications with sync-to-vblank enabled.
+    - Fixed a video memory leak observed when turning off a connected
+      monitor while using certain Wayland compositors.
+  * debian/rules{.defs}:
+    - Match the patch changes on the Nvidia servers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 19 Jul 2023 09:09:43 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 19 Jul 2023 09:11:10 +0000
 
 nvidia-graphics-drivers-535 (535.54.03-0ubuntu0.22.10.1) kinetic; urgency=medium
 
