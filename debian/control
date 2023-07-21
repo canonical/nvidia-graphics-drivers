@@ -28,12 +28,10 @@ Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
-Package: nvidia-driver-535
+Package: nvidia-driver-core-535
 Architecture: amd64
 Depends:
  libnvidia-gl-535 (= ${binary:Version}),
- nvidia-dkms-535 (<= 535.86.05-1),
- nvidia-dkms-535 (>= 535.86.05),
  nvidia-kernel-common-535 (<= 535.86.05-1),
  nvidia-kernel-common-535 (>= 535.86.05),
  nvidia-kernel-source-535 (= ${binary:Version}),
@@ -54,6 +52,23 @@ Recommends:
  libnvidia-encode-535:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-535:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-535:i386 (= ${binary:Version}) [amd64]
+Description: NVIDIA Driver Core metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland. Do not install this directly.
+ .
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-driver-535
+Architecture: amd64
+Depends:
+ nvidia-driver-core-535 (= ${binary:Version}),
+ nvidia-dkms-535 (<= 535.86.05-1),
+ nvidia-dkms-535 (>= 535.86.05),
+ ${misc:Depends}
+Conflicts:
+ nvidia-driver-lrm-535
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -61,6 +76,22 @@ Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
+ .
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-driver-lrm-535
+Architecture: amd64
+Depends:
+ nvidia-driver-core-535 (= ${binary:Version}),
+ ${misc:Depends}
+Conflicts:
+ nvidia-driver-535, nvidia-dkms-535
+Description: NVIDIA Driver LRM metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland. This is meant to be used with
+ the linux-restricted-modules.
  .
  See /usr/share/doc/nvidia-driver-535/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
@@ -227,7 +258,7 @@ Description: Shared files used with the kernel module
  and to create the uvm devices automatically.
 
 Package: nvidia-firmware-535-535.86.05
-Architecture: amd64 arm64
+Architecture: amd64
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -375,7 +406,7 @@ Description: NVENC Video Encoding runtime library
  This package contains the nvidia-encode runtime library.
 
 Package: nvidia-driver-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-driver-535
 Multi-Arch: foreign
 Description: Transitional package for nvidia-driver-535
@@ -383,7 +414,7 @@ Description: Transitional package for nvidia-driver-535
  safely removed after the installation is complete.
 
 Package: nvidia-kernel-source-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-kernel-source-535
 Multi-Arch: foreign
 Description: Transitional package for nvidia-kernel-source-535
@@ -391,7 +422,7 @@ Description: Transitional package for nvidia-kernel-source-535
  safely removed after the installation is complete.
 
 Package: nvidia-dkms-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-dkms-535
 Multi-Arch: foreign
 Description: Transitional package for nvidia-dkms-535
@@ -399,7 +430,7 @@ Description: Transitional package for nvidia-dkms-535
  safely removed after the installation is complete.
 
 Package: nvidia-utils-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-utils-535
 Multi-Arch: same
 Description: Transitional package for nvidia-utils-535
@@ -407,7 +438,7 @@ Description: Transitional package for nvidia-utils-535
  safely removed after the installation is complete.
 
 Package: libnvidia-compute-530
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-compute-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-compute-535
@@ -415,7 +446,7 @@ Description: Transitional package for libnvidia-compute-535
  safely removed after the installation is complete.
 
 Package: nvidia-compute-utils-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-compute-utils-535
 Multi-Arch: same
 Description: Transitional package for nvidia-compute-utils-535
@@ -423,7 +454,7 @@ Description: Transitional package for nvidia-compute-utils-535
  safely removed after the installation is complete.
 
 Package: nvidia-headless-no-dkms-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-headless-no-dkms-535
 Multi-Arch: same
 Description: Transitional package for nvidia-headless-no-dkms-535
@@ -431,7 +462,7 @@ Description: Transitional package for nvidia-headless-no-dkms-535
  safely removed after the installation is complete.
 
 Package: nvidia-headless-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-headless-535
 Multi-Arch: same
 Description: Transitional package for nvidia-headless-535
@@ -439,7 +470,7 @@ Description: Transitional package for nvidia-headless-535
  safely removed after the installation is complete.
 
 Package: nvidia-kernel-common-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: nvidia-kernel-common-535
 Multi-Arch: same
 Description: Transitional package for nvidia-kernel-common-535
@@ -447,7 +478,7 @@ Description: Transitional package for nvidia-kernel-common-535
  safely removed after the installation is complete.
 
 Package: libnvidia-gl-530
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-gl-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-gl-535
@@ -463,7 +494,7 @@ Description: Transitional package for libnvidia-common-535
  safely removed after the installation is complete.
 
 Package: libnvidia-extra-530
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-extra-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-extra-535
@@ -471,7 +502,7 @@ Description: Transitional package for libnvidia-extra-535
  safely removed after the installation is complete.
 
 Package: xserver-xorg-video-nvidia-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: xserver-xorg-video-nvidia-535
 Multi-Arch: same
 Description: Transitional package for xserver-xorg-video-nvidia-535
@@ -479,7 +510,7 @@ Description: Transitional package for xserver-xorg-video-nvidia-535
  safely removed after the installation is complete.
 
 Package: libnvidia-cfg1-530
-Architecture: amd64 arm64
+Architecture: amd64
 Depends: libnvidia-cfg1-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-cfg1-535
@@ -487,7 +518,7 @@ Description: Transitional package for libnvidia-cfg1-535
  safely removed after the installation is complete.
 
 Package: libnvidia-fbc1-530
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-fbc1-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-fbc1-535
@@ -495,7 +526,7 @@ Description: Transitional package for libnvidia-fbc1-535
  safely removed after the installation is complete.
 
 Package: libnvidia-decode-530
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-decode-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-decode-535
@@ -503,7 +534,7 @@ Description: Transitional package for libnvidia-decode-535
  safely removed after the installation is complete.
 
 Package: libnvidia-encode-530
-Architecture: i386 amd64 arm64
+Architecture: i386 amd64
 Depends: libnvidia-encode-535
 Multi-Arch: same
 Description: Transitional package for libnvidia-encode-535
