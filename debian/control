@@ -28,12 +28,10 @@ Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
-Package: nvidia-driver-535
+Package: nvidia-driver-core-535
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-535 (= ${binary:Version}),
- nvidia-dkms-535 (<= 535.86.05-1),
- nvidia-dkms-535 (>= 535.86.05),
  nvidia-kernel-common-535 (<= 535.86.05-1),
  nvidia-kernel-common-535 (>= 535.86.05),
  nvidia-kernel-source-535 (= ${binary:Version}),
@@ -54,6 +52,23 @@ Recommends:
  libnvidia-encode-535:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-535:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-535:i386 (= ${binary:Version}) [amd64]
+Description: NVIDIA Driver Core metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland. Do not install this directly.
+ .
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-driver-535
+Architecture: amd64 arm64
+Depends:
+ nvidia-driver-core-535 (= ${binary:Version}),
+ nvidia-dkms-535 (<= 535.86.05-1),
+ nvidia-dkms-535 (>= 535.86.05),
+ ${misc:Depends}
+Conflicts:
+ nvidia-driver-lrm-535
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -61,6 +76,22 @@ Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
+ .
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-driver-lrm-535
+Architecture: amd64 arm64
+Depends:
+ nvidia-driver-core-535 (= ${binary:Version}),
+ ${misc:Depends}
+Conflicts:
+ nvidia-driver-535, nvidia-dkms-535
+Description: NVIDIA Driver LRM metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland. This is meant to be used with
+ the linux-restricted-modules.
  .
  See /usr/share/doc/nvidia-driver-535/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
@@ -374,12 +405,10 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-driver-535-open
+Package: nvidia-driver-core-535-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-535 (= ${binary:Version}),
- nvidia-dkms-535-open (<= 535.86.05-1),
- nvidia-dkms-535-open (>= 535.86.05),
  nvidia-kernel-common-535 (<= 535.86.05-1),
  nvidia-kernel-common-535 (>= 535.86.05),
  nvidia-kernel-source-535-open (= ${binary:Version}),
@@ -400,6 +429,23 @@ Recommends:
  libnvidia-encode-535:i386 (= ${binary:Version}) [amd64],
  libnvidia-fbc1-535:i386 (= ${binary:Version}) [amd64],
  libnvidia-gl-535:i386 (= ${binary:Version}) [amd64]
+Description: NVIDIA driver (open kernel) Core metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland. Do not install this directly.
+ .
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-driver-535-open
+Architecture: amd64 arm64
+Depends:
+ nvidia-driver-core-535-open (= ${binary:Version}),
+ nvidia-dkms-535-open (<= 535.86.05-1),
+ nvidia-dkms-535-open (>= 535.86.05),
+ ${misc:Depends}
+Conflicts:
+ nvidia-driver-lrm-535-open
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -407,6 +453,22 @@ Description: NVIDIA driver (open kernel) metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
+ .
+ See /usr/share/doc/nvidia-driver-535/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-driver-lrm-535-open
+Architecture: amd64 arm64
+Depends:
+ nvidia-driver-core-535-open (= ${binary:Version}),
+ ${misc:Depends}
+Conflicts:
+ nvidia-driver-535-open, nvidia-dkms-535-open
+Description: NVIDIA driver (open kernel) LRM metapackage
+ This metapackage depends on the NVIDIA binary driver and on all of its libraries,
+ to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
+ applications on either X11 or on Wayland. This is meant to be used with
+ the linux-restricted-modules.
  .
  See /usr/share/doc/nvidia-driver-535/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
