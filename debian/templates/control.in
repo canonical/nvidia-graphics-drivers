@@ -374,7 +374,7 @@ Description: NVENC Video Encoding runtime library
  This package contains the nvidia-encode runtime library.
 
 Package: nvidia-driver-#FLAVOUR#-open
-Architecture: amd64
+Architecture: amd64 arm64
 Depends:
  libnvidia-gl-#FLAVOUR# (= ${binary:Version}),
  nvidia-dkms-#FLAVOUR#-open (<= #DEBIAN_VERSION#-1),
@@ -411,7 +411,7 @@ Description: NVIDIA driver (open kernel) metapackage
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-kernel-source-#FLAVOUR#-open
-Architecture: amd64
+Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-kernel-source
@@ -426,7 +426,7 @@ Description: NVIDIA kernel source package
  driver.
 
 Package: nvidia-dkms-#FLAVOUR#-open
-Architecture: amd64
+Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
@@ -450,7 +450,7 @@ Description: NVIDIA DKMS package (open kernel module)
  any new kernel headers that are installed.
 
 Package: nvidia-headless-no-dkms-#FLAVOUR#-open
-Architecture: amd64
+Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
@@ -472,7 +472,7 @@ Description: NVIDIA headless metapackage - no DKMS (open kernel module)
  provided by the nvidia-driver-#FLAVOUR# metapackage.
 
 Package: nvidia-headless-#FLAVOUR#-open
-Architecture: amd64
+Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
