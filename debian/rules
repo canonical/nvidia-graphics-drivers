@@ -19,7 +19,12 @@ version_major		 = $(firstword $(subst ., ,$(version)))
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 
+last_suffix            := $(lastword $(subst -, ,$(DEB_SOURCE)))
+ifeq ($(last_suffix),server)
+flavour := $(version_major)-server
+else
 flavour := $(version_major)
+endif
 pkg_meta         := nvidia-driver-$(flavour)
 pkg_driver       := nvidia-$(flavour)
 xorg_driver      := xserver-xorg-video-nvidia-$(flavour)
