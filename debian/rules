@@ -22,8 +22,10 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 last_suffix		:= $(lastword $(subst -, ,$(DEB_SOURCE)))
 ifeq ($(last_suffix),server)
 flavour := $(version_major)-server
+other_flavour := $(version_major)
 else
 flavour := $(version_major)
+other_flavour := $(version_major)-server
 endif
 pkg_meta         := nvidia-driver-$(flavour)
 pkg_driver       := nvidia-$(flavour)
@@ -227,6 +229,7 @@ regen-from-templates:
 			-e "s|#PPC64EL_EXCLUDED#|$(ppc64el_excluded)|g" \
 			-e "s|#NVEXCLUDEMODULES#|$(DKMS_disabled_modules)|g" \
 			-e "s|#FLAVOUR#|$(flavour)|g" \
+			-e "s|#OTHER_FLAVOUR#|$(other_flavour)|g" \
 			-e "s|#DRIVERNAME#|$(pkg_driver)|g" \
 			-e "s|#VERSION#|$(version)|g" \
 			-e "s|#DEBIAN_VERSION#|$(debian_version)|g" \
