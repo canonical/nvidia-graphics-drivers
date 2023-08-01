@@ -229,6 +229,10 @@ Description: Shared files used with the kernel module
 
 Package: nvidia-firmware-#FLAVOUR#-#VERSION#
 Architecture: amd64 arm64
+Breaks:
+ nvidia-firmware-#OTHER_FLAVOUR#-#VERSION#
+Replaces:
+ nvidia-firmware-#OTHER_FLAVOUR#-#VERSION#
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
