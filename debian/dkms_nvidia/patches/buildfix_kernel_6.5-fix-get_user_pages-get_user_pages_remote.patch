@@ -1,0 +1,145 @@
+From 3156ea14fbfd8332a31d4d16d2b55492e9139cba Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <paolo.pisati@canonical.com>
+Date: Wed, 19 Jul 2023 16:05:25 +0000
+Subject: [PATCH 1/3] Linux 6.5: fix get_user_pages()/get_user_pages_remote()
+
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+---
+ common/inc/nv-mm.h  |  7 ++
+ conftest.sh     | 67 +++++++++++++++++--
+ 2 files changed, 70 insertions(+), 4 deletions(-)
+
+diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
+index 9df900c1..ca7cbecc 100644
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -71,6 +71,9 @@ typedef int vm_fault_t;
+ #elif defined(NV_GET_USER_PAGES_HAS_ARGS_TSK_FLAGS)
+     #define NV_GET_USER_PAGES(start, nr_pages, flags, pages, vmas) \
+         get_user_pages(current, current->mm, start, nr_pages, flags, pages, vmas)
++#elif defined(NV_GET_USER_PAGES_DROPPED_VMA)
++    #define NV_GET_USER_PAGES(start, nr_pages, flags, pages, vmas) \
++        get_user_pages(start, nr_pages, flags, pages)
+ #else
+     static inline long NV_GET_USER_PAGES(unsigned long start,
+                                          unsigned long nr_pages,
+@@ -149,6 +152,10 @@ typedef int vm_fault_t;
+         #define NV_GET_USER_PAGES_REMOTE(mm, start, nr_pages, flags, pages, vmas, locked) \
+             get_user_pages_remote(NULL, mm, start, nr_pages, flags, pages, vmas)
+ 
++    #elif defined(NV_GET_USER_PAGES_REMOTE_DROPPED_VMA)
++        #define NV_GET_USER_PAGES_REMOTE(mm, start, nr_pages, flags, pages, vmas, locked) \
++            get_user_pages_remote(mm, start, nr_pages, flags, pages, locked)
++
+     #else
+         // NV_GET_USER_PAGES_REMOTE_HAS_ARGS_TSK_WRITE_FORCE
+         static inline long NV_GET_USER_PAGES_REMOTE(struct mm_struct *mm,
+diff --git a/conftest.sh b/conftest.sh
+index a629eb98..e7a5198f 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2286,7 +2286,13 @@ compile_test() {
+                 else
+                     echo "#undef NV_GET_USER_PAGES_HAS_ARGS_FLAGS" | append_conftest "functions"
+                 fi
+-            }
++
++                if [ "$1" = "NV_GET_USER_PAGES_DROPPED_VMA" ]; then
++                    echo "#define NV_GET_USER_PAGES_DROPPED_VMA" | append_conftest "functions"
++                else
++                    echo "#undef NV_GET_USER_PAGES_DROPPED_VMA" | append_conftest "functions"
++                fi
++             }
+ 
+             # Conftest #1: Check if get_user_pages accepts 6 arguments.
+             # Return if true.
+@@ -2340,7 +2346,7 @@ compile_test() {
+             # write and force parameters AND that gup has task_struct and
+             # mm_struct as its first arguments.
+             # Return if available.
+-            # Fall through to default case if absent.
++            # Fall through to case #4 on failure.
+ 
+             echo "$CONFTEST_PREAMBLE
+             #include <linux/mm.h>
+@@ -2363,6 +2369,30 @@ compile_test() {
+                 return
+             fi
+ 
++            # Conftest #4: Check if get_user_pages has gup_flags instead of
++            # write and force parameters. That gup doesn't accept a
++            # task_struct and mm_struct as its first arguments, and vmas was dropped.
++            # Return if available.
++	    # Fall through to default case on failure.
++
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long get_user_pages(unsigned long start,
++                                unsigned long nr_pages,
++                                unsigned int gup_flags,
++                                struct page **pages) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                set_get_user_pages_defines "NV_GET_USER_PAGES_DROPPED_VMA"
++                rm -f conftest$$.o
++                return
++            fi
++
+             set_get_user_pages_defines "NV_GET_USER_PAGES_HAS_ARGS_TSK_WRITE_FORCE"
+ 
+             return
+@@ -2425,7 +2455,13 @@ compile_test() {
+                 else
+                     echo "#undef NV_GET_USER_PAGES_REMOTE_HAS_ARGS_FLAGS_LOCKED" | append_conftest "functions"
+                 fi
+-            }
++
++                if [ "$1" = "NV_GET_USER_PAGES_REMOTE_DROPPED_VMA" ]; then
++                    echo "#define NV_GET_USER_PAGES_REMOTE_DROPPED_VMA" | append_conftest "functions"
++                else
++                    echo "#undef NV_GET_USER_PAGES_REMOTE_DROPPED_VMA" | append_conftest "functions"
++                fi
++             }
+ 
+             # conftest #1: check if get_user_pages_remote() is available
+             # return if not available.
+@@ -2549,7 +2585,30 @@ compile_test() {
+                 set_get_user_pages_remote_defines "NV_GET_USER_PAGES_REMOTE_HAS_ARGS_FLAGS_LOCKED"
+                 rm -f conftest$$.o
+             fi
+-        ;;
++
++            #
++            # conftest #6: check if get_user_pages_remote() does not take
++            # vmas argument.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long get_user_pages_remote(struct mm_struct *mm,
++                                       unsigned long start,
++                                       unsigned long nr_pages,
++                                       unsigned int gup_flags,
++                                       struct page **pages,
++                                       int *locked) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                set_get_user_pages_remote_defines "NV_GET_USER_PAGES_REMOTE_DROPPED_VMA"
++                rm -f conftest$$.o
++            fi
++         ;;
+ 
+         pin_user_pages)
+             #
+-- 
+2.40.1
+
