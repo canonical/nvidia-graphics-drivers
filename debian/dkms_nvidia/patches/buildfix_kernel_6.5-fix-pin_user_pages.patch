@@ -1,0 +1,127 @@
+From e1544f92a2f630e1d0b358aafbbd185be83f2aa0 Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <paolo.pisati@canonical.com>
+Date: Thu, 20 Jul 2023 11:05:33 +0000
+Subject: [PATCH 2/3] Linux 6.5: fix pin_user_pages()
+
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+---
+ common/inc/nv-mm.h  |  7 ++-
+ conftest.sh     | 51 +++++++++++++++++--
+ nvidia-uvm/uvm_tools.c  | 17 +++++++
+ 3 files changed, 70 insertions(+), 5 deletions(-)
+
+diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
+index ca7cbecc..1371c938 100644
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -41,7 +41,12 @@ typedef int vm_fault_t;
+ #include <linux/mm.h>
+ #include <linux/sched.h>
+ #if defined(NV_PIN_USER_PAGES_PRESENT)
+-    #define NV_PIN_USER_PAGES pin_user_pages
++    #if defined(NV_PIN_USER_PAGES_DROPPED_VMA)
++        #define NV_PIN_USER_PAGES(start, nr_pages, flags, pages, vmas) \
++            pin_user_pages(start, nr_pages, flags, pages)
++    #else
++        #define NV_PIN_USER_PAGES pin_user_pages
++    #endif
+     #define NV_UNPIN_USER_PAGE unpin_user_page
+ #else
+     #define NV_PIN_USER_PAGES NV_GET_USER_PAGES
+diff --git a/conftest.sh b/conftest.sh
+index e7a5198f..389b1ddd 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2623,14 +2623,57 @@ compile_test() {
+             # conftest #1: check if pin_user_pages() is available
+             # return if not available.
+             #
+-            CODE="
++           set_pin_user_pages_defines () {
++                if [ "$1" = "" ]; then
++                    echo "#undef NV_PIN_USER_PAGES_PRESENT" | append_conftest "functions"
++                else
++                    echo "#define NV_PIN_USER_PAGES_PRESENT" | append_conftest "functions"
++                fi
++
++                if [ "$1" = "NV_PIN_USER_PAGES_DROPPED_VMA" ]; then
++                    echo "#define NV_PIN_USER_PAGES_DROPPED_VMA" | append_conftest "functions"
++                fi
++            }
++
++            # conftest #1: check if pin_user_pages() is available
++            # return if not available.
++            # Fall through to conftest #2 if it is present
++            #
++            echo "$CONFTEST_PREAMBLE
+             #include <linux/mm.h>
+             void conftest_pin_user_pages(void) {
+                 pin_user_pages();
+-            }"
++            }" > conftest$$.c
+ 
+-            compile_check_conftest "$CODE" "NV_PIN_USER_PAGES_PRESENT" "" "functions"
+-        ;;
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                set_pin_user_pages_defines ""
++                rm -f conftest$$.o
++                return
++            fi
++
++            # conftest #2: Check if pin_user_pages_remote() dropped vmas argument
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long pin_user_pages(unsigned long start,
++                                       unsigned long nr_pages,
++                                       unsigned int gup_flags,
++                                       struct page **pages) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                set_pin_user_pages_defines "NV_PIN_USER_PAGES_DROPPED_VMA"
++                rm -f conftest$$.o
++            else
++                set_pin_user_pages_defines "NV_PIN_USER_PAGES_PRESENT"
++            fi
++         ;;
+ 
+         pin_user_pages_remote)
+             # Determine if the function pin_user_pages_remote() is present
+diff --git a/nvidia-uvm/uvm_tools.c b/nvidia-uvm/uvm_tools.c
+index ea7179db..c821e0aa 100644
+--- a/nvidia-uvm/uvm_tools.c
++++ b/nvidia-uvm/uvm_tools.c
+@@ -269,6 +269,23 @@ static NV_STATUS map_user_pages(NvU64 user_va, NvU64 size, void **addr, struct p
+         goto fail;
+     }
+ 
++#if defined(NV_PIN_USER_PAGES_DROPPED_VMA)
++    struct vm_area_struct *vma;
++    unsigned long start;
++
++    nv_mmap_read_lock(current->mm);
++    start = user_va;
++    for (i = 0; i < num_pages; i++) {
++         vma = find_vma(current->mm, start);
++	     if (!vma) {
++		    nv_mmap_read_unlock(current->mm);
++		    status = NV_ERR_INVALID_ARGUMENT;
++		    goto fail;
++	    }
++    }
++    nv_mmap_read_unlock(current->mm);
++#endif
++
+     for (i = 0; i < num_pages; i++) {
+         if (page_count((*pages)[i]) > MAX_PAGE_COUNT || uvm_file_is_nvidia_uvm(vmas[i]->vm_file)) {
+             status = NV_ERR_INVALID_ARGUMENT;
+-- 
+2.40.1
+

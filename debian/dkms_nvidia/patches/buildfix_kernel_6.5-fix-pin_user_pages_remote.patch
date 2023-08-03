@@ -1,0 +1,78 @@
+From ed2bf26870bdb3f0078feee4d79c11ca3fa6dc36 Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <paolo.pisati@canonical.com>
+Date: Thu, 20 Jul 2023 11:17:33 +0000
+Subject: [PATCH 3/3] Linux 6.5: fix pin_user_pages_remote()
+
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+---
+ common/inc/nv-mm.h  |  3 ++
+ conftest.sh     | 32 +++++++++++++++++--
+ 2 files changed, 33 insertions(+), 2 deletions(-)
+
+diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
+index 1371c938..d6b0880c 100644
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -114,6 +114,9 @@ typedef int vm_fault_t;
+     #if defined (NV_PIN_USER_PAGES_REMOTE_HAS_ARGS_TSK)
+         #define NV_PIN_USER_PAGES_REMOTE(mm, start, nr_pages, flags, pages, vmas, locked) \
+             pin_user_pages_remote(NULL, mm, start, nr_pages, flags, pages, vmas, locked)
++    #elif defined (NV_PIN_USER_PAGES_REMOTE_DROPPED_VMA)
++        #define NV_PIN_USER_PAGES_REMOTE(mm, start, nr_pages, flags, pages, vmas, locked) \
++            pin_user_pages_remote(mm, start, nr_pages, flags, pages, locked)
+     #else
+         #define NV_PIN_USER_PAGES_REMOTE pin_user_pages_remote
+     #endif // NV_PIN_USER_PAGES_REMOTE_HAS_ARGS_TSK
+diff --git a/conftest.sh b/conftest.sh
+index 389b1ddd..dc35d603 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2702,7 +2702,13 @@ compile_test() {
+                 else
+                     echo "#undef NV_PIN_USER_PAGES_REMOTE_HAS_ARGS_TSK" | append_conftest "functions"
+                 fi
+-            }
++
++                if [ "$1" = "NV_PIN_USER_PAGES_REMOTE_DROPPED_VMA" ]; then
++                    echo "#define NV_PIN_USER_PAGES_REMOTE_DROPPED_VMA" | append_conftest "functions"
++                else
++                    echo "#undef NV_PIN_USER_PAGES_REMOTE_DROPPED_VMA" | append_conftest "functions"
++                fi
++             }
+ 
+             # conftest #1: check if pin_user_pages_remote() is available
+             # return if not available.
+@@ -2746,7 +2752,29 @@ compile_test() {
+             else
+                 set_pin_user_pages_remote_defines "NV_PIN_USER_PAGES_REMOTE_PRESENT"
+             fi
+-        ;;
++
++            # conftest #3: Check if pin_user_pages_remote() dropped vma argument
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long pin_user_pages_remote(struct mm_struct *mm,
++                                       unsigned long start,
++                                       unsigned long nr_pages,
++                                       unsigned int gup_flags,
++                                       struct page **pages,
++                                       int *locked) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                set_pin_user_pages_remote_defines "NV_PIN_USER_PAGES_REMOTE_DROPPED_VMA"
++                rm -f conftest$$.o
++            else
++                set_pin_user_pages_remote_defines "NV_PIN_USER_PAGES_REMOTE_PRESENT"
++            fi
++         ;;
+ 
+         vfio_pin_pages_has_vfio_device_arg)
+             #
+-- 
+2.40.1
+
