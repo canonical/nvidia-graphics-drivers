@@ -1,0 +1,102 @@
+From 738922af87e3d0096cbe737233fe7f28e91310eb Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <paolo.pisati@canonical.com>
+Date: Fri, 21 Jul 2023 14:01:39 +0000
+Subject: [PATCH 2/2] Linux 6.5: get_user_pages() dropped vmas arg
+
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+---
+ common/inc/nv-mm.h  |  4 +++
+ conftest.sh     | 25 ++++++++++++++++++-
+ nvidia-uvm/uvm_tools.c  | 17 +++++++++++++
+ 3 files changed, 45 insertions(+), 1 deletion(-)
+
+diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
+index 321d718c..0ce99fad 100644
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -93,7 +93,11 @@ typedef int vm_fault_t;
+             if (force)
+                 flags |= FOLL_FORCE;
+ 
++#if defined(NV_GET_USER_PAGES_DROPPED_VMA)
++            return get_user_pages(start, nr_pages, flags, pages);
++#else
+             return get_user_pages(start, nr_pages, flags, pages, vmas);
++#endif
+         }
+     #endif
+ #endif
+diff --git a/conftest.sh b/conftest.sh
+index 9b844b84..bcdc8e5c 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2593,7 +2593,6 @@ compile_test() {
+             # write and force parameters AND that gup has task_struct and
+             # mm_struct as its first arguments.
+             # Return if available.
+-            # Fall through to default case if absent.
+ 
+             echo "$CONFTEST_PREAMBLE
+             #include <linux/mm.h>
+@@ -2617,6 +2616,30 @@ compile_test() {
+                 return
+             fi
+ 
++            # Conftest #4: Check if get_user_pages dropped vmas argument.
++            # Return if postive.
++            # Fall through to default case if absent.
++
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long get_user_pages(unsigned long start,
++                                unsigned long nr_pages,
++                                unsigned int gup_flags,
++                                struct page **pages) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                echo "#undef NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS" | append_conftest "functions"
++                echo "#undef NV_GET_USER_PAGES_HAS_TASK_STRUCT" | append_conftest "functions"
++		echo "#define NV_GET_USER_PAGES_DROPPED_VMA" | append_conftest "functions"
++                rm -f conftest$$.o
++                return
++            fi
++
+             echo "#define NV_GET_USER_PAGES_HAS_WRITE_AND_FORCE_ARGS" | append_conftest "functions"
+             echo "#define NV_GET_USER_PAGES_HAS_TASK_STRUCT" | append_conftest "functions"
+ 
+diff --git a/nvidia-uvm/uvm_tools.c b/nvidia-uvm/uvm_tools.c
+index 5e4d112a..9728a228 100644
+--- a/nvidia-uvm/uvm_tools.c
++++ b/nvidia-uvm/uvm_tools.c
+@@ -269,6 +269,23 @@ static NV_STATUS map_user_pages(NvU64 user_va, NvU64 size, void **addr, struct p
+         goto fail;
+     }
+ 
++#if defined(NV_GET_USER_PAGES_DROPPED_VMA)
++    struct vm_area_struct *vma;
++    unsigned long start;
++
++    nv_mmap_read_lock(current->mm);
++    start = user_va;
++    for (i = 0; i < num_pages; i++) {
++	    vma = find_vma(current->mm, start);
++	    if (!vma) {
++		    nv_mmap_read_unlock(current->mm);
++		    status = NV_ERR_INVALID_ARGUMENT;
++		    goto fail;
++	    }
++    }
++    nv_mmap_read_unlock(current->mm);
++#endif
++
+     for (i = 0; i < num_pages; i++) {
+         if (page_count((*pages)[i]) > MAX_PAGE_COUNT || uvm_file_is_nvidia_uvm(vmas[i]->vm_file)) {
+             status = NV_ERR_INVALID_ARGUMENT;
+-- 
+2.40.1
+

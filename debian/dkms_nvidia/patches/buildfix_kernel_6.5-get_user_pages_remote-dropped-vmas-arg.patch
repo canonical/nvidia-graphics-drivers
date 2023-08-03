@@ -1,0 +1,65 @@
+From dc621d963825e09d9569058be2d046d8902853e8 Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <paolo.pisati@canonical.com>
+Date: Fri, 21 Jul 2023 13:17:48 +0000
+Subject: [PATCH] Linux 6.5: get_user_pages_remote() dropped vmas arg
+
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+---
+ common/inc/nv-mm.h  |  4 ++-
+ conftest.sh     | 25 ++++++++++++++++++-
+ 2 files changed, 27 insertions(+), 2 deletions(-)
+
+diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
+index be834b6f..0ce99fad 100644
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -162,7 +162,9 @@ typedef int vm_fault_t;
+                return get_user_pages_remote(mm, start, nr_pages, flags,
+                                             pages, vmas, NULL);
+             #endif
+-
++        #elif defined(NV_GET_USER_PAGES_REMOTE_DROPPED_VMA)
++		return get_user_pages_remote(mm, start, nr_pages, flags,
++			                     pages, NULL);
+         #else
+ 
+                return get_user_pages_remote(tsk, mm, start, nr_pages, flags,
+diff --git a/conftest.sh b/conftest.sh
+index 4e23a9e6..5fbf776a 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2778,7 +2778,30 @@ compile_test() {
+                 echo "#define NV_GET_USER_PAGES_REMOTE_HAS_TSK_ARG" | append_conftest "functions"
+                 echo "#undef NV_GET_USER_PAGES_REMOTE_HAS_LOCKED_ARG" | append_conftest "functions"
+             fi
+-        ;;
++
++            #
++            # conftest #5: check if get_user_pages_remote() does not take
++            # vmas argument.
++            #
++            echo "$CONFTEST_PREAMBLE
++            #include <linux/mm.h>
++            long get_user_pages_remote(struct mm_struct *mm,
++                                       unsigned long start,
++                                       unsigned long nr_pages,
++                                       unsigned int gup_flags,
++                                       struct page **pages,
++                                       int *locked) {
++                return 0;
++            }" > conftest$$.c
++
++            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++            rm -f conftest$$.c
++
++            if [ -f conftest$$.o ]; then
++                echo "#define NV_GET_USER_PAGES_REMOTE_DROPPED_VMA" | append_conftest "functions"
++                rm -f conftest$$.o
++            fi
++         ;;
+ 
+         usleep_range)
+             #
+-- 
+2.40.1
+
