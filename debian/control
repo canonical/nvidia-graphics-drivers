@@ -32,8 +32,8 @@ Package: nvidia-driver-core-535
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-535 (= ${binary:Version}),
- nvidia-kernel-common-535 (<= 535.86.05-1),
- nvidia-kernel-common-535 (>= 535.86.05),
+ nvidia-kernel-common-535 (<= 535.98-1),
+ nvidia-kernel-common-535 (>= 535.98),
  nvidia-kernel-source-535 (= ${binary:Version}),
  libnvidia-compute-535 (= ${binary:Version}),
  libnvidia-extra-535 (= ${binary:Version}),
@@ -64,8 +64,8 @@ Package: nvidia-driver-535
 Architecture: amd64 arm64
 Depends:
  nvidia-driver-core-535 (= ${binary:Version}),
- nvidia-dkms-535 (<= 535.86.05-1),
- nvidia-dkms-535 (>= 535.86.05),
+ nvidia-dkms-535 (<= 535.98-1),
+ nvidia-dkms-535 (>= 535.98),
  ${misc:Depends}
 Conflicts:
  nvidia-driver-lrm-535
@@ -123,11 +123,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-535 (<= 535.86.05-1),
- nvidia-kernel-source-535 (>= 535.86.05),
- nvidia-kernel-common-535 (<= 535.86.05-1),
- nvidia-kernel-common-535 (>= 535.86.05),
- nvidia-firmware-535-535.86.05,
+ nvidia-kernel-source-535 (<= 535.98-1),
+ nvidia-kernel-source-535 (>= 535.98),
+ nvidia-kernel-common-535 (<= 535.98-1),
+ nvidia-kernel-common-535 (>= 535.98),
+ nvidia-firmware-535-535.98,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -208,8 +208,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-535 (<= 535.86.05-1),
- nvidia-kernel-common-535 (>= 535.86.05),
+ nvidia-kernel-common-535 (<= 535.98-1),
+ nvidia-kernel-common-535 (>= 535.98),
  nvidia-kernel-source-535 (= ${binary:Version}),
  libnvidia-compute-535 (= ${binary:Version}),
  nvidia-compute-utils-535 (= ${binary:Version}),
@@ -246,7 +246,7 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-535.86.05
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-535.98
 Replaces:
  nvidia-dkms-535 (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -257,7 +257,7 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-535-535.86.05
+Package: nvidia-firmware-535-535.98
 Architecture: amd64 arm64
 Depends:
  ${misc:Depends}
@@ -409,8 +409,8 @@ Package: nvidia-driver-core-535-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-535 (= ${binary:Version}),
- nvidia-kernel-common-535 (<= 535.86.05-1),
- nvidia-kernel-common-535 (>= 535.86.05),
+ nvidia-kernel-common-535 (<= 535.98-1),
+ nvidia-kernel-common-535 (>= 535.98),
  nvidia-kernel-source-535-open (= ${binary:Version}),
  libnvidia-compute-535 (= ${binary:Version}),
  libnvidia-extra-535 (= ${binary:Version}),
@@ -441,8 +441,8 @@ Package: nvidia-driver-535-open
 Architecture: amd64 arm64
 Depends:
  nvidia-driver-core-535-open (= ${binary:Version}),
- nvidia-dkms-535-open (<= 535.86.05-1),
- nvidia-dkms-535-open (>= 535.86.05),
+ nvidia-dkms-535-open (<= 535.98-1),
+ nvidia-dkms-535-open (>= 535.98),
  ${misc:Depends}
 Conflicts:
  nvidia-driver-lrm-535-open
@@ -500,10 +500,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-535-open (<= 535.86.05-1),
- nvidia-kernel-source-535-open (>= 535.86.05),
- nvidia-kernel-common-535 (<= 535.86.05-1),
- nvidia-kernel-common-535 (>= 535.86.05),
+ nvidia-kernel-source-535-open (<= 535.98-1),
+ nvidia-kernel-source-535-open (>= 535.98),
+ nvidia-kernel-common-535 (<= 535.98-1),
+ nvidia-kernel-common-535 (>= 535.98),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -518,8 +518,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-535 (<= 535.86.05-1),
- nvidia-kernel-common-535 (>= 535.86.05),
+ nvidia-kernel-common-535 (<= 535.98-1),
+ nvidia-kernel-common-535 (>= 535.98),
  nvidia-kernel-source-535-open (= ${binary:Version}),
  libnvidia-compute-535 (= ${binary:Version}),
  nvidia-compute-utils-535 (= ${binary:Version}),
