@@ -1,8 +1,34 @@
-nvidia-graphics-drivers-535 (535.98-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.98-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed a bug that caused excessive memory consumption when
+      OpenGL and Vulkan applications were running while VT-
+      switched away from X.
+    - Fixed a bug that could cause the kernel to panic when video
+      memory is full.
+    - Fixed a bug that prevented displays from refreshing when using
+      an NVIDIA PRIME Display Offload sink.
+    - Fixed a bug that could cause some Variable Refresh Rate (VRR)
+      monitors to flicker by allowing the refresh rate to drop below
+      the monitor's minimum.
+    - Fixed a bug that caused corruption when running Vulkan
+      applications.
+    - Fixed a regression that could cause a system hang when running
+      windowed Vulkan applications with sync-to-vblank enabled.
+    - Fixed a video memory leak observed when turning off a connected
+      monitor while using certain Wayland compositors.
+  * debian/rules:
+    - Strip the binaries.
+  * debian/template/control.in:
+    - Introduce the new -core and -lrm meta-packages (LP: #2025538).
+    - The nvidia-driver-$flavour package relies on DKMS, the
+      nvidia-driver-lrm-$flavour is meant to be used with the
+      linux-restricted module. They conflict with each other, and both
+      depend on the nvidia-driver-core-$flavour meta-package.
+  * debian/nvidia-driver-535.docs:
+    - Rename to debian/nvidia-driver-core-535.docs.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 Aug 2023 14:12:20 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 Aug 2023 14:12:50 +0000
 
 nvidia-graphics-drivers-535 (535.86.05-0ubuntu0.22.04.1) jammy; urgency=medium
 
