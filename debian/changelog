@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-535 (535.104.05-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.104.05-0ubuntu1) mantic; urgency=medium
 
-  * 
+  * New upstream release:
+    - Fixed an issue which caused the following error message to
+      appear spuriously when using SLI with the NVIDIA  Open GPU
+      Kernel Modules:
+      (EE) NVIDIA: Unable to disable FB size compare
+    - Fixed a bug which prevented DKMS from registering kernel
+      modules.
+    - Fixed a bug which could cause the screen to flicker.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Aug 2023 15:12:45 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 22 Aug 2023 15:17:24 +0000
 
 nvidia-graphics-drivers-535 (535.98-0ubuntu1) mantic; urgency=medium
 
