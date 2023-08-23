@@ -259,6 +259,10 @@ Description: Shared files used with the kernel module
 
 Package: nvidia-firmware-535-535.104.05
 Architecture: amd64 arm64
+Breaks:
+ nvidia-firmware-535-server-535.104.05
+Replaces:
+ nvidia-firmware-535-server-535.104.05
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
