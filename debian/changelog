@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.20.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.20.04.3) focal; urgency=medium
 
-  * 
+  * Revert switch to new metas for now.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 29 Aug 2023 11:24:57 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 29 Aug 2023 11:50:12 +0000
 
 nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.20.04.2) focal; urgency=medium
 
