@@ -1,8 +1,23 @@
-nvidia-graphics-drivers-535-server (535.104.05-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535-server (535.104.05-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  [ Alberto Milone ]
+  * New upstream release (LP: #2025243).
+  * debian/rules{.defs}:
+    - Adjust to the changes on the Nvidia servers.
+  * debian/rules:
+    - Do not start the systemd services on installation or upgrade, as this can
+      lead to a black screen.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 30 Aug 2023 14:38:23 +0000
+  [ Dimitri John Ledkov ]
+  * debian/templates/control.in:
+    - Add breaks&replaces on identical firmware files from other flavour.
+      When 535 & 535-server driver versions happen to be at an identical
+      upstream version, they both ship identical firmware files on disk at
+      the same path. When a user attempts to install two drivers at the same
+      time, this results in dpkg file conflict. Allow replacing one firmware
+      with another (LP: #2026622).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 30 Aug 2023 14:39:31 +0000
 
 nvidia-graphics-drivers-535-server (535.54.03-0ubuntu0.20.04.1) focal; urgency=medium
 
