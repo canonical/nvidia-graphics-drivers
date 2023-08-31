@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.23.04.4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.23.04.4) lunar; urgency=medium
 
-  * 
+  * debian/rules:
+    - Do not start the systemd services on installation or upgrade, as this can
+      lead to a black screen.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 31 Aug 2023 10:47:29 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 31 Aug 2023 10:56:02 +0000
 
 nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.23.04.3) lunar; urgency=medium
 
