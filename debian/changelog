@@ -1,8 +1,13 @@
-nvidia-graphics-drivers-535 (535.113.01-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.113.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release (LP: #2037266):
+    - Fixed a bug that could cause GPU memory utilization to be
+      reported incorrectly for Multi-Instance GPU (MIG) partitions on
+      Grace Hopper systems.
+    - Fixed a bug that intermittently caused the display to freeze
+      when resuming from suspend on some Ada GPUs.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Sep 2023 09:44:12 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Sep 2023 09:45:05 +0000
 
 nvidia-graphics-drivers-535 (535.104.05-0ubuntu0.22.04.4) jammy; urgency=medium
 
