@@ -1,8 +1,14 @@
-nvidia-graphics-drivers-535-server (535.104.12-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535-server (535.104.12-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2037266):
+    - Fixed an issue where the NVSwitch driver would not retrain
+      NVLinks on init correctly on HGX 8 H100, in case they faulted
+      earlier (such a due to GPU resets). This would result in links
+      being down and CUDA workloads failing with "system not yet
+      initialized" error. The issue was introduced in the 535.86.10
+      driver and fixed in 535.104.12 and later drivers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Sep 2023 16:21:30 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Sep 2023 16:29:52 +0000
 
 nvidia-graphics-drivers-535-server (535.104.05-0ubuntu0.20.04.1) focal; urgency=medium
 
