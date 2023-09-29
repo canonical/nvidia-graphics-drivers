@@ -200,6 +200,8 @@ override_dh_shlibdeps:
 override_dh_strip:
 override_dh_strip_nondeterminism:
 
+override_dh_installsystemd:
+
 ############################################################################
 
 .PHONY: regen-from-templates
