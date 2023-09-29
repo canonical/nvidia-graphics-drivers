@@ -180,6 +180,8 @@ override_dh_installinit:
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
 
+override_dh_installsystemd:
+
 ############################################################################
 
 .PHONY: regen-from-templates
