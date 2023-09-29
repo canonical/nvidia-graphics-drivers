@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-535 (535.113.01-0ubuntu0.22.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.113.01-0ubuntu0.22.04.3) jammy; urgency=medium
 
-  * 
+  * debian/rules:
+    - Add override_dh_installsystemd.
+    - Pass in dh_installsystemd --no-restart-after-upgrade.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 Sep 2023 18:11:24 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 29 Sep 2023 18:11:41 +0000
 
 nvidia-graphics-drivers-535 (535.113.01-0ubuntu0.22.04.2) jammy; urgency=medium
 
