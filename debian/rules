@@ -170,13 +170,13 @@ endif
 
 	dh_install -p nvidia-compute-utils-$(flavour)
 	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(flavour)/lib/systemd
-	dh_installsystemd --name=nvidia-persistenced --no-start
+	dh_installsystemd --name=nvidia-persistenced --no-start --no-stop-on-upgrade --no-restart-after-upgrade
 	dh_install -p nvidia-kernel-common-$(flavour)
 
 	mkdir -p $(CURDIR)/debian/nvidia-kernel-common-$(version_major)/lib/systemd
-	dh_installsystemd --name=nvidia-hibernate --no-start
-	dh_installsystemd --name=nvidia-resume --no-start
-	dh_installsystemd --name=nvidia-suspend --no-start
+	dh_installsystemd --name=nvidia-hibernate --no-start --no-stop-on-upgrade --no-restart-after-upgrade
+	dh_installsystemd --name=nvidia-resume --no-start --no-stop-on-upgrade --no-restart-after-upgrade
+	dh_installsystemd --name=nvidia-suspend --no-start --no-stop-on-upgrade --no-restart-after-upgrade
 
 	dh_install
 
