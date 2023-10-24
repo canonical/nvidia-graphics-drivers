@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-dkms-535-open
+# postrm script for nvidia-kernel-common-535
 #
 # see: dh_installdeb(1)
 #
@@ -22,13 +22,8 @@ set -e
 
 case "$1" in
     remove|purge)
-        # This should make sure that #PKGLIBDIR# and
-        # #PKGLIBDIR32# are removed even if some
-        # links are left. See LP: #540143
-        rm -Rf #PKGLIBDIR# #PKGLIBDIR32#
-
         # Remove the blacklist file for hybrid graphics
-        rm -f /etc/modprobe.d/nvidia-535_hybrid.conf
+        rm -f /etc/modprobe.d/nvidia-545_hybrid.conf
 
         # Update initramfs, in case we were loaded into it
         if [ -x /usr/sbin/update-initramfs ]; then
@@ -37,8 +32,6 @@ case "$1" in
     ;;
 
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-
-
     ;;
 
     *)
