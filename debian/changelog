@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-545 (545.23.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-545 (545.23.06-0ubuntu1) mantic; urgency=medium
 
-  * 
+  * Initial release.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 24 Oct 2023 14:25:41 +0000
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 24 Oct 2023 18:45:53 +0000
