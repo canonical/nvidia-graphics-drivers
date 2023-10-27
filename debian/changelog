@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.129.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.129.03-0ubuntu0.23.10.1) mantic; urgency=medium
 
-  * 
+  * New upstream release (LP: #2038514).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 27 Oct 2023 16:54:52 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 27 Oct 2023 17:28:36 +0200
 
 nvidia-graphics-drivers-535 (535.113.01-0ubuntu3) mantic; urgency=medium
 
