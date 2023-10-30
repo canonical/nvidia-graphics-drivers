@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-525 (525.147.05-0ubuntu0.23.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525 (525.147.05-0ubuntu0.23.04.1) lunar; urgency=medium
 
-  * 
+  * New upstream release (LP: #2038514).
+  * debian/rules{.defs}:
+    - Adjust the anems and URLs to the changes on the Nvidia servers.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 12:21:39 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 12:26:45 +0100
 
 nvidia-graphics-drivers-525 (525.125.06-0ubuntu0.23.04.1) lunar; urgency=medium
 
