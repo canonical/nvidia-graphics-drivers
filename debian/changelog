@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-525-server (525.147.05-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 15:39:40 +0100
+
 nvidia-graphics-drivers-525-server (525.125.06-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release (LP: #2024675).
