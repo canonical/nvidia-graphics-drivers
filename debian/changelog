@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-525-server (525.147.05-0ubuntu0.23.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-525-server (525.147.05-0ubuntu0.23.10.1) mantic; urgency=medium
 
-  * 
+  * New upstream release (LP: #2038514).
+  * debian/templates/dkms_nvidia.in:
+    - Drop patches for 6.5.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 12:53:33 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 15:34:17 +0100
 
 nvidia-graphics-drivers-525-server (525.125.06-0ubuntu2) mantic; urgency=medium
 
