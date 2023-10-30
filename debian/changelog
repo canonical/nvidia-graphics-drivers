@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-470 (470.223.02-0ubuntu0.23.10.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 15:52:32 +0100
+
 nvidia-graphics-drivers-470 (470.199.02-0ubuntu2) mantic; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_6.5-fix-get_user_pages-get_user_pages_remote.patch,
