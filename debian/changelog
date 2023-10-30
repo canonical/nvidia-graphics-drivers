@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-470 (470.223.02-0ubuntu0.23.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.223.02-0ubuntu1) noble; urgency=medium
 
-  * 
+  * New upstream release (LP: #2038514).
+  * debian/templates/dkms_nvidia.in:
+    - Drop patches for 6.5.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 15:52:32 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 16:17:05 +0100
 
 nvidia-graphics-drivers-470 (470.199.02-0ubuntu2) mantic; urgency=medium
 
