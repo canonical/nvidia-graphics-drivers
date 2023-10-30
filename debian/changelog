@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-470 (470.223.02-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.223.02-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2038514).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 16:21:29 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 30 Oct 2023 16:22:17 +0100
 
 nvidia-graphics-drivers-470 (470.199.02-0ubuntu0.20.04.1) focal; urgency=medium
 
