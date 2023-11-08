@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-545 (545.29.02-0ubuntu0.23.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-545 (545.29.02-0ubuntu0.23.04.1) lunar; urgency=medium
 
-  * 
+  * New upstream release (LP: #2042426).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Nov 2023 13:57:54 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Nov 2023 14:18:37 +0200
