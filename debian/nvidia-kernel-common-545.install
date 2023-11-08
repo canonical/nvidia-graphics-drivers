@@ -1,0 +1,11 @@
+NVIDIA-Linux/nvidia-powerd                                     usr/bin
+NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
+NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
+NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
+NVIDIA-Linux/systemd/system/nvidia-resume.service           lib/systemd/system
+NVIDIA-Linux/systemd/system/nvidia-suspend.service          lib/systemd/system
+debian/71-nvidia.rules                                                     lib/udev/rules.d
+debian/device-create/ub-device-create                                      sbin
+debian/framebuffer-nvidia                                                  usr/share/initramfs-tools/hooks
+debian/nvidia-graphics-drivers.conf                                        lib/modprobe.d
+debian/nvidia-graphics-drivers-kms.conf                                    etc/modprobe.d
