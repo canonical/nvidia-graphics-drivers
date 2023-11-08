@@ -1,0 +1,2 @@
+NVIDIA-Linux/nvidia_drv.so        usr/lib/x86_64-linux-gnu/nvidia/xorg
+debian/10-nvidia.conf                            usr/share/X11/xorg.conf.d
