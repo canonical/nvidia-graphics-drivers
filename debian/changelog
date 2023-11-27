@@ -1,8 +1,15 @@
-nvidia-graphics-drivers-545 (545.29.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu1) noble; urgency=medium
 
-  * 
+  * New upstream release (LP: LP: #2042426):
+    - Fixed a regression that prevented setting backlight brightness
+      levels.
+    - Fixed a bug that could lead to UI corruption in nvidia-
+      installer on systems with more than one initramfs file per
+      kernel.
+    - Fixed a bug that caused games built on the Source 2 engine to
+      hang when running under Xwayland.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Nov 2023 12:20:06 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Nov 2023 12:22:32 +0100
 
 nvidia-graphics-drivers-545 (545.29.02-0ubuntu1) noble; urgency=medium
 
