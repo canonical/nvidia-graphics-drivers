@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Nov 2023 12:20:06 +0100
+
 nvidia-graphics-drivers-545 (545.29.02-0ubuntu1) noble; urgency=medium
 
   * Initial release (LP: #2042426).
