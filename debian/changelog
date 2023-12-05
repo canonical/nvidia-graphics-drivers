@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-545 (545.29.06-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu2) noble; urgency=medium
 
-  * 
+  * debian/templates/control.in:
+    - Set XB-Support to NFB for 545.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Dec 2023 22:01:34 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Dec 2023 22:02:10 +0100
 
 nvidia-graphics-drivers-545 (545.29.06-0ubuntu1) noble; urgency=medium
 
