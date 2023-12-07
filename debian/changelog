@@ -1,8 +1,22 @@
-nvidia-graphics-drivers-535 (535.146.02-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.146.02-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2045913):
+    - Fixed a bug that could cause some multi-GPU systems to crash on
+      suspend.
+    - Fixed a bug that could cause the system to crash when an
+      application is run with __NV_PRIME_RENDER_OFFLOAD=1.
+    - Fixed a bug which prevented application profiles from getting
+      applied to PRIME Render Offloaded applications running via
+      Wine.
+    - Disabled PRIME Display Offload Sink support for virtual
+      displays on datacenter GPUs. This prevents unusable desktop
+      layouts from getting automatically configured on systems with a
+      mix of physical and virtual displays.
+    - Fixed a bug that caused high CPU usage during system suspend,
+      which could lead to the system not entering s2idle in some
+      cases.
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 07 Dec 2023 16:17:56 +0100
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 07 Dec 2023 16:29:17 +0100
 
 nvidia-graphics-drivers-535 (535.129.03-0ubuntu0.20.04.1) focal; urgency=medium
 
