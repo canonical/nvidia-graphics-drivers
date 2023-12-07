@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.146.02-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 07 Dec 2023 16:02:53 +0100
+
 nvidia-graphics-drivers-535 (535.129.03-0ubuntu1) noble; urgency=medium
 
   * New upstream release (LP: #2038514).
