@@ -13,10 +13,10 @@ NVIDIA-Linux/libnvidia-eglcore.so.550.22                usr/lib/aarch64-linux-gn
 NVIDIA-Linux/libnvidia-glcore.so.550.22                 usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/libnvidia-glsi.so.550.22                   usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/libnvidia-glvkspirv.so.550.22              usr/lib/aarch64-linux-gnu
+NVIDIA-Linux/libnvidia-gpucomp.so.550.22                usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/libnvidia-ngx.so.550.22                    usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/libnvidia-rtcore.so.550.22                 usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/libnvidia-tls.so.550.22                    usr/lib/aarch64-linux-gnu
-NVIDIA-Linux/libnvidia-vulkan-producer.so.550.22        usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/libnvoptix.so.550.22                       usr/lib/aarch64-linux-gnu
 NVIDIA-Linux/nvidia-ngx-updater                            usr/bin
 NVIDIA-Linux/nvidia_icd.json                               usr/share/vulkan/icd.d
@@ -30,4 +30,5 @@ NVIDIA-Linux/nvoptix.bin                                   usr/share/nvidia
 #NVIDIA-Linux/32/libnvidia-glcore.so.550.22                  usr/lib/aarch64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-glsi.so.550.22                    usr/lib/aarch64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-glvkspirv.so.550.22               usr/lib/aarch64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-gpucomp.so.550.22                 usr/lib/aarch64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-tls.so.550.22                     usr/lib/aarch64-linux-gnu
