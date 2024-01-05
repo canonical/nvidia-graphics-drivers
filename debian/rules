@@ -350,7 +350,7 @@ get-orig-source-pack/%: get-orig-source-files/%
 	@set -e -x ; \
 	    cd get-orig-source ; \
 	    tar cv \
-	        --clamp-mtime --mtime="./$(call get_origdir,$*).stamp" \
+	        --clamp-mtime --mtime="@123456789" \
 	        --sort=name \
 		--owner=root --group=src \
 		$(call get_origdir,$*) \
