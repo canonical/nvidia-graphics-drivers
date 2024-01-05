@@ -21,9 +21,6 @@ case $ARCH in
     i386)
         ARCH="i686"
         ;;
-    armhf)
-        ARCH="armhf"
-        ;;
     *)
         echo "WARNING: unsupported arch: $ARCH"
         ARCH="$ARCH"
