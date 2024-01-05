@@ -1,1 +1,1 @@
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-cfg.so.#VERSION#        #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-cfg.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}

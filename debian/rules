@@ -14,6 +14,7 @@ XORG_BOUND		?=
 version			= $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
 debian_version	= $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e's/.*\+really\.//')
 NVIDIA_RELEASE   = $(version)
+export NVIDIA_RELEASE
 version_major		 = $(firstword $(subst ., ,$(version)))
 
 # system libdir
