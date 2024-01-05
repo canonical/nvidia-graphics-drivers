@@ -1,2 +1,2 @@
-usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.545.29.06        usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.1
-usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.1                usr/lib/x86_64-linux-gnu/libnvidia-fbc.so
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so.1                usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so

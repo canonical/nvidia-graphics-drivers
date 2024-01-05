@@ -1,6 +1,6 @@
-usr/lib/x86_64-linux-gnu/libnvoptix.so.545.29.06                             usr/lib/x86_64-linux-gnu/libnvoptix.so.1
-usr/lib/x86_64-linux-gnu/nvidia/xorg/libglxserver_nvidia.so.545.29.06        usr/lib/x86_64-linux-gnu/nvidia/xorg/libglxserver_nvidia.so
-usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.545.29.06                                         usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
-usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.545.29.06                                   usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.1
-usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.545.29.06                                      usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.2
-usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.545.29.06                                         usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.0
+usr/lib/${DEB_HOST_MULTIARCH}/libnvoptix.so.${env:NVIDIA_RELEASE}                             usr/lib/${DEB_HOST_MULTIARCH}/libnvoptix.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/nvidia/xorg/libglxserver_nvidia.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/nvidia/xorg/libglxserver_nvidia.so
+usr/lib/${DEB_HOST_MULTIARCH}/libEGL_nvidia.so.${env:NVIDIA_RELEASE}                                         usr/lib/${DEB_HOST_MULTIARCH}/libEGL_nvidia.so.0
+usr/lib/${DEB_HOST_MULTIARCH}/libGLESv1_CM_nvidia.so.${env:NVIDIA_RELEASE}                                   usr/lib/${DEB_HOST_MULTIARCH}/libGLESv1_CM_nvidia.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libGLESv2_nvidia.so.${env:NVIDIA_RELEASE}                                      usr/lib/${DEB_HOST_MULTIARCH}/libGLESv2_nvidia.so.2
+usr/lib/${DEB_HOST_MULTIARCH}/libGLX_nvidia.so.${env:NVIDIA_RELEASE}                                         usr/lib/${DEB_HOST_MULTIARCH}/libGLX_nvidia.so.0

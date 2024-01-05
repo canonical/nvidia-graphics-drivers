@@ -1,2 +1,2 @@
-#LIBDIR#/libnvidia-fbc.so.#VERSION#        #LIBDIR#/libnvidia-fbc.so.1
-#LIBDIR#/libnvidia-fbc.so.1                #LIBDIR#/libnvidia-fbc.so
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so.1                usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-fbc.so

@@ -1,6 +1,6 @@
-usr/lib/x86_64-linux-gnu/libnvcuvid.so.545.29.06                   usr/lib/x86_64-linux-gnu/libnvcuvid.so.1
-usr/lib/x86_64-linux-gnu/libnvcuvid.so.1                           usr/lib/x86_64-linux-gnu/libnvcuvid.so
-usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.545.29.06        usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.1
-usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.1                usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so
-usr/lib/x86_64-linux-gnu/vdpau/libvdpau_nvidia.so.545.29.06        usr/lib/x86_64-linux-gnu/vdpau/libvdpau_nvidia.so
-usr/lib/x86_64-linux-gnu/vdpau/libvdpau_nvidia.so.545.29.06        usr/lib/x86_64-linux-gnu/vdpau/libvdpau_nvidia.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libnvcuvid.so.${env:NVIDIA_RELEASE}                   usr/lib/${DEB_HOST_MULTIARCH}/libnvcuvid.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libnvcuvid.so.1                           usr/lib/${DEB_HOST_MULTIARCH}/libnvcuvid.so
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-opticalflow.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-opticalflow.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-opticalflow.so.1                usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-opticalflow.so
+usr/lib/${DEB_HOST_MULTIARCH}/vdpau/libvdpau_nvidia.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/vdpau/libvdpau_nvidia.so
+usr/lib/${DEB_HOST_MULTIARCH}/vdpau/libvdpau_nvidia.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/vdpau/libvdpau_nvidia.so.1

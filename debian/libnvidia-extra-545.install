@@ -1,2 +1,2 @@
-NVIDIA-Linux/libnvidia-allocator.so.545.29.06        usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libnvidia-allocator.so.545.29.06         usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-allocator.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}
+#NVIDIA-Linux/32/libnvidia-allocator.so.${env:NVIDIA_RELEASE}         usr/lib/${DEB_HOST_MULTIARCH}

@@ -1,6 +1,6 @@
-#I386_EXCLUDED#NVIDIA-Linux/libnvcuvid.so.#VERSION#                   #LIBDIR#
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-opticalflow.so.#VERSION#        #LIBDIR#
-#I386_EXCLUDED#NVIDIA-Linux/libvdpau_nvidia.so.#VERSION#              #LIBDIR#/vdpau
-#I386_ONLY#NVIDIA-Linux/32/libnvcuvid.so.#VERSION#                    #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-opticalflow.so.#VERSION#         #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libvdpau_nvidia.so.#VERSION#               #LIBDIR#/vdpau
+#I386_EXCLUDED#NVIDIA-Linux/libnvcuvid.so.${env:NVIDIA_RELEASE}                   usr/lib/${DEB_HOST_MULTIARCH}
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-opticalflow.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}
+#I386_EXCLUDED#NVIDIA-Linux/libvdpau_nvidia.so.${env:NVIDIA_RELEASE}              usr/lib/${DEB_HOST_MULTIARCH}/vdpau
+#I386_ONLY#NVIDIA-Linux/32/libnvcuvid.so.${env:NVIDIA_RELEASE}                    usr/lib/${DEB_HOST_MULTIARCH}
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-opticalflow.so.${env:NVIDIA_RELEASE}         usr/lib/${DEB_HOST_MULTIARCH}
+#I386_ONLY#NVIDIA-Linux/32/libvdpau_nvidia.so.${env:NVIDIA_RELEASE}               usr/lib/${DEB_HOST_MULTIARCH}/vdpau
