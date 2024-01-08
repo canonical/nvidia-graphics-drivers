@@ -1,5 +1,29 @@
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu0.23.04.2) lunar; urgency=medium
+
+  [ Alberto Milone ]
+  * debian/templates/control.in:
+    - Set XB-Support to NFB for 545.
+
+  [ Dimitri John Ledkov ]
+  * Start to modernise packaging with debhelper compat 13.
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Mon, 08 Jan 2024 15:06:24 +0000
+
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu0.23.04.1) lunar; urgency=medium
+
+  * New upstream release (LP: #2042426):
+    - Fixed a regression that prevented setting backlight brightness
+      levels.
+    - Fixed a bug that could lead to UI corruption in nvidia-
+      installer on systems with more than one initramfs file per
+      kernel.
+    - Fixed a bug that caused games built on the Source 2 engine to
+      hang when running under Xwayland.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 27 Nov 2023 12:42:09 +0100
+
 nvidia-graphics-drivers-545 (545.29.02-0ubuntu0.23.04.1) lunar; urgency=medium
 
-  * New upstream release (LP: #2042426).
+  * Initial release (LP: #2042426).
 
  -- Alberto Milone <alberto.milone@canonical.com>  Wed, 08 Nov 2023 14:18:37 +0200
