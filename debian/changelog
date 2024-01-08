@@ -1,3 +1,14 @@
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu0.23.10.2) mantic; urgency=medium
+
+  [ Alberto Milone ]
+  * debian/templates/control.in:
+    - Set XB-Support to NFB for 545.
+
+  [ Dimitri John Ledkov ]
+  * Start to modernise packaging with debhelper compat 13.
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Mon, 08 Jan 2024 15:06:24 +0000
+
 nvidia-graphics-drivers-545 (545.29.06-0ubuntu0.23.10.1) mantic; urgency=medium
 
   * New upstream release (LP: #2042426):
