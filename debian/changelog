@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-545 (545.29.02-0ubuntu0.23.10.1) mantic; urgency=medium
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu0.23.10.1) mantic; urgency=medium
 
   * Initial release (LP: #2042426).
 
