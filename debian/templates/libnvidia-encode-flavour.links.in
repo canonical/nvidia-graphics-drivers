@@ -1,2 +1,2 @@
-#LIBDIR#/libnvidia-encode.so.#VERSION#        #LIBDIR#/libnvidia-encode.so.1
-#LIBDIR#/libnvidia-encode.so.1                #LIBDIR#/libnvidia-encode.so
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-encode.so.${env:NVIDIA_RELEASE}        usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-encode.so.1
+usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-encode.so.1                usr/lib/${DEB_HOST_MULTIARCH}/libnvidia-encode.so
