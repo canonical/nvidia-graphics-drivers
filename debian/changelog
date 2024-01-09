@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-535-server (535.129.03-0ubuntu2) noble; urgency=medium
+
+  * Support linux 6.7 ABI (LP: #2048758):
+    - debian/open-kernel/patches/re-add-crypto_tfm_ctx_aligned.patch
+
+ -- Andrea Righi <andrea.righi@canonical.com>  Tue, 09 Jan 2024 09:06:46 +0000
+
 nvidia-graphics-drivers-535-server (535.129.03-0ubuntu1) noble; urgency=medium
 
   * New upstream release (LP: #2038514).
