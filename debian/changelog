@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.154.05-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release (LP: #2048901)
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 10 Jan 2024 16:17:29 +0000
+
 nvidia-graphics-drivers-535-server (535.129.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release (LP: #2038514).
