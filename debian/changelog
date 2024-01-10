@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-535-server (535.154.05-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535-server (535.154.05-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2048901)
+  * Make orig tarballs reproducible
 
- -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 10 Jan 2024 16:22:42 +0000
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 10 Jan 2024 16:22:49 +0000
 
 nvidia-graphics-drivers-535-server (535.129.03-0ubuntu0.20.04.1) focal; urgency=medium
 
