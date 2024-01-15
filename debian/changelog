@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-535 (535.154.05-0ubuntu0.23.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.154.05-0ubuntu0.23.10.1) mantic; urgency=medium
 
   * New upstream release (LP: #2048901)
+  * Make orig tarballs reproducible
 
- -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Mon, 15 Jan 2024 15:51:59 +0000
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Mon, 15 Jan 2024 15:52:03 +0000
 
 nvidia-graphics-drivers-535 (535.146.02-0ubuntu0.23.10.1) mantic; urgency=medium
 
