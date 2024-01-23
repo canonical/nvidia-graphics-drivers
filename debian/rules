@@ -126,49 +126,11 @@ override_dh_clean: regen-from-templates
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
-override_dh_auto_configure: prepare regen-from-templates remove-stack-markings
-
 override_dh_compress:
 	dh_compress -Xsupported-gpus.json
 
-override_dh_install: generate-modaliases build-device-create
-	# Use our custom dkms.conf file
-	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
-
-ifeq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
-	# Make sure the UVM module is built
-	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
-endif
-
-	dh_install -p nvidia-compute-utils-$(version_major)
-	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
-	dh_systemd_enable --name=nvidia-persistenced
-	dh_install -p nvidia-kernel-common-$(version_major)
-
-	mkdir -p $(CURDIR)/debian/nvidia-kernel-common-$(version_major)/lib/systemd
-	dh_systemd_enable --name=nvidia-hibernate
-	dh_systemd_enable --name=nvidia-resume
-	dh_systemd_enable --name=nvidia-suspend
-
-	dh_install
-
 override_dh_installinit:
-	dh_installinit --noscripts
-
-remove-stack-markings:
-	# Disable the stack markings of binaries for security reasons.
-	# See (LP: #409456)
-	find NVIDIA-Linux/ -name *.so* | xargs -n1 execstack -c
-
-	# Disable the stack markings of other binaries (only for the current arch)
-	#   Note: don't use for loops or pass more than 1 argument to execstack
-	#         or it will fail.
-	execstack -c NVIDIA-Linux/nvidia-xconfig || true
-	execstack -c NVIDIA-Linux/nvidia-smi || true
-	execstack -c NVIDIA-Linux/nvidia-persistenced || true
-
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
@@ -196,7 +158,7 @@ regen-from-templates:
 				sed -e "s|flavour|*|g"`; \
 		rm -f $$old; done
 	# Create important strings
-	for i in debian/templates/*.in; do \
+	for i in debian/templates/control.in; do \
 		dest=`echo $$i | sed -e "s|templates\/||g" | \
 				 sed -e "s|\.in\$$||g" | \
 				 sed -e "s|flavour|$(flavour)|g"`; \
@@ -245,11 +207,8 @@ generate-runtimepm-aliases: update-runtimepm-ids
 		NVIDIA-Linux/supported-gpus/supported-gpus-mod.json > $(CURDIR)/debian/runtimepm_ids
 	rm -f NVIDIA-Linux/supported-gpus/supported-gpus-mod.json
 
-override_dh_gencontrol: generate-runtimepm-aliases
-	dh_gencontrol -- -V'nvidia:Version=$(version)' \
-		-V'nvidia:xorgDepends=$(xorg_depends)' \
-		-V'nvidia:xorgProvides=$(xorg_provides)' \
-		-V'nvidia:pm-modaliases=$(shell cat $(CURDIR)/debian/runtimepm_ids)'
+override_dh_gencontrol:
+	dh_gencontrol -- -V'nvidia:Version=$(version)'
 
 generate-modaliases:
 	# Generate modaliases for the restricted drivers manager
