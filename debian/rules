@@ -146,39 +146,11 @@ override_dh_auto_clean:
 override_dh_clean: regen-from-templates
 	dh_clean
 
-override_dh_auto_configure: prepare regen-from-templates
-
 override_dh_compress:
 	dh_compress -Xsupported-gpus.json
 
-override_dh_install: generate-modaliases build-device-create
-	# Use our custom dkms.conf file
-	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
-	cp -f $(CURDIR)/debian/dkms_nvidia_open.conf $(CURDIR)/debian/open-kernel/dkms.conf
-
-ifeq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
-	# Make sure the UVM module is built
-	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
-	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/open-kernel/dkms.conf
-endif
-
-	dh_install -p nvidia-compute-utils-$(version_major)
-	mkdir -p $(CURDIR)/debian/nvidia-compute-utils-$(version_major)/lib/systemd
-	dh_installsystemd --name=nvidia-persistenced --no-start --no-stop-on-upgrade --no-restart-after-upgrade
-	dh_install -p nvidia-kernel-common-$(version_major)
-
-	mkdir -p $(CURDIR)/debian/nvidia-kernel-common-$(version_major)/lib/systemd
-	dh_installsystemd --name=nvidia-hibernate --no-start --no-stop-on-upgrade --no-restart-after-upgrade
-	dh_installsystemd --name=nvidia-resume --no-start --no-stop-on-upgrade --no-restart-after-upgrade
-	dh_installsystemd --name=nvidia-suspend --no-start --no-stop-on-upgrade --no-restart-after-upgrade
-
-	dh_install
-
 override_dh_installinit:
-	dh_installinit --noscripts
-
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -Xlibnvidia-pkcs11.so
 
 override_dh_installsystemd:
 
@@ -195,7 +167,7 @@ regen-from-templates:
 				sed -e "s|flavour|*|g"`; \
 		rm -f $$old; done
 	# Create important strings
-	for i in debian/templates/*.in; do \
+	for i in debian/templates/control.in; do \
 		dest=`echo $$i | sed -e "s|templates\/||g" | \
 				 sed -e "s|\.in\$$||g" | \
 				 sed -e "s|version|$(version)|g" | \
@@ -249,11 +221,8 @@ generate-runtimepm-aliases: update-runtimepm-ids
 		NVIDIA-Linux/supported-gpus/supported-gpus-mod.json > $(CURDIR)/debian/runtimepm_ids
 	rm -f NVIDIA-Linux/supported-gpus/supported-gpus-mod.json
 
-override_dh_gencontrol: generate-runtimepm-aliases
-	dh_gencontrol -- -V'nvidia:Version=$(version)' \
-		-V'nvidia:xorgDepends=$(xorg_depends)' \
-		-V'nvidia:xorgProvides=$(xorg_provides)' \
-		-V'nvidia:pm-modaliases=$(shell cat $(CURDIR)/debian/runtimepm_ids)'
+override_dh_gencontrol:
+	dh_gencontrol -- -V'nvidia:Version=$(version)'
 
 generate-modaliases:
 	# Generate modaliases for the restricted drivers manager
