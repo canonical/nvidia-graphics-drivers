@@ -45,6 +45,7 @@ Depends:
  nvidia-utils-#FLAVOUR# (= ${binary:Version}),
  xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
@@ -394,6 +395,7 @@ Depends:
  nvidia-utils-#FLAVOUR# (= ${binary:Version}),
  xserver-xorg-video-nvidia-#FLAVOUR# (= ${binary:Version}),
  libnvidia-cfg1-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-fbc1-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
