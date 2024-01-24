@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-545 (545.29.06-0ubuntu4) noble; urgency=medium
+
+  * Reintroduce libnvidia-fbc1-545 dependency, like in all other drivers.
+    (LP: #2051044)
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 24 Jan 2024 01:11:03 +0000
+
 nvidia-graphics-drivers-545 (545.29.06-0ubuntu3) noble; urgency=medium
 
   * Make orig tarballs reproducible
