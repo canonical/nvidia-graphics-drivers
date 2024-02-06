@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-535-server (535.154.05-0ubuntu2) noble; urgency=medium
+
+  * debian/dkms_nvidia/patches/buildfix_kernel_6.8-nv_drm_ioctls-DRM_UNLOCKED-is-now-the-default-behavi.patch,
+    debian/dkms_nvidia/patches/buildfix_kernel_6.8-gpl-pfn_valid.patch:
+    - Fix build with Linux 6.8 (LP: #2052420)
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Mon, 05 Feb 2024 08:33:36 +0000
+
 nvidia-graphics-drivers-535-server (535.154.05-0ubuntu1) noble; urgency=medium
 
   * New upstream release (LP: #2048901)
