@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-470 (470.239.06-0ubuntu0.20.04.1) focal; urgency=medium
+
+  * New upstream release (LP: #2052640)
+  * Make orig tarballs reproducible
+  * Drop unused and obsolete patches
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 07 Feb 2024 16:08:50 +0000
+
 nvidia-graphics-drivers-470 (470.223.02-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2038514).
