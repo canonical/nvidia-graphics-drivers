@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-470-server (470.239.06-0ubuntu1) noble; urgency=medium
+
+  * New upstream release (LP: #2052640)
+  * Make ERD & UDA orig tarballs reproducible for same upstream releases
+  * Make orig tarballs reproducible
+  * Drop unused and obsolete patches
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Fri, 09 Feb 2024 11:49:19 +0000
+
 nvidia-graphics-drivers-470-server (470.223.02-0ubuntu2) noble; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_6.8-nv_drm_ioctls-DRM_UNLOCKED-is-now-the-default-behavi.patch,
