@@ -248,7 +248,7 @@ regen-from-templates:
 ############################################################################
 
 CACHE			?= ../.cache
-ORIGDIR			?= nvidia-graphics-drivers-$(flavour).orig
+ORIGDIR			?= nvidia-graphics-drivers-$(version_major).orig
 TARBALL_BASE		?= nvidia-graphics-drivers-$(flavour)_$(NVIDIA_RELEASE).orig
 TARBALL_SUFFIX		?= .tar.gz
 TARBALL			?= $(TARBALL_BASE)$(TARBALL_SUFFIX)
