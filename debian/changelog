@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-535-server (535.154.05-0ubuntu4) noble; urgency=medium
+
+  * Install all ABI builds of the libnvidia-pkcs11 plugin for host/container compatibility.
+    (LP: #2052967)
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Tue, 13 Feb 2024 13:49:12 +0000
+
 nvidia-graphics-drivers-535-server (535.154.05-0ubuntu2) noble; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_6.8-nv_drm_ioctls-DRM_UNLOCKED-is-now-the-default-behavi.patch,
