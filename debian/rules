@@ -184,7 +184,7 @@ override_dh_installinit:
 	dh_installinit --noscripts
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
+	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -Xlibnvidia-pkcs11.so
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
