@@ -175,7 +175,7 @@ remove-stack-markings:
 	execstack -c NVIDIA-Linux/nvidia-persistenced || true
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps
+	LD_LIBRARY_PATH=/$(libdir):$(LD_LIBRARY_PATH) dh_shlibdeps -Xlibnvidia-pkcs11-openssl3.so
 
 ############################################################################
 
