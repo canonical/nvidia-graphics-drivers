@@ -18,7 +18,7 @@ NVIDIA_FILENAME_amd64	 = ${NVIDIA_DIRNAME_amd64}.run
 #NVIDIA_FILENAME_armhf	 = ${NVIDIA_DIRNAME_armhf}.run
 NVIDIA_FILENAME_arm64	 = ${NVIDIA_DIRNAME_arm64}.run
 NVIDIA_FILENAME_ppc64el	 = ${NVIDIA_DIRNAME_ppc64el}.run
-NVIDIA_FILENAME_kernelsrc = ${NVIDIA_RELEASE}.tar.gz
+NVIDIA_FILENAME_kernelsrc = ${NVIDIA_RELEASE}.tar.xz
 
 HTTPURL_PREFIX		 = https://us.download.nvidia.com/XFree86
 HTTPURL_PREFIX_kernelsrc = https://github.com/NVIDIA/open-gpu-kernel-modules/archive/refs/tags
