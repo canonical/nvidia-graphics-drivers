@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-535 (535.161.07-0ubuntu1) noble; urgency=medium
+
+  * New upstream release (LP: #2054571)
+  * Use .xz extension on the driver source
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 21 Feb 2024 22:42:52 +0000
+
 nvidia-graphics-drivers-535 (535.154.05-0ubuntu2) noble; urgency=medium
 
   * debian/dkms_nvidia/patches/buildfix_kernel_6.8-nv_drm_ioctls-DRM_UNLOCKED-is-now-the-default-behavi.patch,
