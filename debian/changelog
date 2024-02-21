@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-535-server (535.161.07-0ubuntu1) noble; urgency=medium
+
+  * New upstream release (LP: #2054571)
+  * Make ERD & UDA orig tarballs reproducible for same upstream releases
+  * Use .xz extension on the driver source
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 21 Feb 2024 22:23:22 +0000
+
 nvidia-graphics-drivers-535-server (535.154.05-0ubuntu4) noble; urgency=medium
 
   * Install all ABI builds of the libnvidia-pkcs11 plugin for host/container compatibility.
