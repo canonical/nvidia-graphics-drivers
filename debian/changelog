@@ -1,7 +1,9 @@
-nvidia-graphics-drivers-535 (535.161.07-0ubuntu1) noble; urgency=medium
+nvidia-graphics-drivers-535 (535.161.07-0ubuntu2) noble; urgency=medium
 
   * New upstream release (LP: #2054571)
   * Use .xz extension on the driver source
+  * Install all ABI builds of the libnvidia-pkcs11 plugin for host/container compatibility.
+    (LP: #2052967)
 
  -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Wed, 21 Feb 2024 22:42:52 +0000
 
