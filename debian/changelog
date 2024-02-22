@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-535 (535.161.07-0ubuntu0.22.04.1) jammy; urgency=medium
+
+  * New upstream release (LP: #2054571)
+  * Install all ABI builds of the libnvidia-pkcs11 plugin for host/container compatibility.
+    (LP: #2052967)
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Thu, 22 Feb 2024 18:26:03 +0000
+
 nvidia-graphics-drivers-535 (535.154.05-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release (LP: #2048901)
