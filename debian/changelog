@@ -1,3 +1,14 @@
+nvidia-graphics-drivers-535-server (535.161.07-0ubuntu0.18.04.1) bionic; urgency=medium
+
+  * New upstream release (LP: #2054571)
+  * Make orig tarballs reproducible
+  * releasing package nvidia-graphics-drivers-535-server version 535.154.05-0ubuntu0.18.04.1
+  * Install all ABI builds of the libnvidia-pkcs11 plugin for host/container compatibility.
+    (LP: #2052967)
+  * releasing package nvidia-graphics-drivers-535-server version 535.154.05-0ubuntu0.18.04.2
+
+ -- Dimitri John Ledkov <dimitri.ledkov@canonical.com>  Thu, 22 Feb 2024 18:21:34 +0000
+
 nvidia-graphics-drivers-535-server (535.154.05-0ubuntu0.18.04.2) bionic; urgency=medium
 
   * Install all ABI builds of the libnvidia-pkcs11 plugin for host/container compatibility.
