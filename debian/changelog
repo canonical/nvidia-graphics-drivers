@@ -1,5 +1,6 @@
-nvidia-graphics-drivers-550-server (550.22-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550-server (550.54.14-0ubuntu1.23.10.1) mantic; urgency=medium
 
-  * 
+  * Initial release (LP: #2055384)
 
- -- Alberto Milone <alberto.milone@canonical.com>  Tue, 12 Dec 2023 17:11:00 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 04 Mar 2024 13:30:49 +0100
+
