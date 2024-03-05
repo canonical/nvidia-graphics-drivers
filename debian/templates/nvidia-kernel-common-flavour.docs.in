@@ -1,2 +1,4 @@
 #AMD64_ONLY#NVIDIA-Linux/systemd/system/nvidia-powerd.service
+#I386_EXCLUDED#NVIDIA-Linux/supported-gpus/LICENSE
+#I386_EXCLUDED#NVIDIA-Linux/supported-gpus/supported-gpus.json
 
