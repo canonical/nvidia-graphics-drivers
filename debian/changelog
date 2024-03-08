@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-550-server (550.54.14-0ubuntu2) noble; urgency=medium
+
+  * Add transtional packages for 535
+  * move supported-gpus.json to nvidia-kernel-common package
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 08 Mar 2024 09:35:09 +0100
+
 nvidia-graphics-drivers-550-server (550.54.14-0ubuntu1) noble; urgency=medium
 
   * Initial release (LP: #2055384)
