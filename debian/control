@@ -494,3 +494,187 @@ Description: NVIDIA headless metapackage (open kernel module)
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-550-server metapackage.
 
+Package: nvidia-driver-535-server
+Architecture: amd64 arm64
+Depends: nvidia-driver-550-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-550-server
+ This is a transitional package for nvidia-driver-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-535-server
+Architecture: amd64 arm64
+Depends: nvidia-kernel-source-550-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-550-server
+ This is a transitional package for nvidia-kernel-source-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-535-server
+Architecture: amd64 arm64
+Depends: nvidia-dkms-550-server
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-550-server
+ This is a transitional package for nvidia-dkms-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-utils-535-server
+Architecture: amd64 arm64
+Depends: nvidia-utils-550-server
+Multi-Arch: same
+Description: Transitional package for nvidia-utils-550-server
+ This is a transitional package for nvidia-utils-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-compute-535-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-compute-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-compute-550-server
+ This is a transitional package for libnvidia-compute-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-compute-utils-535-server
+Architecture: amd64 arm64
+Depends: nvidia-compute-utils-550-server
+Multi-Arch: same
+Description: Transitional package for nvidia-compute-utils-550-server
+ This is a transitional package for nvidia-compute-utils-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-535-server
+Architecture: amd64 arm64
+Depends: nvidia-headless-no-dkms-550-server
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-no-dkms-550-server
+ This is a transitional package for nvidia-headless-no-dkms-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-535-server
+Architecture: amd64 arm64
+Depends: nvidia-headless-550-server
+Multi-Arch: same
+Description: Transitional package for nvidia-headless-550-server
+ This is a transitional package for nvidia-headless-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-common-535-server
+Architecture: amd64 arm64
+Depends: nvidia-kernel-common-550-server
+Multi-Arch: same
+Description: Transitional package for nvidia-kernel-common-550-server
+ This is a transitional package for nvidia-kernel-common-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-firmware-535-server
+Architecture: amd64 arm64
+Depends: nvidia-firmware-550-server
+Multi-Arch: same
+Description: Transitional package for nvidia-firmware-550-server
+ This is a transitional package for nvidia-firmware-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-gl-535-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-gl-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-gl-550-server
+ This is a transitional package for libnvidia-gl-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-common-535-server
+Architecture: all
+Depends: libnvidia-common-550-server
+Multi-Arch: foreign
+Description: Transitional package for libnvidia-common-550-server
+ This is a transitional package for libnvidia-common-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-extra-535-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-extra-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-extra-550-server
+ This is a transitional package for libnvidia-extra-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: xserver-xorg-video-nvidia-535-server
+Architecture: amd64 arm64
+Depends: xserver-xorg-video-nvidia-550-server
+Multi-Arch: same
+Description: Transitional package for xserver-xorg-video-nvidia-550-server
+ This is a transitional package for xserver-xorg-video-nvidia-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-cfg1-535-server
+Architecture: amd64 arm64
+Depends: libnvidia-cfg1-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-cfg1-550-server
+ This is a transitional package for libnvidia-cfg1-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-fbc1-535-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-fbc1-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-fbc1-550-server
+ This is a transitional package for libnvidia-fbc1-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-decode-535-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-decode-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-decode-550-server
+ This is a transitional package for libnvidia-decode-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: libnvidia-encode-535-server
+Architecture: i386 amd64 arm64
+Depends: libnvidia-encode-550-server
+Multi-Arch: same
+Description: Transitional package for libnvidia-encode-550-server
+ This is a transitional package for libnvidia-encode-550-server, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-driver-535-server-open
+Architecture: amd64 arm64
+Depends: nvidia-driver-550-server-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-driver-550-server-open
+ This is a transitional package for nvidia-driver-550-server-open, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-kernel-source-535-server-open
+Architecture: amd64 arm64
+Depends: nvidia-kernel-source-550-server-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-kernel-source-550-server-open
+ This is a transitional package for nvidia-kernel-source-550-server-open, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-dkms-535-server-open
+Architecture: amd64 arm64
+Depends: nvidia-dkms-550-server-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-dkms-550-server-open
+ This is a transitional package for nvidia-dkms-550-server-open, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-no-dkms-535-server-open
+Architecture: amd64 arm64
+Depends: nvidia-headless-no-dkms-550-server-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-headless-no-dkms-550-server-open
+ This is a transitional package for nvidia-headless-no-dkms-550-server-open, and can be
+ safely removed after the installation is complete.
+
+Package: nvidia-headless-535-server-open
+Architecture: amd64 arm64
+Depends: nvidia-headless-550-server-open
+Multi-Arch: foreign
+Description: Transitional package for nvidia-headless-550-server-open
+ This is a transitional package for nvidia-headless-550-server-open, and can be
+ safely removed after the installation is complete.
+
