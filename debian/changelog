@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-550-server (550.54.14-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550-server (550.54.14-0ubuntu3) noble; urgency=medium
 
-  * 
+  * remove transtional packages for 535
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 12 Mar 2024 12:31:36 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 12 Mar 2024 20:04:16 +0100
 
 nvidia-graphics-drivers-550-server (550.54.14-0ubuntu2) noble; urgency=medium
 
