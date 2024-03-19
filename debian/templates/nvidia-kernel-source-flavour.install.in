@@ -8,3 +8,4 @@
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-modeset        usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-peermem        usr/src/nvidia-#VERSION#
 #I386_EXCLUDED#NVIDIA-Linux/kernel/nvidia-uvm            usr/src/nvidia-#VERSION#
+#I386_EXCLUDED#NVIDIA-Linux/kernel/header-presence-tests.mk        usr/src/nvidia-#VERSION#

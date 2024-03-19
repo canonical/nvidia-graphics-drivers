@@ -1,0 +1,4 @@
+NVIDIA-Linux/systemd/system/nvidia-powerd.service
+NVIDIA-Linux/supported-gpus/LICENSE
+NVIDIA-Linux/supported-gpus/supported-gpus.json
+
