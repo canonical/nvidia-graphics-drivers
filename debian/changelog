@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-550 (550.67-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550 (550.67-0ubuntu1.22.04.1) jammy; urgency=medium
 
   * Initial release (LP: #2055384)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 19 Mar 2024 15:11:12 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 19 Mar 2024 20:50:29 +0100
