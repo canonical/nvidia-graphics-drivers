@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for nvidia-compute-utils-550
+# postrm script for nvidia-dkms-550
 #
 # see: dh_installdeb(1)
 #
@@ -19,17 +19,26 @@ set -e
 #        * <disappearer's-postrm> `disappear' <r>overwrit>r> <new-version>
 # for details, see /usr/share/doc/packaging-manual/
 
-NVPD_USER="nvidia-persistenced"
 
 case "$1" in
     remove|purge)
-        # Remove the nvidia-persistenced user
-        if id "$NVPD_USER" > /dev/null 2>&1; then
-            userdel "$NVPD_USER" || true
+        # This should make sure that #PKGLIBDIR# and
+        # #PKGLIBDIR32# are removed even if some
+        # links are left. See LP: #540143
+        rm -Rf #PKGLIBDIR# #PKGLIBDIR32#
+
+        # Remove the blacklist file for hybrid graphics
+        rm -f /etc/modprobe.d/nvidia-550_hybrid.conf
+
+        # Update initramfs, in case we were loaded into it
+        if [ -x /usr/sbin/update-initramfs ]; then
+            /usr/sbin/update-initramfs -u
         fi
     ;;
 
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+
+
     ;;
 
     *)

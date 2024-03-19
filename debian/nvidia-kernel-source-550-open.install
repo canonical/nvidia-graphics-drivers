@@ -1,0 +1,11 @@
+NVIDIA-Linux/kernel-open/Kbuild                usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/Makefile              usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/common                usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/conftest.sh           usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/count-lines.mk        usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/nvidia                usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/nvidia-drm            usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/nvidia-modeset        usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/nvidia-peermem        usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/nvidia-uvm            usr/src/nvidia-550.67
+NVIDIA-Linux/kernel-open/header-presence-tests.mk        usr/src/nvidia-550.67
