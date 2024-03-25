@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-525 (525.147.05-0ubuntu2.23.10.1) mantic; urgency=medium
+
+  * End of support for 525 series, transition to 535. LP: #2049635
+
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Mon, 25 Mar 2024 16:28:47 +0100
+
 nvidia-graphics-drivers-525 (525.147.05-0ubuntu0.23.10.1) mantic; urgency=medium
 
   * New upstream release (LP: #2038514).
