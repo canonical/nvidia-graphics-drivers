@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.171.04-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Tue, 26 Mar 2024 21:02:45 +0100
+
 nvidia-graphics-drivers-535 (535.161.07-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * New upstream release (LP: #2048901)
