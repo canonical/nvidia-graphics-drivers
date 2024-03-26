@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.171.04-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.171.04-0ubuntu0.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2059147)
 
- -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Tue, 26 Mar 2024 20:12:59 +0100
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Tue, 26 Mar 2024 20:18:27 +0100
 
 nvidia-graphics-drivers-535 (535.161.07-0ubuntu0.20.04.1) focal; urgency=medium
 
