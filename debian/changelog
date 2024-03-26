@@ -1,8 +1,9 @@
-nvidia-graphics-drivers-535 (535.171.04-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.171.04-0ubuntu1) noble; urgency=medium
 
-  * 
+  * New upstream release (LP: #2059147)
+  * Revert "Use .xz extension on the driver source"
 
- -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Tue, 26 Mar 2024 17:02:52 +0100
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Tue, 26 Mar 2024 17:34:32 +0100
 
 nvidia-graphics-drivers-535 (535.161.07-0ubuntu2) noble; urgency=medium
 
