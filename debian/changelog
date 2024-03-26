@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.54.15-0ubuntu0.23.10.1) UNRELEASED; urgency=medium
+
+  * New Upstream release (LP: 2059115)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 26 Mar 2024 12:57:19 +0100
+
 nvidia-graphics-drivers-550-server (550.54.14-0ubuntu3.23.10.1) mantic; urgency=medium
 
   * remove transtional packages for 535
