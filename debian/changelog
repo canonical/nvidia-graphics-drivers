@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.67-0ubuntu2) noble; urgency=medium
+
+  * No-change rebuild for CVE-2024-3094
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Sun, 31 Mar 2024 06:35:15 +0000
+
 nvidia-graphics-drivers-550 (550.67-0ubuntu1) noble; urgency=medium
 
   * Initial release (LP: #2055384)
