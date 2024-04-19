@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-550-server (550.54.15-0ubuntu0.23.10.3) mantic; urgency=medium
+
+  * Limit supported pci-id's to the new ones added by this release.
+    (LP: #2061830)
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Tue, 16 Apr 2024 18:35:17 +0300
+
 nvidia-graphics-drivers-550-server (550.54.15-0ubuntu0.23.10.1) mantic; urgency=medium
 
   * New Upstream release (LP: 2059115)
