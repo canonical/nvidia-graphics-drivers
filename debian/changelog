@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.76-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Fri, 19 Apr 2024 17:39:03 +0200
+
 nvidia-graphics-drivers-550 (550.67-0ubuntu3) noble; urgency=medium
 
   * Limit supported pci-id's to the new ones supported by this release.
