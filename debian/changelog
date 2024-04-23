@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-550 (550.76-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550 (550.76-0ubuntu1) noble; urgency=medium
 
-  * 
+  * New upstream release (LP: #2063210)
 
- -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Fri, 19 Apr 2024 17:39:03 +0200
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Tue, 23 Apr 2024 15:08:40 +0200
 
 nvidia-graphics-drivers-550 (550.67-0ubuntu3) noble; urgency=medium
 
