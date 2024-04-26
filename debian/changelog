@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.76-0ubuntu1.20.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Fri, 26 Apr 2024 11:22:18 +0200
+
 nvidia-graphics-drivers-550 (550.67-0ubuntu1.20.04.1) focal; urgency=medium
 
   * Initial release (LP: #2055384)
