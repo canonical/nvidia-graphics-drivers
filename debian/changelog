@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-550 (550.76-0ubuntu1.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550 (550.76-0ubuntu1.20.04.1) focal; urgency=medium
 
-  * 
+  * New upstream release (LP: #2063210)
+  * Limit supported pci-id's to the new ones added by this release.
+    (LP: #2061830)
 
- -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Fri, 26 Apr 2024 11:22:18 +0200
+ -- Bartlomiej Zolnierkiewicz <bartlomiej.zolnierkiewicz@canonical.com>  Fri, 26 Apr 2024 11:31:37 +0200
 
 nvidia-graphics-drivers-550 (550.67-0ubuntu1.20.04.1) focal; urgency=medium
 
