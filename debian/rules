@@ -259,15 +259,15 @@ generate-modaliases:
 	# Generate modaliases for the restricted drivers manager
 	mkdir -p $(CURDIR)/debian/$(pkg_meta)-modaliases/usr/share/jockey/modaliases/
 	mkdir -p $(CURDIR)/debian/$(pkg_meta_open)-modaliases/usr/share/jockey/modaliases/
-	python3 $(CURDIR)/debian/nvidia_supported \
-		$(pkg_module) $(pkg_meta) \
-		NVIDIA-Linux/supported-gpus/supported-gpus.json \
-		> $(CURDIR)/debian/$(pkg_meta).modaliases
+#	python3 $(CURDIR)/debian/nvidia_supported \
+#		$(pkg_module) $(pkg_meta) \
+#		NVIDIA-Linux/supported-gpus/supported-gpus.json \
+#		> $(CURDIR)/debian/$(pkg_meta).modaliases
 
-	python3 $(CURDIR)/debian/nvidia_supported \
-		$(pkg_module) $(pkg_meta_open) \
-		NVIDIA-Linux/supported-gpus/supported-gpus.json --open \
-		> $(CURDIR)/debian/$(pkg_meta_open).modaliases
+#	python3 $(CURDIR)/debian/nvidia_supported \
+#		$(pkg_module) $(pkg_meta_open) \
+#		NVIDIA-Linux/supported-gpus/supported-gpus.json --open \
+#		> $(CURDIR)/debian/$(pkg_meta_open).modaliases
 	# Take additional card ids from a text file
 	# Generate a modalias for each ID
 	@set -e -x ; \
