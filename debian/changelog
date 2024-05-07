@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.76-0ubuntu2.24.04.1) noble; urgency=medium
+
+  * change naming scheme to LTS, no binary release
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 07 May 2024 11:00:04 +0200
+
 nvidia-graphics-drivers-550 (550.76-0ubuntu1) noble; urgency=medium
 
   * New upstream release (LP: #2063210)
