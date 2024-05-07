@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.54.15-0ubuntu3.24.04.1) noble; urgency=medium
+
+  * Change version to include LTS naming, no release as a package
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 07 May 2024 09:54:09 +0200
+
 nvidia-graphics-drivers-550-server (550.54.15-0ubuntu2) noble; urgency=medium
 
   * Limit supported pci-id's to the new ones supported by this release.
