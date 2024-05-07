@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.54.15-0ubuntu3) oracular; urgency=medium
+
+  * Switch development branch to oracular
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 07 May 2024 10:09:50 +0200
+
 nvidia-graphics-drivers-550-server (550.54.15-0ubuntu2) noble; urgency=medium
 
   * Limit supported pci-id's to the new ones supported by this release.
