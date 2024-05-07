@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.161.08-0ubuntu3.24.04.1) noble; urgency=medium
+
+  * Change package naming to LTS scheme, no binary release
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 07 May 2024 10:31:42 +0200
+
 nvidia-graphics-drivers-535-server (535.161.08-0ubuntu2) noble; urgency=medium
 
   * New Upstream release (LP: #2058740)
