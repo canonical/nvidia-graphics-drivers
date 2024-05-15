@@ -132,7 +132,8 @@ Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (=
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1,
+ libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
+ libcuda-12.2-1,
  libcuda.so.1 (= ${source:Version})
 Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
@@ -140,14 +141,16 @@ Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1
+ libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
+ libcuda-12.2-1
 Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-#FLAVOUR# (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1
+ libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
+ libcuda-12.2-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA Server Driver
  to use GPUs for parallel general purpose computation through CUDA and
