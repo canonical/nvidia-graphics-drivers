@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.179-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 21 May 2024 17:31:14 +0200
+
 nvidia-graphics-drivers-535 (535.171.04-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2059147)
