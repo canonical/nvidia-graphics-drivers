@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.179-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.179-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release (LP: #2066044)
 
- -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 21 May 2024 17:13:45 +0200
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 21 May 2024 17:16:27 +0200
 
 nvidia-graphics-drivers-535 (535.171.04-0ubuntu0.22.04.1) jammy; urgency=medium
 
