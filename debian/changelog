@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.179-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.179-0ubuntu1) oracular; urgency=medium
 
-  * 
+  * New upstream release (LP: #2066044)
 
- -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 21 May 2024 16:33:36 +0200
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 21 May 2024 16:38:19 +0200
 
 nvidia-graphics-drivers-535 (535.171.04-0ubuntu3) oracular; urgency=medium
 
