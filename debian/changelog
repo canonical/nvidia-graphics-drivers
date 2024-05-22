@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.183.01-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release (LP: #2066367)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 22 May 2024 13:45:50 +0200
+
 nvidia-graphics-drivers-535-server (535.161.08-0ubuntu3) oracular; urgency=medium
 
   * Switch devel branch to oracular
