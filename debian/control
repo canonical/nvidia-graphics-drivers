@@ -32,10 +32,10 @@ Package: nvidia-driver-535-server
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-535-server (= ${binary:Version}),
- nvidia-dkms-535-server (<= 535.161.08-1),
- nvidia-dkms-535-server (>= 535.161.08),
- nvidia-kernel-common-535-server (<= 535.161.08-1),
- nvidia-kernel-common-535-server (>= 535.161.08),
+ nvidia-dkms-535-server (<= 535.183.01-1),
+ nvidia-dkms-535-server (>= 535.183.01),
+ nvidia-kernel-common-535-server (<= 535.183.01-1),
+ nvidia-kernel-common-535-server (>= 535.183.01),
  nvidia-kernel-source-535-server (= ${binary:Version}),
  libnvidia-compute-535-server (= ${binary:Version}),
  libnvidia-extra-535-server (= ${binary:Version}),
@@ -93,11 +93,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-535-server (<= 535.161.08-1),
- nvidia-kernel-source-535-server (>= 535.161.08),
- nvidia-kernel-common-535-server (<= 535.161.08-1),
- nvidia-kernel-common-535-server (>= 535.161.08),
- nvidia-firmware-535-server-535.161.08,
+ nvidia-kernel-source-535-server (<= 535.183.01-1),
+ nvidia-kernel-source-535-server (>= 535.183.01),
+ nvidia-kernel-common-535-server (<= 535.183.01-1),
+ nvidia-kernel-common-535-server (>= 535.183.01),
+ nvidia-firmware-535-server-535.183.01,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -132,7 +132,8 @@ Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (=
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1,
+ libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
+ libcuda-12.2-1,
  libcuda.so.1 (= ${source:Version})
 Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
@@ -140,14 +141,16 @@ Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1
+ libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
+ libcuda-12.2-1
 Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-535-server (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
  libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1
+ libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
+ libcuda-12.2-1
 Description: NVIDIA libcompute package
  This package provides a set of libraries which enable the NVIDIA Server Driver
  to use GPUs for parallel general purpose computation through CUDA and
@@ -178,8 +181,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-535-server (<= 535.161.08-1),
- nvidia-kernel-common-535-server (>= 535.161.08),
+ nvidia-kernel-common-535-server (<= 535.183.01-1),
+ nvidia-kernel-common-535-server (>= 535.183.01),
  nvidia-kernel-source-535-server (= ${binary:Version}),
  libnvidia-compute-535-server (= ${binary:Version}),
  nvidia-compute-utils-535-server (= ${binary:Version}),
@@ -216,7 +219,7 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.161.08
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-535-server-535.183.01
 Replaces:
  nvidia-dkms-535-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -227,12 +230,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-535-server-535.161.08
+Package: nvidia-firmware-535-server-535.183.01
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-535-535.161.08
+ nvidia-firmware-535-535.183.01
 Replaces:
- nvidia-firmware-535-535.161.08
+ nvidia-firmware-535-535.183.01
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -383,10 +386,10 @@ Package: nvidia-driver-535-server-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-535-server (= ${binary:Version}),
- nvidia-dkms-535-server-open (<= 535.161.08-1),
- nvidia-dkms-535-server-open (>= 535.161.08),
- nvidia-kernel-common-535-server (<= 535.161.08-1),
- nvidia-kernel-common-535-server (>= 535.161.08),
+ nvidia-dkms-535-server-open (<= 535.183.01-1),
+ nvidia-dkms-535-server-open (>= 535.183.01),
+ nvidia-kernel-common-535-server (<= 535.183.01-1),
+ nvidia-kernel-common-535-server (>= 535.183.01),
  nvidia-kernel-source-535-server-open (= ${binary:Version}),
  libnvidia-compute-535-server (= ${binary:Version}),
  libnvidia-extra-535-server (= ${binary:Version}),
@@ -443,10 +446,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-535-server-open (<= 535.161.08-1),
- nvidia-kernel-source-535-server-open (>= 535.161.08),
- nvidia-kernel-common-535-server (<= 535.161.08-1),
- nvidia-kernel-common-535-server (>= 535.161.08),
+ nvidia-kernel-source-535-server-open (<= 535.183.01-1),
+ nvidia-kernel-source-535-server-open (>= 535.183.01),
+ nvidia-kernel-common-535-server (<= 535.183.01-1),
+ nvidia-kernel-common-535-server (>= 535.183.01),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -461,8 +464,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-535-server (<= 535.161.08-1),
- nvidia-kernel-common-535-server (>= 535.161.08),
+ nvidia-kernel-common-535-server (<= 535.183.01-1),
+ nvidia-kernel-common-535-server (>= 535.183.01),
  nvidia-kernel-source-535-server-open (= ${binary:Version}),
  libnvidia-compute-535-server (= ${binary:Version}),
  nvidia-compute-utils-535-server (= ${binary:Version}),
