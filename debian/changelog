@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.90.07-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Mon, 03 Jun 2024 10:52:50 +0200
+
 nvidia-graphics-drivers-550 (550.78-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2065302)
