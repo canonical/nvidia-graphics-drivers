@@ -9,7 +9,7 @@
 set -e
 
 PACKAGE_NAME=nvidia-srv
-CVERSION=550.54.15
+CVERSION=550.90.07
 CVERSION=${CVERSION#*really.}
 
 
