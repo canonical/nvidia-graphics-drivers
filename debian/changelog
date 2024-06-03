@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.90.07-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release (LP: #2067041)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 03 Jun 2024 12:19:41 +0200
+
 nvidia-graphics-drivers-550-server (550.54.15-0ubuntu0.22.04.2) jammy; urgency=medium
 
   * Limit supported pci-id's to the new ones added by this release.
