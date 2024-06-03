@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.90.07-0ubuntu1) UNRELEASED; urgency=medium
+
+  *  New upstream release (LP: #2067041)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 03 Jun 2024 11:58:00 +0200
+
 nvidia-graphics-drivers-550-server (550.54.15-0ubuntu3) oracular; urgency=medium
 
   * Switch development branch to oracular
