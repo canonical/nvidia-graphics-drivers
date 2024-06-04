@@ -3,6 +3,11 @@ nvidia-graphics-drivers-470 (470.239.06-0ubuntu2.1) UNRELEASED; urgency=medium
   [ Timo Aaltonen ]
   * control: Update Vcs links.
 
+  [ Daniel van Vugt]
+  * Add /etc/environment.d/nvidia-gtk-workaround.conf to work around
+    undiagnosed rendering issues in older Nvidia drivers that seem to be
+    fixed in 5xx drivers. (LP: #2061079)
+
  -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Fri, 31 May 2024 09:28:20 +0200
 
 nvidia-graphics-drivers-470 (470.239.06-0ubuntu2) noble; urgency=medium
