@@ -28,3 +28,4 @@ NVIDIA-Linux/nvngx.dll                                     usr/lib/x86_64-linux-
 #NVIDIA-Linux/32/libnvidia-glsi.so.470.239.06                    usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-glvkspirv.so.470.239.06               usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-tls.so.470.239.06                     usr/lib/x86_64-linux-gnu
+debian/nvidia-gtk-workaround.conf	etc/environment.d
