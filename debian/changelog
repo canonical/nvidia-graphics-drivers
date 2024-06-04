@@ -2,6 +2,7 @@ nvidia-graphics-drivers-470 (470.239.06-0ubuntu3) UNRELEASED; urgency=medium
 
   [ Timo Aaltonen ]
   * control: Update Vcs links.
+  * control: Drop Alberto from uploaders.
 
  -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Fri, 31 May 2024 09:21:32 +0200
 
