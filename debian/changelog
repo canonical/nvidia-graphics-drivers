@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-470 (470.239.06-0ubuntu3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-470 (470.239.06-0ubuntu3) oracular; urgency=medium
 
   [ Timo Aaltonen ]
   * control: Update Vcs links.
@@ -9,7 +9,7 @@ nvidia-graphics-drivers-470 (470.239.06-0ubuntu3) UNRELEASED; urgency=medium
     undiagnosed rendering issues in older Nvidia drivers that seem to be
     fixed in 5xx drivers. (LP: #2061079)
 
- -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Fri, 31 May 2024 09:21:32 +0200
+ -- Timo Aaltonen <tjaalton@ubuntu.com>  Tue, 04 Jun 2024 15:27:07 +0300
 
 nvidia-graphics-drivers-470 (470.239.06-0ubuntu2) noble; urgency=medium
 
