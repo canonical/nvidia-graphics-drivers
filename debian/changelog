@@ -1,6 +1,7 @@
 nvidia-graphics-drivers-470 (470.239.06-0ubuntu2.1) UNRELEASED; urgency=medium
 
-  * Change package naming scheme to LTS, no binary release
+  [ Timo Aaltonen ]
+  * control: Update Vcs links.
 
  -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Fri, 31 May 2024 09:28:20 +0200
 
