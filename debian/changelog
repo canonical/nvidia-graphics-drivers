@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-550-server (550.90.07-0ubuntu0.20.04.2) focal; urgency=medium
+
+  * Limit supported pci-id's to the new ones supported by this release.
+    (LP: #2061830)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 07 Jun 2024 14:04:48 +0200
+
 nvidia-graphics-drivers-550-server (550.90.07-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2067041)
