@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-555 (555.58-0ubuntu0.24.04.1) noble; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release 555.58
+
+ -- Karen Dombroski <karen.dombroski@marsbioimaging.com>  Mon, 01 Jul 2024 09:33:30 +1200
+
 nvidia-graphics-drivers-550 (550.90.07-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release (LP: #2067881)

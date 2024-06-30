@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for nvidia-dkms-550
+# postinst script for nvidia-dkms-555
 #
 # see: dh_installdeb(1)
 #
@@ -34,7 +34,7 @@ esac
 _is_kernel_name_correct() {
     CORRECT="no"
     KERNEL_NAME=$1
- 
+
     for kernel in /boot/config-*; do
         [ -f "$kernel" ] || continue
         KERNEL=${kernel#*-}
