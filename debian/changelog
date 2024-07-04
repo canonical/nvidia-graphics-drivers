@@ -1,3 +1,13 @@
+nvidia-graphics-drivers-535-server (535.183.06-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release (LP: #2071933)
+  * Add runtime dependency on libnvidia-egl-wayland1.
+      While it is technically an optional plugin, it is needed to
+      properly support wayland sessions.
+      (LP: #2063827) (LP: #2062082)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Jul 2024 14:57:05 +0200
+
 nvidia-graphics-drivers-535-server (535.183.01-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2066367) 
