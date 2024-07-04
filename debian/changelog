@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-535-server (535.183.06-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535-server (535.183.06-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release (LP: #2071933)
   * Add runtime dependency on libnvidia-egl-wayland1.
@@ -6,7 +6,7 @@ nvidia-graphics-drivers-535-server (535.183.06-0ubuntu0.24.04.1) UNRELEASED; urg
     properly support wayland sessions.
     (LP: #2063827) (LP: #2062082)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Jul 2024 14:30:36 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Jul 2024 14:31:35 +0200
 
 nvidia-graphics-drivers-535-server (535.183.01-0ubuntu0.24.04.1) noble; urgency=medium
 
