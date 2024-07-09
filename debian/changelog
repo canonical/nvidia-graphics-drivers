@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-550 (550.100-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550 (550.100-0ubuntu1) oracular; urgency=medium
 
-  * 
+  * New upstream release (LP: #2072571)
 
- -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 09 Jul 2024 17:59:20 +0200
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Tue, 09 Jul 2024 18:07:12 +0200
 
 nvidia-graphics-drivers-550 (550.90.07-0ubuntu2) oracular; urgency=medium
 
