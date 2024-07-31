@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-550 (550.107.02-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550 (550.107.02-0ubuntu0.22.04.1) jammy; urgency=medium
 
-  * 
+  * New upstream release (LP: #2075327)
 
- -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Wed, 31 Jul 2024 16:11:17 +0200
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Wed, 31 Jul 2024 16:13:06 +0200
 
 nvidia-graphics-drivers-550 (550.100-0ubuntu0.22.04.2) jammy; urgency=medium
 
