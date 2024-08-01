@@ -1,8 +1,10 @@
-nvidia-graphics-drivers-550-server (550.90.07-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550-server (550.90.07-0ubuntu2) oracular; urgency=medium
 
+  * Add runtime dependency on libnvidia-egl-wayland1, needed to properly support wayland sessions (LP: #2062082)
+  [ Paolo Pisati ]
   * Fix gcc-14 FTBFS (LP: #2075340) 
 
- -- Paolo Pisati <paolo.pisati@canonical.com>  Wed, 31 Jul 2024 15:50:45 +0000
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Thu, 01 Aug 2024 16:07:25 +0200
 
 nvidia-graphics-drivers-550-server (550.90.07-0ubuntu1) oracular; urgency=medium
 
