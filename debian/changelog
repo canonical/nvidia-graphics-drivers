@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.107.02-0ubuntu1) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Mon, 05 Aug 2024 10:30:58 +0200
+
 nvidia-graphics-drivers-550 (550.100-0ubuntu2) oracular; urgency=medium
 
   * Add runtime dependency on libnvidia-egl-wayland1, needed to properly support wayland sessions (LP: #2062082)
