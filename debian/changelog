@@ -1,11 +1,13 @@
-nvidia-graphics-drivers-535-server (535.183.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535-server (535.183.06-0ubuntu1) oracular; urgency=medium
 
+  [ Kuba Pawlak ]
   * New upstream release (LP: #2071933)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Jul 2024 14:01:33 +0200
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Mon, 05 Aug 2024 10:06:40 +0200
 
 nvidia-graphics-drivers-535-server (535.183.01-0ubuntu2) oracular; urgency=medium
 
+  * Add runtime dependency on libnvidia-egl-wayland1, needed to properly support wayland sessions (LP: #2062082)
   [ Paolo Pisati ]
   * Fix gcc-14 FTBFS (LP: #2075340)
 
