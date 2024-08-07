@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-470 (470.256.02-0ubuntu2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Eduard de Vidal Flores <eduard.de.vidal.flores@canonical.com>  Wed, 07 Aug 2024 15:26:59 +0200
+
 nvidia-graphics-drivers-470 (470.256.02-0ubuntu1) oracular; urgency=medium
 
   * New upstream release (LP: #2067598)
