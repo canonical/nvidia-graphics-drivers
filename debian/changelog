@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-560 (560.35.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-560 (560.35.03-0ubuntu1) oracular; urgency=medium
 
   * New upstream release (LP: #2077574)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 21 Aug 2024 21:35:16 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 21 Aug 2024 21:36:43 +0200
