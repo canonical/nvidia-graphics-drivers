@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-535-server (535.183.06-0ubuntu5) oracular; urgency=medium
+
+  * add buildfix_follow_pfn_6.11.patch
+  * add buildfix_follow_pfn_6.11_open.patch
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 28 Aug 2024 11:39:37 +0200
+
 nvidia-graphics-drivers-535-server (535.183.06-0ubuntu1) oracular; urgency=medium
 
   [ Kuba Pawlak ]
