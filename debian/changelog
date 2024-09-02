@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-550-server (550.90.12-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550-server (550.90.12-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release (LP: #2078689)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 02 Sep 2024 13:54:57 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 02 Sep 2024 13:55:44 +0200
 
 nvidia-graphics-drivers-550-server (550.90.07-0ubuntu0.22.04.1) jammy; urgency=medium
 
