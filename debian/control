@@ -32,10 +32,10 @@ Package: nvidia-driver-550-server
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-550-server (= ${binary:Version}),
- nvidia-dkms-550-server (<= 550.90.07-1),
- nvidia-dkms-550-server (>= 550.90.07),
- nvidia-kernel-common-550-server (<= 550.90.07-1),
- nvidia-kernel-common-550-server (>= 550.90.07),
+ nvidia-dkms-550-server (<= 550.90.12-1),
+ nvidia-dkms-550-server (>= 550.90.12),
+ nvidia-kernel-common-550-server (<= 550.90.12-1),
+ nvidia-kernel-common-550-server (>= 550.90.12),
  nvidia-kernel-source-550-server (= ${binary:Version}),
  libnvidia-compute-550-server (= ${binary:Version}),
  libnvidia-extra-550-server (= ${binary:Version}),
@@ -93,11 +93,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-550-server (<= 550.90.07-1),
- nvidia-kernel-source-550-server (>= 550.90.07),
- nvidia-kernel-common-550-server (<= 550.90.07-1),
- nvidia-kernel-common-550-server (>= 550.90.07),
- nvidia-firmware-550-server-550.90.07,
+ nvidia-kernel-source-550-server (<= 550.90.12-1),
+ nvidia-kernel-source-550-server (>= 550.90.12),
+ nvidia-kernel-common-550-server (<= 550.90.12-1),
+ nvidia-kernel-common-550-server (>= 550.90.12),
+ nvidia-firmware-550-server-550.90.12,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -181,8 +181,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-550-server (<= 550.90.07-1),
- nvidia-kernel-common-550-server (>= 550.90.07),
+ nvidia-kernel-common-550-server (<= 550.90.12-1),
+ nvidia-kernel-common-550-server (>= 550.90.12),
  nvidia-kernel-source-550-server (= ${binary:Version}),
  libnvidia-compute-550-server (= ${binary:Version}),
  nvidia-compute-utils-550-server (= ${binary:Version}),
@@ -219,7 +219,7 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-550-server-550.90.07
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-550-server-550.90.12
 Replaces:
  nvidia-dkms-550-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -230,12 +230,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-550-server-550.90.07
+Package: nvidia-firmware-550-server-550.90.12
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-550-550.90.07
+ nvidia-firmware-550-550.90.12
 Replaces:
- nvidia-firmware-550-550.90.07
+ nvidia-firmware-550-550.90.12
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -387,10 +387,10 @@ Package: nvidia-driver-550-server-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-550-server (= ${binary:Version}),
- nvidia-dkms-550-server-open (<= 550.90.07-1),
- nvidia-dkms-550-server-open (>= 550.90.07),
- nvidia-kernel-common-550-server (<= 550.90.07-1),
- nvidia-kernel-common-550-server (>= 550.90.07),
+ nvidia-dkms-550-server-open (<= 550.90.12-1),
+ nvidia-dkms-550-server-open (>= 550.90.12),
+ nvidia-kernel-common-550-server (<= 550.90.12-1),
+ nvidia-kernel-common-550-server (>= 550.90.12),
  nvidia-kernel-source-550-server-open (= ${binary:Version}),
  libnvidia-compute-550-server (= ${binary:Version}),
  libnvidia-extra-550-server (= ${binary:Version}),
@@ -447,10 +447,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-550-server-open (<= 550.90.07-1),
- nvidia-kernel-source-550-server-open (>= 550.90.07),
- nvidia-kernel-common-550-server (<= 550.90.07-1),
- nvidia-kernel-common-550-server (>= 550.90.07),
+ nvidia-kernel-source-550-server-open (<= 550.90.12-1),
+ nvidia-kernel-source-550-server-open (>= 550.90.12),
+ nvidia-kernel-common-550-server (<= 550.90.12-1),
+ nvidia-kernel-common-550-server (>= 550.90.12),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -465,8 +465,8 @@ Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-550-server (<= 550.90.07-1),
- nvidia-kernel-common-550-server (>= 550.90.07),
+ nvidia-kernel-common-550-server (<= 550.90.12-1),
+ nvidia-kernel-common-550-server (>= 550.90.12),
  nvidia-kernel-source-550-server-open (= ${binary:Version}),
  libnvidia-compute-550-server (= ${binary:Version}),
  nvidia-compute-utils-550-server (= ${binary:Version}),
