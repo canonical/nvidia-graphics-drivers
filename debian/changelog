@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-560 (560.35.03-0ubuntu3) oracular; urgency=medium
+
+  * Fix intallation error (LP: #2080922)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 17 Sep 2024 15:24:48 +0200
+
 nvidia-graphics-drivers-560 (560.35.03-0ubuntu2) oracular; urgency=medium
 
   * fix duplicated entry in libnvidia-gl-flavour.install.in
