@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.183.06-0ubuntu6) oracular; urgency=medium
+
+  * libnvidia-compute-535-server should provide libcuda1 (LP: #2081723)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 23 Sep 2024 17:20:44 +0200
+
 nvidia-graphics-drivers-535-server (535.183.06-0ubuntu5) oracular; urgency=medium
 
   * add buildfix_follow_pfn_6.11.patch
