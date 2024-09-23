@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.90.12-0ubuntu2) oracular; urgency=medium
+
+  * libnvidia-compute-550-server should provide libcuda1 (LP: #2081723)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 23 Sep 2024 16:50:22 +0200
+
 nvidia-graphics-drivers-550-server (550.90.12-0ubuntu1) oracular; urgency=medium
 
   * New Upstream release (LP: #2078689)
