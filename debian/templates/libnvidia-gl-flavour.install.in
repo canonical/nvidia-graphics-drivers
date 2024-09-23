@@ -2,7 +2,7 @@
 #AMD64_ONLY#NVIDIA-Linux/nvngx.dll                                        #LIBDIR#/nvidia/wine
 #AMD64_ONLY#NVIDIA-Linux/nvidia-pcc                                       usr/bin
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-vksc-core.so.#VERSION#                 #LIBDIR#
-#AMD64_ONLY#NVIDIA-Linux/nvidia_icd_vksc.json                             usr/share/vulkan/icd.d
+#AMD64_ONLY#NVIDIA-Linux/nvidia_icd_vksc.json                             usr/share/vulkansc/icd.d
 #I386_EXCLUDED#NVIDIA-Linux/10_nvidia.json                                usr/share/glvnd/egl_vendor.d
 #I386_EXCLUDED#NVIDIA-Linux/15_nvidia_gbm.json                            usr/share/egl/egl_external_platform.d
 #I386_EXCLUDED#NVIDIA-Linux/20_nvidia_xlib.json                           usr/share/egl/egl_external_platform.d

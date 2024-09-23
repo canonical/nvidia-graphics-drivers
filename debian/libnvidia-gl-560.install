@@ -2,7 +2,7 @@ NVIDIA-Linux/_nvngx.dll                                       usr/lib/x86_64-lin
 NVIDIA-Linux/nvngx.dll                                        usr/lib/x86_64-linux-gnu/nvidia/wine
 NVIDIA-Linux/nvidia-pcc                                       usr/bin
 NVIDIA-Linux/libnvidia-vksc-core.so.560.35.03                 usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/nvidia_icd_vksc.json                             usr/share/vulkan/icd.d
+NVIDIA-Linux/nvidia_icd_vksc.json                             usr/share/vulkansc/icd.d
 NVIDIA-Linux/10_nvidia.json                                usr/share/glvnd/egl_vendor.d
 NVIDIA-Linux/15_nvidia_gbm.json                            usr/share/egl/egl_external_platform.d
 NVIDIA-Linux/20_nvidia_xlib.json                           usr/share/egl/egl_external_platform.d
