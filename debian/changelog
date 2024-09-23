@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-560 (560.35.03-0ubuntu5) oracular; urgency=medium
+
+  * libnvidia-compute-560 should provide libcuda1 (LP: #2081723)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 23 Sep 2024 15:06:03 +0200
+
 nvidia-graphics-drivers-560 (560.35.03-0ubuntu4) oracular; urgency=medium
 
   * Install VulkanSC icd config in the correct directory (LP: #2081196)
