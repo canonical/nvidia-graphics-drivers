@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.120-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * New usptream release 550.120 (LP: #2082044)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 26 Sep 2024 09:21:54 +0200
+
 nvidia-graphics-drivers-550 (550.107.02-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release (LP: #2075327)
