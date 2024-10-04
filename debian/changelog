@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.107.02-0ubuntu2) oracular; urgency=medium
+
+  * Add transitionals to 560 (LP: #2083677)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 04 Oct 2024 12:06:08 +0200
+
 nvidia-graphics-drivers-550 (550.107.02-0ubuntu1) oracular; urgency=medium
 
   * New upstream release (LP: #2075327)
