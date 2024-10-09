@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.216.01-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release (LP: #2084013)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 09 Oct 2024 09:22:42 +0200
+
 nvidia-graphics-drivers-535-server (535.183.06-0ubuntu6) oracular; urgency=medium
 
   * libnvidia-compute-535-server should provide libcuda1 (LP: #2081723)
