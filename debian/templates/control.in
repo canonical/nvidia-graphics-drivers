@@ -57,7 +57,7 @@ Suggests:
  nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Support: PB
+XB-Support: NFB
 Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
