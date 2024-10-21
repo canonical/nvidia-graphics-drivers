@@ -1,11 +1,11 @@
-Source: nvidia-graphics-drivers-550-server
+Source: nvidia-graphics-drivers-565-server
 Section: non-free/libs
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Uploaders:
  Kuba Pawlak <kuba.pawlak@canonical.com>,
 Vcs-Git: git://github.com/canonical/nvidia-graphics-drivers.git
-Vcs-Browser: https://github.com/canonical/nvidia-graphics-drivers/tree/550-server
+Vcs-Browser: https://github.com/canonical/nvidia-graphics-drivers/tree/565-server
 Build-Depends:
  debhelper (>= 12),
  dpkg-dev (>= 1.17.11~),
@@ -28,31 +28,31 @@ Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
-Package: nvidia-driver-550-server
+Package: nvidia-driver-565-server
 Architecture: amd64 arm64
 Depends:
- libnvidia-gl-550-server (= ${binary:Version}),
- nvidia-dkms-550-server (<= 550.127.05-1),
- nvidia-dkms-550-server (>= 550.127.05),
- nvidia-kernel-common-550-server (<= 550.127.05-1),
- nvidia-kernel-common-550-server (>= 550.127.05),
- nvidia-kernel-source-550-server (= ${binary:Version}),
- libnvidia-compute-550-server (= ${binary:Version}),
- libnvidia-extra-550-server (= ${binary:Version}),
- nvidia-compute-utils-550-server (= ${binary:Version}),
- libnvidia-decode-550-server (= ${binary:Version}),
- libnvidia-encode-550-server (= ${binary:Version}),
- nvidia-utils-550-server (= ${binary:Version}),
- xserver-xorg-video-nvidia-550-server (= ${binary:Version}),
- libnvidia-cfg1-550-server (= ${binary:Version}),
- libnvidia-fbc1-550-server (= ${binary:Version}) [!ppc64el],
+ libnvidia-gl-565-server (= ${binary:Version}),
+ nvidia-dkms-565-server (<= 565.57.01-1),
+ nvidia-dkms-565-server (>= 565.57.01),
+ nvidia-kernel-common-565-server (<= 565.57.01-1),
+ nvidia-kernel-common-565-server (>= 565.57.01),
+ nvidia-kernel-source-565-server (= ${binary:Version}),
+ libnvidia-compute-565-server (= ${binary:Version}),
+ libnvidia-extra-565-server (= ${binary:Version}),
+ nvidia-compute-utils-565-server (= ${binary:Version}),
+ libnvidia-decode-565-server (= ${binary:Version}),
+ libnvidia-encode-565-server (= ${binary:Version}),
+ nvidia-utils-565-server (= ${binary:Version}),
+ xserver-xorg-video-nvidia-565-server (= ${binary:Version}),
+ libnvidia-cfg1-565-server (= ${binary:Version}),
+ libnvidia-fbc1-565-server (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
- libnvidia-compute-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-550-server:i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-565-server:i386 (= ${binary:Version}) [amd64]
 Suggests:
  nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
@@ -63,10 +63,10 @@ Description: NVIDIA Server Driver metapackage
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
  .
- See /usr/share/doc/nvidia-driver-550-server/README.txt.gz
+ See /usr/share/doc/nvidia-driver-565-server/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-kernel-source-550-server
+Package: nvidia-kernel-source-565-server
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
@@ -81,23 +81,23 @@ Description: NVIDIA kernel source package
  This package provides the NVIDIA kernel source needed by the userspace
  driver.
 
-Package: nvidia-dkms-550-server
+Package: nvidia-dkms-565-server
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
-Breaks: nvidia-kernel-source-550-server (<< 390.25-0ubuntu2~)
+Breaks: nvidia-kernel-source-565-server (<< 390.25-0ubuntu2~)
 Replaces:
- nvidia-dkms-kernel, nvidia-kernel-source-550-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
+ nvidia-dkms-kernel, nvidia-kernel-source-565-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
 Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-550-server (<= 550.127.05-1),
- nvidia-kernel-source-550-server (>= 550.127.05),
- nvidia-kernel-common-550-server (<= 550.127.05-1),
- nvidia-kernel-common-550-server (>= 550.127.05),
- nvidia-firmware-550-server-550.127.05,
+ nvidia-kernel-source-565-server (<= 565.57.01-1),
+ nvidia-kernel-source-565-server (>= 565.57.01),
+ nvidia-kernel-common-565-server (<= 565.57.01-1),
+ nvidia-kernel-common-565-server (>= 565.57.01),
+ nvidia-firmware-565-server-565.57.01,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -106,12 +106,12 @@ Description: NVIDIA DKMS package
  module will be built for your running kernel, and automatically rebuilt for
  any new kernel headers that are installed.
 
-Package: nvidia-utils-550-server
+Package: nvidia-utils-565-server
 Architecture: amd64 arm64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
- nvidia-driver-550-server,
+ nvidia-driver-565-server,
 Provides:
  nvidia-utils, nvidia-smi
 Conflicts:
@@ -121,7 +121,7 @@ Replaces:
 Description: NVIDIA Server Driver support binaries
  This package contains supporting binaries for the NVIDIA Server Driver.
 
-Package: libnvidia-compute-550-server
+Package: libnvidia-compute-565-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
@@ -143,7 +143,7 @@ Conflicts: libnvidia-compute, nvidia-opencl-icd,
  libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
  libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
  libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1
-Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-550-server (<< 390.25-0ubuntu2~),
+Replaces: libnvidia-compute, nvidia-opencl-icd, libnvidia-compute-565-server (<< 390.25-0ubuntu2~),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
  libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
  libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
@@ -156,10 +156,10 @@ Description: NVIDIA libcompute package
  to use GPUs for parallel general purpose computation through CUDA and
  OpenCL.
 
-Package: nvidia-compute-utils-550-server
+Package: nvidia-compute-utils-565-server
 Architecture: amd64 arm64
 Depends:
- libnvidia-compute-550-server, adduser,
+ libnvidia-compute-565-server, adduser,
  ${misc:Depends}, ${shlibs:Depends}
 Provides: nvidia-compute-utils, nvidia-persistenced
 Conflicts: nvidia-compute-utils, nvidia-persistenced
@@ -175,18 +175,18 @@ Description: NVIDIA compute utilities
  has compute capability SM 3.5 or higher.
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
-Package: nvidia-headless-no-dkms-550-server
+Package: nvidia-headless-no-dkms-565-server
 Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-550-server (<= 550.127.05-1),
- nvidia-kernel-common-550-server (>= 550.127.05),
- nvidia-kernel-source-550-server (= ${binary:Version}),
- libnvidia-compute-550-server (= ${binary:Version}),
- nvidia-compute-utils-550-server (= ${binary:Version}),
- libnvidia-cfg1-550-server (= ${binary:Version}),
+ nvidia-kernel-common-565-server (<= 565.57.01-1),
+ nvidia-kernel-common-565-server (>= 565.57.01),
+ nvidia-kernel-source-565-server (= ${binary:Version}),
+ libnvidia-compute-565-server (= ${binary:Version}),
+ nvidia-compute-utils-565-server (= ${binary:Version}),
+ libnvidia-cfg1-565-server (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
@@ -195,16 +195,16 @@ Description: NVIDIA headless metapackage - no DKMS
  will not be built.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-550-server metapackage.
+ provided by the nvidia-driver-565-server metapackage.
 
-Package: nvidia-headless-550-server
+Package: nvidia-headless-565-server
 Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
 Depends:
- nvidia-headless-no-dkms-550-server,
- nvidia-dkms-550-server,
+ nvidia-headless-no-dkms-565-server,
+ nvidia-dkms-565-server,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage
  This metapackage installs the NVIDIA Server Driver and the libraries that enable
@@ -212,16 +212,16 @@ Description: NVIDIA headless metapackage
  OpenCL.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-550-server metapackage.
+ provided by the nvidia-driver-565-server metapackage.
 
-Package: nvidia-kernel-common-550-server
+Package: nvidia-kernel-common-565-server
 Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-550-server-550.127.05
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-565-server-565.57.01
 Replaces:
- nvidia-dkms-550-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
+ nvidia-dkms-565-server (<< 390.48-0ubuntu3~), nvidia-kernel-common
 Description: Shared files used with the kernel module
  This package installs all the optional accessory files for the NVIDIA
  kernel module.
@@ -230,37 +230,37 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-550-server-550.127.05
+Package: nvidia-firmware-565-server-565.57.01
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-550-550.127.05
+ nvidia-firmware-565-565.57.01
 Replaces:
- nvidia-firmware-550-550.127.05
+ nvidia-firmware-565-565.57.01
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
  This package installs required firmware files for the NVIDIA kernel
  module.
 
-Package: libnvidia-gl-550-server
+Package: libnvidia-gl-565-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Conflicts: libnvidia-gl
 Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- libnvidia-common-550-server, ${misc:Depends}, ${shlibs:Depends},
+ libnvidia-common-565-server, ${misc:Depends}, ${shlibs:Depends},
  libnvidia-egl-wayland1
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
 
-Package: libnvidia-common-550-server
+Package: libnvidia-common-565-server
 Architecture: all
 Multi-Arch: foreign
-Breaks: libnvidia-gl-550-server (<< 390.25-0ubuntu2~)
+Breaks: libnvidia-gl-565-server (<< 390.25-0ubuntu2~)
 Conflicts: libnvidia-common
-Replaces: libnvidia-common, libnvidia-gl-550-server (<< 390.25-0ubuntu2~)
+Replaces: libnvidia-common, libnvidia-gl-565-server (<< 390.25-0ubuntu2~)
 Provides: libnvidia-common
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
@@ -268,12 +268,12 @@ Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
  libraries.
 
-Package: libnvidia-extra-550-server
+Package: libnvidia-extra-565-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Breaks: libnvidia-common-550-server (<< 440.64-0ubuntu3~)
+Breaks: libnvidia-common-565-server (<< 440.64-0ubuntu3~)
 Conflicts: libnvidia-extra
-Replaces: libnvidia-extra, libnvidia-common-550-server (<< 440.64-0ubuntu3~)
+Replaces: libnvidia-extra, libnvidia-common-565-server (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
  ${misc:Depends}, ${shlibs:Depends}
@@ -281,11 +281,11 @@ Description: Extra libraries for the NVIDIA Server Driver
  This package provides an additional set of libraries to be used with
  the NVIDIA Server Driver.
 
-Package: xserver-xorg-video-nvidia-550-server
+Package: xserver-xorg-video-nvidia-565-server
 Section: non-free/x11
 Architecture: amd64 arm64
 Depends:
- libnvidia-cfg1-550-server (= ${binary:Version}),
+ libnvidia-cfg1-565-server (= ${binary:Version}),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts: xorg-driver-binary, nvidia-driver-binary
@@ -298,10 +298,10 @@ Description: NVIDIA binary Xorg driver
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
  for graphics cards using NVIDIA chip sets.
  .
- See /usr/share/doc/nvidia-driver-550-server/README.txt.gz
+ See /usr/share/doc/nvidia-driver-565-server/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: libnvidia-cfg1-550-server
+Package: libnvidia-cfg1-565-server
 Architecture: amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -321,7 +321,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library
  .
  This package contains the libnvidia-cfg.so.1 runtime library.
 
-Package: libnvidia-fbc1-550-server
+Package: libnvidia-fbc1-565-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -343,13 +343,13 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  .
  This package contains the NvFBCOpenGL runtime library.
 
-Package: libnvidia-decode-550-server
+Package: libnvidia-decode-565-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-compute-550-server (= ${binary:Version}),
+ libnvidia-compute-565-server (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-decode,
@@ -364,7 +364,7 @@ Description: NVIDIA Video Decoding runtime libraries
  The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
  systems) library for the NVIDIA vendor implementation.
 
-Package: libnvidia-encode-550-server
+Package: libnvidia-encode-565-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Pre-Depends:
@@ -383,32 +383,32 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
-Package: nvidia-driver-550-server-open
+Package: nvidia-driver-565-server-open
 Architecture: amd64 arm64
 Depends:
- libnvidia-gl-550-server (= ${binary:Version}),
- nvidia-dkms-550-server-open (<= 550.127.05-1),
- nvidia-dkms-550-server-open (>= 550.127.05),
- nvidia-kernel-common-550-server (<= 550.127.05-1),
- nvidia-kernel-common-550-server (>= 550.127.05),
- nvidia-kernel-source-550-server-open (= ${binary:Version}),
- libnvidia-compute-550-server (= ${binary:Version}),
- libnvidia-extra-550-server (= ${binary:Version}),
- nvidia-compute-utils-550-server (= ${binary:Version}),
- libnvidia-decode-550-server (= ${binary:Version}),
- libnvidia-encode-550-server (= ${binary:Version}),
- nvidia-utils-550-server (= ${binary:Version}),
- xserver-xorg-video-nvidia-550-server (= ${binary:Version}),
- libnvidia-cfg1-550-server (= ${binary:Version}),
- libnvidia-fbc1-550-server (= ${binary:Version}) [!ppc64el],
+ libnvidia-gl-565-server (= ${binary:Version}),
+ nvidia-dkms-565-server-open (<= 565.57.01-1),
+ nvidia-dkms-565-server-open (>= 565.57.01),
+ nvidia-kernel-common-565-server (<= 565.57.01-1),
+ nvidia-kernel-common-565-server (>= 565.57.01),
+ nvidia-kernel-source-565-server-open (= ${binary:Version}),
+ libnvidia-compute-565-server (= ${binary:Version}),
+ libnvidia-extra-565-server (= ${binary:Version}),
+ nvidia-compute-utils-565-server (= ${binary:Version}),
+ libnvidia-decode-565-server (= ${binary:Version}),
+ libnvidia-encode-565-server (= ${binary:Version}),
+ nvidia-utils-565-server (= ${binary:Version}),
+ xserver-xorg-video-nvidia-565-server (= ${binary:Version}),
+ libnvidia-cfg1-565-server (= ${binary:Version}),
+ libnvidia-fbc1-565-server (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
  nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-550-server:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-550-server:i386 (= ${binary:Version}) [amd64]
+ libnvidia-compute-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-decode-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-encode-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-fbc1-565-server:i386 (= ${binary:Version}) [amd64],
+ libnvidia-gl-565-server:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
 XB-Support: PB
@@ -417,10 +417,10 @@ Description: NVIDIA driver (open kernel) metapackage
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
  applications on either X11 or on Wayland.
  .
- See /usr/share/doc/nvidia-driver-550-server/README.txt.gz
+ See /usr/share/doc/nvidia-driver-565-server/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-kernel-source-550-server-open
+Package: nvidia-kernel-source-565-server-open
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
@@ -435,22 +435,22 @@ Description: NVIDIA kernel source package
  This package provides the open NVIDIA kernel source needed by the userspace
  driver.
 
-Package: nvidia-dkms-550-server-open
+Package: nvidia-dkms-565-server-open
 Architecture: amd64 arm64
 Multi-Arch: foreign
 Conflicts:
  nvidia-dkms-kernel
-Breaks: nvidia-kernel-source-550-server (<< 390.25-0ubuntu2~)
+Breaks: nvidia-kernel-source-565-server (<< 390.25-0ubuntu2~)
 Replaces:
- nvidia-dkms-kernel, nvidia-kernel-source-550-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
+ nvidia-dkms-kernel, nvidia-kernel-source-565-server (<< 390.25-0ubuntu2~), nvidia-384 (<< 390.25)
 Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-550-server-open (<= 550.127.05-1),
- nvidia-kernel-source-550-server-open (>= 550.127.05),
- nvidia-kernel-common-550-server (<= 550.127.05-1),
- nvidia-kernel-common-550-server (>= 550.127.05),
+ nvidia-kernel-source-565-server-open (<= 565.57.01-1),
+ nvidia-kernel-source-565-server-open (>= 565.57.01),
+ nvidia-kernel-common-565-server (<= 565.57.01-1),
+ nvidia-kernel-common-565-server (>= 565.57.01),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -459,18 +459,18 @@ Description: NVIDIA DKMS package (open kernel module)
  module will be built for your running kernel, and automatically rebuilt for
  any new kernel headers that are installed.
 
-Package: nvidia-headless-no-dkms-550-server-open
+Package: nvidia-headless-no-dkms-565-server-open
 Architecture: amd64 arm64
 Conflicts: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: nvidia-384
 Replaces: nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Depends:
- nvidia-kernel-common-550-server (<= 550.127.05-1),
- nvidia-kernel-common-550-server (>= 550.127.05),
- nvidia-kernel-source-550-server-open (= ${binary:Version}),
- libnvidia-compute-550-server (= ${binary:Version}),
- nvidia-compute-utils-550-server (= ${binary:Version}),
- libnvidia-cfg1-550-server (= ${binary:Version}),
+ nvidia-kernel-common-565-server (<= 565.57.01-1),
+ nvidia-kernel-common-565-server (>= 565.57.01),
+ nvidia-kernel-source-565-server-open (= ${binary:Version}),
+ libnvidia-compute-565-server (= ${binary:Version}),
+ nvidia-compute-utils-565-server (= ${binary:Version}),
+ libnvidia-cfg1-565-server (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage - no DKMS (open kernel module)
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -479,16 +479,16 @@ Description: NVIDIA headless metapackage - no DKMS (open kernel module)
  will not be built.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-550-server metapackage.
+ provided by the nvidia-driver-565-server metapackage.
 
-Package: nvidia-headless-550-server-open
+Package: nvidia-headless-565-server-open
 Architecture: amd64 arm64
 Conflicts: nvidia-headless
 Provides: nvidia-headless
 Replaces: nvidia-headless
 Depends:
- nvidia-headless-no-dkms-550-server-open,
- nvidia-dkms-550-server-open,
+ nvidia-headless-no-dkms-565-server-open,
+ nvidia-dkms-565-server-open,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA headless metapackage (open kernel module)
  This metapackage installs the NVIDIA driver and the libraries that enable
@@ -496,5 +496,5 @@ Description: NVIDIA headless metapackage (open kernel module)
  OpenCL.
  .
  Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-550-server metapackage.
+ provided by the nvidia-driver-565-server metapackage.
 
