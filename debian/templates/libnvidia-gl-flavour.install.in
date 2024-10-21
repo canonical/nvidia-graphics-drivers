@@ -1,14 +1,19 @@
 #AMD64_ONLY#NVIDIA-Linux/_nvngx.dll                                       #LIBDIR#/nvidia/wine
 #AMD64_ONLY#NVIDIA-Linux/nvngx.dll                                        #LIBDIR#/nvidia/wine
+#AMD64_ONLY#NVIDIA-Linux/nvidia-pcc                                       usr/bin
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-vksc-core.so.#VERSION#                 #LIBDIR#
+#AMD64_ONLY#NVIDIA-Linux/nvidia_icd_vksc.json                             usr/share/vulkansc/icd.d
 #I386_EXCLUDED#NVIDIA-Linux/10_nvidia.json                                usr/share/glvnd/egl_vendor.d
 #I386_EXCLUDED#NVIDIA-Linux/15_nvidia_gbm.json                            usr/share/egl/egl_external_platform.d
+#I386_EXCLUDED#NVIDIA-Linux/20_nvidia_xlib.json                           usr/share/egl/egl_external_platform.d
+#I386_EXCLUDED#NVIDIA-Linux/20_nvidia_xcb.json                            usr/share/egl/egl_external_platform.d
 #I386_EXCLUDED#NVIDIA-Linux/libEGL_nvidia.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLESv1_CM_nvidia.so.#VERSION#              #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLESv2_nvidia.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libglxserver_nvidia.so.#VERSION#              #LIBDIR#/nvidia/xorg
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-api.so.1                            #LIBDIR#
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-gbm.so.1.1.1                    #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-gbm.so.1.1.2                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-eglcore.so.#VERSION#                #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-glcore.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-glsi.so.#VERSION#                   #LIBDIR#
@@ -17,6 +22,8 @@
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ngx.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-rtcore.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-tls.so.#VERSION#                    #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-xcb.so.1.0.0                    #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-xlib.so.1.0.0                   #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvoptix.so.#VERSION#                       #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-ngx-updater                            usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/nvidia_icd.json                               usr/share/vulkan/icd.d
@@ -32,3 +39,5 @@
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-glvkspirv.so.#VERSION#               #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-gpucomp.so.#VERSION#                 #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-tls.so.#VERSION#                     #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1                         #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1                        #LIBDIR#
