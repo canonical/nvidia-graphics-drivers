@@ -1,6 +1,7 @@
-nvidia-graphics-drivers-535-server (535.216.01-0ubuntu1) plucky; urgency=medium
+nvidia-graphics-drivers-535-server (535.216.01-0ubuntu2) plucky; urgency=medium
 
   * New upstream release (LP: #2084013)
+  * remove buildfix_follow_pfn_6.11{-open}.patch
 
  -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 09 Oct 2024 09:28:15 +0200
 
