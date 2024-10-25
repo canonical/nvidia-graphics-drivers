@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.216.01-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.216.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release (LP: #2084013)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 25 Oct 2024 10:34:26 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 25 Oct 2024 10:35:22 +0200
 
 nvidia-graphics-drivers-535 (535.183.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
