@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-565-server (565.57.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release (LP: #2085094)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 12 Nov 2024 19:57:15 +0100
+
 nvidia-graphics-drivers-550-server (550.127.05-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release (LP: #2084914)
