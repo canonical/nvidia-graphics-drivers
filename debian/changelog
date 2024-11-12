@@ -1,56 +1,5 @@
-nvidia-graphics-drivers-565-server (565.57.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-565-server (565.57.01-0ubuntu0.20.04.2) focal; urgency=medium
 
   * New upstream release (LP: #2085094)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 12 Nov 2024 19:57:15 +0100
-
-nvidia-graphics-drivers-550-server (550.127.05-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2084914)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 18 Oct 2024 17:35:34 +0200
-
-nvidia-graphics-drivers-550-server (550.90.12-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2078689)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 02 Sep 2024 14:00:44 +0200
-
-nvidia-graphics-drivers-550-server (550.90.07-0ubuntu0.20.04.2) focal; urgency=medium
-
-  * Limit supported pci-id's to the new ones supported by this release.
-    (LP: #2061830)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 07 Jun 2024 14:04:48 +0200
-
-nvidia-graphics-drivers-550-server (550.90.07-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New upstream release (LP: #2067041)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 03 Jun 2024 12:31:29 +0200
-
-nvidia-graphics-drivers-550-server (550.54.15-0ubuntu0.20.04.1) focal; urgency=medium
-
-  * New Upstream release (LP: 2059115)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 26 Mar 2024 13:10:18 +0100
-
-nvidia-graphics-drivers-550-server (550.54.14-0ubuntu3.20.04.1) focal; urgency=medium
-
-  * remove transtional packages for 535
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 12 Mar 2024 20:26:32 +0100
-
-nvidia-graphics-drivers-550-server (550.54.14-0ubuntu2.20.04.1) focal; urgency=medium
-
-  * Add transtional packages for 535
-  * move supported-gpus.json to nvidia-kernel-common package
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 08 Mar 2024 14:50:09 +0100
-
-nvidia-graphics-drivers-550-server (550.54.14-0ubuntu1.20.04.1) focal; urgency=medium
-
-  * Initial release (LP: #2055384)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 01 Mar 2024 13:30:49 +0100
-
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 12 Nov 2024 20:00:43 +0100
