@@ -7,7 +7,7 @@
 
 
 PACKAGE_NAME=nvidia
-CVERSION=550.127.05
+CVERSION=550.127.08
 CVERSION=${CVERSION#*really.}
 
 remove_dkms_module() {
