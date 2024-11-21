@@ -1,2 +1,2 @@
-debian/dkms.conf                    usr/src/nvidia-550.120
-debian/dkms_nvidia/patches/*        usr/src/nvidia-550.120/patches
+debian/dkms.conf                    usr/src/nvidia-550.135
+debian/dkms_nvidia/patches/*        usr/src/nvidia-550.135/patches
