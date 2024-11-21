@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.135-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * New usptream release 550.135 (LP: #2089245)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 21 Nov 2024 11:46:49 +0100
+
 nvidia-graphics-drivers-550 (550.120-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New usptream release 550.120 (LP: #2082044)
