@@ -1,2 +1,0 @@
-debian/open-kernel/dkms.conf                    usr/src/nvidia-560.35.03
-debian/open-kernel/patches/*                    usr/src/nvidia-560.35.03/patches

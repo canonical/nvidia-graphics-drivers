@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for nvidia-dkms-560-open
+# postinst script for nvidia-dkms-565-open
 #
 # see: dh_installdeb(1)
 #
@@ -9,7 +9,7 @@
 set -e
 
 PACKAGE_NAME=nvidia
-CVERSION=560.35.03
+CVERSION=565.77
 CVERSION=${CVERSION#*really.}
 
 
