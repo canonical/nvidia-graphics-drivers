@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-565 (565.77-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-565 (565.77-0ubuntu1) plucky; urgency=medium
 
   * New upstream release 565.77 GA (LP: #2091537)
 
