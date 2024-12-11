@@ -1,29 +1,5 @@
-nvidia-graphics-drivers-560 (560.35.03-0ubuntu5) oracular; urgency=medium
+nvidia-graphics-drivers-565 (565.77-0ubuntu1) UNRELEASED; urgency=medium
 
-  * libnvidia-compute-560 should provide libcuda1 (LP: #2081723)
+  * New upstream release 565.77 GA (LP: #2091537)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 23 Sep 2024 15:06:03 +0200
-
-nvidia-graphics-drivers-560 (560.35.03-0ubuntu4) oracular; urgency=medium
-
-  * Install VulkanSC icd config in the correct directory (LP: #2081196)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 23 Sep 2024 11:21:57 +0200
-
-nvidia-graphics-drivers-560 (560.35.03-0ubuntu3) oracular; urgency=medium
-
-  * Fix intallation error (LP: #2080922)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 17 Sep 2024 15:24:48 +0200
-
-nvidia-graphics-drivers-560 (560.35.03-0ubuntu2) oracular; urgency=medium
-
-  * fix duplicated entry in libnvidia-gl-flavour.install.in
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 27 Aug 2024 11:14:51 +0200
-
-nvidia-graphics-drivers-560 (560.35.03-0ubuntu1) oracular; urgency=medium
-
-  * New upstream release (LP: #2077574)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 21 Aug 2024 21:36:43 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 11 Dec 2024 10:35:01 +0100
