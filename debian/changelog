@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-565-server (565.57.01-0ubuntu1) plucky; urgency=medium
+nvidia-graphics-drivers-570-server (570.01.01) UNRELEASED; urgency=medium
 
-  * New upstream release (LP: #2084914)
+  * Introduce 570 series
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 13 Nov 2024 10:46:43 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 20 Jan 2025 14:45:00 +0100
