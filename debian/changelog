@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-550 (550.144.03-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-550 (550.144.03-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release 550.144.03 UDA  (LP: #2095408)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 21 Jan 2025 13:09:46 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 21 Jan 2025 13:09:48 +0100
 
 nvidia-graphics-drivers-550 (550.135-0ubuntu0.20.04.1) focal; urgency=medium
 
