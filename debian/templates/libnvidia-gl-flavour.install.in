@@ -39,5 +39,5 @@
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-glvkspirv.so.#VERSION#               #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-gpucomp.so.#VERSION#                 #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-tls.so.#VERSION#                     #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1                         #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1                        #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.0                     #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.0                    #LIBDIR#
