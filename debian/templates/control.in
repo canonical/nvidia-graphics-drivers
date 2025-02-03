@@ -20,7 +20,6 @@ Build-Depends:
  libkmod-dev,
  libpciaccess-dev,
  pkg-config,
- libnvidia-egl-wayland1,
  libc6,
  libx11-6,
  python3,
