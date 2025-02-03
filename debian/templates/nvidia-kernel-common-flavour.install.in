@@ -4,6 +4,7 @@
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-resume.service           lib/systemd/system
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-suspend.service          lib/systemd/system
+#I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-suspend-then-hibernate.service          lib/systemd/system
 debian/71-nvidia.rules                                                     lib/udev/rules.d
 debian/device-create/ub-device-create                                      sbin
 debian/framebuffer-nvidia                                                  usr/share/initramfs-tools/hooks
