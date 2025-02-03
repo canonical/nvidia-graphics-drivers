@@ -1,2 +1,0 @@
-debian/dkms.conf                    usr/src/nvidia-565.77
-debian/dkms_nvidia/patches/*        usr/src/nvidia-565.77/patches
