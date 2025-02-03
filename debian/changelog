@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-570 (570.86.16-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570 (570.86.16-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release 570.86.16 UDA (LP: #2097270)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 03 Feb 2025 15:02:04 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 03 Feb 2025 15:02:05 +0100
