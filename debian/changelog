@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.230.02-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 535.230.02 (LP: #2095115)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 05 Feb 2025 11:13:34 +0100
+
 nvidia-graphics-drivers-535-server (535.216.01-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * New upstream release (LP: #2084013)
