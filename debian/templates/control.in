@@ -56,6 +56,7 @@ Suggests:
  nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
+XB-Prefer-Variant: Open
 XB-Support: PB
 Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
@@ -410,6 +411,7 @@ Recommends:
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
+XB-Prefer-Variant: Open
 XB-Support: PB
 Description: NVIDIA driver (open kernel) metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
