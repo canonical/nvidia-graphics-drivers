@@ -1,4 +1,6 @@
 #AMD64_ONLY#NVIDIA-Linux/nvidia-powerd                                     usr/bin
+#AMD64_ONLY#NVIDIA-Linux/nvidia-dbus.conf                                  usr/share/dbus-1/system.d
+#AMD64_ONLY#NVIDIA-Linux/systemd/system/nvidia-powerd.service              lib/systemd/system
 #I386_EXCLUDED#NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system-sleep/nvidia                    lib/systemd/system-sleep
 #I386_EXCLUDED#NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
