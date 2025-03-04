@@ -32,10 +32,10 @@ Package: nvidia-driver-570-server
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-570-server (= ${binary:Version}),
- nvidia-dkms-570-server (<= 570.86.15-1),
- nvidia-dkms-570-server (>= 570.86.15),
- nvidia-kernel-common-570-server (<= 570.86.15-1),
- nvidia-kernel-common-570-server (>= 570.86.15),
+ nvidia-dkms-570-server (<= 570.124.06-1),
+ nvidia-dkms-570-server (>= 570.124.06),
+ nvidia-kernel-common-570-server (<= 570.124.06-1),
+ nvidia-kernel-common-570-server (>= 570.124.06),
  nvidia-kernel-source-570-server (= ${binary:Version}),
  libnvidia-compute-570-server (= ${binary:Version}),
  libnvidia-extra-570-server (= ${binary:Version}),
@@ -57,6 +57,7 @@ Suggests:
  nvidia-settings, nvidia-prime (>= 0.8)
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
+XB-Prefer-Variant: Open
 XB-Support: PB
 Description: NVIDIA Server Driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
@@ -92,11 +93,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-570-server (<= 570.86.15-1),
- nvidia-kernel-source-570-server (>= 570.86.15),
- nvidia-kernel-common-570-server (<= 570.86.15-1),
- nvidia-kernel-common-570-server (>= 570.86.15),
- nvidia-firmware-570-server-570.86.15,
+ nvidia-kernel-source-570-server (<= 570.124.06-1),
+ nvidia-kernel-source-570-server (>= 570.124.06),
+ nvidia-kernel-common-570-server (<= 570.124.06-1),
+ nvidia-kernel-common-570-server (>= 570.124.06),
+ nvidia-firmware-570-server-570.124.06,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -182,8 +183,8 @@ Description: NVIDIA compute utilities
 Package: nvidia-headless-no-dkms-570-server
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-570-server (<= 570.86.15-1),
- nvidia-kernel-common-570-server (>= 570.86.15),
+ nvidia-kernel-common-570-server (<= 570.124.06-1),
+ nvidia-kernel-common-570-server (>= 570.124.06),
  nvidia-kernel-source-570-server (= ${binary:Version}),
  libnvidia-compute-570-server (= ${binary:Version}),
  nvidia-compute-utils-570-server (= ${binary:Version}),
@@ -220,7 +221,7 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-570-server-570.86.15
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-570-server-570.124.06
 Replaces:
  nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -231,12 +232,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-570-server-570.86.15
+Package: nvidia-firmware-570-server-570.124.06
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-570-570.86.15
+ nvidia-firmware-570-570.124.06
 Replaces:
- nvidia-firmware-570-570.86.15
+ nvidia-firmware-570-570.124.06
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -387,10 +388,10 @@ Package: nvidia-driver-570-server-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-570-server (= ${binary:Version}),
- nvidia-dkms-570-server-open (<= 570.86.15-1),
- nvidia-dkms-570-server-open (>= 570.86.15),
- nvidia-kernel-common-570-server (<= 570.86.15-1),
- nvidia-kernel-common-570-server (>= 570.86.15),
+ nvidia-dkms-570-server-open (<= 570.124.06-1),
+ nvidia-dkms-570-server-open (>= 570.124.06),
+ nvidia-kernel-common-570-server (<= 570.124.06-1),
+ nvidia-kernel-common-570-server (>= 570.124.06),
  nvidia-kernel-source-570-server-open (= ${binary:Version}),
  libnvidia-compute-570-server (= ${binary:Version}),
  libnvidia-extra-570-server (= ${binary:Version}),
@@ -411,6 +412,7 @@ Recommends:
  libnvidia-gl-570-server:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
+XB-Prefer-Variant: Open
 XB-Support: PB
 Description: NVIDIA driver (open kernel) metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
@@ -446,10 +448,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-570-server-open (<= 570.86.15-1),
- nvidia-kernel-source-570-server-open (>= 570.86.15),
- nvidia-kernel-common-570-server (<= 570.86.15-1),
- nvidia-kernel-common-570-server (>= 570.86.15),
+ nvidia-kernel-source-570-server-open (<= 570.124.06-1),
+ nvidia-kernel-source-570-server-open (>= 570.124.06),
+ nvidia-kernel-common-570-server (<= 570.124.06-1),
+ nvidia-kernel-common-570-server (>= 570.124.06),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -461,8 +463,8 @@ Description: NVIDIA DKMS package (open kernel module)
 Package: nvidia-headless-no-dkms-570-server-open
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-570-server (<= 570.86.15-1),
- nvidia-kernel-common-570-server (>= 570.86.15),
+ nvidia-kernel-common-570-server (<= 570.124.06-1),
+ nvidia-kernel-common-570-server (>= 570.124.06),
  nvidia-kernel-source-570-server-open (= ${binary:Version}),
  libnvidia-compute-570-server (= ${binary:Version}),
  nvidia-compute-utils-570-server (= ${binary:Version}),
