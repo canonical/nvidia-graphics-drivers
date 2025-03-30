@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-560 (560.35.03-0ubuntu7.1) plucky; urgency=medium
+
+  * obsolete 560 (LP: #2093261)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Sun, 30 Mar 2025 17:53:31 +0200
+
 nvidia-graphics-drivers-560 (560.35.03-0ubuntu5) oracular; urgency=medium
 
   * libnvidia-compute-560 should provide libcuda1 (LP: #2081723)
