@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.163.01-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 550.163.01 UDA13 (LP: #2107636)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 18 Apr 2025 12:10:39 +0200
+
 nvidia-graphics-drivers-550 (550.144.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 550.144.03 UDA  (LP: #2095408)
