@@ -1,0 +1,37 @@
+From 40a821ec5478853062241389d0516980324d2f4d Mon Sep 17 00:00:00 2001
+From: Eric Naim <dnaim@cachyos.org>
+Date: Mon, 9 Dec 2024 19:45:50 +0800
+Subject: [PATCH] nvidia/nv: Convert symbol namespace to string literal
+
+Signed-off-by: Eric Naim <dnaim@cachyos.org>
+---
+ nvidia/nv-frontend.c           | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/nvidia/nv-frontend.c b/nvidia/nv-frontend.c
+index f5b871e6..59d2818d 100644
+--- a/nvidia/nv-frontend.c
++++ b/nvidia/nv-frontend.c
+@@ -25,6 +25,7 @@
+ #include "nv-linux.h"
+ #include "nv-reg.h"
+ #include "nv-frontend.h"
++#include <linux/version.h>
+ 
+ MODULE_LICENSE("Dual MIT/GPL");
+ 
+@@ -42,7 +43,11 @@ MODULE_ALIAS_CHARDEV_MAJOR(NV_MAJOR_DEVICE_NUMBER);
+  * DMA_BUF namespace is added by commit id 16b0314aa746
+  * ("dma-buf: move dma-buf symbols into the DMA_BUF module namespace") in 5.16
+  */
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 13, 0)
++MODULE_IMPORT_NS("DMA_BUF");
++#else
+ MODULE_IMPORT_NS(DMA_BUF);
++#endif
+ 
+ #endif
+ 
+-- 
+2.45.2
+

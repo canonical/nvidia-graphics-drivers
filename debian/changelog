@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-535-server (535.247.01-0ubuntu3) plucky; urgency=medium
+
+  * New upstream release 535.247.01 ERD14 (LP: #2107946)
+  * Fix -open varian build for 6.14
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 24 Apr 2025 10:31:29 +0200
+
 nvidia-graphics-drivers-535-server (535.247.01-0ubuntu1) plucky; urgency=medium
 
   * New upstream release 535.247.01 ERD14 (LP: #2107946)
