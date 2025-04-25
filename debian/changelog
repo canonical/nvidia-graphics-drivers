@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.247.01-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 535.247.01 ERD14/UDA13 (LP: #2107946)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 25 Apr 2025 14:03:56 +0200
+
 nvidia-graphics-drivers-535 (535.230.02-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release 535.230.02 UDA (LP: #2095115)
