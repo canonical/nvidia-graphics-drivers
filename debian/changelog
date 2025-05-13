@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.230.02-0ubuntu0.24.04.2) noble; urgency=medium
+
+  * Fix build with 6.14
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 13 May 2025 19:38:19 +0200
+
 nvidia-graphics-drivers-535 (535.230.02-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 535.230.02 UDA (LP: #2095115)
