@@ -1,0 +1,11 @@
+diff --color -Naur a/NVIDIA-Linux/systemd/system/nvidia-powerd.service b/NVIDIA-Linux/systemd/system/nvidia-powerd.service
+--- a/NVIDIA-Linux/systemd/system/nvidia-powerd.service	2025-05-21 10:20:39.230480964 +0200
++++ b/NVIDIA-Linux/systemd/system/nvidia-powerd.service	2025-05-21 18:12:01.910958498 +0200
+@@ -4,6 +4,7 @@
+ [Service]
+ Type=simple
+ ExecStart=/usr/bin/nvidia-powerd
++SuccessExitStatus=1
+ 
+ [Install]
+ WantedBy=multi-user.target
