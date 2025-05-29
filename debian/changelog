@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-570 (570.153.02-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570 (570.153.02-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release 570.153.02 ERD4 (LP: #2110906)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 29 May 2025 22:39:39 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 29 May 2025 22:40:01 +0200
 
 nvidia-graphics-drivers-570 (570.144-0ubuntu0.20.04.1) focal; urgency=medium
 
