@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-575 (575.57.08-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-575 (575.57.08-0ubuntu1) questing; urgency=medium
 
   * new series 575
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 03 Jun 2025 12:33:55 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 03 Jun 2025 12:52:55 +0200
