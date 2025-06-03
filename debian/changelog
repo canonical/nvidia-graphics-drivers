@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-575 (575.57.08-0ubuntu2) questing; urgency=medium
+
+  * fix GPL compatibility
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 03 Jun 2025 16:09:23 +0200
+
 nvidia-graphics-drivers-575 (575.57.08-0ubuntu1) questing; urgency=medium
 
   * new series 575
