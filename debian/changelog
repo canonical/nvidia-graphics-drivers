@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.153.02-0ubuntu4) questing; urgency=medium
+
+  * Fix GPL compatibility
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 03 Jun 2025 16:34:52 +0200
+
 nvidia-graphics-drivers-570 (570.153.02-0ubuntu3) questing; urgency=medium
 
   * New upstream release 570.153.02 ERD4 (LP: #2110906)
