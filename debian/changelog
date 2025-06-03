@@ -1,29 +1,5 @@
-nvidia-graphics-drivers-570 (570.153.02-0ubuntu3) questing; urgency=medium
+nvidia-graphics-drivers-575 (575.57.08-0ubuntu1) UNRELEASED; urgency=medium
 
-  * New upstream release 570.153.02 ERD4 (LP: #2110906)
+  * new series 575
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 15 May 2025 16:14:26 +0200
-
-nvidia-graphics-drivers-570 (570.144-0ubuntu1) questing; urgency=medium
-
-  * New upstream release 570.144 ERD3 (LP: #2107759)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 21 Apr 2025 10:12:15 +0200
-
-nvidia-graphics-drivers-570 (570.133.07-0ubuntu2) plucky; urgency=medium
-
-  * New upstream release 570.133.07 (LP: #2103552)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 18 Mar 2025 22:10:24 +0100
-
-nvidia-graphics-drivers-570 (570.124.04-0ubuntu3) plucky; urgency=medium
-
-  * New upstream release 570.124.04 (LP: #2100488)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 27 Feb 2025 14:15:55 +0100
-
-nvidia-graphics-drivers-570 (570.86.16-0ubuntu1) plucky; urgency=medium
-
-  * New upstream release 570.86.16 UDA (LP: #2097270)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 03 Feb 2025 14:58:42 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 03 Jun 2025 12:33:55 +0200
