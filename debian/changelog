@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-575-server (575.57.08-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-575-server (575.57.08-0ubuntu0.24.04.2) noble; urgency=medium
 
   * New upstream release 575.57.08 ERD1 (LP: #2112636)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 06 Jun 2025 16:45:46 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 06 Jun 2025 16:45:48 +0200
