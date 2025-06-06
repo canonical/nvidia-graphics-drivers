@@ -1,23 +1,5 @@
-nvidia-graphics-drivers-570-server (570.148.08-0ubuntu0.24.04.1) noble; urgency=medium
+nvidia-graphics-drivers-575-server (575.57.08-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
 
-  * New upstream release 570.148.08 ERD4 (LP: #2109958)
+  * New upstream release 575.57.08 ERD1 (LP: #2112636)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 28 May 2025 10:20:52 +0200
-
-nvidia-graphics-drivers-570-server (570.133.20-0ubuntu0.24.04.1) noble; urgency=medium
-
-  * New upstream release 570.133.20 ERD3 (LP: #2107567)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 17 Apr 2025 15:14:32 +0200
-
-nvidia-graphics-drivers-570-server (570.124.06-0ubuntu0.24.04.1) noble; urgency=medium
-
-  * New upstream release 570.124.06 ERD2 (LP: #2100845)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 04 Mar 2025 11:36:43 +0100
-
-nvidia-graphics-drivers-570-server (570.86.15-0ubuntu0.24.04.4) noble; urgency=medium
-
-  * New upstream release 570.86.15 ERD1 (LP: #2095341)
-
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 28 Jan 2025 11:49:03 +0100
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 06 Jun 2025 16:45:46 +0200
