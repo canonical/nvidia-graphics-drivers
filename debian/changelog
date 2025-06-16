@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.163.01-0ubuntu0.22.04.2) jammy; urgency=medium
+
+  * Add transitionals to 570-server (LP: #2114726)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 16 Jun 2025 13:04:09 +0200
+
 nvidia-graphics-drivers-550-server (550.163.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 550.163.01 ERD9 (LP: #2107637)
