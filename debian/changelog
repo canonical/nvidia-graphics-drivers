@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-575 (575.57.08-0ubuntu0.25.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-575 (575.57.08-0ubuntu0.25.04.1) plucky; urgency=medium
 
   * New upstream release 575.57.08 ERD1 (LP: #2112636)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 17 Jun 2025 17:15:59 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Tue, 17 Jun 2025 17:16:19 +0200
