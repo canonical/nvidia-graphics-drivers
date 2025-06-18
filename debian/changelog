@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.153.02-0ubuntu5) questing; urgency=medium
+
+  * Preserve video memory on suspend/resume
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 18 Jun 2025 19:02:28 +0200
+
 nvidia-graphics-drivers-570 (570.153.02-0ubuntu4) questing; urgency=medium
 
   * Fix GPL compatibility
