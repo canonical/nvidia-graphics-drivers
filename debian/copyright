@@ -127,11 +127,12 @@ License: NVIDIA-graphics-drivers
  c. Deploy, for your own use, the SOFTWARE on infrastructure you own or lease,
  and
  .
- d. Distribute the SOFTWARE provided for use with operating systems distributed
- under the terms of an OSI-approved open source license as listed by the Open
- Source Initiative at http://opensource.org, provided that (i) the binary files
- thereof are not modified in any way (except for uncompressing of compressed
- files) and (ii) this Agreement is provided to each SOFTWARE recipient.
+ d. Distribute the SOFTWARE provided for use with operating system kernels
+ distributed under the terms of an OSI-approved open source license as listed by
+ the Open Source Initiative at http://opensource.org, provided that (i) the
+ binary files thereof are not modified in any way (except for uncompressing of
+ compressed files) and (ii) this Agreement is provided to each SOFTWARE
+ recipient.
  .
  2. Limitations.
  .
@@ -297,17 +298,92 @@ License: NVIDIA-graphics-drivers
  intellectual property of NVIDIA or its affiliates, to be licensed to or
  otherwise shared with any third party.
  .
- 10. Governing Law and Jurisdiction.
+ 10. Governing Law and Dispute Resolution.
  .
- This Agreement will be governed in all respects by the laws of the United States
- and the laws of the State of Delaware, without regard to conflict of laws
- principles or the United Nations Convention on Contracts for the International
- Sale of Goods. The state and federal courts residing in Santa Clara County,
- California will have exclusive jurisdiction over any dispute or claim arising
- out of or related to this Agreement, and the parties irrevocably consent to
- personal jurisdiction and venue in those courts; except that either party may
- apply for injunctive remedies or an equivalent type of urgent legal relief in
- any jurisdiction.
+ 10.1 Informal Resolution.
+ .
+ If you or NVIDIA have any dispute, claim or controversy arising out of or
+ relating to the SOFTWARE or this Agreement ("Dispute"), the parties agree to
+ work in good faith to resolve the Dispute informally. If you have a Dispute, you
+ must first contact NVIDIA and give NVIDIA an opportunity to resolve it by
+ contacting NVIDIA by mail at NVIDIA Corporation, ATTN: Legal, 2788 San Tomas
+ Expressway, Santa Clara, California, 95051. Either you or NVIDIA may seek to
+ have a Dispute resolved in small claims court if all the requirements of the
+ small claims court are satisfied. Either you or NVIDIA may seek to have a
+ Dispute resolved in small claims court in your county of residence or the small
+ claims court in closest proximity to your residence at any time before an
+ arbitrator is appointed, and you may also bring a Dispute in small claims court
+ in the Superior Court of California, County of Santa Clara.
+ .
+ 10.2 Binding Arbitration.
+ .
+ For any Disputes that are not resolved informally or by the small claims court,
+ you and NVIDIA each agree to resolve any such Dispute by binding arbitration
+ before an arbitrator from Judicial Mediation and Arbitration Services ("JAMS")
+ (rules available at https://www.jamsadr.com/). Except as otherwise provided in
+ this section, all issues are for the arbitrator to decide, including
+ jurisdictional and arbitrability issues and the formation, existence, validity,
+ interpretation, and scope of this arbitration provision. The arbitration will be
+ conducted in Santa Clara County, California (or the nearest JAMS office to Santa
+ Clara County), unless you request an in-person hearing in your hometown or you
+ and NVIDIA agree otherwise. You and NVIDIA agree that the parties will arbitrate
+ all Disputes, remedies, and requests for relief subject to individual
+ arbitration first, the arbitrator will only determine issues of liability on the
+ merits of any claim asserted, and the arbitrator may only award declaratory or
+ injunctive relief in favor of the individual party seeking relief and only to
+ the extent necessary to provide relief warranted by that party's individual
+ claim. You and NVIDIA agree that any remaining unresolved Disputes, remedies, or
+ requests for relief may be pursued in court only after the arbitrator's award
+ has been issued. In any later court proceeding, the arbitrator's factual
+ findings will not be entitled to deference by the court. Nothing in these terms
+ will prevent a party from seeking injunctive or other equitable relief from the
+ courts in any jurisdiction to prevent the actual or threatened violation of that
+ party's data security, intellectual property rights, or other proprietary
+ rights. If for any reason this Section 10.2 is unenforceable concerning any
+ Dispute, and a Dispute proceeds in a court of general jurisdiction, the Dispute
+ will be exclusively brought in state or federal court located in Santa Clara
+ County, California.
+ .
+ 10.3 Class Action, Representative Action, & Jury Trial Waiver.
+ .
+ All Disputes must be brought by a party in its individual capacity, and not as a
+ plaintiff or class member in any purported class or representative
+ proceeding. You and NVIDIA agree to waive the right to a jury trial, participate
+ in class action lawsuits, class-wide arbitrations, any collective, consolidated,
+ or other proceeding or request for relief where someone acts in a representative
+ capacity.
+ .
+ 10.4 Right to Opt-Out.
+ .
+ You may opt-out of the foregoing jury trial, class action, arbitration, and
+ collective or consolidated proceeding waiver provision by notifying NVIDIA in
+ writing within 30 days of commencement of use of the SOFTWARE, within 30 days of
+ the effective date of this Agreement, or within 30 days of any future change
+ NVIDIA may make to this Section 10.4. Such written notification must be sent by
+ mail to NVIDIA Corporation, Attn: Legal, 2788 San Tomas Expressway, Santa Clara,
+ California, 95051 and must include (1) your name, (2) your address, (3) the
+ reference to NVIDIA drivers as the software to which the notice relates, and (4)
+ a clear statement indicating that you do not wish to resolve disputes through
+ arbitration and demonstrating compliance with the 30-day time limit to
+ opt-out. Any opt-out notification received after the opt-out deadline or not
+ including the required items noted in (1)-(4) in the preceding sentence will not
+ be valid and you will be required to pursue your Dispute in arbitration or small
+ claims court. Opting out of this dispute resolution procedure will not affect
+ the terms and conditions of this Agreement, which still apply to you. If you
+ opt-out of any future change NVIDIA may make to this Section 10.4, the most
+ recent version of Section 10.4 before the change you rejected will apply.
+ .
+ 10.5 Governing Law.
+ .
+ You and NVIDIA each agree that all Disputes will be governed by the Federal
+ Arbitration Act, in addition to the internal substantive laws of the State of
+ Delaware and the United States, without regard to or application of its conflict
+ of laws rules or principles. The United Nations Convention on Contracts for the
+ International Sale of Goods is expressly disclaimed. Any translation of this
+ Agreement is done for local requirements and, if there is a dispute between the
+ English and any non-English versions, you and NVIDIA agree that the English
+ version of this Agreement will govern to the extent not prohibited by local law
+ in your jurisdiction.
  .
  11. Disclaimer of Warranties.
  .
@@ -437,7 +513,7 @@ License: NVIDIA-graphics-drivers
  For any questions regarding this Agreement, please contact NVIDIA at
  driver-licensing@nvidia.com
  .
- (v. February 27, 2023)
+ (v. February 25, 2025)
 Comment:
  First a note from the README file
  .
