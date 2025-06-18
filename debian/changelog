@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-570-server (570.158.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570-server (570.158.01-0ubuntu2) questing; urgency=medium
 
   * New upstream release 570.158.01 ERD5 (LP: #2114898)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 18 Jun 2025 16:47:22 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 18 Jun 2025 16:47:41 +0200
 
 nvidia-graphics-drivers-570-server (570.148.08-0ubuntu1) questing; urgency=medium
 
