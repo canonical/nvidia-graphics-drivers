@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-575 (575.64-0ubuntu3) questing; urgency=medium
+
+  * Fix -open variant FTBFS with Linux 6.16:
+    - 0003-nv-dmabuf-Inline-dma_buf_attachment_is_dynamic.patch
+    - 0004-nvidia-uvm-Disable-SVA-support-for-6.16.patch
+  * Apply GPL compatibility fix for v6.16 too
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 24 Jun 2025 11:48:02 +0200
+
 nvidia-graphics-drivers-575 (575.64-0ubuntu2) questing; urgency=medium
 
   * Preserve video memory on suspend/resume
