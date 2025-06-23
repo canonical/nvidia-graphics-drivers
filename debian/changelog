@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-570 (570.153.02-0ubuntu7) questing; urgency=medium
+
+  * Fix -open variant FTBFS with Linux 6.16:
+    - 0003-nv-dmabuf-Inline-dma_buf_attachment_is_dynamic.patch
+    - 0004-nvidia-uvm-Disable-SVA-support-for-6.16.patch
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Mon, 23 Jun 2025 13:46:52 +0200
+
 nvidia-graphics-drivers-570 (570.153.02-0ubuntu6) questing; urgency=medium
 
   * Apply GPL compatibility fix for v6.16 too
