@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.169-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release 570.169 (LP: #2115179)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 23 Jun 2025 10:17:22 +0200
+
 nvidia-graphics-drivers-570 (570.153.02-0ubuntu7) questing; urgency=medium
 
   * Fix -open variant FTBFS with Linux 6.16:
