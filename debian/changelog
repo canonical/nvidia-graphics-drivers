@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.153.02-0ubuntu6) questing; urgency=medium
+
+  * Apply GPL compatibility fix for v6.16 too
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Thu, 19 Jun 2025 15:48:02 +0200
+
 nvidia-graphics-drivers-570 (570.153.02-0ubuntu5) questing; urgency=medium
 
   * Preserve video memory on suspend/resume
