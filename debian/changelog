@@ -1,3 +1,11 @@
+nvidia-graphics-drivers-535-server (535.247.01-0ubuntu5) questing; urgency=medium
+
+  * Fix -open variant FTBFS with Linux 6.16:
+    - 0003-nv-dmabuf-Inline-dma_buf_attachment_is_dynamic.patch
+    - 0004-nvidia-uvm-Disable-SVA-support-for-6.16.patch
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 26 Jun 2025 15:38:32 +0200
+
 nvidia-graphics-drivers-535-server (535.247.01-0ubuntu4) questing; urgency=medium
 
   * New upstream release 535.247.01 ERD14 (LP: #2107946)
