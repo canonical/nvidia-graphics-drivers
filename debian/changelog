@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-575 (575.64.03-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release 575.64.03 (LP: #2114915)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 02 Jul 2025 13:25:34 +0200
+
 nvidia-graphics-drivers-575 (575.64-0ubuntu3) questing; urgency=medium
 
   * Fix -open variant FTBFS with Linux 6.16:
