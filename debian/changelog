@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-575 (575.64.03-0ubuntu0.25.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 575.64.03 (LP: #2114915)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 02 Jul 2025 12:55:22 +0200
+
 nvidia-graphics-drivers-575 (575.64-0ubuntu0.25.04.1) plucky; urgency=medium
 
   * New upstream release 575.64 (LP: #2114915)
