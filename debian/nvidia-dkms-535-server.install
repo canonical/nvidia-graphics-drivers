@@ -1,2 +1,2 @@
-debian/dkms.conf                    usr/src/nvidia-srv-535.247.01
-debian/dkms_nvidia/patches/*        usr/src/nvidia-srv-535.247.01/patches
+debian/dkms.conf                    usr/src/nvidia-srv-535.261.03
+debian/dkms_nvidia/patches/*        usr/src/nvidia-srv-535.261.03/patches
