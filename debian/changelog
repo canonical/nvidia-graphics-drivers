@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-570 (570.172.08-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570 (570.172.08-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 570.172.08 (LP: #2117176)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 17 Jul 2025 20:00:06 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 17 Jul 2025 20:00:08 +0200
 
 nvidia-graphics-drivers-570 (570.169-0ubuntu0.22.04.1) jammy; urgency=medium
 
