@@ -245,7 +245,7 @@ Description: Firmware files used by the kernel module
 Package: libnvidia-gl-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Conflicts: libnvidia-gl
+Conflicts: libnvidia-gl, libnvidia-egl-gbm1
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
