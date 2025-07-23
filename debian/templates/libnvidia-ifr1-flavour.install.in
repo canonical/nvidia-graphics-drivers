@@ -1,2 +1,0 @@
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-ifr.so.#VERSION#        #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-ifr.so.#VERSION#         #LIBDIR#
