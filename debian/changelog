@@ -1,9 +1,8 @@
-nvidia-graphics-drivers-580-server (580.65.03-0ubuntu0.25.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580-server (580.65.03-0ubuntu0.25.04.2) plucky; urgency=medium
 
-  * Switch series to 580
-  * Switch series to 580
+  * New upstream release 580.65.03 ERD1 (LP: #2118389)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 24 Jul 2025 16:06:13 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 24 Jul 2025 16:06:47 +0200
 
 nvidia-graphics-drivers-570-server (570.172.08-0ubuntu0.25.04.1) plucky; urgency=medium
 
