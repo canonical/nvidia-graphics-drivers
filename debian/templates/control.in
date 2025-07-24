@@ -56,7 +56,8 @@ Recommends:
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Support: PB
+XB-Prefer-Variant: Open
+XB-Support: NFB
 Description: NVIDIA driver metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
@@ -243,7 +244,7 @@ Description: Firmware files used by the kernel module
 Package: libnvidia-gl-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Conflicts: libnvidia-gl
+Conflicts: libnvidia-gl, libnvidia-egl-gbm1
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
@@ -408,7 +409,8 @@ Recommends:
  libnvidia-gl-#FLAVOUR#:i386 (= ${binary:Version}) [amd64]
 XB-Modaliases: ${modaliases}
 XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Support: PB
+XB-Prefer-Variant: Open
+XB-Support: NFB
 Description: NVIDIA driver (open kernel) metapackage
  This metapackage depends on the NVIDIA binary driver and on all of its libraries,
  to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
