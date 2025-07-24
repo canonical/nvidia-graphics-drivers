@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-580-server (580.65.03-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 580.65.03 ERD1 (LP: #2118389)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 24 Jul 2025 16:19:58 +0200
+
 nvidia-graphics-drivers-570-server (570.172.08-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release 570.172.08 (LP: #2117176)
