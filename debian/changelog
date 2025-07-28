@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580 (580.65.06-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580 (580.65.06-0ubuntu3) questing; urgency=medium
 
   * New upstream release 580.65.06 (LP: #2118901)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 28 Jul 2025 12:22:30 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Mon, 28 Jul 2025 13:00:33 +0200
 
 nvidia-graphics-drivers-570 (570.172.08-0ubuntu1) questing; urgency=medium
 
