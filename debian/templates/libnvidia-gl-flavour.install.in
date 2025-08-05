@@ -1,6 +1,8 @@
 #AMD64_ONLY#NVIDIA-Linux/_nvngx.dll                                       #LIBDIR#/nvidia/wine
 #AMD64_ONLY#NVIDIA-Linux/nvngx.dll                                        #LIBDIR#/nvidia/wine
+#AMD64_ONLY#NVIDIA-Linux/nvngx_dlssg.dll                                  #LIBDIR#/nvidia/wine
 #AMD64_ONLY#NVIDIA-Linux/nvidia-pcc                                       usr/bin
+#AMD64_ONLY#NVIDIA-Linux/libnvidia-present.so.#VERSION#                   #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/libnvidia-vksc-core.so.#VERSION#                 #LIBDIR#
 #AMD64_ONLY#NVIDIA-Linux/nvidia_icd_vksc.json                             usr/share/vulkansc/icd.d
 #I386_EXCLUDED#NVIDIA-Linux/10_nvidia.json                                usr/share/glvnd/egl_vendor.d
