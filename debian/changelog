@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-575 (575.64.03-0ubuntu0.22.04.2) jammy; urgency=medium
+
+  * Add transitionals to 580 (LP: #2120171)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 08 Aug 2025 15:28:32 +0200
+
 nvidia-graphics-drivers-575 (575.64.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 575.64.03 (LP: #2114915)
