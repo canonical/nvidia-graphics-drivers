@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.181-0ubuntu0.20.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 570.181 (LP: #2121217)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 22 Aug 2025 14:53:37 +0200
+
 nvidia-graphics-drivers-570 (570.172.08-0ubuntu0.20.04.1) focal; urgency=medium
 
   * New upstream release 570.172.08 (LP: #2117176)
