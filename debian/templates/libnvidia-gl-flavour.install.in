@@ -22,8 +22,8 @@
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ngx.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-rtcore.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-tls.so.#VERSION#                    #LIBDIR#
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-xcb.so.1.0.2                    #LIBDIR#
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-xlib.so.1.0.2                   #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-xcb.so.1.0.3                    #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-xlib.so.1.0.3                   #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvoptix.so.#VERSION#                       #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/nvidia-ngx-updater                            usr/bin
 #I386_EXCLUDED#NVIDIA-Linux/nvidia_icd.json                               usr/share/vulkan/icd.d
@@ -39,6 +39,6 @@
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-glvkspirv.so.#VERSION#               #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-gpucomp.so.#VERSION#                 #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-tls.so.#VERSION#                     #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.2                     #LIBDIR#
-#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.2                    #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.3                     #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.3                    #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-gbm.so.1.1.2                     #LIBDIR#
