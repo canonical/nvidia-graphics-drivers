@@ -43,3 +43,4 @@
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.3                     #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.3                    #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-egl-gbm.so.1.1.2                     #LIBDIR#
+debian/workaround-lp2120628.conf etc/environment.d
