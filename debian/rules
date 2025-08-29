@@ -235,7 +235,6 @@ TARBALL.empty		?= $(TARBALL)
 
 # $1 = arch
 get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
-get_kern_download_url	= $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(NVIDIA_FILENAME_$(strip $1))
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
