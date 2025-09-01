@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-580 (580.82.07-0ubuntu1) questing; urgency=medium
+nvidia-graphics-drivers-580 (580.82.07-0ubuntu2) questing; urgency=medium
 
   * New upstream release 580.82.07 (LP: #2118901)
 
