@@ -33,7 +33,7 @@ Package: nvidia-driver-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-580-server
+Depends: nvidia-driver-580
 Description: NVIDIA Server Driver metapackage
  Transitional package for upgrades. This package can be safely removed.
 
@@ -41,7 +41,7 @@ Package: nvidia-kernel-source-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-580-server
+Depends: nvidia-kernel-source-580
 Description: NVIDIA kernel source package
  Transitional package for upgrades. This package can be safely removed.
 
@@ -49,14 +49,14 @@ Package: nvidia-dkms-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-580-server
+Depends: nvidia-dkms-580
 Description: NVIDIA DKMS package
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-utils-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-utils-580-server
+Depends: nvidia-utils-580
 Description: NVIDIA Server Driver support binaries
  Transitional package for upgrades. This package can be safely removed.
 
@@ -64,35 +64,35 @@ Package: libnvidia-compute-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Section: non-free/oldlibs
-Depends: libnvidia-compute-580-server
+Depends: libnvidia-compute-580
 Description: NVIDIA libcompute package
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-compute-utils-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-compute-utils-580-server
+Depends: nvidia-compute-utils-580
 Description: NVIDIA compute utilities
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-headless-no-dkms-580-server
+Depends: nvidia-headless-no-dkms-580
 Description: NVIDIA headless metapackage - no DKMS
  Transitional package for upgrades. This package can be safely removed.
  
 Package: nvidia-headless-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-headless-580-server
+Depends: nvidia-headless-580
 Description: NVIDIA headless metapackage
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-common-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-kernel-common-580-server
+Depends: nvidia-kernel-common-580
 Description: Shared files used with the kernel module
  Transitional package for upgrades. This package can be safely removed.
 
@@ -100,7 +100,7 @@ Package: libnvidia-gl-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-gl-580-server
+Depends: libnvidia-gl-580
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  Transitional package for upgrades. This package can be safely removed.
 
@@ -108,7 +108,7 @@ Package: libnvidia-common-#FLAVOUR#
 Architecture: all
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: libnvidia-common-580-server
+Depends: libnvidia-common-580
 Description: Shared files used by the NVIDIA libraries
  Transitional package for upgrades. This package can be safely removed.
 
@@ -116,14 +116,14 @@ Package: libnvidia-extra-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-extra-580-server
+Depends: libnvidia-extra-580
 Description: Extra libraries for the NVIDIA Server Driver
  Transitional package for upgrades. This package can be safely removed.
 
 Package: xserver-xorg-video-nvidia-#FLAVOUR#
 Section: non-free/oldlibs
 Architecture: amd64 arm64
-Depends: xserver-xorg-video-nvidia-580-server
+Depends: xserver-xorg-video-nvidia-580
 Description: NVIDIA binary Xorg driver
  Transitional package for upgrades. This package can be safely removed.
 
@@ -131,7 +131,7 @@ Package: libnvidia-cfg1-#FLAVOUR#
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-cfg1-580-server
+Depends: libnvidia-cfg1-580
 Description: NVIDIA binary OpenGL/GLX configuration library
  Transitional package for upgrades. This package can be safely removed.
 
@@ -139,7 +139,7 @@ Package: libnvidia-fbc1-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-fbc1-580-server
+Depends: libnvidia-fbc1-580
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  Transitional package for upgrades. This package can be safely removed.
 
@@ -147,7 +147,7 @@ Package: libnvidia-decode-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Section: non-free/oldlibs
-Depends: libnvidia-decode-580-server
+Depends: libnvidia-decode-580
 Description: NVIDIA Video Decoding runtime libraries
  Transitional package for upgrades. This package can be safely removed.
 
@@ -155,14 +155,14 @@ Package: libnvidia-encode-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-encode-580-server
+Depends: libnvidia-encode-580
 Description: NVENC Video Encoding runtime library
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-driver-#FLAVOUR#-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-driver-580-server-open
+Depends: nvidia-driver-580-open
 Description: NVIDIA driver (open kernel) metapackage
  Transitional package for upgrades. This package can be safely removed.
 
@@ -170,7 +170,7 @@ Package: nvidia-kernel-source-#FLAVOUR#-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-580-server-open
+Depends: nvidia-kernel-source-580-open
 Description: NVIDIA kernel source package
  Transitional package for upgrades. This package can be safely removed.
 
@@ -178,21 +178,21 @@ Package: nvidia-dkms-#FLAVOUR#-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-580-server-open
+Depends: nvidia-dkms-580-open
 Description: NVIDIA DKMS package (open kernel module)
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-#FLAVOUR#-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-headless-no-dkms-580-server-open
+Depends: nvidia-headless-no-dkms-580-open
 Description: NVIDIA headless metapackage - no DKMS (open kernel module)
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-#FLAVOUR#-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
-Depends: nvidia-headless-580-server-open
+Depends: nvidia-headless-580-open
 Description: NVIDIA headless metapackage (open kernel module)
  Transitional package for upgrades. This package can be safely removed.
 
