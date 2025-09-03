@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-575 (575.64.03-0ubuntu0.24.04.2) noble; urgency=medium
+nvidia-graphics-drivers-575 (575.64.03-0ubuntu0.24.04.3) noble; urgency=medium
 
   * Add transitionals to 580 (LP: #2120171)
 
