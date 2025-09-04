@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.261.03-0ubuntu2) questing; urgency=medium
+
+  * Transitions 535-server driver to 580-server
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Sep 2025 10:10:37 +0200
+
 nvidia-graphics-drivers-535-server (535.261.03-0ubuntu1) questing; urgency=medium
 
   * New upstream release 535.261.03 (LP: #2117177)
