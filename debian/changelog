@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-575 (575.64.03-0ubuntu4) questing; urgency=medium
+
+  * Transitions old driver to 580 (LP: #2122017)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Sep 2025 17:59:53 +0200
+
 nvidia-graphics-drivers-575 (575.64.03-0ubuntu2) questing; urgency=medium
 
   * New upstream release 575.64.03 (LP: #2114915)
