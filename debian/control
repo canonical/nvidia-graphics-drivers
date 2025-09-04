@@ -1,5 +1,5 @@
 Source: nvidia-graphics-drivers-570
-Section: non-free/libs
+Section: non-free/oldlibs
 Priority: optional
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Uploaders:
@@ -31,465 +31,168 @@ XS-Autobuild: yes
 
 Package: nvidia-driver-570
 Architecture: amd64 arm64
-Depends:
- libnvidia-gl-570 (= ${binary:Version}),
- nvidia-dkms-570 (<= 570.172.08-1),
- nvidia-dkms-570 (>= 570.172.08),
- nvidia-kernel-common-570 (<= 570.172.08-1),
- nvidia-kernel-common-570 (>= 570.172.08),
- nvidia-kernel-source-570 (= ${binary:Version}),
- libnvidia-compute-570 (= ${binary:Version}),
- libnvidia-extra-570 (= ${binary:Version}),
- nvidia-compute-utils-570 (= ${binary:Version}),
- libnvidia-decode-570 (= ${binary:Version}),
- libnvidia-encode-570 (= ${binary:Version}),
- nvidia-utils-570 (= ${binary:Version}),
- xserver-xorg-video-nvidia-570 (= ${binary:Version}),
- libnvidia-cfg1-570 (= ${binary:Version}),
- libnvidia-fbc1-570 (= ${binary:Version}) [!ppc64el],
- ${misc:Depends}
-Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-570:i386 (= ${binary:Version}) [amd64]
-XB-Modaliases: ${modaliases}
-XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Prefer-Variant: Open
-XB-Support: PB
-Description: NVIDIA driver metapackage
- This metapackage depends on the NVIDIA binary driver and on all of its libraries,
- to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
- applications on either X11 or on Wayland.
- .
- See /usr/share/doc/nvidia-driver-570/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-driver-580
+Description: NVIDIA Server Driver metapackage
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-source-570
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts:
- nvidia-kernel-source
-Provides:
- nvidia-kernel-source
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
+Depends: nvidia-kernel-source-580
 Description: NVIDIA kernel source package
- This package provides the NVIDIA kernel source needed by the userspace
- driver.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-dkms-570
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts:
- nvidia-dkms-kernel
-Replaces:
- nvidia-dkms-kernel
-Provides:
- nvidia-dkms-kernel
-Depends:
- dkms,
- nvidia-kernel-source-570 (<= 570.172.08-1),
- nvidia-kernel-source-570 (>= 570.172.08),
- nvidia-kernel-common-570 (<= 570.172.08-1),
- nvidia-kernel-common-570 (>= 570.172.08),
- nvidia-firmware-570-570.172.08,
- ${misc:Depends}, ${shlibs:Depends}
+Depends: nvidia-dkms-580
 Description: NVIDIA DKMS package
- This package builds the NVIDIA kernel module needed by the userspace
- driver, using DKMS.
- Provided that you have the kernel header packages installed, the kernel
- module will be built for your running kernel, and automatically rebuilt for
- any new kernel headers that are installed.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-utils-570
 Architecture: amd64 arm64
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Suggests:
- nvidia-driver-570,
-Provides:
- nvidia-utils, nvidia-smi
-Conflicts:
- nvidia-utils, nvidia-smi
-Replaces:
- nvidia-utils, nvidia-smi
-Description: NVIDIA driver support binaries
- This package contains supporting binaries for the NVIDIA driver.
+Section: non-free/oldlibs
+Depends: nvidia-utils-580
+Description: NVIDIA Server Driver support binaries
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-compute-570
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Depends:
-  ${misc:Depends}, ${shlibs:Depends}
-Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
- libnvidia-ml1 (= ${source:Version}),
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1,
- libcuda.so.1 (= ${source:Version}),
- libcuda1 (= ${source:Version})
-Conflicts: libnvidia-compute, nvidia-opencl-icd,
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1
-Replaces: libnvidia-compute, nvidia-opencl-icd,
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1
+Section: non-free/oldlibs
+Depends: libnvidia-compute-580
 Description: NVIDIA libcompute package
- This package provides a set of libraries which enable the NVIDIA driver
- to use GPUs for parallel general purpose computation through CUDA and
- OpenCL.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-compute-utils-570
 Architecture: amd64 arm64
-Depends:
- libnvidia-compute-570, adduser,
- ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-compute-utils, nvidia-persistenced
-Conflicts: nvidia-compute-utils, nvidia-persistenced
-Replaces: nvidia-compute-utils, nvidia-persistenced
+Section: non-free/oldlibs
+Depends: nvidia-compute-utils-580
 Description: NVIDIA compute utilities
- This package provides utility binaries for paraller general purpose
- computing use cases with the NVIDIA driver.
- .
- CUDA MPS is a feature that allows multiple CUDA processes to share a single
- GPU context. CUDA MPS should be transparent to CUDA programs.
- .
- CUDA MPS requires a device that supports Unified Virtual Address (UVA) and
- has compute capability SM 3.5 or higher.
- Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-570
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-570 (<= 570.172.08-1),
- nvidia-kernel-common-570 (>= 570.172.08),
- nvidia-kernel-source-570 (= ${binary:Version}),
- libnvidia-compute-570 (= ${binary:Version}),
- nvidia-compute-utils-570 (= ${binary:Version}),
- libnvidia-cfg1-570 (= ${binary:Version}),
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-no-dkms-580
 Description: NVIDIA headless metapackage - no DKMS
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL. DKMS will not be installed, and, therefore, the kernel module
- will not be built.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-570 metapackage.
-
+ Transitional package for upgrades. This package can be safely removed.
+ 
 Package: nvidia-headless-570
 Architecture: amd64 arm64
-Conflicts: nvidia-headless
-Provides: nvidia-headless
-Replaces: nvidia-headless
-Depends:
- nvidia-headless-no-dkms-570,
- nvidia-dkms-570,
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-580
 Description: NVIDIA headless metapackage
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-570 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-common-570
 Architecture: amd64 arm64
-Conflicts: nvidia-kernel-common
-Provides: nvidia-kernel-common
-Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-570-570.172.08
-Replaces:
- nvidia-kernel-common
+Section: non-free/oldlibs
+Depends: nvidia-kernel-common-580
 Description: Shared files used with the kernel module
- This package installs all the optional accessory files for the NVIDIA
- kernel module.
- .
- Install this package if you want to blacklist any conflicting kernel
- modules, and if you want udev to load the the NVIDIA kernel modules,
- and to create the uvm devices automatically.
-
-Package: nvidia-firmware-570-570.172.08
-Architecture: amd64 arm64
-Breaks:
- nvidia-firmware-570-server-570.172.08
-Replaces:
- nvidia-firmware-570-server-570.172.08
-Depends:
- ${misc:Depends}
-Description: Firmware files used by the kernel module
- This package installs required firmware files for the NVIDIA kernel
- module.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-gl-570
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Conflicts: libnvidia-gl
-Replaces: libnvidia-gl
-Provides: libnvidia-gl, libglx-vendor, libegl-vendor
-Depends:
- libnvidia-common-570, ${misc:Depends}, ${shlibs:Depends},
- libnvidia-egl-wayland1
+Depends: libnvidia-gl-580
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
- This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
- Vulkan ICD.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-common-570
 Architecture: all
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts: libnvidia-common
-Replaces: libnvidia-common
-Provides: libnvidia-common
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
+Depends: libnvidia-common-580
 Description: Shared files used by the NVIDIA libraries
- This package provides a set of files that are required by the NVIDIA
- libraries.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-extra-570
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Breaks: libnvidia-common-570 (<< 440.64-0ubuntu3~)
-Conflicts: libnvidia-extra
-Replaces: libnvidia-extra, libnvidia-common-570 (<< 440.64-0ubuntu3~)
-Provides: libnvidia-extra
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
-Description: Extra libraries for the NVIDIA driver
- This package provides an additional set of libraries to be used with
- the NVIDIA driver.
+Depends: libnvidia-extra-580
+Description: Extra libraries for the NVIDIA Server Driver
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: xserver-xorg-video-nvidia-570
-Section: non-free/x11
+Section: non-free/oldlibs
 Architecture: amd64 arm64
-Depends:
- libnvidia-cfg1-570 (= ${binary:Version}),
- ${nvidia:xorgDepends},
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts: xorg-driver-binary, nvidia-driver-binary
-Replaces: xorg-driver-binary, nvidia-driver-binary
-Provides:
- xorg-driver-binary, nvidia-driver-binary,
- ${nvidia:xorgProvides}
+Depends: xserver-xorg-video-nvidia-580
 Description: NVIDIA binary Xorg driver
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- See /usr/share/doc/nvidia-driver-570/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-cfg1-570
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-cfg1-any,
-Conflicts:
- libnvidia-cfg1-any,
-Replaces:
- libnvidia-cfg1-any,
+Depends: libnvidia-cfg1-580
 Description: NVIDIA binary OpenGL/GLX configuration library
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- This package contains the libnvidia-cfg.so.1 runtime library.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-fbc1-570
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
-# ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-fbc1,
-Conflicts:
- libnvidia-fbc1,
-Replaces:
- libnvidia-fbc1,
+Depends: libnvidia-fbc1-580
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
- The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvFBCOpenGL runtime library.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-decode-570
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- libnvidia-compute-570 (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libnvidia-decode,
-Replaces:
- libnvidia-decode,
-Provides:
- libnvidia-decode,
+Section: non-free/oldlibs
+Depends: libnvidia-decode-580
 Description: NVIDIA Video Decoding runtime libraries
- This package includes the NVIDIA CUDA Video Decoder (NVCUVID) library which
- provides an interface to hardware video decoding capabilities on NVIDIA GPUs with CUDA.
- .
- The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
- systems) library for the NVIDIA vendor implementation.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-encode-570
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libnvidia-encode,
-Provides:
- libnvidia-encode
-Replaces:
- libnvidia-encode
+Depends: libnvidia-encode-580
 Description: NVENC Video Encoding runtime library
- The NVENC Video Encoding library provides an interface to video encoder
- hardware on supported NVIDIA GPUs.
- .
- This package contains the nvidia-encode runtime library.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-driver-570-open
 Architecture: amd64 arm64
-Depends:
- libnvidia-gl-570 (= ${binary:Version}),
- nvidia-dkms-570-open (<= 570.172.08-1),
- nvidia-dkms-570-open (>= 570.172.08),
- nvidia-kernel-common-570 (<= 570.172.08-1),
- nvidia-kernel-common-570 (>= 570.172.08),
- nvidia-kernel-source-570-open (= ${binary:Version}),
- libnvidia-compute-570 (= ${binary:Version}),
- libnvidia-extra-570 (= ${binary:Version}),
- nvidia-compute-utils-570 (= ${binary:Version}),
- libnvidia-decode-570 (= ${binary:Version}),
- libnvidia-encode-570 (= ${binary:Version}),
- nvidia-utils-570 (= ${binary:Version}),
- xserver-xorg-video-nvidia-570 (= ${binary:Version}),
- libnvidia-cfg1-570 (= ${binary:Version}),
- libnvidia-fbc1-570 (= ${binary:Version}) [!ppc64el],
- ${misc:Depends}
-Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-570:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-570:i386 (= ${binary:Version}) [amd64]
-XB-Modaliases: ${modaliases}
-XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Prefer-Variant: Open
-XB-Support: PB
+Section: non-free/oldlibs
+Depends: nvidia-driver-580-open
 Description: NVIDIA driver (open kernel) metapackage
- This metapackage depends on the NVIDIA binary driver and on all of its libraries,
- to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
- applications on either X11 or on Wayland.
- .
- See /usr/share/doc/nvidia-driver-570/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-source-570-open
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts:
- nvidia-kernel-source
-Replaces:
- nvidia-kernel-source
-Provides:
- nvidia-kernel-source
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
+Depends: nvidia-kernel-source-580-open
 Description: NVIDIA kernel source package
- This package provides the open NVIDIA kernel source needed by the userspace
- driver.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-dkms-570-open
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts:
- nvidia-dkms-kernel
-Replaces:
- nvidia-dkms-kernel
-Provides:
- nvidia-dkms-kernel
-Depends:
- dkms,
- nvidia-kernel-source-570-open (<= 570.172.08-1),
- nvidia-kernel-source-570-open (>= 570.172.08),
- nvidia-kernel-common-570 (<= 570.172.08-1),
- nvidia-kernel-common-570 (>= 570.172.08),
- ${misc:Depends}, ${shlibs:Depends}
+Depends: nvidia-dkms-580-open
 Description: NVIDIA DKMS package (open kernel module)
- This package builds the open NVIDIA kernel module needed by the userspace
- driver, using DKMS.
- Provided that you have the kernel header packages installed, the kernel
- module will be built for your running kernel, and automatically rebuilt for
- any new kernel headers that are installed.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-570-open
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-570 (<= 570.172.08-1),
- nvidia-kernel-common-570 (>= 570.172.08),
- nvidia-kernel-source-570-open (= ${binary:Version}),
- libnvidia-compute-570 (= ${binary:Version}),
- nvidia-compute-utils-570 (= ${binary:Version}),
- libnvidia-cfg1-570 (= ${binary:Version}),
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-no-dkms-580-open
 Description: NVIDIA headless metapackage - no DKMS (open kernel module)
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL. DKMS will not be installed, and, therefore, the kernel module
- will not be built.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-570 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-570-open
 Architecture: amd64 arm64
-Conflicts: nvidia-headless
-Provides: nvidia-headless
-Replaces: nvidia-headless
-Depends:
- nvidia-headless-no-dkms-570-open,
- nvidia-dkms-570-open,
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-580-open
 Description: NVIDIA headless metapackage (open kernel module)
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-570 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
+
