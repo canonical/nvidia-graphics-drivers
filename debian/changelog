@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550 (550.107.02-0ubuntu3) questing; urgency=medium
+
+  * Transitions old driver to 580 (LP: #2122017)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Sep 2025 17:05:15 +0200
+
 nvidia-graphics-drivers-550 (550.107.02-0ubuntu2) oracular; urgency=medium
 
   * Add transitionals to 560 (LP: #2083677)
