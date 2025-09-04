@@ -32,7 +32,7 @@ Package: nvidia-driver-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-570
+Depends: nvidia-driver-580
 Description: NVIDIA Server Driver metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -40,7 +40,7 @@ Package: nvidia-kernel-source-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-570
+Depends: nvidia-kernel-source-580
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -48,7 +48,7 @@ Package: nvidia-dkms-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-570
+Depends: nvidia-dkms-580
 Description: NVIDIA DKMS package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -56,7 +56,7 @@ Package: nvidia-utils-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-utils-570
+Depends: nvidia-utils-580
 Description: NVIDIA Server Driver support binaries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -64,7 +64,7 @@ Package: libnvidia-compute-560
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-compute-570
+Depends: libnvidia-compute-580
 Description: NVIDIA libcompute package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -72,7 +72,7 @@ Package: nvidia-compute-utils-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-compute-utils-570
+Depends: nvidia-compute-utils-580
 Description: NVIDIA compute utilities (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -80,7 +80,7 @@ Package: nvidia-headless-no-dkms-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-570
+Depends: nvidia-headless-no-dkms-580
 Description: NVIDIA headless metapackage - no DKMS (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -88,7 +88,7 @@ Package: nvidia-headless-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-570
+Depends: nvidia-headless-580
 Description: NVIDIA headless metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -96,7 +96,7 @@ Package: nvidia-kernel-common-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-kernel-common-570
+Depends: nvidia-kernel-common-580
 Description: Shared files used with the kernel module (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -104,7 +104,7 @@ Package: libnvidia-gl-560
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-gl-570
+Depends: libnvidia-gl-580
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -112,7 +112,7 @@ Package: libnvidia-common-560
 Architecture: all
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: libnvidia-common-570
+Depends: libnvidia-common-580
 Description: Shared files used by the NVIDIA libraries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -120,7 +120,7 @@ Package: libnvidia-extra-560
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-extra-570
+Depends: libnvidia-extra-580
 Description: Extra libraries for the NVIDIA Server Driver (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -128,7 +128,7 @@ Package: xserver-xorg-video-nvidia-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: xserver-xorg-video-nvidia-570
+Depends: xserver-xorg-video-nvidia-580
 Description: NVIDIA binary Xorg driver (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -136,7 +136,7 @@ Package: libnvidia-cfg1-560
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-cfg1-570
+Depends: libnvidia-cfg1-580
 Description: NVIDIA binary OpenGL/GLX configuration library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -144,7 +144,7 @@ Package: libnvidia-fbc1-560
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-fbc1-570
+Depends: libnvidia-fbc1-580
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -152,7 +152,7 @@ Package: libnvidia-decode-560
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-decode-570
+Depends: libnvidia-decode-580
 Description: NVIDIA Video Decoding runtime libraries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -160,7 +160,7 @@ Package: libnvidia-encode-560
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-encode-570
+Depends: libnvidia-encode-580
 Description: NVENC Video Encoding runtime library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -168,7 +168,7 @@ Package: nvidia-driver-560-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-570-open
+Depends: nvidia-driver-580-open
 Description: NVIDIA Server Driver metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -176,7 +176,7 @@ Package: nvidia-kernel-source-560-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-570-open
+Depends: nvidia-kernel-source-580-open
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -184,7 +184,7 @@ Package: nvidia-dkms-560-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-570-open
+Depends: nvidia-dkms-580-open
 Description: NVIDIA DKMS package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -192,7 +192,7 @@ Package: nvidia-headless-no-dkms-560-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-570-open
+Depends: nvidia-headless-no-dkms-580-open
 Description: NVIDIA headless metapackage - no DKMS (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -200,7 +200,7 @@ Package: nvidia-headless-560-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-570-open
+Depends: nvidia-headless-580-open
 Description: NVIDIA headless metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 

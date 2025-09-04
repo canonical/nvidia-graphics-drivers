@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-560 (560.35.03-0ubuntu7.2) questing; urgency=medium
+
+  * Transitions old driver to 580 (LP: #2122017)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Sep 2025 17:28:41 +0200
+
 nvidia-graphics-drivers-560 (560.35.03-0ubuntu7.1) plucky; urgency=medium
 
   * obsolete 560 (LP: #2093261)
