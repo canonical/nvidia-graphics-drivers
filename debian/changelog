@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-550-server (550.163.01-0ubuntu4) questing; urgency=medium
+
+  * Transitions old driver to 580 (LP: #2122017)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 04 Sep 2025 17:18:38 +0200
+
 nvidia-graphics-drivers-550-server (550.163.01-0ubuntu3) questing; urgency=medium
 
   * Add transitionals to 570 (LP: #2114726)
