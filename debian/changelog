@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-580 (580.82.09-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 580.82.09 (LP: #2121922)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 11 Sep 2025 13:12:49 +0200
+
 nvidia-graphics-drivers-580 (580.82.07-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 580.82.07 (LP: #2118901)
