@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-535 (535.261.03-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-535 (535.261.03-0ubuntu0.18.04.2) bionic; urgency=medium
 
   * New upstream release 535.261.03 (LP: #2117177)
 

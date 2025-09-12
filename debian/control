@@ -245,8 +245,7 @@ Conflicts: libnvidia-gl
 Replaces: libnvidia-gl, nvidia-384 (<< 390.25), nvidia-390 (<< 390.25-0ubuntu1)
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- libnvidia-common-535, ${misc:Depends}, ${shlibs:Depends},
- libnvidia-egl-wayland1
+ libnvidia-common-535, ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
