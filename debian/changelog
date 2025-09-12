@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-580 (580.82.09-0ubuntu0.18.04.1) bionic; urgency=medium
+nvidia-graphics-drivers-580 (580.82.09-0ubuntu0.18.04.2) bionic; urgency=medium
 
   * New upstream release 580.82.09 (LP: #2121922)
 
