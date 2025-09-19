@@ -108,6 +108,7 @@ Description: NVIDIA DKMS package
 Package: nvidia-utils-#FLAVOUR#
 Architecture: amd64 arm64
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
  nvidia-driver-#FLAVOUR#,
@@ -124,7 +125,8 @@ Package: libnvidia-compute-#FLAVOUR#
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
-  ${misc:Depends}, ${shlibs:Depends}
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
+ ${misc:Depends}, ${shlibs:Depends}
 Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
  libnvidia-ml1 (= ${source:Version}),
  libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
@@ -250,7 +252,9 @@ Conflicts: libnvidia-gl
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- libnvidia-common-#FLAVOUR#, ${misc:Depends}, ${shlibs:Depends}
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
+ libnvidia-common-#FLAVOUR#,
+ ${misc:Depends}, ${shlibs:Depends},
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
  Vulkan ICD.
@@ -262,6 +266,7 @@ Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
@@ -275,6 +280,7 @@ Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-#FLAVOUR# (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
  ${misc:Depends}, ${shlibs:Depends}
 Description: Extra libraries for the NVIDIA Server Driver
  This package provides an additional set of libraries to be used with
@@ -306,6 +312,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-cfg1-any,
@@ -326,6 +333,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
@@ -348,6 +356,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
  libnvidia-compute-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
@@ -369,6 +378,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ nvidia-kernel-common-#FLAVOUR# (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-encode,
