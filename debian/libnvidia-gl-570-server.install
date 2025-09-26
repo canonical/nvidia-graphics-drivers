@@ -22,8 +22,8 @@ NVIDIA-Linux/libnvidia-gpucomp.so.570.195.03                usr/lib/x86_64-linux
 NVIDIA-Linux/libnvidia-ngx.so.570.195.03                    usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-rtcore.so.570.195.03                 usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvidia-tls.so.570.195.03                    usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-egl-xcb.so.1.0.2                    usr/lib/x86_64-linux-gnu
-NVIDIA-Linux/libnvidia-egl-xlib.so.1.0.2                   usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-egl-xcb.so.1.0.3                    usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-egl-xlib.so.1.0.3                   usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/libnvoptix.so.570.195.03                       usr/lib/x86_64-linux-gnu
 NVIDIA-Linux/nvidia-ngx-updater                            usr/bin
 NVIDIA-Linux/nvidia_icd.json                               usr/share/vulkan/icd.d
@@ -39,5 +39,5 @@ NVIDIA-Linux/nvoptix.bin                                   usr/share/nvidia
 #NVIDIA-Linux/32/libnvidia-glvkspirv.so.570.195.03               usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-gpucomp.so.570.195.03                 usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-tls.so.570.195.03                     usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.2                     usr/lib/x86_64-linux-gnu
-#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.2                    usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.3                     usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.3                    usr/lib/x86_64-linux-gnu
