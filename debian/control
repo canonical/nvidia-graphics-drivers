@@ -32,10 +32,10 @@ Package: nvidia-driver-580-server
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-580-server (= ${binary:Version}),
- nvidia-dkms-580-server (<= 580.82.07-1),
- nvidia-dkms-580-server (>= 580.82.07),
- nvidia-kernel-common-580-server (<= 580.82.07-1),
- nvidia-kernel-common-580-server (>= 580.82.07),
+ nvidia-dkms-580-server (<= 580.95.05-1),
+ nvidia-dkms-580-server (>= 580.95.05),
+ nvidia-kernel-common-580-server (<= 580.95.05-1),
+ nvidia-kernel-common-580-server (>= 580.95.05),
  nvidia-kernel-source-580-server (= ${binary:Version}),
  libnvidia-compute-580-server (= ${binary:Version}),
  libnvidia-extra-580-server (= ${binary:Version}),
@@ -93,11 +93,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-580-server (<= 580.82.07-1),
- nvidia-kernel-source-580-server (>= 580.82.07),
- nvidia-kernel-common-580-server (<= 580.82.07-1),
- nvidia-kernel-common-580-server (>= 580.82.07),
- nvidia-firmware-580-server-580.82.07,
+ nvidia-kernel-source-580-server (<= 580.95.05-1),
+ nvidia-kernel-source-580-server (>= 580.95.05),
+ nvidia-kernel-common-580-server (<= 580.95.05-1),
+ nvidia-kernel-common-580-server (>= 580.95.05),
+ nvidia-firmware-580-server-580.95.05,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -183,8 +183,8 @@ Description: NVIDIA compute utilities
 Package: nvidia-headless-no-dkms-580-server
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-580-server (<= 580.82.07-1),
- nvidia-kernel-common-580-server (>= 580.82.07),
+ nvidia-kernel-common-580-server (<= 580.95.05-1),
+ nvidia-kernel-common-580-server (>= 580.95.05),
  nvidia-kernel-source-580-server (= ${binary:Version}),
  libnvidia-compute-580-server (= ${binary:Version}),
  nvidia-compute-utils-580-server (= ${binary:Version}),
@@ -221,7 +221,7 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides: nvidia-kernel-common
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-580-server-580.82.07
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-580-server-580.95.05
 Replaces:
  nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -232,12 +232,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-580-server-580.82.07
+Package: nvidia-firmware-580-server-580.95.05
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-580-580.82.07
+ nvidia-firmware-580-580.95.05
 Replaces:
- nvidia-firmware-580-580.82.07
+ nvidia-firmware-580-580.95.05
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -388,10 +388,10 @@ Package: nvidia-driver-580-server-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-580-server (= ${binary:Version}),
- nvidia-dkms-580-server-open (<= 580.82.07-1),
- nvidia-dkms-580-server-open (>= 580.82.07),
- nvidia-kernel-common-580-server (<= 580.82.07-1),
- nvidia-kernel-common-580-server (>= 580.82.07),
+ nvidia-dkms-580-server-open (<= 580.95.05-1),
+ nvidia-dkms-580-server-open (>= 580.95.05),
+ nvidia-kernel-common-580-server (<= 580.95.05-1),
+ nvidia-kernel-common-580-server (>= 580.95.05),
  nvidia-kernel-source-580-server-open (= ${binary:Version}),
  libnvidia-compute-580-server (= ${binary:Version}),
  libnvidia-extra-580-server (= ${binary:Version}),
@@ -448,10 +448,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-580-server-open (<= 580.82.07-1),
- nvidia-kernel-source-580-server-open (>= 580.82.07),
- nvidia-kernel-common-580-server (<= 580.82.07-1),
- nvidia-kernel-common-580-server (>= 580.82.07),
+ nvidia-kernel-source-580-server-open (<= 580.95.05-1),
+ nvidia-kernel-source-580-server-open (>= 580.95.05),
+ nvidia-kernel-common-580-server (<= 580.95.05-1),
+ nvidia-kernel-common-580-server (>= 580.95.05),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -463,8 +463,8 @@ Description: NVIDIA DKMS package (open kernel module)
 Package: nvidia-headless-no-dkms-580-server-open
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-580-server (<= 580.82.07-1),
- nvidia-kernel-common-580-server (>= 580.82.07),
+ nvidia-kernel-common-580-server (<= 580.95.05-1),
+ nvidia-kernel-common-580-server (>= 580.95.05),
  nvidia-kernel-source-580-server-open (= ${binary:Version}),
  libnvidia-compute-580-server (= ${binary:Version}),
  nvidia-compute-utils-580-server (= ${binary:Version}),
