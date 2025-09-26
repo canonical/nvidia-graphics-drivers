@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-570-server (570.195.03-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570-server (570.195.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 570.195.03 (LP: #2125755)
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 26 Sep 2025 15:58:54 +0200
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 26 Sep 2025 15:58:56 +0200
 
 nvidia-graphics-drivers-570-server (570.172.08-0ubuntu0.22.04.1) jammy; urgency=medium
 
