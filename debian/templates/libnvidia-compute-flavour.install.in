@@ -3,6 +3,7 @@
 #I386_EXCLUDED#NVIDIA-Linux/libcudadebugger.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ml.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-nvvm.so.#VERSION#                  #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-nvvm70.so.4                        #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-opencl.so.#VERSION#                #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-ptxjitcompiler.so.#VERSION#        #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/nvidia.icd                                   etc/OpenCL/vendors
