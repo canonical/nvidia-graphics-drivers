@@ -108,7 +108,7 @@ Description: NVIDIA DKMS package
 Package: nvidia-utils-570-server
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03,
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
  nvidia-driver-570-server,
@@ -125,7 +125,7 @@ Package: libnvidia-compute-570-server
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
  libnvidia-ml1 (= ${source:Version}),
@@ -220,7 +220,9 @@ Description: NVIDIA headless metapackage
 Package: nvidia-kernel-common-570-server
 Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
-Provides: nvidia-kernel-common
+Provides:
+ nvidia-kernel-common,
+ nvidia-kernel-common-570-server-570.195.03
 Depends:
  ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-570-server-570.195.03
 Replaces:
@@ -252,7 +254,7 @@ Conflicts: libnvidia-gl
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03 [!i386],
  libnvidia-common-570-server,
  ${misc:Depends}, ${shlibs:Depends},
  libnvidia-egl-wayland1
@@ -267,7 +269,7 @@ Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03,
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
@@ -281,7 +283,7 @@ Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-570-server (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Extra libraries for the NVIDIA Server Driver
  This package provides an additional set of libraries to be used with
@@ -313,7 +315,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03,
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-cfg1-any,
@@ -334,7 +336,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03 [!i386],
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
@@ -357,7 +359,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03 [!i386],
  libnvidia-compute-570-server (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
@@ -379,7 +381,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570-server (= ${binary:Version}),
+ nvidia-kernel-common-570-server-570.195.03 [!i386],
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-encode,
