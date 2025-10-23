@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570-server (570.195.03-0ubuntu0.25.04.3) plucky; urgency=medium
+
+  * Fix dependencies between packages (LP: #2129682)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Thu, 23 Oct 2025 12:07:41 +0200
+
 nvidia-graphics-drivers-570-server (570.195.03-0ubuntu0.25.04.2) plucky; urgency=medium
 
   * New upstream release 570.195.03 (LP: #2125755)
