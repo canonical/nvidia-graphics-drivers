@@ -112,11 +112,11 @@ Depends:
 Suggests:
  nvidia-driver-580,
 Provides:
- nvidia-utils, nvidia-smi
+ nvidia-utils, nvidia-smi, nvidia-settings
 Conflicts:
- nvidia-utils, nvidia-smi
+ nvidia-utils, nvidia-smi, nvidia-settings
 Replaces:
- nvidia-utils, nvidia-smi
+ nvidia-utils, nvidia-smi, nvidia-settings
 Description: NVIDIA driver support binaries
  This package contains supporting binaries for the NVIDIA driver.
 
@@ -414,7 +414,7 @@ Depends:
  libnvidia-fbc1-580 (= ${binary:Version}) [!ppc64el],
  ${misc:Depends}
 Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
+ nvidia-prime (>= 0.8),
  libnvidia-compute-580:i386 (= ${binary:Version}) [amd64],
  libnvidia-decode-580:i386 (= ${binary:Version}) [amd64],
  libnvidia-encode-580:i386 (= ${binary:Version}) [amd64],
