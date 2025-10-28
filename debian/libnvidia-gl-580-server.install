@@ -42,3 +42,15 @@ NVIDIA-Linux/nvoptix.bin                                   usr/share/nvidia
 #NVIDIA-Linux/32/libnvidia-tls.so.580.95.05                     usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-egl-xcb.so.1.0.3                     usr/lib/x86_64-linux-gnu
 #NVIDIA-Linux/32/libnvidia-egl-xlib.so.1.0.3                    usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-fbc.so.580.95.05        usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-fbc.so.580.95.05         usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-allocator.so.580.95.05        usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-allocator.so.580.95.05         usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvcuvid.so.580.95.05                   usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libnvidia-opticalflow.so.580.95.05        usr/lib/x86_64-linux-gnu
+NVIDIA-Linux/libvdpau_nvidia.so.580.95.05              usr/lib/x86_64-linux-gnu/vdpau
+#NVIDIA-Linux/32/libnvcuvid.so.580.95.05                    usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-opticalflow.so.580.95.05         usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libvdpau_nvidia.so.580.95.05               usr/lib/x86_64-linux-gnu/vdpau
+NVIDIA-Linux/libnvidia-encode.so.580.95.05        usr/lib/x86_64-linux-gnu
+#NVIDIA-Linux/32/libnvidia-encode.so.580.95.05         usr/lib/x86_64-linux-gnu
