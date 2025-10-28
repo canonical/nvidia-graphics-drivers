@@ -4,3 +4,16 @@
 #LIBDIR#/libGLESv1_CM_nvidia.so.#VERSION#                                   #LIBDIR#/libGLESv1_CM_nvidia.so.1
 #LIBDIR#/libGLESv2_nvidia.so.#VERSION#                                      #LIBDIR#/libGLESv2_nvidia.so.2
 #LIBDIR#/libGLX_nvidia.so.#VERSION#                                         #LIBDIR#/libGLX_nvidia.so.0
+#LIBDIR#/libnvidia-fbc.so.#VERSION#        #LIBDIR#/libnvidia-fbc.so.1
+#LIBDIR#/libnvidia-fbc.so.1                #LIBDIR#/libnvidia-fbc.so
+#I386_EXCLUDED##LIBDIR#/libnvidia-allocator.so.1        #LIBDIR#/gbm/nvidia-drm_gbm.so
+#LIBDIR#/libnvidia-allocator.so.#VERSION#               #LIBDIR#/libnvidia-allocator.so.1
+#LIBDIR#/libnvidia-allocator.so.1                       #LIBDIR#/libnvidia-allocator.so
+#LIBDIR#/libnvidia-encode.so.#VERSION#        #LIBDIR#/libnvidia-encode.so.1
+#LIBDIR#/libnvidia-encode.so.1                #LIBDIR#/libnvidia-encode.so
+#LIBDIR#/libnvcuvid.so.#VERSION#                   #LIBDIR#/libnvcuvid.so.1
+#LIBDIR#/libnvcuvid.so.1                           #LIBDIR#/libnvcuvid.so
+#LIBDIR#/libnvidia-opticalflow.so.#VERSION#        #LIBDIR#/libnvidia-opticalflow.so.1
+#LIBDIR#/libnvidia-opticalflow.so.1                #LIBDIR#/libnvidia-opticalflow.so
+#LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#        #LIBDIR#/vdpau/libvdpau_nvidia.so
+#LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#        #LIBDIR#/vdpau/libvdpau_nvidia.so.1
