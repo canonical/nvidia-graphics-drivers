@@ -261,7 +261,7 @@ Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  Vulkan ICD.
 
 Package: libnvidia-common-#FLAVOUR#
-Architecture: all
+Architecture: i386 amd64 arm64
 Multi-Arch: foreign
 Conflicts: libnvidia-common
 Replaces: libnvidia-common
