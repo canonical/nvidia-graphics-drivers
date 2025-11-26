@@ -265,7 +265,7 @@ Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
- nvidia-kernel-common-#FLAVOUR#-#VERSION#,
+ nvidia-kernel-common-#FLAVOUR#-#VERSION# [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
