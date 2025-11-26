@@ -1,3 +1,12 @@
+nvidia-graphics-drivers-580 (580.95.05-0ubuntu4) resolute; urgency=medium
+
+  [ Timo Aaltonen ]
+  * templates/control.in: Build libnvidia-common-NNN on i386/amd64/arm64
+    instead of being arch:all, and drop dependency on nvidia-kernel-common
+    from i386.
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 26 Nov 2025 20:38:55 +0100
+
 nvidia-graphics-drivers-580 (580.95.05-0ubuntu3) resolute; urgency=medium
 
   * Switch to Resolute
