@@ -1,8 +1,8 @@
 nvidia-graphics-drivers-580-server (580.95.05-0ubuntu3) resolute; urgency=medium
 
-  * Switch to resolute
+  * Fix Linux 6.18 -open build 
 
- -- Kuba Pawlak <kuba.pawlak@canonical.com>  Fri, 24 Oct 2025 17:29:25 +0200
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Sun, 05 Nov 2025 15:58:18 +0000
 
 nvidia-graphics-drivers-580-server (580.95.05-0ubuntu2) questing; urgency=medium
 
