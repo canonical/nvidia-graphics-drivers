@@ -31,10 +31,10 @@ Package: nvidia-driver-570
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-570 (= ${binary:Version}),
- nvidia-dkms-570 (<= 570.195.03-1),
- nvidia-dkms-570 (>= 570.195.03),
- nvidia-kernel-common-570 (<= 570.195.03-1),
- nvidia-kernel-common-570 (>= 570.195.03),
+ nvidia-dkms-570 (<= 570.207-1),
+ nvidia-dkms-570 (>= 570.207),
+ nvidia-kernel-common-570 (<= 570.207-1),
+ nvidia-kernel-common-570 (>= 570.207),
  nvidia-kernel-source-570 (= ${binary:Version}),
  libnvidia-compute-570 (= ${binary:Version}),
  libnvidia-extra-570 (= ${binary:Version}),
@@ -88,11 +88,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-570 (<= 570.195.03-1),
- nvidia-kernel-source-570 (>= 570.195.03),
- nvidia-kernel-common-570 (<= 570.195.03-1),
- nvidia-kernel-common-570 (>= 570.195.03),
- nvidia-firmware-570-570.195.03,
+ nvidia-kernel-source-570 (<= 570.207-1),
+ nvidia-kernel-source-570 (>= 570.207),
+ nvidia-kernel-common-570 (<= 570.207-1),
+ nvidia-kernel-common-570 (>= 570.207),
+ nvidia-firmware-570-570.207,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -104,7 +104,7 @@ Description: NVIDIA DKMS package
 Package: nvidia-utils-570
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207,
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
  nvidia-driver-570,
@@ -121,7 +121,7 @@ Package: libnvidia-compute-570
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
  libnvidia-ml1 (= ${source:Version}),
@@ -180,8 +180,8 @@ Description: NVIDIA compute utilities
 Package: nvidia-headless-no-dkms-570
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-570 (<= 570.195.03-1),
- nvidia-kernel-common-570 (>= 570.195.03),
+ nvidia-kernel-common-570 (<= 570.207-1),
+ nvidia-kernel-common-570 (>= 570.207),
  nvidia-kernel-source-570 (= ${binary:Version}),
  libnvidia-compute-570 (= ${binary:Version}),
  nvidia-compute-utils-570 (= ${binary:Version}),
@@ -216,9 +216,11 @@ Description: NVIDIA headless metapackage
 Package: nvidia-kernel-common-570
 Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
-Provides: nvidia-kernel-common
+Provides:
+ nvidia-kernel-common,
+ nvidia-kernel-common-570-570.207
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-570-570.195.03
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-570-570.207
 Replaces:
  nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -229,12 +231,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-570-570.195.03
+Package: nvidia-firmware-570-570.207
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-570-server-570.195.03
+ nvidia-firmware-570-server-570.207
 Replaces:
- nvidia-firmware-570-server-570.195.03
+ nvidia-firmware-570-server-570.207
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -248,7 +250,7 @@ Conflicts: libnvidia-gl
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
  libnvidia-common-570,
  ${misc:Depends}, ${shlibs:Depends},
  libnvidia-egl-wayland1
@@ -257,13 +259,13 @@ Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  Vulkan ICD.
 
 Package: libnvidia-common-570
-Architecture: all
+Architecture: i386 amd64 arm64
 Multi-Arch: foreign
 Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
@@ -277,7 +279,7 @@ Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-570 (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Extra libraries for the NVIDIA driver
  This package provides an additional set of libraries to be used with
@@ -309,7 +311,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207,
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-cfg1-any,
@@ -330,7 +332,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
 # ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
@@ -353,7 +355,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
  libnvidia-compute-570 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
@@ -375,7 +377,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-570 (= ${binary:Version}),
+ nvidia-kernel-common-570-570.207 [!i386],
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-encode,
@@ -393,10 +395,10 @@ Package: nvidia-driver-570-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-570 (= ${binary:Version}),
- nvidia-dkms-570-open (<= 570.195.03-1),
- nvidia-dkms-570-open (>= 570.195.03),
- nvidia-kernel-common-570 (<= 570.195.03-1),
- nvidia-kernel-common-570 (>= 570.195.03),
+ nvidia-dkms-570-open (<= 570.207-1),
+ nvidia-dkms-570-open (>= 570.207),
+ nvidia-kernel-common-570 (<= 570.207-1),
+ nvidia-kernel-common-570 (>= 570.207),
  nvidia-kernel-source-570-open (= ${binary:Version}),
  libnvidia-compute-570 (= ${binary:Version}),
  libnvidia-extra-570 (= ${binary:Version}),
@@ -452,10 +454,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-570-open (<= 570.195.03-1),
- nvidia-kernel-source-570-open (>= 570.195.03),
- nvidia-kernel-common-570 (<= 570.195.03-1),
- nvidia-kernel-common-570 (>= 570.195.03),
+ nvidia-kernel-source-570-open (<= 570.207-1),
+ nvidia-kernel-source-570-open (>= 570.207),
+ nvidia-kernel-common-570 (<= 570.207-1),
+ nvidia-kernel-common-570 (>= 570.207),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -467,8 +469,8 @@ Description: NVIDIA DKMS package (open kernel module)
 Package: nvidia-headless-no-dkms-570-open
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-570 (<= 570.195.03-1),
- nvidia-kernel-common-570 (>= 570.195.03),
+ nvidia-kernel-common-570 (<= 570.207-1),
+ nvidia-kernel-common-570 (>= 570.207),
  nvidia-kernel-source-570-open (= ${binary:Version}),
  libnvidia-compute-570 (= ${binary:Version}),
  nvidia-compute-utils-570 (= ${binary:Version}),
