@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-570 (570.207-0ubuntu0.25.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570 (570.207-0ubuntu0.25.04.1) plucky; urgency=medium
 
   * New upstream release 570.207 UDA (LP: #2132376)
 
- -- Noah Wager <noah.wager@canonical.com>  Wed, 26 Nov 2025 17:51:00 -0800
+ -- Noah Wager <noah.wager@canonical.com>  Wed, 26 Nov 2025 17:51:19 -0800
 
 nvidia-graphics-drivers-570 (570.195.03-0ubuntu0.25.04.1) plucky; urgency=medium
 
