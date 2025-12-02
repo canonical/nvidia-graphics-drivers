@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-590 (590.44.01-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-590 (590.44.01-0ubuntu1) resolute; urgency=medium
 
   * Release 590.44.01
 
- -- Jacob Martin <jacob.martin@canonical.com>  Tue, 02 Dec 2025 09:19:29 -0600
+ -- Jacob Martin <jacob.martin@canonical.com>  Tue, 02 Dec 2025 09:19:52 -0600
