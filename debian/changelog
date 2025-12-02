@@ -1,3 +1,5 @@
 nvidia-graphics-drivers-590 (590.44.01-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
 
- -- Jacob Martin <jacob.martin@canonical.com>  Fri, 21 Nov 2025 09:29:41 -0600
+  * Release 590.44.01
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Tue, 02 Dec 2025 09:22:43 -0600
