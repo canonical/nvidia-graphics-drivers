@@ -263,13 +263,13 @@ Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
  Vulkan ICD.
 
 Package: libnvidia-common-590
-Architecture: all
+Architecture: i386 amd64 arm64
 Multi-Arch: foreign
 Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
- nvidia-kernel-common-590-590.44.01,
+ nvidia-kernel-common-590-590.44.01 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
