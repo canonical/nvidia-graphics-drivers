@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-590 (590.44.01-0ubuntu0.22.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-590 (590.44.01-0ubuntu0.22.04.2) jammy; urgency=medium
 
   * Fix nvidia-kernel-common i386 dependency
 
- -- Jacob Martin <jacob.martin@canonical.com>  Mon, 08 Dec 2025 15:00:51 -0600
+ -- Jacob Martin <jacob.martin@canonical.com>  Mon, 08 Dec 2025 15:00:52 -0600
 
 nvidia-graphics-drivers-590 (590.44.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
