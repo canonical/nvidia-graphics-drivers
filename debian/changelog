@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-590-server (590.48.01-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-590-server (590.48.01-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 590.48.01 (LP: #2137575)
 
- -- Jacob Martin <jacob.martin@canonical.com>  Tue, 06 Jan 2026 17:14:07 -0600
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 07 Jan 2026 08:58:54 -0600
