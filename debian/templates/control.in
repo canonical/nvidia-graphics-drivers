@@ -1,9 +1,7 @@
 Source: nvidia-graphics-drivers-#FLAVOUR#
 Section: non-free/libs
 Priority: optional
-Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Uploaders:
- Alberto Milone <alberto.milone@canonical.com>,
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
 Vcs-Git: git://github.com/canonical/nvidia-graphics-drivers.git
 Vcs-Browser: https://github.com/canonical/nvidia-graphics-drivers/tree/#FLAVOUR#
 Build-Depends:
