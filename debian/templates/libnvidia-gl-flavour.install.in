@@ -14,7 +14,7 @@
 #I386_EXCLUDED#NVIDIA-Linux/libGLX_nvidia.so.#VERSION#                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libglxserver_nvidia.so.#VERSION#              #LIBDIR#/nvidia/xorg
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-api.so.1                            #LIBDIR#
-#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-gbm.so.1.1.2                    #LIBDIR#
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-egl-gbm.so.1.1.3                    #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-eglcore.so.#VERSION#                #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-glcore.so.#VERSION#                 #LIBDIR#
 #I386_EXCLUDED#NVIDIA-Linux/libnvidia-glsi.so.#VERSION#                   #LIBDIR#
