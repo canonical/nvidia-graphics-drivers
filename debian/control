@@ -32,10 +32,10 @@ Package: nvidia-driver-580
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-580 (= ${binary:Version}),
- nvidia-dkms-580 (<= 580.105.08-1),
- nvidia-dkms-580 (>= 580.105.08),
- nvidia-kernel-common-580 (<= 580.105.08-1),
- nvidia-kernel-common-580 (>= 580.105.08),
+ nvidia-dkms-580 (<= 580.126.09-1),
+ nvidia-dkms-580 (>= 580.126.09),
+ nvidia-kernel-common-580 (<= 580.126.09-1),
+ nvidia-kernel-common-580 (>= 580.126.09),
  nvidia-kernel-source-580 (= ${binary:Version}),
  libnvidia-compute-580 (= ${binary:Version}),
  libnvidia-extra-580 (= ${binary:Version}),
@@ -90,11 +90,11 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-580 (<= 580.105.08-1),
- nvidia-kernel-source-580 (>= 580.105.08),
- nvidia-kernel-common-580 (<= 580.105.08-1),
- nvidia-kernel-common-580 (>= 580.105.08),
- nvidia-firmware-580-580.105.08,
+ nvidia-kernel-source-580 (<= 580.126.09-1),
+ nvidia-kernel-source-580 (>= 580.126.09),
+ nvidia-kernel-common-580 (<= 580.126.09-1),
+ nvidia-kernel-common-580 (>= 580.126.09),
+ nvidia-firmware-580-580.126.09,
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package
  This package builds the NVIDIA kernel module needed by the userspace
@@ -106,7 +106,7 @@ Description: NVIDIA DKMS package
 Package: nvidia-utils-580
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-580-580.105.08,
+ nvidia-kernel-common-580-580.126.09,
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
  nvidia-driver-580,
@@ -123,7 +123,7 @@ Package: libnvidia-compute-580
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
- nvidia-kernel-common-580-580.105.08 [!i386],
+ nvidia-kernel-common-580-580.126.09 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
  libnvidia-ml1 (= ${source:Version}),
@@ -182,8 +182,8 @@ Description: NVIDIA compute utilities
 Package: nvidia-headless-no-dkms-580
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-580 (<= 580.105.08-1),
- nvidia-kernel-common-580 (>= 580.105.08),
+ nvidia-kernel-common-580 (<= 580.126.09-1),
+ nvidia-kernel-common-580 (>= 580.126.09),
  nvidia-kernel-source-580 (= ${binary:Version}),
  libnvidia-compute-580 (= ${binary:Version}),
  nvidia-compute-utils-580 (= ${binary:Version}),
@@ -220,9 +220,9 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides:
  nvidia-kernel-common,
- nvidia-kernel-common-580-580.105.08
+ nvidia-kernel-common-580-580.126.09
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-580-580.105.08
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-580-580.126.09
 Replaces:
  nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -233,12 +233,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-580-580.105.08
+Package: nvidia-firmware-580-580.126.09
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-580-server-580.105.08
+ nvidia-firmware-580-server-580.126.09
 Replaces:
- nvidia-firmware-580-server-580.105.08
+ nvidia-firmware-580-server-580.126.09
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -252,7 +252,7 @@ Conflicts: libnvidia-gl, libnvidia-egl-gbm1
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- nvidia-kernel-common-580-580.105.08 [!i386],
+ nvidia-kernel-common-580-580.126.09 [!i386],
  libnvidia-common-580,
  ${misc:Depends}, ${shlibs:Depends},
  libnvidia-egl-wayland1
@@ -267,7 +267,7 @@ Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
- nvidia-kernel-common-580-580.105.08,
+ nvidia-kernel-common-580-580.126.09,
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
@@ -281,7 +281,7 @@ Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-580 (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
- nvidia-kernel-common-580-580.105.08 [!i386],
+ nvidia-kernel-common-580-580.126.09 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Extra libraries for the NVIDIA driver
  This package provides an additional set of libraries to be used with
@@ -313,7 +313,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-580-580.105.08,
+ nvidia-kernel-common-580-580.126.09,
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-cfg1-any,
@@ -334,7 +334,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-580-580.105.08 [!i386],
+ nvidia-kernel-common-580-580.126.09 [!i386],
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-fbc1,
@@ -356,7 +356,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-580-580.105.08 [!i386],
+ nvidia-kernel-common-580-580.126.09 [!i386],
  libnvidia-compute-580 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
@@ -378,7 +378,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-580-580.105.08 [!i386],
+ nvidia-kernel-common-580-580.126.09 [!i386],
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-encode,
@@ -396,10 +396,10 @@ Package: nvidia-driver-580-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-580 (= ${binary:Version}),
- nvidia-dkms-580-open (<= 580.105.08-1),
- nvidia-dkms-580-open (>= 580.105.08),
- nvidia-kernel-common-580 (<= 580.105.08-1),
- nvidia-kernel-common-580 (>= 580.105.08),
+ nvidia-dkms-580-open (<= 580.126.09-1),
+ nvidia-dkms-580-open (>= 580.126.09),
+ nvidia-kernel-common-580 (<= 580.126.09-1),
+ nvidia-kernel-common-580 (>= 580.126.09),
  nvidia-kernel-source-580-open (= ${binary:Version}),
  libnvidia-compute-580 (= ${binary:Version}),
  libnvidia-extra-580 (= ${binary:Version}),
@@ -456,10 +456,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-580-open (<= 580.105.08-1),
- nvidia-kernel-source-580-open (>= 580.105.08),
- nvidia-kernel-common-580 (<= 580.105.08-1),
- nvidia-kernel-common-580 (>= 580.105.08),
+ nvidia-kernel-source-580-open (<= 580.126.09-1),
+ nvidia-kernel-source-580-open (>= 580.126.09),
+ nvidia-kernel-common-580 (<= 580.126.09-1),
+ nvidia-kernel-common-580 (>= 580.126.09),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -471,8 +471,8 @@ Description: NVIDIA DKMS package (open kernel module)
 Package: nvidia-headless-no-dkms-580-open
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-580 (<= 580.105.08-1),
- nvidia-kernel-common-580 (>= 580.105.08),
+ nvidia-kernel-common-580 (<= 580.126.09-1),
+ nvidia-kernel-common-580 (>= 580.126.09),
  nvidia-kernel-source-580-open (= ${binary:Version}),
  libnvidia-compute-580 (= ${binary:Version}),
  nvidia-compute-utils-580 (= ${binary:Version}),
