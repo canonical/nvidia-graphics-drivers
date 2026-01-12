@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.211.01-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 570.211.01 UDA (LP: #2137576)
+
+ -- Noah Wager <noah.wager@canonical.com>  Mon, 12 Jan 2026 14:36:23 -0800
+
 nvidia-graphics-drivers-570 (570.207-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 570.207 UDA (LP: #2132376)
