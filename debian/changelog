@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.288.01-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 535.288.01 (LP: #2138271)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Wed, 14 Jan 2026 14:27:45 -0500
+
 nvidia-graphics-drivers-535 (535.274.02-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 535.274.02 (LP: 2125765)
