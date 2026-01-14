@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-570-server (570.211.01-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-570-server (570.211.01-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 570.211.01 ERD (LP: #2137576)
 
- -- Noah Wager <noah.wager@canonical.com>  Tue, 13 Jan 2026 18:09:15 -0800
+ -- Noah Wager <noah.wager@canonical.com>  Tue, 13 Jan 2026 18:09:16 -0800
 
 nvidia-graphics-drivers-570-server (570.195.03-0ubuntu0.24.04.3) noble; urgency=medium
 
