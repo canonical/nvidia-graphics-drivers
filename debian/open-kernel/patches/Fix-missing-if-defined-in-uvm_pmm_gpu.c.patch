@@ -1,0 +1,61 @@
+From 1a096d6a2a6b5b2b1518fb52d442cdf0c54db760 Mon Sep 17 00:00:00 2001
+From: Abdur Rahman <abdur.rahman@canonical.com>
+Date: Wed, 21 Jan 2026 17:42:16 +0000
+Subject: [PATCH] Fix missing #if defined in uvm_pmm_gpu.c
+
+The missing `#if defined` cause build error only when the kernel
+configuration is in a certain way. This triggered on oracle 5.4.0-1151
+kernel.
+
+Signed-off-by: Abdur Rahman <abdur.rahman@canonical.com>
+---
+ nvidia-uvm/uvm_pmm_gpu.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/nvidia-uvm/uvm_pmm_gpu.c b/nvidia-uvm/uvm_pmm_gpu.c
+index ad2ae1c6..8e3123d0 100644
+--- a/nvidia-uvm/uvm_pmm_gpu.c
++++ b/nvidia-uvm/uvm_pmm_gpu.c
+@@ -3159,10 +3159,12 @@ static void devmem_page_free(struct page *page)
+                                  &gpu->pmm.root_chunks.va_block_lazy_free_q_item);
+ }
+ 
++#if defined(NV_PAGEMAP_OPS_HAS_FOLIO_FREE)
+ static void devmem_folio_free(struct folio *folio)
+ {
+     devmem_page_free(&folio->page);
+ }
++#endif
+ 
+ // This is called by HMM when the CPU faults on a ZONE_DEVICE private entry.
+ static vm_fault_t devmem_fault(struct vm_fault *vmf)
+@@ -3282,11 +3284,13 @@ static void device_p2p_page_free(struct page *page)
+     nv_kref_put(&p2p_mem->refcount, device_p2p_page_free_wake);
+ }
+ 
++#if defined(NV_PAGEMAP_OPS_HAS_FOLIO_FREE)
+ static void device_p2p_folio_free(struct folio *folio)
+ {
+     device_p2p_page_free(&folio->page);
+ }
+ #endif
++#endif
+ 
+ #if UVM_CDMM_PAGES_SUPPORTED()
+ static void device_coherent_page_free(struct page *page)
+@@ -3294,10 +3298,12 @@ static void device_coherent_page_free(struct page *page)
+     device_p2p_page_free(page);
+ }
+ 
++#if defined(NV_PAGEMAP_OPS_HAS_FOLIO_FREE)
+ static void device_coherent_folio_free(struct folio *folio)
+ {
+     device_p2p_page_free(&folio->page);
+ }
++#endif
+ 
+ static const struct dev_pagemap_ops uvm_device_coherent_pgmap_ops =
+ {
+-- 
+2.25.1
+
