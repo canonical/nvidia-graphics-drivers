@@ -1,0 +1,113 @@
+From e05dafaa25cdba214f96d7f8a7c8237cc168ef3a Mon Sep 17 00:00:00 2001
+From: Paolo Pisati <paolo.pisati@canonical.com>
+Date: Thu, 29 Jan 2026 16:18:19 +0000
+Subject: [PATCH] uvm: Fix build failure for Linux kernel 6.19 and later
+
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+---
+ nvidia-uvm/uvm_hmm.c |  4 +++
+ nvidia-uvm/uvm_pmm_gpu.c | 30 +++++++++++++++++++
+ 2 files changed, 34 insertions(+)
+
+diff --git a/nvidia-uvm/uvm_hmm.c b/nvidia-uvm/uvm_hmm.c
+index 9b676f971..574ac2a57 100644
+--- a/nvidia-uvm/uvm_hmm.c
++++ b/nvidia-uvm/uvm_hmm.c
+@@ -2140,7 +2140,11 @@ static void fill_dst_pfn(uvm_va_block_t *va_block,
+ 
+         UVM_ASSERT(!page_count(dpage));
+         UVM_ASSERT(!dpage->zone_device_data);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+         zone_device_page_init(dpage);
++#else
++        zone_device_page_init(dpage, 0);
++#endif
+         dpage->zone_device_data = gpu_chunk;
+         atomic64_inc(&va_block->hmm.va_space->hmm.allocated_page_count);
+     }
+diff --git a/nvidia-uvm/uvm_pmm_gpu.c b/nvidia-uvm/uvm_pmm_gpu.c
+index 97ff13dcd..aab337a98 100644
+--- a/nvidia-uvm/uvm_pmm_gpu.c
++++ b/nvidia-uvm/uvm_pmm_gpu.c
+@@ -2999,8 +2999,14 @@ static bool uvm_pmm_gpu_check_orphan_pages(uvm_pmm_gpu_t *pmm)
+     return ret;
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+ static void devmem_page_free(struct page *page)
+ {
++#else
++static void devmem_folio_free(struct folio *folio)
++{
++    struct page *page = &folio->page;
++#endif
+     uvm_gpu_chunk_t *chunk = uvm_pmm_devmem_page_to_chunk(page);
+     uvm_gpu_t *gpu = uvm_gpu_chunk_get_gpu(chunk);
+ 
+@@ -3060,7 +3066,11 @@ static vm_fault_t devmem_fault_entry(struct vm_fault *vmf)
+ 
+ static const struct dev_pagemap_ops uvm_pmm_devmem_ops =
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+     .page_free = devmem_page_free,
++#else
++    .folio_free = devmem_folio_free,
++#endif
+     .migrate_to_ram = devmem_fault_entry,
+ };
+ 
+@@ -3148,8 +3158,14 @@ static void device_p2p_page_free_wake(struct nv_kref *ref)
+     wake_up(&p2p_mem->waitq);
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+ static void device_p2p_page_free(struct page *page)
+ {
++#else
++static void device_p2p_folio_free(struct folio *folio)
++{
++    struct page *page = &folio->page;
++#endif
+     uvm_device_p2p_mem_t *p2p_mem = page->zone_device_data;
+ 
+     page->zone_device_data = NULL;
+@@ -3158,14 +3174,24 @@ static void device_p2p_page_free(struct page *page)
+ #endif
+ 
+ #if UVM_CDMM_PAGES_SUPPORTED()
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+ static void device_coherent_page_free(struct page *page)
+ {
+     device_p2p_page_free(page);
++#else
++static void device_coherent_folio_free(struct folio *folio)
++{
++    device_p2p_folio_free(folio);
++#endif
+ }
+ 
+ static const struct dev_pagemap_ops uvm_device_coherent_pgmap_ops =
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+     .page_free = device_coherent_page_free,
++#else
++    .folio_free = device_coherent_folio_free,
++#endif
+ };
+ 
+ static NV_STATUS uvm_pmm_cdmm_init(uvm_parent_gpu_t *parent_gpu)
+@@ -3302,7 +3328,11 @@ static bool uvm_pmm_gpu_check_orphan_pages(uvm_pmm_gpu_t *pmm)
+ 
+ static const struct dev_pagemap_ops uvm_device_p2p_pgmap_ops =
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 19, 0)
+     .page_free = device_p2p_page_free,
++#else
++    .folio_free = device_p2p_folio_free,
++#endif
+ };
+ 
+ void uvm_pmm_gpu_device_p2p_init(uvm_parent_gpu_t *parent_gpu)
+-- 
+2.51.0
+
