@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-590 (590.48.01-0ubuntu0.25.10.3) questing; urgency=medium
+
+  * control: Set XB-Support to NFB for 590 drivers (LP: #2139628)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Mon, 02 Feb 2026 09:16:56 -0600
+
 nvidia-graphics-drivers-590 (590.48.01-0ubuntu0.25.10.1) questing; urgency=medium
 
   * New upstream release 590.48.01 (LP: #2137575)
