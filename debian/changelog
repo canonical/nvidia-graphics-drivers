@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-580-server (580.126.09-0ubuntu4) resolute; urgency=medium
+
+  * Fix open build with 6.19 final.
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Fri, 13 Feb 2026 17:05:37 +0200
+
 nvidia-graphics-drivers-580-server (580.126.09-0ubuntu3) resolute; urgency=medium
 
   * Fix Linux 6.18 & 6.19 build
