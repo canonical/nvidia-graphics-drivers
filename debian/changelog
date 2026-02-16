@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-590-server (590.48.01-0ubuntu5) resolute; urgency=medium
+
+  * Update Linux 6.19 patch including zone_device_page_init() fix
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Mon, 16 Feb 2026 10:26:16 +0100
+
 nvidia-graphics-drivers-590-server (590.48.01-0ubuntu4) resolute; urgency=medium
 
   * control: Set XB-Support to NFB for 590 drivers (LP: #2139628)
