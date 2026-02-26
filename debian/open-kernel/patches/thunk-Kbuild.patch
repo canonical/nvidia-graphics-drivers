@@ -1,0 +1,12 @@
+--- a/Kbuild	2026-02-24 14:28:22.879070630 +0000
++++ b/Kbuild	2026-02-24 14:09:06.055743480 +0000
+@@ -287,6 +287,9 @@
+ 
+ .PHONY: $(BUILD_SANITY_CHECKS)
+ 
++$(obj)/nvidia.o: private objtool := true
++$(obj)/nvidia-modeset.o: private objtool := true
++
+ $(BUILD_SANITY_CHECKS):
+ 	@$(NV_CONFTEST_CMD) $@ full_output
+ 
