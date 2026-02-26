@@ -1,8 +1,8 @@
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index 200771a..999758c 100644
+index 919dacd..70e284e 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
-@@ -220,6 +220,16 @@ static inline void nv_vma_flags_clear_word(struct vm_area_struct *vma, unsigned
+@@ -216,6 +216,16 @@ static inline void nv_vma_flags_clear_word(struct vm_area_struct *vma, unsigned
      ACCESS_PRIVATE(vma, __vm_flags) &= ~flags;
  #endif
  }
@@ -51,10 +51,10 @@ index 0d74ec8..3957207 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 06b3117..c1ddcea 100644
+index dbcbae9..74bebbd 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -863,15 +863,22 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
+@@ -865,15 +865,22 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  }
  
  #if !NV_CAN_CALL_VMA_START_WRITE
@@ -79,7 +79,7 @@ index 06b3117..c1ddcea 100644
      {
          return NV_FALSE;
      }
-@@ -901,7 +908,7 @@ static NvBool nv_vma_enter_locked(struct vm_area_struct *vma, NvBool detaching)
+@@ -903,7 +910,7 @@ static NvBool nv_vma_enter_locked(struct vm_area_struct *vma, NvBool detaching)
      if (interrupted)
      {
          // Clean up on error: release refcount and dep_map
@@ -88,7 +88,7 @@ index 06b3117..c1ddcea 100644
          rwsem_release(&vma->vmlock_dep_map, _RET_IP_);
          return NV_FALSE;
      }
-@@ -917,7 +924,7 @@ void nv_vma_start_write(struct vm_area_struct *vma)
+@@ -919,7 +926,7 @@ void nv_vma_start_write(struct vm_area_struct *vma)
  {
      NvU32 mm_lock_seq;
      NvBool locked;
@@ -97,7 +97,7 @@ index 06b3117..c1ddcea 100644
          return;
  
      locked = nv_vma_enter_locked(vma, NV_FALSE);
-@@ -926,7 +933,7 @@ void nv_vma_start_write(struct vm_area_struct *vma)
+@@ -928,7 +935,7 @@ void nv_vma_start_write(struct vm_area_struct *vma)
      if (locked)
      {
          NvBool detached;
