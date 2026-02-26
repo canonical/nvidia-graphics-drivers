@@ -1,6 +1,7 @@
 nvidia-graphics-drivers-590 (590.48.01-0ubuntu6) resolute; urgency=medium
 
   * Fix thunk build error, and import NVIDIA Linux 7.0 buildfix
+  * Blacklist nova driver in modprobe (LP: #2142443)
 
  -- Paolo Pisati <paolo.pisati@canonical.com>  Thu, 26 Feb 2026 09:37:56 +0000
 
