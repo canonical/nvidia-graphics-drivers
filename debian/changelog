@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535 (535.288.01-0ubuntu0.24.04.2) noble; urgency=medium
+
+  * Blacklist nova driver in modprobe (LP: #2142443)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Fri, 06 Mar 2026 11:09:13 -0500
+
 nvidia-graphics-drivers-535 (535.288.01-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 535.288.01 (LP: #2138271)
