@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-580 (580.126.09-0ubuntu0.25.10.2) questing; urgency=medium
+
+  * Blacklist nova driver in modprobe (LP: #2142443)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Fri, 06 Mar 2026 11:16:02 -0500
+
 nvidia-graphics-drivers-580 (580.126.09-0ubuntu0.25.10.1) questing; urgency=medium
 
   * New upstream release 580.126.09 (LP: #2138245)
