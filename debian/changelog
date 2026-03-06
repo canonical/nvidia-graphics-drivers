@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-590-server (590.48.01-0ubuntu0.25.10.4) questing; urgency=medium
+
+  * Blacklist nova driver in modprobe (LP: #2142443)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Fri, 06 Mar 2026 11:32:40 -0500
+
 nvidia-graphics-drivers-590-server (590.48.01-0ubuntu0.25.10.3) questing; urgency=medium
 
   * control: Set XB-Support to NFB for 590 drivers (LP: #2139628)
