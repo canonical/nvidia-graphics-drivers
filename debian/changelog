@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580 (580.142-0ubuntu0.25.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580 (580.142-0ubuntu0.25.10.1) questing; urgency=medium
 
   * New upstream release 580.142 UDA (LP: #2143957)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Wed, 11 Mar 2026 20:32:24 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Wed, 11 Mar 2026 20:32:25 -0400
 
 nvidia-graphics-drivers-580 (580.126.09-0ubuntu0.25.10.2) questing; urgency=medium
 
