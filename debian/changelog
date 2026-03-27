@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-590-server (590.48.01-0ubuntu7) resolute; urgency=medium
+
+  * Transition the 590-server driver to 595-server (LP: #2146602)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Fri, 27 Mar 2026 17:27:54 -0500
+
 nvidia-graphics-drivers-590-server (590.48.01-0ubuntu6) resolute; urgency=medium
 
   * Fix thunk build error, and import NVIDIA Linux 7.0 buildfix
