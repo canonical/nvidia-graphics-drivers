@@ -1,5 +1,5 @@
 Source: nvidia-graphics-drivers-590
-Section: non-free/libs
+Section: non-free/oldlibs
 Priority: optional
 Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
 Vcs-Git: git://github.com/canonical/nvidia-graphics-drivers.git
@@ -28,476 +28,167 @@ XS-Autobuild: yes
 
 Package: nvidia-driver-590
 Architecture: amd64 arm64
-Depends:
- libnvidia-gl-590 (= ${binary:Version}),
- nvidia-dkms-590 (<= 590.48.01-1),
- nvidia-dkms-590 (>= 590.48.01),
- nvidia-kernel-common-590 (<= 590.48.01-1),
- nvidia-kernel-common-590 (>= 590.48.01),
- nvidia-kernel-source-590 (= ${binary:Version}),
- libnvidia-compute-590 (= ${binary:Version}),
- libnvidia-extra-590 (= ${binary:Version}),
- nvidia-compute-utils-590 (= ${binary:Version}),
- libnvidia-decode-590 (= ${binary:Version}),
- libnvidia-encode-590 (= ${binary:Version}),
- nvidia-utils-590 (= ${binary:Version}),
- xserver-xorg-video-nvidia-590 (= ${binary:Version}),
- libnvidia-cfg1-590 (= ${binary:Version}),
- libnvidia-fbc1-590 (= ${binary:Version}) [!ppc64el],
- ${misc:Depends}
-Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-590:i386 (= ${binary:Version}) [amd64]
-XB-Modaliases: ${modaliases}
-XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Prefer-Variant: Open
-XB-Support: NFB
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-driver-595
 Description: NVIDIA driver metapackage
- This metapackage depends on the NVIDIA binary driver and on all of its libraries,
- to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
- applications on either X11 or on Wayland.
- .
- See /usr/share/doc/nvidia-driver-590/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-source-590
 Architecture: amd64 arm64
 Multi-Arch: foreign
-Conflicts:
- nvidia-kernel-source
-Provides:
- nvidia-kernel-source
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-kernel-source-595
 Description: NVIDIA kernel source package
- This package provides the NVIDIA kernel source needed by the userspace
- driver.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-dkms-590
 Architecture: amd64 arm64
 Multi-Arch: foreign
-Conflicts:
- nvidia-dkms-kernel
-Replaces:
- nvidia-dkms-kernel
-Provides:
- nvidia-dkms-kernel
-Depends:
- dkms,
- nvidia-kernel-source-590 (<= 590.48.01-1),
- nvidia-kernel-source-590 (>= 590.48.01),
- nvidia-kernel-common-590 (<= 590.48.01-1),
- nvidia-kernel-common-590 (>= 590.48.01),
- nvidia-firmware-590-590.48.01,
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-dkms-595
 Description: NVIDIA DKMS package
- This package builds the NVIDIA kernel module needed by the userspace
- driver, using DKMS.
- Provided that you have the kernel header packages installed, the kernel
- module will be built for your running kernel, and automatically rebuilt for
- any new kernel headers that are installed.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-utils-590
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-590-590.48.01,
- ${shlibs:Depends}, ${misc:Depends}
-Suggests:
- nvidia-driver-590,
-Provides:
- nvidia-utils, nvidia-smi
-Conflicts:
- nvidia-utils, nvidia-smi
-Replaces:
- nvidia-utils, nvidia-smi
+Section: non-free/oldlibs
+Depends: nvidia-utils-595
 Description: NVIDIA driver support binaries
- This package contains supporting binaries for the NVIDIA driver.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-compute-590
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- ${misc:Depends}, ${shlibs:Depends}
-Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
- libnvidia-ml1 (= ${source:Version}),
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1,
- libcuda.so.1 (= ${source:Version}),
- libcuda1 (= ${source:Version})
-Conflicts: libnvidia-compute, nvidia-opencl-icd,
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1
-Replaces: libnvidia-compute, nvidia-opencl-icd,
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1
+Section: non-free/oldlibs
+Depends: libnvidia-compute-595
 Description: NVIDIA libcompute package
- This package provides a set of libraries which enable the NVIDIA driver
- to use GPUs for parallel general purpose computation through CUDA and
- OpenCL.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-compute-utils-590
 Architecture: amd64 arm64
-Depends:
- libnvidia-compute-590, adduser,
- ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-compute-utils, nvidia-persistenced
-Conflicts: nvidia-compute-utils, nvidia-persistenced
-Replaces: nvidia-compute-utils, nvidia-persistenced
+Section: non-free/oldlibs
+Depends: nvidia-compute-utils-595
 Description: NVIDIA compute utilities
- This package provides utility binaries for paraller general purpose
- computing use cases with the NVIDIA driver.
- .
- CUDA MPS is a feature that allows multiple CUDA processes to share a single
- GPU context. CUDA MPS should be transparent to CUDA programs.
- .
- CUDA MPS requires a device that supports Unified Virtual Address (UVA) and
- has compute capability SM 3.5 or higher.
- Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-590
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-590 (<= 590.48.01-1),
- nvidia-kernel-common-590 (>= 590.48.01),
- nvidia-kernel-source-590 (= ${binary:Version}),
- libnvidia-compute-590 (= ${binary:Version}),
- nvidia-compute-utils-590 (= ${binary:Version}),
- libnvidia-cfg1-590 (= ${binary:Version}),
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-no-dkms-595
 Description: NVIDIA headless metapackage - no DKMS
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL. DKMS will not be installed, and, therefore, the kernel module
- will not be built.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-590 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-590
 Architecture: amd64 arm64
-Conflicts: nvidia-headless
-Provides: nvidia-headless
-Replaces: nvidia-headless
-Depends:
- nvidia-headless-no-dkms-590,
- nvidia-dkms-590,
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-595
 Description: NVIDIA headless metapackage
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-590 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-common-590
 Architecture: amd64 arm64
-Conflicts: nvidia-kernel-common
-Provides:
- nvidia-kernel-common,
- nvidia-kernel-common-590-590.48.01
-Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-590-590.48.01
-Replaces:
- nvidia-kernel-common
+Section: non-free/oldlibs
+Depends: nvidia-kernel-common-595
 Description: Shared files used with the kernel module
- This package installs all the optional accessory files for the NVIDIA
- kernel module.
- .
- Install this package if you want to blacklist any conflicting kernel
- modules, and if you want udev to load the the NVIDIA kernel modules,
- and to create the uvm devices automatically.
-
-Package: nvidia-firmware-590-590.48.01
-Architecture: amd64 arm64
-Breaks:
- nvidia-firmware-590-server-590.48.01
-Replaces:
- nvidia-firmware-590-server-590.48.01
-Depends:
- ${misc:Depends}
-Description: Firmware files used by the kernel module
- This package installs required firmware files for the NVIDIA kernel
- module.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-gl-590
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Conflicts: libnvidia-gl, libnvidia-egl-gbm1
-Replaces: libnvidia-gl
-Provides: libnvidia-gl, libglx-vendor, libegl-vendor
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- libnvidia-common-590,
- ${misc:Depends}, ${shlibs:Depends},
- libnvidia-egl-wayland1
+Section: non-free/oldlibs
+Depends: libnvidia-gl-595
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
- This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
- Vulkan ICD.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-common-590
 Architecture: i386 amd64 arm64
 Multi-Arch: foreign
-Conflicts: libnvidia-common
-Replaces: libnvidia-common
-Provides: libnvidia-common
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: libnvidia-common-595
 Description: Shared files used by the NVIDIA libraries
- This package provides a set of files that are required by the NVIDIA
- libraries.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-extra-590
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Breaks: libnvidia-common-590 (<< 440.64-0ubuntu3~)
-Conflicts: libnvidia-extra
-Replaces: libnvidia-extra, libnvidia-common-590 (<< 440.64-0ubuntu3~)
-Provides: libnvidia-extra
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: libnvidia-extra-595
 Description: Extra libraries for the NVIDIA driver
- This package provides an additional set of libraries to be used with
- the NVIDIA driver.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: xserver-xorg-video-nvidia-590
-Section: non-free/x11
+Section: non-free/oldlibs
 Architecture: amd64 arm64
-Depends:
- libnvidia-cfg1-590 (= ${binary:Version}),
- ${nvidia:xorgDepends},
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts: xorg-driver-binary, nvidia-driver-binary
-Replaces: xorg-driver-binary, nvidia-driver-binary
-Provides:
- xorg-driver-binary, nvidia-driver-binary,
- ${nvidia:xorgProvides}
+Depends: xserver-xorg-video-nvidia-595
 Description: NVIDIA binary Xorg driver
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- See /usr/share/doc/nvidia-driver-590/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-cfg1-590
 Architecture: amd64 arm64
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-590-590.48.01,
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-cfg1-any,
-Conflicts:
- libnvidia-cfg1-any,
-Replaces:
- libnvidia-cfg1-any,
+Section: non-free/oldlibs
+Depends: libnvidia-cfg1-595
 Description: NVIDIA binary OpenGL/GLX configuration library
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- This package contains the libnvidia-cfg.so.1 runtime library.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-fbc1-590
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-fbc1,
-Conflicts:
- libnvidia-fbc1,
-Replaces:
- libnvidia-fbc1,
+Section: non-free/oldlibs
+Depends: libnvidia-fbc1-595
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
- The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvFBCOpenGL runtime library.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-decode-590
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- libnvidia-compute-590 (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libnvidia-decode,
-Replaces:
- libnvidia-decode,
-Provides:
- libnvidia-decode,
+Section: non-free/oldlibs
+Depends: libnvidia-decode-595
 Description: NVIDIA Video Decoding runtime libraries
- This package includes the NVIDIA CUDA Video Decoder (NVCUVID) library which
- provides an interface to hardware video decoding capabilities on NVIDIA GPUs with CUDA.
- .
- The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
- systems) library for the NVIDIA vendor implementation.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-encode-590
 Architecture: i386 amd64 arm64
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-590-590.48.01 [!i386],
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libnvidia-encode,
-Provides:
- libnvidia-encode
-Replaces:
- libnvidia-encode
+Section: non-free/oldlibs
+Depends: libnvidia-encode-595
 Description: NVENC Video Encoding runtime library
- The NVENC Video Encoding library provides an interface to video encoder
- hardware on supported NVIDIA GPUs.
- .
- This package contains the nvidia-encode runtime library.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-driver-590-open
 Architecture: amd64 arm64
-Depends:
- libnvidia-gl-590 (= ${binary:Version}),
- nvidia-dkms-590-open (<= 590.48.01-1),
- nvidia-dkms-590-open (>= 590.48.01),
- nvidia-kernel-common-590 (<= 590.48.01-1),
- nvidia-kernel-common-590 (>= 590.48.01),
- nvidia-kernel-source-590-open (= ${binary:Version}),
- libnvidia-compute-590 (= ${binary:Version}),
- libnvidia-extra-590 (= ${binary:Version}),
- nvidia-compute-utils-590 (= ${binary:Version}),
- libnvidia-decode-590 (= ${binary:Version}),
- libnvidia-encode-590 (= ${binary:Version}),
- nvidia-utils-590 (= ${binary:Version}),
- xserver-xorg-video-nvidia-590 (= ${binary:Version}),
- libnvidia-cfg1-590 (= ${binary:Version}),
- libnvidia-fbc1-590 (= ${binary:Version}) [!ppc64el],
- ${misc:Depends}
-Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-590:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-590:i386 (= ${binary:Version}) [amd64]
-XB-Modaliases: ${modaliases}
-XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Prefer-Variant: Open
-XB-Support: NFB
+Section: non-free/oldlibs
+Depends: nvidia-driver-595-open
 Description: NVIDIA driver (open kernel) metapackage
- This metapackage depends on the NVIDIA binary driver and on all of its libraries,
- to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
- applications on either X11 or on Wayland.
- .
- See /usr/share/doc/nvidia-driver-590/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-source-590-open
 Architecture: amd64 arm64
 Multi-Arch: foreign
-Conflicts:
- nvidia-kernel-source
-Replaces:
- nvidia-kernel-source
-Provides:
- nvidia-kernel-source
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-kernel-source-595-open
 Description: NVIDIA kernel source package
- This package provides the open NVIDIA kernel source needed by the userspace
- driver.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-dkms-590-open
 Architecture: amd64 arm64
 Multi-Arch: foreign
-Conflicts:
- nvidia-dkms-kernel
-Replaces:
- nvidia-dkms-kernel
-Provides:
- nvidia-dkms-kernel
-Depends:
- dkms,
- nvidia-kernel-source-590-open (<= 590.48.01-1),
- nvidia-kernel-source-590-open (>= 590.48.01),
- nvidia-kernel-common-590 (<= 590.48.01-1),
- nvidia-kernel-common-590 (>= 590.48.01),
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-dkms-595-open
 Description: NVIDIA DKMS package (open kernel module)
- This package builds the open NVIDIA kernel module needed by the userspace
- driver, using DKMS.
- Provided that you have the kernel header packages installed, the kernel
- module will be built for your running kernel, and automatically rebuilt for
- any new kernel headers that are installed.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-590-open
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-590 (<= 590.48.01-1),
- nvidia-kernel-common-590 (>= 590.48.01),
- nvidia-kernel-source-590-open (= ${binary:Version}),
- libnvidia-compute-590 (= ${binary:Version}),
- nvidia-compute-utils-590 (= ${binary:Version}),
- libnvidia-cfg1-590 (= ${binary:Version}),
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-no-dkms-595-open
 Description: NVIDIA headless metapackage - no DKMS (open kernel module)
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL. DKMS will not be installed, and, therefore, the kernel module
- will not be built.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-590 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-590-open
 Architecture: amd64 arm64
-Conflicts: nvidia-headless
-Provides: nvidia-headless
-Replaces: nvidia-headless
-Depends:
- nvidia-headless-no-dkms-590-open,
- nvidia-dkms-590-open,
- ${misc:Depends}, ${shlibs:Depends}
+Section: non-free/oldlibs
+Depends: nvidia-headless-595-open
 Description: NVIDIA headless metapackage (open kernel module)
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-590 metapackage.
+ Transitional package for upgrades. This package can be safely removed.
