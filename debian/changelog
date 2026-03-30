@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580-server (580.126.20-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580-server (580.126.20-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 580.126.20 ERD (LP: #2146749)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 29 Mar 2026 23:15:54 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 29 Mar 2026 23:15:55 -0400
 
 nvidia-graphics-drivers-580-server (580.126.09-0ubuntu0.22.04.1) jammy; urgency=medium
 
