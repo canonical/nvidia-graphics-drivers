@@ -1,29 +1,5 @@
-nvidia-graphics-drivers-590 (590.48.01-0ubuntu0.25.10.4) questing; urgency=medium
+nvidia-graphics-drivers-595 (595.58.03-0ubuntu0.25.10.1) UNRELEASED; urgency=medium
 
-  * Blacklist nova driver in modprobe (LP: #2142443)
+  * New upstream release 595.58.03 UDA (LP: #2146730)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Fri, 06 Mar 2026 11:28:07 -0500
-
-nvidia-graphics-drivers-590 (590.48.01-0ubuntu0.25.10.3) questing; urgency=medium
-
-  * control: Set XB-Support to NFB for 590 drivers (LP: #2139628)
-
- -- Jacob Martin <jacob.martin@canonical.com>  Mon, 02 Feb 2026 09:16:56 -0600
-
-nvidia-graphics-drivers-590 (590.48.01-0ubuntu0.25.10.1) questing; urgency=medium
-
-  * New upstream release 590.48.01 (LP: #2137575)
-
- -- Jacob Martin <jacob.martin@canonical.com>  Tue, 06 Jan 2026 17:37:40 -0600
-
-nvidia-graphics-drivers-590 (590.44.01-0ubuntu0.25.10.2) questing; urgency=medium
-
-  * Fix nvidia-kernel-common i386 dependency
-
- -- Jacob Martin <jacob.martin@canonical.com>  Mon, 08 Dec 2025 14:59:45 -0600
-
-nvidia-graphics-drivers-590 (590.44.01-0ubuntu0.25.10.1) questing; urgency=medium
-
-  * Release 590.44.01
-
- -- Jacob Martin <jacob.martin@canonical.com>  Tue, 02 Dec 2025 09:21:00 -0600
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 30 Mar 2026 16:24:46 -0400
