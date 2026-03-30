@@ -5,6 +5,10 @@ NVIDIA-Linux/systemd/system/nvidia-hibernate.service        lib/systemd/system
 NVIDIA-Linux/systemd/system/nvidia-resume.service           lib/systemd/system
 NVIDIA-Linux/systemd/system/nvidia-suspend.service          lib/systemd/system
 NVIDIA-Linux/systemd/system/nvidia-suspend-then-hibernate.service          lib/systemd/system
+NVIDIA-Linux/systemd/system/systemd-hibernate.service.d/nvidia-suspend-nofreeze.conf lib/systemd/system/systemd-hibernate.service.d
+NVIDIA-Linux/systemd/system/systemd-hybrid-sleep.service.d/nvidia-suspend-nofreeze.conf lib/systemd/system/systemd-hybrid-sleep.service.d
+NVIDIA-Linux/systemd/system/systemd-suspend-then-hibernate.service.d/nvidia-suspend-nofreeze.conf lib/systemd/system/systemd-suspend-then-hibernate.service.d
+NVIDIA-Linux/systemd/system/systemd-suspend.service.d/nvidia-suspend-nofreeze.conf lib/systemd/system/systemd-suspend.service.d
 debian/71-nvidia.rules                                                     lib/udev/rules.d
 debian/device-create/ub-device-create                                      sbin
 debian/framebuffer-nvidia                                                  usr/share/initramfs-tools/hooks
