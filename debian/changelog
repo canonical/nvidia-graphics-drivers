@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.211.01-0ubuntu1.24.04.1) noble; urgency=medium
+
+  * Transition EOL 570 drivers to 580 (LP: #2147038)
+
+ -- Noah Wager <noah.wager@canonical.com>  Tue, 31 Mar 2026 14:49:49 -0700
+
 nvidia-graphics-drivers-570 (570.211.01-0ubuntu0.24.04.2) noble; urgency=medium
 
   * Blacklist nova driver in modprobe (LP: #2142443)
