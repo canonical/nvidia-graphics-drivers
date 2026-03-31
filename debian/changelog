@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-595-server (595.58.03-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-595-server (595.58.03-0ubuntu1) resolute; urgency=medium
 
   * New upstream release 595.58.03 ERD (LP: #2146730)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 30 Mar 2026 22:44:15 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 30 Mar 2026 22:44:17 -0400
