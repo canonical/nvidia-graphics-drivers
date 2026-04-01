@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-570 (570.211.01-0ubuntu1.22.04.1) jammy; urgency=medium
+
+  * Transition EOL 570 drivers to 580 (LP: #2147038)
+
+ -- Noah Wager <noah.wager@canonical.com>  Wed, 01 Apr 2026 09:07:26 -0700
+
 nvidia-graphics-drivers-570 (570.211.01-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 570.211.01 UDA (LP: #2137576)
