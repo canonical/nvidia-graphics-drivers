@@ -15,6 +15,7 @@ AUTOINSTALL="yes"
 PATCH[0]="disable_fstack-clash-protection_fcf-protection.patch"
 PATCH[1]="0003-Workaround-nv_vm_flags_-calling-GPL-only-code.patch"
 PATCH[2]="thunk-Kbuild.patch"
+PATCH[3]="buildfix_kernel_7.0.patch"
 # Apply from v4 to v5.12 kernels
 # v5.13 kernels already disable both by default
 # v5.19 kernels may need cf-protection=branch
