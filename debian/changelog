@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-595-server (595.58.03-0ubuntu2) resolute; urgency=medium
+
+  * control: Add transitionals for 590-server. (LP: #2146730)
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Thu, 02 Apr 2026 13:43:52 +0300
+
 nvidia-graphics-drivers-595-server (595.58.03-0ubuntu1) resolute; urgency=medium
 
   * New upstream release 595.58.03 ERD (LP: #2146730)
