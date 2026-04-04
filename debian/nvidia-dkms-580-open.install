@@ -1,2 +1,3 @@
 debian/open-kernel/dkms.conf                    usr/src/nvidia-580.142
 debian/open-kernel/patches/*                    usr/src/nvidia-580.142/patches
+debian/dkms-objtool-jl.sh                       usr/src/nvidia-580.142
