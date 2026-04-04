@@ -1,3 +1,14 @@
+nvidia-graphics-drivers-595 (595.58.03-0ubuntu3) resolute; urgency=medium
+
+  * Fix suspend crash (kernel BUG at jump_label.c) caused by thunk-Kbuild.patch
+    disabling objtool on nvidia.ko and nvidia-modeset.ko, which skipped the
+    jump_label NOP conversion needed by CONFIG_HAVE_JUMP_LABEL_HACK. Add
+    dkms-objtool-jl.sh helper script invoked from the DKMS MAKE command to
+    run objtool --hacks=jump_label after module build (POST_BUILD runs too
+    late — after strip/sign/compress). (LP: #2143635)
+
+ -- Erich Eickmeyer <eeickmeyer@ubuntu.com>  Sat, 04 Apr 2026 10:05:11 -0700
+
 nvidia-graphics-drivers-595 (595.58.03-0ubuntu2) resolute; urgency=medium
 
   * control: Add transitionals for 590. (LP: #2146730)
