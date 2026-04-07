@@ -1,0 +1,34 @@
+Description: Workaround for missing hardening in drivers
+ In order to enable CONFIG_X86_KERNEL_IBT for the NVIDIA drivers, the objtool checks must
+ be circumvented, as currently these objects are compiled without required hardening by NVIDIA,
+ and a Werror then ends the compilation. For now, we should skip these checks.
+Author: Alice C. Munduruca <alice.munduruca@canonical.com>
+Origin: other, https://forums.developer.nvidia.com/t/objtool-naked-return-found-in-mitigation-rethunk-build-with-pre-compiled-blobs-on-kernel-6-19/360610
+Bug: https://forums.developer.nvidia.com/t/objtool-naked-return-found-in-mitigation-rethunk-build-with-pre-compiled-blobs-on-kernel-6-19/360610
+Last-Update: 2026-04-07
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: nvidia-graphics-drivers/NVIDIA-Linux/kernel-open/Kbuild
+===================================================================
+--- nvidia-graphics-drivers.orig/NVIDIA-Linux/kernel-open/Kbuild
++++ nvidia-graphics-drivers/NVIDIA-Linux/kernel-open/Kbuild
+@@ -304,4 +304,7 @@ $(obj)/conftest/uts_release: NV_GENERATE
+ 
+ .PHONY: NV_GENERATE_UTS_RELEASE
+ 
++$(obj)/nvidia.o: private objtool := true
++$(obj)/nvidia-modeset.o: private objtool := true
++
+ $(NV_CONFTEST_HEADERS): $(obj)/conftest/uts_release
+Index: nvidia-graphics-drivers/NVIDIA-Linux/kernel/Kbuild
+===================================================================
+--- nvidia-graphics-drivers.orig/NVIDIA-Linux/kernel/Kbuild
++++ nvidia-graphics-drivers/NVIDIA-Linux/kernel/Kbuild
+@@ -304,4 +304,7 @@ $(obj)/conftest/uts_release: NV_GENERATE
+ 
+ .PHONY: NV_GENERATE_UTS_RELEASE
+ 
++$(obj)/nvidia.o: private objtool := true
++$(obj)/nvidia-modeset.o: private objtool := true
++
+ $(NV_CONFTEST_HEADERS): $(obj)/conftest/uts_release

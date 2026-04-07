@@ -107,7 +107,7 @@ NVIDIA-Linux-%:
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp:
 	dh_testdir
-	#QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
+	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
 
