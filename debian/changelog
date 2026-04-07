@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-595 (595.71.05-0ubuntu2) stonking; urgency=medium
+
+  * Enable IBT for NVIDIA drivers (LP: #2122077)
+
+ -- Alice C. Munduruca <alice.munduruca@canonical.com>  Wed, 27 May 2026 16:28:25 -0400
+
 nvidia-graphics-drivers-595 (595.71.05-0ubuntu1) stonking; urgency=medium
 
   * Fix suspend crash caused by missing objtool jump_label NOP
