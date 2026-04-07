@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-580 (580.159.04-0ubuntu2) stonking; urgency=medium
+
+  * Enable IBT for NVIDIA drivers (LP: #2122077)
+
+ -- Alice C. Munduruca <alice.munduruca@canonical.com>  Wed, 27 May 2026 16:38:43 -0400
+
 nvidia-graphics-drivers-580 (580.159.04-0ubuntu1) stonking; urgency=medium
 
   * New upstream release 580.159.04 (LP: #2155192)
