@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-580 (580.142-0ubuntu3) resolute; urgency=medium
+
+  * Transition nvidia-graphics-drivers-535 and -570 to -580 (LP: #2122017)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 08 Apr 2026 14:49:01 -0500
+
 nvidia-graphics-drivers-580 (580.142-0ubuntu2) resolute; urgency=medium
 
   * remove kernel-6.19.patch (LP: #2143957)
