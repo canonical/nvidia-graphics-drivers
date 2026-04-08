@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-580-server (580.126.20-0ubuntu3) resolute; urgency=medium
+
+  * Transition nvidia-graphics-drivers-535-server and -570-server to
+    -580-server (LP: #2122017)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 08 Apr 2026 14:59:24 -0500
+
 nvidia-graphics-drivers-580-server (580.126.20-0ubuntu2) resolute; urgency=medium
 
   * include buildfix_kernel_7.0.patch (LP: #2146749)
