@@ -1,2 +1,3 @@
 debian/open-kernel/dkms.conf                    usr/src/nvidia-#VERSION#
 debian/open-kernel/patches/*                    usr/src/nvidia-#VERSION#/patches
+debian/dkms-objtool-jl.sh                       usr/src/nvidia-#VERSION#
