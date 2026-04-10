@@ -1,11 +1,24 @@
---- a/Kbuild	2026-02-24 14:28:22.879070630 +0000
-+++ b/Kbuild	2026-02-24 14:09:06.055743480 +0000
-@@ -287,6 +287,9 @@
+diff --git a/Kbuild b/Kbuild
+index 9ec310c..dc6a4a9 100644
+--- a/Kbuild
++++ b/Kbuild
+@@ -287,6 +287,20 @@ BUILD_SANITY_CHECKS = \
  
  .PHONY: $(BUILD_SANITY_CHECKS)
  
-+$(obj)/nvidia.o: private objtool := true
-+$(obj)/nvidia-modeset.o: private objtool := true
++objtool-filtered-args = $(filter --hacks=jump_label,$(objtool-args-y))
++
++objtool-args-override = $(objtool-filtered-args) \
++        $(if $(delay-objtool), --link) \
++        $(if $(part-of-module), --module)
++
++objtool-override = $(if $(objtool-filtered-args),$(objtree)/tools/objtool/objtool,true)
++
++$(obj)/nvidia.o: private objtool-args = $(objtool-args-override)
++$(obj)/nvidia.o: private objtool = $(objtool-override)
++
++$(obj)/nvidia-modeset.o: private objtool-args = $(objtool-args-override)
++$(obj)/nvidia-modeset.o: private objtool = $(objtool-override)
 +
  $(BUILD_SANITY_CHECKS):
  	@$(NV_CONFTEST_CMD) $@ full_output
