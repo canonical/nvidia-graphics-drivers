@@ -1,3 +1,10 @@
+nvidia-graphics-drivers-595 (595.58.03-0ubuntu3) UNRELEASED; urgency=medium
+
+  * Fix suspend crash caused by missing objtool jump_label NOP
+    conversion (LP: #2143635)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 15 Apr 2026 10:32:08 -0500
+
 nvidia-graphics-drivers-595 (595.58.03-0ubuntu2) resolute; urgency=medium
 
   * control: Add transitionals for 590. (LP: #2146730)
