@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-595 (595.71.05-0ubuntu0.24.04.1) noble; urgency=medium
+
+  * New upstream release 595.71.05 UDA (LP: #2150787)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Thu, 30 Apr 2026 16:40:50 -0500
+
 nvidia-graphics-drivers-595 (595.58.03-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 595.58.03 UDA (LP: #2146730)
