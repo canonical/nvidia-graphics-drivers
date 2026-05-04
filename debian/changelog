@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-535 (535.309.01-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-535 (535.309.01-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 535.309.01 ERD/UDA (LP: #2151111)
 
- -- Noah Wager <noah.wager@canonical.com>  Mon, 04 May 2026 13:39:06 -0700
+ -- Noah Wager <noah.wager@canonical.com>  Mon, 04 May 2026 13:39:19 -0700
 
 nvidia-graphics-drivers-535 (535.288.01-0ubuntu0.24.04.2) noble; urgency=medium
 
