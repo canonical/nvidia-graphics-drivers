@@ -14,3 +14,4 @@
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-opencl.so.#VERSION#                 #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-ptxjitcompiler.so.#VERSION#         #LIBDIR#
 #I386_ONLY#NVIDIA-Linux/32/libnvidia-tileiras.so.#VERSION#               #LIBDIR#
+#ARM64_ONLY#NVIDIA-Linux/libnvcuextend.so.#VERSION#                   #LIBDIR#
