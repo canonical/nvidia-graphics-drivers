@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580-server (580.159.03-0ubuntu0.25.10.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580-server (580.159.03-0ubuntu0.25.10.1) questing; urgency=medium
 
   * New upstream release 580.159.03 ERD/UDA (LP: #2151130)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 05 May 2026 02:31:11 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 05 May 2026 02:31:12 -0400
 
 nvidia-graphics-drivers-580-server (580.126.20-0ubuntu0.25.10.1) questing; urgency=medium
 
