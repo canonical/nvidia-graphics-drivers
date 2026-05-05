@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580 (580.159.03-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580 (580.159.03-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream release 580.159.03 ERD/UDA (LP: #2151130)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 05 May 2026 01:31:39 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 05 May 2026 01:31:40 -0400
 
 nvidia-graphics-drivers-580 (580.142-0ubuntu0.22.04.1) jammy; urgency=medium
 
