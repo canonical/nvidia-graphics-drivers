@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-535-server (535.309.01-0ubuntu0.18.04.1) UNRELEASED; urgency=medium
+
+  * New upstream release 535.309.01 ERD/UDA (LP: #2151111)
+
+ -- Noah Wager <noah.wager@canonical.com>  Wed, 06 May 2026 23:13:28 -0700
+
 nvidia-graphics-drivers-535-server (535.288.01-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * New upstream release 535.288.01 ERD17 (LP: #2138271)
