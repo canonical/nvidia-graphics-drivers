@@ -1,5 +1,5 @@
-nvidia-graphics-drivers-610 (610.43.02-0ubuntu0.26.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-610 (610.43.02-0ubuntu0.26.04.1) resolute; urgency=medium
 
   * New upstream release 610.43.02
 
- -- Jacob Martin <jacob.martin@canonical.com>  Tue, 02 Jun 2026 09:01:21 -0500
+ -- Jacob Martin <jacob.martin@canonical.com>  Tue, 02 Jun 2026 12:17:45 -0500
