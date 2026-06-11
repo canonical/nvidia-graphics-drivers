@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-535 (535.309.01-0ubuntu0.24.04.2) UNRELEASED; urgency=medium
 
+  * Transition the 535 graphics driver packages to 580 (LP: #2156482)
 
  -- Jacob Martin <jacob.martin@canonical.com>  Thu, 11 Jun 2026 10:43:13 -0500
 
