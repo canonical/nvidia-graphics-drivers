@@ -1,4 +1,6 @@
 #I386_EXCLUDED##LIBDIR#/libcudadebugger.so.#VERSION#        #LIBDIR#/libcudadebugger.so.1
+#I386_EXCLUDED##LIBDIR#/libnvidia-fmdrv.so.#VERSION#        #LIBDIR#/libnvidia-fmdrv.so.1
+#I386_EXCLUDED##LIBDIR#/libnvidia-imex.so.#VERSION#         #LIBDIR#/libnvidia-imex.so.1
 #LIBDIR#/libcuda.so.#VERSION#                               #LIBDIR#/libcuda.so.1
 #LIBDIR#/libcuda.so.1                                       #LIBDIR#/libcuda.so
 #LIBDIR#/libnvidia-ml.so.#VERSION#                          #LIBDIR#/libnvidia-ml.so.1
