@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580-server (580.167.08-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580-server (580.167.08-0ubuntu1) stonking; urgency=medium
 
   * New upstream version 580.167.08 (LP: #2158595)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 29 Jun 2026 02:20:02 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 29 Jun 2026 02:20:48 -0400
 
 nvidia-graphics-drivers-580-server (580.159.04-0ubuntu1) stonking; urgency=medium
 
