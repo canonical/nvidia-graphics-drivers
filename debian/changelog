@@ -1,6 +1,7 @@
 nvidia-graphics-drivers-595 (595.84-0ubuntu0.25.10.1) UNRELEASED; urgency=medium
 
   * New upstream version 595.84 (LP: #2158653)
+  * dkms: Drop thunk-Kbuild.patch
 
  -- Noah Wager <noah.wager@canonical.com>  Mon, 29 Jun 2026 10:13:10 -0700
 
