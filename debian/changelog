@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-595 (595.84-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream version 595.84 (LP: #2158653)
+
+ -- Noah Wager <noah.wager@canonical.com>  Mon, 29 Jun 2026 10:13:11 -0700
+
 nvidia-graphics-drivers-595 (595.71.05-0ubuntu1) stonking; urgency=medium
 
   * Fix suspend crash caused by missing objtool jump_label NOP
