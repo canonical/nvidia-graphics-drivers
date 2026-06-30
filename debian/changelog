@@ -1,7 +1,7 @@
-nvidia-graphics-drivers-580 (580.173.02-0ubuntu0.20.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580 (580.173.02-0ubuntu0.20.04.2) focal; urgency=medium
 
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 30 Jun 2026 14:28:14 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 30 Jun 2026 14:30:37 -0400
 
 nvidia-graphics-drivers-580 (580.173.02-0ubuntu0.20.04.1) focal; urgency=medium
 
