@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-610-server (610.43.03-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 610.43.03
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Mon, 13 Jul 2026 19:11:48 -0500
+
 nvidia-graphics-drivers-595-server (595.71.05-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream release 595.71.05 ERD (LP: #2150787)
