@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-595 (595.91.07-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 595.91.07 (LP: #2163130)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 09 Aug 2026 19:02:59 -0400
+
 nvidia-graphics-drivers-595 (595.84-0ubuntu0.24.04.1) noble; urgency=medium
 
   * New upstream version 595.84 (LP: #2158653)
