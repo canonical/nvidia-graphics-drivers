@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-595-server (595.91.07-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-595-server (595.91.07-0ubuntu1) stonking; urgency=medium
 
   * New upstream version 595.91.07 (LP: #2163130)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 09 Aug 2026 19:54:37 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 09 Aug 2026 19:55:37 -0400
 
 nvidia-graphics-drivers-595-server (595.71.05-0ubuntu1) stonking; urgency=medium
 
