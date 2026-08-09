@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-580-server (580.178.04-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-580-server (580.178.04-0ubuntu0.22.04.1) jammy; urgency=medium
 
   * New upstream version 580.178.04 (LP: #2163128)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 09 Aug 2026 18:28:03 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 09 Aug 2026 18:31:54 -0400
 
 nvidia-graphics-drivers-580-server (580.173.02-0ubuntu0.22.04.1) jammy; urgency=medium
 
