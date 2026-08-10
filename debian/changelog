@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-610 (610.57.04-0ubuntu0.26.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 610.57.04 (LP: #2163131)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Sun, 09 Aug 2026 20:42:00 -0400
+
 nvidia-graphics-drivers-610 (610.43.02-0ubuntu0.26.04.1) resolute; urgency=medium
 
   * New upstream release 610.43.02 (LP: #2156938)
