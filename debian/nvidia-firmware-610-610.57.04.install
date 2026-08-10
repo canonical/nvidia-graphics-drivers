@@ -1,0 +1,4 @@
+NVIDIA-Linux/firmware/gsp_ga10x.bin        lib/firmware/nvidia/610.57.04
+NVIDIA-Linux/firmware/gsp_tu10x.bin        lib/firmware/nvidia/610.57.04
+NVIDIA-Linux/firmware/ucodes_ga10x.bin     lib/firmware/nvidia/610.57.04
+NVIDIA-Linux/firmware/ucodes_tu10x.bin     lib/firmware/nvidia/610.57.04
