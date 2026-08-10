@@ -1,7 +1,7 @@
-nvidia-graphics-drivers-610 (610.57.04-0ubuntu2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-610 (610.57.04-0ubuntu2) stonking; urgency=medium
 
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 10 Aug 2026 17:14:09 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 10 Aug 2026 17:15:53 -0400
 
 nvidia-graphics-drivers-610 (610.57.04-0ubuntu1) stonking; urgency=medium
 
