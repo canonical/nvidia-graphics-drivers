@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-610-server (610.57.04-0ubuntu0.26.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 610.57.04 (LP: #2163131)
+
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 10 Aug 2026 11:11:16 -0400
+
 nvidia-graphics-drivers-595-server (595.71.05-0ubuntu0.26.04.1) resolute; urgency=medium
 
   * Fix suspend crash caused by missing objtool jump_label NOP
