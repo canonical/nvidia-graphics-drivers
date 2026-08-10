@@ -1,4 +1,5 @@
 NVIDIA-Linux/nvidia-powerd                                     usr/bin
+NVIDIA-Linux/dlsnetparams.csv                                  usr/share/nvidia/nvidia-powerd
 NVIDIA-Linux/nvidia-dbus.conf                                  usr/share/dbus-1/system.d
 NVIDIA-Linux/systemd/system/nvidia-powerd.service              lib/systemd/system
 NVIDIA-Linux/systemd/nvidia-sleep.sh                        usr/bin
