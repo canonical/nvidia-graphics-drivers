@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-610 (610.57.04-0ubuntu0.22.04.3) UNRELEASED; urgency=medium
 
+  * Respin upstream version 610.57.04 (LP: #2163131)
 
  -- Abdur Rahman <abdur.rahman@canonical.com>  Tue, 11 Aug 2026 10:01:00 -0400
 
