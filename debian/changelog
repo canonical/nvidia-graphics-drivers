@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-610-server (610.57.04-0ubuntu0.26.04.4) UNRELEASED; urgency=medium
 
+  * Respin and drop 590 transitionals (LP: #2163131)
 
  -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 24 Aug 2026 11:24:43 -0400
 
