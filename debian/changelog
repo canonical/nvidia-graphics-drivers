@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-595-server (595.91.07-0ubuntu0.26.04.2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-595-server (595.91.07-0ubuntu0.26.04.2) resolute; urgency=medium
 
   * Respin upstream version 595.91.07 (LP: #2163130)
 
- -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 24 Aug 2026 11:42:11 -0400
+ -- Abdur Rahman <abdur.rahman@canonical.com>  Mon, 24 Aug 2026 11:45:52 -0400
 
 nvidia-graphics-drivers-595-server (595.91.07-0ubuntu0.26.04.1) resolute; urgency=medium
 
