@@ -1,0 +1,2 @@
+debian/dkms.conf                    usr/src/nvidia-#VERSION#
+debian/dkms_nvidia/patches/*        usr/src/nvidia-#VERSION#/patches
