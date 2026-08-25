@@ -1,0 +1,5 @@
+blacklist nouveau
+blacklist lbm-nouveau
+alias nouveau off
+alias lbm-nouveau off
+

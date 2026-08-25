@@ -1,0 +1,6 @@
+#I386_EXCLUDED##LIBDIR#/libnvoptix.so.#VERSION#                             #LIBDIR#/libnvoptix.so.1
+#I386_EXCLUDED##LIBDIR#/nvidia/xorg/libglxserver_nvidia.so.#VERSION#        #LIBDIR#/nvidia/xorg/libglxserver_nvidia.so
+#LIBDIR#/libEGL_nvidia.so.#VERSION#                                         #LIBDIR#/libEGL_nvidia.so.0
+#LIBDIR#/libGLESv1_CM_nvidia.so.#VERSION#                                   #LIBDIR#/libGLESv1_CM_nvidia.so.1
+#LIBDIR#/libGLESv2_nvidia.so.#VERSION#                                      #LIBDIR#/libGLESv2_nvidia.so.2
+#LIBDIR#/libGLX_nvidia.so.#VERSION#                                         #LIBDIR#/libGLX_nvidia.so.0

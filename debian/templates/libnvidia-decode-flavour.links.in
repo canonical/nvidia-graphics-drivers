@@ -1,0 +1,6 @@
+#LIBDIR#/libnvcuvid.so.#VERSION#                   #LIBDIR#/libnvcuvid.so.1
+#LIBDIR#/libnvcuvid.so.1                           #LIBDIR#/libnvcuvid.so
+#LIBDIR#/libnvidia-opticalflow.so.#VERSION#        #LIBDIR#/libnvidia-opticalflow.so.1
+#LIBDIR#/libnvidia-opticalflow.so.1                #LIBDIR#/libnvidia-opticalflow.so
+#LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#        #LIBDIR#/vdpau/libvdpau_nvidia.so
+#LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#        #LIBDIR#/vdpau/libvdpau_nvidia.so.1
