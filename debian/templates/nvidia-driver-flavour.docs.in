@@ -1,0 +1,7 @@
+#I386_EXCLUDED#NVIDIA-Linux/LICENSE
+#I386_EXCLUDED#NVIDIA-Linux/NVIDIA_Changelog
+#I386_EXCLUDED#NVIDIA-Linux/README.txt
+#I386_EXCLUDED#NVIDIA-Linux/html
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-persistenced-init.tar.bz2
+#I386_EXCLUDED#NVIDIA-Linux/supported-gpus/LICENSE
+#I386_EXCLUDED#NVIDIA-Linux/supported-gpus/supported-gpus.json

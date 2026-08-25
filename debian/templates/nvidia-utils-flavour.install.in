@@ -1,0 +1,6 @@
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-bug-report.sh        usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-debugdump            usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-smi                  usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-smi.1.gz             usr/share/man/man1
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-xconfig              usr/bin
+#I386_EXCLUDED#NVIDIA-Linux/nvidia-xconfig.1.gz         usr/share/man/man1

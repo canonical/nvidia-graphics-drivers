@@ -1,0 +1,2 @@
+#I386_EXCLUDED##LIBDIR#/libnvidia-cfg.so.#VERSION#        #LIBDIR#/libnvidia-cfg.so.1
+#I386_EXCLUDED##LIBDIR#/libnvidia-cfg.so.1                #LIBDIR#/libnvidia-cfg.so

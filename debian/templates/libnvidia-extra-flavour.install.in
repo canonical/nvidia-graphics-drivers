@@ -1,0 +1,2 @@
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-allocator.so.#VERSION#        #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-allocator.so.#VERSION#         #LIBDIR#
