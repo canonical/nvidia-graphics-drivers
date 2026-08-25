@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.20.04.6) UNRELEASED; urgency=medium
 
+  * Restore upstream version 470.256.02 (LP: #2155202)
 
  -- Jacob Martin <jacob.martin@canonical.com>  Tue, 25 Aug 2026 12:20:34 -0500
 
