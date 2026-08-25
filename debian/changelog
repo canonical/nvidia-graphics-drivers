@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.22.04.2) jammy; urgency=medium
+nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.22.04.5) jammy; urgency=medium
 
   * Release EOL transitionals (LP: #2110338)
 
