@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.20.04.2) focal; urgency=medium
+nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.20.04.5) focal; urgency=medium
 
   * Releae EOL transitionals (LP: #2110338)
 
