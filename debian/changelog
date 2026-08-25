@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.18.04.6) bionic; urgency=medium
+
+  * EOL transitionals (LP: #2110338)
+
+ -- Kuba Pawlak <kuba.pawlak@canonical.com>  Wed, 23 Jul 2025 16:48:02 +0200
+
 nvidia-graphics-drivers-470 (470.256.02-0ubuntu0.18.04.1) bionic; urgency=medium
 
   * New upstream release (LP: #2067598)
