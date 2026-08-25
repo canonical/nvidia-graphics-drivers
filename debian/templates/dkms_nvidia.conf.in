@@ -1,0 +1,19 @@
+PACKAGE_NAME="nvidia"
+PACKAGE_VERSION="#VERSION#"
+CLEAN="make clean"
+BUILT_MODULE_NAME[0]="nvidia"
+DEST_MODULE_LOCATION[0]="/kernel/drivers/char/drm"
+PROCS_NUM=`nproc`
+[ $PROCS_NUM -gt 16 ] && PROCS_NUM=16
+MAKE[0]="unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 \
+    'make' -j$PROCS_NUM NV_EXCLUDE_BUILD_MODULES='#NVEXCLUDEMODULES#' KERNEL_UNAME=${kernelver} IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=$kernel_source_dir LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules"
+BUILT_MODULE_NAME[1]="nvidia-modeset"
+DEST_MODULE_LOCATION[1]="/kernel/drivers/char/drm"
+BUILT_MODULE_NAME[2]="nvidia-drm"
+DEST_MODULE_LOCATION[2]="/kernel/drivers/char/drm"
+AUTOINSTALL="yes"
+PATCH[0]="disable_fstack-clash-protection_fcf-protection.patch"
+# Apply from v4 to v5.12 kernels
+# v5.13 kernels already disable both by default
+# v5.19 kernels may need cf-protection=branch
+PATCH_MATCH[0]='^(4\.[0-9]*)|(5\.[0-9]\.0)|(5\.1[0-2]\.0)'

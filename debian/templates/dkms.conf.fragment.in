@@ -1,0 +1,5 @@
+BUILT_MODULE_NAME[3]="nvidia-uvm"
+DEST_MODULE_LOCATION[3]="/kernel/drivers/char/drm"
+BUILT_MODULE_NAME[4]="nvidia-peermem"
+DEST_MODULE_LOCATION[4]="/kernel/drivers/char/drm"
+#PATCH[2]="buildfix_kernel_4.9_amd64_only.patch"

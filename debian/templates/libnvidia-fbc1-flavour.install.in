@@ -1,0 +1,2 @@
+#I386_EXCLUDED#NVIDIA-Linux/libnvidia-fbc.so.#VERSION#        #LIBDIR#
+#I386_ONLY#NVIDIA-Linux/32/libnvidia-fbc.so.#VERSION#         #LIBDIR#
