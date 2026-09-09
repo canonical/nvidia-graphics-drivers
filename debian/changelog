@@ -1,4 +1,4 @@
-nvidia-graphics-drivers-610-server (610.57.04-0ubuntu4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-610-server (610.57.04-0ubuntu4) stonking; urgency=medium
 
   * debian/open-kernel/patches/buildfix_kernel_7.3.patch,
     debian/templates/dkms_nvidia_open.conf.in, debian/dkms_nvidia_open.conf:
@@ -8,7 +8,7 @@ nvidia-graphics-drivers-610-server (610.57.04-0ubuntu4) UNRELEASED; urgency=medi
       the new signature and select the matching call site, leaving older
       kernels on the existing one.
 
- -- Paolo Pisati <paolo.pisati@canonical.com>  Wed, 09 Sep 2026 07:41:23 +0000
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Wed, 09 Sep 2026 09:23:47 +0000
 
 nvidia-graphics-drivers-610-server (610.57.04-0ubuntu3) stonking; urgency=medium
 
