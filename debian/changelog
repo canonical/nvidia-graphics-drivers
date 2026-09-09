@@ -1,3 +1,15 @@
+nvidia-graphics-drivers-610 (610.57.04-0ubuntu4) UNRELEASED; urgency=medium
+
+  * debian/open-kernel/patches/buildfix_kernel_7.3.patch,
+    debian/templates/dkms_nvidia_open.conf.in, debian/dkms_nvidia_open.conf:
+    - fix the open kernel modules failing to build against Linux 7.3:
+      dmem_cgroup_register_region() now takes a "const struct
+      dmem_cgroup_init *" instead of a bare u64 size. Add a conftest for
+      the new signature and select the matching call site, leaving older
+      kernels on the existing one.
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Wed, 09 Sep 2026 07:40:55 +0000
+
 nvidia-graphics-drivers-610 (610.57.04-0ubuntu3) stonking; urgency=medium
 
   * Respin upstream version 610.57.04 (LP: #2163131)
