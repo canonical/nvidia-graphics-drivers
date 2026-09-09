@@ -1,0 +1,71 @@
+Fix the build against Linux 7.3, where dmem_cgroup_register_region() takes a
+"const struct dmem_cgroup_init *" instead of a bare u64 size (kernel commit
+e11640b9cea4 "cgroup/dmem: Introduce struct dmem_cgroup_init for region
+initialization"):
+
+  nvidia/os-interface.c:2820:48: error: passing argument 1 of
+    'dmem_cgroup_register_region' makes pointer from integer without a cast
+    [-Wint-conversion]
+
+The existing dmem_cgrp_id conftest only checks whether the dmem cgroup
+controller exists, which is still true on 7.3, so it cannot catch the
+signature change. Add a conftest that compiles an actual call with the new
+struct argument and select the matching call site, which keeps older kernels
+on the existing one. The name is passed as a "%s" format argument on the new
+path because the second parameter is a __printf(2,3) format string.
+
+Only the open flavour needs this: the proprietary source does not define
+NV_USE_DMEM_CGROUP_API and compiles the stub branch instead.
+
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -5170,6 +5170,24 @@
+             compile_check_conftest "$CODE" "NV_DMEM_CGROUP_PRESENT" "" "types"
+         ;;
+ 
++        dmem_cgroup_register_region_has_init_struct)
++            #
++            # Check if dmem_cgroup_register_region() takes a
++            # struct dmem_cgroup_init * instead of a bare size.
++            #
++            # Changed by commit e11640b9cea4 ("cgroup/dmem: Introduce struct
++            # dmem_cgroup_init for region initialization") in v7.3.
++            #
++            CODE="
++            #include <linux/cgroup_dmem.h>
++            void conftest_dmem_cgroup_register_region_has_init_struct(void) {
++                struct dmem_cgroup_init init = { .size = 0 };
++                (void) dmem_cgroup_register_region(&init, \"%s\", \"conftest\");
++            }"
++
++            compile_check_conftest "$CODE" "NV_DMEM_CGROUP_REGISTER_REGION_HAS_INIT_STRUCT" "" "types"
++        ;;
++
+         misc_cgrp_id)
+             #
+             # Check to see if the misc cgroup type is available
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -232,6 +232,7 @@
+ NV_CONFTEST_TYPE_COMPILE_TESTS += pci_resize_resource_has_exclude_bars_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += is_vma_write_locked_has_mm_lock_seq_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += dmem_cgrp_id
++NV_CONFTEST_TYPE_COMPILE_TESTS += dmem_cgroup_register_region_has_init_struct
+ NV_CONFTEST_TYPE_COMPILE_TESTS += misc_cgrp_id
+ 
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present
+--- a/nvidia/os-interface.c
++++ b/nvidia/os-interface.c
+@@ -2817,7 +2817,12 @@
+ 
+ void* NV_API_CALL os_dmem_cgroup_register_region(NvU64 size, const char *name)
+ {
++#if defined(NV_DMEM_CGROUP_REGISTER_REGION_HAS_INIT_STRUCT)
++    const struct dmem_cgroup_init init = { .size = size };
++    void *region = dmem_cgroup_register_region(&init, "%s", name);
++#else
+     void *region = dmem_cgroup_register_region(size, name);
++#endif
+     if (IS_ERR(region))
+     {
+         return NULL;
