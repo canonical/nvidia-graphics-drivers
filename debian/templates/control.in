@@ -433,3 +433,179 @@ Description: NVIDIA headless metapackage (open kernel module)
  Install this package if you do not need X11 or Wayland support, which is
  provided by the nvidia-driver-#FLAVOUR# metapackage.
 
+Package: nvidia-driver-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-driver-#FLAVOUR#
+Description: NVIDIA driver metapackage (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-kernel-source-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: foreign
+Depends: nvidia-kernel-source-#FLAVOUR#
+Description: NVIDIA kernel source package (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-dkms-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: foreign
+Depends: nvidia-dkms-#FLAVOUR#
+Description: NVIDIA DKMS package (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-utils-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-utils-#FLAVOUR#
+Description: NVIDIA driver support binaries (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-compute-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-compute-#FLAVOUR#
+Description: NVIDIA libcompute package (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-compute-utils-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-compute-utils-#FLAVOUR#
+Description: NVIDIA compute utilities (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-headless-no-dkms-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-headless-no-dkms-#FLAVOUR#
+Description: NVIDIA headless metapackage - no DKMS (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-headless-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-headless-#FLAVOUR#
+Description: NVIDIA headless metapackage (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-kernel-common-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-kernel-common-#FLAVOUR#
+Description: Shared files used with the kernel module (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-gl-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-gl-#FLAVOUR#
+Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-common-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: foreign
+Depends: libnvidia-common-#FLAVOUR#
+Description: Shared files used by the NVIDIA libraries (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-extra-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-extra-#FLAVOUR#
+Description: Extra libraries for the NVIDIA driver (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: xserver-xorg-video-nvidia-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: xserver-xorg-video-nvidia-#FLAVOUR#
+Description: NVIDIA binary Xorg driver (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-cfg1-610
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-cfg1-#FLAVOUR#
+Description: NVIDIA binary OpenGL/GLX configuration library (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-fbc1-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-fbc1-#FLAVOUR#
+Description: NVIDIA OpenGL-based Framebuffer Capture runtime library (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-decode-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-decode-#FLAVOUR#
+Description: NVIDIA Video Decoding runtime libraries (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: libnvidia-encode-610
+Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: same
+Depends: libnvidia-encode-#FLAVOUR#
+Description: NVENC Video Encoding runtime library (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-driver-610-open
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-driver-#FLAVOUR#-open
+Description: NVIDIA driver (open kernel) metapackage (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-kernel-source-610-open
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: foreign
+Depends: nvidia-kernel-source-#FLAVOUR#-open
+Description: NVIDIA kernel source package (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-dkms-610-open
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: foreign
+Depends: nvidia-dkms-#FLAVOUR#-open
+Description: NVIDIA DKMS package (open kernel module) (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-headless-no-dkms-610-open
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-headless-no-dkms-#FLAVOUR#-open
+Description: NVIDIA headless metapackage - no DKMS (open kernel module) (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
+Package: nvidia-headless-610-open
+Architecture: amd64 arm64
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-headless-#FLAVOUR#-open
+Description: NVIDIA headless metapackage (open kernel module) (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
+
