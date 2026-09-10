@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-615 (615.71.09-0ubuntu0.22.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 615.71.09 (LP: #2167002)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Thu, 10 Sep 2026 12:23:44 -0500
+
 nvidia-graphics-drivers-610 (610.57.04-0ubuntu0.22.04.3) jammy; urgency=medium
 
   * Respin upstream version 610.57.04 (LP: #2163131)
