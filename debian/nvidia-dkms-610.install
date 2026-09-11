@@ -1,2 +1,0 @@
-debian/dkms.conf                    usr/src/nvidia-610.57.04
-debian/dkms_nvidia/patches/*        usr/src/nvidia-610.57.04/patches
