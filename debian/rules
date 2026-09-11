@@ -140,7 +140,6 @@ override_dh_auto_clean:
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
 	test ! -d debian/po || debconf-updatepo
 	rm -f debian/$(pkg_driver).substvars
-	rm -f debian/dkms.conf
 	rm -f debian/device-create/ub-device-create
 
 override_dh_clean: regen-from-templates
@@ -153,12 +152,10 @@ override_dh_compress:
 
 override_dh_install: generate-modaliases build-device-create
 	# Use our custom dkms.conf file
-	cp -f $(CURDIR)/debian/dkms_nvidia.conf $(CURDIR)/debian/dkms.conf
 	cp -f $(CURDIR)/debian/dkms_nvidia_open.conf $(CURDIR)/debian/open-kernel/dkms.conf
 
 ifeq (,$(findstring nvidia-uvm,$(DKMS_disabled_modules)))
 	# Make sure the UVM module is built
-	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/dkms.conf
 	cat $(CURDIR)/debian/dkms.conf.fragment >> $(CURDIR)/debian/open-kernel/dkms.conf
 endif
 
