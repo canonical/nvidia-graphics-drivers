@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-610 (610.57.04-0ubuntu5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-610 (610.57.04-0ubuntu5) stonking; urgency=medium
 
   * Transition the 610 driver packages to 615 (LP: #2167526)
 
- -- Jacob Martin <jacob.martin@canonical.com>  Wed, 16 Sep 2026 13:54:23 -0500
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 16 Sep 2026 13:57:47 -0500
 
 nvidia-graphics-drivers-610 (610.57.04-0ubuntu4) stonking; urgency=medium
 
