@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-615-server (615.71.09-0ubuntu0.26.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 615.71.09 (LP: #2167002)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 16 Sep 2026 16:51:40 -0500
+
 nvidia-graphics-drivers-610-server (610.57.04-0ubuntu0.26.04.4) resolute; urgency=medium
 
   * Respin and drop 590 transitionals (LP: #2163131)
