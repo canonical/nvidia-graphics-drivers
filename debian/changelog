@@ -1,5 +1,6 @@
 nvidia-graphics-drivers-610-server (610.57.04-0ubuntu0.26.04.5) UNRELEASED; urgency=medium
 
+  * Transition the 610 driver packages to 615 (LP: #2167526)
 
  -- Jacob Martin <jacob.martin@canonical.com>  Thu, 17 Sep 2026 10:54:46 -0500
 
