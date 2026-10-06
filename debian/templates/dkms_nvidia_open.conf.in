@@ -13,6 +13,11 @@ BUILT_MODULE_NAME[2]="nvidia-drm"
 DEST_MODULE_LOCATION[2]="/kernel/drivers/char/drm"
 AUTOINSTALL="yes"
 PATCH[0]="disable_fstack-clash-protection_fcf-protection.patch"
+PATCH[1]="buildfix_kernel_7.0-dma_buf_invalidate_mappings.patch"
+PATCH[2]="buildfix_kernel_7.0-cxl_structs.patch"
 # v5.13 kernels already disable both by default
 # v5.19 kernels may need cf-protection=branch
 PATCH_MATCH[0]='^(4\.[0-9]*)|(5\.[0-9]\.0)|(5\.1[0-2]\.0)'
+# Workarounds for partial backports in Ubuntu 7.0 kernels
+PATCH_MATCH[1]='^(7\.0\.0)'
+PATCH_MATCH[2]='^(7\.0\.0)'

@@ -1,0 +1,114 @@
+From e355cc328cdf9dbbfc6a7865062d6e774d48ddd4 Mon Sep 17 00:00:00 2001
+From: Jacob Martin <jacob.martin@canonical.com>
+Date: Mon, 5 Oct 2026 18:07:31 -0500
+Subject: [PATCH 1/2] conftest: workaround partial backport of move_notify
+ rename to invalidate_mappings
+
+Some Ubuntu kernels backport upstream commit "dma-buf: Rename
+dma_buf_move_notify() to dma_buf_invalidate_mappings()" without also
+backporting the accompanying commit "dma-buf: Rename .move_notify()
+callback to a clearer identifier". The NVIDIA driver's conftest only
+checks for the struct member and assumes the function will also be
+renamed if the struct member is, resulting in a build failure against
+these kernels.
+
+Workaround this by splitting the existing
+NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS and
+NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY conftest variables into _MEMBER
+variables and an additional _FUNCTION variable and using them where
+appropriate:
+- NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_MEMBER
+- NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY_MEMBER
+- NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_FUNCTION
+
+Signed-off-by: Jacob Martin <jacob.martin@canonical.com>
+---
+ conftest.sh                      | 18 +++++++++++++-----
+ nvidia-uvm/uvm_dmabuf_test.c     |  2 +-
+ nvidia-uvm/uvm_linux.h           |  2 +-
+ nvidia-uvm/uvm_va_range_dmabuf.c |  2 +-
+ 4 files changed, 16 insertions(+), 8 deletions(-)
+
+diff --git a/conftest.sh b/conftest.sh
+index 7ecfa4f..3b261d4 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2508,11 +2508,10 @@ compile_test() {
+             rm -f conftest$$.c
+ 
+             if [ -f conftest$$.o ]; then
+-                echo "#define NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY" | append_conftest "types"
++                echo "#define NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY_MEMBER" | append_conftest "types"
+                 rm -f conftest$$.o
+-                return
+             else
+-                echo "#undef NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY" | append_conftest "types"
++                echo "#undef NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY_MEMBER" | append_conftest "types"
+             fi
+ 
+             # conftest #2: Check if dma_buf_attach_ops has the
+@@ -2527,11 +2526,20 @@ compile_test() {
+             rm -f conftest$$.c
+ 
+             if [ -f conftest$$.o ]; then
+-                echo "#define NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS" | append_conftest "types"
++                echo "#define NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_MEMBER" | append_conftest "types"
+                 rm -f conftest$$.o
+             else
+-                echo "#undef NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS" | append_conftest "types"
++                echo "#undef NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_MEMBER" | append_conftest "types"
+             fi
++
++            # conftest #3: Check if dma_buf_invalidate_mappings() exists
++            CODE="
++            #include <linux/dma-buf.h>
++            void conftest_dma_buf_invalidate_mappings(void) {
++                dma_buf_invalidate_mappings();
++            }"
++
++            compile_check_conftest "$CODE" "NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_FUNCTION" "" "functions"
+         ;;
+ 
+         drm_fb_create_takes_format_info)
+diff --git a/nvidia-uvm/uvm_dmabuf_test.c b/nvidia-uvm/uvm_dmabuf_test.c
+index db69a04..3a1c25f 100644
+--- a/nvidia-uvm/uvm_dmabuf_test.c
++++ b/nvidia-uvm/uvm_dmabuf_test.c
+@@ -285,7 +285,7 @@ NV_STATUS uvm_test_revoke_dma_buf(UVM_TEST_REVOKE_DMA_BUF_PARAMS *params,
+     // but in UVM's use case all GMMU mappings will be withdrawn and any
+     // further access should produce a fatal fault.
+     dma_resv_lock(dmabuf->resv, NULL);
+-#if defined(NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS)
++#if defined(NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_FUNCTION)
+     dma_buf_invalidate_mappings(dmabuf);
+ #else
+     dma_buf_move_notify(dmabuf);
+diff --git a/nvidia-uvm/uvm_linux.h b/nvidia-uvm/uvm_linux.h
+index f15666f..743219b 100644
+--- a/nvidia-uvm/uvm_linux.h
++++ b/nvidia-uvm/uvm_linux.h
+@@ -129,7 +129,7 @@
+ // importer support through UVM.
+ //
+ // This callback was previously called move_notify().
+-    #if (defined(NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS) || defined(NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY)) && \
++    #if (defined(NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_MEMBER) || defined(NV_DMA_BUF_ATTACH_OPS_HAS_MOVE_NOTIFY_MEMBER)) && \
+         defined(NV_DMA_BUF_ATTACHMENT_HAS_PEER2PEER)
+         #define UVM_PROVIDES_DMA_BUF_IMPORTER() 1
+     #else
+diff --git a/nvidia-uvm/uvm_va_range_dmabuf.c b/nvidia-uvm/uvm_va_range_dmabuf.c
+index 6a1aed2..5e07495 100644
+--- a/nvidia-uvm/uvm_va_range_dmabuf.c
++++ b/nvidia-uvm/uvm_va_range_dmabuf.c
+@@ -326,7 +326,7 @@ invalidate_no_range:
+ 
+ static const struct dma_buf_attach_ops uvm_dma_buf_importer_ops = {
+     .allow_peer2peer = true,
+-#if defined(NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS)
++#if defined(NV_DMA_BUF_ATTACH_OPS_HAS_INVALIDATE_MAPPINGS_MEMBER)
+     .invalidate_mappings = uvm_dma_buf_invalidate_mappings,
+ #else
+     .move_notify = uvm_dma_buf_invalidate_mappings,
+-- 
+2.43.0
+
