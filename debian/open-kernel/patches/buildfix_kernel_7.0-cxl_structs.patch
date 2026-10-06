@@ -1,0 +1,121 @@
+From 8e82ffe18328287203513e0fbdb226163fa07c02 Mon Sep 17 00:00:00 2001
+From: Jacob Martin <jacob.martin@canonical.com>
+Date: Tue, 6 Oct 2026 09:26:42 -0500
+Subject: [PATCH 2/2] Add conftest to check for cxl_* structs available in
+ Linux's cxl/cxl.h
+
+The NVIDIA driver checks if the include/cxl/cxl.h header is present, but
+not if it includes the necessary struct members. Kernels that include
+backports of "cxl/region: Add helper to check Soft Reserved containment
+by CXL regions" add this header but will not include the cxl_* struct
+definitions without additional commits.
+
+Work around this issue by adding a conftest to check if the necessary
+structs are available, and checking for that define instead before using
+CXL definitions.
+
+Signed-off-by: Jacob Martin <jacob.martin@canonical.com>
+---
+ common/inc/nv-linux.h |  6 +++---
+ common/inc/nv-pci.h   |  2 +-
+ conftest.sh           | 27 +++++++++++++++++++++++++++
+ nvidia/nvidia.Kbuild  |  1 +
+ 4 files changed, 32 insertions(+), 4 deletions(-)
+
+diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
+index f377db1..7b440ed 100644
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -38,7 +38,7 @@
+ #include "nv-chardev-numbers.h"
+ #include "nv-platform.h"
+ 
+-#if defined(NV_CXL_CXL_H_PRESENT)
++#if defined(NV_CXL_STRUCTS_PRESENT)
+ #include <cxl/cxl.h>
+ #endif
+ 
+@@ -1265,7 +1265,7 @@ struct nv_pci_tegra_devfreq_dev;
+ /* this is a general os-specific state structure. the first element *must* be
+    the general state structure, for the generic unix-based code */
+ 
+-#if defined(NV_CXL_CXL_H_PRESENT)
++#if defined(NV_CXL_STRUCTS_PRESENT)
+ struct nv_cxl {
+     struct cxl_dev_state         cxlds;
+     struct cxl_memdev           *cxlmd;
+@@ -1287,7 +1287,7 @@ typedef struct nv_linux_state_s {
+     /* coherent link information */
+      coherent_link_info_t coherent_link_info;
+ 
+-#if defined(NV_CXL_CXL_H_PRESENT)
++#if defined(NV_CXL_STRUCTS_PRESENT)
+     /* CXL device state; NULL for non-CXL GPUs */
+     struct nv_cxl *cxl;
+ #endif
+diff --git a/common/inc/nv-pci.h b/common/inc/nv-pci.h
+index ca120ff..a005732 100644
+--- a/common/inc/nv-pci.h
++++ b/common/inc/nv-pci.h
+@@ -28,7 +28,7 @@
+ #include "nv-linux.h"
+ #include <uapi/linux/pci_regs.h>
+ 
+-#if defined(NV_CXL_CXL_H_PRESENT)
++#if defined(NV_CXL_STRUCTS_PRESENT)
+ #include <cxl/cxl.h>
+ #endif
+ 
+diff --git a/conftest.sh b/conftest.sh
+index 3b261d4..b01d4fe 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2342,6 +2342,33 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_CXL_INIT_SUPPORTED" "" "types"
+         ;;
+ 
++        cxl_structs_present)
++            #
++            # Determine if <cxl/cxl.h> provides the struct definitions
++            # needed by struct nv_cxl in nv-linux.h.
++            #
++            # Header presence alone is insufficient: some kernels ship
++            # <cxl/cxl.h> without the upstream change that moves the
++            # struct cxl_dev_state definition into it, leaving it an
++            # incomplete type.
++            #
++            CODE="
++            #include <cxl/cxl.h>
++
++            struct nv_conftest_cxl {
++                struct cxl_dev_state         cxlds;
++                struct cxl_memdev           *cxlmd;
++                struct cxl_endpoint_decoder *cxled;
++                struct cxl_region           *nv_region;
++            };
++
++            int conftest_cxl_structs_present(void) {
++                return sizeof(struct nv_conftest_cxl);
++            }"
++
++            compile_check_conftest "$CODE" "NV_CXL_STRUCTS_PRESENT" "" "types"
++        ;;
++
+         get_backlight_device_by_name)
+             #
+             # Determine if the get_backlight_device_by_name() function is present
+diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
+index 99d739a..f3a0c5d 100644
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -152,6 +152,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_enable_atomic_ops_to_root
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pcie_is_cxl
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += cxl_init_supported
++NV_CONFTEST_TYPE_COMPILE_TESTS += cxl_structs_present
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vga_tryget
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_platform_has
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_attr_guest_sev_snp
+-- 
+2.43.0
+
