@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-615 (615.78.08-0ubuntu1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-615 (615.78.08-0ubuntu1) stonking; urgency=medium
 
   * New upstream version 615.78.08 (LP: #2169861)
 
- -- Jacob Martin <jacob.martin@canonical.com>  Wed, 07 Oct 2026 09:45:27 -0500
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 07 Oct 2026 09:46:17 -0500
 
 nvidia-graphics-drivers-615 (615.71.09-0ubuntu1) stonking; urgency=medium
 
