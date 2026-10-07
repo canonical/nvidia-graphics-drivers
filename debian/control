@@ -54,7 +54,7 @@ Description: NVIDIA DKMS package (transitional package)
 Package: nvidia-utils-615
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-615-615.71.09,
+ nvidia-kernel-common-615-615.78.08,
  ${shlibs:Depends}, ${misc:Depends}
 Suggests:
  nvidia-driver-615,
@@ -71,7 +71,7 @@ Package: libnvidia-compute-615
 Architecture: i386 amd64 arm64
 Multi-Arch: same
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  ocl-icd-libopencl1,
  ${misc:Depends}, ${shlibs:Depends}
 Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
@@ -149,9 +149,9 @@ Architecture: amd64 arm64
 Conflicts: nvidia-kernel-common
 Provides:
  nvidia-kernel-common,
- nvidia-kernel-common-615-615.71.09
+ nvidia-kernel-common-615-615.78.08
 Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-615-615.71.09
+ ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-615-615.78.08
 Replaces:
  nvidia-kernel-common
 Description: Shared files used with the kernel module
@@ -162,12 +162,12 @@ Description: Shared files used with the kernel module
  modules, and if you want udev to load the the NVIDIA kernel modules,
  and to create the uvm devices automatically.
 
-Package: nvidia-firmware-615-615.71.09
+Package: nvidia-firmware-615-615.78.08
 Architecture: amd64 arm64
 Breaks:
- nvidia-firmware-615-server-615.71.09
+ nvidia-firmware-615-server-615.78.08
 Replaces:
- nvidia-firmware-615-server-615.71.09
+ nvidia-firmware-615-server-615.78.08
 Depends:
  ${misc:Depends}
 Description: Firmware files used by the kernel module
@@ -181,7 +181,7 @@ Conflicts: libnvidia-gl, libnvidia-egl-gbm1
 Replaces: libnvidia-gl
 Provides: libnvidia-gl, libglx-vendor, libegl-vendor
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  libnvidia-common-615,
  ${misc:Depends}, ${shlibs:Depends},
  libnvidia-egl-wayland1
@@ -196,7 +196,7 @@ Conflicts: libnvidia-common
 Replaces: libnvidia-common
 Provides: libnvidia-common
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Shared files used by the NVIDIA libraries
  This package provides a set of files that are required by the NVIDIA
@@ -210,7 +210,7 @@ Conflicts: libnvidia-extra
 Replaces: libnvidia-extra, libnvidia-common-615 (<< 440.64-0ubuntu3~)
 Provides: libnvidia-extra
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  ${misc:Depends}, ${shlibs:Depends}
 Description: Extra libraries for the NVIDIA driver
  This package provides an additional set of libraries to be used with
@@ -242,7 +242,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-615-615.71.09,
+ nvidia-kernel-common-615-615.78.08,
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-cfg1-any,
@@ -263,7 +263,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-fbc1,
@@ -285,7 +285,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  libnvidia-compute-615 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
@@ -307,7 +307,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-kernel-common-615-615.71.09 [!i386],
+ nvidia-kernel-common-615-615.78.08 [!i386],
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-encode,
@@ -325,10 +325,10 @@ Package: nvidia-driver-615-open
 Architecture: amd64 arm64
 Depends:
  libnvidia-gl-615 (= ${binary:Version}),
- nvidia-dkms-615-open (<= 615.71.09-1),
- nvidia-dkms-615-open (>= 615.71.09),
- nvidia-kernel-common-615 (<= 615.71.09-1),
- nvidia-kernel-common-615 (>= 615.71.09),
+ nvidia-dkms-615-open (<= 615.78.08-1),
+ nvidia-dkms-615-open (>= 615.78.08),
+ nvidia-kernel-common-615 (<= 615.78.08-1),
+ nvidia-kernel-common-615 (>= 615.78.08),
  nvidia-kernel-source-615-open (= ${binary:Version}),
  libnvidia-compute-615 (= ${binary:Version}),
  libnvidia-extra-615 (= ${binary:Version}),
@@ -385,10 +385,10 @@ Provides:
  nvidia-dkms-kernel
 Depends:
  dkms,
- nvidia-kernel-source-615-open (<= 615.71.09-1),
- nvidia-kernel-source-615-open (>= 615.71.09),
- nvidia-kernel-common-615 (<= 615.71.09-1),
- nvidia-kernel-common-615 (>= 615.71.09),
+ nvidia-kernel-source-615-open (<= 615.78.08-1),
+ nvidia-kernel-source-615-open (>= 615.78.08),
+ nvidia-kernel-common-615 (<= 615.78.08-1),
+ nvidia-kernel-common-615 (>= 615.78.08),
  ${misc:Depends}, ${shlibs:Depends}
 Description: NVIDIA DKMS package (open kernel module)
  This package builds the open NVIDIA kernel module needed by the userspace
@@ -400,8 +400,8 @@ Description: NVIDIA DKMS package (open kernel module)
 Package: nvidia-headless-no-dkms-615-open
 Architecture: amd64 arm64
 Depends:
- nvidia-kernel-common-615 (<= 615.71.09-1),
- nvidia-kernel-common-615 (>= 615.71.09),
+ nvidia-kernel-common-615 (<= 615.78.08-1),
+ nvidia-kernel-common-615 (>= 615.78.08),
  nvidia-kernel-source-615-open (= ${binary:Version}),
  libnvidia-compute-615 (= ${binary:Version}),
  nvidia-compute-utils-615 (= ${binary:Version}),
