@@ -1,3 +1,9 @@
+nvidia-graphics-drivers-620-server (620.70.06-0ubuntu0.24.04.1) UNRELEASED; urgency=medium
+
+  * New upstream version 620.70.06 (LP: #2173936)
+
+ -- Jacob Martin <jacob.martin@canonical.com>  Tue, 10 Nov 2026 17:07:10 -0600
+
 nvidia-graphics-drivers-615-server (615.71.09-0ubuntu0.24.04.2) noble; urgency=medium
 
   * DKMS build fixes for 7.0 kernel stable backports
