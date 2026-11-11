@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-620 (620.70.06-0ubuntu0.26.04.1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-620 (620.70.06-0ubuntu0.26.04.1) resolute; urgency=medium
 
   * New upstream version 620.70.06 (LP: #2173936)
 
- -- Jacob Martin <jacob.martin@canonical.com>  Tue, 10 Nov 2026 17:04:10 -0600
+ -- Jacob Martin <jacob.martin@canonical.com>  Wed, 11 Nov 2026 12:49:02 -0600
 
 nvidia-graphics-drivers-615 (615.78.08-0ubuntu0.26.04.1) resolute; urgency=medium
 
