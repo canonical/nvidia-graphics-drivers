@@ -23,6 +23,7 @@ Build-Depends:
  libc6,
  libx11-6,
  python3,
+ libssl3t64,
 Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
@@ -31,7 +32,7 @@ Package: nvidia-driver-615
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-615-open
+Depends: nvidia-driver-620
 Description: NVIDIA driver metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -39,7 +40,7 @@ Package: nvidia-kernel-source-615
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-615-open
+Depends: nvidia-kernel-source-620
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -47,92 +48,39 @@ Package: nvidia-dkms-615
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-615-open
+Depends: nvidia-dkms-620
 Description: NVIDIA DKMS package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-utils-615
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-615-615.78.08,
- ${shlibs:Depends}, ${misc:Depends}
-Suggests:
- nvidia-driver-615,
-Provides:
- nvidia-utils, nvidia-smi
-Conflicts:
- nvidia-utils, nvidia-smi
-Replaces:
- nvidia-utils, nvidia-smi
-Description: NVIDIA driver support binaries
- This package contains supporting binaries for the NVIDIA driver.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-utils-620
+Description: NVIDIA driver support binaries (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-compute-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- ocl-icd-libopencl1,
- ${misc:Depends}, ${shlibs:Depends}
-Provides: libnvidia-compute, nvidia-opencl-icd, opencl-icd, libnvidia-ml.so.1 (= ${source:Version}),
- libnvidia-ml1 (= ${source:Version}),
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1,
- libcuda.so.1 (= ${source:Version}),
- libcuda1 (= ${source:Version})
-Conflicts: libnvidia-compute, nvidia-opencl-icd,
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1
-Replaces: libnvidia-compute, nvidia-opencl-icd,
- libcuda-5.0-1, libcuda-5.5-1, libcuda-6.0-1, libcuda-6.5-1,
- libcuda-7.0-1, libcuda-7.5-1, libcuda-8.0-1, libcuda-9.0-1,
- libcuda-9.1-1, libcuda-9.2-1, libcuda-10.0-1, libcuda-10.1-1,
- libcuda-10.2-1, libcuda-11.0-1, libcuda-11.1-1, libcuda-11.2-1,
- libcuda-11.3-1, libcuda-11.4-1, libcuda-11.5-1, libcuda-11.6-1,
- libcuda-11.7-1, libcuda-11.8-1, libcuda-12.0-1, libcuda-12.1-1,
- libcuda-12.2-1, libcuda-12.3-1, libcuda-12.4-1, libcuda-12.5-1,
- libcuda-12.6-1, libcuda-12.7-1, libcuda-12.8-1
-Description: NVIDIA libcompute package
- This package provides a set of libraries which enable the NVIDIA driver
- to use GPUs for parallel general purpose computation through CUDA and
- OpenCL.
+Depends: libnvidia-compute-620
+Description: NVIDIA libcompute package (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-compute-utils-615
 Architecture: amd64 arm64
-Depends:
- libnvidia-compute-615, adduser,
- ${misc:Depends}, ${shlibs:Depends}
-Provides: nvidia-compute-utils, nvidia-persistenced
-Conflicts: nvidia-compute-utils, nvidia-persistenced
-Replaces: nvidia-compute-utils, nvidia-persistenced
-Description: NVIDIA compute utilities
- This package provides utility binaries for paraller general purpose
- computing use cases with the NVIDIA driver.
- .
- CUDA MPS is a feature that allows multiple CUDA processes to share a single
- GPU context. CUDA MPS should be transparent to CUDA programs.
- .
- CUDA MPS requires a device that supports Unified Virtual Address (UVA) and
- has compute capability SM 3.5 or higher.
- Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-compute-utils-620
+Description: NVIDIA compute utilities (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-615
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-615-open
+Depends: nvidia-headless-no-dkms-620
 Description: NVIDIA headless metapackage - no DKMS (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -140,304 +88,127 @@ Package: nvidia-headless-615
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-615-open
+Depends: nvidia-headless-620
 Description: NVIDIA headless metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-common-615
 Architecture: amd64 arm64
-Conflicts: nvidia-kernel-common
-Provides:
- nvidia-kernel-common,
- nvidia-kernel-common-615-615.78.08
-Depends:
- ${misc:Depends}, ${shlibs:Depends}, nvidia-firmware-615-615.78.08
-Replaces:
- nvidia-kernel-common
-Description: Shared files used with the kernel module
- This package installs all the optional accessory files for the NVIDIA
- kernel module.
- .
- Install this package if you want to blacklist any conflicting kernel
- modules, and if you want udev to load the the NVIDIA kernel modules,
- and to create the uvm devices automatically.
-
-Package: nvidia-firmware-615-615.78.08
-Architecture: amd64 arm64
-Breaks:
- nvidia-firmware-615-server-615.78.08
-Replaces:
- nvidia-firmware-615-server-615.78.08
-Depends:
- ${misc:Depends}
-Description: Firmware files used by the kernel module
- This package installs required firmware files for the NVIDIA kernel
- module.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-kernel-common-620
+Description: Shared files used with the kernel module (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-gl-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Conflicts: libnvidia-gl, libnvidia-egl-gbm1
-Replaces: libnvidia-gl
-Provides: libnvidia-gl, libglx-vendor, libegl-vendor
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- libnvidia-common-615,
- ${misc:Depends}, ${shlibs:Depends},
- libnvidia-egl-wayland1
-Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
- This package provides the NVIDIA OpenGL/GLX/EGL/GLES libraries and the
- Vulkan ICD.
+Depends: libnvidia-gl-620
+Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-common-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts: libnvidia-common
-Replaces: libnvidia-common
-Provides: libnvidia-common
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- ${misc:Depends}, ${shlibs:Depends}
-Description: Shared files used by the NVIDIA libraries
- This package provides a set of files that are required by the NVIDIA
- libraries.
+Depends: libnvidia-common-620
+Description: Shared files used by the NVIDIA libraries (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-extra-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Breaks: libnvidia-common-615 (<< 440.64-0ubuntu3~)
-Conflicts: libnvidia-extra
-Replaces: libnvidia-extra, libnvidia-common-615 (<< 440.64-0ubuntu3~)
-Provides: libnvidia-extra
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- ${misc:Depends}, ${shlibs:Depends}
-Description: Extra libraries for the NVIDIA driver
- This package provides an additional set of libraries to be used with
- the NVIDIA driver.
+Depends: libnvidia-extra-620
+Description: Extra libraries for the NVIDIA driver (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: xserver-xorg-video-nvidia-615
-Section: non-free/x11
 Architecture: amd64 arm64
-Depends:
- libnvidia-cfg1-615 (= ${binary:Version}),
- ${nvidia:xorgDepends},
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts: xorg-driver-binary, nvidia-driver-binary
-Replaces: xorg-driver-binary, nvidia-driver-binary
-Provides:
- xorg-driver-binary, nvidia-driver-binary,
- ${nvidia:xorgProvides}
-Description: NVIDIA binary Xorg driver
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- See /usr/share/doc/nvidia-driver-615/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: xserver-xorg-video-nvidia-620
+Description: NVIDIA binary Xorg driver (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-cfg1-615
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-615-615.78.08,
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-cfg1-any,
-Conflicts:
- libnvidia-cfg1-any,
-Replaces:
- libnvidia-cfg1-any,
-Description: NVIDIA binary OpenGL/GLX configuration library
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- This package contains the libnvidia-cfg.so.1 runtime library.
+Depends: libnvidia-cfg1-620
+Description: NVIDIA binary OpenGL/GLX configuration library (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-fbc1-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-fbc1,
-Conflicts:
- libnvidia-fbc1,
-Replaces:
- libnvidia-fbc1,
-Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
- The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvFBCOpenGL runtime library.
+Depends: libnvidia-fbc1-620
+Description: NVIDIA OpenGL-based Framebuffer Capture runtime library (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-decode-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- libnvidia-compute-615 (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libnvidia-decode,
-Replaces:
- libnvidia-decode,
-Provides:
- libnvidia-decode,
-Description: NVIDIA Video Decoding runtime libraries
- This package includes the NVIDIA CUDA Video Decoder (NVCUVID) library which
- provides an interface to hardware video decoding capabilities on NVIDIA GPUs with CUDA.
- .
- The package also provides a VDPAU (Video Decode and Presentation API for Unix-like
- systems) library for the NVIDIA vendor implementation.
+Depends: libnvidia-decode-620
+Description: NVIDIA Video Decoding runtime libraries (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: libnvidia-encode-615
 Architecture: i386 amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- nvidia-kernel-common-615-615.78.08 [!i386],
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libnvidia-encode,
-Provides:
- libnvidia-encode
-Replaces:
- libnvidia-encode
-Description: NVENC Video Encoding runtime library
- The NVENC Video Encoding library provides an interface to video encoder
- hardware on supported NVIDIA GPUs.
- .
- This package contains the nvidia-encode runtime library.
+Depends: libnvidia-encode-620
+Description: NVENC Video Encoding runtime library (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-driver-615-open
 Architecture: amd64 arm64
-Depends:
- libnvidia-gl-615 (= ${binary:Version}),
- nvidia-dkms-615-open (<= 615.78.08-1),
- nvidia-dkms-615-open (>= 615.78.08),
- nvidia-kernel-common-615 (<= 615.78.08-1),
- nvidia-kernel-common-615 (>= 615.78.08),
- nvidia-kernel-source-615-open (= ${binary:Version}),
- libnvidia-compute-615 (= ${binary:Version}),
- libnvidia-extra-615 (= ${binary:Version}),
- nvidia-compute-utils-615 (= ${binary:Version}),
- libnvidia-decode-615 (= ${binary:Version}),
- libnvidia-encode-615 (= ${binary:Version}),
- nvidia-utils-615 (= ${binary:Version}),
- xserver-xorg-video-nvidia-615 (= ${binary:Version}),
- libnvidia-cfg1-615 (= ${binary:Version}),
- libnvidia-fbc1-615 (= ${binary:Version}) [!ppc64el],
- ${misc:Depends}
-Recommends:
- nvidia-settings, nvidia-prime (>= 0.8),
- libnvidia-compute-615:i386 (= ${binary:Version}) [amd64],
- libnvidia-decode-615:i386 (= ${binary:Version}) [amd64],
- libnvidia-encode-615:i386 (= ${binary:Version}) [amd64],
- libnvidia-fbc1-615:i386 (= ${binary:Version}) [amd64],
- libnvidia-gl-615:i386 (= ${binary:Version}) [amd64]
-XB-Modaliases: ${modaliases}
-XB-PmAliases: ${nvidia:pm-modaliases}
-XB-Prefer-Variant: Open
-XB-Support: NFB
-Description: NVIDIA driver (open kernel) metapackage
- This metapackage depends on the NVIDIA binary driver and on all of its libraries,
- to provide hardware acceleration for OpenGL/GLX/EGL/GLES/Vulkan
- applications on either X11 or on Wayland.
- .
- See /usr/share/doc/nvidia-driver-615/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-driver-620-open
+Description: NVIDIA driver (open kernel) metapackage (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-kernel-source-615-open
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts:
- nvidia-kernel-source
-Replaces:
- nvidia-kernel-source
-Provides:
- nvidia-kernel-source
-Depends:
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA kernel source package
- This package provides the open NVIDIA kernel source needed by the userspace
- driver.
+Depends: nvidia-kernel-source-620-open
+Description: NVIDIA kernel source package (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-dkms-615-open
 Architecture: amd64 arm64
+Section: non-free/oldlibs
 Multi-Arch: foreign
-Conflicts:
- nvidia-dkms-kernel
-Replaces:
- nvidia-dkms-kernel
-Provides:
- nvidia-dkms-kernel
-Depends:
- dkms,
- nvidia-kernel-source-615-open (<= 615.78.08-1),
- nvidia-kernel-source-615-open (>= 615.78.08),
- nvidia-kernel-common-615 (<= 615.78.08-1),
- nvidia-kernel-common-615 (>= 615.78.08),
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA DKMS package (open kernel module)
- This package builds the open NVIDIA kernel module needed by the userspace
- driver, using DKMS.
- Provided that you have the kernel header packages installed, the kernel
- module will be built for your running kernel, and automatically rebuilt for
- any new kernel headers that are installed.
+Depends: nvidia-dkms-620-open
+Description: NVIDIA DKMS package (open kernel module) (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-no-dkms-615-open
 Architecture: amd64 arm64
-Depends:
- nvidia-kernel-common-615 (<= 615.78.08-1),
- nvidia-kernel-common-615 (>= 615.78.08),
- nvidia-kernel-source-615-open (= ${binary:Version}),
- libnvidia-compute-615 (= ${binary:Version}),
- nvidia-compute-utils-615 (= ${binary:Version}),
- libnvidia-cfg1-615 (= ${binary:Version}),
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA headless metapackage - no DKMS (open kernel module)
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL. DKMS will not be installed, and, therefore, the kernel module
- will not be built.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-615 metapackage.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-headless-no-dkms-620-open
+Description: NVIDIA headless metapackage - no DKMS (open kernel module) (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-headless-615-open
 Architecture: amd64 arm64
-Conflicts: nvidia-headless
-Provides: nvidia-headless
-Replaces: nvidia-headless
-Depends:
- nvidia-headless-no-dkms-615-open,
- nvidia-dkms-615-open,
- ${misc:Depends}, ${shlibs:Depends}
-Description: NVIDIA headless metapackage (open kernel module)
- This metapackage installs the NVIDIA driver and the libraries that enable
- parallel general purpose computation through CUDA and
- OpenCL.
- .
- Install this package if you do not need X11 or Wayland support, which is
- provided by the nvidia-driver-615 metapackage.
+Section: non-free/oldlibs
+Multi-Arch: no
+Depends: nvidia-headless-620-open
+Description: NVIDIA headless metapackage (open kernel module) (transitional package)
+ Transitional package for upgrades. This package can be safely removed.
 
 Package: nvidia-driver-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-615
+Depends: nvidia-driver-620
 Description: NVIDIA driver metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -445,7 +216,7 @@ Package: nvidia-kernel-source-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-615
+Depends: nvidia-kernel-source-620
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -453,7 +224,7 @@ Package: nvidia-dkms-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-615
+Depends: nvidia-dkms-620
 Description: NVIDIA DKMS package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -461,7 +232,7 @@ Package: nvidia-utils-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-utils-615
+Depends: nvidia-utils-620
 Description: NVIDIA driver support binaries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -469,7 +240,7 @@ Package: libnvidia-compute-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-compute-615
+Depends: libnvidia-compute-620
 Description: NVIDIA libcompute package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -477,7 +248,7 @@ Package: nvidia-compute-utils-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-compute-utils-615
+Depends: nvidia-compute-utils-620
 Description: NVIDIA compute utilities (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -485,7 +256,7 @@ Package: nvidia-headless-no-dkms-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-615
+Depends: nvidia-headless-no-dkms-620
 Description: NVIDIA headless metapackage - no DKMS (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -493,7 +264,7 @@ Package: nvidia-headless-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-615
+Depends: nvidia-headless-620
 Description: NVIDIA headless metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -501,7 +272,7 @@ Package: nvidia-kernel-common-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-kernel-common-615
+Depends: nvidia-kernel-common-620
 Description: Shared files used with the kernel module (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -509,7 +280,7 @@ Package: libnvidia-gl-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-gl-615
+Depends: libnvidia-gl-620
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -517,7 +288,7 @@ Package: libnvidia-common-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: libnvidia-common-615
+Depends: libnvidia-common-620
 Description: Shared files used by the NVIDIA libraries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -525,7 +296,7 @@ Package: libnvidia-extra-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-extra-615
+Depends: libnvidia-extra-620
 Description: Extra libraries for the NVIDIA driver (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -533,7 +304,7 @@ Package: xserver-xorg-video-nvidia-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: xserver-xorg-video-nvidia-615
+Depends: xserver-xorg-video-nvidia-620
 Description: NVIDIA binary Xorg driver (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -541,7 +312,7 @@ Package: libnvidia-cfg1-610
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-cfg1-615
+Depends: libnvidia-cfg1-620
 Description: NVIDIA binary OpenGL/GLX configuration library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -549,7 +320,7 @@ Package: libnvidia-fbc1-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-fbc1-615
+Depends: libnvidia-fbc1-620
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -557,7 +328,7 @@ Package: libnvidia-decode-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-decode-615
+Depends: libnvidia-decode-620
 Description: NVIDIA Video Decoding runtime libraries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -565,7 +336,7 @@ Package: libnvidia-encode-610
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-encode-615
+Depends: libnvidia-encode-620
 Description: NVENC Video Encoding runtime library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -573,7 +344,7 @@ Package: nvidia-driver-610-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-615-open
+Depends: nvidia-driver-620-open
 Description: NVIDIA driver (open kernel) metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -581,7 +352,7 @@ Package: nvidia-kernel-source-610-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-615-open
+Depends: nvidia-kernel-source-620-open
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -589,7 +360,7 @@ Package: nvidia-dkms-610-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-615-open
+Depends: nvidia-dkms-620-open
 Description: NVIDIA DKMS package (open kernel module) (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -597,7 +368,7 @@ Package: nvidia-headless-no-dkms-610-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-615-open
+Depends: nvidia-headless-no-dkms-620-open
 Description: NVIDIA headless metapackage - no DKMS (open kernel module) (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -605,7 +376,7 @@ Package: nvidia-headless-610-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-615-open
+Depends: nvidia-headless-620-open
 Description: NVIDIA headless metapackage (open kernel module) (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -613,7 +384,7 @@ Package: nvidia-driver-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-615
+Depends: nvidia-driver-620
 Description: NVIDIA driver metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -621,7 +392,7 @@ Package: nvidia-kernel-source-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-615
+Depends: nvidia-kernel-source-620
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -629,7 +400,7 @@ Package: nvidia-dkms-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-615
+Depends: nvidia-dkms-620
 Description: NVIDIA DKMS package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -637,7 +408,7 @@ Package: nvidia-utils-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-utils-615
+Depends: nvidia-utils-620
 Description: NVIDIA driver support binaries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -645,7 +416,7 @@ Package: libnvidia-compute-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-compute-615
+Depends: libnvidia-compute-620
 Description: NVIDIA libcompute package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -653,7 +424,7 @@ Package: nvidia-compute-utils-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-compute-utils-615
+Depends: nvidia-compute-utils-620
 Description: NVIDIA compute utilities (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -661,7 +432,7 @@ Package: nvidia-headless-no-dkms-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-615
+Depends: nvidia-headless-no-dkms-620
 Description: NVIDIA headless metapackage - no DKMS (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -669,7 +440,7 @@ Package: nvidia-headless-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-615
+Depends: nvidia-headless-620
 Description: NVIDIA headless metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -677,7 +448,7 @@ Package: nvidia-kernel-common-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-kernel-common-615
+Depends: nvidia-kernel-common-620
 Description: Shared files used with the kernel module (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -685,7 +456,7 @@ Package: libnvidia-gl-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-gl-615
+Depends: libnvidia-gl-620
 Description: NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -693,7 +464,7 @@ Package: libnvidia-common-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: libnvidia-common-615
+Depends: libnvidia-common-620
 Description: Shared files used by the NVIDIA libraries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -701,7 +472,7 @@ Package: libnvidia-extra-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-extra-615
+Depends: libnvidia-extra-620
 Description: Extra libraries for the NVIDIA driver (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -709,7 +480,7 @@ Package: xserver-xorg-video-nvidia-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: xserver-xorg-video-nvidia-615
+Depends: xserver-xorg-video-nvidia-620
 Description: NVIDIA binary Xorg driver (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -717,7 +488,7 @@ Package: libnvidia-cfg1-595
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-cfg1-615
+Depends: libnvidia-cfg1-620
 Description: NVIDIA binary OpenGL/GLX configuration library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -725,7 +496,7 @@ Package: libnvidia-fbc1-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-fbc1-615
+Depends: libnvidia-fbc1-620
 Description: NVIDIA OpenGL-based Framebuffer Capture runtime library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -733,7 +504,7 @@ Package: libnvidia-decode-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-decode-615
+Depends: libnvidia-decode-620
 Description: NVIDIA Video Decoding runtime libraries (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -741,7 +512,7 @@ Package: libnvidia-encode-595
 Architecture: i386 amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: same
-Depends: libnvidia-encode-615
+Depends: libnvidia-encode-620
 Description: NVENC Video Encoding runtime library (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -749,7 +520,7 @@ Package: nvidia-driver-595-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-driver-615-open
+Depends: nvidia-driver-620-open
 Description: NVIDIA driver (open kernel) metapackage (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -757,7 +528,7 @@ Package: nvidia-kernel-source-595-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-kernel-source-615-open
+Depends: nvidia-kernel-source-620-open
 Description: NVIDIA kernel source package (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -765,7 +536,7 @@ Package: nvidia-dkms-595-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: foreign
-Depends: nvidia-dkms-615-open
+Depends: nvidia-dkms-620-open
 Description: NVIDIA DKMS package (open kernel module) (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -773,7 +544,7 @@ Package: nvidia-headless-no-dkms-595-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-no-dkms-615-open
+Depends: nvidia-headless-no-dkms-620-open
 Description: NVIDIA headless metapackage - no DKMS (open kernel module) (transitional package)
  Transitional package for upgrades. This package can be safely removed.
 
@@ -781,7 +552,6 @@ Package: nvidia-headless-595-open
 Architecture: amd64 arm64
 Section: non-free/oldlibs
 Multi-Arch: no
-Depends: nvidia-headless-615-open
+Depends: nvidia-headless-620-open
 Description: NVIDIA headless metapackage (open kernel module) (transitional package)
  Transitional package for upgrades. This package can be safely removed.
-
