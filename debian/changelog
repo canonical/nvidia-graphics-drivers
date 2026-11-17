@@ -1,8 +1,8 @@
-nvidia-graphics-drivers-615-server (615.71.09-0ubuntu0.26.04.3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers-615-server (615.71.09-0ubuntu0.26.04.3) resolute; urgency=medium
 
   * Transition the 615-server driver packages to 620-server (LP: #2174661)
 
- -- Jacob Martin <jacob.martin@canonical.com>  Mon, 16 Nov 2026 14:55:05 -0600
+ -- Jacob Martin <jacob.martin@canonical.com>  Mon, 16 Nov 2026 18:38:55 -0600
 
 nvidia-graphics-drivers-615-server (615.71.09-0ubuntu0.26.04.2) resolute; urgency=medium
 
